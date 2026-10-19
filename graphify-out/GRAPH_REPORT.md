@@ -1,16 +1,16 @@
 # Graph Report - chillar  (2026-10-20)
 
 ## Corpus Check
-- 137 files · ~67,573 words
+- 141 files · ~69,328 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 552 nodes · 937 edges · 69 communities (54 shown, 15 thin omitted)
+- 563 nodes · 945 edges · 71 communities (54 shown, 17 thin omitted)
 - Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 65 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `37941bf3`
+- Built from commit: `8b1d134e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -24,7 +24,7 @@
 - package.json
 - contact_sheet.py
 - tts.py
-- audio_clean.py
+- 2026-10-chai-vs-phone/script.md
 - setup.sh
 - mix.py
 - Component catalog (generated — `pipeline/component_catalog.py`, don't edit)
@@ -55,6 +55,8 @@
 - 2026-10-credit-card-myth/cover.md
 - Facts — 2026-10-credit-card-myth
 - qa.py
+- 2026-10-chai-vs-phone/cover.md
+- Facts — 2026-10-chai-vs-phone
 
 ## God Nodes (most connected - your core abstractions)
 1. `Candidate` - 39 edges
@@ -88,11 +90,11 @@
 - **Edit suite loop (director → editor → render → video-reviewer)** — _claude_agents_director, _claude_agents_editor, _claude_agents_video_reviewer, _claude_commands_render, _claude_agents_director_scenes_json, pipeline_make_reel [EXTRACTED 1.00]
 - **12 LPA CTC → ₹86,468 in-hand computation** — episodes_2026_10_12lpa_in_hand_facts_f9, episodes_2026_10_12lpa_in_hand_facts_f1, episodes_2026_10_12lpa_in_hand_facts_f2, episodes_2026_10_12lpa_in_hand_facts_f4, episodes_2026_10_12lpa_in_hand_facts_f6, episodes_2026_10_12lpa_in_hand_facts_f7, episodes_2026_10_12lpa_in_hand_facts_f8 [EXTRACTED 1.00]
 
-## Communities (69 total, 15 thin omitted)
+## Communities (71 total, 17 thin omitted)
 
 ### Community 0 - "Candidate"
 Cohesion: 0.06
-Nodes (68): Exception, Candidate, env(), polite_sleep(), Shared paths, env, HTTP session and politeness helpers., One downloadable asset. `verify()` must be called right before download., text_of(), check_policy() (+60 more)
+Nodes (69): Exception, Candidate, env(), polite_sleep(), Shared paths, env, HTTP session and politeness helpers., One downloadable asset. `verify()` must be called right before download., slug(), text_of() (+61 more)
 
 ### Community 1 - "CLAUDE.md brand bible"
 Cohesion: 0.06
@@ -103,12 +105,12 @@ Cohesion: 0.12
 Nodes (20): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+12 more)
 
 ### Community 3 - "episode.py"
-Cohesion: 0.10
-Nodes (20): align(), _model(), Path, grab(), main(), Path, Episode, frontmatter() (+12 more)
+Cohesion: 0.08
+Nodes (30): align(), _model(), Path, clean(), ff(), find_voice(), has_filter(), loudnorm() (+22 more)
 
 ### Community 4 - "fetch_assets.py"
 Cohesion: 0.22
-Nodes (19): /fetch-assets command, Asset licensing allow-list (CC0/MIT etc.), build_audition(), _diverse(), duration_of(), fetch(), ingest(), lock() (+11 more)
+Nodes (18): /fetch-assets command, Asset licensing allow-list (CC0/MIT etc.), build_audition(), _diverse(), duration_of(), fetch(), ingest(), lock() (+10 more)
 
 ### Community 5 - "12 LPA episode script.md"
 Cohesion: 0.24
@@ -126,9 +128,9 @@ Nodes (12): Image, frame_at(), guides(), off_palette(), pal_array(), ndarray, Pa
 Cohesion: 0.35
 Nodes (10): Voiceover policy (Sarvam sunny_hi_reels, pace 1.2, every reel), audition_page(), chunks(), concat(), duration(), kokoro(), main(), Path (+2 more)
 
-### Community 9 - "audio_clean.py"
-Cohesion: 0.33
-Nodes (10): clean(), ff(), find_voice(), has_filter(), loudnorm(), CompletedProcess, ndarray, Path (+2 more)
+### Community 9 - "2026-10-chai-vs-phone/script.md"
+Cohesion: 0.40
+Nodes (4): Escalation {field: note50}, Hook {field: note10}, Payoff {field: note500}, Setup {field: note20}
 
 ### Community 10 - "setup.sh"
 Cohesion: 0.33
@@ -191,23 +193,23 @@ Cohesion: 0.17
 Nodes (20): area(), audio_check(), centre_in(), chrome_path(), contrast(), digits(), glyph_lines(), inr() (+12 more)
 
 ## Knowledge Gaps
-- **81 isolated node(s):** `1. The voice`, `2. One game per reel (the single biggest upgrade)`, `3. Where laughs come from (patterns to learn, not lines to copy)`, `4. Anti-AI writing (the script-reviewer fails these)`, `5. Writing process (do all of it — the reviewer can tell)` (+76 more)
+- **88 isolated node(s):** `First frame (frame 1 of the video)`, `Hook line (sentence 1)`, `Texture for the writers (not facts — don't put numbers from here on screen)`, `Hook {field: note10}`, `Setup {field: note20}` (+83 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `clean()` connect `audio_clean.py` to `produce.py`?**
-  _High betweenness centrality (0.051) - this node is a cross-community bridge._
-- **Why does `Candidate` connect `Candidate` to `fetch_assets.py`?**
-  _High betweenness centrality (0.050) - this node is a cross-community bridge._
-- **Why does `st_fix()` connect `produce.py` to `audio_clean.py`?**
+- **Why does `clean()` connect `episode.py` to `produce.py`?**
   _High betweenness centrality (0.049) - this node is a cross-community bridge._
-- **What connects `1. The voice`, `2. One game per reel (the single biggest upgrade)`, `3. Where laughs come from (patterns to learn, not lines to copy)` to the rest of the system?**
-  _81 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `Candidate` connect `Candidate` to `fetch_assets.py`?**
+  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+- **Why does `st_fix()` connect `produce.py` to `episode.py`?**
+  _High betweenness centrality (0.047) - this node is a cross-community bridge._
+- **What connects `First frame (frame 1 of the video)`, `Hook line (sentence 1)`, `Texture for the writers (not facts — don't put numbers from here on screen)` to the rest of the system?**
+  _88 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Candidate` be split into smaller, more focused modules?**
-  _Cohesion score 0.05842259006815969 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.058544303797468354 - nodes in this community are weakly interconnected._
 - **Should `CLAUDE.md brand bible` be split into smaller, more focused modules?**
   _Cohesion score 0.06144393241167435 - nodes in this community are weakly interconnected._
 - **Should `make_reel.py` be split into smaller, more focused modules?**

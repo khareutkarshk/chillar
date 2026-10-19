@@ -1,16 +1,16 @@
 # Graph Report - chillar  (2026-10-20)
 
 ## Corpus Check
-- 137 files · ~67,104 words
+- 137 files · ~67,573 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 551 nodes · 936 edges · 68 communities (53 shown, 15 thin omitted)
+- 552 nodes · 937 edges · 69 communities (54 shown, 15 thin omitted)
 - Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 65 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `066ac3fc`
+- Built from commit: `37941bf3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -24,6 +24,7 @@
 - package.json
 - contact_sheet.py
 - tts.py
+- audio_clean.py
 - setup.sh
 - mix.py
 - Component catalog (generated — `pipeline/component_catalog.py`, don't edit)
@@ -49,7 +50,7 @@
 - packager.md
 - researcher.md
 - agents/voice.md
-- Comedy craft — how a Chillar joke is built
+- Comedy craft — how a Chillar script gets funny
 - 2026-10-credit-card-myth/script.md
 - 2026-10-credit-card-myth/cover.md
 - Facts — 2026-10-credit-card-myth
@@ -87,7 +88,7 @@
 - **Edit suite loop (director → editor → render → video-reviewer)** — _claude_agents_director, _claude_agents_editor, _claude_agents_video_reviewer, _claude_commands_render, _claude_agents_director_scenes_json, pipeline_make_reel [EXTRACTED 1.00]
 - **12 LPA CTC → ₹86,468 in-hand computation** — episodes_2026_10_12lpa_in_hand_facts_f9, episodes_2026_10_12lpa_in_hand_facts_f1, episodes_2026_10_12lpa_in_hand_facts_f2, episodes_2026_10_12lpa_in_hand_facts_f4, episodes_2026_10_12lpa_in_hand_facts_f6, episodes_2026_10_12lpa_in_hand_facts_f7, episodes_2026_10_12lpa_in_hand_facts_f8 [EXTRACTED 1.00]
 
-## Communities (68 total, 15 thin omitted)
+## Communities (69 total, 15 thin omitted)
 
 ### Community 0 - "Candidate"
 Cohesion: 0.06
@@ -102,8 +103,8 @@ Cohesion: 0.12
 Nodes (20): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+12 more)
 
 ### Community 3 - "episode.py"
-Cohesion: 0.08
-Nodes (30): align(), _model(), Path, clean(), ff(), find_voice(), has_filter(), loudnorm() (+22 more)
+Cohesion: 0.10
+Nodes (20): align(), _model(), Path, grab(), main(), Path, Episode, frontmatter() (+12 more)
 
 ### Community 4 - "fetch_assets.py"
 Cohesion: 0.22
@@ -124,6 +125,10 @@ Nodes (12): Image, frame_at(), guides(), off_palette(), pal_array(), ndarray, Pa
 ### Community 8 - "tts.py"
 Cohesion: 0.35
 Nodes (10): Voiceover policy (Sarvam sunny_hi_reels, pace 1.2, every reel), audition_page(), chunks(), concat(), duration(), kokoro(), main(), Path (+2 more)
+
+### Community 9 - "audio_clean.py"
+Cohesion: 0.33
+Nodes (10): clean(), ff(), find_voice(), has_filter(), loudnorm(), CompletedProcess, ndarray, Path (+2 more)
 
 ### Community 10 - "setup.sh"
 Cohesion: 0.33
@@ -173,9 +178,9 @@ Nodes (3): Facts — 2026-10-epf-explained, Texture for the writers (not facts �
 Cohesion: 0.21
 Nodes (23): draft(), find_cli(), frontmatter(), Line, main(), Path, The creator's 'fix it and ship' after a 3-round stop: the routed roles apply…, Newest Claude Code binary: $CHILLAR_CLAUDE, the VS Code extension's bundled… (+15 more)
 
-### Community 64 - "Comedy craft — how a Chillar joke is built"
-Cohesion: 0.29
-Nodes (6): Comedy craft — how a Chillar joke is built, Kill list (the reviewer fails these), Structure of a 30 s Myth vs Math (≈ 80 words), The 10 moves (each draft uses at least 5 different ones), The voice in one line, Writing process (do it, don't skip it)
+### Community 64 - "Comedy craft — how a Chillar script gets funny"
+Cohesion: 0.25
+Nodes (7): 1. The voice, 2. One game per reel (the single biggest upgrade), 3. Where laughs come from (patterns to learn, not lines to copy), 4. Anti-AI writing (the script-reviewer fails these), 5. Writing process (do all of it — the reviewer can tell), 6. Format notes, Comedy craft — how a Chillar script gets funny
 
 ### Community 65 - "2026-10-credit-card-myth/script.md"
 Cohesion: 0.50
@@ -186,21 +191,21 @@ Cohesion: 0.17
 Nodes (20): area(), audio_check(), centre_in(), chrome_path(), contrast(), digits(), glyph_lines(), inr() (+12 more)
 
 ## Knowledge Gaps
-- **80 isolated node(s):** `name`, `private`, `description`, `node`, `doctor` (+75 more)
+- **81 isolated node(s):** `1. The voice`, `2. One game per reel (the single biggest upgrade)`, `3. Where laughs come from (patterns to learn, not lines to copy)`, `4. Anti-AI writing (the script-reviewer fails these)`, `5. Writing process (do all of it — the reviewer can tell)` (+76 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `clean()` connect `episode.py` to `produce.py`?**
+- **Why does `clean()` connect `audio_clean.py` to `produce.py`?**
   _High betweenness centrality (0.051) - this node is a cross-community bridge._
 - **Why does `Candidate` connect `Candidate` to `fetch_assets.py`?**
-  _High betweenness centrality (0.051) - this node is a cross-community bridge._
-- **Why does `st_fix()` connect `produce.py` to `episode.py`?**
+  _High betweenness centrality (0.050) - this node is a cross-community bridge._
+- **Why does `st_fix()` connect `produce.py` to `audio_clean.py`?**
   _High betweenness centrality (0.049) - this node is a cross-community bridge._
-- **What connects `name`, `private`, `description` to the rest of the system?**
-  _80 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `1. The voice`, `2. One game per reel (the single biggest upgrade)`, `3. Where laughs come from (patterns to learn, not lines to copy)` to the rest of the system?**
+  _81 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Candidate` be split into smaller, more focused modules?**
   _Cohesion score 0.05842259006815969 - nodes in this community are weakly interconnected._
 - **Should `CLAUDE.md brand bible` be split into smaller, more focused modules?**

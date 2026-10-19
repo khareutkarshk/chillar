@@ -55,15 +55,136 @@
   },
   "nodes": [
     {
+      "label": "2026-10-chai-vs-phone/cover.md",
+      "file_type": "document",
+      "source_file": "episodes/2026-10-chai-vs-phone/cover.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "episodes_2026_10_chai_vs_phone_cover",
+      "community": 69,
+      "community_name": "2026-10-chai-vs-phone/cover.md",
+      "norm_label": "2026-10-chai-vs-phone/cover.md"
+    },
+    {
+      "label": "First frame (frame 1 of the video)",
+      "file_type": "document",
+      "source_file": "episodes/2026-10-chai-vs-phone/cover.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "episodes_2026_10_chai_vs_phone_cover_first_frame_frame_1_of_the_video",
+      "community": 69,
+      "community_name": "2026-10-chai-vs-phone/cover.md",
+      "norm_label": "first frame (frame 1 of the video)"
+    },
+    {
+      "label": "Hook line (sentence 1)",
+      "file_type": "document",
+      "source_file": "episodes/2026-10-chai-vs-phone/cover.md",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "episodes_2026_10_chai_vs_phone_cover_hook_line_sentence_1",
+      "community": 69,
+      "community_name": "2026-10-chai-vs-phone/cover.md",
+      "norm_label": "hook line (sentence 1)"
+    },
+    {
+      "label": "2026-10-chai-vs-phone/facts.md",
+      "file_type": "document",
+      "source_file": "episodes/2026-10-chai-vs-phone/facts.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "episodes_2026_10_chai_vs_phone_facts",
+      "community": 70,
+      "community_name": "Facts \u2014 2026-10-chai-vs-phone",
+      "norm_label": "2026-10-chai-vs-phone/facts.md"
+    },
+    {
+      "label": "Facts \u2014 2026-10-chai-vs-phone",
+      "file_type": "document",
+      "source_file": "episodes/2026-10-chai-vs-phone/facts.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "episodes_2026_10_chai_vs_phone_facts_facts_2026_10_chai_vs_phone",
+      "community": 70,
+      "community_name": "Facts \u2014 2026-10-chai-vs-phone",
+      "norm_label": "facts \u2014 2026-10-chai-vs-phone"
+    },
+    {
+      "label": "Texture for the writers (not facts \u2014 don't put numbers from here on screen)",
+      "file_type": "document",
+      "source_file": "episodes/2026-10-chai-vs-phone/facts.md",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "episodes_2026_10_chai_vs_phone_facts_texture_for_the_writers_not_facts_don_t_put_numbers_from_here_on_screen",
+      "community": 70,
+      "community_name": "Facts \u2014 2026-10-chai-vs-phone",
+      "norm_label": "texture for the writers (not facts \u2014 don't put numbers from here on screen)"
+    },
+    {
+      "label": "2026-10-chai-vs-phone/script.md",
+      "file_type": "document",
+      "source_file": "episodes/2026-10-chai-vs-phone/script.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "episodes_2026_10_chai_vs_phone_script",
+      "community": 9,
+      "community_name": "2026-10-chai-vs-phone/script.md",
+      "norm_label": "2026-10-chai-vs-phone/script.md"
+    },
+    {
+      "label": "Hook {field: note10}",
+      "file_type": "document",
+      "source_file": "episodes/2026-10-chai-vs-phone/script.md",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "episodes_2026_10_chai_vs_phone_script_hook_field_note10",
+      "community": 9,
+      "community_name": "2026-10-chai-vs-phone/script.md",
+      "norm_label": "hook {field: note10}"
+    },
+    {
+      "label": "Setup {field: note20}",
+      "file_type": "document",
+      "source_file": "episodes/2026-10-chai-vs-phone/script.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "episodes_2026_10_chai_vs_phone_script_setup_field_note20",
+      "community": 9,
+      "community_name": "2026-10-chai-vs-phone/script.md",
+      "norm_label": "setup {field: note20}"
+    },
+    {
+      "label": "Escalation {field: note50}",
+      "file_type": "document",
+      "source_file": "episodes/2026-10-chai-vs-phone/script.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "episodes_2026_10_chai_vs_phone_script_escalation_field_note50",
+      "community": 9,
+      "community_name": "2026-10-chai-vs-phone/script.md",
+      "norm_label": "escalation {field: note50}"
+    },
+    {
+      "label": "Payoff {field: note500}",
+      "file_type": "document",
+      "source_file": "episodes/2026-10-chai-vs-phone/script.md",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "episodes_2026_10_chai_vs_phone_script_payoff_field_note500",
+      "community": 9,
+      "community_name": "2026-10-chai-vs-phone/script.md",
+      "norm_label": "payoff {field: note500}"
+    },
+    {
       "label": "comedy.md",
       "file_type": "document",
       "source_file": "brand/rules/comedy.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "brand_rules_comedy",
       "community": 64,
       "community_name": "Comedy craft \u2014 how a Chillar script gets funny",
-      "norm_label": "comedy.md"
+      "norm_label": "comedy.md",
+      "id": "brand_rules_comedy"
     },
     {
       "label": "Comedy craft \u2014 how a Chillar script gets funny",
@@ -71,10 +192,10 @@
       "source_file": "brand/rules/comedy.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "brand_rules_comedy_comedy_craft_how_a_chillar_script_gets_funny",
       "community": 64,
       "community_name": "Comedy craft \u2014 how a Chillar script gets funny",
-      "norm_label": "comedy craft \u2014 how a chillar script gets funny"
+      "norm_label": "comedy craft \u2014 how a chillar script gets funny",
+      "id": "brand_rules_comedy_comedy_craft_how_a_chillar_script_gets_funny"
     },
     {
       "label": "1. The voice",
@@ -82,10 +203,10 @@
       "source_file": "brand/rules/comedy.md",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "brand_rules_comedy_1_the_voice",
       "community": 64,
       "community_name": "Comedy craft \u2014 how a Chillar script gets funny",
-      "norm_label": "1. the voice"
+      "norm_label": "1. the voice",
+      "id": "brand_rules_comedy_1_the_voice"
     },
     {
       "label": "2. One game per reel (the single biggest upgrade)",
@@ -93,10 +214,10 @@
       "source_file": "brand/rules/comedy.md",
       "source_location": "L15",
       "_origin": "ast",
-      "id": "brand_rules_comedy_2_one_game_per_reel_the_single_biggest_upgrade",
       "community": 64,
       "community_name": "Comedy craft \u2014 how a Chillar script gets funny",
-      "norm_label": "2. one game per reel (the single biggest upgrade)"
+      "norm_label": "2. one game per reel (the single biggest upgrade)",
+      "id": "brand_rules_comedy_2_one_game_per_reel_the_single_biggest_upgrade"
     },
     {
       "label": "3. Where laughs come from (patterns to learn, not lines to copy)",
@@ -104,10 +225,10 @@
       "source_file": "brand/rules/comedy.md",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "brand_rules_comedy_3_where_laughs_come_from_patterns_to_learn_not_lines_to_copy",
       "community": 64,
       "community_name": "Comedy craft \u2014 how a Chillar script gets funny",
-      "norm_label": "3. where laughs come from (patterns to learn, not lines to copy)"
+      "norm_label": "3. where laughs come from (patterns to learn, not lines to copy)",
+      "id": "brand_rules_comedy_3_where_laughs_come_from_patterns_to_learn_not_lines_to_copy"
     },
     {
       "label": "4. Anti-AI writing (the script-reviewer fails these)",
@@ -115,10 +236,10 @@
       "source_file": "brand/rules/comedy.md",
       "source_location": "L53",
       "_origin": "ast",
-      "id": "brand_rules_comedy_4_anti_ai_writing_the_script_reviewer_fails_these",
       "community": 64,
       "community_name": "Comedy craft \u2014 how a Chillar script gets funny",
-      "norm_label": "4. anti-ai writing (the script-reviewer fails these)"
+      "norm_label": "4. anti-ai writing (the script-reviewer fails these)",
+      "id": "brand_rules_comedy_4_anti_ai_writing_the_script_reviewer_fails_these"
     },
     {
       "label": "5. Writing process (do all of it \u2014 the reviewer can tell)",
@@ -126,10 +247,10 @@
       "source_file": "brand/rules/comedy.md",
       "source_location": "L69",
       "_origin": "ast",
-      "id": "brand_rules_comedy_5_writing_process_do_all_of_it_the_reviewer_can_tell",
       "community": 64,
       "community_name": "Comedy craft \u2014 how a Chillar script gets funny",
-      "norm_label": "5. writing process (do all of it \u2014 the reviewer can tell)"
+      "norm_label": "5. writing process (do all of it \u2014 the reviewer can tell)",
+      "id": "brand_rules_comedy_5_writing_process_do_all_of_it_the_reviewer_can_tell"
     },
     {
       "label": "6. Format notes",
@@ -137,10 +258,10 @@
       "source_file": "brand/rules/comedy.md",
       "source_location": "L82",
       "_origin": "ast",
-      "id": "brand_rules_comedy_6_format_notes",
       "community": 64,
       "community_name": "Comedy craft \u2014 how a Chillar script gets funny",
-      "norm_label": "6. format notes"
+      "norm_label": "6. format notes",
+      "id": "brand_rules_comedy_6_format_notes"
     },
     {
       "label": "chillar.js",
@@ -1028,8 +1149,8 @@
       "source_file": "pipeline/audio_clean.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 9,
-      "community_name": "audio_clean.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "audio_clean.py",
       "id": "pipeline_audio_clean"
     },
@@ -1039,8 +1160,8 @@
       "source_file": "pipeline/audio_clean.py",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 9,
-      "community_name": "audio_clean.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "ff()",
       "id": "pipeline_audio_clean_ff"
     },
@@ -1050,8 +1171,8 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 9,
-      "community_name": "audio_clean.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "completedprocess",
       "id": "pipeline_audio_clean_py_completedprocess"
     },
@@ -1061,8 +1182,8 @@
       "source_file": "pipeline/audio_clean.py",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 9,
-      "community_name": "audio_clean.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "has_filter()",
       "id": "pipeline_audio_clean_has_filter"
     },
@@ -1072,8 +1193,8 @@
       "source_file": "pipeline/audio_clean.py",
       "source_location": "L35",
       "_origin": "ast",
-      "community": 9,
-      "community_name": "audio_clean.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "find_voice()",
       "id": "pipeline_audio_clean_find_voice"
     },
@@ -1083,8 +1204,8 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 9,
-      "community_name": "audio_clean.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "path",
       "id": "pipeline_audio_clean_py_path"
     },
@@ -1094,8 +1215,8 @@
       "source_file": "pipeline/audio_clean.py",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 9,
-      "community_name": "audio_clean.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "tighten()",
       "id": "pipeline_audio_clean_tighten"
     },
@@ -1105,8 +1226,8 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 9,
-      "community_name": "audio_clean.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "ndarray",
       "id": "pipeline_audio_clean_py_ndarray"
     },
@@ -1116,8 +1237,8 @@
       "source_file": "pipeline/audio_clean.py",
       "source_location": "L88",
       "_origin": "ast",
-      "community": 9,
-      "community_name": "audio_clean.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "loudnorm()",
       "id": "pipeline_audio_clean_loudnorm"
     },
@@ -1127,8 +1248,8 @@
       "source_file": "pipeline/audio_clean.py",
       "source_location": "L98",
       "_origin": "ast",
-      "community": 9,
-      "community_name": "audio_clean.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "clean()",
       "id": "pipeline_audio_clean_clean"
     },
@@ -1138,8 +1259,8 @@
       "source_file": "pipeline/audio_clean.py",
       "source_location": "L47",
       "_origin": "ast",
-      "community": 9,
-      "community_name": "audio_clean.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "shorten every pause (silence or breath below thresh) to max_gap, with 8 ms...",
       "id": "pipeline_audio_clean_rationale_47"
     },
@@ -2029,8 +2150,8 @@
       "source_file": "pipeline/lib/common.py",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 4,
-      "community_name": "fetch_assets.py",
+      "community": 0,
+      "community_name": "Candidate",
       "norm_label": "slug()",
       "id": "pipeline_lib_common_slug"
     },
@@ -6516,13 +6637,101 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "episodes/2026-10-chai-vs-phone/cover.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "episodes_2026_10_chai_vs_phone_cover",
+      "target": "episodes_2026_10_chai_vs_phone_cover_first_frame_frame_1_of_the_video",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "episodes/2026-10-chai-vs-phone/cover.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "episodes_2026_10_chai_vs_phone_cover",
+      "target": "episodes_2026_10_chai_vs_phone_cover_hook_line_sentence_1",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "episodes/2026-10-chai-vs-phone/facts.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "episodes_2026_10_chai_vs_phone_facts",
+      "target": "episodes_2026_10_chai_vs_phone_facts_facts_2026_10_chai_vs_phone",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "episodes/2026-10-chai-vs-phone/facts.md",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "episodes_2026_10_chai_vs_phone_facts_facts_2026_10_chai_vs_phone",
+      "target": "episodes_2026_10_chai_vs_phone_facts_texture_for_the_writers_not_facts_don_t_put_numbers_from_here_on_screen",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "episodes/2026-10-chai-vs-phone/script.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "episodes_2026_10_chai_vs_phone_script",
+      "target": "episodes_2026_10_chai_vs_phone_script_escalation_field_note50",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "episodes/2026-10-chai-vs-phone/script.md",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "episodes_2026_10_chai_vs_phone_script",
+      "target": "episodes_2026_10_chai_vs_phone_script_hook_field_note10",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "episodes/2026-10-chai-vs-phone/script.md",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "episodes_2026_10_chai_vs_phone_script",
+      "target": "episodes_2026_10_chai_vs_phone_script_payoff_field_note500",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "episodes/2026-10-chai-vs-phone/script.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "episodes_2026_10_chai_vs_phone_script",
+      "target": "episodes_2026_10_chai_vs_phone_script_setup_field_note20",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "brand/rules/comedy.md",
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "brand_rules_comedy",
-      "target": "brand_rules_comedy_comedy_craft_how_a_chillar_script_gets_funny",
-      "confidence_score": 1.0
+      "target": "brand_rules_comedy_comedy_craft_how_a_chillar_script_gets_funny"
     },
     {
       "relation": "contains",
@@ -6531,9 +6740,9 @@
       "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "brand_rules_comedy_comedy_craft_how_a_chillar_script_gets_funny",
-      "target": "brand_rules_comedy_1_the_voice",
-      "confidence_score": 1.0
+      "target": "brand_rules_comedy_1_the_voice"
     },
     {
       "relation": "contains",
@@ -6542,9 +6751,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "brand_rules_comedy_comedy_craft_how_a_chillar_script_gets_funny",
-      "target": "brand_rules_comedy_2_one_game_per_reel_the_single_biggest_upgrade",
-      "confidence_score": 1.0
+      "target": "brand_rules_comedy_2_one_game_per_reel_the_single_biggest_upgrade"
     },
     {
       "relation": "contains",
@@ -6553,9 +6762,9 @@
       "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "brand_rules_comedy_comedy_craft_how_a_chillar_script_gets_funny",
-      "target": "brand_rules_comedy_3_where_laughs_come_from_patterns_to_learn_not_lines_to_copy",
-      "confidence_score": 1.0
+      "target": "brand_rules_comedy_3_where_laughs_come_from_patterns_to_learn_not_lines_to_copy"
     },
     {
       "relation": "contains",
@@ -6564,9 +6773,9 @@
       "source_location": "L53",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "brand_rules_comedy_comedy_craft_how_a_chillar_script_gets_funny",
-      "target": "brand_rules_comedy_4_anti_ai_writing_the_script_reviewer_fails_these",
-      "confidence_score": 1.0
+      "target": "brand_rules_comedy_4_anti_ai_writing_the_script_reviewer_fails_these"
     },
     {
       "relation": "contains",
@@ -6575,9 +6784,9 @@
       "source_location": "L69",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "brand_rules_comedy_comedy_craft_how_a_chillar_script_gets_funny",
-      "target": "brand_rules_comedy_5_writing_process_do_all_of_it_the_reviewer_can_tell",
-      "confidence_score": 1.0
+      "target": "brand_rules_comedy_5_writing_process_do_all_of_it_the_reviewer_can_tell"
     },
     {
       "relation": "contains",
@@ -6586,9 +6795,9 @@
       "source_location": "L82",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "brand_rules_comedy_comedy_craft_how_a_chillar_script_gets_funny",
-      "target": "brand_rules_comedy_6_format_notes",
-      "confidence_score": 1.0
+      "target": "brand_rules_comedy_6_format_notes"
     },
     {
       "relation": "contains",
@@ -17274,5 +17483,5 @@
       "source_file": "episodes/2026-10-12lpa-in-hand/facts.md"
     }
   ],
-  "built_at_commit": "37941bf3c57f7b9b61de8e3722bd44ee7f4e852d"
+  "built_at_commit": "8b1d134e3e8a879d657396d0b351bab5c426ab91"
 }
