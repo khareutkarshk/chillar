@@ -1,58 +1,90 @@
-# Comedy craft — how a Chillar joke is built
+# Comedy craft — how a Chillar script gets funny
 
-The register is Indian internet comedy writing (the Tanmay Bhat / Vishal Dayama school): a smart,
-lazy-sounding friend who is brutally honest about money, roasts himself first, and acts out the
-people in your life. We study **how** they build jokes. We never store, quote or rework their bits —
-every example below is original Chillar material. Read this before every draft and every rewrite.
+We learn **how** the best Indian comedy writers build laughs — Tanmay Bhat and Vishal Dayama (sketch and
+internet writing), Abhishek Upmanyu (logic rants), Zakir Khan (middle-class storytelling), Kenny
+Sebastian and Rahul Subramanian (observation, understatement), Anubhav Singh Bassi (the self-own story).
+We never store, quote or rework their bits. Every example below is original Chillar material.
+Read this before every draft and every rewrite.
 
-## The voice in one line
-Deadpan narrator who has clearly made this exact mistake himself, explaining it to a friend at 1 AM.
-Not a teacher, not a hype-man, not a meme page. Calm voice, unhinged content.
+## 1. The voice
+A friend who made this exact money mistake last month, telling you about it at 1 AM: calm, a bit
+embarrassed, very specific, suddenly very logical about something stupid. Not a teacher, not a hype-man,
+not a meme page. **It is spoken.** Write how a 24-year-old actually talks — full sentences, "matlab",
+"aur best part", "bhai" once — not caption fragments. The pipeline chunks captions; you write a voice.
 
-## The 10 moves (each draft uses at least 5 different ones)
-1. **Act-out.** Don't describe people — *be* them, in quotes, in their exact words.
-   Mummy, papa, rishtedaar, PG uncle, bank ka "relationship manager", the card itself, the app's
-   notification. `Bank: "Sir, lifetime free card." Matlab lifetime tak free… mein tumhe sunenge.`
-2. **Honest translation.** Take the official phrase and say what it really means. Finance is full of
-   them: "minimum due" → "minimum dukh", "pre-approved" → "humne pehle hi tumhara future approve kar diya".
-   The translation must also *explain* the term — that's the job.
-3. **Self-roast first.** The narrator / Chillar is the idiot in the story before anyone else is.
-   `Maine bhi pehla card liya tha. Pehle hafte mein usse itna swipe kiya ki card ne khud bola "bhai, thoda saans le".` (punch at self, not at others)
-4. **Hyper-specific detail — nouns, not numbers.** Specific = funny, but **jokes can't smuggle in
-   numbers** (fact_lint). Get specificity from objects and moments: "woh sale jo har mahine 'last
-   chance' hoti hai", "2 baje raat ka cart", "hostel ka woh dost jiska card sabke kaam aata hai".
-5. **Rule of three, swerve on three.** Two normal, third absurd and true: `Card pe teen cheezein
-   milti hain: reward points, airport lounge, aur papa ka "Hmm." message.` (no brand names, even in jokes)
-6. **Heighten the myth till it breaks.** Myth vs Math core move: state the belief, escalate it one
-   or two steps to absurdity *in the believer's voice*, then the math walks in flat and kills it.
-7. **Deadpan tag.** Fact, beat, one flat line that reframes it. No exclamation marks. The tag is
-   often the funniest line and always the shortest.
-8. **Misdirection.** Set up the obvious ending, land a different one that is truer. The punch word is
-   the **last** word of the line — Sunny can only land it if nothing comes after it.
-9. **Callback.** Plant one image in the hook (a character, a phrase), pay it off in the payoff or
-   outro with a twist. A callback to an earlier Chillar reel (the 12 LPA offer, the PF locker) is a bonus.
-10. **Spoken wordplay.** Hinglish puns that work *heard*, not read: "interest mein kisi ka interest
-    nahi", "due date pe due nahi, dukh date". If you have to see it written to get it, cut it.
+## 2. One game per reel (the single biggest upgrade)
+Pros don't write six separate jokes. They find **one comic premise — the game — that *is* the explanation**,
+then heighten it three times and pay it off. Every joke after the hook is the same game, one step
+bigger. At most one joke from outside the game.
+- Find it by asking: *what is this money thing secretly behaving like?* A person, a relationship, a
+  hostel rule, a family ritual, a scam, a sport. The best game makes the concept clearer *and* funnier.
+- Test: can you describe the reel's humour in one sentence? "The minimum due is a gym membership you pay
+  to not go to the gym." If you can't, you have jokes, not a game.
+- Heighten the game logically, not randomly: step 1 is true, step 2 is true and worse, step 3 is true and
+  absurd — and the math confirms it.
 
-## Structure of a 30 s Myth vs Math (≈ 80 words)
-- **Hook (0–4 s):** the myth in someone's real voice + the question. First laugh here (act-out or swerve).
-- **Turn (4–20 s):** heighten the myth once, then the math in plain words with the one key fact,
-  explained *through* a joke (honest translation is ideal). One stamp.
-- **Payoff (20–28 s):** the rule a 19-year-old can repeat, then a tag/callback that's worth a rewatch.
+Example (credit card, ONE game: *the card is a very polite moneylender who never says no*):
+`Card kabhi mana nahi karta. Biryani? "Haan." Phone? "Haan." Minimum bharke chill? "Bilkul, sir."`
+`Aur har "haan" pe woh chupchaap meter chala deta hai.` → payoff: `Jo kabhi mana nahi karta, uska bill
+poora bharo.` Every beat is the same game, getting bigger.
 
-## Writing process (do it, don't skip it)
-1. Write the explanation first, joke-free, in 5 sentences. That's the spine.
-2. For every beat, write **5 versions** in your head and keep the one that is most specific and shortest.
-3. **Punch-up pass:** reread the draft as the bored 20-year-old. Find the 2 weakest jokes and replace
-   them with a move you haven't used yet. Then cut 10 % of words.
-4. Say every line out loud at Sunny's pace. A joke that needs a second breath is two jokes or none.
+## 3. Where laughs come from (patterns to learn, not lines to copy)
+1. **Observed truth first.** The laugh is recognition — "I've done exactly this." Start from a real
+   behaviour: `Bill SMS mein do number aate hain. Dimaag sirf chhota wala padhta hai.` No truth, no laugh.
+2. **Act-out.** Don't describe people, *be* them, in their exact words and rhythm: mummy, papa, a
+   relative, the bank's call-centre voice, the card itself, your own brain at 2 AM. One act-out per reel minimum.
+3. **The logic rant (Upmanyu pattern).** Take a dumb habit and defend it with airtight fake logic, step by
+   step, until the logic collapses: `Maine socha minimum bhara matlab responsible hoon. Bank ne bhi
+   yahi socha: "kitna responsible customer hai — isse toh har mahine milte rahenge."`
+4. **Personification (sketch pattern).** Give the money object a personality and a voice, and let it act
+   consistently. This is usually the game.
+5. **The self-own story (Bassi / Zakir pattern).** A tiny true-feeling story where the narrator is the
+   idiot, ending on the moment he realises it. The realisation is the punchline.
+6. **Honest translation.** Say what the official phrase really means — and the translation must also
+   explain the term: `"Minimum Amount Due" matlab: "itna do, taaki hum aapko defaulter na bolein." Bas itna.`
+7. **Understatement / deadpan tag (Kenny / Rahul pattern).** State something big in the smallest voice, or
+   add one flat line after a fact: `₹180 interest. Ek mahine ka. Sirf isliye ki maine "baad mein" bola tha.`
+8. **Misdirection.** Set up the obvious ending, land a truer one. The surprise word is the **last** word
+   of the line — the voice can only land it if nothing comes after it.
+9. **Callback.** Plant one image or phrase in the hook, pay it off in the payoff with a twist. Payoffs
+   that call back the hook get rewatched.
+10. **Rule of three with a swerve.** Two normal items, the third absurd *and* true. Use it once per reel, not more.
 
-## Kill list (the reviewer fails these)
-- WhatsApp-uncle tier: "paisa ped pe nahi ugta", "Sharma ji ka beta" as the whole joke, generic
-  "middle class problems" with nothing specific.
-- Fake Gen Z slang dumping ("no cap", "slay", "it's giving", "bestie") — a real 25-year-old writer
-  uses one at most, ironically.
-- Explaining the joke, or a "joke" that is just a fact with an emoji tone.
-- A joke that has nothing to do with the concept (it's a laugh you pay for with retention).
-- Moral at the end ("toh dosto, samajhdari se kharcha karo"). The payoff is a rule + a tag, never a sermon.
-- Punching down; meanness without a self-roast; anything that only works if the viewer is dumb.
+## 4. Anti-AI writing (the script-reviewer fails these)
+AI-written comedy has tells. Kill every one:
+- **A pun on every line.** Real writers use wordplay rarely; a reel with 3+ puns reads machine-made. Max 1.
+- **Disconnected one-liners** — six metaphors in 30 s (see §2). One game.
+- **Telegraphic caption-speak** ("Galat. Bill pe do number. Card warden nikla.") — nobody talks like this.
+  Use full spoken sentences with connectors; let a setup breathe for one line.
+- **Generic desi props as the joke:** Sharma ji ka beta, "middle class problems", chai, "mummy ki chappal",
+  EMI-uncle, "paisa ped pe nahi ugta". A prop is fine only if the moment around it is specific and new.
+- **Explaining or announcing the joke:** "Plot twist:", "Spoiler:", "Ironic, right?", "Let that sink in",
+  "Socho zara", "Fun fact".
+- **Symmetric rhythm** — every line the same length, every line ending in a zinger. Vary it: a long
+  setup, a three-word punch, a flat tag, a pause line.
+- **Fake Gen Z slang** ("no cap", "slay", "it's giving", "bestie", "sigma"). One, ironically, at most.
+- **Morals and sermons** ("toh samajhdari se kharcha karo"). The payoff is a rule + a tag, never advice-speak.
+- **Laughing at the viewer** ("tum log toh…"). Punch at ourselves, the system, the fine print.
+
+## 5. Writing process (do all of it — the reviewer can tell)
+1. **Spine:** the explanation in 5 plain sentences, no jokes. One concept.
+2. **Find the game:** write **8 candidate premises** (§2) into `notes/premise.md`, one line each, plus one
+   line on how each heightens. Pick the one that makes the concept clearest *and* has three steps of
+   escalation. Note why in one line. (Round 1 only; on a rewrite, keep the game unless the review kills it.)
+3. **Hook:** 3 versions of sentence 1 — the myth in a real voice, the stakes, a laugh by 4–5 s. Keep the best.
+4. **Draft** the reel as one game: plant → heighten ×3 (each step carries a fact) → payoff with the callback.
+5. **Punch-up pass:** for each `[JOKE]`, write 3 alternatives in your head, keep the most specific and the
+   shortest. Replace the 2 weakest jokes with a pattern from §3 you haven't used.
+6. **Table read:** say every line out loud at Sunny's pace (~3.2 words/s). If a line sounds written, not
+   said, rewrite it as you'd say it to a friend. Then cut 10 % of the words.
+7. **AI-tell sweep:** check every line against §4.
+
+## 6. Format notes
+- **30 s Myth vs Math (~80 words):** hook = the myth in someone's voice + the game planted (laugh by 4 s) ·
+  turn = the math told *through* the game, two heightening steps, one stamp · payoff = the rule a
+  19-year-old can repeat + the callback tag.
+- **60 s / 90 s:** same game, more steps; add one act-out and one self-own story beat; re-hook = the game's
+  next, bigger step, not a new topic.
+- Numbers always come from facts.md — jokes can't carry numbers. Specificity comes from nouns and moments
+  ("2 baje raat ka cart", "woh sale jo har mahine last chance hoti hai"), not invented prices.
+- No brand names even in jokes; no punching down (CLAUDE.md §3).

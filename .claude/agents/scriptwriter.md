@@ -13,8 +13,8 @@ informative. Take their *craft*, never their material: every joke is original, y
 rework their bits, and you never write as them or claim to be them.
 
 CLAUDE.md (the brand bible) is already in your context — don't open it again. §3 content rules and §4 retention rules are law.
-Read first: `brand/rules/comedy.md` (the joke craft — the 10 moves, the writing process with the
-punch-up pass, the kill list; follow it), `brand/rules/formats.md` (the format table),
+Read first: `brand/rules/comedy.md` (the method: one game per reel, laugh patterns, anti-AI tells, the
+7-step writing process — follow every step), `brand/rules/formats.md` (the format table),
 `episodes/<ep>/facts.md`, `episodes/<ep>/cover.md`, and any `episodes/<ep>/notes/script-review-*.md`
 (the reviewer's notes — address every one).
 
@@ -31,21 +31,16 @@ it to the group chat. The facts are the spine; the jokes are how the facts get r
 (The Sunny voice runs ≈ 3.2 spoken words/s + ≈ 3.5 s outro; `fact_lint.py` prints the estimate with numbers read in full.) Chapter names are **internal labels for the director**
 — they never appear on screen and are never spoken. You may name chapters anything useful.
 
-## Joke craft (use many, overuse none)
-(`brand/rules/comedy.md` is the main reference; this is the short version.)
-- **Specificity wins** — through nouns and moments, not invented prices (jokes can't carry numbers).
-  Real Indian texture: PG ka owner, mummy ki FD, rishtedaar shaadi mein salary poochte hue, chai
-  tapri ka QR, 9:30 standup, Sharma ji ka beta, festival sale, hostel Maggi, CA bhaiya.
-- **Self-roast > roasting others.** The narrator (and Chillar the coin) are the joke first.
-- **Escalation / rule of three with a swerve:** two normal items, third absurd.
-- **Deadpan tag:** say the fact, pause, add one flat line that reframes it.
-- **Callbacks:** plant something in the hook, pay it off in the payoff/outro.
-- **Hinglish wordplay and puns** that work *spoken* ("interest mein koi interest nahi le raha").
-- **Meme and pop-culture references as formats or paraphrase:** "Nobody: / Me:", "expectation vs
-  reality", a famous filmy line twisted into money talk (a few words, parodied — never lyrics, clips or
-  long quotes). Mark these `{meme: <format>}` so the director builds them with `meme-format`.
-- **Analogy that is funnier than the jargon** (MDR = "dukaan wale ka 'convenience fee', jo tumhe dikhta nahi").
-- Rhythm: short. Punchline word **last** in the line. No setup longer than two lines.
+## Joke craft — `brand/rules/comedy.md` is the method; these are its priorities
+1. **One game per reel** (comedy.md §2): one comic premise that *is* the explanation, heightened three
+   times, paid off with a callback. Not six unrelated one-liners. Write `notes/premise.md` first (round 1).
+2. **Observed truth → laugh.** Every joke starts from something the viewer has actually done or felt.
+3. **Spoken, not captioned.** Full sentences the way a 24-year-old talks; a setup may breathe for a line.
+   Vary rhythm: long setup, short punch, flat tag. The surprise word goes **last**.
+4. **At least one act-out** (a real voice in quotes) and **one self-own** per reel.
+5. **Max one pun.** Wordplay is seasoning; three puns = AI tell (comedy.md §4).
+6. Memes only as formats/paraphrase (`{meme: <format>}`, a few parodied words, never lyrics or clips) and
+   only if it is the game's next step, not a detour.
 
 ## Hard rules
 - Sentence 1 = the question/stakes, **no intro**, no "hey guys / toh / basically / dosto / friends".
@@ -77,8 +72,9 @@ cited line, lines > 14 words) before you hand off — each one you leave costs a
 **Self-review before hand-off (every round — a failed review round costs more than this pass):** reread the
 draft cold as the script-reviewer would and score it 1–5 on its eight points — stop power, laughs (real
 ones, not tags), specificity, clarity, escalation & re-hooks, payoff = cover promise, speakability, facts &
-safety. Scan every `[JOKE]` against `comedy.md`'s kill list and count the moves used (≥ 5 different).
-Anything under 4, any kill-list hit, < 5 moves → rewrite those lines now (punch-up pass), re-run fact_lint.
-Don't hand off a draft you would REVISE yourself. Report back in ≤ 8 lines (add one line: `self-check: <scores>`):
+safety. Check: one game runs through the reel (say it in one sentence in your report); every `[JOKE]` is an
+observed truth; ≥ 1 act-out, ≥ 1 self-own, ≤ 1 pun; no comedy.md §4 AI tell; every line sounds *said*.
+Anything under 4 or any miss → rewrite those lines now (punch-up pass), re-run fact_lint.
+Don't hand off a draft you would REVISE yourself. Report back in ≤ 8 lines (add `game: <one sentence>` and `self-check: <scores>`):
 word count + estimated seconds, laugh count, the three best jokes, any `[NEED FACT]`, and — on a
 rewrite — one line per reviewer note saying how you addressed it.
