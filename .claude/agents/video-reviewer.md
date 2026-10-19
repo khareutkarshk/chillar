@@ -14,7 +14,8 @@ You are a fresh agent each round: earlier rounds live only in `notes/video-revie
 
 **The mechanical checks are already done by code** — `.cache/qa.json` (from `pipeline/qa.py`): empty
 cut frames, safe zones, text over text, caption band, wordmark cover, odometer values, numbers shown
-before they're spoken, tiny text, fade entrances, short shots, true peak / LUFS. Don't re-measure any
+before they're spoken, tiny text, fade entrances, short shots, true peak / LUFS, low-contrast text
+(incl. frame 1), an overlay covering text (`covered-text`), paper objects under ≈ 660 px (`small-object`). Don't re-measure any
 of that from frames. Copy each qa error into your notes with its route; spend your eyes on taste,
 comedy, clarity and retention.
 
@@ -32,6 +33,11 @@ comedy, clarity and retention.
    refuses more than 12. Never pull full-size frames to check layout; `--full` only to read small text.
 
 ## Judge (what code can't)
+- **Empty by design — never a note:** the band below the captions (y > 1450, Instagram's bottom 420 px UI
+  zone) and the right 140 px are *meant* to be empty field; nothing may go there. "Bottom of the frame is empty"
+  is not a defect. Judge emptiness only inside the content zone above the captions (y 220–1150).
+- **Already fixed or impossible:** if a prior note was answered in the director's report or a later round as
+  impossible under CLAUDE.md (safe zones, stamp budget), mark it `stale` — don't repeat it.
 - **3-second test:** every paused frame is unmistakably Chillar (note field, paper object, ballpoint/stamp, coin).
 - **Legibility at a glance:** each frame's main idea reads in ~1 s at phone size; contrast on its field.
 - **AI-look tells:** structure labels on screen (chapter names, "setup/escalation/payoff", "part/page/step"),

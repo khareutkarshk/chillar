@@ -17,6 +17,10 @@ Checks:
   early-number    a number on screen (caption or scene) before the voice says it
   tiny-text       text rendered under 26 px (unreadable on a phone)
   fade-entrance   a scene's content is still semi-transparent 3 frames after its cut
+  low-contrast    text that sits on the field (no paper/marker under it) in a colour too close to the
+                  field — e.g. ink on a dark field before its marker swipe has drawn (frame 1 = error)
+  covered-text    an overlay's paper/stamp/mascot lands on another clip's text (stamp over a sub-line)
+  small-object    the paper objects carrying text span < 75 % of the content width (brand: ≈ 860–880 px)
   narrow-frame    a shot's content covers < 65 % of the content width and < 30 % of its height
   small-text      a shot shows text under 36 px (one warning per shot)
   same-layout     4 shots in a row with the same content box (template feel)
@@ -50,6 +54,9 @@ SMALL_FONT = 36    # below this a shot's text is "hard to read" (warn, per shot)
 NARROW_W, NARROW_H = 0.65, 0.30   # content box under 65 % of the width AND 30 % of the height = dead field
 SAME_RUN, SAME_TOL = 4, 70        # 4 shots in a row with content boxes within 70 px = same composition
 NO_PROBE = {"bg", "wordmark"}
+CONTRAST_ERR, CONTRAST_WARN = 2.0, 3.0   # text vs what is behind it (WCAG ratio; big headline type)
+SMALL_OBJ = 0.75                          # paper objects with text spanning < 75 % of the content width (≈ 660 px)
+COVER_OK = {"marker-highlight", "transition", "captions"}   # overlays meant to sit on text
 
 
 def inr(n: float, decimals: int | None = None) -> str:
@@ -142,6 +149,30 @@ def glyph_lines(x: dict) -> list:
 
 def area(b) -> float:
     return max(b[2] - b[0], 0) * max(b[3] - b[1], 0)
+
+
+def rgb(c: str | None):
+    """'rgb(a, b, c)' / 'rgba(…)' (0–255) or 'color(srgb r g b / a)' (0–1, what color-mix computes to)."""
+    c = c or ""
+    m = re.findall(r"[\d.]+", c)
+    if len(m) < 3 or (len(m) >= 4 and float(m[3]) < 0.5):
+        return None
+    k = 255 if c.startswith("color(") else 1
+    return tuple(float(v) * k for v in m[:3])
+
+
+def contrast(a, b) -> float:
+    def lum(c):
+        ch = [v / 255 for v in c]
+        ch = [v / 12.92 if v <= 0.03928 else ((v + 0.055) / 1.055) ** 2.4 for v in ch]
+        return 0.2126 * ch[0] + 0.7152 * ch[1] + 0.0722 * ch[2]
+    la, lb = sorted((lum(a), lum(b)), reverse=True)
+    return (la + 0.05) / (lb + 0.05)
+
+
+def centre_in(b, box) -> bool:
+    cx, cy = (b[0] + b[2]) / 2, (b[1] + b[3]) / 2
+    return box[0] <= cx <= box[2] and box[1] <= cy <= box[3]
 
 
 def audio_check(ep, issues: list) -> dict:
@@ -301,6 +332,46 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
                         "text over text", "move one of them / end the overlay at the cut",
                         key=("ov", a["clip"], a["text"][:16], b["clip"], b["text"][:16]))
 
+        # low contrast: text on the bare field (no own background, no paper under its centre)
+        field = rgb(smp.get("field"))
+        papers = [(c["id"], p["box"]) for c in smp["clips"] for p in c["painted"]
+                  if p["op"] >= 0.5 and "marker" not in p["cls"] and c["id"] not in ("bg", "wordmark")]
+        for x in texts:
+            if x["op"] < 0.6 or x["clip"] == "wordmark" or (moving and why != "frame 1"):
+                continue
+            fg = rgb(x.get("color"))
+            under = rgb(x.get("bg"))
+            if under is None:
+                if any(centre_in(x["box"], pb) for _, pb in papers):
+                    continue          # on paper / an object: its own colours are the component's job
+                under = field
+            if fg is None or under is None:
+                continue
+            cr = contrast(fg, under)
+            if cr < CONTRAST_WARN:
+                sev = "error" if cr < CONTRAST_ERR or why == "frame 1" else "warn"
+                add(sev, "low-contrast", t, f"{x['clip']} ({x['comp']}) “{x['text'][:30]}”", f"component:{x['comp']}|director",
+                    f"text contrast {cr:.1f}:1 against what is behind it" + (" on FRAME 1" if why == "frame 1" else ""),
+                    "give it its background (marker drawn at t=0 on frame 1) or the field's ink colour",
+                    key=("contrast", x["clip"], x["text"][:16]))
+
+        # an overlay's opaque object on top of another clip's text
+        if not moving:
+            for c in smp["clips"]:
+                if c["track"] != 2 or c["comp"] in COVER_OK:
+                    continue
+                for p in c["painted"]:
+                    if p["op"] < 0.6 or p["kind"] == "svg":
+                        continue
+                    for x in texts:
+                        if x["clip"] == c["id"] or x["op"] < 0.5 or x["clip"] == "wordmark":
+                            continue
+                        if any(overlap(p["box"], la) > 0.25 * area(la) for la in glyph_lines(x)):
+                            add("error", "covered-text", t, f"{c['id']} ({c['comp']}) × {x['clip']} “{x['text'][:24]}”", "director",
+                                "an overlay object covers text underneath it", "move the overlay into empty field or end it before the text",
+                                key=("cover", c["id"], x["clip"], x["text"][:16]))
+                            break
+
         # odometer values
         for c in smp["clips"]:
             sc = scenes.get(c["id"])
@@ -338,7 +409,11 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
                 continue
             u = [min(b[0] for b in boxes), min(b[1] for b in boxes), max(b[2] for b in boxes), max(b[3] for b in boxes)]
             small = sorted({round(x["font"]) for x in c["texts"] if x["op"] >= 0.5 and x["font"] < SMALL_FONT})
-            shots[c["id"]] = {"t": t, "start": sc["start"], "box": u, "comp": c["comp"], "small": small}
+            txt = [x["box"] for x in c["texts"] if x["op"] >= 0.5]
+            pb = [p["box"] for p in c["painted"] if p["op"] >= 0.5 and p["kind"] != "svg" and "marker" not in p["cls"]
+                  and any(centre_in(b, p["box"]) for b in txt)]
+            paper_w = (max(b[2] for b in pb) - min(b[0] for b in pb)) if pb else 0   # span: side-by-side papers count together
+            shots[c["id"]] = {"t": t, "start": sc["start"], "box": u, "comp": c["comp"], "small": small, "paper_w": paper_w}
     cw = 1080 - SAFE["left"] - SAFE["right"]                       # content width  (≈ 880)
     ch = SAFE["captionBand"][0] - SAFE["top"]                       # content height above the captions (≈ 930)
     for sid, s in shots.items():
@@ -348,6 +423,10 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
             add("warn", "narrow-frame", s["t"], f"{sid} ({s['comp']})", "director",
                 f"content is {w:.0f}×{h:.0f}px in an {cw}×{ch} zone — small object, dead field",
                 "span the content width (≈ 860–880 px) or make the object/number the hero", key=("narrow", sid))
+        if 0 < s["paper_w"] < SMALL_OBJ * cw:
+            add("warn", "small-object", s["t"], f"{sid} ({s['comp']})", f"director|component:{s['comp']}",
+                f"its paper spans {s['paper_w']:.0f}px (content width {cw}) — small and busy, not big and calm",
+                "objects span the content width (≈ 860–880 px): width/wide param, or a bigger component", key=("smallobj", sid))
         if s["small"]:
             add("warn", "small-text", s["t"], f"{sid} ({s['comp']})", f"director|component:{s['comp']}",
                 f"text at {', '.join(map(str, s['small']))} px — hard to read at phone size",

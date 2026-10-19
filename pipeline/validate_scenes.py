@@ -301,7 +301,9 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
                 break
 
     # ---------------- stamps (count depends on format; never more than 3)
-    n_st = sum(1 for s in overlays if s["component"] == "stamp")
+    # a component that inks a red stamp on its own paper (receipt-list stampTotal) is a stamp on screen too
+    n_st = sum(1 for s in overlays if s["component"] == "stamp") + \
+        sum(1 for s in scenes if (s.get("params") or {}).get("stampTotal"))
     lo_s, hi_s = FMT["stamps"]
     if n_st > hi_s:
         errors.append(f"{n_st} stamps — a {fmt_key}s reel gets at most {hi_s}")

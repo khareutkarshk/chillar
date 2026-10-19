@@ -62,6 +62,23 @@ try {
       return op < 0.02 ? null : { op, clip };
     }
 
+    // colour behind a text element from its own ancestors (up to and incl. the clip): a filled box,
+    // or a .marker swipe once it is at least half drawn. null = nothing of its own -> paper/field decides.
+    function ownBg(el, clip) {
+      for (let n = el; n; n = n.parentElement) {
+        const cs = getComputedStyle(n);
+        if (n.classList && n.classList.contains("marker")) {
+          const m = parseFloat(cs.getPropertyValue("--marker") || "1");
+          const c = (cs.backgroundImage.match(/rgba?\([^)]*\)/) || [])[0];
+          if (m >= 0.5 && c) return c;
+        } else if (cs.backgroundColor && !/rgba\(.*,\s*0\)$|transparent/.test(cs.backgroundColor)) {
+          return cs.backgroundColor;
+        }
+        if (n === clip) break;
+      }
+      return null;
+    }
+
     function probeClip(clip) {
       const texts = [], painted = [];
       const walker = document.createTreeWalker(clip, NodeFilter.SHOW_TEXT);
@@ -91,7 +108,7 @@ try {
           const cs = getComputedStyle(el);
           const br = el.getBoundingClientRect();
           const sy = el.offsetHeight ? br.height / el.offsetHeight : 1;
-          byEl.set(el, { el, text: n.nodeValue.trim(), b: u, lines, op: e.op, font: parseFloat(cs.fontSize) * sy });
+          byEl.set(el, { el, text: n.nodeValue.trim(), b: u, lines, op: e.op, font: parseFloat(cs.fontSize) * sy, color: cs.color, bg: ownBg(el, clip) });
         }
       }
       const els = [...byEl.values()];
@@ -104,7 +121,7 @@ try {
         for (let n = t.el.parentElement; n && n !== clip; n = n.parentElement) if (n.dataset.qaIdx) anc.push(+n.dataset.qaIdx);
         const odo = t.el.closest(".odo, .od-num");
         texts.push({ i: +t.el.dataset.qaIdx, text: t.text.slice(0, 80), box: round(t.b), lines: t.lines.slice(0, 12).map(round), op: +t.op.toFixed(2),
-                     font: Math.round(t.font), cls: String(t.el.className || "").slice(0, 40), anc,
+                     font: Math.round(t.font), cls: String(t.el.className || "").slice(0, 40), anc, color: t.color, bg: t.bg,
                      odo: odo ? (odo.closest(".clip")?.id || "") : "" });
       }
       els.forEach((t) => delete t.el.dataset.qaIdx);
@@ -136,7 +153,9 @@ try {
       const live = clips.filter((c) => c.style.display !== "none");
       const stage = document.getElementById("stage");
       const st = getComputedStyle(stage).transform;
-      out.push({ t, stage: st, clips: live.map((c) => ({ id: c.id, comp: ([...c.classList].find((k) => k.startsWith("c-")) || "").slice(2),
+      const fl = document.querySelector(".field-light");
+      const field = fl ? getComputedStyle(fl).backgroundColor : null;
+      out.push({ t, stage: st, field, clips: live.map((c) => ({ id: c.id, comp: ([...c.classList].find((k) => k.startsWith("c-")) || "").slice(2),
                                                         track: +c.dataset.trackIndex, ...probeClip(c) })) });
     }
     return out;

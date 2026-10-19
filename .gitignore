@@ -35,3 +35,4 @@ graphify-out/.graphify_python
 # source cache (re-download with pipeline/facts_library.py cache <url>); index.json stays in git
 brand/sources/*
 !brand/sources/index.json
+.claude/settings.local.json

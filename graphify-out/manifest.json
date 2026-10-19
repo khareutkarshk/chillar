@@ -75,7 +75,7 @@
     "semantic_hash": "8dec81b95b54eda9bcc4d9e04ec41f46"
   },
   "components/hook-card/component.js": {
-    "mtime": 1792433889.9007542,
+    "mtime": 1792436521.037805,
     "ast_hash": "30d409d5d9fdaa020147e912475ff32a",
     "semantic_hash": ""
   },
@@ -415,9 +415,9 @@
     "semantic_hash": "313142361ca557aaff28dbfd1786f8ce"
   },
   "pipeline/validate_scenes.py": {
-    "mtime": 1792403158.2182188,
-    "ast_hash": "6abde13455077585595264a81311e3a1",
-    "semantic_hash": "6abde13455077585595264a81311e3a1"
+    "mtime": 1792436562.8363538,
+    "ast_hash": "4311b29e72c6d4feec979059bba62340",
+    "semantic_hash": ""
   },
   "pyproject.toml": {
     "mtime": 1792347798.1303284,
@@ -455,8 +455,8 @@
     "semantic_hash": ""
   },
   ".claude/agents/video-reviewer.md": {
-    "mtime": 1792416375.0528836,
-    "ast_hash": "ef109d4eab1960be65795641c4a5ee41",
+    "mtime": 1792436574.176771,
+    "ast_hash": "42e5b963a4515c5f2f46fdfa910e7f1c",
     "semantic_hash": ""
   },
   ".claude/commands/fact-check.md": {
@@ -470,8 +470,8 @@
     "semantic_hash": "9f1e0027caa041138f7221fbe1661e50"
   },
   ".claude/commands/make-reel.md": {
-    "mtime": 1792416712.4220076,
-    "ast_hash": "6edfe638fff5d7a9674160112c06ec80",
+    "mtime": 1792436619.8514402,
+    "ast_hash": "9e5fe7959dbc473802f45fc3cd064287",
     "semantic_hash": ""
   },
   ".claude/commands/new-reel.md": {
@@ -560,13 +560,13 @@
     "semantic_hash": ""
   },
   "pipeline/lib/qa_probe.mjs": {
-    "mtime": 1792406712.6423466,
-    "ast_hash": "86c04b997298b8837a9996971f37e584",
+    "mtime": 1792436454.9913213,
+    "ast_hash": "acbcf00b7c89878dd9751a48101ab202",
     "semantic_hash": ""
   },
   "pipeline/qa.py": {
-    "mtime": 1792416169.4921815,
-    "ast_hash": "d2f7ded2f1bb0bf2b2796652eeb80a6f",
+    "mtime": 1792436545.6907206,
+    "ast_hash": "b020218fef3f34ac0b8ff3b4873e1b08",
     "semantic_hash": ""
   },
   "brand/facts-library.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792416649.0688543,
-    "ast_hash": "f5e6f67504976ad20bcb19ea432875ec",
+    "mtime": 1792436596.9546056,
+    "ast_hash": "058654cd2fdf4f70b5487de7469d9a66",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -660,7 +660,7 @@
     "semantic_hash": ""
   },
   "episodes/2026-10-credit-card-myth/scenes/scenes.json": {
-    "mtime": 1792433647.515408,
+    "mtime": 1792436532.1152172,
     "ast_hash": "6e644d84e3a2dc9b2998dd37000da38a",
     "semantic_hash": ""
   },

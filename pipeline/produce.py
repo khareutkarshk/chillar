@@ -4,6 +4,10 @@
   produce.py episodes/<ep> --topic "<topic>" [--format 60]        new reel, start to finish
   produce.py episodes/<ep> --from STAGE                           resume (after a stop, or a fix)
   produce.py episodes/<ep> --only STAGE                           one stage
+  produce.py episodes/<ep> --only fix                             after a 3-round video stop: one headless pass on
+                                                                  the last review's notes + qa, no new review;
+                                                                  then --from deliver
+  produce.py episodes/<ep> --from align --accept-length           creator accepted a voice outside the range
   produce.py episodes/<ep> --dry-run                              print the agent commands, run nothing
 
 Stages: research → script → factcheck → voice → align → edit → deliver → package → usage
@@ -226,7 +230,7 @@ def st_align(L: Line, ep: Path, a) -> None:
     fmt = json.loads((ROOT / "brand" / "tokens.json").read_text())["formats"][str(a.format)]["seconds"]
     total = dur + 3.5
     print(f"  voice {dur:.1f} s + outro ≈ {total:.1f} s (format {fmt[0]}–{fmt[1]} s)")
-    if not fmt[0] <= total <= fmt[1]:
+    if not fmt[0] <= total <= fmt[1] and not a.accept_length:
         stop(ep, f"voice is {dur:.1f} s (+ outro ≈ {total:.1f} s) — outside {fmt[0]}–{fmt[1]} s",
              "trim/extend the script (new review round) or accept it, then --from align")
 
@@ -268,6 +272,33 @@ def st_edit(L: Line, ep: Path, a) -> None:
          "options: fix specific notes then --from deliver, or one more round with --from edit")
 
 
+def st_fix(L: Line, ep: Path, a) -> None:
+    """The creator's 'fix it and ship' after a 3-round stop: the routed roles apply the LAST review's notes once,
+    headless (never in the producer session), then validate/build/qa must be clean. No new review round."""
+    e = ep.relative_to(ROOT)
+    n = len(list((ep / "notes").glob("video-review-*.md")))
+    if not n:
+        sys.exit("produce: --only fix needs a notes/video-review-*.md")
+    notes = f"{e}/notes/video-review-{n}.md"
+    final = ("Final targeted pass, no review round follows: fix exactly these notes, keep everything else as it is, "
+             "and stay within CLAUDE.md (stamp budget, safe zones) — if a note is impossible under it, skip it and say why.")
+    if routed(ep / "notes" / f"video-review-{n}.md", "component"):
+        L.agent("component-dev", f"Fix the [component:*] notes in {notes}. {final}", "fix")
+    if routed(ep / "notes" / f"video-review-{n}.md", "director"):
+        L.agent("director", f"Revise {e}/scenes/scenes.json from the [director] notes in {notes} and .cache/qa.json. {final}", "fix")
+    if routed(ep / "notes" / f"video-review-{n}.md", "editor"):
+        L.agent("editor", f"Apply the [editor] notes in {notes} to {e}/scenes/scenes.json. {final}", "fix")
+    def clean() -> bool:
+        return all(L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", st, check=False) == 0
+                   for st in ("validate", "build", "qa"))
+    if not clean():
+        L.agent("director", f"qa blocks {e}: fix every error in .cache/qa.json (route [editor] timing errors too). "
+                "Validate + qa clean.", "fix")
+        if not clean():
+            stop(ep, "qa still blocks after the fix pass", "see .cache/qa.json")
+    print("  fix pass done, qa clean → --from deliver")
+
+
 def st_deliver(L: Line, ep: Path, a) -> None:
     L.sh(PY, "pipeline/make_reel.py", str(ep), "--from", "validate", "--quality", "delivery")
     print("  → look at output/contact_sheet.png before calling it done (CLAUDE.md §8)")
@@ -298,7 +329,7 @@ def st_usage(L: Line, ep: Path, a) -> None:
 
 
 RUN = {"research": st_research, "script": st_script, "factcheck": st_factcheck, "voice": st_voice, "align": st_align,
-       "edit": st_edit, "deliver": st_deliver, "package": st_package, "usage": st_usage}
+       "edit": st_edit, "fix": st_fix, "deliver": st_deliver, "package": st_package, "usage": st_usage}
 
 
 def summary(ep: Path) -> None:
@@ -320,7 +351,8 @@ def main() -> int:
     ap.add_argument("--topic", default="")
     ap.add_argument("--format", type=int, choices=[30, 60, 90])
     ap.add_argument("--from", dest="frm", choices=STAGES)
-    ap.add_argument("--only", choices=STAGES)
+    ap.add_argument("--only", choices=STAGES + ["fix"])
+    ap.add_argument("--accept-length", action="store_true", help="the creator accepted a voice outside the format range")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
     ep = (ROOT / a.episode).resolve() if not Path(a.episode).is_absolute() else Path(a.episode)
