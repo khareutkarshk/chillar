@@ -1,0 +1,692 @@
+{
+  "theme": "calm",
+  "scenes": [
+    {
+      "id": "locker-hook",
+      "component": "mithai-dabba",
+      "at": 0,
+      "fact": "F2",
+      "params": {
+        "layout": "locker",
+        "count": 22,
+        "removed": 3,
+        "locker": {
+          "label": "Tumhara PF",
+          "amount": "Balance: ?",
+          "tag": "12 mahine",
+          "laddooAt": null,
+          "doorAt": null,
+          "lockAt": null
+        },
+        "box": false
+      }
+    },
+    {
+      "id": "re-thinking",
+      "component": "mascot-reaction",
+      "at": 0,
+      "until": "w8",
+      "params": {
+        "expr": "thinking",
+        "anim": "blink",
+        "x": 360,
+        "y": 1110,
+        "size": 300
+      }
+    },
+    {
+      "id": "locker-uan",
+      "component": "mithai-dabba",
+      "at": "w8",
+      "params": {
+        "layout": "locker",
+        "count": 22,
+        "removed": 3,
+        "box": false,
+        "locker": {
+          "label": "Tumhara PF",
+          "amount": "Balance: ?",
+          "tag": "UAN password",
+          "laddooAt": null,
+          "doorAt": null,
+          "lockAt": 0.5
+        }
+      }
+    },
+    {
+      "id": "uan-login",
+      "component": "receipt-list",
+      "at": "w10+0.4",
+      "params": {
+        "title": "UAN LOGIN",
+        "items": [
+          {
+            "label": "Password",
+            "amount": "galat"
+          },
+          {
+            "label": "Forgot password",
+            "amount": "OTP"
+          },
+          {
+            "label": "OTP gaya",
+            "amount": "purane no. pe"
+          },
+          {
+            "label": "Forgot password",
+            "amount": "OTP"
+          }
+        ],
+        "total": {
+          "label": "Locker",
+          "amount": "BAND",
+          "tone": "red"
+        },
+        "circleTotal": true,
+        "step": 0.12
+      }
+    },
+    {
+      "id": "re-facepalm",
+      "component": "mascot-reaction",
+      "at": "w11+0.25",
+      "until": "w14",
+      "params": {
+        "expr": "facepalm",
+        "anim": "shake",
+        "x": 790,
+        "y": 1120,
+        "size": 280
+      },
+      "sfx": []
+    },
+    {
+      "id": "twelve-twelve",
+      "component": "bar-chart",
+      "at": "w14",
+      "fact": "F2",
+      "params": {
+        "bars": [
+          {
+            "label": "Tumse",
+            "value": 12,
+            "display": "12%"
+          },
+          {
+            "label": "Company se",
+            "value": 12,
+            "display": "12%"
+          }
+        ],
+        "highlight": 1,
+        "caption": "",
+        "stagger": 0
+      }
+    },
+    {
+      "id": "pf-credits",
+      "component": "passbook-page",
+      "at": "w21",
+      "fact": "F19",
+      "params": {
+        "opening": 0,
+        "rows": [
+          {
+            "date": "OCT",
+            "text": "Tumse",
+            "amount": 5550,
+            "type": "cr"
+          },
+          {
+            "date": "OCT",
+            "text": "Company",
+            "amount": 5550,
+            "type": "cr"
+          }
+        ],
+        "step": 0.7,
+        "circleBalance": true
+      }
+    },
+    {
+      "id": "eleven-hundred",
+      "component": "odometer-number",
+      "at": "w29-0.08",
+      "fact": "F19",
+      "params": {
+        "value": 11100,
+        "prefix": "₹",
+        "sub": "12 LPA · basic ₹46,250",
+        "size": 240,
+        "rollStart": 0.1,
+        "rollDuration": 0.4,
+        "from": 5550
+      },
+      "sfx": [
+        {
+          "sound": "ding",
+          "at": 0.55,
+          "event": "landed"
+        }
+      ]
+    },
+    {
+      "id": "savings-record",
+      "component": "checklist",
+      "at": "w31",
+      "fact": "F19",
+      "params": {
+        "title": "Savings ka record",
+        "items": [
+          {
+            "text": "Jan: is mahine pakka",
+            "ok": false
+          },
+          {
+            "text": "Feb: agle mahine pakka",
+            "ok": false
+          },
+          {
+            "text": "Locker: *₹11,100*",
+            "ok": true
+          }
+        ],
+        "stagger": 0.8
+      }
+    },
+    {
+      "id": "re-sideeye-1",
+      "component": "mascot-reaction",
+      "at": "w37",
+      "until": "w40",
+      "params": {
+        "expr": "side-eye",
+        "anim": "blink",
+        "x": 790,
+        "y": 1140,
+        "size": 300
+      }
+    },
+    {
+      "id": "locker-company",
+      "component": "mithai-dabba",
+      "at": "w40",
+      "fact": "F2",
+      "params": {
+        "layout": "locker",
+        "count": 22,
+        "removed": 3,
+        "locker": {
+          "label": "Company ka 12%",
+          "amount": "₹5,550",
+          "tag": "",
+          "laddooAt": null,
+          "doorAt": 0.12,
+          "lockAt": 0.7
+        },
+        "box": false
+      }
+    },
+    {
+      "id": "st-tumhara",
+      "component": "stamp",
+      "at": "w47-0.1",
+      "until": "w49+0.14",
+      "params": {
+        "text": "TUMHARA HAI",
+        "x": 470,
+        "y": 1010,
+        "rotate": -7,
+        "size": 84
+      }
+    },
+    {
+      "id": "shagun",
+      "component": "split-compare",
+      "at": "w49",
+      "fact": "F11",
+      "params": {
+        "left": {
+          "title": "Shagun ka lifafa",
+          "text": "Almirah mein. *Gaya, toh gaya*"
+        },
+        "right": {
+          "title": "PF",
+          "text": "Jaata hai, *wapas aata hai*"
+        },
+        "strikeAt": 0.45,
+        "revealAt": 0.7
+      },
+      "sfx": []
+    },
+    {
+      "id": "re-sideeye-2",
+      "component": "mascot-reaction",
+      "at": "w55.end+0.18",
+      "until": "w59",
+      "params": {
+        "expr": "side-eye",
+        "anim": "blink",
+        "x": 780,
+        "y": 1120,
+        "size": 320
+      },
+      "sfx": []
+    },
+    {
+      "id": "rate-slip",
+      "component": "receipt-list",
+      "at": "w59",
+      "fact": "F1",
+      "params": {
+        "title": "EPF BYAAJ",
+        "meta": "2025-26 · CBT recommended",
+        "items": [],
+        "total": {
+          "label": "Rate",
+          "amount": "8.25%",
+          "tone": "ink"
+        },
+        "footer": "har saal naya decide",
+        "circleTotal": true,
+        "step": 0.2
+      }
+    },
+    {
+      "id": "year-credit",
+      "component": "passbook-page",
+      "at": "w67-0.1",
+      "fact": "F19",
+      "params": {
+        "opening": 0,
+        "rows": [
+          {
+            "date": "APR",
+            "text": "PF",
+            "amount": 11100,
+            "type": "cr"
+          },
+          {
+            "date": "MAY",
+            "text": "PF",
+            "amount": 11100,
+            "type": "cr"
+          },
+          {
+            "date": "MAR",
+            "text": "PF ×10 aur",
+            "amount": 111000,
+            "type": "cr"
+          },
+          {
+            "date": "JUL",
+            "text": "Late byaaj",
+            "amount": 5952,
+            "type": "cr"
+          }
+        ],
+        "step": 0.3,
+        "circleBalance": true
+      }
+    },
+    {
+      "id": "late-credit",
+      "component": "calendar-flip",
+      "at": "w73",
+      "fact": "F1",
+      "params": {
+        "pages": [
+          "MAR 31",
+          "MAY 31",
+          "JUL 31"
+        ],
+        "label": "",
+        "flip": 0.22
+      },
+      "sfx": []
+    },
+    {
+      "id": "re-counting",
+      "component": "mascot-reaction",
+      "at": "w73+0.2",
+      "until": "w76",
+      "params": {
+        "expr": "counting-money",
+        "anim": "bounce",
+        "x": 740,
+        "y": 1140,
+        "size": 400
+      },
+      "sfx": []
+    },
+    {
+      "id": "years-page",
+      "component": "passbook-page",
+      "at": "w76",
+      "cut": "page",
+      "fact": "F19",
+      "params": {
+        "opening": 0,
+        "rows": [
+          {
+            "date": "2027",
+            "text": "1 saal",
+            "amount": 139152,
+            "type": "cr"
+          },
+          {
+            "date": "2031",
+            "text": "5 saal",
+            "amount": 681279,
+            "type": "cr"
+          }
+        ],
+        "step": 0.18,
+        "circleBalance": true
+      },
+      "sfx": []
+    },
+    {
+      "id": "thirty-years",
+      "component": "odometer-number",
+      "at": "w83-0.1",
+      "fact": "F19",
+      "params": {
+        "from": 820431,
+        "value": 16505027,
+        "prefix": "₹",
+        "sub": "agar 8.25% hi rahe",
+        "size": 160,
+        "rollStart": 0.05,
+        "rollDuration": 0.5,
+        "label": "Same salary, *kuch nahi nikala*"
+      },
+      "sfx": []
+    },
+    {
+      "id": "st-crore",
+      "component": "stamp",
+      "at": "w83+0.35",
+      "until": "w85",
+      "fact": "F19",
+      "params": {
+        "text": "₹1.65 CRORE",
+        "x": 500,
+        "y": 1010,
+        "rotate": -6,
+        "size": 96
+      }
+    },
+    {
+      "id": "interest-vs-in",
+      "component": "bar-chart",
+      "at": "w85",
+      "fact": "F19",
+      "params": {
+        "bars": [
+          {
+            "label": "Byaaj",
+            "value": 125.09,
+            "display": "₹1,25,09,027"
+          },
+          {
+            "label": "Daala",
+            "value": 39.96,
+            "display": "₹39,96,000"
+          }
+        ],
+        "highlight": 0,
+        "caption": "30 saal · agar 8.25% hi rahe",
+        "stagger": 0.5
+      }
+    },
+    {
+      "id": "re-sideeye-3",
+      "component": "mascot-reaction",
+      "at": "w91",
+      "until": "w95",
+      "sfx": [],
+      "params": {
+        "expr": "side-eye",
+        "anim": "blink",
+        "x": 800,
+        "y": 1120,
+        "size": 260
+      }
+    },
+    {
+      "id": "standup-meme",
+      "component": "meme-format",
+      "at": "w95",
+      "fact": "F19",
+      "params": {
+        "format": "two-panel",
+        "panels": [
+          {
+            "label": "Byaaj",
+            "text": "*3 guna* kamaaya",
+            "expr": "smug"
+          },
+          {
+            "label": "Standups",
+            "text": "Ek bhi attend nahi kiya",
+            "expr": "shocked"
+          }
+        ],
+        "reveal": 1.45
+      }
+    },
+    {
+      "id": "locker-opens",
+      "component": "mithai-dabba",
+      "at": "w106",
+      "fact": "F9",
+      "params": {
+        "layout": "locker",
+        "count": 22,
+        "removed": 3,
+        "locker": {
+          "label": "Tumhara PF",
+          "amount": "Balance: ?",
+          "tag": "12 mahine",
+          "laddooAt": null,
+          "doorAt": null,
+          "lockAt": null,
+          "openAt": 1.25,
+          "inside": "PF passbook · tumhare naam"
+        },
+        "box": false
+      }
+    },
+    {
+      "id": "min-balance",
+      "component": "bar-chart",
+      "at": "w113",
+      "fact": "F4",
+      "params": {
+        "bars": [
+          {
+            "label": "Nikaal sakte",
+            "value": 75,
+            "display": "75%"
+          },
+          {
+            "label": "Andar hi",
+            "value": 25,
+            "display": "25%"
+          }
+        ],
+        "highlight": 1,
+        "caption": "",
+        "stagger": 0.4
+      }
+    },
+    {
+      "id": "withdraw-form",
+      "component": "checklist",
+      "at": "w121+0.2",
+      "fact": "F9",
+      "params": {
+        "title": "Kis liye nikaal rahe ho?",
+        "items": [
+          {
+            "text": "Padhai",
+            "ok": true
+          },
+          {
+            "text": "Shaadi",
+            "ok": true
+          },
+          {
+            "text": "Ghar",
+            "ok": true
+          },
+          {
+            "text": "Wajah: ______",
+            "ok": true
+          }
+        ],
+        "stagger": 0.44
+      }
+    },
+    {
+      "id": "special",
+      "component": "statement",
+      "at": "w129",
+      "params": {
+        "title": "Naya phone?",
+        "size": 200
+      }
+    },
+    {
+      "id": "special-form",
+      "component": "statement",
+      "at": "w133-0.1",
+      "fact": "F9",
+      "params": {
+        "title": "Form ki category:",
+        "body": "*special circumstances*",
+        "paper": true
+      }
+    },
+    {
+      "id": "re-smug",
+      "component": "mascot-reaction",
+      "at": "w134",
+      "until": "w135",
+      "params": {
+        "expr": "smug",
+        "anim": "blink",
+        "x": 810,
+        "y": 1120,
+        "size": 260
+      },
+      "sfx": []
+    },
+    {
+      "id": "phone-cost",
+      "component": "odometer-number",
+      "at": "w135",
+      "cut": "zoom",
+      "fact": "F19",
+      "params": {
+        "from": 100000,
+        "value": 1078542,
+        "prefix": "₹",
+        "label": "₹1,00,000 aaj nikaale → 30 saal baad balance itna *kam*:",
+        "sub": "agar 8.25% hi rahe",
+        "size": 175,
+        "rollStart": 1.0,
+        "rollDuration": 0.8
+      },
+      "sfx": [
+        {
+          "sound": "ding",
+          "at": 1.9,
+          "event": "landed"
+        }
+      ]
+    },
+    {
+      "id": "re-crying",
+      "component": "mascot-reaction",
+      "at": "w144",
+      "until": "w149",
+      "params": {
+        "expr": "crying",
+        "anim": "sweat",
+        "x": 810,
+        "y": 1120,
+        "size": 260
+      },
+      "sfx": []
+    },
+    {
+      "id": "locker-end",
+      "component": "mithai-dabba",
+      "at": "w149",
+      "params": {
+        "layout": "locker",
+        "count": 22,
+        "removed": 3,
+        "locker": {
+          "label": "Tumhara PF",
+          "amount": "Balance: ?",
+          "tag": "UAN password",
+          "laddooAt": null,
+          "doorAt": null,
+          "lockAt": 0.95
+        }
+      }
+    },
+    {
+      "id": "re-facepalm-end",
+      "component": "mascot-reaction",
+      "at": "w154",
+      "until": "w156.end+0.35",
+      "params": {
+        "expr": "facepalm",
+        "anim": "shake",
+        "x": 360,
+        "y": 1110,
+        "size": 300
+      },
+      "sfx": []
+    }
+  ],
+  "effects": [
+    {
+      "type": "punch",
+      "at": "w13"
+    },
+    {
+      "type": "punch",
+      "at": "w29"
+    },
+    {
+      "type": "punch",
+      "at": "w60"
+    },
+    {
+      "type": "punch",
+      "at": "w75"
+    },
+    {
+      "type": "punch",
+      "at": "w104"
+    },
+    {
+      "type": "punch",
+      "at": "w148"
+    }
+  ],
+  "outro": {
+    "duration": 3.2,
+    "cut": "cut",
+    "params": {}
+  },
+  "music": {
+    "track": "",
+    "under_voice_db": -22
+  }
+}

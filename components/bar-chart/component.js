@@ -9,7 +9,7 @@ CH.define("bar-chart", {
         <div class="bar-plot">
           ${bars.map((b, i) => { const v = String(b.display ?? CH.inr(+b.value)), hi = i === +p.highlight; return `
             <div class="bar-col">
-              <div class="bar-val num">${CH.esc(v)}${hi ? CH.scribble("circle", { x: -18, y: -4, w: v.length * 38 + 34, h: 84, rng }) : ""}</div>
+              <div class="bar-val num">${CH.esc(v)}${hi ? CH.scribble("circle", { x: -30, y: -8, w: v.length * 42 + 56, h: 92, rng }) : ""}</div>
               <div class="bar ${hi ? "hi" : ""}" style="height:${Math.max(8, (+b.value / max) * H).toFixed(0)}px"></div>
               <div class="bar-lab t-body">${CH.esc(b.label)}</div>
             </div>`; }).join("")}

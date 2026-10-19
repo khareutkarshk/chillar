@@ -1,10 +1,10 @@
 .c-bar-chart .zone { justify-content: flex-end; gap: 34px; }
 .c-bar-chart .bar-title { font-size: 96px; color: var(--on-field); max-width: 870px; }
-.c-bar-chart .bar-plot { display: flex; align-items: flex-end; gap: 28px; height: 620px; }
-.c-bar-chart .bar-col { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 14px; width: 270px; }
+.c-bar-chart .bar-plot { display: flex; align-items: flex-end; gap: 28px; height: 620px; width: 100%; max-width: 870px; }
+.c-bar-chart .bar-col { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 14px; flex: 1 1 0; min-width: 0; max-width: 420px; }  /* bars share the full content width: 2 bars ≈ 420px each */
 .c-bar-chart .bar { display: block; width: 100%; background: var(--paper); border-radius: 10px 10px 4px 4px; box-shadow: var(--lift); /* taste-skill-ignore: paper depth */ }
 .c-bar-chart .bar.hi { background: var(--haldi); }
 .c-bar-chart .bar-val { font-size: 64px; color: var(--on-field); position: relative; }
-.c-bar-chart .bar-lab { font-size: 40px; color: var(--on-field); opacity: .86; }
-.c-bar-chart .bar-cap { font-size: 32px; color: var(--on-field); opacity: .7; }
+.c-bar-chart .bar-lab { font-size: 44px; color: var(--on-field); opacity: .86; white-space: nowrap; }
+.c-bar-chart .bar-cap { font-size: 40px; color: var(--on-field); opacity: .8; }
 .c-bar-chart .scrib path { stroke: var(--on-field); }

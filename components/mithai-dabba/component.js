@@ -109,11 +109,12 @@ CH.define("mithai-dabba", {
 
     // ---------------------------------------------------------------- locker
     const K = p.locker || {};
-    const LX = 450, LY = 30, LW = 410, LH = 660;
+    const solo = lay === "locker" && p.box === false;   // box:false = no dabba; the locker alone, centred and bigger
+    const LX = solo ? 230 : 450, LY = 30, LW = 410, LH = 660;
     const locker = lay === "locker" ? `
-      <div class="md-locker" style="left:${LX}px; top:${LY}px; width:${LW}px; height:${LH}px">
+      <div class="md-locker" style="left:${LX}px; top:${LY}px; width:${LW}px; height:${LH}px${solo ? "; transform: scale(1.3); transform-origin: 50% 0" : ""}">
         <div class="md-locker-body"><i class="v"></i><i class="v"></i><i class="v"></i></div>
-        <div class="md-locker-in"><div class="md-shelf"></div></div>
+        <div class="md-locker-in"><div class="md-shelf"></div>${K.inside ? `<div class="md-inside paper-obj"><span class="t-print">${CH.esc(K.inside)}</span></div>` : ""}</div>
         <div class="md-door">
           <div class="md-plate"><span class="t-head">${CH.esc(K.label || "")}</span><span class="t-print">${CH.esc(K.amount || "")}</span>${K.sub ? `<span class="t-body t-sub">${CH.esc(K.sub)}</span>` : ""}</div>
           <i class="md-handle"></i><i class="v"></i><i class="v"></i><i class="v"></i>
@@ -125,7 +126,7 @@ CH.define("mithai-dabba", {
         </div>
       </div>` : "";
 
-    el.innerHTML = `<div class="md-stage md-${lay}">${letter}${hand}${box}${stk}${slip}${locker}${mascot}<div class="md-fly"></div></div>`;
+    el.innerHTML = `<div class="md-stage md-${lay}">${letter}${hand}${solo ? "" : box}${stk}${slip}${locker}${mascot}<div class="md-fly"></div></div>`;
     const fly = el.querySelector(".md-fly");
     const ladEls = {}; el.querySelectorAll(".md-laddoo").forEach((n) => { ladEls[n.dataset.k] = n; });
     const rowEls = [...el.querySelectorAll(".md-line")];
@@ -190,15 +191,30 @@ CH.define("mithai-dabba", {
     // locker: laddoo in, door shuts, padlock drops with its tag
     if (lay === "locker") {
       const door = el.querySelector(".md-door");
+      // doorAt / lockAt: null = already shut / already locked at the scene start (fully drawn frame 1)
+      const shut = "doorAt" in K && K.doorAt === null;
+      const locked = "lockAt" in K && K.lockAt === null;
       const doorAt = K.doorAt ?? 1.1;
-      if (K.laddooAt != null && pull(t + +K.laddooAt, { x: LX + LW / 2, y: LY + LH * 0.42 - 40, scale: 1.4, arc: 120 }))
-        tl.fromTo(fly.lastElementChild, { visibility: "visible" }, { visibility: "hidden", duration: F, ease: "none", immediateRender: false }, t + doorAt + 5 * F);
-      tl.fromTo(door, { rotationY: 78 }, { rotationY: 0, duration: 7 * F, ease: "power3.in" }, t + doorAt);   // < 90°: the open door stays on its own side of the hinge (inside the safe zone)
-      tl.fromTo(door.querySelectorAll(".md-plate, .md-handle"), { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, t + doorAt + 5 * F);
-      tl.fromTo(door, { x: 0 }, { x: 4, duration: F, ease: "none", immediateRender: false }, t + doorAt + 8 * F);
-      tl.to(door, { x: 0, duration: 2 * F, ease: "none" }, t + doorAt + 9 * F);
       const pad = el.querySelector(".md-padlock");
-      tl.fromTo(pad, { opacity: 0, y: -70, rotation: -14 }, { opacity: 1, y: 0, rotation: 0, duration: 7 * F, ease: "back.out(1.6)" }, t + +(K.lockAt ?? 2));
+      if (!shut) {
+        if (K.laddooAt != null && pull(t + +K.laddooAt, { x: LX + LW / 2, y: LY + LH * 0.42 - 40, scale: 1.4, arc: 120 }))
+          tl.fromTo(fly.lastElementChild, { visibility: "visible" }, { visibility: "hidden", duration: F, ease: "none", immediateRender: false }, t + doorAt + 5 * F);
+        tl.fromTo(door, { rotationY: 78 }, { rotationY: 0, duration: 7 * F, ease: "power3.in" }, t + doorAt);   // < 90°: the open door stays on its own side of the hinge (inside the safe zone)
+        tl.fromTo(door.querySelectorAll(".md-plate, .md-handle"), { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, t + doorAt + 5 * F);
+        tl.fromTo(door, { x: 0 }, { x: 4, duration: F, ease: "none", immediateRender: false }, t + doorAt + 8 * F);
+        tl.to(door, { x: 0, duration: 2 * F, ease: "none" }, t + doorAt + 9 * F);
+      }
+      if (!locked)
+        tl.fromTo(pad, { opacity: 0, y: -70, rotation: -14 }, { opacity: 1, y: 0, rotation: 0, duration: 7 * F, ease: "back.out(1.6)" }, t + +(K.lockAt ?? 2));
+      // openAt: the padlock pops off and falls away, then the door swings open (the reverse of the close)
+      if (K.openAt != null) {
+        const o = t + +K.openAt;
+        tl.to(pad, { y: 90, rotation: 18, opacity: 0, duration: 6 * F, ease: "power3.in" }, o);
+        tl.to(door.querySelectorAll(".md-plate, .md-handle"), { opacity: 0, duration: F, ease: "none" }, o);
+        tl.to(door, { rotationY: 78, duration: 7 * F, ease: "power3.out" }, o + 5 * F);
+        const inside = el.querySelector(".md-inside");
+        if (inside) tl.fromTo(inside, { opacity: 0 }, { opacity: 1, duration: 3 * F, ease: "none" }, o + 6 * F);
+      }
     }
 
     // hero close: the lid stands open behind the box; Chillar leans in and folds it shut, then holds

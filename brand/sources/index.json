@@ -38,5 +38,40 @@
   "file": "mahagst-profession-tax-schedule.html",
   "fetched": "2026-10-19",
   "bytes": 61166
+ },
+ "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2234502&reg=3&lang=1": {
+  "file": "pib-2234502-cbt239-interest.html",
+  "fetched": "2026-10-19",
+  "bytes": 180949
+ },
+ "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2179689&reg=48&lang=2": {
+  "file": "pib-2179689-epfo-reforms-clarification.html",
+  "fetched": "2026-10-19",
+  "bytes": 127749
+ },
+ "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2222490&reg=3&lang=2": {
+  "file": "pib-2222490-epfo-tax-regime.html",
+  "fetched": "2026-10-19",
+  "bytes": 195188
+ },
+ "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2124244&reg=48&lang=2": {
+  "file": "pib-2124244-epfo-transfer-form13.html",
+  "fetched": "2026-10-19",
+  "bytes": 100730
+ },
+ "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2094230": {
+  "file": "pib-2094230-epfo-transfer.html",
+  "fetched": "2026-10-19",
+  "bytes": 85841
+ },
+ "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2021/feb/doc20212111.pdf": {
+  "file": "pib-budget-2021-22.pdf",
+  "fetched": "2026-10-19",
+  "bytes": 700984
+ },
+ "https://www.indiabudget.gov.in/budget2021-22/doc/Budget_Speech.pdf": {
+  "file": "budget-speech-2021-22.pdf",
+  "fetched": "2026-10-19",
+  "bytes": 768448
  }
 }

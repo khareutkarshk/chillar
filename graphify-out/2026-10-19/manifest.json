@@ -155,9 +155,9 @@
     "semantic_hash": "a50a91ae4e9775a324ee87b7402d6473"
   },
   "components/outro/component.json": {
-    "mtime": 1792403147.7228515,
-    "ast_hash": "119edf3783b62562ac893f519e7c10bf",
-    "semantic_hash": "119edf3783b62562ac893f519e7c10bf"
+    "mtime": 1792408197.4111278,
+    "ast_hash": "bbcf0001bbc9abddb93cb4f22de3226f",
+    "semantic_hash": ""
   },
   "components/passbook-page/component.js": {
     "mtime": 1792398672.7112448,
@@ -495,8 +495,8 @@
     "semantic_hash": "7dea7cacd6c2b066c5ec6b73278df045"
   },
   "CLAUDE.md": {
-    "mtime": 1792406946.408122,
-    "ast_hash": "64a75648e0c47228d194cff9db1b44ad",
+    "mtime": 1792408187.6557276,
+    "ast_hash": "52fa1057ce091e83846258e745a249c4",
     "semantic_hash": ""
   },
   "README.md": {
@@ -605,8 +605,13 @@
     "semantic_hash": ""
   },
   "components/_catalog.md": {
-    "mtime": 1792406780.3096912,
+    "mtime": 1792408197.5191321,
     "ast_hash": "9a2717f89d2b6b5819f08a93fbdbe3ec",
+    "semantic_hash": ""
+  },
+  "brand/rules/posting-schedule.md": {
+    "mtime": 1792408275.9272742,
+    "ast_hash": "ea6977532e34fabeb4c3fffcaaf25df1",
     "semantic_hash": ""
   }
 }

@@ -2,12 +2,16 @@ CH.define("split-compare", {
   build({ el, p, t, tl, rng }) {
     const L = p.left || {}, R = p.right || {};
     const t1 = CH.tilt(rng, 2.4), t2 = -Math.sign(t1) * Math.abs(CH.tilt(rng, 1.6));
-    const lw = Math.min(740, String(L.text || "").length * 31);
+    const tw = String(L.text || "").length * 31, lw = Math.min(740, tw);
+    // one red scratch per wrapped line (62px × 1.12 leading), so a long myth is struck out all the way
+    const nl = Math.max(1, Math.ceil(tw / 740));
+    const strikes = Array.from({ length: nl }, (_, i) => CH.scribble("strike", {
+      x: -10, y: i * 69, w: (i === nl - 1 && nl > 1 ? Math.max(140, tw - (nl - 1) * 740) : lw) + 20, h: 72, rng, stroke: 7 })).join("");
     el.innerHTML = `
       <div class="zone">
         <div class="sc-chit sc-myth paper-obj" style="transform: rotate(${t1.toFixed(2)}deg)">
           <div class="sc-word t-head">${CH.esc(L.title)}</div>
-          <div class="sc-text t-body">${CH.rich(L.text)}${CH.scribble("strike", { x: -10, y: 0, w: lw + 20, h: 72, rng, stroke: 7 })}</div>
+          <div class="sc-text t-body">${CH.rich(L.text)}${strikes}</div>
         </div>
         <div class="sc-chit sc-math paper-obj" style="transform: rotate(${t2.toFixed(2)}deg)">
           <div class="sc-word t-head">${CH.esc(R.title)}</div>

@@ -19,7 +19,7 @@ CH.define("calendar-flip", {
       </div>`;
     const lab = el.querySelector(".cf-label");
     if (lab) { CH.pop(tl, lab, t); CH.markers(tl, lab, t + 0.3); }
-    CH.toss(tl, el.querySelector(".cf-cal"), t + 2 * CH.F, tilt);
+    CH.toss(tl, el.querySelector(".cf-cal"), t, tilt);   // on the cut frame, never an empty field
     [...el.querySelectorAll(".cf-page")].slice(0, -1).forEach((pg, i) => {
       tl.fromTo(pg, { rotationX: 0, opacity: 1 }, { rotationX: -100, opacity: 0, duration: 4 * CH.F, ease: "power2.in", transformOrigin: "50% 0%" }, t + 0.25 + i * (+p.flip));
     });
