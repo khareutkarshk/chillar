@@ -19,7 +19,11 @@ same document on another official mirror (PIB, gazette, egazette.gov.in) instead
 date range and wording, and search once for newer circulars/releases after the source date.
 
 When you re-verify a library entry, also update its `checked` date in `brand/facts-library.md`. When an
-episode adds a new fact that will recur (tax, PF, gratuity, deductions, limits), add it to the library. Check each script line says no more than its fact supports (jokes included — a joke
+episode adds a new fact that will recur (tax, PF, gratuity, deductions, limits), add it to the library.
+**On PASS, write back every verified rule/definition/limit** (any regulator text: RBI, SEBI, NPCI, EPFO, IRDAI,
+tax — credit cards, UPI, insurance included) that isn't already there: id `L-<TOPIC>-<WORD>`, same columns,
+`changes` set, notes = the paragraph ref, caveats on wording, "(from <ep> F#)". Keep worked examples and
+episode-specific numbers out. Your report's last line: `library: +<n> (<ids>)` or `library: +0 (none recurring)`. Check each script line says no more than its fact supports (jokes included — a joke
 can't smuggle in an unsourced number). Also scan `scenes/scenes.json` if it exists.
 
 Update `checked` dates only for facts you re-verified. Never change claim text or script lines

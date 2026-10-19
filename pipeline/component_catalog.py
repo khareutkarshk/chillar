@@ -21,8 +21,15 @@ AUTO = {"chapter-field", "transition", "wordmark", "captions", "outro"}   # plac
 
 
 def short(v) -> str:
+    """A default the director can copy without opening component.json: lists of objects show the full
+    shape of one item (every key, with its default), long strings are kept up to 60 chars."""
+    if isinstance(v, list) and v and isinstance(v[0], dict):
+        item = "{" + ", ".join(f'"{k}": {short(x)}' for k, x in v[0].items()) + "}"
+        return f"[{item}, …]" if len(v) > 1 else f"[{item}]"
+    if isinstance(v, list) and len(v) > 3:
+        return json.dumps(v[:2], ensure_ascii=False)[:-1] + ", …]"
     s = json.dumps(v, ensure_ascii=False)
-    return s if len(s) <= 28 else s[:25] + "…"
+    return s if len(s) <= 60 else s[:57] + "…\""
 
 
 def entry(name: str, m: dict) -> str:
@@ -49,7 +56,13 @@ def render() -> str:
     head = ("# Component catalog (generated — `pipeline/component_catalog.py`, don't edit)\n\n"
             "Read this instead of the component folders. Open a `components/<name>/component.json` only for a\n"
             "component you are about to use and need its full `example`. Layers: `scene` lasts until the next scene;\n"
-            "`overlay` needs `until`/`duration`. Times in params are seconds from the scene's start.\n\n")
+            "`overlay` needs `until`/`duration`. Times in params are seconds from the scene's start.\n\n"
+            "**scenes.json keys** (full spec: `pipeline/validate_scenes.py` docstring — no need to open it):\n"
+            "scene `{id, component, at, params, fact?, cut?}` · overlay adds `until` or `duration` · "
+            "times: seconds, `\"w12\"` (word 12 start), `\"w12.end\"`, `\"w12+0.2\"` · "
+            "`cut`: whip | zoom | wipe | page (default hard cut) · top level: `scenes`, `effects` "
+            "(`{type: \"punch\", at}`), `theme` (pastel | calm | night), `outro {duration, cut, params}`, "
+            "`music {track, under_voice_db}` · scene components with a content zone accept `params.dy` (px, nudge down + / up −).\n\n")
     placeable = [entry(n, m) for n, m in metas.items() if n not in AUTO]
     auto = [entry(n, m) for n, m in metas.items() if n in AUTO]
     return head + "\n".join(placeable) + "\n## Placed by the pipeline\n\n" + "\n".join(auto)

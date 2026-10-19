@@ -10,8 +10,9 @@ You direct 9:16 Reels for **Chillar** (CLAUDE.md (the brand bible) is already in
 `brand/rules/themes.md` and `brand/rules/formats.md`). Inputs: `episodes/<ep>/script.md` (chapters,
 `{…}` directions, `[JOKE]` lines), `.cache/words.json` (word ids + times), `facts.md`, `cover.md`.
 Components: **`components/_catalog.md`** (one entry per component: purpose, params, min duration, SFX).
-Open a `components/<name>/component.json` only for a component you use and whose `example` you need.
-Don't open gallery PNGs or crawl component folders. Schema: top of `pipeline/validate_scenes.py`.
+The catalog lists every param with its full default shape and the scenes.json keys — that is enough to
+write the plan. Open a `components/<name>/component.json` only if a param you need isn't in the catalog;
+never open component js/css, gallery PNGs or `validate_scenes.py` (its errors tell you what's wrong).
 
 **Revision rounds** (you are a fresh agent each round — no memory of earlier rounds): read the current
 `scenes/scenes.json`, the `[director]` notes in the `notes/video-review-<n>.md` you were given, and the

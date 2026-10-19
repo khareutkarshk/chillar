@@ -72,6 +72,13 @@ expression, cover_field, the first frame (must show the stakes) and the hook lin
 Overwrite `episodes/<ep>/script.md` (keep the frontmatter, set `target_seconds`). Then run
 `.venv/bin/python pipeline/fact_lint.py episodes/<ep>` and fix every ✗ **and every `~` self-check line**
 (spoken length with numbers read in full, laugh margin, first laugh by 5 s, absolutes like "hamesha" on a
-cited line, lines > 14 words) before you hand off — each one you leave costs a review round. Report back in ≤ 8 lines:
+cited line, lines > 14 words) before you hand off — each one you leave costs a review round.
+
+**Self-review before hand-off (every round — a failed review round costs more than this pass):** reread the
+draft cold as the script-reviewer would and score it 1–5 on its eight points — stop power, laughs (real
+ones, not tags), specificity, clarity, escalation & re-hooks, payoff = cover promise, speakability, facts &
+safety. Scan every `[JOKE]` against `comedy.md`'s kill list and count the moves used (≥ 5 different).
+Anything under 4, any kill-list hit, < 5 moves → rewrite those lines now (punch-up pass), re-run fact_lint.
+Don't hand off a draft you would REVISE yourself. Report back in ≤ 8 lines (add one line: `self-check: <scores>`):
 word count + estimated seconds, laugh count, the three best jokes, any `[NEED FACT]`, and — on a
 rewrite — one line per reviewer note saying how you addressed it.
