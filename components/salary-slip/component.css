@@ -1,0 +1,12 @@
+.c-salary-slip .ss-sheet { width: 870px; box-sizing: border-box; padding: 48px 54px 54px; display: flex; flex-direction: column; }
+.c-salary-slip .ss-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 18px; margin-bottom: 8px; border-bottom: 5px solid var(--ink); }
+.c-salary-slip .ss-head .t-head { font-size: 82px; }
+.c-salary-slip .ss-head .t-print { font-size: 32px; color: var(--pencil); }
+.c-salary-slip .ss-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 50px; padding: 16px 0; }
+.c-salary-slip .ss-row .num { font-size: 56px; }
+.c-salary-slip .ss-row.pos .num { color: var(--green-text); }
+.c-salary-slip .ss-row.neg .num { color: var(--red); }
+.c-salary-slip .ss-net { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 22px; border-top: 5px solid var(--ink); }
+.c-salary-slip .ss-net .t-head { font-size: 72px; }
+.c-salary-slip .ss-netnum { position: relative; }
+.c-salary-slip .ss-net .odo { font-size: 100px; }

@@ -1,0 +1,9 @@
+.c-transition { z-index: 40; pointer-events: none; }
+.c-transition .tr-wipe { position: absolute; inset: 0; background: var(--wipe-field); }
+.c-transition .tr-persp { position: absolute; inset: 0; perspective: 2600px; }
+.c-transition .tr-page {
+  position: absolute; inset: 0; background-color: var(--paper);
+  /* a blank passbook page: printed ruling is part of the object, not decoration on the frame */
+  background-image: repeating-linear-gradient(to bottom, transparent 0 94px, rgba(31, 69, 181, .16) 94px 97px);   /* taste-skill-ignore: the passbook's printed ruling */
+}
+.c-transition .tr-page::before { content: ""; position: absolute; top: 0; bottom: 0; left: 120px; width: 3px; background: rgba(217, 48, 44, .28); }

@@ -1,0 +1,18 @@
+{
+  "name": "stamp",
+  "description": "The thappa: a stamp-pad red rubber stamp slams in (140%→100% in 4 frames + 2-frame shake) on a scrap of paper, so it reads on every field. Ink is textured (not a clean vector). Max 3 per video. Overlay on top of a scene.",
+  "layer": "overlay",
+  "rehook": true,
+  "params": {
+    "text": "MDR 0%",
+    "sub": "",
+    "x": 540,
+    "y": 760,
+    "rotate": -8,
+    "size": 150
+  },
+  "example": { "text": "MDR 0%", "sub": "since Jan 2020" },
+  "sfx": [{ "sound": "stamp", "at": 0.133, "event": "impact" }],
+  "minDuration": 1.2,
+  "box": "params.x/y ± 360x180"
+}

@@ -1,0 +1,40 @@
+/* Chillar animations. Add a class to the <svg class="chillar">:
+ *   .anim-blink .anim-bounce .anim-sweat .anim-shake .anim-walk
+ * All loops are FINITE (HyperFrames must be able to seek them): set --loops (default 3).
+ * Inside compositions prefer components/lib/mascot-anim.js (GSAP), which mirrors these.
+ */
+.chillar { overflow: visible; }
+.chillar .eye, .chillar .figure, .chillar .leg, .chillar .sweat, .chillar .arm {
+  transform-box: fill-box;
+}
+.chillar .eye { transform-origin: 50% 50%; }
+.chillar .leg { transform-origin: 50% 0%; }
+.chillar .figure { transform-origin: 50% 100%; }
+
+/* blink: 2-frame lid snap every 2.4s */
+.chillar.anim-blink .eye { animation: chillar-blink 2.4s steps(1, end) var(--loops, 3) both; }
+@keyframes chillar-blink { 0%, 93% { transform: scaleY(1); } 94%, 97% { transform: scaleY(.12); } 98%, 100% { transform: scaleY(1); } }
+
+/* bounce: squash on landing (tired bounce, small) */
+.chillar.anim-bounce .figure { animation: chillar-bounce .6s cubic-bezier(.3,.7,.4,1) var(--loops, 3) both; }
+@keyframes chillar-bounce {
+  0%   { transform: translateY(0) scale(1, 1); }
+  40%  { transform: translateY(-26px) scale(.97, 1.03); }
+  80%  { transform: translateY(0) scale(1.05, .94); }
+  100% { transform: translateY(0) scale(1, 1); }
+}
+
+/* sweat drop slides down the face and fades */
+.chillar.anim-sweat .sweat { animation: chillar-sweat 1.2s ease-in var(--loops, 2) both; }
+@keyframes chillar-sweat { 0% { transform: translateY(-6px); opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(34px); opacity: 0; } }
+
+/* shake: hard jitter (thappa reaction) */
+.chillar.anim-shake .figure { animation: chillar-shake .2s steps(4, end) var(--loops, 2) both; }
+@keyframes chillar-shake { 0% { transform: translateX(0); } 25% { transform: translateX(-7px) rotate(-1.5deg); } 50% { transform: translateX(6px) rotate(1deg); } 75% { transform: translateX(-4px); } 100% { transform: translateX(0); } }
+
+/* coin-clink walk: legs swing, body bobs; each step = one coin clink SFX (0.4s) */
+.chillar.anim-walk .leg-l { animation: chillar-leg .8s ease-in-out var(--loops, 4) both; }
+.chillar.anim-walk .leg-r { animation: chillar-leg .8s ease-in-out var(--loops, 4) reverse both; }
+.chillar.anim-walk .figure { animation: chillar-bob .4s ease-in-out calc(var(--loops, 4) * 2) both; }
+@keyframes chillar-leg { 0%, 100% { transform: rotate(16deg); } 50% { transform: rotate(-16deg); } }
+@keyframes chillar-bob { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-8px) rotate(1deg); } }

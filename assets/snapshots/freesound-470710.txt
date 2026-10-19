@@ -1,0 +1,12 @@
+# license snapshot 2026-10-18T18:17:05+00:00
+# https://freesound.org/people/I.fekry/sounds/470710/
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+Freesound API response at download time:
+{
+  "id": 470710,
+  "url": "https://freesound.org/people/I.fekry/sounds/470710/",
+  "name": "traditional stamp.wav",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "username": "I.fekry"
+}

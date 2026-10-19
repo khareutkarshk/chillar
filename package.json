@@ -1,0 +1,16 @@
+{
+  "name": "chillar-reels",
+  "private": true,
+  "description": "Note Fields finance Reels renderer (HyperFrames)",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "doctor": "hyperframes doctor",
+    "reel": ".venv/bin/python pipeline/make_reel.py"
+  },
+  "devDependencies": {
+    "gsap": "^3.14.2",
+    "hyperframes": "0.8.172"
+  }
+}

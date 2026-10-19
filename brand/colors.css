@@ -1,0 +1,127 @@
+/* Chillar — design tokens. Source of truth: brand/tokens.json ("theme" picks the active one).
+   Each chapter is one softly lit field; passbooks, receipts and slips are real paper objects lying
+   on it (soft contact shadow, slight tilt), marked up in ballpoint and stamp ink.
+   Calm, tonal, tactile. No neon, no glow, no tracked-caps labels. */
+
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/BricolageGrotesque[opsz,wdth,wght].ttf") format("truetype"); font-weight: 200 800; font-stretch: 75% 100%; font-display: block; }
+@font-face { font-family: "Mukta"; src: url("fonts/Mukta-ExtraBold.ttf") format("truetype"); font-weight: 800; font-display: block; }
+@font-face { font-family: "Mukta"; src: url("fonts/Mukta-Bold.ttf") format("truetype"); font-weight: 700; font-display: block; }
+@font-face { font-family: "JetBrains Mono"; src: url("fonts/JetBrainsMono[wght].ttf") format("truetype"); font-weight: 100 800; font-display: block; } /* taste-skill-ignore: printer face, printouts only */
+
+/* ---------------------------------------------------------------- theme: pastel (default)
+   "Soft Rupee": the rupee-note colours, softened to milk-tea pastels. */
+:root {
+  --ink: #1E1B18;        /* text on paper and on haldi — always dark */
+  --paper: #FFFDF9;      /* paper objects */
+  --pencil: #7A746A;     /* secondary text on paper */
+  --red: #C9473B;        /* stamp-pad ink, debits */
+  --pen: #2F4FA3;        /* blue ballpoint — handwriting only */
+  --green: #3E9A62;      /* shapes */
+  --green-text: #2B7A4B;
+  --haldi: #F6CF5C;      /* highlight, marker, mascot — never text colour */
+  --shadow-rgb: 74, 52, 34;
+  --light-mix: 70%;      /* how much field vs paper at the soft light's centre */
+
+  --bone: #F1EEE8;     --bone-ink: #1E1B18;
+  --note10: #D9C3B0;   --note10-ink: #3A2618;
+  --note20: #E2E6B8;   --note20-ink: #2E3317;
+  --note50: #CFE6EE;   --note50-ink: #13364A;
+  --note500: #DAD6CC;  --note500-ink: #2B2924;
+  --note2000: #F0D0DD; --note2000-ink: #5A1E38;
+}
+
+/* ---------------------------------------------------------------- theme: calm
+   Tone-on-tone: sage, powder blue, sand, dusty rose, slate — each with a deep ink of its own hue. */
+:root[data-theme="calm"] {
+  --ink: #1C1C1A; --paper: #FFFEFB; --pencil: #77736B;
+  --red: #B9443A; --pen: #2C4E9A; --green: #3B8F5E; --green-text: #2A7048; --haldi: #F3D27A;
+  --shadow-rgb: 40, 48, 44; --light-mix: 68%;
+  --bone: #F2F0EB;     --bone-ink: #1C1C1A;
+  --note10: #DDE4D5;   --note10-ink: #223A2E;
+  --note20: #D8E3EC;   --note20-ink: #1D3550;
+  --note50: #ECE3D1;   --note50-ink: #45351F;
+  --note500: #E9D8DA;  --note500-ink: #4F2836;
+  --note2000: #CBD2D8; --note2000-ink: #222C36;
+}
+
+/* ---------------------------------------------------------------- theme: night
+   Night desk: deep forest, midnight, espresso, teal, oxblood — warm paper objects under a lamp. */
+:root[data-theme="night"] {
+  --ink: #1B1814; --paper: #F7F1E6; --pencil: #857C6E;
+  --red: #D9533F; --pen: #2F55C4; --green: #3FAE73; --green-text: #2E8A57; --haldi: #F2C14E;
+  --shadow-rgb: 0, 0, 0; --light-mix: 84%;
+  --bone: #1F1E1B;     --bone-ink: #F2EEE6;
+  --note10: #1B3A33;   --note10-ink: #F3EDE1;
+  --note20: #1A2740;   --note20-ink: #EEF1F6;
+  --note50: #2E241F;   --note50-ink: #F4E9DC;
+  --note500: #133B44;  --note500-ink: #E9F4F4;
+  --note2000: #4A1F27; --note2000-ink: #F6E6E6;
+}
+
+:root {
+  /* the current chapter's field; chapter-field switches these on #root at each chapter cut */
+  --field: var(--bone);
+  --on-field: var(--bone-ink);
+
+  /* type — Bricolage Grotesque carries ₹; Mukta covers Devanagari (taste-skill-ignore) */
+  --font-head: "Bricolage Grotesque", "Mukta", sans-serif;
+  --font-body: "Mukta", sans-serif;
+  --font-print: "JetBrains Mono", "Mukta", monospace;   /* printouts only (receipt, passbook) taste-skill-ignore */
+
+  --radius: 8px;
+  /* paper lying on a desk: a tight contact shadow + a soft ambient one (taste-skill-ignore: physical objects) */
+  --lift: 0 1px 2px rgba(var(--shadow-rgb), .14), 0 10px 18px -8px rgba(var(--shadow-rgb), .22), 0 34px 60px -24px rgba(var(--shadow-rgb), .34); /* taste-skill-ignore: paper depth */ 
+
+  /* Instagram Reels safe zones (1080x1920) */
+  --safe-top: 220px;
+  --safe-bottom: 420px;
+  --safe-left: 60px;
+  --safe-right: 140px;
+  --caption-top: 1150px;
+  --caption-bottom: 1450px;
+
+  /* legacy aliases (tool pages: audition, mascot sheet) */
+  --card: var(--paper);
+  --font-mono: var(--font-print);   /* taste-skill-ignore: legacy alias for tool pages */
+}
+
+/* the field: one flat colour, softly lit from above like a desk under a window (same hue only) */
+.field-light {
+  background-color: var(--field);
+  background-image: radial-gradient(ellipse 115% 62% at 50% 30%, color-mix(in srgb, var(--field) var(--light-mix), var(--paper)) 0%, var(--field) 74%); /* taste-skill-ignore: tonal light, same hue */
+}
+/* paper grain over the whole frame, generated, never an image */
+.grain::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .05; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.08  0 0 0 0 0.08  0 0 0 0 0.08  0 0 0 1.4 -0.55'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* a paper object lying on the field */
+.paper-obj { background: var(--paper); color: var(--ink); border-radius: var(--radius); position: relative; box-shadow: var(--lift); /* taste-skill-ignore: paper depth */ }
+/* torn/zig-zag paper: the clip-path lives on the inner sheet, the depth on this wrapper */
+.torn-wrap { filter: drop-shadow(0 1px 1px rgba(var(--shadow-rgb), .16)) drop-shadow(0 16px 18px rgba(var(--shadow-rgb), .24)); /* taste-skill-ignore: paper depth */ }
+.paper-torn { background: var(--paper); color: var(--ink); }
+
+.t-head  { font-family: var(--font-head); font-weight: 800; font-stretch: 96%; font-variation-settings: "opsz" 96; letter-spacing: -.022em; word-spacing: .08em; line-height: 1; }
+.t-body  { font-family: var(--font-body); font-weight: 800; }
+.t-num   { font-family: var(--font-head); font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.03em; }
+.t-print { font-family: var(--font-print); font-weight: 600; font-variant-numeric: tabular-nums; }
+.t-sub   { color: var(--pencil); }
+.t-green { color: var(--green-text); }
+.t-red   { color: var(--red); }
+.on-field { color: var(--on-field); }
+
+/* highlighter swipe — haldi touches text only as a background; text on it is ink.
+   Single-colour fill animated by width via --marker (0→1); rounded like a real marker tip. */
+.marker {
+  color: var(--ink);
+  background-image: linear-gradient(var(--haldi), var(--haldi));   /* taste-skill-ignore: one-colour solid fill, animatable width */
+  background-repeat: no-repeat; background-position: 0 80%;
+  background-size: calc(var(--marker, 1) * 100%) 78%;
+  border-radius: .18em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 .08em;
+}
+
+/* tool pages (audition, mascot sheet) */
+.chillar-paper { background: var(--bone); position: relative; }
+.chillar-card { background: var(--paper); border-radius: var(--radius); }

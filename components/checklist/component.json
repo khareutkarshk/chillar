@@ -1,0 +1,12 @@
+{
+  "name": "checklist",
+  "description": "A paper chit list: each item gets a blue-ballpoint tick or a red-pen cross, written in sequence. Title sits on the field above the chit.",
+  "layer": "scene",
+  "params": { "title": "", "items": [{ "text": "Item", "ok": true }], "stagger": 0.35 },
+  "example": {
+    "title": "UPI pe kya free hai?",
+    "items": [{ "text": "Tumhare liye payment", "ok": true }, { "text": "Dukaan wale ka MDR", "ok": true }, { "text": "Sarkar ka bill", "ok": false }]
+  },
+  "sfx": [],
+  "minDuration": 1.8
+}

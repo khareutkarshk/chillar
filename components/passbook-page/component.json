@@ -1,0 +1,23 @@
+{
+  "name": "passbook-page",
+  "description": "An open bank passbook page lying on the field: printed column heads, entries printed dot-matrix style one line at a time (printer buzz), running balance computed, the final balance circled in blue ballpoint. Debits red, credits green. The most Chillar object there is — strong as frame 1 (printed:true) or as the growing-receipt meter.",
+  "layer": "scene",
+  "params": {
+    "opening": 10000,
+    "rows": [{ "date": "01-10", "text": "Salary", "amount": 50000, "type": "cr" }],
+    "step": 0.24,
+    "printed": false,
+    "circleBalance": true
+  },
+  "example": {
+    "opening": 2340,
+    "rows": [
+      { "date": "01-10", "text": "Salary", "amount": 42000, "type": "cr" },
+      { "date": "03-10", "text": "Rent", "amount": 15000, "type": "dr" },
+      { "date": "05-10", "text": "EMI phone", "amount": 3999, "type": "dr" },
+      { "date": "09-10", "text": "Card bill", "amount": 21480, "type": "dr" }
+    ]
+  },
+  "sfx": [{ "sound": "printer", "at": 0, "event": "print", "skipIf": "printed" }],
+  "minDuration": 1.8
+}

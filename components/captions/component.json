@@ -1,0 +1,9 @@
+{
+  "name": "captions",
+  "description": "Word-highlight captions in the caption band (y 1150–1450). Mukta ExtraBold in the chapter field's ink; the active word gets a flat haldi highlight with ink text (no shadow, no box outline). Built automatically from words.json — not placed in scenes.",
+  "layer": "captions",
+  "params": { "maxWords": 4, "maxChars": 22, "size": 76 },
+  "example": {},
+  "sfx": [],
+  "minDuration": 0
+}

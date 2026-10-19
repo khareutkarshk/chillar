@@ -1,0 +1,8 @@
+.c-calendar-flip .cf-label { font-size: 112px; color: var(--on-field); max-width: 870px; }
+.c-calendar-flip .cf-cal { position: relative; width: 600px; height: 620px; perspective: 1800px; margin: 14px 0 0 40px; }
+.c-calendar-flip .cf-rings { position: absolute; top: -30px; left: 0; right: 0; display: flex; justify-content: space-around; z-index: 99; }
+.c-calendar-flip .cf-rings span { width: 22px; height: 62px; background: var(--ink); border-radius: 11px; }
+.c-calendar-flip .cf-stack { position: absolute; inset: 0; }
+.c-calendar-flip .cf-page { position: absolute; inset: 0; overflow: hidden; display: flex; flex-direction: column; backface-visibility: hidden; }
+.c-calendar-flip .cf-band { background: var(--red); color: var(--paper); font-size: 84px; padding: 50px 0 22px; text-align: center; }
+.c-calendar-flip .cf-big { flex: 1; display: flex; align-items: center; justify-content: center; font-size: 230px; color: var(--ink); }

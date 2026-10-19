@@ -1,0 +1,9 @@
+.c-split-compare .zone { gap: 0; }
+.c-split-compare .sc-chit { width: 840px; box-sizing: border-box; padding: 40px 50px 64px; display: flex; flex-direction: column; gap: 12px; }
+.c-split-compare .sc-word { font-size: 100px; }
+.c-split-compare .sc-myth .sc-word { color: var(--pencil); }
+.c-split-compare .sc-math { margin: -18px 0 0 40px; position: relative; z-index: 2; padding-bottom: 52px; }
+.c-split-compare .sc-math .sc-word { color: var(--green-text); }
+.c-split-compare .sc-text { font-size: 62px; line-height: 1.12; }
+.c-split-compare .sc-myth .sc-text { color: var(--pencil); position: relative; display: inline-block; }
+.c-split-compare .sc-myth .scrib path { stroke: var(--red); }

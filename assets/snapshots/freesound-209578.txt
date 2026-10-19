@@ -1,0 +1,12 @@
+# license snapshot 2026-10-18T18:14:18+00:00
+# https://freesound.org/people/Zott820/sounds/209578/
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+Freesound API response at download time:
+{
+  "id": 209578,
+  "url": "https://freesound.org/people/Zott820/sounds/209578/",
+  "name": "Cash Register Purchase",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "username": "Zott820"
+}

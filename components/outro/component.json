@@ -1,0 +1,17 @@
+{
+  "name": "outro",
+  "description": "Every video ends here (bone field): a thermal receipt prints 'Is video ka MDR: 0%. Gyaan free hai.', then the follow stub tears off along the perforation. Includes the 'Educational only' disclaimer.",
+  "layer": "scene",
+  "params": {
+    "line1": "Is video ka MDR: 0%.",
+    "line2": "Gyaan free hai.",
+    "follow": "Follow @chillar",
+    "sub": "Agla receipt kal.",
+    "disclaimer": "Educational only. Not investment advice.",
+    "mascot": "smug",
+    "tearAt": 1.4
+  },
+  "example": {},
+  "sfx": [{ "sound": "printer", "at": 0.0, "event": "print" }, { "sound": "coin", "at": 2.1, "event": "mascot" }],
+  "minDuration": 2.8
+}

@@ -1,0 +1,18 @@
+{
+  "name": "statement",
+  "description": "One big statement on the chapter field: headline (≤ 6 words, *marker* words swipe yellow) and an optional body line. With paper:true the body is a hand-torn chit lying under the headline (definitions, fine print). Left-aligned on the shared edge.",
+  "layer": "scene",
+  "params": {
+    "title": "MDR kya hai?",
+    "body": "",
+    "paper": false,
+    "size": 156
+  },
+  "example": {
+    "title": "MDR kya hai?",
+    "body": "Har payment pe dukaan wala bank ko jo *fee* deta hai. Card pe 0.90% tak.",
+    "paper": true
+  },
+  "sfx": [],
+  "minDuration": 1.2
+}

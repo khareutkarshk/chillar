@@ -1,0 +1,33 @@
+[project]
+name = "chillar-reels"
+version = "0.1.0"
+description = "Hinglish script + voiceover -> Passbook Punk 9:16 finance Reels"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.31",
+    "python-dotenv>=1.0",
+    "pillow>=10.0",
+    "fonttools>=4.47",
+    "numpy>=1.26",
+    "playwright>=1.44",
+    "faster-whisper>=1.0",
+    "av>=12,<16",
+    "stable-ts>=2.17",
+    "torch>=2.2",
+    "torchaudio>=2.2",
+    "kokoro-onnx>=0.4",
+    "soundfile>=0.12",
+    "tomli>=2.0; python_version<'3.11'",
+]
+
+[tool.uv]
+package = false
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]
+torchaudio = [{ index = "pytorch-cpu", marker = "sys_platform == 'linux'" }]

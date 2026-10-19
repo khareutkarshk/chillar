@@ -1,0 +1,15 @@
+{
+  "name": "transition",
+  "description": "A real editor's transition between two shots — never a title card. It moves the outgoing and incoming scenes themselves (or wipes the next chapter's field across), centred on the cut. Styles: whip (out left 4f, in from right 5f, hard cut between), zoom (punch through the old shot, land on the new), wipe (next field colour slides up over the frame, cut under it), page (a blank passbook page turns over the frame). Carries NO text. Placed from a scene's \"cut\" key; plain hard cuts need no clip.",
+  "layer": "transition",
+  "params": { "style": "whip", "from": "", "to": "", "field": "", "cut": 0 },
+  "example": { "style": "whip" },
+  "styles": {
+    "whip": { "pre": 0.133, "post": 0.167 },
+    "zoom": { "pre": 0.133, "post": 0.2 },
+    "wipe": { "pre": 0.167, "post": 0.033 },
+    "page": { "pre": 0.2, "post": 0.233 }
+  },
+  "sfx": [{ "sound": "whoosh", "at": 0.0, "event": "move" }],
+  "minDuration": 0.2
+}

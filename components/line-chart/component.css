@@ -1,0 +1,9 @@
+.c-line-chart .lc-title { font-size: 100px; color: var(--on-field); max-width: 870px; }
+.c-line-chart .lc-sheet { width: 870px; box-sizing: border-box; padding: 40px 44px 44px; display: flex; flex-direction: column; gap: 18px; }
+.c-line-chart .lc-svg { display: block; overflow: visible; }
+.c-line-chart .lc-end { font-size: 46px; display: flex; align-items: baseline; gap: 16px; }
+.c-line-chart .lc-end .num { margin-left: auto; font-size: 58px; position: relative; }
+.c-line-chart .lc-end.sub { color: var(--pencil); }
+.c-line-chart .sw { display: inline-block; width: 44px; height: 14px; border-radius: 7px; transform: translateY(-8px); }
+.c-line-chart .sw.g { background: var(--green); }
+.c-line-chart .sw.p { background: var(--pencil); }

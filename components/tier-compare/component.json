@@ -1,0 +1,16 @@
+{
+  "name": "tier-compare",
+  "description": "₹100 vs ₹1,000 vs ₹1,00,000 escalation: three paper columns standing on the bottom of the content zone, each taller than the last, revealed in sequence; the last result gets a ballpoint circle.",
+  "layer": "scene",
+  "params": {
+    "title": "",
+    "tiers": [{ "amount": "₹100", "result": "" }, { "amount": "₹1,000", "result": "" }, { "amount": "₹1,00,000", "result": "" }],
+    "stagger": 0.9
+  },
+  "example": {
+    "title": "Card pe MDR (0.90% tak)",
+    "tiers": [{ "amount": "₹100", "result": "₹0.90" }, { "amount": "₹1,000", "result": "₹9" }, { "amount": "₹1,00,000", "result": "₹900" }]
+  },
+  "sfx": [{ "sound": "coin", "at": 0.1, "event": "tier-1" }, { "sound": "ding", "at": 2.0, "event": "tier-3" }],
+  "minDuration": 2.6
+}

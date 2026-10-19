@@ -1,0 +1,5 @@
+.c-statement .st-title { color: var(--on-field); max-width: 870px; }
+.c-statement .st-body { font-size: 58px; line-height: 1.18; max-width: 820px; color: var(--on-field); }
+.c-statement .st-wrap { width: 860px; }
+.c-statement .st-chit { color: var(--ink); padding: 44px 50px 50px; box-sizing: border-box; font-size: 54px; line-height: 1.2; border-radius: 4px;
+  clip-path: polygon(0 3%, 6% 0, 18% 2%, 31% 0, 47% 1.5%, 62% 0, 78% 2%, 91% 0, 100% 2%, 99.5% 100%, 0 99%); }

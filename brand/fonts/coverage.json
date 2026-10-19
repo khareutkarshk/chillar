@@ -1,0 +1,17 @@
+{
+  "BricolageGrotesque[opsz,wdth,wght].ttf": {
+    "latin": true,
+    "digits": true,
+    "rupee": true
+  },
+  "Mukta-ExtraBold.ttf": {
+    "latin": true,
+    "devanagari": true,
+    "rupee": true
+  },
+  "JetBrainsMono[wght].ttf": {
+    "digits": true,
+    "rupee": false
+  },
+  "rupee_font": "Mukta"
+}

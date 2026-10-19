@@ -1,0 +1,15 @@
+# license snapshot 2026-10-18T18:20:30+00:00
+# https://pixabay.com/music/lofi-lofi-lofi-music-61sec-587180/
+# https://pixabay.com/service/license-summary/
+
+Pixabay item page at download time states: ...venčina Suomi Svenska Türkçe Việt ไทย Български Русский Ελληνική 日本語 한국어 简体中文 Log in Join Upload Free for use under the Pixabay Content License 11K Free download LoFi - LoFi Music_61Sec prettyjohn1 0:00 1:01 Auto-match your soundtrack to your footage with one-click Beat Sync. Try Canva Pro for free Share More info Lofi...
+{
+  "id": 587180,
+  "name": "LoFi - LoFi Music_61Sec",
+  "artist": "",
+  "duration": 60.969781,
+  "hasYoutubeContentId": false,
+  "isAiGenerated": false,
+  "contentIdCertificateUrl": null,
+  "publishedDate": "2026-08-18"
+}

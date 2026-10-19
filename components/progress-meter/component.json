@@ -1,0 +1,10 @@
+{
+  "name": "progress-meter",
+  "description": "The chillar meter: a row of ₹1 coins along the top (y≈170, decorative, outside the content zone). Filled coins are haldi, the rest are empty rings in the field ink; each newly earned coin drops in. Place one per chapter; it fills from→to (fractions of the row).",
+  "layer": "overlay",
+  "decorative": true,
+  "params": { "from": 0, "to": 0.5, "coins": 8 },
+  "example": { "from": 0.25, "to": 0.5, "coins": 8 },
+  "sfx": [{ "sound": "coin", "at": 0.1, "event": "earned" }],
+  "minDuration": 0.6
+}

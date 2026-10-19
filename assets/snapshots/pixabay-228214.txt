@@ -1,0 +1,15 @@
+# license snapshot 2026-10-18T18:21:22+00:00
+# https://pixabay.com/music/india-fusion-228214/
+# https://pixabay.com/service/license-summary/
+
+Pixabay item page at download time states: ...venčina Suomi Svenska Türkçe Việt ไทย Български Русский Ελληνική 日本語 한국어 简体中文 Log in Join Upload Free for use under the Pixabay Content License 19 Free download Fusion ShubsMusik 0:00 2:04 Auto-match your soundtrack to your footage with one-click Beat Sync. Try Canva Pro for free Share More info Fusion energetic instru...
+{
+  "id": 228214,
+  "name": "Fusion",
+  "artist": "",
+  "duration": 123.864,
+  "hasYoutubeContentId": false,
+  "isAiGenerated": false,
+  "contentIdCertificateUrl": null,
+  "publishedDate": "2024-07-31"
+}

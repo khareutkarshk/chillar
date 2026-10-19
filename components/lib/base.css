@@ -1,0 +1,25 @@
+/* Shared layout for every Chillar composition (inlined after brand/colors.css). */
+html, body { margin: 0; background: var(--field); }
+#root { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--field); color: var(--on-field); }
+#stage { position: absolute; inset: 0; transform-origin: 50% 40%; }
+.scene { position: absolute; inset: 0; }
+/* content zone: x 60–940, y 240–1120 (safe zones + caption band kept clear).
+   Left-anchored by default: one shared left edge across every scene. */
+.zone { position: absolute; left: 60px; top: 236px; width: 880px; height: 890px; box-sizing: border-box;
+        display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 44px; }
+.zone.top { justify-content: flex-start; }
+.zone.center { align-items: center; }
+.num { font-family: var(--font-head); font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -.02em; }
+.t-print .num, .num.print { font-family: var(--font-print); font-weight: 800; letter-spacing: 0; }
+.block { display: block; }
+
+/* odometer (display face, tabular figures) */
+.odo { display: inline-flex; font-family: var(--font-head); font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; letter-spacing: -.02em; }
+.odo-d { display: inline-block; height: 1em; overflow: hidden; }
+.odo-strip { display: flex; flex-direction: column; }
+.odo-strip span, .odo-s { display: block; height: 1em; }
+.odo-s { margin: 0 -.04em; }
+
+/* blue-ballpoint scribbles laid over content (CH.scribble) */
+.scrib { position: absolute; overflow: visible; pointer-events: none; z-index: 5; }
+.scrib path { fill: none; stroke: var(--pen); stroke-linecap: round; stroke-linejoin: round; }

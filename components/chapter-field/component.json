@@ -1,0 +1,10 @@
+{
+  "name": "chapter-field",
+  "description": "The ground of every frame: one flat rupee-note colour per chapter (fields in brand/tokens.json), switched with a hard cut on the chapter's first scene. Sets --field / --on-field on #root so every scene and the captions take the right ink. Print grain on top. Always on, full duration, track 0 — inserted automatically.",
+  "layer": "background",
+  "fullBleed": true,
+  "params": { "chapters": [{ "start": 0, "field": "note10" }], "grain": true },
+  "example": { "chapters": [{ "start": 0, "field": "note10" }] },
+  "sfx": [],
+  "minDuration": 1
+}

@@ -1,0 +1,9 @@
+.c-odometer-number .zone { gap: 14px; }
+.c-odometer-number .od-label { font-size: 60px; line-height: 1.12; color: var(--on-field); max-width: 840px; margin-bottom: 8px; }
+.c-odometer-number .od-numwrap { position: relative; padding-bottom: 40px; }
+.c-odometer-number .od-num { line-height: 1; color: var(--on-field); }
+.c-odometer-number .od-num.tone-red { color: var(--red); }
+.c-odometer-number .od-num.tone-green { color: var(--green-text); }
+.c-odometer-number .od-unit { font-size: 132px; color: var(--on-field); }
+.c-odometer-number .od-sub { font-size: 50px; color: var(--on-field); opacity: .86; margin-top: 18px; }
+.c-odometer-number .scrib path { stroke: var(--on-field); }

@@ -1,0 +1,24 @@
+{
+  "name": "receipt-list",
+  "description": "Thermal receipt that prints line by line (stepped) out of a printer slot, lying on the field. The total is circled in blue ballpoint after it prints. Great as frame 1 (printed:true shows it fully at t=0) or as a growing receipt meter.",
+  "layer": "scene",
+  "params": {
+    "title": "UPI RECEIPT",
+    "meta": "",
+    "items": [{ "label": "Chai", "amount": "₹20" }],
+    "total": { "label": "TOTAL", "amount": "₹20", "tone": "ink" },
+    "footer": "",
+    "circleTotal": true,
+    "step": 0.22,
+    "printed": false
+  },
+  "example": {
+    "title": "UPI RECEIPT",
+    "meta": "TXN 19-10-2026 08:42",
+    "items": [{ "label": "Chai", "amount": "₹20" }, { "label": "Samosa", "amount": "₹15" }, { "label": "Convenience fee", "amount": "₹0" }],
+    "total": { "label": "MDR", "amount": "₹0 ?", "tone": "red" },
+    "footer": "THANK YOU VISIT AGAIN"
+  },
+  "sfx": [{ "sound": "printer", "at": 0, "event": "print-start", "skipIf": "printed" }],
+  "minDuration": 1.5
+}

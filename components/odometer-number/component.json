@@ -1,0 +1,22 @@
+{
+  "name": "odometer-number",
+  "description": "One huge number rolls up like an odometer (Indian digit grouping), set straight on the chapter field and double-underlined by hand. Use for the big reveal of a ₹ amount or %. tone red/green only on light fields (bone, note20, note50); on dark fields the number stays in the field ink.",
+  "layer": "scene",
+  "params": {
+    "value": 3631,
+    "prefix": "₹",
+    "suffix": "",
+    "decimals": null,
+    "label": "",
+    "unit": "",
+    "sub": "",
+    "tone": "field",
+    "size": 270,
+    "underline": true,
+    "rollStart": 0.15,
+    "rollDuration": 0.9
+  },
+  "example": { "value": 3631, "prefix": "₹", "unit": "crore", "label": "Sarkar ne bhara (2023-24)", "sub": "UPI + RuPay incentive" },
+  "sfx": [{ "sound": "ding", "at": 1.25, "event": "landed" }],
+  "minDuration": 1.6
+}

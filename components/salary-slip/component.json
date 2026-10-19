@@ -1,0 +1,23 @@
+{
+  "name": "salary-slip",
+  "description": "Payslip lying on the field: earnings in green, deductions in red with minus, rows print in steps, net pay rolls on an odometer and gets a double ballpoint underline. Amounts are numbers (formatted en-IN).",
+  "layer": "scene",
+  "params": {
+    "title": "Salary slip",
+    "month": "OCT 2026",
+    "rows": [{ "label": "Basic", "amount": 50000, "type": "earn" }],
+    "netLabel": "In-hand",
+    "step": 0.2
+  },
+  "example": {
+    "month": "OCT 2026",
+    "rows": [
+      { "label": "Basic + HRA", "amount": 60000, "type": "earn" },
+      { "label": "PF", "amount": 3600, "type": "deduct" },
+      { "label": "TDS", "amount": 4200, "type": "deduct" },
+      { "label": "EMI", "amount": 18000, "type": "deduct" }
+    ]
+  },
+  "sfx": [{ "sound": "printer", "at": 0, "event": "print" }, { "sound": "ding", "at": 2.1, "event": "net" }],
+  "minDuration": 2.5
+}

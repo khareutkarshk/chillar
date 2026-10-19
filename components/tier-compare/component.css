@@ -1,0 +1,10 @@
+.c-tier-compare .zone { justify-content: flex-end; gap: 40px; }
+.c-tier-compare .tc-title { font-size: 100px; color: var(--on-field); max-width: 870px; }
+.c-tier-compare .tc-row { display: flex; align-items: flex-end; gap: 24px; height: 640px; }
+.c-tier-compare .tc-col { width: 276px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; gap: 16px; }
+.c-tier-compare .tc-res { font-size: 64px; color: var(--on-field); white-space: nowrap; position: relative; }
+.c-tier-compare .tc-res.big { font-size: 92px; }
+.c-tier-compare .tc-bar { display: flex; align-items: flex-end; width: 276px; box-sizing: border-box; padding: 0 0 22px 24px; background: var(--paper); border-radius: 10px 10px 4px 4px; box-shadow: var(--lift); /* taste-skill-ignore: paper depth */ }
+.c-tier-compare .tc-col:last-child .tc-bar { background: var(--haldi); }
+.c-tier-compare .tc-amt { font-size: 44px; color: var(--ink); white-space: nowrap; }
+.c-tier-compare .scrib path { stroke: var(--on-field); }

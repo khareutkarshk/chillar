@@ -1,0 +1,15 @@
+.c-mascot-reaction .mr-wrap { position: absolute; z-index: 18; }
+.c-mascot-reaction .mr-body { position: absolute; inset: 0; }
+.c-mascot-reaction .mr-body svg { display: block; width: 100%; height: 100%; }
+.c-mascot-reaction .mr-bubble {
+  position: absolute; bottom: 86%; max-width: 520px; width: max-content; padding: 20px 28px 22px;
+  font-size: 50px; line-height: 1.12; z-index: 2; background: var(--paper); color: var(--ink); border-radius: 30px; box-shadow: var(--lift); /* taste-skill-ignore: paper depth */ 
+}
+.c-mascot-reaction .mr-bubble.l { right: 60%; }
+.c-mascot-reaction .mr-bubble.r { left: 60%; }
+.c-mascot-reaction .mr-bubble::after { /* hard-edged paper tail */
+  content: ""; position: absolute; bottom: -26px; width: 0; height: 0;
+  border-left: 16px solid transparent; border-right: 16px solid transparent; border-top: 30px solid var(--paper);
+}
+.c-mascot-reaction .mr-bubble.l::after { right: 44px; transform: skewX(-24deg); }
+.c-mascot-reaction .mr-bubble.r::after { left: 44px; transform: skewX(24deg); }

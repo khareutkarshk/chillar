@@ -1,0 +1,15 @@
+# license snapshot 2026-10-18T18:18:38+00:00
+# https://pixabay.com/sound-effects/film-special-effects-glitch-effect-1-397982/
+# https://pixabay.com/service/license-summary/
+
+Pixabay item page at download time states: ...venčina Suomi Svenska Türkçe Việt ไทย Български Русский Ελληνική 日本語 한국어 简体中文 Log in Join Upload Free for use under the Pixabay Content License 429 Free download Glitch Effect - 1 DRAGON-STUDIO 0:00 0:03 Share More info Glitch, Glitching, Glitch effect sound effect. Free for use. DRAGON-STUDIO 7,727 followers Follow Do...
+{
+  "id": 397982,
+  "name": "Glitch Effect - 1",
+  "artist": "",
+  "duration": 2.638344,
+  "hasYoutubeContentId": false,
+  "isAiGenerated": false,
+  "contentIdCertificateUrl": null,
+  "publishedDate": "2025-09-02"
+}

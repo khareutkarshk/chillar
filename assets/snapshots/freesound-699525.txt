@@ -1,0 +1,12 @@
+# license snapshot 2026-10-18T18:30:41+00:00
+# https://freesound.org/people/Valenspire/sounds/699525/
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+Freesound API response at download time:
+{
+  "id": 699525,
+  "url": "https://freesound.org/people/Valenspire/sounds/699525/",
+  "name": "Coin_Hit_02",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "username": "Valenspire"
+}

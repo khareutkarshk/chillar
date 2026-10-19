@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 440" width="400" height="440" class="chillar chillar--counting-money" data-expr="counting-money" role="img" aria-label="Chillar counting-money">
+  <g id="chillar-figure" class="figure">
+    <g id="chillar-legs" class="legs" stroke="#141414" stroke-width="9" stroke-linecap="round" fill="#141414">
+      <g id="chillar-leg-l" class="leg leg-l"><line x1="172" y1="306" x2="162" y2="390" fill="none"/><ellipse cx="150" cy="397" rx="21" ry="10" stroke-width="0"/></g>
+      <g id="chillar-leg-r" class="leg leg-r"><line x1="228" y1="306" x2="238" y2="390" fill="none"/><ellipse cx="250" cy="397" rx="21" ry="10" stroke-width="0"/></g>
+    </g>
+    
+    <g id="chillar-body" class="body">
+      <path class="shadow" d="M70 190 A130 130 0 1 1 330 190 A130 130 0 1 1 70 190 Z" transform="translate(9 9)" fill="#141414"/>
+      <path class="coin" d="M70 190 A130 130 0 1 1 330 190 A130 130 0 1 1 70 190 Z" fill="#FFC83D" stroke="#141414" stroke-width="10" stroke-linejoin="round"/>
+      <g class="ticks" stroke="#141414" stroke-width="3" stroke-linecap="round"><line x1="317.0" y1="190.0" x2="324.0" y2="190.0"/><line x1="314.4" y1="214.3" x2="321.3" y2="215.8"/><line x1="306.9" y1="237.6" x2="313.3" y2="240.4"/><line x1="294.7" y1="258.8" x2="300.3" y2="262.9"/><line x1="278.3" y1="276.9" x2="283.0" y2="282.1"/><line x1="258.5" y1="291.3" x2="262.0" y2="297.4"/><line x1="236.2" y1="301.3" x2="238.3" y2="307.9"/><line x1="212.2" y1="306.4" x2="213.0" y2="313.3"/><line x1="187.8" y1="306.4" x2="187.0" y2="313.3"/><line x1="163.8" y1="301.3" x2="161.7" y2="307.9"/><line x1="141.5" y1="291.3" x2="138.0" y2="297.4"/><line x1="121.7" y1="276.9" x2="117.0" y2="282.1"/><line x1="105.3" y1="258.8" x2="99.7" y2="262.9"/><line x1="93.1" y1="237.6" x2="86.7" y2="240.4"/><line x1="85.6" y1="214.3" x2="78.7" y2="215.8"/><line x1="83.0" y1="190.0" x2="76.0" y2="190.0"/><line x1="85.6" y1="165.7" x2="78.7" y2="164.2"/><line x1="93.1" y1="142.4" x2="86.7" y2="139.6"/><line x1="105.3" y1="121.2" x2="99.7" y2="117.1"/><line x1="121.7" y1="103.1" x2="117.0" y2="97.9"/><line x1="141.5" y1="88.7" x2="138.0" y2="82.6"/><line x1="163.8" y1="78.7" x2="161.7" y2="72.1"/><line x1="187.8" y1="73.6" x2="187.0" y2="66.7"/><line x1="212.2" y1="73.6" x2="213.0" y2="66.7"/><line x1="236.2" y1="78.7" x2="238.3" y2="72.1"/><line x1="258.5" y1="88.7" x2="262.0" y2="82.6"/><line x1="278.3" y1="103.1" x2="283.0" y2="97.9"/><line x1="294.7" y1="121.2" x2="300.3" y2="117.1"/><line x1="306.9" y1="142.4" x2="313.3" y2="139.6"/><line x1="314.4" y1="165.7" x2="321.3" y2="164.2"/></g>
+      <path class="rim" d="M90 190 A110 110 0 1 1 310 190 A110 110 0 1 1 90 190 Z" fill="none" stroke="#141414" stroke-width="4" stroke-linejoin="round"/>
+      <path class="shine" d="M110.7 157.5 A95 95 0 0 1 152.5 107.7" fill="none" stroke="#FBF8F1" stroke-width="9" stroke-linecap="round"/>
+      <g class="dent" stroke="#141414" stroke-width="4" stroke-linecap="round"></g>
+    </g>
+    <g id="chillar-face" class="face">
+      <g id="chillar-eyes" class="eyes">
+    <g id="chillar-eye-l" class="eye eye-l">
+      <clipPath id="chillar-clip-l"><ellipse cx="158" cy="175" rx="30" ry="25"/></clipPath>
+      <ellipse class="white" cx="158" cy="175" rx="30" ry="25" fill="#FBF8F1"/>
+      <circle class="pupil" cx="158" cy="188" r="11" fill="#141414"/>
+      <g class="lid" clip-path="url(#chillar-clip-l)">
+        <polygon points="118,144 198,144 198,180 118,180" fill="#FFC83D"/>
+        <line x1="118" y1="180" x2="198" y2="180" stroke="#141414" stroke-width="7"/>
+      </g>
+      <ellipse class="outline" cx="158" cy="175" rx="30" ry="25" fill="none" stroke="#141414" stroke-width="6"/>
+    </g>
+    <g id="chillar-eye-r" class="eye eye-r">
+      <clipPath id="chillar-clip-r"><ellipse cx="242" cy="175" rx="30" ry="25"/></clipPath>
+      <ellipse class="white" cx="242" cy="175" rx="30" ry="25" fill="#FBF8F1"/>
+      <circle class="pupil" cx="242" cy="188" r="11" fill="#141414"/>
+      <g class="lid" clip-path="url(#chillar-clip-r)">
+        <polygon points="202,144 282,144 282,180 202,180" fill="#FFC83D"/>
+        <line x1="202" y1="180" x2="282" y2="180" stroke="#141414" stroke-width="7"/>
+      </g>
+      <ellipse class="outline" cx="242" cy="175" rx="30" ry="25" fill="none" stroke="#141414" stroke-width="6"/>
+    </g></g>
+      
+      <g id="chillar-brows" class="brows"><path class="brow brow-l" d="M128 135 L188 133" stroke="#141414" stroke-width="10" stroke-linecap="round" fill="none"/><path class="brow brow-r" d="M212 133 L272 135" stroke="#141414" stroke-width="10" stroke-linecap="round" fill="none"/></g>
+      <g id="chillar-mouth" class="mouth"><path d="M186 252 L214 252" fill="none" stroke="#141414" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></g>
+    </g>
+    <g id="chillar-notes" class="notes" stroke="#141414" stroke-width="5" stroke-linejoin="round">
+        
+        <g transform="translate(200 294) rotate(-8)">
+          <rect x="-62" y="-26" width="124" height="52" rx="4" fill="#1FA35C"/>
+          <rect x="-50" y="-15" width="100" height="30" rx="2" fill="none" stroke="#141414" stroke-width="3"/>
+          <circle cx="0" cy="0" r="9" fill="#FBF8F1" stroke-width="3"/>
+        </g>
+        <g transform="translate(200 302) rotate(4)">
+          <rect x="-62" y="-26" width="124" height="52" rx="4" fill="#1FA35C"/>
+          <rect x="-50" y="-15" width="100" height="30" rx="2" fill="none" stroke="#141414" stroke-width="3"/>
+          <circle cx="0" cy="0" r="9" fill="#FBF8F1" stroke-width="3"/>
+        </g>
+        <g transform="translate(200 310) rotate(-2)">
+          <rect x="-62" y="-26" width="124" height="52" rx="4" fill="#1FA35C"/>
+          <rect x="-50" y="-15" width="100" height="30" rx="2" fill="none" stroke="#141414" stroke-width="3"/>
+          <circle cx="0" cy="0" r="9" fill="#FBF8F1" stroke-width="3"/>
+        </g>
+      </g>
+    
+    <g id="chillar-arms" class="arms" stroke="#141414" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <g id="chillar-arm-l" class="arm arm-l"><path d="M78 214 L104 286 L150 300"/><circle cx="156" cy="300" r="13" fill="#FFC83D" stroke-width="5"/></g>
+      <g id="chillar-arm-r" class="arm arm-r"><path d="M322 214 L296 286 L250 300"/><circle cx="244" cy="300" r="13" fill="#FFC83D" stroke-width="5"/></g>
+    </g>
+    <g id="chillar-extras" class="extras"></g>
+  </g>
+</svg>

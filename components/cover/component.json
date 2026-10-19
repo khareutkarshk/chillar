@@ -1,0 +1,19 @@
+{
+  "name": "cover",
+  "description": "Static 1080x1920 cover (rendered to output/cover.png by cover.py from cover.md) on a note-colour field. Headline left-aligned, kicker under it, an optional stamp and Chillar. Key text sits inside the 3:4 profile-grid crop (y 240–1680). No series label.",
+  "layer": "scene",
+  "params": {
+    "text": "UPI ka bill kaun bharta?",
+    "kicker": "",
+    "stamp": "",
+    "mascot": "side-eye"
+  },
+  "example": {
+    "text": "UPI ka bill kaun bharta?",
+    "kicker": "free ka asli price",
+    "stamp": "MDR 0%",
+    "mascot": "side-eye"
+  },
+  "sfx": [],
+  "minDuration": 0.5
+}

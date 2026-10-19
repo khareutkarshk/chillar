@@ -1,0 +1,15 @@
+# license snapshot 2026-10-18T18:13:04+00:00
+# https://pixabay.com/sound-effects/technology-receipt-printer-01-43872/
+# https://pixabay.com/service/license-summary/
+
+Pixabay item page at download time states: ...venčina Suomi Svenska Türkçe Việt ไทย Български Русский Ελληνική 日本語 한국어 简体中文 Log in Join Upload Free for use under the Pixabay Content License 17 Free download Receipt Printer 01 thepodcastdoctor (Freesound) 0:00 0:03 Share More info Receipt printer 01 checkout sound effect A realistic receipt printer sound effect, id...
+{
+  "id": 43872,
+  "name": "Receipt Printer 01",
+  "artist": "thepodcastdoctor (Freesound)",
+  "duration": 3.192,
+  "hasYoutubeContentId": false,
+  "isAiGenerated": false,
+  "contentIdCertificateUrl": null,
+  "publishedDate": "2022-06-17"
+}

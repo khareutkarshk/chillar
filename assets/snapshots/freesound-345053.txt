@@ -1,0 +1,12 @@
+# license snapshot 2026-10-18T18:12:55+00:00
+# https://freesound.org/people/azumarill/sounds/345053/
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+Freesound API response at download time:
+{
+  "id": 345053,
+  "url": "https://freesound.org/people/azumarill/sounds/345053/",
+  "name": "epson receipt printer6",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "username": "azumarill"
+}

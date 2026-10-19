@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chillar sound audition</title>
+<link rel="stylesheet" href="../colors.css">
+<style>
+  body { margin:0; font-family: var(--font-body); color: var(--ink); }
+  main { max-width: 860px; margin: 0 auto; padding: 32px 16px 80px; }
+  h1 { font-size: 56px; margin: 0 0 8px; } h2 { font-size: 34px; margin: 36px 0 12px; }
+  .opt { display:flex; gap:16px; padding:14px 16px; margin: 0 0 14px; }
+  .num { font-size: 40px; width: 40px; }
+  .meta { flex:1; min-width:0; } .title { font-size: 20px; }
+  .small { font-size: 14px; font-weight: 700; }
+  img { display:block; width:100%; max-width:640px; height:56px; object-fit:fill; margin:8px 0; }
+  audio { width:100%; } a { color: var(--ink); }
+  code { font-family: var(--font-mono); background: var(--card); border: 2px solid var(--ink); padding: 2px 6px; }
+</style></head>
+<body class="chillar-paper"><main>
+  <h1 class="t-head">Sound audition</h1>
+  <p class="t-body">Pick one per slot (two or more for music), then run:<br>
+  <code>.venv/bin/python pipeline/fetch_assets.py lock stamp=1 printer=2 ding=1 coin=3 scratch=1 glitch=2 typing=1 whoosh=1 music=1,3</code></p>
+  <p class="t-sub small">Files in brand/sfx/custom/&lt;slot&gt;.* always override the locked pick.</p>
+  
+    <section>
+      <h2 class="t-head">stamp <span class="t-sub small">(trimmed to 1.2s on lock)</span></h2>
+      
+      <div class="opt chillar-card">
+        <div class="num t-mono">1</div>
+        <div class="meta">
+          <div class="t-body title">traditional stamp.wav</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">1.6s</span>
+            · <a href="https://freesound.org/people/I.fekry/sounds/470710/" target="_blank">source</a></div>
+          <img src="files/stamp/1-freesound-traditional-stamp-wav.wave.png" alt="">
+          <audio controls preload="none" src="files/stamp/1-freesound-traditional-stamp-wav.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">2</div>
+        <div class="meta">
+          <div class="t-body title">impact-sounds · impactPlank_medium_000</div>
+          <div class="t-sub small">kenney · CC0 1.0
+            · <span class="t-mono">0.8s</span>
+            · <a href="https://kenney.nl/assets/impact-sounds" target="_blank">source</a></div>
+          <img src="files/stamp/2-kenney-impact-sounds-impactplank-medi.wave.png" alt="">
+          <audio controls preload="none" src="files/stamp/2-kenney-impact-sounds-impactplank-medi.ogg"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">3</div>
+        <div class="meta">
+          <div class="t-body title">piecz_01.wav</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">1.5s</span>
+            · <a href="https://freesound.org/people/radwoc/sounds/256747/" target="_blank">source</a></div>
+          <img src="files/stamp/3-freesound-piecz-01-wav.wave.png" alt="">
+          <audio controls preload="none" src="files/stamp/3-freesound-piecz-01-wav.mp3"></audio>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="t-head">printer <span class="t-sub small">(trimmed to 2.5s on lock)</span></h2>
+      
+      <div class="opt chillar-card">
+        <div class="num t-mono">1</div>
+        <div class="meta">
+          <div class="t-body title">epson receipt printer6</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">5.4s</span>
+            · <a href="https://freesound.org/people/azumarill/sounds/345053/" target="_blank">source</a></div>
+          <img src="files/printer/1-freesound-epson-receipt-printer6.wave.png" alt="">
+          <audio controls preload="none" src="files/printer/1-freesound-epson-receipt-printer6.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">2</div>
+        <div class="meta">
+          <div class="t-body title">epson receipt printer3</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">5.7s</span>
+            · <a href="https://freesound.org/people/azumarill/sounds/345056/" target="_blank">source</a></div>
+          <img src="files/printer/2-freesound-epson-receipt-printer3.wave.png" alt="">
+          <audio controls preload="none" src="files/printer/2-freesound-epson-receipt-printer3.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">3</div>
+        <div class="meta">
+          <div class="t-body title">epson receipt printer7</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">7.4s</span>
+            · <a href="https://freesound.org/people/azumarill/sounds/345057/" target="_blank">source</a></div>
+          <img src="files/printer/3-freesound-epson-receipt-printer7.wave.png" alt="">
+          <audio controls preload="none" src="files/printer/3-freesound-epson-receipt-printer7.mp3"></audio>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="t-head">ding <span class="t-sub small">(trimmed to 2.0s on lock)</span></h2>
+      
+      <div class="opt chillar-card">
+        <div class="num t-mono">1</div>
+        <div class="meta">
+          <div class="t-body title">Cash Register Fake.wav</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">2.2s</span>
+            · <a href="https://freesound.org/people/CapsLok/sounds/184438/" target="_blank">source</a></div>
+          <img src="files/ding/1-freesound-cash-register-fake-wav.wave.png" alt="">
+          <audio controls preload="none" src="files/ding/1-freesound-cash-register-fake-wav.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">2</div>
+        <div class="meta">
+          <div class="t-body title">Cash Register Purchase</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">2.8s</span>
+            · <a href="https://freesound.org/people/Zott820/sounds/209578/" target="_blank">source</a></div>
+          <img src="files/ding/2-freesound-cash-register-purchase.wave.png" alt="">
+          <audio controls preload="none" src="files/ding/2-freesound-cash-register-purchase.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">3</div>
+        <div class="meta">
+          <div class="t-body title">Cash Register (imitation with toaster and bells)</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">1.4s</span>
+            · <a href="https://freesound.org/people/modusmogulus/sounds/794903/" target="_blank">source</a></div>
+          <img src="files/ding/3-freesound-cash-register-imitation-with-t.wave.png" alt="">
+          <audio controls preload="none" src="files/ding/3-freesound-cash-register-imitation-with-t.mp3"></audio>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="t-head">coin <span class="t-sub small">(trimmed to 1.0s on lock)</span></h2>
+      
+      <div class="opt chillar-card">
+        <div class="num t-mono">1</div>
+        <div class="meta">
+          <div class="t-body title">Coin_Hit_03</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">0.4s</span>
+            · <a href="https://freesound.org/people/Valenspire/sounds/699526/" target="_blank">source</a></div>
+          <img src="files/coin/1-freesound-coin-hit-03.wave.png" alt="">
+          <audio controls preload="none" src="files/coin/1-freesound-coin-hit-03.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">2</div>
+        <div class="meta">
+          <div class="t-body title">Coins32.wav</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">0.9s</span>
+            · <a href="https://freesound.org/people/doudar41/sounds/573370/" target="_blank">source</a></div>
+          <img src="files/coin/2-freesound-coins32-wav.wave.png" alt="">
+          <audio controls preload="none" src="files/coin/2-freesound-coins32-wav.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">3</div>
+        <div class="meta">
+          <div class="t-body title">Coin_Hit_02</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">0.7s</span>
+            · <a href="https://freesound.org/people/Valenspire/sounds/699525/" target="_blank">source</a></div>
+          <img src="files/coin/3-freesound-coin-hit-02.wave.png" alt="">
+          <audio controls preload="none" src="files/coin/3-freesound-coin-hit-02.mp3"></audio>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="t-head">scratch <span class="t-sub small">(trimmed to 1.2s on lock)</span></h2>
+      
+      <div class="opt chillar-card">
+        <div class="num t-mono">1</div>
+        <div class="meta">
+          <div class="t-body title">Record Scratch #1</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">1.9s</span>
+            · <a href="https://freesound.org/people/musicvision31/sounds/431774/" target="_blank">source</a></div>
+          <img src="files/scratch/1-freesound-record-scratch-1.wave.png" alt="">
+          <audio controls preload="none" src="files/scratch/1-freesound-record-scratch-1.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">2</div>
+        <div class="meta">
+          <div class="t-body title">record_scratch</div>
+          <div class="t-sub small">pixabay · Pixabay Content License
+            · <span class="t-mono">1.7s</span>
+            · <a href="https://pixabay.com/sound-effects/film-special-effects-record-scratch-108233/" target="_blank">source</a></div>
+          <img src="files/scratch/2-pixabay-record-scratch.wave.png" alt="">
+          <audio controls preload="none" src="files/scratch/2-pixabay-record-scratch.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">3</div>
+        <div class="meta">
+          <div class="t-body title">interface-sounds · scratch_001</div>
+          <div class="t-sub small">kenney · CC0 1.0
+            · <span class="t-mono">0.1s</span>
+            · <a href="https://kenney.nl/assets/interface-sounds" target="_blank">source</a></div>
+          <img src="files/scratch/3-kenney-interface-sounds-scratch-001.wave.png" alt="">
+          <audio controls preload="none" src="files/scratch/3-kenney-interface-sounds-scratch-001.ogg"></audio>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="t-head">glitch <span class="t-sub small">(trimmed to 0.9s on lock)</span></h2>
+      
+      <div class="opt chillar-card">
+        <div class="num t-mono">1</div>
+        <div class="meta">
+          <div class="t-body title">click glitch 22.wav</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">2.2s</span>
+            · <a href="https://freesound.org/people/CVLTIV8R/sounds/786416/" target="_blank">source</a></div>
+          <img src="files/glitch/1-freesound-click-glitch-22-wav.wave.png" alt="">
+          <audio controls preload="none" src="files/glitch/1-freesound-click-glitch-22-wav.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">2</div>
+        <div class="meta">
+          <div class="t-body title">Small electric glitch</div>
+          <div class="t-sub small">mixkit · Mixkit Sound Effects Free License
+            · <span class="t-mono">1.0s</span>
+            · <a href="https://mixkit.co/free-sound-effects/glitch/#2595" target="_blank">source</a></div>
+          <img src="files/glitch/2-mixkit-small-electric-glitch.wave.png" alt="">
+          <audio controls preload="none" src="files/glitch/2-mixkit-small-electric-glitch.wav"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">3</div>
+        <div class="meta">
+          <div class="t-body title">Glitch Effect - 1</div>
+          <div class="t-sub small">pixabay · Pixabay Content License
+            · <span class="t-mono">2.6s</span>
+            · <a href="https://pixabay.com/sound-effects/film-special-effects-glitch-effect-1-397982/" target="_blank">source</a></div>
+          <img src="files/glitch/3-pixabay-glitch-effect-1.wave.png" alt="">
+          <audio controls preload="none" src="files/glitch/3-pixabay-glitch-effect-1.mp3"></audio>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="t-head">typing <span class="t-sub small">(trimmed to 3.0s on lock)</span></h2>
+      
+      <div class="opt chillar-card">
+        <div class="num t-mono">1</div>
+        <div class="meta">
+          <div class="t-body title">Keyboard typing sounds: modded Omnikey 101</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">9.5s</span>
+            · <a href="https://freesound.org/people/zrrion/sounds/685984/" target="_blank">source</a></div>
+          <img src="files/typing/1-freesound-keyboard-typing-sounds-modded-.wave.png" alt="">
+          <audio controls preload="none" src="files/typing/1-freesound-keyboard-typing-sounds-modded-.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">2</div>
+        <div class="meta">
+          <div class="t-body title">Single key type</div>
+          <div class="t-sub small">mixkit · Mixkit Sound Effects Free License
+            · <span class="t-mono">1.2s</span>
+            · <a href="https://mixkit.co/free-sound-effects/keyboard/#2533" target="_blank">source</a></div>
+          <img src="files/typing/2-mixkit-single-key-type.wave.png" alt="">
+          <audio controls preload="none" src="files/typing/2-mixkit-single-key-type.wav"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">3</div>
+        <div class="meta">
+          <div class="t-body title">Keyboard Typing Sound Effect</div>
+          <div class="t-sub small">pixabay · Pixabay Content License
+            · <span class="t-mono">8.1s</span>
+            · <a href="https://pixabay.com/sound-effects/film-special-effects-keyboard-typing-sound-effect-335503/" target="_blank">source</a></div>
+          <img src="files/typing/3-pixabay-keyboard-typing-sound-effect.wave.png" alt="">
+          <audio controls preload="none" src="files/typing/3-pixabay-keyboard-typing-sound-effect.mp3"></audio>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="t-head">whoosh <span class="t-sub small">(trimmed to 1.0s on lock)</span></h2>
+      
+      <div class="opt chillar-card">
+        <div class="num t-mono">1</div>
+        <div class="meta">
+          <div class="t-body title">Little Whoosh 3</div>
+          <div class="t-sub small">freesound · CC0 1.0
+            · <span class="t-mono">2.5s</span>
+            · <a href="https://freesound.org/people/ch_ase/sounds/423798/" target="_blank">source</a></div>
+          <img src="files/whoosh/1-freesound-little-whoosh-3.wave.png" alt="">
+          <audio controls preload="none" src="files/whoosh/1-freesound-little-whoosh-3.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">2</div>
+        <div class="meta">
+          <div class="t-body title">Air woosh</div>
+          <div class="t-sub small">mixkit · Mixkit Sound Effects Free License
+            · <span class="t-mono">2.3s</span>
+            · <a href="https://mixkit.co/free-sound-effects/whoosh/#1489" target="_blank">source</a></div>
+          <img src="files/whoosh/2-mixkit-air-woosh.wave.png" alt="">
+          <audio controls preload="none" src="files/whoosh/2-mixkit-air-woosh.wav"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">3</div>
+        <div class="meta">
+          <div class="t-body title">Simple Whoosh</div>
+          <div class="t-sub small">pixabay · Pixabay Content License
+            · <span class="t-mono">0.6s</span>
+            · <a href="https://pixabay.com/sound-effects/film-special-effects-simple-whoosh-382724/" target="_blank">source</a></div>
+          <img src="files/whoosh/3-pixabay-simple-whoosh.wave.png" alt="">
+          <audio controls preload="none" src="files/whoosh/3-pixabay-simple-whoosh.mp3"></audio>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="t-head">music</h2>
+      
+      <div class="opt chillar-card">
+        <div class="num t-mono">1</div>
+        <div class="meta">
+          <div class="t-body title">LoFi - LoFi Music</div>
+          <div class="t-sub small">pixabay · Pixabay Content License
+            · <span class="t-mono">75.9s</span>
+            · <a href="https://pixabay.com/music/lofi-lofi-lofi-music-587176/" target="_blank">source</a></div>
+          <img src="files/music/1-pixabay-lofi-lofi-music.wave.png" alt="">
+          <audio controls preload="none" src="files/music/1-pixabay-lofi-lofi-music.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">2</div>
+        <div class="meta">
+          <div class="t-body title">LoFi - LoFi Music_61Sec</div>
+          <div class="t-sub small">pixabay · Pixabay Content License
+            · <span class="t-mono">61.0s</span>
+            · <a href="https://pixabay.com/music/lofi-lofi-lofi-music-61sec-587180/" target="_blank">source</a></div>
+          <img src="files/music/2-pixabay-lofi-lofi-music-61sec.wave.png" alt="">
+          <audio controls preload="none" src="files/music/2-pixabay-lofi-lofi-music-61sec.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">3</div>
+        <div class="meta">
+          <div class="t-body title">Fusion</div>
+          <div class="t-sub small">pixabay · Pixabay Content License
+            · <span class="t-mono">123.9s</span>
+            · <a href="https://pixabay.com/music/india-fusion-228214/" target="_blank">source</a></div>
+          <img src="files/music/3-pixabay-fusion.wave.png" alt="">
+          <audio controls preload="none" src="files/music/3-pixabay-fusion.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">4</div>
+        <div class="meta">
+          <div class="t-body title">Lofi Circuit Dreams Diwali Festival India</div>
+          <div class="t-sub small">pixabay · Pixabay Content License
+            · <span class="t-mono">214.4s</span>
+            · <a href="https://pixabay.com/music/india-lofi-circuit-dreams-diwali-festival-india-422699/" target="_blank">source</a></div>
+          <img src="files/music/4-pixabay-lofi-circuit-dreams-diwali-fes.wave.png" alt="">
+          <audio controls preload="none" src="files/music/4-pixabay-lofi-circuit-dreams-diwali-fes.mp3"></audio>
+        </div>
+      </div>
+      <div class="opt chillar-card">
+        <div class="num t-mono">5</div>
+        <div class="meta">
+          <div class="t-body title">Serene View</div>
+          <div class="t-sub small">mixkit · Mixkit Stock Music Free License
+            · <span class="t-mono">114.0s</span>
+            · <a href="https://mixkit.co/free-stock-music/chillout/#443" target="_blank">source</a></div>
+          <img src="files/music/5-mixkit-serene-view.wave.png" alt="">
+          <audio controls preload="none" src="files/music/5-mixkit-serene-view.mp3"></audio>
+        </div>
+      </div>
+    </section>
+</main></body></html>

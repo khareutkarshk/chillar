@@ -1,0 +1,13 @@
+.c-hook-card .zone { gap: 64px; }
+.c-hook-card .hk-q { color: var(--on-field); max-width: 870px; }
+.c-hook-card .hk-row { display: flex; align-items: flex-end; gap: 0; width: 880px; }
+.c-hook-card .hk-wrap { flex: none; }
+.c-hook-card .hk-stub {
+  width: 580px; box-sizing: border-box; padding: 40px 46px 58px; display: flex; flex-direction: column; gap: 10px; border-radius: 8px 8px 0 0;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), 93% 100%, 86% calc(100% - 16px), 79% 100%, 72% calc(100% - 16px), 65% 100%, 58% calc(100% - 16px), 51% 100%, 44% calc(100% - 16px), 37% 100%, 30% calc(100% - 16px), 23% 100%, 16% calc(100% - 16px), 9% 100%, 0 calc(100% - 16px));
+}
+.c-hook-card .hk-line { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; font-size: 50px; line-height: 1.4; }
+.c-hook-card .hk-amt { position: relative; }
+.c-hook-card .hk-line:last-child .hk-amt { color: var(--red); }
+.c-hook-card .hk-mascot { margin-left: -24px; margin-bottom: -16px; position: relative; z-index: 2; }
+.c-hook-card .hk-mascot svg { width: 330px; height: 363px; display: block; }

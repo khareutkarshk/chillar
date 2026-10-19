@@ -1,0 +1,15 @@
+# license snapshot 2026-10-18T18:19:29+00:00
+# https://pixabay.com/sound-effects/film-special-effects-simple-whoosh-382724/
+# https://pixabay.com/service/license-summary/
+
+Pixabay item page at download time states: ...venčina Suomi Svenska Türkçe Việt ไทย Български Русский Ελληνική 日本語 한국어 简体中文 Log in Join Upload Free for use under the Pixabay Content License 2.4K Free download Simple Whoosh DRAGON-STUDIO 0:00 0:01 Share More info Whoosh sound, Whoosh effect, Swoosh sound sound effect. Free for use. Simple whoosh sound effect ideal ...
+{
+  "id": 382724,
+  "name": "Simple Whoosh",
+  "artist": "",
+  "duration": 0.574688,
+  "hasYoutubeContentId": false,
+  "isAiGenerated": false,
+  "contentIdCertificateUrl": null,
+  "publishedDate": "2025-07-31"
+}

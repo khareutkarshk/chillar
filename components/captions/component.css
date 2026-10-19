@@ -1,0 +1,11 @@
+#captions { position: absolute; inset: 0; pointer-events: none; z-index: 50; }
+.cap-group { position: absolute; left: 60px; width: 880px; top: 1170px; height: 280px; display: flex; align-items: center; justify-content: center; }
+.cap-line { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 16px; max-width: 860px; }
+.cap-w {
+  display: inline-block; font-family: var(--font-body); font-weight: 800; font-size: 76px; line-height: 1.12;
+  font-variant-numeric: tabular-nums; padding: 0 .14em; border-radius: 12px;
+  /* --on: 0 = resting (field ink), 1 = active word (ink on haldi). Numeric, so GSAP sets are seek-safe. */
+  --on: 0;
+  color: color-mix(in srgb, var(--ink) calc(var(--on) * 100%), var(--on-field));
+  background-color: rgba(255, 200, 61, var(--on));
+}

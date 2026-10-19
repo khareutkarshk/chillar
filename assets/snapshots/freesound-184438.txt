@@ -1,0 +1,12 @@
+# license snapshot 2026-10-18T18:14:10+00:00
+# https://freesound.org/people/CapsLok/sounds/184438/
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+Freesound API response at download time:
+{
+  "id": 184438,
+  "url": "https://freesound.org/people/CapsLok/sounds/184438/",
+  "name": "Cash Register Fake.wav",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "username": "CapsLok"
+}

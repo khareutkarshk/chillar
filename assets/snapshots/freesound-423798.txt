@@ -1,0 +1,12 @@
+# license snapshot 2026-10-18T18:19:20+00:00
+# https://freesound.org/people/ch_ase/sounds/423798/
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+Freesound API response at download time:
+{
+  "id": 423798,
+  "url": "https://freesound.org/people/ch_ase/sounds/423798/",
+  "name": "Little Whoosh 3",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "username": "ch_ase"
+}

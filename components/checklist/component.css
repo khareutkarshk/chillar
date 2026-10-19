@@ -1,0 +1,7 @@
+.c-checklist .cl-title { font-size: 112px; color: var(--on-field); max-width: 870px; }
+.c-checklist .cl-chit { width: 860px; box-sizing: border-box; padding: 50px 54px 56px; display: flex; flex-direction: column; gap: 34px; }
+.c-checklist .cl-item { display: flex; align-items: center; gap: 34px; }
+.c-checklist .cl-mark { flex: none; position: relative; width: 76px; height: 66px; }
+.c-checklist .cl-text { font-size: 58px; line-height: 1.1; }
+.c-checklist .cl-item.no .cl-text { color: var(--red); }
+.c-checklist .cl-item.no .scrib path { stroke: var(--red); }

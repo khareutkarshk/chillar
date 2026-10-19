@@ -1,0 +1,38 @@
+{
+  "name": "bar-chart",
+  "description": "Bars standing on the bottom of the content zone, straight on the chapter field — no card, no axes, no grid. Bars are paper; the one the line is about is haldi with its value circled by hand. Values in the headline face above each bar.",
+  "layer": "scene",
+  "params": {
+    "title": "",
+    "bars": [
+      {
+        "label": "A",
+        "value": 1
+      }
+    ],
+    "highlight": -1,
+    "caption": "",
+    "stagger": 0.2
+  },
+  "example": {
+    "title": "Sarkar ka UPI bill (₹ crore)",
+    "bars": [
+      {
+        "label": "2021-22",
+        "value": 1389
+      },
+      {
+        "label": "2022-23",
+        "value": 2210
+      },
+      {
+        "label": "2023-24",
+        "value": 3631
+      }
+    ],
+    "highlight": 2,
+    "caption": "Source: PIB, Mar 2025"
+  },
+  "sfx": [],
+  "minDuration": 1.6
+}

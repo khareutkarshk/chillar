@@ -1,0 +1,29 @@
+# secrets / envs
+.env
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+
+# heavy or personal media
+episodes/*/voice/*
+!episodes/*/voice/.gitkeep
+episodes/*/output/*
+!episodes/*/output/.gitkeep
+episodes/*/build/
+episodes/*/.cache/
+assets/inbox/*
+!assets/inbox/.gitkeep
+brand/_audition/files/
+
+# model caches / tools
+tools/
+.cache/
+*.log
+.DS_Store
+!episodes/*/voice/tts.txt
+!episodes/*/voice/voice.json
+episodes/*/voice/audition/
+components/_gallery/project/
+components/_gallery/snaps/
+assets/snapshots/*.html

@@ -1,0 +1,15 @@
+{
+  "name": "marker-highlight",
+  "description": "A headline on the chapter field; words wrapped in *asterisks* get the yellow marker swipe. Optional sub line below in the field ink. Left-aligned (align:center only for the one centred moment of a video). Keep it ≤ 6 words.",
+  "layer": "scene",
+  "params": {
+    "text": "UPI *free* nahi hai",
+    "sub": "",
+    "size": 168,
+    "align": "left",
+    "markerAt": 0.25
+  },
+  "example": { "text": "UPI *free* nahi hai", "sub": "bas bill tumhare naam pe nahi aata" },
+  "sfx": [],
+  "minDuration": 1.2
+}

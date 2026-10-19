@@ -1,0 +1,12 @@
+# license snapshot 2026-10-18T18:18:56+00:00
+# https://freesound.org/people/zrrion/sounds/685984/
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+Freesound API response at download time:
+{
+  "id": 685984,
+  "url": "https://freesound.org/people/zrrion/sounds/685984/",
+  "name": "Keyboard typing sounds: modded Omnikey 101",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "username": "zrrion"
+}
