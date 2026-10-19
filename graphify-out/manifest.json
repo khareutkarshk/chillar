@@ -445,13 +445,13 @@
     "semantic_hash": ""
   },
   ".claude/agents/script-reviewer.md": {
-    "mtime": 1792426737.7599282,
-    "ast_hash": "1ec5ffbcec9738a14556787bdbe567f6",
+    "mtime": 1792438230.9360242,
+    "ast_hash": "643503583d22f6c43fbeda80ffa6e90b",
     "semantic_hash": ""
   },
   ".claude/agents/scriptwriter.md": {
-    "mtime": 1792437564.1436775,
-    "ast_hash": "035fb2ef43606f9441d6a44d6f0cf39e",
+    "mtime": 1792438220.975715,
+    "ast_hash": "5e4d73e9aa28cfbe685762800b463563",
     "semantic_hash": ""
   },
   ".claude/agents/video-reviewer.md": {
@@ -665,8 +665,8 @@
     "semantic_hash": ""
   },
   "brand/rules/comedy.md": {
-    "mtime": 1792426748.939412,
-    "ast_hash": "56a619b97f2144bb2963ad055315cae9",
+    "mtime": 1792438204.667209,
+    "ast_hash": "dd05e2552baba2fb418d335bf15206d7",
     "semantic_hash": ""
   },
   "episodes/2026-10-credit-card-myth/cover.md": {
