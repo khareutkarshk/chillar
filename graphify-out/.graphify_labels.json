@@ -1,7 +1,7 @@
 {
   "0": "Candidate",
   "1": "CLAUDE.md brand bible",
-  "2": "make_reel.py",
+  "2": "validate_scenes.py",
   "3": "episode.py",
   "4": "fetch_assets.py",
   "5": "12 LPA episode script.md",
@@ -53,5 +53,8 @@
   "51": "instagram.md",
   "52": "sound.md",
   "53": "themes.md",
-  "54": "voice.md"
+  "54": "voice.md",
+  "55": "qa.py",
+  "56": "Posting schedule — one Reel every day",
+  "57": "CompletedProcess"
 }
