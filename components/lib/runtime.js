@@ -230,6 +230,10 @@
       if (!def || !el) { console.error("missing component/clip", s.component, s.id); continue; }
       el.classList.add("c-" + s.component);
       def.build({ el, p: s.params || {}, t: s.start, d: s.duration, tl, rng: CH.rng(s.id), id: s.id, stage, spec });
+      // dy (px, optional, any scene component with a .zone): nudge the whole composition down (+) or up (−)
+      // inside the content zone. CSS `translate` so it never fights GSAP transforms.
+      const dy = +((s.params || {}).dy || 0), zone = dy ? el.querySelector(".zone") : null;
+      if (zone) zone.style.translate = `0 ${dy}px`;
     }
     for (const fx of spec.effects || []) {
       if (fx.type === "punch") CH.punch(tl, stage, fx.at, fx.amount || 1.06);

@@ -1,6 +1,6 @@
 {
   "name": "bar-chart",
-  "description": "Bars standing on the bottom of the content zone, straight on the chapter field — no card, no axes, no grid. Bars are paper; the one the line is about is haldi with its value circled by hand. Values in the headline face above each bar.",
+  "description": "Bars standing on the bottom of the content zone, straight on the chapter field — no card, no axes, no grid. Bars are paper; the one the line is about is haldi with its value circled by hand. Values in the headline face above each bar. Optional: prefix (e.g. \"₹\", default \"\") goes before every value, and a 0 bar then shows as a thin paper slab labelled \"₹0\" instead of a bare line.",
   "layer": "scene",
   "params": {
     "title": "",
@@ -12,7 +12,8 @@
     ],
     "highlight": -1,
     "caption": "",
-    "stagger": 0.2
+    "stagger": 0.2,
+    "prefix": ""
   },
   "example": {
     "title": "Sarkar ka UPI bill (₹ crore)",

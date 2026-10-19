@@ -7,10 +7,10 @@ CH.define("bar-chart", {
       <div class="zone">
         ${p.title ? `<div class="bar-title t-head">${CH.rich(p.title)}</div>` : ""}
         <div class="bar-plot">
-          ${bars.map((b, i) => { const v = String(b.display ?? CH.inr(+b.value)), hi = i === +p.highlight; return `
+          ${bars.map((b, i) => { const v = String(b.display ?? ((p.prefix || "") + CH.inr(+b.value))), hi = i === +p.highlight; return `
             <div class="bar-col">
               <div class="bar-val num">${CH.esc(v)}${hi ? CH.scribble("circle", { x: -30, y: -8, w: v.length * 42 + 56, h: 92, rng }) : ""}</div>
-              <div class="bar ${hi ? "hi" : ""}" style="height:${Math.max(8, (+b.value / max) * H).toFixed(0)}px"></div>
+              <div class="bar ${hi ? "hi" : ""} ${+b.value ? "" : "zero"}" style="height:${Math.max(+b.value ? 8 : (p.prefix ? 22 : 8), (+b.value / max) * H).toFixed(0)}px"></div>
               <div class="bar-lab t-body">${CH.esc(b.label)}</div>
             </div>`; }).join("")}
         </div>

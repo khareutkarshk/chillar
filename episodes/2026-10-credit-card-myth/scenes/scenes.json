@@ -1,0 +1,402 @@
+{
+ "theme": "night",
+ "scenes": [
+  {
+   "id": "hook",
+   "component": "hook-card",
+   "at": 0,
+   "params": {
+    "question": "Card liya? Ab *karza* pakka.",
+    "stakes": [
+     {
+      "label": "Agla stop",
+      "amount": "Neelami"
+     }
+    ],
+    "circle": true,
+    "mascot": "side-eye",
+    "size": 158,
+    "wide": true
+   }
+  },
+  {
+   "id": "neelami",
+   "component": "calendar-flip",
+   "at": "w7",
+   "params": {
+    "pages": [
+     "CARD LIYA",
+     "KARZA",
+     "NEELAMI"
+    ],
+    "label": "Ghar ki *neelami*",
+    "flip": 0.3
+   }
+  },
+  {
+   "id": "galat",
+   "component": "split-compare",
+   "at": "w12-0.08",
+   "fact": "F3",
+   "params": {
+    "left": {
+     "title": "Papa",
+     "text": "Card = karza"
+    },
+    "right": {
+     "title": "Bill",
+     "text": "Do number: *total*, *minimum due*"
+    },
+    "strikeAt": 0.3,
+    "revealAt": 0.75
+   }
+  },
+  {
+   "id": "izzat",
+   "component": "meme-format",
+   "at": "w19",
+   "fact": "F3",
+   "params": {
+    "format": "two-panel",
+    "panels": [
+     {
+      "label": "Izzat",
+      "text": "Minimum bhara, bach gayi",
+      "expr": "smug"
+     },
+     {
+      "label": "Paise",
+      "text": "Bilkul nahi bache",
+      "expr": "crying"
+     }
+    ],
+    "reveal": 1.3
+   }
+  },
+  {
+   "id": "dinner",
+   "component": "receipt-list",
+   "at": "w26",
+   "fact": "F8",
+   "params": {
+    "title": "HOSTEL DINNER",
+    "meta": "EXAMPLE ONLY",
+    "items": [
+     {
+      "label": "Biryani x 6",
+      "amount": ""
+     },
+     {
+      "label": "Cold drink x 6",
+      "amount": ""
+     },
+     {
+      "label": "Gulab jamun (extra)",
+      "amount": ""
+     }
+    ],
+    "total": {
+     "label": "MERE CARD PE",
+     "amount": "₹10,000",
+     "tone": "red"
+    },
+    "footer": "SPLIT? BAAD MEIN UPI",
+    "step": 0.11,
+    "dy": 130,
+    "totalAt": 2.2
+   }
+  },
+  {
+   "id": "paid",
+   "component": "odometer-number",
+   "at": "w32",
+   "fact": "F8",
+   "params": {
+    "value": 1000,
+    "label": "Bhar diya. Sorted.",
+    "rollStart": 0.0,
+    "rollDuration": 0.5,
+    "from": 0,
+    "size": 290,
+    "dy": -70
+   }
+  },
+  {
+   "id": "slip",
+   "component": "receipt-list",
+   "at": "w39",
+   "fact": "F8",
+   "params": {
+    "title": "STATEMENT",
+    "meta": "",
+    "items": [
+     {
+      "label": "Bill",
+      "amount": "₹10,000"
+     },
+     {
+      "label": "Bhara",
+      "amount": "-₹1,000"
+     },
+     {
+      "label": "Bache",
+      "amount": "₹9,000"
+     },
+     {
+      "label": "Rate 2%/mahina (example)",
+      "amount": ""
+     }
+    ],
+    "total": {
+     "label": "PEHLE MAHINE INTEREST",
+     "amount": "₹180",
+     "tone": "red"
+    },
+    "step": 0.27,
+    "footer": "RATE BANK TAY KARTA HAI"
+   }
+  },
+  {
+   "id": "nextmonth",
+   "component": "checklist",
+   "at": "w44",
+   "fact": "F4",
+   "params": {
+    "title": "Agla mahina",
+    "items": [
+     {
+      "text": "Purana baaki: pending",
+      "ok": false
+     },
+     {
+      "text": "Naye swipes: free period?",
+      "ok": false
+     }
+    ],
+    "stagger": 0.8
+   }
+  },
+  {
+   "id": "outpass",
+   "component": "receipt-list",
+   "at": "w55",
+   "params": {
+    "title": "HOSTEL OUTPASS",
+    "meta": "",
+    "items": [
+     {
+      "label": "Free period",
+      "amount": "CANCEL"
+     },
+     {
+      "label": "Sign",
+      "amount": "Card (warden)"
+     }
+    ],
+    "total": {
+     "label": "OUTPASS",
+     "amount": "BAND",
+     "tone": "red"
+    },
+    "circleTotal": true,
+    "step": 0.15,
+    "width": 860,
+    "stampTotal": false,
+    "dy": 120
+   }
+  },
+  {
+   "id": "fineprint",
+   "component": "statement",
+   "at": "w60",
+   "cut": "zoom",
+   "fact": "F3",
+   "params": {
+    "title": "*Cashback* har swipe pe!",
+    "size": 150,
+    "paper": true,
+    "body": [
+     "Fine print: sirf minimum",
+     "≠ poora bill.",
+     "Baaki pe interest."
+    ],
+    "tilt": -2,
+    "markerAt": 0.05,
+    "dy": 70
+   }
+  },
+  {
+   "id": "zero",
+   "component": "odometer-number",
+   "at": "w67",
+   "fact": "F2",
+   "params": {
+    "value": 0,
+    "from": 180,
+    "label": "Interest",
+    "sub": "Poora bill, due date tak",
+    "rollStart": 1.25,
+    "rollDuration": 0.27,
+    "size": 340,
+    "dy": -90
+   }
+  },
+  {
+   "id": "adhoora",
+   "component": "bar-chart",
+   "at": "w76+0.1",
+   "fact": "F8",
+   "params": {
+    "title": "",
+    "bars": [
+     {
+      "label": "Poora bill",
+      "value": 0
+     },
+     {
+      "label": "Adhoora bill",
+      "value": 180
+     }
+    ],
+    "highlight": 1,
+    "caption": "Pehla mahina, 2%/mahina (example)",
+    "stagger": 0.25,
+    "prefix": "₹"
+   }
+  },
+  {
+   "id": "beta",
+   "component": "split-compare",
+   "at": "w80",
+   "params": {
+    "left": {
+     "title": "Papa",
+     "text": "*Card* = karza"
+    },
+    "right": {
+     "title": "Sahi",
+     "text": "*Beta* = karza"
+    },
+    "strikeAt": 1.18,
+    "revealAt": 1.54
+   }
+  },
+  {
+   "id": "facepalm",
+   "component": "mascot-reaction",
+   "at": "w36+0.12",
+   "until": "w39",
+   "params": {
+    "expr": "facepalm",
+    "anim": "blink",
+    "x": 760,
+    "y": 1150,
+    "size": 360
+   }
+  },
+  {
+   "id": "st-free",
+   "component": "stamp",
+   "at": "w49",
+   "until": "w55",
+   "fact": "F4",
+   "params": {
+    "text": "KHATRE MEIN",
+    "sub": "free period",
+    "x": 500,
+    "y": 1040,
+    "rotate": -5,
+    "size": 115
+   }
+  },
+  {
+   "id": "warden",
+   "component": "mascot-reaction",
+   "at": "w58",
+   "until": "w60",
+   "params": {
+    "expr": "side-eye",
+    "anim": "blink",
+    "x": 800,
+    "y": 1150,
+    "size": 260
+   }
+  },
+  {
+   "id": "cry",
+   "component": "mascot-reaction",
+   "at": "w64",
+   "until": "w67",
+   "params": {
+    "expr": "crying",
+    "anim": "blink",
+    "x": 800,
+    "y": 1150,
+    "size": 260
+   }
+  },
+  {
+   "id": "st-zero",
+   "component": "stamp",
+   "at": "w73-0.06",
+   "until": "w76+0.1",
+   "fact": "F1",
+   "params": {
+    "text": "FULL BILL",
+    "sub": "= zero interest",
+    "x": 500,
+    "y": 1000,
+    "rotate": -6,
+    "size": 105
+   }
+  },
+  {
+   "id": "smug",
+   "component": "mascot-reaction",
+   "at": "w84+0.1",
+   "duration": 1.05,
+   "params": {
+    "expr": "smug",
+    "anim": "blink",
+    "x": 780,
+    "y": 1150,
+    "size": 320
+   }
+  }
+ ],
+ "effects": [
+  {
+   "type": "punch",
+   "at": "w5"
+  },
+  {
+   "type": "punch",
+   "at": "w24"
+  },
+  {
+   "type": "punch",
+   "at": "w31"
+  },
+  {
+   "type": "punch",
+   "at": "w42"
+  },
+  {
+   "type": "punch",
+   "at": "w73"
+  },
+  {
+   "type": "punch",
+   "at": "w88"
+  }
+ ],
+ "outro": {
+  "duration": 2.85,
+  "cut": "cut",
+  "params": {}
+ },
+ "music": {
+  "track": "",
+  "under_voice_db": -22
+ }
+}

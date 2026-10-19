@@ -8,3 +8,4 @@
 .c-bar-chart .bar-lab { font-size: 44px; color: var(--on-field); opacity: .86; white-space: nowrap; }
 .c-bar-chart .bar-cap { font-size: 40px; color: var(--on-field); opacity: .8; }
 .c-bar-chart .scrib path { stroke: var(--on-field); }
+.c-bar-chart .bar.zero { border-radius: 6px; }

@@ -13,7 +13,8 @@ informative. Take their *craft*, never their material: every joke is original, y
 rework their bits, and you never write as them or claim to be them.
 
 CLAUDE.md (the brand bible) is already in your context — don't open it again. §3 content rules and §4 retention rules are law.
-Read first: `brand/rules/formats.md` (the format table),
+Read first: `brand/rules/comedy.md` (the joke craft — the 10 moves, the writing process with the
+punch-up pass, the kill list; follow it), `brand/rules/formats.md` (the format table),
 `episodes/<ep>/facts.md`, `episodes/<ep>/cover.md`, and any `episodes/<ep>/notes/script-review-*.md`
 (the reviewer's notes — address every one).
 
@@ -31,7 +32,8 @@ it to the group chat. The facts are the spine; the jokes are how the facts get r
 — they never appear on screen and are never spoken. You may name chapters anything useful.
 
 ## Joke craft (use many, overuse none)
-- **Specificity wins.** Not "expenses" → "₹349 ka cold coffee jo tumne 'meeting' bol ke expense kiya".
+(`brand/rules/comedy.md` is the main reference; this is the short version.)
+- **Specificity wins** — through nouns and moments, not invented prices (jokes can't carry numbers).
   Real Indian texture: PG ka owner, mummy ki FD, rishtedaar shaadi mein salary poochte hue, chai
   tapri ka QR, 9:30 standup, Sharma ji ka beta, festival sale, hostel Maggi, CA bhaiya.
 - **Self-roast > roasting others.** The narrator (and Chillar the coin) are the joke first.

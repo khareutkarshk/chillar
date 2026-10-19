@@ -1,12 +1,16 @@
 {
   "name": "statement",
-  "description": "One big statement on the chapter field: headline (≤ 6 words, *marker* words swipe yellow) and an optional body line. With paper:true the body is a hand-torn chit lying under the headline (definitions, fine print). Left-aligned on the shared edge.",
+  "description": "One big statement on the chapter field: headline (≤ 6 words, *marker* words swipe yellow) and an optional body line. With paper:true the body is a hand-torn chit lying under the headline (definitions, fine print). Left-aligned on the shared edge. Optional: body may be an array of lines (or use \\n) to break it on purpose; width (px, default 0 = full 860) narrows the chit/body so a mascot overlay can sit beside it without covering text. Optional: tilt (deg) fixes the chit's tilt instead of the seeded one; markerAt (s) is when the marker swipe starts (default 0.3). dy (px) nudges the whole composition down (+) or up (−) inside the content zone.",
   "layer": "scene",
   "params": {
     "title": "MDR kya hai?",
     "body": "",
     "paper": false,
-    "size": 156
+    "size": 156,
+    "width": 0,
+    "tilt": null,
+    "markerAt": 0.3,
+    "dy": 0
   },
   "example": {
     "title": "MDR kya hai?",

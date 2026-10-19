@@ -1,0 +1,15 @@
+---
+cover_text: "Full bill, zero interest"          # Bricolage Grotesque, sentence case, ≤5 words, honest — the payoff delivers it
+cover_kicker: "Trap card nahi — minimum due hai"   # Mukta on a haldi marker; optional
+cover_stamp: "MYTH"   # stamp-pad red thappa on the cover; optional
+cover_mascot: "side-eye"          # one of the 8 Chillar expressions, or "none"
+cover_field: "note2000"             # slot: note10 | note20 | note50 | note500 | note2000 | bone (colour comes from the theme)
+---
+
+## First frame (frame 1 of the video)
+Night field. A plain, unbranded credit card lies on a folded bill slip; next to it Papa's chit in blue
+ballpoint: "Card = karza". Chillar side-eyes the chit from the corner. (The red-pen scratch-out lands
+on "Galat." in line 2, not on frame 1.)
+
+## Hook line (sentence 1)
+Papa: "Card liya? Ab toh karza pakka. Agla stop: ghar ki neelami."

@@ -10,9 +10,9 @@ Instagram profile picture: Chillar's face, big, centred in the 1080x1080 square 
 params: expr="side-eye"
 
 ### bar-chart
-Bars standing on the bottom of the content zone, straight on the chapter field — no card, no axes, no grid. Bars are paper; the one the line is about is haldi with its value circled by hand. Values in the headline face above each bar.
+Bars standing on the bottom of the content zone, straight on the chapter field — no card, no axes, no grid. Bars are paper; the one the line is about is haldi with its value circled by hand. Values in the headline face above each bar. Optional: prefix (e.g. "₹", default "") goes before every value, and a 0 bar then shows as a thin paper slab labelled "₹0" instead of a bare line.
 `layer scene · min 1.6s`
-params: title="", bars=[{"label": "A", "value": 1}], highlight=-1, caption="", stagger=0.2
+params: title="", bars=[{"label": "A", "value": 1}], highlight=-1, caption="", stagger=0.2, prefix=""
 
 ### calendar-flip
 Tear-off desk calendar (paper pages, red month band) riffles through pages and lands on the last one — time passing, deadlines, 'since 2020'. Label sits on the field above it.
@@ -30,9 +30,9 @@ Static 1080x1920 cover (rendered to output/cover.png by cover.py from cover.md) 
 params: text="UPI ka bill kaun bharta?", kicker="", stamp="", mascot="side-eye"
 
 ### hook-card
-Frame 1. FULLY DRAWN AT t=0 (no entrance): the question as a big left-aligned headline on the chapter field, a torn receipt stub with the stakes lying under it at a tilt, the last amount circled in blue ballpoint (drawn after frame 1), Chillar side-eyeing. No series label — the question is the headline.
+Frame 1. FULLY DRAWN AT t=0 (no entrance): the question as a big left-aligned headline on the chapter field, a torn receipt stub with the stakes lying under it at a tilt, the last amount circled in blue ballpoint (drawn after frame 1), Chillar side-eyeing. No series label — the question is the headline. Optional: wide:true makes the stakes slip span the content width (≈860 px, bigger print) with Chillar sitting on its top-right corner. dy (px) nudges the whole composition down (+) or up (−) inside the content zone.
 `layer scene · min 1.5s`
-params: question="UPI free hai. Phir *bill…, stakes=[{"label": "Chai", "amoun…, circle=true, mascot="side-eye", size=132
+params: question="UPI free hai. Phir *bill…, stakes=[{"label": "Chai", "amoun…, circle=true, mascot="side-eye", size=132, wide=false, dy=0
 
 ### line-chart
 Compounding curve vs a straight simple-interest/savings line, drawn on a sheet of graph paper lying on the field. End value of the curve circled in blue ballpoint. Values in ₹ (Indian format). Rate/years are illustrative — cite a fact for any real rate.
@@ -60,9 +60,9 @@ Mummy's mithai dabba: a red box with a haldi trim, laddoos in paper cups (rows 6
 params: layout="hero", count=22, removed=0, remove=[], letter=null, sticker="", stickerStrike=null, hand=false, mascot="", slip=null, lines=[], locker=null, closeAt=null, box=true
 
 ### odometer-number
-One huge number rolls up like an odometer (Indian digit grouping); with `from` it instead counts from→value as one legible tabular number (e.g. ₹1,00,000 → ₹86,468), set straight on the chapter field and double-underlined by hand. Use for the big reveal of a ₹ amount or %. tone red/green only on light fields (bone, note20, note50); on dark fields the number stays in the field ink.
+One huge number rolls up like an odometer (Indian digit grouping); with `from` it instead counts from→value as one legible tabular number (e.g. ₹1,00,000 → ₹86,468), set straight on the chapter field and double-underlined by hand. Use for the big reveal of a ₹ amount or %. tone red/green only on light fields (bone, note20, note50); on dark fields the number stays in the field ink. dy (px) nudges the whole composition down (+) or up (−) inside the content zone.
 `layer scene · min 1.6s · sfx ding@1.25s`
-params: value=3631, from=null, prefix="₹", suffix="", decimals=null, label="", unit="", sub="", tone="field", size=270, underline=true, rollStart=0.15, rollDuration=0.9
+params: value=3631, from=null, prefix="₹", suffix="", decimals=null, label="", unit="", sub="", tone="field", size=270, underline=true, rollStart=0.15, rollDuration=0.9, dy=0
 
 ### passbook-page
 An open bank passbook page lying on the field: printed column heads, entries printed dot-matrix style one line at a time (printer buzz), running balance computed, the final balance circled in blue ballpoint. Debits red, credits green. The most Chillar object there is — strong as frame 1 (printed:true) or as the growing-receipt meter.
@@ -75,9 +75,9 @@ The chillar meter: a row of ₹1 coins along the top (y≈170, decorative, outsi
 params: from=0, to=0.5, coins=8
 
 ### receipt-list
-Thermal receipt that prints line by line (stepped) out of a printer slot, lying on the field. The total is circled in blue ballpoint after it prints. Great as frame 1 (printed:true shows it fully at t=0) or as a growing receipt meter.
+Thermal receipt that prints line by line (stepped) out of a printer slot, lying on the field. The total is circled in blue ballpoint after it prints. Great as frame 1 (printed:true shows it fully at t=0) or as a growing receipt meter. Optional: width (paper px, default 760, max 860; the printer is 100 px wider, capped at 880); stampTotal:true slams the total amount on as a textured red rubber-stamp mark (instead of the ballpoint circle) once it prints. dy (px) nudges the whole composition down (+) or up (−) inside the content zone. totalAt (s from scene start, optional) holds the total block until then, so the amount lands on its word.
 `layer scene · min 1.5s · sfx printer@0s`
-params: title="UPI RECEIPT", meta="", items=[{"label": "Chai", "amoun…, total={"label": "TOTAL", "amoun…, footer="", circleTotal=true, step=0.22, printed=false
+params: title="UPI RECEIPT", meta="", items=[{"label": "Chai", "amoun…, total={"label": "TOTAL", "amoun…, footer="", circleTotal=true, step=0.22, printed=false, width=760, stampTotal=false, dy=0, totalAt=null
 
 ### salary-slip
 Payslip lying on the field: earnings in green, deductions in red with minus, rows print in steps, net pay rolls on an odometer and gets a double ballpoint underline. Amounts are numbers (formatted en-IN).
@@ -95,9 +95,9 @@ The thappa: a stamp-pad red rubber stamp slams in (140%→100% in 4 frames + 2-f
 params: text="MDR 0%", sub="", x=540, y=760, rotate=-8, size=150
 
 ### statement
-One big statement on the chapter field: headline (≤ 6 words, *marker* words swipe yellow) and an optional body line. With paper:true the body is a hand-torn chit lying under the headline (definitions, fine print). Left-aligned on the shared edge.
+One big statement on the chapter field: headline (≤ 6 words, *marker* words swipe yellow) and an optional body line. With paper:true the body is a hand-torn chit lying under the headline (definitions, fine print). Left-aligned on the shared edge. Optional: body may be an array of lines (or use \n) to break it on purpose; width (px, default 0 = full 860) narrows the chit/body so a mascot overlay can sit beside it without covering text. Optional: tilt (deg) fixes the chit's tilt instead of the seeded one; markerAt (s) is when the marker swipe starts (default 0.3). dy (px) nudges the whole composition down (+) or up (−) inside the content zone.
 `layer scene · min 1.2s`
-params: title="MDR kya hai?", body="", paper=false, size=156
+params: title="MDR kya hai?", body="", paper=false, size=156, width=0, tilt=null, markerAt=0.3, dy=0
 
 ### tier-compare
 ₹100 vs ₹1,000 vs ₹1,00,000 escalation: three paper columns standing on the bottom of the content zone, each taller than the last, revealed in sequence; the last result gets a ballpoint circle.

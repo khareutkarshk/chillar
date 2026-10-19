@@ -8,7 +8,7 @@
   "6": "package.json",
   "7": "contact_sheet.py",
   "8": "tts.py",
-  "9": "audio_clean.py",
+  "9": "qa.py",
   "10": "setup.sh",
   "11": "mix.py",
   "12": "Component catalog (generated — `pipeline/component_catalog.py`, don't edit)",

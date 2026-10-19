@@ -73,5 +73,20 @@
   "file": "budget-speech-2021-22.pdf",
   "fetched": "2026-10-19",
   "bytes": 768448
+ },
+ "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=12300": {
+  "file": "rbi-cc-master-direction.html",
+  "fetched": "2026-10-19",
+  "bytes": 293243
+ },
+ "https://website.rbi.org.in/documents/d/rbi/commercial-banks-credit-cards-and-debit-cards-issuance-and-conduct": {
+  "file": "rbi-cc-2025-cb.html",
+  "fetched": "2026-10-19",
+  "bytes": 150633
+ },
+ "https://rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=13155": {
+  "file": "rbi-cc-2025-id13155.html",
+  "fetched": "2026-10-19",
+  "bytes": 71141
  }
 }

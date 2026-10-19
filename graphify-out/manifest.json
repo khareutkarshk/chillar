@@ -15,14 +15,14 @@
     "semantic_hash": "96282286742baa60445373ae7b709e0b"
   },
   "components/bar-chart/component.js": {
-    "mtime": 1792413387.2933478,
-    "ast_hash": "333cdde8ae891c961906a9ccac5c918d",
+    "mtime": 1792431946.5318346,
+    "ast_hash": "7d6f8ab971fe044b6a12d93428dc266f",
     "semantic_hash": ""
   },
   "components/bar-chart/component.json": {
-    "mtime": 1792398672.7402458,
-    "ast_hash": "895a2b8605fd313bc54ec642b701a903",
-    "semantic_hash": "895a2b8605fd313bc54ec642b701a903"
+    "mtime": 1792431946.5328348,
+    "ast_hash": "9fdf6385fa5d159f38292fb8a29c33e3",
+    "semantic_hash": ""
   },
   "components/calendar-flip/component.js": {
     "mtime": 1792413917.6083624,
@@ -75,19 +75,19 @@
     "semantic_hash": "8dec81b95b54eda9bcc4d9e04ec41f46"
   },
   "components/hook-card/component.js": {
-    "mtime": 1792398616.143112,
-    "ast_hash": "c5802cfb5f353f7bf411da99b4b882a0",
-    "semantic_hash": "c5802cfb5f353f7bf411da99b4b882a0"
+    "mtime": 1792433889.9007542,
+    "ast_hash": "30d409d5d9fdaa020147e912475ff32a",
+    "semantic_hash": ""
   },
   "components/hook-card/component.json": {
-    "mtime": 1792398616.143112,
-    "ast_hash": "af6e62991f21e9b2643740bb11ebf1b7",
-    "semantic_hash": "af6e62991f21e9b2643740bb11ebf1b7"
+    "mtime": 1792433463.6634479,
+    "ast_hash": "315100462c733859dfbd45628e5bef8a",
+    "semantic_hash": ""
   },
   "components/lib/runtime.js": {
-    "mtime": 1792405050.3932571,
-    "ast_hash": "2ec68d95bb7bde03bb88af597ec20ee7",
-    "semantic_hash": "2ec68d95bb7bde03bb88af597ec20ee7"
+    "mtime": 1792433434.510014,
+    "ast_hash": "28e7bf4c67b081468c122b3adfc71ad8",
+    "semantic_hash": ""
   },
   "components/line-chart/component.js": {
     "mtime": 1792398616.1801133,
@@ -145,9 +145,9 @@
     "semantic_hash": "3498f91273f0a1ff4e405bfc8237dab4"
   },
   "components/odometer-number/component.json": {
-    "mtime": 1792404560.9014437,
-    "ast_hash": "4b6bd18c7e21a8948e7735d32c42dcee",
-    "semantic_hash": "4b6bd18c7e21a8948e7735d32c42dcee"
+    "mtime": 1792433463.664448,
+    "ast_hash": "8891e42cea35eb5e3a613fab6f5301d6",
+    "semantic_hash": ""
   },
   "components/outro/component.js": {
     "mtime": 1792404281.8586216,
@@ -180,14 +180,14 @@
     "semantic_hash": "bc7f47ed4cf43200190e1c857e52886d"
   },
   "components/receipt-list/component.js": {
-    "mtime": 1792398646.858268,
-    "ast_hash": "4ab96f7e1b1eab82c7b42ac4393bc876",
-    "semantic_hash": "4ab96f7e1b1eab82c7b42ac4393bc876"
+    "mtime": 1792433519.1343026,
+    "ast_hash": "6a048c668ab6bc33c7cb0494cbee0dae",
+    "semantic_hash": ""
   },
   "components/receipt-list/component.json": {
-    "mtime": 1792397574.5452354,
-    "ast_hash": "e30d5fee6716f8df796c47d740ddf81a",
-    "semantic_hash": "e30d5fee6716f8df796c47d740ddf81a"
+    "mtime": 1792433519.1413026,
+    "ast_hash": "674bba7466a406d79254f9d053c2bf50",
+    "semantic_hash": ""
   },
   "components/salary-slip/component.js": {
     "mtime": 1792398646.8652682,
@@ -220,14 +220,14 @@
     "semantic_hash": "5cb41d1b632513bbde3fabd99650cc04"
   },
   "components/statement/component.js": {
-    "mtime": 1792398616.1681128,
-    "ast_hash": "4614529004bf688afc0108c3a6ebd427",
-    "semantic_hash": "4614529004bf688afc0108c3a6ebd427"
+    "mtime": 1792433479.5166883,
+    "ast_hash": "04938010c9e0f6657b4ed5fbe632f826",
+    "semantic_hash": ""
   },
   "components/statement/component.json": {
-    "mtime": 1792398672.7402458,
-    "ast_hash": "5e44eb8082d06a4104176f5382f70673",
-    "semantic_hash": "5e44eb8082d06a4104176f5382f70673"
+    "mtime": 1792433463.6634479,
+    "ast_hash": "d326fdb1a113b2a70c75a4ea23a83558",
+    "semantic_hash": ""
   },
   "components/tier-compare/component.js": {
     "mtime": 1792398672.7032444,
@@ -445,13 +445,13 @@
     "semantic_hash": ""
   },
   ".claude/agents/script-reviewer.md": {
-    "mtime": 1792416731.2148519,
-    "ast_hash": "c7e8b669649abaa942b7c61d7cc394e5",
+    "mtime": 1792426737.7599282,
+    "ast_hash": "1ec5ffbcec9738a14556787bdbe567f6",
     "semantic_hash": ""
   },
   ".claude/agents/scriptwriter.md": {
-    "mtime": 1792416731.2148519,
-    "ast_hash": "69d3672c432c333146b2b11460dec298",
+    "mtime": 1792426736.657086,
+    "ast_hash": "2503fa04722b75f5d592da87b67ecfb8",
     "semantic_hash": ""
   },
   ".claude/agents/video-reviewer.md": {
@@ -540,8 +540,8 @@
     "semantic_hash": ""
   },
   "brand/sources/index.json": {
-    "mtime": 1792409859.1421092,
-    "ast_hash": "1b4cf1c8b94bb3069005d8cea4d7c53f",
+    "mtime": 1792427332.6989377,
+    "ast_hash": "ece1eef325d3c86b4177475ddab05617",
     "semantic_hash": ""
   },
   "pipeline/component_catalog.py": {
@@ -605,8 +605,8 @@
     "semantic_hash": ""
   },
   "components/_catalog.md": {
-    "mtime": 1792413922.969276,
-    "ast_hash": "a1aebfa67bccb5b2103f6206c712fb7d",
+    "mtime": 1792433897.317893,
+    "ast_hash": "b3efe8d66dde3f92531c8eaa54d2c4ea",
     "semantic_hash": ""
   },
   "brand/rules/posting-schedule.md": {
@@ -657,6 +657,31 @@
   ".claude/agents/voice.md": {
     "mtime": 1792416405.4714339,
     "ast_hash": "1d48a139c73b37ce2c7bd85205ff0f31",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-credit-card-myth/scenes/scenes.json": {
+    "mtime": 1792433647.515408,
+    "ast_hash": "6e644d84e3a2dc9b2998dd37000da38a",
+    "semantic_hash": ""
+  },
+  "brand/rules/comedy.md": {
+    "mtime": 1792426748.939412,
+    "ast_hash": "56a619b97f2144bb2963ad055315cae9",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-credit-card-myth/cover.md": {
+    "mtime": 1792426963.5309768,
+    "ast_hash": "927a984256ee2bead543d217838695ef",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-credit-card-myth/facts.md": {
+    "mtime": 1792431241.4654639,
+    "ast_hash": "39fbc46df74554536364a9e0e1d99b99",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-credit-card-myth/script.md": {
+    "mtime": 1792427404.3114963,
+    "ast_hash": "3465319f623dc0ce6648f24089148b28",
     "semantic_hash": ""
   }
 }

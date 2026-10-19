@@ -1,24 +1,61 @@
 {
   "name": "receipt-list",
-  "description": "Thermal receipt that prints line by line (stepped) out of a printer slot, lying on the field. The total is circled in blue ballpoint after it prints. Great as frame 1 (printed:true shows it fully at t=0) or as a growing receipt meter.",
+  "description": "Thermal receipt that prints line by line (stepped) out of a printer slot, lying on the field. The total is circled in blue ballpoint after it prints. Great as frame 1 (printed:true shows it fully at t=0) or as a growing receipt meter. Optional: width (paper px, default 760, max 860; the printer is 100 px wider, capped at 880); stampTotal:true slams the total amount on as a textured red rubber-stamp mark (instead of the ballpoint circle) once it prints. dy (px) nudges the whole composition down (+) or up (−) inside the content zone. totalAt (s from scene start, optional) holds the total block until then, so the amount lands on its word.",
   "layer": "scene",
   "params": {
     "title": "UPI RECEIPT",
     "meta": "",
-    "items": [{ "label": "Chai", "amount": "₹20" }],
-    "total": { "label": "TOTAL", "amount": "₹20", "tone": "ink" },
+    "items": [
+      {
+        "label": "Chai",
+        "amount": "₹20"
+      }
+    ],
+    "total": {
+      "label": "TOTAL",
+      "amount": "₹20",
+      "tone": "ink"
+    },
     "footer": "",
     "circleTotal": true,
     "step": 0.22,
-    "printed": false
+    "printed": false,
+    "width": 760,
+    "stampTotal": false,
+    "dy": 0,
+    "totalAt": null
   },
   "example": {
     "title": "UPI RECEIPT",
     "meta": "TXN 19-10-2026 08:42",
-    "items": [{ "label": "Chai", "amount": "₹20" }, { "label": "Samosa", "amount": "₹15" }, { "label": "Convenience fee", "amount": "₹0" }],
-    "total": { "label": "MDR", "amount": "₹0 ?", "tone": "red" },
+    "items": [
+      {
+        "label": "Chai",
+        "amount": "₹20"
+      },
+      {
+        "label": "Samosa",
+        "amount": "₹15"
+      },
+      {
+        "label": "Convenience fee",
+        "amount": "₹0"
+      }
+    ],
+    "total": {
+      "label": "MDR",
+      "amount": "₹0 ?",
+      "tone": "red"
+    },
     "footer": "THANK YOU VISIT AGAIN"
   },
-  "sfx": [{ "sound": "printer", "at": 0, "event": "print-start", "skipIf": "printed" }],
+  "sfx": [
+    {
+      "sound": "printer",
+      "at": 0,
+      "event": "print-start",
+      "skipIf": "printed"
+    }
+  ],
   "minDuration": 1.5
 }

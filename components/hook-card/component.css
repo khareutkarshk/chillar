@@ -11,3 +11,9 @@
 .c-hook-card .hk-line:last-child .hk-amt { color: var(--red); }
 .c-hook-card .hk-mascot { margin-left: -24px; margin-bottom: -16px; position: relative; z-index: 2; }
 .c-hook-card .hk-mascot svg { width: 330px; height: 363px; display: block; }
+/* wide:true — the stakes slip spans the content width (≈860 px) and Chillar sits on its top-right corner */
+.c-hook-card .hk-row.wide { display: block; position: relative; margin-top: 190px; }
+.c-hook-card .hk-row.wide .hk-stub { width: 860px; padding: 50px 58px 68px; }
+.c-hook-card .hk-row.wide .hk-line { font-size: 70px; justify-content: flex-start; gap: 64px; }
+.c-hook-card .hk-row.wide .hk-mascot { position: absolute; right: 18px; top: 0; margin: 0; transform: translateY(-84%); }
+.c-hook-card .hk-row.wide .hk-mascot svg { width: 270px; height: 297px; }

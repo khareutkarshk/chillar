@@ -1,13 +1,24 @@
 {
   "name": "hook-card",
-  "description": "Frame 1. FULLY DRAWN AT t=0 (no entrance): the question as a big left-aligned headline on the chapter field, a torn receipt stub with the stakes lying under it at a tilt, the last amount circled in blue ballpoint (drawn after frame 1), Chillar side-eyeing. No series label — the question is the headline.",
+  "description": "Frame 1. FULLY DRAWN AT t=0 (no entrance): the question as a big left-aligned headline on the chapter field, a torn receipt stub with the stakes lying under it at a tilt, the last amount circled in blue ballpoint (drawn after frame 1), Chillar side-eyeing. No series label — the question is the headline. Optional: wide:true makes the stakes slip span the content width (≈860 px, bigger print) with Chillar sitting on its top-right corner. dy (px) nudges the whole composition down (+) or up (−) inside the content zone.",
   "layer": "scene",
   "params": {
     "question": "UPI free hai. Phir *bill* kaun bharta?",
-    "stakes": [{ "label": "Chai", "amount": "₹20" }, { "label": "Fee", "amount": "₹0" }],
+    "stakes": [
+      {
+        "label": "Chai",
+        "amount": "₹20"
+      },
+      {
+        "label": "Fee",
+        "amount": "₹0"
+      }
+    ],
     "circle": true,
     "mascot": "side-eye",
-    "size": 132
+    "size": 132,
+    "wide": false,
+    "dy": 0
   },
   "example": {},
   "sfx": [],
