@@ -8,8 +8,10 @@ Fact-check episode **$ARGUMENTS**.
 1. Run `.venv/bin/python pipeline/fact_lint.py episodes/<slug> --json` — mechanical gaps first
    (uncited numbers, missing URLs, stale `checked` dates, ids that don't exist).
 
-2. For **every** fact in `facts.md` that the script cites: open the source URL (WebFetch; for PDFs
-   read the PDF) and confirm the exact figure, unit, date range and wording. Check it's still current:
+2. `.venv/bin/python pipeline/facts_library.py fresh episodes/<slug>` — facts from a fresh library
+   entry only need the "says no more than its fact" check (step 3). For **every other** fact the script
+   cites: open the source — the cached copy in `brand/sources/` first, else
+   `facts_library.py cache <url> <name>` and read that (WebFetch is often blocked by government sites) and confirm the exact figure, unit, date range and wording. Check it's still current:
    search for newer releases / amendments / circulars after the source date (laws and RBI/NPCI rules
    change — e.g. MDR rules changed in Aug 2026). Prefer the primary source over news.
 
@@ -20,5 +22,5 @@ Fact-check episode **$ARGUMENTS**.
 4. Also scan `scenes/scenes.json` params: every number shown on screen must match a fact.
 
 5. Output a table: line id · claim as written · fact id · status (✅ verified / ⚠ outdated /
-   ⚠ overstated / ❌ unsourced / ❌ wrong) · fix. Update `checked` dates for facts you re-verified
+   ⚠ overstated / ❌ unsourced / ❌ wrong) · fix. Update `checked` dates for facts you re-verified (in the episode and in `brand/facts-library.md`)
    (ask before changing any claim text or script line). Anything not ✅ blocks /render.

@@ -97,6 +97,8 @@ def main() -> int:
     name = "gallery.png" if a.theme == TOK["theme"] else f"gallery-{a.theme}.png"
     sheet.save(OUT / name)
     print(f"gallery: {OUT / name} ({len(tiles)} tiles, theme {a.theme})")
+    import component_catalog
+    component_catalog.main()       # keep components/_catalog.md (what the director reads) in step
     return 0
 
 

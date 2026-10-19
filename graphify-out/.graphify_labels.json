@@ -1,7 +1,7 @@
 {
   "0": "Candidate",
   "1": "CLAUDE.md brand bible",
-  "2": "build_composition.py",
+  "2": "make_reel.py",
   "3": "episode.py",
   "4": "fetch_assets.py",
   "5": "12 LPA episode script.md",
@@ -10,8 +10,8 @@
   "8": "tts.py",
   "9": "audio_clean.py",
   "10": "setup.sh",
-  "11": "ig_export.py",
-  "12": "mix.py",
+  "11": "mix.py",
+  "12": "Component catalog (generated — `pipeline/component_catalog.py`, don't edit)",
   "13": "runtime.js",
   "14": "chillar.js",
   "15": "captions/component.js",
@@ -44,5 +44,14 @@
   "42": "pipeline/__init__.py",
   "43": "lib/__init__.py",
   "44": "chillar-reels",
-  "45": "CompletedProcess"
+  "45": "facts_library.py",
+  "46": "Production line — how work is routed, and what it costs",
+  "47": "component_catalog.py",
+  "48": "qa_probe.mjs",
+  "49": "facts-library.md",
+  "50": "formats.md",
+  "51": "instagram.md",
+  "52": "sound.md",
+  "53": "themes.md",
+  "54": "voice.md"
 }

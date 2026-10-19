@@ -31,3 +31,7 @@ assets/snapshots/*.html
 # graphify: keep graph.json + GRAPH_REPORT.md in git, not the extraction cache
 graphify-out/cache/
 graphify-out/.graphify_python
+
+# source cache (re-download with pipeline/facts_library.py cache <url>); index.json stays in git
+brand/sources/*
+!brand/sources/index.json

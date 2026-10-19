@@ -15,15 +15,16 @@ Brand bible and all rules: [CLAUDE.md](CLAUDE.md).
 ```
 
 The pipeline by hand: `.venv/bin/python pipeline/make_reel.py episodes/<ep> [--from STAGE] [--quality draft]`
-(stages: `facts clean align validate build render mix cover sheet igcheck`).
+(stages: `facts clean align validate build qa render mix cover sheet igcheck`; `qa` measures the built
+composition in headless Chrome and blocks the render on layout/timing errors).
 
 ## Layout
 | path | what |
 |---|---|
-| `brand/` | `colors.css`, `tokens.json` (rules the validators read), `fonts/` (OFL), `mascot/` (Chillar layered SVG, `sheet.png`), `sfx/` (locked) + `sfx/custom/` (your recordings, always win), `music/`, `_audition/` |
+| `brand/` | `colors.css`, `tokens.json` (rules the validators read), `rules/` (reference rules agents open on demand), `facts-library.md` (reusable sourced facts) + `sources/` (cached source PDFs), `fonts/` (OFL), `mascot/` (Chillar layered SVG, `sheet.png`), `sfx/` (locked) + `sfx/custom/` (your recordings, always win), `music/`, `_audition/` |
 | `.claude/agents/` | scriptwriter, script-reviewer, fact-checker, director, editor, video-reviewer |
-| `components/` | 22 HyperFrames-ready blocks (`component.json` = params, example, SFX events). Gallery: `components/_gallery/gallery.png` (`pipeline/component_gallery.py`) |
-| `pipeline/` | `make_reel.py` + stages, `fetch_assets.py` (licensed assets only), `tts.py` (Sarvam voice), `mascot_sheet.py` |
+| `components/` | 22 HyperFrames-ready blocks (`component.json` = params, example, SFX events). Index: `components/_catalog.md` (generated). Gallery: `components/_gallery/gallery.png` (`pipeline/component_gallery.py`) |
+| `pipeline/` | `make_reel.py` + stages, `qa.py` (mechanical QA), `frames.py` (half-size review frames), `facts_library.py`, `component_catalog.py`, `fetch_assets.py` (licensed assets only), `tts.py` (Sarvam voice), `mascot_sheet.py` |
 | `episodes/_template/` | `script.md`, `cover.md`, `facts.md`, `episode.toml`, `voice/`, `scenes/`, `output/` |
 | `assets/licenses.json` | every downloaded file: source, URL, license, attribution, date, sha256, license snapshot |
 

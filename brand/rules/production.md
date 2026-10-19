@@ -1,0 +1,47 @@
+# Production line — how work is routed, and what it costs
+
+## Agents (`.claude/agents/`), one job each; the main session is the producer
+| agent | model · effort | does | loop |
+|---|---|---|---|
+| `scriptwriter` | opus · high | writes/rewrites script.md (jokes, puns, meme refs, facts cited) | ⇄ script-reviewer, ≤ 3 rounds |
+| `script-reviewer` | opus · high | scores + line notes → `notes/script-review-<n>.md`, PASS/REVISE | |
+| `fact-checker` | sonnet · medium | verifies claims → `notes/fact-check.md`, PASS/BLOCK | BLOCK → scriptwriter |
+| `director` | opus · high | script + words.json → `scenes/scenes.json` (visuals, fields, stamps, cuts) | ⇄ video-reviewer |
+| `editor` | sonnet · medium | rhythm, cut points, comedic timing, transitions, SFX in scenes.json | ⇄ video-reviewer |
+| `video-reviewer` | sonnet · medium | judges taste/comedy/retention on top of `qa.py` → `notes/video-review-<n>.md` | ≤ 3 rounds |
+Quality is decided by the writer, the script reviewer and the director — they keep the strongest
+model. The others do lookup, arithmetic and checking. Simple file chores and graphify extraction: haiku.
+After 3 rounds without PASS, stop and ask the creator.
+
+## Hand-offs: fresh agents, files carry the state
+- **Every round spawns a new agent.** Never resume/SendMessage an earlier director, editor or reviewer:
+  resuming replays its whole history (the first reel's director replay cost ~200k tokens).
+- The prompt names only the files to read: e.g. director round 2 = "Revise episodes/<ep>/scenes/scenes.json
+  from the [director] notes in notes/video-review-1.md and the errors in .cache/qa.json." The notes files
+  already carry everything an agent needs; write them so they stand alone.
+- The producer (main session) passes paths, not file contents, and doesn't re-read what an agent
+  just wrote unless it must decide something from it.
+
+## Mechanical QA before taste
+`make_reel.py` runs `qa` after `build` (no render needed): empty cut frames, text outside safe zones,
+text over text, captions/numbers before they're spoken, wrong odometer values, short shots; after `mix`
+it adds true peak / LUFS. Errors block the render. The director/editor fix qa errors **before** the
+first render; the video-reviewer reads `.cache/qa.json` and never re-checks what it covers.
+
+## Image budget (a full 1080×1920 frame ≈ 1.5k tokens every time it's viewed)
+- Per review round: **one contact sheet** (`output/contact_sheet.png`) + at most **12 single frames**,
+  pulled at 540×960 with `pipeline/frames.py episodes/<ep> <t>… | --qa` (only flagged timestamps
+  and punchlines). `--full` only to read small text, and rarely.
+- Don't open `contact_sheet_guides.png` unless qa reports a safe-zone issue you need to see.
+- The director reads `components/_catalog.md`, not the gallery PNGs or every component.json.
+
+## Facts
+New episodes copy recurring facts from `brand/facts-library.md` (`pipeline/facts_library.py copy`).
+The fact-checker re-verifies only stale library entries (`facts_library.py fresh episodes/<ep>`) and
+episode-specific facts, reading cached sources in `brand/sources/` before fetching the web.
+
+## Session hygiene
+- One episode per session: start `/make-reel` in a fresh session; `/compact` after the fact-check
+  (stage 3) and again after the first video-review round if the session is long.
+- Track cost per episode: `npx ccusage@latest daily` (or `session`) before and after; note the total in
+  `episodes/<ep>/notes/usage.md` so each process change can be measured.

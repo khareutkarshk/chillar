@@ -1,0 +1,42 @@
+{
+ "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2098406&reg=48&lang=2": {
+  "file": "pib-2098406-budget-2025-slabs.html",
+  "fetched": "2026-10-19",
+  "bytes": 112940
+ },
+ "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2026/feb/doc202621776101.pdf": {
+  "file": "pib-budget-2026-27-summary.pdf",
+  "fetched": "2026-10-19",
+  "bytes": 7091613
+ },
+ "https://www.labour.gov.in/static/uploads/2025/06/93561f36d5094b0cfe52570b4e8d2dc1.pdf": {
+  "file": "mole-epf-scheme-note.pdf",
+  "fetched": "2026-10-19",
+  "bytes": 92276
+ },
+ "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2313829&reg=48&lang=2": {
+  "file": "pib-2313829-epf-ceiling-25000.html",
+  "fetched": "2026-10-19",
+  "bytes": 75511
+ },
+ "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2178522&reg=48&lang=2": {
+  "file": "pib-2178522-epf-withdrawal-cbt.html",
+  "fetched": "2026-10-19",
+  "bytes": 189582
+ },
+ "https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2192463&reg=48&lang=2": {
+  "file": "pib-2192463-labour-codes.html",
+  "fetched": "2026-10-19",
+  "bytes": 384518
+ },
+ "https://www.labour.gov.in/static/uploads/2025/07/b0620548445580767b5c0d18c95c26f7.pdf": {
+  "file": "code-on-social-security-2020.pdf",
+  "fetched": "2026-10-19",
+  "bytes": 616749
+ },
+ "https://www.mahagst.gov.in/en/profession-tax-and-other-rate-schedule": {
+  "file": "mahagst-profession-tax-schedule.html",
+  "fetched": "2026-10-19",
+  "bytes": 61166
+ }
+}

@@ -2,15 +2,18 @@
 """Full pipeline for one episode.
 
   make_reel.py episodes/<ep> [--from STAGE] [--only STAGE] [--quality draft|looks|delivery]
-                            [--allow-unsourced]
+                            [--allow-unsourced] [--allow-qa]
 
-Stages:  facts → clean → align → validate → build → render → mix → cover → sheet
+Stages:  facts → clean → align → validate → build → qa → render → mix → cover → sheet → igcheck
   facts     fact_lint.py — blocks the render if any number/claim is unsourced
   clean     audio_clean.py — voice/voice.* → .cache/voice_clean.wav (-14 LUFS)
   align     align.py — forced alignment → .cache/words.json (+ adlibs.md)
   validate  validate_scenes.py — scenes/scenes.json → .cache/scenes.resolved.json
             (scenes.json is written by Claude in /render; this stage stops if it's missing)
   build     build_composition.py → episodes/<ep>/build/index.html (HyperFrames project) + lint
+  qa        qa.py — mechanical QA of the built composition (empty cuts, safe zones, text overlap,
+            odometer values, numbers before they're spoken, short shots) → .cache/qa.json;
+            errors block the render (--allow-qa to override). Re-run after mix for the audio check.
   render    npx hyperframes render → .cache/video.mp4 (silent)
   mix       mix.py → output/final.mp4
   cover     cover.py → output/cover.png
@@ -34,12 +37,13 @@ import cover as cover_mod  # noqa: E402
 import fact_lint  # noqa: E402
 import ig_export  # noqa: E402
 import mix as mix_mod  # noqa: E402
+import qa as qa_mod  # noqa: E402
 import validate_scenes  # noqa: E402
 from build_composition import build  # noqa: E402
 from lib.common import ROOT  # noqa: E402
 from lib.episode import load  # noqa: E402
 
-STAGES = ["facts", "clean", "align", "validate", "build", "render", "mix", "cover", "sheet", "igcheck"]
+STAGES = ["facts", "clean", "align", "validate", "build", "qa", "render", "mix", "cover", "sheet", "igcheck"]
 
 
 def run(cmd: list[str]) -> subprocess.CompletedProcess:
@@ -54,6 +58,7 @@ def main() -> int:
     ap.add_argument("--only", choices=STAGES)
     ap.add_argument("--quality", choices=["draft", "looks", "delivery"])
     ap.add_argument("--allow-unsourced", action="store_true")
+    ap.add_argument("--allow-qa", action="store_true", help="render even if qa.py finds errors")
     a = ap.parse_args()
     ep = load(a.episode)
     stages = [a.only] if a.only else STAGES[STAGES.index(a.start):]
@@ -94,6 +99,15 @@ def main() -> int:
             print("\n".join(errs) or "  ✓ lint: 0 errors")
             if errs:
                 return 1
+        elif st == "qa":
+            r = qa_mod.qa(a.episode, audio=False)
+            for i in r["issues"]:
+                t = f"t={i['t']:.2f}" if i["t"] is not None else "t=–"
+                print(f"  {'✗' if i['sev'] == 'error' else '!'} [{i['route']}] {t} {i['kind']}: {i['where']} — {i['msg']}")
+            print(f"  qa: {r['errors']} error(s), {r['warnings']} warning(s) → .cache/qa.json")
+            if r["errors"] and not a.allow_qa:
+                print("  RENDER BLOCKED: fix the qa errors (route each to director/editor/component) or pass --allow-qa")
+                return 1
         elif st == "render":
             out = ep.cache / "video.mp4"
             r = run(["npx", "--no-install", "hyperframes", "render", str(ep.dir / "build"), "--output", str(out),
@@ -103,6 +117,15 @@ def main() -> int:
                 return 1
         elif st == "mix":
             mix_mod.mix(a.episode)
+            q = ep.cache / "qa.json"
+            if q.exists():
+                rep = json.loads(q.read_text())
+                aud_issues: list = []
+                rep["audio"] = qa_mod.audio_check(ep, aud_issues)
+                rep["issues"] = [i for i in rep["issues"] if i["kind"] != "audio"] + aud_issues
+                q.write_text(json.dumps(rep, indent=1, ensure_ascii=False))
+                for i in aud_issues:
+                    print(f"  {'✗' if i['sev'] == 'error' else '!'} [editor] audio: {i['msg']} → {i['fix']}")
         elif st == "cover":
             cover_mod.cover(a.episode)
         elif st == "sheet":

@@ -2,11 +2,24 @@
 name: fact-checker
 description: Verifies every number and claim in a Chillar script.md (and on-screen in scenes.json) against the primary sources in facts.md; checks they are current. Use after the script passes review and again before delivery render.
 tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, Edit
+model: sonnet
+effort: medium
 ---
 
-Follow `.claude/commands/fact-check.md` exactly for `episodes/<ep>`. Open every cited source (PDFs
-too), confirm figure, unit, date range and wording, and search for newer circulars/releases after the
-source date. Check each script line says no more than its fact supports (jokes included — a joke
+Follow `.claude/commands/fact-check.md` exactly for `episodes/<ep>`.
+
+**Save effort where it's safe:** run `.venv/bin/python pipeline/facts_library.py fresh episodes/<ep>`.
+Facts copied from a **fresh** library entry (checked < 90 days, no Union Budget since) were verified
+recently — check only that the script line says no more than the claim; don't re-open the source.
+Fully verify the rest: episode-specific facts, worked examples (re-do the arithmetic), and stale library
+entries. For sources, read the cached copy first (`brand/sources/index.json` → file); if it isn't
+cached, cache it with `facts_library.py cache <url> <short-name>` (browser User-Agent; government sites
+often 403 plain fetches) and read the local file. Don't retry a blocked URL more than twice — find the
+same document on another official mirror (PIB, gazette, egazette.gov.in) instead. Confirm figure, unit,
+date range and wording, and search once for newer circulars/releases after the source date.
+
+When you re-verify a library entry, also update its `checked` date in `brand/facts-library.md`. When an
+episode adds a new fact that will recur (tax, PF, gratuity, deductions, limits), add it to the library. Check each script line says no more than its fact supports (jokes included — a joke
 can't smuggle in an unsourced number). Also scan `scenes/scenes.json` if it exists.
 
 Update `checked` dates only for facts you re-verified. Never change claim text or script lines
