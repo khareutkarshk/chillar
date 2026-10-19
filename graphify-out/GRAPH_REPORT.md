@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 526 nodes · 906 edges · 64 communities (51 shown, 13 thin omitted)
-- Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 63 edges (avg confidence: 0.78)
+- 526 nodes · 901 edges · 64 communities (51 shown, 13 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 58 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `84bea097`
+- Built from commit: `0b29b10f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -24,7 +24,7 @@
 - package.json
 - contact_sheet.py
 - tts.py
-- audio_clean.py
+- qa.py
 - setup.sh
 - mix.py
 - Component catalog (generated — `pipeline/component_catalog.py`, don't edit)
@@ -58,9 +58,9 @@
 4. `12 LPA episode script.md` - 16 edges
 5. `Line` - 15 edges
 6. `LicenseRefused` - 13 edges
-7. `qa()` - 13 edges
-8. `director agent` - 12 edges
-9. `/make-reel command` - 12 edges
+7. `director agent` - 12 edges
+8. `/make-reel command` - 12 edges
+9. `qa()` - 11 edges
 10. `12 LPA episode facts.md` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
@@ -94,12 +94,12 @@ Cohesion: 0.06
 Nodes (62): director agent, @chillar.ind wordmark (x 72-492, y 1460-1500), Motivated transitions (hard cut default; whip/zoom/wipe/page budgeted), No on-screen structure labels rule, Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists), scenes/scenes.json shot plan, Show, don't caption, editor agent (+54 more)
 
 ### Community 2 - "make_reel.py"
-Cohesion: 0.08
-Nodes (36): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+28 more)
+Cohesion: 0.12
+Nodes (20): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+12 more)
 
 ### Community 3 - "episode.py"
-Cohesion: 0.10
-Nodes (20): align(), _model(), Path, grab(), main(), Path, Episode, frontmatter() (+12 more)
+Cohesion: 0.08
+Nodes (29): align(), _model(), Path, clean(), ff(), find_voice(), has_filter(), loudnorm() (+21 more)
 
 ### Community 4 - "fetch_assets.py"
 Cohesion: 0.22
@@ -121,9 +121,9 @@ Nodes (12): Image, frame_at(), guides(), off_palette(), pal_array(), ndarray, Pa
 Cohesion: 0.35
 Nodes (10): Voiceover policy (Sarvam sunny_hi_reels, pace 1.2, every reel), audition_page(), chunks(), concat(), duration(), kokoro(), main(), Path (+2 more)
 
-### Community 9 - "audio_clean.py"
-Cohesion: 0.33
-Nodes (10): clean(), ff(), find_voice(), has_filter(), loudnorm(), CompletedProcess, ndarray, Path (+2 more)
+### Community 9 - "qa.py"
+Cohesion: 0.21
+Nodes (16): area(), audio_check(), chrome_path(), digits(), glyph_lines(), inr(), inside(), main() (+8 more)
 
 ### Community 10 - "setup.sh"
 Cohesion: 0.33
@@ -174,7 +174,7 @@ Cohesion: 0.22
 Nodes (21): draft(), find_cli(), frontmatter(), Line, main(), Path, Newest Claude Code binary: $CHILLAR_CLAUDE, the VS Code extension's bundled…, routed() (+13 more)
 
 ## Knowledge Gaps
-- **69 isolated node(s):** `name`, `private`, `description`, `node`, `doctor` (+64 more)
+- **69 isolated node(s):** `Report (hard limit)`, `Report (hard limit)`, `Report (hard limit)`, `Report (hard limit)`, `Facts library` (+64 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **13 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -189,7 +189,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.054) - this node is a cross-community bridge._
 - **Are the 5 inferred relationships involving `12 LPA episode script.md` (e.g. with `12 LPA episode cover.md` and `Chillar series: Chillar in 60, Chillar Report, Myth vs Math, ₹100 vs ₹1,00,000`) actually correct?**
   _`12 LPA episode script.md` has 5 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `name`, `private`, `description` to the rest of the system?**
+- **What connects `Report (hard limit)`, `Report (hard limit)`, `Report (hard limit)` to the rest of the system?**
   _69 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Candidate` be split into smaller, more focused modules?**
   _Cohesion score 0.05842259006815969 - nodes in this community are weakly interconnected._

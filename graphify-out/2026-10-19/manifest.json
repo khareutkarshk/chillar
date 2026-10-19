@@ -275,9 +275,9 @@
     "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
   },
   "pipeline/align.py": {
-    "mtime": 1792348098.5881987,
-    "ast_hash": "ecffcd711d512e9080902f6b44bc45d6",
-    "semantic_hash": "ecffcd711d512e9080902f6b44bc45d6"
+    "mtime": 1792416225.9121947,
+    "ast_hash": "8c7fc00d983f60bb575382d8cb73c6c1",
+    "semantic_hash": ""
   },
   "pipeline/audio_clean.py": {
     "mtime": 1792347529.869675,
@@ -305,9 +305,9 @@
     "semantic_hash": "36a4d64c0f29c2ccf433b4dd2fbaa76a"
   },
   "pipeline/fact_lint.py": {
-    "mtime": 1792347492.9796958,
-    "ast_hash": "b3af92fc5e9182420260a51ebbe2c7fd",
-    "semantic_hash": "b3af92fc5e9182420260a51ebbe2c7fd"
+    "mtime": 1792416319.4028788,
+    "ast_hash": "0110a8fdbd3d77e4eb8cfed5b98e20ac",
+    "semantic_hash": ""
   },
   "pipeline/fetch_assets.py": {
     "mtime": 1792348262.9446552,
@@ -430,33 +430,33 @@
     "semantic_hash": "0dc2d491af9b5e44782e341239503b0e"
   },
   ".claude/agents/director.md": {
-    "mtime": 1792406973.802703,
-    "ast_hash": "c7e2acb516bdb674467a2b56a13b97e1",
+    "mtime": 1792416375.0518837,
+    "ast_hash": "3df6eaff29afcdc5451b2acc0700eece",
     "semantic_hash": ""
   },
   ".claude/agents/editor.md": {
-    "mtime": 1792406973.8037028,
-    "ast_hash": "c988d6f11b84f339e7cf83f8b751ce5d",
+    "mtime": 1792416375.0528836,
+    "ast_hash": "d0a6c35d8ec4c916504f5bd1ddc90db7",
     "semantic_hash": ""
   },
   ".claude/agents/fact-checker.md": {
-    "mtime": 1792406993.228117,
-    "ast_hash": "e672ed84034facc843f84966658f0618",
+    "mtime": 1792416375.0538838,
+    "ast_hash": "88689b390c84472e5c06df42bb336a22",
     "semantic_hash": ""
   },
   ".claude/agents/script-reviewer.md": {
-    "mtime": 1792406973.802703,
-    "ast_hash": "981b6d71e392691b8ab68d2c293d407a",
+    "mtime": 1792416731.2148519,
+    "ast_hash": "c7e8b669649abaa942b7c61d7cc394e5",
     "semantic_hash": ""
   },
   ".claude/agents/scriptwriter.md": {
-    "mtime": 1792406973.802703,
-    "ast_hash": "706c510c4bc76b8f62242d11605dca56",
+    "mtime": 1792416731.2148519,
+    "ast_hash": "69d3672c432c333146b2b11460dec298",
     "semantic_hash": ""
   },
   ".claude/agents/video-reviewer.md": {
-    "mtime": 1792406993.228117,
-    "ast_hash": "1dbd96d47f454fc3b75cb1a3fe5433c5",
+    "mtime": 1792416375.0528836,
+    "ast_hash": "ef109d4eab1960be65795641c4a5ee41",
     "semantic_hash": ""
   },
   ".claude/commands/fact-check.md": {
@@ -470,8 +470,8 @@
     "semantic_hash": "9f1e0027caa041138f7221fbe1661e50"
   },
   ".claude/commands/make-reel.md": {
-    "mtime": 1792407019.6876838,
-    "ast_hash": "8ea11571a63c6e233ea5b346a3a817c8",
+    "mtime": 1792416712.4220076,
+    "ast_hash": "6edfe638fff5d7a9674160112c06ec80",
     "semantic_hash": ""
   },
   ".claude/commands/new-reel.md": {
@@ -495,8 +495,8 @@
     "semantic_hash": "7dea7cacd6c2b066c5ec6b73278df045"
   },
   "CLAUDE.md": {
-    "mtime": 1792408187.6557276,
-    "ast_hash": "52fa1057ce091e83846258e745a249c4",
+    "mtime": 1792416748.3777056,
+    "ast_hash": "09e64f7953df188b8caa19811aa5dbc3",
     "semantic_hash": ""
   },
   "README.md": {
@@ -555,8 +555,8 @@
     "semantic_hash": ""
   },
   "pipeline/frames.py": {
-    "mtime": 1792406687.6068583,
-    "ast_hash": "09c9efc080907d33da00e42138a6bfa0",
+    "mtime": 1792416207.5798652,
+    "ast_hash": "171244fc3a0ef7d6902eb1ce836e4bba",
     "semantic_hash": ""
   },
   "pipeline/lib/qa_probe.mjs": {
@@ -565,13 +565,13 @@
     "semantic_hash": ""
   },
   "pipeline/qa.py": {
-    "mtime": 1792407053.472412,
-    "ast_hash": "a8ebd4481d6a4ab948708ca4672b2370",
+    "mtime": 1792416169.4921815,
+    "ast_hash": "d2f7ded2f1bb0bf2b2796652eeb80a6f",
     "semantic_hash": ""
   },
   "brand/facts-library.md": {
-    "mtime": 1792406814.4523823,
-    "ast_hash": "b105e67c88952119c2f0b0c8de64c572",
+    "mtime": 1792416345.240345,
+    "ast_hash": "e60dcec72ca6cd858672bacd1f45842d",
     "semantic_hash": ""
   },
   "brand/rules/formats.md": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "brand/rules/production.md": {
-    "mtime": 1792406908.2453194,
-    "ast_hash": "7abb9516a305b6f7bcc48c19062a06e2",
+    "mtime": 1792416731.2148519,
+    "ast_hash": "b257a45f3fb002461a2e98b0bf188e4b",
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
@@ -632,6 +632,31 @@
   "episodes/2026-10-epf-explained/script.md": {
     "mtime": 1792410920.8161085,
     "ast_hash": "2b66d60f443b2e17355f29b5128ba5a7",
+    "semantic_hash": ""
+  },
+  "pipeline/produce.py": {
+    "mtime": 1792416649.0688543,
+    "ast_hash": "f5e6f67504976ad20bcb19ea432875ec",
+    "semantic_hash": ""
+  },
+  ".claude/agents/component-dev.md": {
+    "mtime": 1792416640.197693,
+    "ast_hash": "db6ce1fd7f6530f040fad5ad1be7d7c5",
+    "semantic_hash": ""
+  },
+  ".claude/agents/packager.md": {
+    "mtime": 1792416406.5674536,
+    "ast_hash": "48652f462dc7df8d19e3ec0ef131bf6d",
+    "semantic_hash": ""
+  },
+  ".claude/agents/researcher.md": {
+    "mtime": 1792416404.373414,
+    "ast_hash": "159764aaabac29360e5a620740f63635",
+    "semantic_hash": ""
+  },
+  ".claude/agents/voice.md": {
+    "mtime": 1792416405.4714339,
+    "ast_hash": "1d48a139c73b37ce2c7bd85205ff0f31",
     "semantic_hash": ""
   }
 }
