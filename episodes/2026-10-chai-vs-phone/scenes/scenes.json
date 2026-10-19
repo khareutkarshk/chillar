@@ -1,0 +1,485 @@
+{
+  "theme": "pastel",
+  "scenes": [
+    {
+      "id": "hook-stakes",
+      "component": "hook-card",
+      "at": 0,
+      "fact": "F4",
+      "params": {
+        "question": "Chai ya phone: asli *villain*?",
+        "stakes": [
+          {
+            "label": "Chai, roz",
+            "amount": "₹100"
+          },
+          {
+            "label": "Phone",
+            "amount": "₹1,00,000"
+          }
+        ],
+        "circle": true,
+        "mascot": "side-eye",
+        "wide": true,
+        "size": 108,
+        "dy": 50
+      }
+    },
+    {
+      "id": "mama-forward",
+      "component": "statement",
+      "at": "w12",
+      "params": {
+        "title": "Bade Mama",
+        "body": [
+          "Forwarded many times",
+          "Chai peena band karo!!",
+          "Chai = barbaadi!!",
+          "Zaroor share karein"
+        ],
+        "paper": true,
+        "size": 150
+      }
+    },
+    {
+      "id": "re-shocked-bold",
+      "component": "mascot-reaction",
+      "at": "w18",
+      "until": "w26",
+      "params": {
+        "expr": "shocked",
+        "anim": "shake",
+        "x": 820,
+        "y": 1120,
+        "size": 240
+      }
+    },
+    {
+      "id": "chai-ate",
+      "component": "checklist",
+      "at": "w26",
+      "params": {
+        "title": "Chai ne khaya:",
+        "items": [
+          {
+            "text": "Savings",
+            "ok": false
+          },
+          {
+            "text": "Ghar",
+            "ok": false
+          },
+          {
+            "text": "Shaadi (late hai)",
+            "ok": false
+          }
+        ],
+        "stagger": 0.55
+      }
+    },
+    {
+      "id": "re-facepalm",
+      "component": "mascot-reaction",
+      "at": "w38",
+      "until": "w48",
+      "params": {
+        "expr": "facepalm",
+        "anim": "shake",
+        "x": 760,
+        "y": 1330,
+        "size": 260,
+        "bubble": "Mama 1, main 0."
+      }
+    },
+    {
+      "id": "chai-receipt",
+      "component": "receipt-list",
+      "at": "w48",
+      "fact": "F1",
+      "params": {
+        "title": "CHAI KHATA",
+        "meta": "example",
+        "items": [
+          {
+            "label": "Chai, roz",
+            "amount": "₹100"
+          },
+          {
+            "label": "x 365 din",
+            "amount": ""
+          }
+        ],
+        "total": {
+          "label": "SAAL KA",
+          "amount": "₹36,500",
+          "tone": "red"
+        },
+        "circleTotal": true,
+        "width": 860,
+        "totalAt": 1.8,
+        "step": 0.2
+      }
+    },
+    {
+      "id": "meter-chai",
+      "component": "progress-meter",
+      "at": "w52",
+      "until": "w56",
+      "params": {
+        "from": 0,
+        "to": 0.5,
+        "coins": 8
+      }
+    },
+    {
+      "id": "meme-dost",
+      "component": "meme-format",
+      "at": "w56",
+      "params": {
+        "format": "nobody-me",
+        "panels": [
+          {
+            "label": "Nobody:",
+            "text": "...",
+            "expr": "neutral-tired"
+          },
+          {
+            "label": "Me:",
+            "text": "\"Main de deta hoon\"",
+            "expr": "smug"
+          }
+        ],
+        "reveal": 0.3
+      }
+    },
+    {
+      "id": "tapri-absent",
+      "component": "checklist",
+      "at": "w66",
+      "params": {
+        "title": "Tapri attendance:",
+        "items": [
+          {
+            "text": "Somvaar",
+            "ok": false
+          },
+          {
+            "text": "Mangal",
+            "ok": false
+          },
+          {
+            "text": "Budh",
+            "ok": false
+          }
+        ],
+        "stagger": 0.3
+      }
+    },
+    {
+      "id": "re-sideeye-tapri",
+      "component": "mascot-reaction",
+      "at": "w73",
+      "until": "w78",
+      "params": {
+        "expr": "side-eye",
+        "anim": "blink",
+        "x": 790,
+        "y": 1120,
+        "size": 260
+      }
+    },
+    {
+      "id": "forward-bolder",
+      "component": "marker-highlight",
+      "at": "w78",
+      "params": {
+        "text": "Dost se *door* raho!!!",
+        "sub": "Bade Mama, agle din",
+        "size": 210,
+        "markerAt": 2.9
+      },
+      "cut": "whip"
+    },
+    {
+      "id": "meter-dost",
+      "component": "progress-meter",
+      "at": "w85",
+      "until": "w92",
+      "params": {
+        "from": 0.5,
+        "to": 0.75,
+        "coins": 8
+      }
+    },
+    {
+      "id": "re-crying",
+      "component": "mascot-reaction",
+      "at": "w92",
+      "until": "w103",
+      "params": {
+        "expr": "crying",
+        "anim": "shake",
+        "x": 770,
+        "y": 1110,
+        "size": 320
+      }
+    },
+    {
+      "id": "calc-phone",
+      "component": "odometer-number",
+      "at": "w103",
+      "fact": "F2",
+      "params": {
+        "value": 100000,
+        "prefix": "₹",
+        "label": "Phone (example)",
+        "rollStart": 0.6,
+        "rollDuration": 0.9,
+        "size": 200,
+        "dy": -150,
+        "from": 0
+      }
+    },
+    {
+      "id": "re-thinking",
+      "component": "mascot-reaction",
+      "at": "w110",
+      "until": "w116",
+      "params": {
+        "expr": "thinking",
+        "anim": "blink",
+        "x": 760,
+        "y": 1120,
+        "size": 300,
+        "bubble": "Phone ko pata chal gaya."
+      }
+    },
+    {
+      "id": "phone-khata",
+      "component": "receipt-list",
+      "at": "w116",
+      "fact": "F2",
+      "params": {
+        "title": "PHONE KHATA",
+        "meta": "example",
+        "items": [
+          {
+            "label": "Phone",
+            "amount": "₹1,00,000"
+          },
+          {
+            "label": "÷ 2 saal",
+            "amount": ""
+          }
+        ],
+        "total": {
+          "label": "SAAL KA",
+          "amount": "₹50,000",
+          "tone": "red"
+        },
+        "stampTotal": true,
+        "circleTotal": false,
+        "width": 860,
+        "step": 0.2,
+        "totalAt": 2.78
+      }
+    },
+    {
+      "id": "re-counting",
+      "component": "mascot-reaction",
+      "at": "w122",
+      "until": "w130",
+      "params": {
+        "expr": "counting-money",
+        "anim": "blink",
+        "x": 780,
+        "y": 1120,
+        "size": 240
+      }
+    },
+    {
+      "id": "camera-meme",
+      "component": "meme-format",
+      "at": "w130",
+      "params": {
+        "format": "expectation-reality",
+        "panels": [
+          {
+            "label": "Expectation",
+            "text": "Camera wala phone",
+            "expr": "smug"
+          },
+          {
+            "label": "Reality",
+            "text": "Mama ke good-morning phool",
+            "expr": "neutral-tired"
+          }
+        ],
+        "reveal": 1.2
+      }
+    },
+    {
+      "id": "phone-chai-roz",
+      "component": "odometer-number",
+      "at": "w143",
+      "cut": "zoom",
+      "fact": "F3",
+      "params": {
+        "value": 137,
+        "prefix": "₹",
+        "label": "Phone ki roz ki chai",
+        "sub": "lagbhag (example)",
+        "rollStart": 0.75,
+        "rollDuration": 0.9,
+        "size": 300,
+        "from": 0
+      }
+    },
+    {
+      "id": "yearly-bars",
+      "component": "bar-chart",
+      "at": "w153",
+      "fact": "F4",
+      "params": {
+        "title": "",
+        "bars": [
+          {
+            "label": "Chai",
+            "value": 36500
+          },
+          {
+            "label": "Phone",
+            "value": 50000
+          }
+        ],
+        "highlight": 1,
+        "prefix": "₹",
+        "stagger": 0.3
+      }
+    },
+    {
+      "id": "st-13500",
+      "component": "stamp",
+      "fact": "F4",
+      "at": "w156",
+      "until": "w161",
+      "params": {
+        "text": "₹13,500 zyada",
+        "x": 410,
+        "y": 330,
+        "rotate": -6,
+        "size": 72
+      }
+    },
+    {
+      "id": "villain-flip",
+      "component": "split-compare",
+      "at": "w161",
+      "params": {
+        "left": {
+          "title": "Villain",
+          "text": "Chai"
+        },
+        "right": {
+          "title": "Asli villain",
+          "text": "Phone"
+        },
+        "strikeAt": 0.3,
+        "revealAt": 0.6
+      }
+    },
+    {
+      "id": "rule",
+      "component": "statement",
+      "at": "w169",
+      "params": {
+        "title": "Har kharcha × *saal*",
+        "body": "₹100/din = ₹36,500/saal",
+        "paper": true,
+        "size": 150,
+        "markerAt": 0.4
+      },
+      "fact": "F1"
+    },
+    {
+      "id": "re-smug",
+      "component": "mascot-reaction",
+      "at": "w166",
+      "until": "w169",
+      "params": {
+        "expr": "smug",
+        "anim": "blink",
+        "x": 780,
+        "y": 1120,
+        "size": 280
+      }
+    },
+    {
+      "id": "st-rule",
+      "component": "stamp",
+      "at": "w175-0.2",
+      "until": "w178",
+      "params": {
+        "text": "Phir judge",
+        "x": 520,
+        "y": 1040,
+        "rotate": -6,
+        "size": 110
+      }
+    },
+    {
+      "id": "tapri-back",
+      "component": "receipt-list",
+      "at": "w178",
+      "fact": "F1",
+      "params": {
+        "title": "TAPRI",
+        "meta": "example",
+        "items": [
+          {
+            "label": "Aaj ki chai",
+            "amount": "₹100"
+          }
+        ],
+        "total": {
+          "label": "STATUS",
+          "amount": "Zinda",
+          "tone": "ink"
+        },
+        "circleTotal": true,
+        "width": 860,
+        "step": 0.18
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "punch",
+      "at": "w10"
+    },
+    {
+      "type": "punch",
+      "at": "w37"
+    },
+    {
+      "type": "punch",
+      "at": "w77"
+    },
+    {
+      "type": "punch",
+      "at": "w113"
+    },
+    {
+      "type": "punch",
+      "at": "w141"
+    },
+    {
+      "type": "punch",
+      "at": "w149"
+    },
+    {
+      "type": "punch",
+      "at": "w182"
+    }
+  ]
+}
