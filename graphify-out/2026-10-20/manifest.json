@@ -455,8 +455,8 @@
     "semantic_hash": ""
   },
   ".claude/agents/video-reviewer.md": {
-    "mtime": 1792436574.176771,
-    "ast_hash": "42e5b963a4515c5f2f46fdfa910e7f1c",
+    "mtime": 1792445482.6331012,
+    "ast_hash": "551a1603968927d370eebf5d026312d6",
     "semantic_hash": ""
   },
   ".claude/commands/fact-check.md": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "brand/rules/production.md": {
-    "mtime": 1792416731.2148519,
-    "ast_hash": "b257a45f3fb002461a2e98b0bf188e4b",
+    "mtime": 1792445500.8604023,
+    "ast_hash": "da1c47faaff9f6b26378d86f1a480846",
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792436596.9546056,
-    "ast_hash": "058654cd2fdf4f70b5487de7469d9a66",
+    "mtime": 1792445471.640923,
+    "ast_hash": "759848bb7b198ecc046736e03ccceb9b",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
