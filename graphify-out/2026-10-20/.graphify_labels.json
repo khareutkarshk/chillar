@@ -8,7 +8,7 @@
   "6": "package.json",
   "7": "contact_sheet.py",
   "8": "tts.py",
-  "9": "audio_clean.py",
+  "9": "2026-10-chai-vs-phone/script.md",
   "10": "setup.sh",
   "11": "mix.py",
   "12": "Component catalog (generated — `pipeline/component_catalog.py`, don't edit)",
@@ -67,5 +67,7 @@
   "65": "2026-10-credit-card-myth/script.md",
   "66": "2026-10-credit-card-myth/cover.md",
   "67": "Facts — 2026-10-credit-card-myth",
-  "68": "qa.py"
+  "68": "qa.py",
+  "69": "2026-10-chai-vs-phone/cover.md",
+  "70": "Facts — 2026-10-chai-vs-phone"
 }

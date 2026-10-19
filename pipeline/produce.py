@@ -41,6 +41,7 @@ PY = str(ROOT / ".venv" / "bin" / "python")
 AGENTS = ROOT / ".claude" / "agents"
 STAGES = ["research", "script", "factcheck", "voice", "align", "edit", "deliver", "package", "usage"]
 MAX_ROUNDS = 3
+REVISE_EFFORT = "medium"         # director revisions / fix passes (the first plan keeps the frontmatter's high)
 
 # frontmatter alias -> pinned model id (update here when the brand moves to a new model)
 MODELS = {"opus": "claude-opus-5-5", "sonnet": "claude-sonnet-5-5", "haiku": "claude-haiku-5-5"}
@@ -51,6 +52,9 @@ BUDGET = {"researcher": 1.5, "scriptwriter": 1.5, "script-reviewer": 1.0, "fact-
 # Bash the agents may run without a prompt (headless runs can't ask). Everything else is denied.
 BASH_OK = [".venv/bin/python", "python3", "npx", "ffmpeg", "ffprobe", "ls", "cat", "head", "tail", "grep", "wc",
            "sed", "jq", "mkdir", "cp", "find", "diff", "cd", "echo", "sort", "uniq", "awk"]
+# Headless runs finish in < 6 min, so the 5-minute cache is enough; the CLI's default 1-hour cache bills
+# writes at 2x input instead of 1.25x (≈ $1.5 a reel, measured on chai-vs-phone).
+ENV = {**os.environ, "FORCE_PROMPT_CACHING_5M": "1"}
 LEAN = ["--strict-mcp-config", "--disable-slash-commands", "--settings", '{"disableAllHooks": true}',
         "--permission-mode", "acceptEdits", "--output-format", "json", "--no-session-persistence"]
 
@@ -96,8 +100,11 @@ class Line:
         self.out.mkdir(parents=True, exist_ok=True)
         (ep / "notes").mkdir(exist_ok=True)
 
-    def agent(self, name: str, prompt: str, stage: str) -> str:
+    def agent(self, name: str, prompt: str, stage: str, effort: str = "") -> str:
+        """effort overrides the frontmatter's (revisions run a level below the first pass)."""
         meta = frontmatter(name)
+        if effort:
+            meta["effort"] = effort
         model = MODELS.get(meta.get("model", "sonnet"), meta.get("model", "sonnet"))
         tools = ",".join(t.strip() for t in meta.get("tools", "Read").split(","))
         allow = [t for t in tools.split(",") if t != "Bash"] + ([f"Bash({b}:*)" for b in BASH_OK] if "Bash" in tools else [])
@@ -110,7 +117,7 @@ class Line:
         if self.dry:
             return "verdict: PASS (dry run)"
         t0 = time.time()
-        r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
+        r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, env=ENV)
         try:
             d = json.loads(r.stdout)
         except json.JSONDecodeError:
@@ -119,13 +126,18 @@ class Line:
         rec = {"at": dt.datetime.now().isoformat(timespec="seconds"), "stage": stage, "agent": name,
                "models": list(d.get("modelUsage", {})), "cost": round(d.get("total_cost_usd", 0) or 0, 4),
                "turns": d.get("num_turns"), "secs": round(time.time() - t0),
+               "effort": meta.get("effort"),
                "tokens": {k: u.get(k, 0) for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens", "output_tokens")},
+               "cache_1h": (u.get("cache_creation") or {}).get("ephemeral_1h_input_tokens", 0),
                "error": d.get("subtype") if d.get("is_error") or d.get("subtype", "success") != "success" else None}
         with self.log.open("a") as f:
             f.write(json.dumps(rec) + "\n")
         n = len(list(self.out.glob(f"{stage}-*.txt"))) + 1
-        (self.out / f"{stage}-{n}-{name}.txt").write_text(d.get("result", ""))
+        self.last_out = self.out / f"{stage}-{n}-{name}.txt"
+        self.last_out.write_text(d.get("result", ""))
         flag = f"  ⚠ {rec['error']}" if rec["error"] else ""
+        if rec["cache_1h"]:
+            flag += f"  ⚠ {rec['cache_1h']} cache tokens written at the 1-hour rate"
         if rec["models"] and not any(m.startswith(model) for m in rec["models"]):
             flag += f"  ⚠ ran on {rec['models']}, expected {model}"
         print(f"    ${rec['cost']:.2f} · {rec['turns']} turns · {rec['secs']} s{flag}", flush=True)
@@ -164,8 +176,36 @@ def stop(ep: Path, why: str, detail: str = "") -> None:
     sys.exit(3)
 
 
+NOTE_ROUTE = re.compile(r"^\s*-\s*\[([^\]]+)\]", re.M)
+
+
+def routes(text: str) -> set[str]:
+    """Owners named in note lines: `- [director] …`, `- [component:bar-chart] …`, `- [director|component:x] …`."""
+    return {r.strip().split(":")[0] for tag in NOTE_ROUTE.findall(text) for r in tag.split("|")}
+
+
 def routed(review: Path, who: str) -> bool:
-    return review.exists() and f"[{who}" in review.read_text()
+    return review.exists() and who in routes(review.read_text())
+
+
+def director(L: Line, ep: Path, prompt: str, stage: str, effort: str = "") -> None:
+    """Run the director, then hand the [component:*] requests in its report to component-dev (existing components)
+    or to notes/component-wishlist.md (new ones, for the creator) — they used to go nowhere."""
+    L.agent("director", prompt, stage, effort)
+    if L.dry:
+        return
+    asks = [x for x in L.last_out.read_text().splitlines() if re.search(r"\[component:[\w-]+\]", x)]
+    have = [x for x in asks if (ROOT / "components" / re.search(r"\[component:([\w-]+)\]", x).group(1)).is_dir()]
+    new = [x for x in asks if x not in have]
+    if new:
+        with (ep / "notes" / "component-wishlist.md").open("a") as f:
+            f.write(f"\n## {ep.name} · {L.last_out.name}\n" + "\n".join(x.strip() for x in new) + "\n")
+        print(f"  {len(new)} new-component request(s) → notes/component-wishlist.md (creator's call, not built here)")
+    if have:
+        k = len(list((ep / "notes").glob("component-requests-*.md"))) + 1
+        req = ep / "notes" / f"component-requests-{k}.md"
+        req.write_text("# Component requests from the director\n\n" + "\n".join(f"- {x.strip().lstrip('-* ').strip()}" for x in have) + "\n")
+        L.agent("component-dev", f"Fix the [component:*] requests in {req.relative_to(ROOT)} (skip any already done).", stage)
 
 
 # ------------------------------------------------------------------ stages
@@ -245,21 +285,21 @@ def st_edit(L: Line, ep: Path, a) -> None:
     for n in range(start, MAX_ROUNDS + 1):
         prev = ep / "notes" / f"video-review-{n - 1}.md"
         if n == 1:
-            L.agent("director", f"Plan {e}/scenes/scenes.json from script.md + .cache/words.json; validate + qa clean.", "edit")
+            director(L, ep, f"Plan {e}/scenes/scenes.json from script.md + .cache/words.json; validate + qa clean.", "edit")
             L.agent("editor", f"Tighten {e}/scenes/scenes.json (director's first pass); validate + qa clean.", "edit")
         else:
             # only the roles the review actually routed notes to
             if routed(prev, "component"):
                 L.agent("component-dev", f"Fix the [component:*] notes in {e}/notes/video-review-{n - 1}.md.", "edit")
             if routed(prev, "director"):
-                L.agent("director", f"Revise {e}/scenes/scenes.json from the [director] notes in "
-                        f"{e}/notes/video-review-{n - 1}.md and .cache/qa.json.", "edit")
+                director(L, ep, f"Revise {e}/scenes/scenes.json from the [director] notes in "
+                         f"{e}/notes/video-review-{n - 1}.md and .cache/qa.json.", "edit", REVISE_EFFORT)
             if routed(prev, "editor"):
                 L.agent("editor", f"Apply the [editor] notes in {e}/notes/video-review-{n - 1}.md to "
                         f"{e}/scenes/scenes.json (skip any already resolved).", "edit")
         if draft(L, ep):            # qa blocked the render: one fix pass, then try again
-            L.agent("director", f"qa blocked the render of {e}: fix every error in .cache/qa.json "
-                    "(route [editor] timing errors too). Validate + qa clean.", "edit")
+            director(L, ep, f"qa blocked the render of {e}: fix every error in .cache/qa.json "
+                     "(route [editor] timing errors too). Validate + qa clean.", "edit", REVISE_EFFORT)
             if draft(L, ep):
                 stop(ep, "qa still blocks the draft render after a fix pass", "see .cache/qa.json")
         L.agent("video-reviewer", f"Review the draft of {e}, round {n} → notes/video-review-{n}.md.", "edit")
@@ -285,15 +325,16 @@ def st_fix(L: Line, ep: Path, a) -> None:
     if routed(ep / "notes" / f"video-review-{n}.md", "component"):
         L.agent("component-dev", f"Fix the [component:*] notes in {notes}. {final}", "fix")
     if routed(ep / "notes" / f"video-review-{n}.md", "director"):
-        L.agent("director", f"Revise {e}/scenes/scenes.json from the [director] notes in {notes} and .cache/qa.json. {final}", "fix")
+        director(L, ep, f"Revise {e}/scenes/scenes.json from the [director] notes in {notes} and .cache/qa.json. {final}",
+                 "fix", REVISE_EFFORT)
     if routed(ep / "notes" / f"video-review-{n}.md", "editor"):
         L.agent("editor", f"Apply the [editor] notes in {notes} to {e}/scenes/scenes.json. {final}", "fix")
     def clean() -> bool:
         return all(L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", st, check=False) == 0
                    for st in ("validate", "build", "qa"))
     if not clean():
-        L.agent("director", f"qa blocks {e}: fix every error in .cache/qa.json (route [editor] timing errors too). "
-                "Validate + qa clean.", "fix")
+        director(L, ep, f"qa blocks {e}: fix every error in .cache/qa.json (route [editor] timing errors too). "
+                 "Validate + qa clean.", "fix", REVISE_EFFORT)
         if not clean():
             stop(ep, "qa still blocks after the fix pass", "see .cache/qa.json")
     print("  fix pass done, qa clean → --from deliver")

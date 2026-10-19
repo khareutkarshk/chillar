@@ -63,6 +63,13 @@ Baseline: the EPF reel made by a producer session routing in-session subagents c
 - **Reports ≤ 8 lines**; detail lives in notes files. The script reads only verdict lines.
 - **Rounds only for routed roles:** round ≥ 2 runs director / editor / component-dev only if the review
   routed notes to them.
+- **(2026-10-20) Cost fixes after chai-vs-phone ($7.83, 4/4 reels stuck at 3 video rounds):**
+  `FORCE_PROMPT_CACHING_5M` on every agent (1-hour cache writes billed 2× input; runs are < 6 min) — a run that
+  still writes 1-hour cache is flagged. Routing reads every owner in a note tag (`[director|component:x]` used to
+  skip component-dev). The director's own `[component:*]` requests go to component-dev (existing components) or
+  `notes/component-wishlist.md` (new ones, the creator's call). Director revisions and fix passes run at medium
+  effort (`REVISE_EFFORT`). The video-reviewer marks notes `blocker|polish`, passes with no blockers, and adds
+  only new blockers after round 1.
 - **Real cost per run** (`total_cost_usd`) → `notes/usage.jsonl` → `notes/usage.md`; `--max-budget-usd`
   caps per agent (BUDGET in produce.py) are safety nets, not targets.
 - **Fewer wasted rounds:** fact_lint's script self-check (spoken length with numbers in full at the measured

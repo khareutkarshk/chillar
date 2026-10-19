@@ -683,5 +683,25 @@
     "mtime": 1792427404.3114963,
     "ast_hash": "3465319f623dc0ce6648f24089148b28",
     "semantic_hash": ""
+  },
+  "episodes/2026-10-chai-vs-phone/scenes/scenes.json": {
+    "mtime": 1792441625.7163396,
+    "ast_hash": "9b70e7cc5acbb98df2422f20562a6f3e",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-chai-vs-phone/cover.md": {
+    "mtime": 1792439464.5197542,
+    "ast_hash": "5edfa2ac11d80c0d75faf13a329a512a",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-chai-vs-phone/facts.md": {
+    "mtime": 1792438529.9123428,
+    "ast_hash": "0aeeff6e38c7f17ae263f0f76b04a511",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-chai-vs-phone/script.md": {
+    "mtime": 1792439459.4655654,
+    "ast_hash": "81e963a2951f8c679f8af27f474aea1d",
+    "semantic_hash": ""
   }
 }

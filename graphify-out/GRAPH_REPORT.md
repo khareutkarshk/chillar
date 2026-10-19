@@ -1,16 +1,16 @@
 # Graph Report - chillar  (2026-10-20)
 
 ## Corpus Check
-- 141 files · ~69,328 words
+- 141 files · ~69,893 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 563 nodes · 945 edges · 71 communities (54 shown, 17 thin omitted)
+- 568 nodes · 955 edges · 71 communities (54 shown, 17 thin omitted)
 - Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 65 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8b1d134e`
+- Built from commit: `69201446`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -62,7 +62,7 @@
 1. `Candidate` - 39 edges
 2. `CLAUDE.md brand bible` - 23 edges
 3. `Component catalog (generated — `pipeline/component_catalog.py`, don't edit)` - 22 edges
-4. `Line` - 16 edges
+4. `Line` - 17 edges
 5. `qa()` - 16 edges
 6. `12 LPA episode script.md` - 16 edges
 7. `LicenseRefused` - 13 edges
@@ -94,7 +94,7 @@
 
 ### Community 0 - "Candidate"
 Cohesion: 0.06
-Nodes (69): Exception, Candidate, env(), polite_sleep(), Shared paths, env, HTTP session and politeness helpers., One downloadable asset. `verify()` must be called right before download., slug(), text_of() (+61 more)
+Nodes (68): Exception, Candidate, env(), polite_sleep(), Shared paths, env, HTTP session and politeness helpers., One downloadable asset. `verify()` must be called right before download., text_of(), check_policy() (+60 more)
 
 ### Community 1 - "CLAUDE.md brand bible"
 Cohesion: 0.06
@@ -110,7 +110,7 @@ Nodes (30): align(), _model(), Path, clean(), ff(), find_voice(), has_filter(), 
 
 ### Community 4 - "fetch_assets.py"
 Cohesion: 0.22
-Nodes (18): /fetch-assets command, Asset licensing allow-list (CC0/MIT etc.), build_audition(), _diverse(), duration_of(), fetch(), ingest(), lock() (+10 more)
+Nodes (19): /fetch-assets command, Asset licensing allow-list (CC0/MIT etc.), build_audition(), _diverse(), duration_of(), fetch(), ingest(), lock() (+11 more)
 
 ### Community 5 - "12 LPA episode script.md"
 Cohesion: 0.24
@@ -177,8 +177,8 @@ Cohesion: 0.50
 Nodes (3): Facts — 2026-10-epf-explained, Texture for the writers (not facts — don't put numbers from here on screen), Worked example (F19) — computed with python, rounded to whole rupees
 
 ### Community 59 - "produce.py"
-Cohesion: 0.21
-Nodes (23): draft(), find_cli(), frontmatter(), Line, main(), Path, The creator's 'fix it and ship' after a 3-round stop: the routed roles apply…, Newest Claude Code binary: $CHILLAR_CLAUDE, the VS Code extension's bundled… (+15 more)
+Cohesion: 0.17
+Nodes (28): director(), draft(), find_cli(), frontmatter(), Line, main(), Path, effort overrides the frontmatter's (revisions run a level below the first pass). (+20 more)
 
 ### Community 64 - "Comedy craft — how a Chillar script gets funny"
 Cohesion: 0.25
@@ -193,7 +193,7 @@ Cohesion: 0.17
 Nodes (20): area(), audio_check(), centre_in(), chrome_path(), contrast(), digits(), glyph_lines(), inr() (+12 more)
 
 ## Knowledge Gaps
-- **88 isolated node(s):** `First frame (frame 1 of the video)`, `Hook line (sentence 1)`, `Texture for the writers (not facts — don't put numbers from here on screen)`, `Hook {field: note10}`, `Setup {field: note20}` (+83 more)
+- **88 isolated node(s):** `name`, `private`, `description`, `node`, `doctor` (+83 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -201,15 +201,15 @@ Nodes (20): area(), audio_check(), centre_in(), chrome_path(), contrast(), digit
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `clean()` connect `episode.py` to `produce.py`?**
-  _High betweenness centrality (0.049) - this node is a cross-community bridge._
+  _High betweenness centrality (0.058) - this node is a cross-community bridge._
+- **Why does `st_fix()` connect `produce.py` to `episode.py`?**
+  _High betweenness centrality (0.056) - this node is a cross-community bridge._
 - **Why does `Candidate` connect `Candidate` to `fetch_assets.py`?**
   _High betweenness centrality (0.048) - this node is a cross-community bridge._
-- **Why does `st_fix()` connect `produce.py` to `episode.py`?**
-  _High betweenness centrality (0.047) - this node is a cross-community bridge._
-- **What connects `First frame (frame 1 of the video)`, `Hook line (sentence 1)`, `Texture for the writers (not facts — don't put numbers from here on screen)` to the rest of the system?**
+- **What connects `name`, `private`, `description` to the rest of the system?**
   _88 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Candidate` be split into smaller, more focused modules?**
-  _Cohesion score 0.058544303797468354 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05842259006815969 - nodes in this community are weakly interconnected._
 - **Should `CLAUDE.md brand bible` be split into smaller, more focused modules?**
   _Cohesion score 0.06144393241167435 - nodes in this community are weakly interconnected._
 - **Should `make_reel.py` be split into smaller, more focused modules?**

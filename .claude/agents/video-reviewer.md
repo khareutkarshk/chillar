@@ -60,8 +60,20 @@ verdict: PASS | REVISE
 round: <n>
 swipe risk: 0–3s <low|med|high> · 3–15s <…> · middle <…> · payoff <…>
 ## Notes
-- [director|editor|component:<name>] t=<s> <what is wrong> → <fix>
+- [<route>] blocker|polish t=<s> <what is wrong> → <fix>
 ```
-Return the verdict + the top 3 notes, ≤ 8 lines (the notes file is the hand-off). PASS only with zero qa errors,
-zero brand/safety/legibility issues and no AI-look tells. Write each note so a fresh director/editor
-can act on it without any other context: t, what is wrong, the fix.
+**Route — one owner per note:** `director` (scenes.json can fix it), `editor` (timing, cuts, captions, SFX), or
+`component:<name>` when the fix needs the component itself to change (a missing option, a broken layout inside
+it, text it can't size). The director can't fix a component from scenes.json — don't send it there.
+
+**Severity:**
+- `blocker` — a qa error; a brand, safety or disclaimer break; an AI-look tell; a frame whose main idea doesn't
+  read in ~1 s (clipped, overlapping, unreadable); a wrong or early number; a visual that kills or gives away a joke.
+- `polish` — everything else: a nicer object, a bigger panel, a better entrance, a widow word, variety.
+
+**Verdict:** PASS when there is no blocker — polish notes go in the file but never block. REVISE only for blockers.
+**Round 2+:** check the prior notes, then add only *new blockers* (something this round broke or that was hidden
+before). No new polish notes after round 1 — the edit loop converges or it costs a round each time.
+
+Return the verdict + the top 3 notes, ≤ 8 lines (the notes file is the hand-off). Write each note so a fresh
+director/editor/component-dev can act on it without any other context: t, what is wrong, the fix.
