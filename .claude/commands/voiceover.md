@@ -3,7 +3,7 @@ description: Make an AI voiceover (Sarvam Bulbul) from script.md — writes voic
 argument-hint: <episode folder or slug> [--audition]
 ---
 
-AI voiceover for **$ARGUMENTS** (only when I'm not recording myself; see CLAUDE.md §7).
+Voiceover for **$ARGUMENTS** — the channel voice (Sarvam `sunny_hi_reels`, pace 1.2; CLAUDE.md §7).
 
 1. Write `voice/tts.txt` from the spoken lines of `script.md` — same words, same order, one script
    line per line — converted for Sarvam:

@@ -1,0 +1,35 @@
+{
+  "name": "mithai-dabba",
+  "description": "Mummy's mithai dabba: a red box with a haldi trim, laddoos in paper cups (rows 6-5-6-5 for 22). Honest share: one laddoo = 1/count. Layouts — hero: big box (letter {title,line,amount,note} under it, Mummy's hand, sticker, static mascot); fully drawn at t=0, good as frame 1; closeAt = the lid standing open behind the box folds shut while Chillar leans in and pushes it. slip: big box on top, payslip below (slip {title, meta, at, rows}); a line with laddoo:true pulls the next laddoo, which arcs high and lands on that row as it prints. close: push-in on the slip — 1-2 big rows, the box corner peeking in top-left. locker: box top-left + a PF locker (locker {label, amount, sub, tag, laddooAt, doorAt, lockAt}): laddoo flies in, door swings shut, padlock with a paper tag drops. Lines: {label, amount, sub, icon:'lock', tone: red|green|ink, circle, laddoo, at, amountAt}. removed = laddoos already gone (empty cups). Times are seconds from the scene start; null = already there.",
+  "layer": "scene",
+  "params": {
+    "layout": "hero",
+    "count": 22,
+    "removed": 0,
+    "remove": [],
+    "letter": null,
+    "sticker": "",
+    "stickerStrike": null,
+    "hand": false,
+    "mascot": "",
+    "slip": null,
+    "lines": [],
+    "locker": null,
+    "closeAt": null
+  },
+  "example": {
+    "layout": "hero",
+    "count": 22,
+    "letter": {
+      "title": "Offer letter",
+      "line": "CTC",
+      "amount": "₹12,00,000",
+      "note": "(example)"
+    },
+    "sticker": "1 LAKH MAHINA!",
+    "hand": true,
+    "mascot": "side-eye"
+  },
+  "sfx": [],
+  "minDuration": 1.2
+}

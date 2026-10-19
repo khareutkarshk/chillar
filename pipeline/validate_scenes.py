@@ -80,8 +80,13 @@ def chapter_starts(words) -> list[tuple[str, float]]:
 
 def caption_groups(words, end_limit: float, max_words=4, max_chars=22) -> list[dict]:
     groups, cur = [], []
+    is_num = lambda t: bool(re.search(r"[\d₹]", t))  # noqa: E731
     for i, w in enumerate(words):
         nxt = words[i + 1] if i + 1 < len(words) else None
+        # a number never appears before it is spoken: it always opens its own caption chunk
+        if cur and is_num(w["text"]):
+            groups.append(cur)
+            cur = []
         cur.append(w)
         text = " ".join(x["text"] for x in cur)
         brk = (len(cur) >= max_words or len(text) >= max_chars or w["text"][-1:] in ".?!," or
@@ -178,7 +183,7 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
         s["end"] = scenes[i + 1]["start"] if i + 1 < len(scenes) else outro_start
     if scenes and scenes[0]["start"] > 0.001:
         errors.append(f"first scene starts at {scenes[0]['start']}s — frame 1 must show the stakes (start a scene at 0)")
-    if scenes and scenes[0]["component"] not in ("hook-card", "receipt-list", "passbook-page", "odometer-number", "marker-highlight"):
+    if scenes and scenes[0]["component"] not in ("hook-card", "receipt-list", "passbook-page", "odometer-number", "marker-highlight", "mithai-dabba"):
         warns.append(f"frame 1 is '{scenes[0]['component']}' — hook-card or a printed receipt/passbook shows stakes best")
     if scenes and scenes[0]["component"] in ("receipt-list", "passbook-page") and not scenes[0]["params"].get("printed"):
         warns.append(f"frame-1 {scenes[0]['component']} is not printed:true — frame 1 will be nearly empty")

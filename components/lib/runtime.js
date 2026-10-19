@@ -54,19 +54,26 @@
     g.Chillar.svg({ expr, id, size }).replace('class="chillar ', `class="chillar ${extraClass} `);
 
   // ---------------------------------------------------------------- motion vocabulary
-  // entrance: 6 frames, decisive ease-out, no overshoot (bounce is reserved for the mascot + stamp)
-  CH.pop = (tl, el, t, o = {}) => tl.fromTo(el,
-    { opacity: 0, scale: o.from ?? 0.94, y: o.y ?? 40, rotation: o.rot ?? 0 },
-    { opacity: 1, scale: 1, y: 0, rotation: o.rotTo ?? 0, duration: (o.frames ?? 6) * F, ease: o.ease ?? "power3.out" }, t);
+  // entrance: opacity is already full on the entrance frame (a cut never lands on an empty frame),
+  // the motion runs 6 frames,
+  // decisive ease-out, no overshoot (bounce is reserved for the mascot + stamp)
+  CH.pop = (tl, el, t, o = {}) => {
+    tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, t - F);   // fully visible ON the cut frame
+    return tl.fromTo(el, { scale: o.from ?? 0.94, y: o.y ?? 40, rotation: o.rot ?? 0 },
+      { scale: 1, y: 0, rotation: o.rotTo ?? 0, duration: (o.frames ?? 6) * F, ease: o.ease ?? "power3.out" }, t);
+  };
   // a paper object tossed onto the desk: lands from below with a little extra twist, settles at its tilt
   CH.toss = (tl, el, t, rest = 0, o = {}) => {
     const dir = rest >= 0 ? 1 : -1;
+    tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, t - F);   // fully visible ON the cut frame
     return tl.fromTo(el,
-      { opacity: 0, y: o.y ?? 90, rotation: rest + dir * (o.twist ?? 5), scale: 1.02 },
-      { opacity: 1, y: 0, rotation: rest, scale: 1, duration: (o.frames ?? 7) * F, ease: "power3.out" }, t);
+      { y: o.y ?? 90, rotation: rest + dir * (o.twist ?? 5), scale: 1.02 },
+      { y: 0, rotation: rest, scale: 1, duration: (o.frames ?? 7) * F, ease: "power3.out" }, t);
   };
-  CH.slideIn = (tl, el, t, dir = 1, o = {}) => tl.fromTo(el,
-    { opacity: 0, x: 140 * dir }, { opacity: 1, x: 0, duration: (o.frames ?? 6) * F, ease: "power3.out" }, t);
+  CH.slideIn = (tl, el, t, dir = 1, o = {}) => {
+    tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, t - F);   // fully visible ON the cut frame
+    return tl.fromTo(el, { x: 140 * dir }, { x: 0, duration: (o.frames ?? 6) * F, ease: "power3.out" }, t);
+  };
   // the thappa: 140% -> 100% in 4 frames, then a 2-frame shake
   CH.slam = (tl, el, t, rot = -8) => {
     tl.fromTo(el, { opacity: 0, scale: 1.4, rotation: rot - 4 }, { opacity: 1, scale: 1, rotation: rot, duration: 4 * F, ease: "power4.in" }, t);
@@ -156,11 +163,12 @@
     return t + dur;
   };
 
-  // odometer: digits roll from `from` to `to`
+  // odometer: every digit starts BLANK (never a wrong number on screen), rolls a full cycle, lands
+  const STRIP = ["&nbsp;", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   CH.odometer = (value, o = {}) => {
     const s = (o.prefix ?? "") + CH.inr(value, o) + (o.suffix ?? "");
     const cells = [...s].map((ch) => /\d/.test(ch)
-      ? `<span class="odo-d"><span class="odo-strip">${[0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9].map((n) => `<span>${n}</span>`).join("")}</span></span>`
+      ? `<span class="odo-d"><span class="odo-strip">${STRIP.map((n) => `<span>${n}</span>`).join("")}</span></span>`
       : `<span class="odo-s">${CH.esc(ch)}</span>`).join("");
     return `<span class="odo" data-target="${CH.esc(s)}">${cells}</span>`;
   };
@@ -169,9 +177,9 @@
     const digits = [...target].filter((c) => /\d/.test(c));
     [...odoEl.querySelectorAll(".odo-strip")].forEach((strip, i) => {
       const final = +digits[i];
-      const spins = 10 + final;                         // roll through one full cycle then land
+      const land = 11 + final;                          // blank → one full cycle → the final digit
       const lag = (digits.length - 1 - i) * 0.04;      // lower digits keep spinning longer
-      tl.fromTo(strip, { yPercent: 0 }, { yPercent: -(spins / 20) * 100, duration: dur + lag, ease: "power3.out" }, t);
+      tl.fromTo(strip, { yPercent: 0 }, { yPercent: -(land / STRIP.length) * 100, duration: dur + lag, ease: "power3.out" }, t);
     });
     return t + dur + digits.length * 0.04;
   };

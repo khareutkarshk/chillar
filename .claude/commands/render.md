@@ -6,7 +6,7 @@ argument-hint: <episode folder or slug> [draft|delivery]
 Render episode **$ARGUMENTS**. Quality defaults to `episode.toml` (draft while iterating).
 
 1. **Gates.** `fact_lint.py` must be clean (run /fact-check if anything is doubtful). A voice file must
-   exist in `voice/` (or run /voiceover first).
+   exist in `voice/` — if not, run /voiceover (Sunny, CLAUDE.md §7) first; don't ask.
 
 2. **Audio + words.** `.venv/bin/python pipeline/make_reel.py episodes/<slug> --only clean`,
    then `--only align`. Read `.cache/words.json` and `.cache/adlibs.md` (tell me about real ad-libs).

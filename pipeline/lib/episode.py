@@ -168,7 +168,8 @@ def load(ep_dir: str | Path) -> Episode:
 # --- words -------------------------------------------------------------------------------
 def tokenize(text: str) -> list[str]:
     """Caption/alignment tokens: whitespace split, keep ₹ amounts and punctuation attached."""
-    return [t for t in text.split() if t.strip()]
+    # punctuation-only tokens ("—", "-", "…") are not spoken: never a caption word or an alignment target
+    return [t for t in text.split() if re.search(r"[\w₹%]", t)]
 
 
 def norm(tok: str) -> str:

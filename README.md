@@ -9,7 +9,7 @@ Brand bible and all rules: [CLAUDE.md](CLAUDE.md).
 /make-reel <topic> [30|60|90]                # the whole production line with review loops (or step by step ↓)
 /new-reel <topic> [30|60|90]                 # research → facts.md, cover.md → writers' room writes script.md
 /package <ep>                                # 5 cover/first-frame/hook options, scored; post.md caption
-  … record episodes/<ep>/voice/voice.wav …   # or /voiceover <ep> for an AI voice (Sarvam)
+/voiceover <ep>                              # channel voice: Sarvam Sunny, pace 1.2 (automatic in /make-reel)
 /fact-check <ep>                             # every number re-verified against its source
 /render <ep>                                 # director → editor → render → video-reviewer loop → delivery
 ```

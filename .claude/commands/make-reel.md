@@ -21,8 +21,9 @@ cover.md). Set `target_seconds` in script.md frontmatter to the format.
 fix, re-review only the changed lines with `script-reviewer`, re-check. Show me: cover text, hook
 line, word count, the best 3 jokes, and the fact table.
 
-**Stage 4 — Voice.** Stop and ask me: record `voice/voice.wav` myself, or `/voiceover` (AI)? Continue
-when a voice file exists.
+**Stage 4 — Voice (no stop).** Run `/voiceover <ep>` — the channel voice is Sarvam `sunny_hi_reels`
+at pace 1.2 (CLAUDE.md §7). Check the duration fits the format, then continue. Only use a creator
+recording if I explicitly said so for this episode.
 
 **Stage 5 — Edit suite** (loop, max 3 rounds). Run clean + align (`make_reel.py … --only clean`,
 then `--only align`). Then:

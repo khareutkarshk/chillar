@@ -20,7 +20,7 @@ under_voice_db = -22             # music sits this far under the voice (-20 … 
 quality = "delivery"             # draft | looks | delivery
 theme = ""                       # usually set by the director in scenes.json; this overrides the brand default
 
-[tts]                            # AI voiceover (pipeline/tts.py) — skip if you record yourself
+[tts]                            # the channel voice (pipeline/tts.py) — Sunny, pace 1.2, every reel
 provider = "sarvam"              # sarvam | kokoro (offline test voice)
 model = "bulbul:v4-flash"
 speaker = "sunny_hi_reels"       # brand default voice (chosen 2026-10-19)

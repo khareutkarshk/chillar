@@ -1,0 +1,376 @@
+{
+ "theme": "night",
+ "scenes": [
+  {
+   "id": "hook-dabba",
+   "component": "mithai-dabba",
+   "at": 0,
+   "fact": "F9",
+   "params": {
+    "count": 22,
+    "layout": "hero",
+    "letter": {
+     "title": "Offer letter",
+     "line": "CTC",
+     "amount": "₹12,00,000",
+     "note": "(example)"
+    },
+    "sticker": "1 LAKH MAHINA!",
+    "hand": true,
+    "mascot": "side-eye"
+   }
+  },
+  {
+   "id": "slip-in",
+   "component": "mithai-dabba",
+   "at": "w12",
+   "fact": "F9",
+   "params": {
+    "count": 22,
+    "layout": "slip",
+    "slip": {
+     "title": "Salary slip",
+     "meta": "example: Maharashtra, new regime",
+     "at": 0.05,
+     "rows": 3
+    },
+    "lines": [
+     {
+      "label": "CTC",
+      "amount": "₹12,00,000/saal",
+      "tone": "ink",
+      "at": 0.3
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "sound": "printer",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "ctc-close",
+   "component": "mithai-dabba",
+   "at": "w16",
+   "fact": "F9",
+   "params": {
+    "count": 22,
+    "layout": "close",
+    "slip": {
+     "meta": "example: Maharashtra, new regime",
+     "rows": 2
+    },
+    "lines": [
+     {
+      "label": "CTC",
+      "amount": "₹12,00,000/saal",
+      "tone": "ink",
+      "at": null
+     }
+    ]
+   },
+   "sfx": []
+  },
+  {
+   "id": "st-ctc",
+   "component": "stamp",
+   "at": "w18",
+   "until": "w22",
+   "params": {
+    "text": "COST TO COMPANY",
+    "x": 480,
+    "y": 985,
+    "rotate": -7,
+    "size": 84
+   }
+  },
+  {
+   "id": "re-facepalm",
+   "component": "mascot-reaction",
+   "at": "w22",
+   "until": "w25",
+   "params": {
+    "expr": "facepalm",
+    "anim": "shake",
+    "x": 760,
+    "y": 650,
+    "size": 300
+   },
+   "sfx": []
+  },
+  {
+   "id": "laddoo-1",
+   "component": "mithai-dabba",
+   "at": "w25",
+   "fact": "F9",
+   "params": {
+    "count": 22,
+    "layout": "slip",
+    "slip": {
+     "title": "Salary slip",
+     "meta": "example: Maharashtra, new regime",
+     "at": null,
+     "rows": 3
+    },
+    "lines": [
+     {
+      "label": "CTC",
+      "amount": "₹12,00,000/saal",
+      "tone": "ink",
+      "at": null
+     },
+     {
+      "label": "Employer PF",
+      "amount": "−₹66,600/saal",
+      "sub": "→ retirement fund (EPF)",
+      "laddoo": true,
+      "at": 0.15
+     }
+    ]
+   },
+   "cut": "page",
+   "sfx": []
+  },
+  {
+   "id": "epf-book",
+   "component": "passbook-page",
+   "at": "w29+0.05",
+   "fact": "F9",
+   "params": {
+    "opening": 0,
+    "rows": [
+     {
+      "date": "FY27",
+      "text": "Company PF",
+      "amount": 66600,
+      "type": "cr"
+     }
+    ],
+    "step": 0.15,
+    "printed": false,
+    "circleBalance": true
+   },
+   "sfx": [
+    {
+     "sound": "printer",
+     "at": 0.59
+    }
+   ]
+  },
+  {
+   "id": "gratuity",
+   "component": "mithai-dabba",
+   "at": "w34-0.05",
+   "fact": "F9",
+   "params": {
+    "count": 22,
+    "layout": "close",
+    "removed": 1,
+    "slip": {
+     "meta": "example: Maharashtra, new regime",
+     "rows": 2
+    },
+    "lines": [
+     {
+      "label": "Employer PF",
+      "amount": "−₹66,600/saal",
+      "sub": "→ retirement fund (EPF)",
+      "laddoo": true,
+      "at": null
+     },
+     {
+      "label": "Gratuity",
+      "amount": "−₹26,683/saal",
+      "sub": "after 5 yrs",
+      "laddoo": true,
+      "at": 0.12
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "sound": "printer",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "re-opentowork",
+   "component": "mascot-reaction",
+   "at": "w39",
+   "until": "w46",
+   "params": {
+    "expr": "smug",
+    "anim": "blink",
+    "x": 740,
+    "y": 650,
+    "size": 340,
+    "ring": "open to work"
+   },
+   "sfx": []
+  },
+  {
+   "id": "locker",
+   "component": "mithai-dabba",
+   "at": "w46",
+   "fact": "F9",
+   "params": {
+    "count": 22,
+    "layout": "locker",
+    "removed": 2,
+    "locker": {
+     "label": "Your PF",
+     "amount": "₹66,600/saal",
+     "sub": "tumhare naam pe",
+     "tag": "12 mahine",
+     "laddooAt": 0.2,
+     "doorAt": 0.85,
+     "lockAt": 2.72
+    }
+   },
+   "sfx": [
+    {
+     "sound": "coin",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "re-crying",
+   "component": "mascot-reaction",
+   "at": "w53-0.05",
+   "until": "w56",
+   "params": {
+    "expr": "crying",
+    "anim": "sweat",
+    "x": 230,
+    "y": 1110,
+    "size": 300
+   }
+  },
+  {
+   "id": "tax-zero",
+   "component": "mithai-dabba",
+   "at": "w56",
+   "fact": "F9",
+   "params": {
+    "count": 22,
+    "layout": "close",
+    "removed": 3,
+    "slip": {
+     "meta": "example: Maharashtra, new regime",
+     "rows": 2
+    },
+    "lines": [
+     {
+      "label": "Prof. tax (Maharashtra)",
+      "amount": "−₹2,500/saal",
+      "at": null
+     },
+     {
+      "label": "Income tax",
+      "amount": "₹0",
+      "tone": "green",
+      "circle": true,
+      "at": null,
+      "amountAt": 2.52
+     }
+    ]
+   },
+   "sfx": []
+  },
+  {
+   "id": "st-tax",
+   "component": "stamp",
+   "at": "w64-0.15",
+   "until": "w65+0.45",
+   "fact": "F2",
+   "params": {
+    "text": "TAX ₹0 · ALIBI",
+    "x": 380,
+    "y": 300,
+    "rotate": -6,
+    "size": 66
+   },
+   "sfx": [
+    {
+     "sound": "scratch",
+     "at": 0.13
+    }
+   ]
+  },
+  {
+   "id": "re-shocked",
+   "component": "mascot-reaction",
+   "at": "w64+0.11",
+   "until": "w65+0.3",
+   "params": {
+    "expr": "shocked",
+    "anim": "shake",
+    "x": 800,
+    "y": 500,
+    "size": 240
+   },
+   "sfx": []
+  },
+  {
+   "id": "in-hand",
+   "component": "odometer-number",
+   "at": "w65+0.3",
+   "fact": "F9",
+   "params": {
+    "value": 86468,
+    "prefix": "₹",
+    "label": "₹1,00,000 nahi. Haath mein:",
+    "unit": "/mahina",
+    "sub": "₹10,37,617/saal ÷ 12 · example",
+    "tone": "field",
+    "rollStart": 0.55,
+    "rollDuration": 0.85,
+    "from": 100000
+   },
+   "sfx": [
+    {
+     "sound": "ding",
+     "at": 1.6
+    }
+   ]
+  },
+  {
+   "id": "lid",
+   "component": "mithai-dabba",
+   "at": "w69",
+   "fact": "F9",
+   "params": {
+    "count": 22,
+    "layout": "hero",
+    "removed": 3,
+    "sticker": "1 LAKH MAHINA!",
+    "stickerStrike": 0.3,
+    "mascot": "neutral-tired",
+    "closeAt": 1.5
+   }
+  }
+ ],
+ "effects": [
+  {
+   "type": "punch",
+   "at": "w11"
+  },
+  {
+   "type": "punch",
+   "at": "w44"
+  }
+ ],
+ "outro": {
+  "duration": 3.2,
+  "cut": "cut",
+  "params": {}
+ },
+ "music": {
+  "track": "",
+  "under_voice_db": -22
+ }
+}

@@ -1,0 +1,97 @@
+.c-mithai-dabba .md-stage { position: absolute; left: 60px; top: 236px; width: 880px; height: 890px; }
+.c-mithai-dabba .md-stage > * { position: absolute; }
+
+/* the box: stamp-pad red card with a haldi trim, paper tray inside */
+.c-mithai-dabba .md-box { transform-origin: 0 0; z-index: 3; }
+.c-mithai-dabba .md-box::before { content: ""; position: absolute; inset: 0; background: var(--red); border-radius: 18px; box-shadow: var(--lift); /* taste-skill-ignore: paper depth */ }
+.c-mithai-dabba .md-trim { position: absolute; inset: 9px; border: 4px solid var(--haldi); border-radius: 12px; }
+.c-mithai-dabba .md-tray { position: absolute; inset: 24px; background: var(--paper); border-radius: 8px; overflow: hidden; }
+.c-mithai-dabba .md-cell { position: absolute; margin: -24px 0 0 -24px; }
+.c-mithai-dabba .md-cup { position: absolute; left: -2px; top: -2px; }
+.c-mithai-dabba .md-cup .flute { fill: var(--paper); stroke: var(--pencil); stroke-width: 3; stroke-dasharray: 4 5; }
+.c-mithai-dabba .md-cup .ring { fill: var(--paper); stroke: var(--ink); stroke-width: 3.5; opacity: .55; }
+.c-mithai-dabba .md-laddoo { position: absolute; left: 3px; top: 3px; }
+.c-mithai-dabba .md-laddoo-svg { display: block; overflow: visible; }
+.c-mithai-dabba .md-laddoo-svg .ball { fill: var(--haldi); stroke: var(--ink); stroke-width: 5; }
+.c-mithai-dabba .md-laddoo-svg .boondi circle { fill: var(--ink); opacity: .26; }
+.c-mithai-dabba .md-laddoo-svg .shine { fill: none; stroke: var(--paper); stroke-width: 6; stroke-linecap: round; opacity: .75; }
+
+/* lid: red card with a rim (trim + inner panel), a printed seal, a hard edge for thickness.
+   Open = standing up behind the box (seen from above as a strip); closed = folded over the tray. */
+.c-mithai-dabba .md-lid, .c-mithai-dabba .md-lid-up { position: absolute; background: var(--red); border-radius: 18px; }
+.c-mithai-dabba .md-lid { inset: -6px; z-index: 4; transform-origin: 50% 0; box-shadow: inset 0 -12px 0 rgba(var(--shadow-rgb), .28), var(--lift); /* taste-skill-ignore: lid thickness + paper depth */ }
+.c-mithai-dabba .md-lid-up { left: 10px; right: 10px; top: -96px; height: 100px; transform-origin: 50% 100%; box-shadow: inset 0 12px 0 rgba(var(--shadow-rgb), .30); /* taste-skill-ignore: lid inner face */ }
+.c-mithai-dabba .md-lid-trim { position: absolute; inset: 10px; border: 4px solid var(--haldi); border-radius: 12px; }
+.c-mithai-dabba .md-lid .md-lid-trim::after { content: ""; position: absolute; inset: 22px; border: 3px solid var(--haldi); border-radius: 8px; opacity: .65; }
+.c-mithai-dabba .md-seal { position: absolute; left: 50%; top: 50%; width: 120px; height: 120px; margin: -60px 0 0 -60px; border-radius: 50%; background: var(--haldi); border: 5px solid var(--ink); box-shadow: inset 0 0 0 12px var(--haldi), inset 0 0 0 15px var(--ink); /* taste-skill-ignore: printed seal rings, no blur */ }
+
+/* offer letter under the box */
+.c-mithai-dabba .md-letter { left: 96px; top: 40px; width: 720px; height: 560px; box-sizing: border-box; padding: 40px 52px; z-index: 1; }
+.c-mithai-dabba .md-letter-top { display: flex; align-items: baseline; gap: 26px; margin-bottom: 26px; }
+.c-mithai-dabba .md-letter-title { font-size: 58px; }
+.c-mithai-dabba .md-letter-line { display: flex; align-items: baseline; gap: 34px; }
+.c-mithai-dabba .md-letter-line .t-body { font-size: 56px; color: var(--pencil); }
+.c-mithai-dabba .md-letter-amt { position: relative; font-size: 104px; line-height: 1; }
+.c-mithai-dabba .md-letter-note { font-size: 42px; color: var(--pencil); }
+
+.c-mithai-dabba .md-sticker { z-index: 6; background: var(--haldi); color: var(--ink); font-size: 46px; padding: 14px 22px 16px; border-radius: 10px; transform: rotate(6deg); white-space: nowrap; box-shadow: var(--lift); /* taste-skill-ignore: paper depth */ }
+
+/* Mummy's hand */
+.c-mithai-dabba .md-arm { z-index: 2; overflow: visible; }
+.c-mithai-dabba .md-fingers { z-index: 5; overflow: visible; }
+.c-mithai-dabba .skin { fill: var(--paper); stroke: var(--ink); stroke-width: 5; stroke-linejoin: round; }
+.c-mithai-dabba .bangle { fill: none; stroke-width: 12; stroke-linecap: round; }
+.c-mithai-dabba .bangle.b1, .c-mithai-dabba .bangle.b3 { stroke: var(--haldi); }
+.c-mithai-dabba .bangle.b2 { stroke: var(--red); }
+
+.c-mithai-dabba .md-mascot { z-index: 7; }
+.c-mithai-dabba .md-mascot svg { display: block; width: 100%; height: auto; }
+
+/* payslip (slip / close) */
+.c-mithai-dabba .md-slip { z-index: 2; box-sizing: border-box; }
+.c-mithai-dabba .md-slip-head { position: absolute; left: 40px; right: 40px; top: 26px; display: flex; justify-content: space-between; align-items: baseline; border-bottom: 4px solid var(--ink); }
+.c-mithai-dabba .md-slip:not(.big) .md-slip-head { height: 74px; }
+.c-mithai-dabba .md-slip.big .md-slip-head { height: 44px; border-bottom-width: 3px; border-color: var(--pencil); }
+.c-mithai-dabba .md-slip-head .t-head { font-size: 54px; }
+.c-mithai-dabba .md-slip-head .t-print { font-size: 26px; }
+.c-mithai-dabba .md-line { position: absolute; left: 40px; right: 40px; display: flex; align-items: center; gap: 18px; }
+.c-mithai-dabba .md-dot { flex: none; position: relative; }
+.c-mithai-dabba .md-mini { position: absolute; left: 2px; top: 2px; }
+.c-mithai-dabba .md-lab { flex: 1; display: flex; flex-direction: column; line-height: 1.05; min-width: 0; }
+.c-mithai-dabba .md-lab .t-body { font-size: 40px; }
+.c-mithai-dabba .md-sub { font-size: 24px; color: var(--pencil); display: flex; align-items: center; gap: 8px; margin-top: 2px; }
+.c-mithai-dabba .md-lock { fill: none; stroke: var(--ink); stroke-width: 2.6; }
+.c-mithai-dabba .md-amt { position: relative; font-size: 40px; font-weight: 800; white-space: nowrap; }
+.c-mithai-dabba .md-slip.big .md-lab .t-body { font-size: 54px; line-height: 1.05; }
+.c-mithai-dabba .md-amtrow { display: flex; align-items: baseline; gap: 22px; margin-top: 6px; }
+.c-mithai-dabba .md-slip.big .md-sub { font-size: 28px; margin-top: 0; }
+.c-mithai-dabba .md-slip.big .md-amt { font-size: 56px; }
+.c-mithai-dabba .md-slip.big .md-line + .md-line { border-top: 3px dashed rgba(var(--shadow-rgb), .14); }
+.c-mithai-dabba .md-ghost { position: absolute; left: 106px; right: 40px; display: flex; justify-content: space-between; }
+.c-mithai-dabba .md-ghost i { display: block; height: 14px; border-radius: 7px; background: var(--pencil); opacity: .22; }
+
+/* the PF locker: steel cabinet drawn in ink on paper, the door swings on its left hinge */
+.c-mithai-dabba .md-locker { z-index: 4; perspective: 1600px; color: var(--ink); }
+.c-mithai-dabba .md-locker-body { position: absolute; inset: 0; background: var(--paper); border: 6px solid var(--ink); border-radius: 12px; box-shadow: var(--lift); /* taste-skill-ignore: object depth */ }
+.c-mithai-dabba .md-locker .v { position: absolute; left: 50%; width: 120px; margin-left: -60px; height: 7px; border-radius: 4px; background: var(--ink); opacity: .55; }
+.c-mithai-dabba .md-locker-body .v:nth-child(1) { top: 28px; } .c-mithai-dabba .md-locker-body .v:nth-child(2) { top: 46px; } .c-mithai-dabba .md-locker-body .v:nth-child(3) { top: 64px; }
+.c-mithai-dabba .md-locker-in { position: absolute; left: 22px; right: 22px; top: 96px; bottom: 22px; background: var(--paper); border: 4px solid var(--ink); border-radius: 6px; box-shadow: inset 14px 14px 0 rgba(var(--shadow-rgb), .14); /* taste-skill-ignore: hard inner shade, no blur */ }
+.c-mithai-dabba .md-shelf { position: absolute; left: 0; right: 0; top: 48%; height: 16px; background: var(--paper); border-top: 4px solid var(--ink); border-bottom: 4px solid var(--ink); }
+.c-mithai-dabba .md-shelf::after { content: ""; position: absolute; left: 0; right: 0; top: 160px; height: 16px; border-top: 4px solid var(--ink); border-bottom: 4px solid var(--ink); }
+.c-mithai-dabba .md-door { position: absolute; left: 14px; right: 14px; top: 88px; bottom: 14px; background: var(--paper); border: 6px solid var(--ink); border-radius: 8px; transform-origin: 100% 50%; }
+.c-mithai-dabba .md-door .v:nth-of-type(2) { top: auto; bottom: 40px; } .c-mithai-dabba .md-door .v:nth-of-type(3) { top: auto; bottom: 58px; } .c-mithai-dabba .md-door .v:nth-of-type(4) { top: auto; bottom: 76px; }
+.c-mithai-dabba .md-plate { position: absolute; left: 30px; right: 30px; top: 36px; padding: 18px 20px; border: 4px solid var(--ink); border-radius: 8px; display: flex; flex-direction: column; gap: 10px; backface-visibility: hidden; }
+.c-mithai-dabba .md-plate .t-head { font-size: 60px; }
+.c-mithai-dabba .md-plate .t-print { font-size: 38px; font-weight: 800; color: var(--red); }
+.c-mithai-dabba .md-plate .t-body { font-size: 34px; white-space: nowrap; color: var(--pencil); }
+.c-mithai-dabba .md-handle { position: absolute; left: 26px; top: 50%; width: 22px; height: 110px; margin-top: -10px; border-radius: 11px; background: var(--ink); backface-visibility: hidden; }
+.c-mithai-dabba .md-padlock { position: absolute; left: 4px; top: 340px; width: 96px; height: 120px; z-index: 6; transform-origin: 50% 0; }
+.c-mithai-dabba .md-padlock .sh { fill: none; stroke: var(--ink); stroke-width: 9; }
+.c-mithai-dabba .md-padlock .bd { fill: var(--haldi); stroke: var(--ink); stroke-width: 5; }
+.c-mithai-dabba .md-padlock .kh { fill: var(--ink); stroke: var(--ink); stroke-width: 5; }
+.c-mithai-dabba .md-string { position: absolute; left: 40px; top: 104px; overflow: visible; }
+.c-mithai-dabba .md-string path { fill: none; stroke: var(--ink); stroke-width: 3; }
+.c-mithai-dabba .md-tag { position: absolute; left: 30px; top: 190px; white-space: nowrap; background: var(--paper); color: var(--ink); font-size: 44px; padding: 10px 22px 12px; border-radius: 8px; border: 4px solid var(--ink); transform: rotate(-6deg); box-shadow: var(--lift); /* taste-skill-ignore: paper depth */ }
+
+.c-mithai-dabba .md-fly { left: 0; top: 0; width: 0; height: 0; z-index: 9; }
+.c-mithai-dabba .md-flyer { position: absolute; }

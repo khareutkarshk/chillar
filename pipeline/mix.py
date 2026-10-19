@@ -117,7 +117,7 @@ def mix(ep_dir: str, video: Path | None = None) -> Path:
     pre = ep.cache / "mix_pre.wav"
     ff(*inputs, "-filter_complex", ";".join(graph), "-map", "[out]", "-ar", "48000", "-c:a", "pcm_s24le", str(pre))
     out_wav = ep.cache / "mix.wav"
-    loudnorm_2pass(pre, out_wav, target, -1.0)
+    loudnorm_2pass(pre, out_wav, target, -1.5)   # −1.5 dBTP before AAC so the encoded file stays ≤ −1.0
     report["final_lufs"] = round(lufs(out_wav), 2)
     (ep.cache / "mix_report.json").write_text(json.dumps(report, indent=2))
 
@@ -132,7 +132,16 @@ def mix(ep_dir: str, video: Path | None = None) -> Path:
     # encode to the Instagram Reels spec (CLAUDE.md §9) — never stream-copy the renderer's output
     from ig_export import encode_args
     ff("-i", str(video), "-i", str(out_wav), "-map", "0:v:0", "-map", "1:a:0", *encode_args(), "-shortest", str(final))
-    print(f"final: {final}")
+    # measure what actually ships (AAC can overshoot the PCM limiter)
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(final), "-af", "ebur128=peak=true", "-f", "null", "-"],
+                       capture_output=True, text=True)
+    tp = re.findall(r"Peak:\s+(-?[\d.]+) dBFS", r.stderr)
+    il = re.findall(r"I:\s+(-?[\d.]+) LUFS", r.stderr)
+    report["final_true_peak_dbtp"] = float(tp[-1]) if tp else None
+    report["final_file_lufs"] = float(il[-1]) if il else None
+    (ep.cache / "mix_report.json").write_text(json.dumps(report, indent=2))
+    flag = "" if tp and float(tp[-1]) <= -1.0 else "  ✗ true peak above −1 dBTP"
+    print(f"final: {final}  ({report['final_file_lufs']} LUFS, {report['final_true_peak_dbtp']} dBTP){flag}")
     return final
 
 

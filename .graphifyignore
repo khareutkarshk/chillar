@@ -1,0 +1,25 @@
+# graphify: keep the graph to the project's own code + docs (cheap, relevant)
+.agents/
+.claude/skills/
+.taste-skill/
+graphify-out/
+node_modules/
+.venv/
+assets/
+brand/_audition/
+brand/fonts/
+brand/profile/
+brand/mascot/*.png
+components/_gallery/
+components/*/preview.png
+episodes/*/build/
+episodes/*/output/
+episodes/*/voice/
+episodes/*/.cache/
+*.lock
+package-lock.json
+uv.lock
+skills-lock.json
+*.svg
+brand/mascot/sheet.html
+episodes/*/notes/

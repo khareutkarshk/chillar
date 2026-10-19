@@ -152,20 +152,24 @@ Set `target_seconds: 30|60|90` in script.md; the validator reads the format from
 - Scraping (Pixabay/Mixkit audio) is low-volume and polite; it is against Pixabay's ToS, so keep
   volume minimal.
 
-## 7. Voiceover
-- Default is the creator's own recording (`voice/voice.wav`). AI voice (`pipeline/tts.py`, Sarvam
-  Bulbul) is for drafts, timing tests, or when the creator chooses it.
+## 7. Voiceover — the channel voice is Sarvam "Sunny"
+- **Every Chillar reel is voiced by Sarvam Bulbul, speaker `sunny_hi_reels`, pace 1.2** (chosen by the
+  creator 2026-10-19): fast, Fireship-paced Hinglish. Settings live in `episode.toml [tts]` (template
+  default) — don't change speaker or pace per episode unless the creator asks.
+- The pipeline does **not** stop to ask about voice: after the script passes review + fact-check, run
+  `/voiceover <ep>` (`pipeline/tts.py`) and continue. A creator recording (`voice/voice.wav` they drop
+  in) is only used if the creator explicitly says so for that episode.
 - AI voice reads `voice/tts.txt`, **not** script.md: Hindi words in Devanagari, English words in
   Latin ("UPI free है। फिर bill कौन भरता है?"). Write decimals/percents as spoken English
   ("zero point nine percent"), acronyms with dots ("M.D.R."), big numbers with Indian commas
   (₹3,631). Same words and order as script.md so alignment and captions stay correct.
-- AI-voiced reels: mark `ai_voice: true` in post.md and use Instagram's AI label if Meta's current
-  policy requires it for realistic synthetic audio.
+- Every reel is AI-voiced: post.md carries `ai_voice: true`; apply Instagram's AI label if Meta's
+  current policy requires it for realistic synthetic audio.
 
 ## 8. How work happens here — the production line
 - **One command:** `/make-reel <topic> [30|60|90]` runs everything below with the loops.
-- Step by step: `/new-reel <topic> [30|60|90]` → `/package <ep>` → `/fact-check <ep>` → creator records
-  voice (or `/voiceover`) → `/render <ep>`.
+- Step by step: `/new-reel <topic> [30|60|90]` → `/package <ep>` → `/fact-check <ep>` → `/voiceover <ep>`
+  (Sunny, automatic) → `/render <ep>`.
 - **Agents** (`.claude/agents/`), each with one job; the main session is the producer that routes work:
   | agent | does | loop |
   |---|---|---|
@@ -206,3 +210,13 @@ AAC ≤ 48 kHz mono/stereo, 128 kbps · 3 s – 15 min · ≤ 300 MB · cover JP
   highest quality*; upload on Wi-Fi; don't trim or add filters in the IG editor (it re-encodes and
   can shift the captions out of the safe zone). Our formats (30/60/90 s) stay under 3 min, the limit
   for Reels being recommended to non-followers.
+
+## graphify
+
+This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+
+Rules:
+- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
+- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
+- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
+- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).

@@ -18,7 +18,7 @@ def theme(name: str | None = None) -> dict:
 def palette_hexes(name: str | None = None) -> list[str]:
     """Every colour that may appear on screen in this theme: palette + every field bg + field ink."""
     t = theme(name)
-    out = list(t["palette"].values())
+    out = list(t["palette"].values()) + list(TOK.get("mascot", {}).values())
     for f in t["fields"].values():
         out += [f["bg"], f["ink"]]
     return sorted(set(out))

@@ -1,6 +1,6 @@
 {
   "name": "mascot-reaction",
-  "description": "Chillar pops up from the bottom of the content zone with an expression + animation and an optional deadpan speech bubble (a paper bubble, no outline). Replaces memes; counts as a re-hook. Can be an overlay on another scene.",
+  "description": "Chillar pops up from the bottom of the content zone with an expression + animation and an optional deadpan speech bubble (a paper bubble, no outline). Replaces memes; counts as a re-hook. Can be an overlay on another scene. ring: optional short text on a green profile-photo ring around the coin (e.g. 'open to work'), drawn after the pop.",
   "layer": "overlay",
   "rehook": true,
   "params": {
@@ -10,11 +10,41 @@
     "y": 1120,
     "size": 320,
     "bubble": "",
-    "bubbleSide": "left"
+    "bubbleSide": "left",
+    "ring": ""
   },
-  "example": { "expr": "side-eye", "anim": "blink", "x": 640, "y": 1110, "size": 420, "bubble": "Free? Haan haan, bilkul." },
-  "expressions": ["neutral-tired", "shocked", "side-eye", "smug", "crying", "facepalm", "thinking", "counting-money"],
-  "anims": ["none", "blink", "bounce", "shake", "sweat", "walk"],
-  "sfx": [{ "sound": "coin", "at": 0.05, "event": "arrive" }],
+  "example": {
+    "expr": "side-eye",
+    "anim": "blink",
+    "x": 640,
+    "y": 1110,
+    "size": 420,
+    "bubble": "Free? Haan haan, bilkul."
+  },
+  "expressions": [
+    "neutral-tired",
+    "shocked",
+    "side-eye",
+    "smug",
+    "crying",
+    "facepalm",
+    "thinking",
+    "counting-money"
+  ],
+  "anims": [
+    "none",
+    "blink",
+    "bounce",
+    "shake",
+    "sweat",
+    "walk"
+  ],
+  "sfx": [
+    {
+      "sound": "coin",
+      "at": 0.05,
+      "event": "arrive"
+    }
+  ],
   "minDuration": 1.0
 }

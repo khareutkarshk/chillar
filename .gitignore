@@ -27,3 +27,7 @@ episodes/*/voice/audition/
 components/_gallery/project/
 components/_gallery/snaps/
 assets/snapshots/*.html
+
+# graphify: keep graph.json + GRAPH_REPORT.md in git, not the extraction cache
+graphify-out/cache/
+graphify-out/.graphify_python

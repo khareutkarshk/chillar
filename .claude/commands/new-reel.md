@@ -29,5 +29,4 @@ Follow CLAUDE.md exactly (brand bible §1–§4, content rules §3). Steps:
 5. Run `.venv/bin/python pipeline/fact_lint.py episodes/<slug>` and fix anything it flags.
 
 6. Report back: cover text, hook line, word count + estimated seconds, laugh count + the three best
-   jokes, review rounds used, and any fact you're unsure about. Remind me: `/fact-check`, then record
-   `voice/voice.wav` (or run /voiceover).
+   jokes, review rounds used, and any fact you're unsure about. Next: `/fact-check`, then `/voiceover` (Sunny).
