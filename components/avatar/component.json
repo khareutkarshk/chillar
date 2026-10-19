@@ -1,0 +1,9 @@
+{
+  "name": "avatar",
+  "description": "Instagram profile picture: Chillar's face, big, centred in the 1080x1080 square at y 420–1500 of the frame (cropped by pipeline/profile_pic.py). Built to survive the circle crop and the 110 px feed size — no text.",
+  "layer": "scene",
+  "params": { "expr": "side-eye" },
+  "example": { "expr": "side-eye" },
+  "sfx": [],
+  "minDuration": 0.5
+}

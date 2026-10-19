@@ -140,6 +140,9 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
             errors.append(f"{raw.get('id')}: unknown component '{name}'")
             continue
         meta = component_meta(name)
+        if name == "wordmark":
+            errors.append(f"{raw.get('id')}: the wordmark is inserted automatically on every frame — remove it from scenes.json")
+            continue
         if meta.get("layer") in TEXT_FREE_LAYERS:
             errors.append(f"{raw.get('id')}: '{name}' is placed automatically — use a scene's \"cut\" key for transitions")
             continue
@@ -180,7 +183,8 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
     if scenes and scenes[0]["component"] in ("receipt-list", "passbook-page") and not scenes[0]["params"].get("printed"):
         warns.append(f"frame-1 {scenes[0]['component']} is not printed:true — frame 1 will be nearly empty")
 
-    outro = {"id": "outro", "component": "outro", "params": merged_params("outro", plan.get("outro", {}).get("params", {})),
+    outro_params = {"follow": f"Follow {TOK['brand']['handle']}", **plan.get("outro", {}).get("params", {})}
+    outro = {"id": "outro", "component": "outro", "params": merged_params("outro", outro_params),
              "start": outro_start, "end": total, "layer": "scene", "rehook": False, "sfx_override": None,
              "raw_params": plan.get("outro", {}).get("params", {}), "cut": plan.get("outro", {}).get("cut", "cut")}
 
@@ -239,7 +243,11 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
     if len(trans) > budget:
         errors.append(f"{len(trans)} styled transitions — a {fmt_key}s reel gets at most {budget}; the rest are hard cuts")
 
-    allv = scenes + [outro] + overlays + trans
+    # the channel wordmark: every frame until the outro (which carries the handle itself)
+    wordmark = {"id": "wordmark", "component": "wordmark", "start": 0.0, "end": outro_start, "layer": "overlay",
+                "rehook": False, "sfx_override": [], "raw_params": {},
+                "params": merged_params("wordmark", {"handle": TOK["brand"]["handle"]})}
+    allv = scenes + [outro] + overlays + trans + [wordmark]
     for s in allv:
         s["duration"] = round(max(0.05, s["end"] - s["start"]), 3)
         md = component_meta(s["component"]).get("minDuration", 0)
@@ -338,6 +346,9 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
             continue
         if box[0] < SAFE["left"] or box[2] > 1080 - SAFE["right"] or box[1] < SAFE["top"] or box[3] > 1920 - SAFE["bottom"]:
             errors.append(f"{s['id']}: {s['component']} box {tuple(round(v) for v in box)} leaves the safe zone")
+        wm = TOK["wordmark"]["box"]
+        if box[0] < wm["x"] + wm["w"] and box[2] > wm["x"] and box[1] < wm["y"] + wm["h"] and box[3] > wm["y"]:
+            warns.append(f"{s['id']}: covers the @handle wordmark (y {wm['y']}–{wm['y'] + wm['h']}) — move it up")
         cb = SAFE["captionBand"]
         if box[3] > cb[0] + 30 and box[1] < cb[1]:
             warns.append(f"{s['id']}: overlaps the caption band (y {cb[0]}–{cb[1]})")

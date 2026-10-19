@@ -49,6 +49,7 @@ def cover(ep_dir: str) -> Path:
     shot = next(snaps.glob("at-0.5s.png"))
     out = ep.output / "cover.png"
     Image.open(shot).convert("RGB").save(out)
+    Image.open(shot).convert("RGB").save(ep.output / "cover.jpg", "JPEG", quality=92, optimize=True)   # IG upload: JPEG sRGB
     g = TOK["safeZone"]["coverGridCrop"]
     Image.open(out).crop((g["x"], g["y"], g["x"] + g["w"], g["y"] + g["h"])).save(ep.output / "cover_grid_preview.png")
     print(f"cover: {out}")

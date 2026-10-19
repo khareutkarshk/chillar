@@ -1,0 +1,4 @@
+.c-wordmark { z-index: 45; pointer-events: none; }
+.c-wordmark .wm { position: absolute; left: 72px; top: 1460px; height: 40px; display: flex; align-items: center; gap: 10px;
+  font-family: var(--font-body); font-weight: 800; font-size: 30px; letter-spacing: .005em; color: var(--on-field); opacity: .78; }
+.c-wordmark .wm-coin { width: 24px; height: 24px; border-radius: 50%; box-sizing: border-box; background: var(--haldi); border: 3px solid var(--ink); }

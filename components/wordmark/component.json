@@ -1,0 +1,10 @@
+{
+  "name": "wordmark",
+  "description": "The channel handle (@chillar.ind) with a tiny coin, bottom-left just under the caption band (box in brand/tokens.json \"wordmark\"), in the field's ink. On every frame from 0 to the outro, so downloads and reshares carry the name. Inserted automatically — never placed in scenes.json.",
+  "layer": "overlay",
+  "decorative": true,
+  "params": { "handle": "@chillar.ind" },
+  "example": { "handle": "@chillar.ind" },
+  "sfx": [],
+  "minDuration": 0.5
+}

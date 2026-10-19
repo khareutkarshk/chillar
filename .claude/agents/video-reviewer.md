@@ -27,6 +27,7 @@ away the moment it gets boring. Judge only what is in the pictures; if a problem
 - **Retention:** frame 1 shows stakes; something new every 2–3 s; a re-hook at the format cadence;
   a reaction after punchlines; the payoff frame delivers the cover promise; the outro is complete with
   the disclaimer.
+- **Wordmark** `@chillar.ind` visible bottom-left on every frame before the outro, never covered; the outro says "Follow @chillar.ind".
 - **Numbers on screen** match facts.md, Indian grouping (₹1,00,000).
 - **Theme fits the script's mood** (pastel friendly / calm trust / night drama) and is used consistently.
 - **Palette report** clean; mix around −14 LUFS / −1 dBTP.

@@ -24,7 +24,7 @@ Render episode **$ARGUMENTS**. Quality defaults to `episode.toml` (draft while i
    fix the component yourself and re-render its preview. Re-render and review again until PASS.
    After round 3, show me the remaining notes and the contact sheet and ask.
 
-7. **Deliver.** `--from validate --quality delivery`. Look at `output/contact_sheet.png` yourself
+7. **Deliver.** `--from validate --quality delivery` (ends with `igcheck` — must print "upload-safe", CLAUDE.md §9). Look at `output/contact_sheet.png` yourself
    (CLAUDE.md §8). Report: duration + format, fields per chapter, transitions, stamps / re-hooks / SFX
    counts, mix LUFS (`.cache/mix_report.json`), PROVISIONAL sounds, review rounds, paths to
    `output/final.mp4`, `output/cover.png`, and show me the contact sheet.

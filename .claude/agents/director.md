@@ -37,6 +37,7 @@ Say in your report which theme and why (one line). Don't mix themes inside one v
   clear field, inside the content zone, clear of the caption band.
 - **Re-hooks** at the format cadence (30 s ~10 s, 60 s ~16 s, 90 s ~18 s): stamp, mascot reaction,
   split-compare twist, meme-format.
+- The `@chillar.ind` wordmark (x 72–492, y 1460–1500) is automatic; keep overlays off it.
 - Every scene showing a number carries `"fact": "F#"`.
 
 ## Transitions — like a real editor, never a title card

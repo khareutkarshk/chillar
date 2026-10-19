@@ -129,8 +129,9 @@ def mix(ep_dir: str, video: Path | None = None) -> Path:
 
     video = video or ep.cache / "video.mp4"
     final = ep.output / "final.mp4"
-    ff("-i", str(video), "-i", str(out_wav), "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy",
-       "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest", "-movflags", "+faststart", str(final))
+    # encode to the Instagram Reels spec (CLAUDE.md §9) — never stream-copy the renderer's output
+    from ig_export import encode_args
+    ff("-i", str(video), "-i", str(out_wav), "-map", "0:v:0", "-map", "1:a:0", *encode_args(), "-shortest", str(final))
     print(f"final: {final}")
     return final
 

@@ -15,7 +15,7 @@ Brand bible and all rules: [CLAUDE.md](CLAUDE.md).
 ```
 
 The pipeline by hand: `.venv/bin/python pipeline/make_reel.py episodes/<ep> [--from STAGE] [--quality draft]`
-(stages: `facts clean align validate build render mix cover sheet`).
+(stages: `facts clean align validate build render mix cover sheet igcheck`).
 
 ## Layout
 | path | what |
@@ -44,7 +44,7 @@ The pipeline by hand: `.venv/bin/python pipeline/make_reel.py episodes/<ep> [--f
    contact sheet and fixes it. Watch `output/final.mp4`. Want a change? Edit
    `scenes/scenes.json` (or tell Claude) and run `make_reel.py episodes/<ep> --from validate`.
 7. **Final:** `make_reel.py episodes/<ep> --from validate --quality delivery`. Upload `final.mp4`,
-   set `cover.png` as the cover (check `cover_grid_preview.png` for the profile grid), paste
+   set `cover.jpg` as the cover (check `cover_grid_preview.png` for the profile grid), paste
    `output/post.md` as the caption.
 
 ## Notes

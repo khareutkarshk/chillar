@@ -15,6 +15,7 @@ Stages:  facts → clean → align → validate → build → render → mix →
   mix       mix.py → output/final.mp4
   cover     cover.py → output/cover.png
   sheet     contact_sheet.py → output/contact_sheet.png (+ palette check)
+  igcheck   ig_export.py — final.mp4 + cover.jpg meet the Instagram Reels upload spec
 """
 from __future__ import annotations
 
@@ -31,13 +32,14 @@ import audio_clean  # noqa: E402
 import contact_sheet  # noqa: E402
 import cover as cover_mod  # noqa: E402
 import fact_lint  # noqa: E402
+import ig_export  # noqa: E402
 import mix as mix_mod  # noqa: E402
 import validate_scenes  # noqa: E402
 from build_composition import build  # noqa: E402
 from lib.common import ROOT  # noqa: E402
 from lib.episode import load  # noqa: E402
 
-STAGES = ["facts", "clean", "align", "validate", "build", "render", "mix", "cover", "sheet"]
+STAGES = ["facts", "clean", "align", "validate", "build", "render", "mix", "cover", "sheet", "igcheck"]
 
 
 def run(cmd: list[str]) -> subprocess.CompletedProcess:
@@ -105,6 +107,10 @@ def main() -> int:
             cover_mod.cover(a.episode)
         elif st == "sheet":
             contact_sheet.sheet(a.episode)
+        elif st == "igcheck":
+            cov = ep.output / "cover.jpg"
+            if not ig_export.report(ep.output / "final.mp4", cov if cov.exists() else None):
+                return 1
     print(f"\ndone in {time.time() - t0:.0f}s → {ep.output}")
     return 0
 
