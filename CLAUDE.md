@@ -134,6 +134,8 @@ continue. A creator recording is used only if the creator says so for that episo
 ## 8. How work happens here — the production line
 - **One command:** `/make-reel <topic> [30|60|90]`. Step by step: `/new-reel` → `/package` →
   `/fact-check` → `/voiceover` → `/render`.
+  `/make-reel` runs `pipeline/produce.py` (headless lean agents, pinned models, real cost per run in
+  `notes/usage.md`) — keep the producer session thin; see `brand/rules/production.md`.
 - Agents (`.claude/agents/`): scriptwriter ⇄ script-reviewer (≤ 3 rounds) · fact-checker · director ⇄
   editor ⇄ video-reviewer (≤ 3 rounds). After 3 rounds without PASS, stop and ask the creator.
   **Each round is a fresh agent that reads the notes files — never resume an agent.** Model tiers,

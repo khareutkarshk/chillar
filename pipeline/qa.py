@@ -17,6 +17,9 @@ Checks:
   early-number    a number on screen (caption or scene) before the voice says it
   tiny-text       text rendered under 26 px (unreadable on a phone)
   fade-entrance   a scene's content is still semi-transparent 3 frames after its cut
+  narrow-frame    a shot's content covers < 65 % of the content width and < 30 % of its height
+  small-text      a shot shows text under 36 px (one warning per shot)
+  same-layout     4 shots in a row with the same content box (template feel)
   short-shot      a shot shorter than its component's minDuration (or < 0.8 s)
   audio           output/final.mp4 true peak > −1 dBTP, LUFS off −14 (reported only if final.mp4 is
                   older than scenes.json; make_reel re-runs it after mix)
@@ -43,6 +46,9 @@ WM = TOK["wordmark"]["box"]
 F = 1 / 30
 TOL = 4            # px of overflow tolerated (anti-aliasing, seeded tilt)
 MIN_FONT = 26      # px at 1080 wide
+SMALL_FONT = 36    # below this a shot's text is "hard to read" (warn, per shot)
+NARROW_W, NARROW_H = 0.65, 0.30   # content box under 65 % of the width AND 30 % of the height = dead field
+SAME_RUN, SAME_TOL = 4, 70        # 4 shots in a row with content boxes within 70 px = same composition
 NO_PROBE = {"bg", "wordmark"}
 
 
@@ -315,6 +321,51 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
                     f"shows “{reading or '(nothing)'}” but should show “{exp}” ({why})",
                     "check the roll/count; the start and landed frames must be fully legible", key=("odo", c["id"], why))
 
+    # ---- layout taste that code can measure (the reviewer flagged these by eye every round) ----
+    # content box of each main shot at its first settled sample: union of painted objects + text
+    shots: dict[str, dict] = {}
+    for smp in data["samples"]:
+        t = smp["t"]
+        why = times.get(t, "")
+        if in_transition(t) or smp["stage"] not in ("none", "matrix(1, 0, 0, 1, 0, 0)") or re.search(r"cut[+-]\d|cut\+\d|\bin$", why):
+            continue
+        for c in smp["clips"]:
+            sc = scenes.get(c["id"])
+            if c["track"] != 1 or not sc or c["id"] == "outro" or c["id"] in shots:
+                continue
+            boxes = [p["box"] for p in c["painted"] if p["op"] >= 0.5] + [x["box"] for x in c["texts"] if x["op"] >= 0.5]
+            if not boxes:
+                continue
+            u = [min(b[0] for b in boxes), min(b[1] for b in boxes), max(b[2] for b in boxes), max(b[3] for b in boxes)]
+            small = sorted({round(x["font"]) for x in c["texts"] if x["op"] >= 0.5 and x["font"] < SMALL_FONT})
+            shots[c["id"]] = {"t": t, "start": sc["start"], "box": u, "comp": c["comp"], "small": small}
+    cw = 1080 - SAFE["left"] - SAFE["right"]                       # content width  (≈ 880)
+    ch = SAFE["captionBand"][0] - SAFE["top"]                       # content height above the captions (≈ 930)
+    for sid, s in shots.items():
+        b = s["box"]
+        w, h = b[2] - b[0], b[3] - b[1]
+        if w < NARROW_W * cw and h < NARROW_H * ch:
+            add("warn", "narrow-frame", s["t"], f"{sid} ({s['comp']})", "director",
+                f"content is {w:.0f}×{h:.0f}px in an {cw}×{ch} zone — small object, dead field",
+                "span the content width (≈ 860–880 px) or make the object/number the hero", key=("narrow", sid))
+        if s["small"]:
+            add("warn", "small-text", s["t"], f"{sid} ({s['comp']})", f"director|component:{s['comp']}",
+                f"text at {', '.join(map(str, s['small']))} px — hard to read at phone size",
+                f"main text ≥ {SMALL_FONT} px (printout rows included)", key=("small", sid))
+    seq = sorted(shots.items(), key=lambda kv: kv[1]["start"])
+    run: list[str] = []
+    def similar(a, b):
+        return all(abs(a[i] - b[i]) <= SAME_TOL for i in range(4))
+    for i, (sid, s) in enumerate(seq):
+        if run and similar(shots[run[-1]]["box"], s["box"]):
+            run.append(sid)
+        else:
+            run = [sid]
+        if len(run) == SAME_RUN:
+            add("warn", "same-layout", shots[run[0]]["start"], " → ".join(run), "director",
+                f"{SAME_RUN} shots in a row share the same composition (box ≈ {s['box']}) — reads as a template",
+                "vary scale/position: a full-bleed number, an object low or right, a big Chillar beat", key=("same", run[0]))
+
     # captions are known exactly: a number word never shows before it is spoken
     for g in spec.get("captions", []):
         for w in g["words"]:
@@ -341,7 +392,8 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
     look = sorted({i["t"] for i in issues if i["t"] is not None})[:12]
     report = {"episode": ep.name, "samples": len(data["samples"]), "errors": len(errors),
               "warnings": len(issues) - len(errors), "audio": aud, "issues": issues,
-              "frames_to_check": look}
+              "frames_to_check": look,
+              "layout": {sid: {"t": round(v["start"], 2), "box": v["box"]} for sid, v in sorted(shots.items(), key=lambda kv: kv[1]["start"])}}
     (ep.cache / "qa.json").write_text(json.dumps(report, indent=1, ensure_ascii=False))
     return report
 

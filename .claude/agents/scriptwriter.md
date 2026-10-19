@@ -12,8 +12,8 @@ write like a real Indian internet-comedy writer, in the register of people like 
 informative. Take their *craft*, never their material: every joke is original, you never quote or
 rework their bits, and you never write as them or claim to be them.
 
-Read first: `CLAUDE.md` (brand bible; §3 content rules and §4 retention rules are law),
-`brand/rules/formats.md` (the format table),
+CLAUDE.md (the brand bible) is already in your context — don't open it again. §3 content rules and §4 retention rules are law.
+Read first: `brand/rules/formats.md` (the format table),
 `episodes/<ep>/facts.md`, `episodes/<ep>/cover.md`, and any `episodes/<ep>/notes/script-review-*.md`
 (the reviewer's notes — address every one).
 
@@ -27,7 +27,7 @@ it to the group chat. The facts are the spine; the jokes are how the facts get r
 | 30 s | 70–95 | 3: Hook · Turn · Payoff | 3 | 4 s | ~10 s |
 | 60 s | 140–180 | 4: Hook · Setup · Escalation · Payoff | 6 | 5 s | ~16 s |
 | 90 s | 215–260 | 5: Hook · Setup · Escalation · Twist · Payoff | 9 | 5 s | ~18 s |
-(≈ 2.7 spoken words per second at Chillar pace.) Chapter names are **internal labels for the director**
+(The Sunny voice runs ≈ 3.2 spoken words/s + ≈ 3.5 s outro; `fact_lint.py` prints the estimate with numbers read in full.) Chapter names are **internal labels for the director**
 — they never appear on screen and are never spoken. You may name chapters anything useful.
 
 ## Joke craft (use many, overuse none)
@@ -63,7 +63,13 @@ it to the group chat. The facts are the spine; the jokes are how the facts get r
 - Write `voice`-ready Roman Hinglish (CLAUDE.md §1: captions are Roman Hinglish).
 
 ## Output
+**Cover first (round 1 only):** if `cover.md` still has `<…>` placeholders, fill it before the script —
+cover_text ≤ 5 words (honest: the payoff must deliver it), kicker, optional stamp word, Chillar
+expression, cover_field, the first frame (must show the stakes) and the hook line (= sentence 1).
+
 Overwrite `episodes/<ep>/script.md` (keep the frontmatter, set `target_seconds`). Then run
-`.venv/bin/python pipeline/fact_lint.py episodes/<ep>` and fix what it flags. Report back in ≤ 12 lines:
+`.venv/bin/python pipeline/fact_lint.py episodes/<ep>` and fix every ✗ **and every `~` self-check line**
+(spoken length with numbers read in full, laugh margin, first laugh by 5 s, absolutes like "hamesha" on a
+cited line, lines > 14 words) before you hand off — each one you leave costs a review round. Report back in ≤ 8 lines:
 word count + estimated seconds, laugh count, the three best jokes, any `[NEED FACT]`, and — on a
 rewrite — one line per reviewer note saying how you addressed it.

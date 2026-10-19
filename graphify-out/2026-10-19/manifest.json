@@ -15,9 +15,9 @@
     "semantic_hash": "96282286742baa60445373ae7b709e0b"
   },
   "components/bar-chart/component.js": {
-    "mtime": 1792398672.7062445,
-    "ast_hash": "e6907d10f9fdece3f258fd576041cf82",
-    "semantic_hash": "e6907d10f9fdece3f258fd576041cf82"
+    "mtime": 1792413387.2933478,
+    "ast_hash": "333cdde8ae891c961906a9ccac5c918d",
+    "semantic_hash": ""
   },
   "components/bar-chart/component.json": {
     "mtime": 1792398672.7402458,
@@ -25,9 +25,9 @@
     "semantic_hash": "895a2b8605fd313bc54ec642b701a903"
   },
   "components/calendar-flip/component.js": {
-    "mtime": 1792397458.6942089,
-    "ast_hash": "4be304685dfa90aa969f461f853015a7",
-    "semantic_hash": "4be304685dfa90aa969f461f853015a7"
+    "mtime": 1792413917.6083624,
+    "ast_hash": "93d01e26e6102b39327640e86e237dab",
+    "semantic_hash": ""
   },
   "components/calendar-flip/component.json": {
     "mtime": 1792397458.6922088,
@@ -130,14 +130,14 @@
     "semantic_hash": "216f8fb1e971a474a987f118b5e40f4b"
   },
   "components/mithai-dabba/component.js": {
-    "mtime": 1792404277.0444713,
-    "ast_hash": "c63a2e29a6e60ddac5b931674aa7bc6e",
-    "semantic_hash": "c63a2e29a6e60ddac5b931674aa7bc6e"
+    "mtime": 1792412538.4777339,
+    "ast_hash": "0986ec9e932fb344f4a06a76742410e9",
+    "semantic_hash": ""
   },
   "components/mithai-dabba/component.json": {
-    "mtime": 1792403705.2674727,
-    "ast_hash": "3ea7de1389861462a65b4854cc11eb01",
-    "semantic_hash": "3ea7de1389861462a65b4854cc11eb01"
+    "mtime": 1792412991.4235165,
+    "ast_hash": "2d889a934e31578f1bf693b3475362b2",
+    "semantic_hash": ""
   },
   "components/odometer-number/component.js": {
     "mtime": 1792405050.394257,
@@ -200,9 +200,9 @@
     "semantic_hash": "ee41a468e82fa01cd0608c1cc1fa0fc5"
   },
   "components/split-compare/component.js": {
-    "mtime": 1792398672.6972442,
-    "ast_hash": "e16e18ed0fe121ebcf198df00ee00b2d",
-    "semantic_hash": "e16e18ed0fe121ebcf198df00ee00b2d"
+    "mtime": 1792413387.2933478,
+    "ast_hash": "dacad183aad232b3462e2ad0c4f5739a",
+    "semantic_hash": ""
   },
   "components/split-compare/component.json": {
     "mtime": 1792397632.7034612,
@@ -540,8 +540,8 @@
     "semantic_hash": ""
   },
   "brand/sources/index.json": {
-    "mtime": 1792406855.7972295,
-    "ast_hash": "31b51303734052a797c8baf30bf63f30",
+    "mtime": 1792409859.1421092,
+    "ast_hash": "1b4cf1c8b94bb3069005d8cea4d7c53f",
     "semantic_hash": ""
   },
   "pipeline/component_catalog.py": {
@@ -605,13 +605,33 @@
     "semantic_hash": ""
   },
   "components/_catalog.md": {
-    "mtime": 1792408197.5191321,
-    "ast_hash": "9a2717f89d2b6b5819f08a93fbdbe3ec",
+    "mtime": 1792413922.969276,
+    "ast_hash": "a1aebfa67bccb5b2103f6206c712fb7d",
     "semantic_hash": ""
   },
   "brand/rules/posting-schedule.md": {
     "mtime": 1792408275.9272742,
     "ast_hash": "ea6977532e34fabeb4c3fffcaaf25df1",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-epf-explained/scenes/scenes.json": {
+    "mtime": 1792414372.7932637,
+    "ast_hash": "33b5c699c69cc40299542bac47f89134",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-epf-explained/cover.md": {
+    "mtime": 1792410424.0295231,
+    "ast_hash": "1ff7664b859e9e87324071429d783de4",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-epf-explained/facts.md": {
+    "mtime": 1792410920.8181086,
+    "ast_hash": "e6b9b7eada2f4cb06988b6e6ce4d4598",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-epf-explained/script.md": {
+    "mtime": 1792410920.8161085,
+    "ast_hash": "2b66d60f443b2e17355f29b5128ba5a7",
     "semantic_hash": ""
   }
 }

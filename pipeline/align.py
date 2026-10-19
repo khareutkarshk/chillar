@@ -39,7 +39,15 @@ def align(ep_dir: str, adlib: bool = True) -> Path:
             toks.append({"text": t, "line": line.id, "chapter": line.chapter, "i": i})
     text = " ".join(t["text"] for t in toks)
 
-    res = model.align(str(audio), text, language=cfg["language"], vad=False)
+    # pad 1 s of silence: without it the aligner can run out of audio on the last line and
+    # collapse its words onto the final sample (seen on 2026-10-epf-explained)
+    import subprocess, tempfile
+    dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(audio)],
+                               capture_output=True, text=True).stdout or 0)
+    padded = Path(tempfile.mkdtemp()) / "voice_pad.wav"
+    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(audio), "-af", "apad=pad_dur=1",
+                    str(padded)], check=True)
+    res = model.align(str(padded), text, language=cfg["language"], vad=False)
     aligned = [w for seg in res.segments for w in seg.words]
     a_norm = [norm(w.word) for w in aligned]
     s_norm = [norm(t["text"]) for t in toks]
@@ -50,7 +58,7 @@ def align(ep_dir: str, adlib: bool = True) -> Path:
     for blk in sm.get_matching_blocks():
         for k in range(blk.size):
             w = aligned[blk.b + k]
-            times[blk.a + k] = (float(w.start), float(w.end))
+            times[blk.a + k] = (min(float(w.start), dur), min(float(w.end), dur)) if dur else (float(w.start), float(w.end))
     # interpolate any unmatched tokens between neighbours
     for i, t in enumerate(times):
         if t is None:

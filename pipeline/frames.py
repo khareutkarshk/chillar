@@ -5,7 +5,8 @@ frame, still enough to judge layout and legibility. Hard cap of 12 frames per ca
   frames.py episodes/<ep> 3.4 8.2 21.37          explicit times (seconds)
   frames.py episodes/<ep> --qa                   the timestamps qa.py flagged (.cache/qa.json)
   frames.py episodes/<ep> 3.4 --full             one full-size frame (only to read small text)
-  -> .cache/review/t<time>.png, paths printed one per line
+  -> .cache/review/t<time>.png, paths printed one per line (frames older than the video are deleted first)
+  Sizes: frames are 540×960 = HALF size — a 20 px glyph in a frame is 40 px in the reel.
 """
 from __future__ import annotations
 
@@ -51,6 +52,12 @@ def main() -> int:
         times = times[:CAP]
     out = ep.cache / "review"
     out.mkdir(parents=True, exist_ok=True)
+    # frames older than the video are from an earlier render — delete them so nobody judges a stale cut
+    stale = [f for f in out.glob("*.png") if f.stat().st_mtime < video.stat().st_mtime]
+    for f in stale:
+        f.unlink()
+    if stale:
+        print(f"frames: removed {len(stale)} stale frame(s) from an earlier render", file=sys.stderr)
     for t in times:
         p = out / f"t{t:06.2f}{'_full' if a.full else ''}.png"
         if grab(video, t, p, a.full):

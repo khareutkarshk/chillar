@@ -24,4 +24,5 @@ can't smuggle in an unsourced number). Also scan `scenes/scenes.json` if it exis
 
 Update `checked` dates only for facts you re-verified. Never change claim text or script lines
 yourself — list the fix. Write `episodes/<ep>/notes/fact-check.md` with the table
-(line · claim · fact · status ✅/⚠/❌ · fix) and return: `verdict: PASS` (all ✅) or `verdict: BLOCK` + the rows that block.
+(line · claim · fact · status ✅/⚠/❌ · fix) and return (≤ 8 lines): `verdict: PASS` (all ✅) or `verdict: BLOCK` + the rows that block. Put the verdict line
+(`verdict: PASS` / `verdict: BLOCK`) at the top of notes/fact-check.md too — the producer script reads it.
