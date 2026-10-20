@@ -103,6 +103,26 @@ Baseline: the EPF reel made by a producer session routing in-session subagents c
   (`narrow-frame`, `small-text`, `same-layout`) + `layout` boxes in qa.json; frames.py deletes stale frames;
   the reviewer measures from qa, not half-size frames; align pads 1 s so the last line can't collapse.
 
+- **(2026-10-21) Quality at the same cost** — every recurring review blocker of the first 9 reels moved to code, and
+  the writers' room got memory:
+  - qa.py: `hidden-text` (Chillar/an object on or under words, by hit-testing — the mascot SVG is no longer
+    exempt), `clipped-text`, `broken-word`, `late-number` (the voice says a number its shot shows only later —
+    found in 5 shipped reels), `late-text` (an empty card at the settled frame). The outro now prints on the cut.
+  - Voice: `{beat}` / `{slow}` / `{fast}` direction tags in tts.txt for comic timing; per-line cached takes, so a
+    re-take (`tts.py --retake L6`) pays only for that line; voice_check always runs before the video review.
+  - Script: `brand/joke-log.md` (`joke_log.py`, rebuilt before each first draft: games taken, landed, fell flat,
+    overused props, audience drops) goes to the writer + reviewer on round 1. The writer may add `{alt: "…"}` to
+    its weakest lines; the reviewer's `picks:` line is applied by `script_picks.py` — a punch-up, no extra round.
+    fact_lint flags label-colon openers ("Hisaab: …").
+  - Audience: `retention.py` maps a posted reel's Instagram retention points to the lines being said.
+  - memes.py refuses unsafe titles (and templates whose own printed text is unsafe, by name).
+
+- **Batches (`/batch-reels <first> <last> --pct-now N`, 2026-10-21):** one master session runs every scheduled reel
+  in a date range (≤ 2 produce.py at once), decides stops like the creator via helper subagents, then analyses and
+  optimises. `pipeline/budget.py` is the hard stop: armed with the weekly % now and a stop %, it converts ccusage
+  dollars (every Claude session on the machine) to weekly % (cautious $4.5/%), and produce.py halts before any
+  agent once the cap is spent.
+
 Target per reel: agents ≈ $2.5–4, producer session ≤ $1 → **$3–5**. Check it in `notes/usage.md`; if a stage
 runs over its share twice, fix the cause (a missing component, a vague note), not the cap.
 

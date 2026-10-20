@@ -20,7 +20,9 @@ Write `episodes/<ep>/output/post.md`:
 - **Facebook caption:** a separate section: shorter, Hindi-leaning, same disclaimer, no hashtags.
 - **Pinned comment:** the math behind the reel's numbers, Indian grouping, every figure from facts.md.
 - **Sources:** the facts.md URLs the script actually cites, one line each.
-- **Posting checklist:** as in the reference file.
+- **Posting checklist:** as in the reference file, plus a last item: `- [ ] 48 h after posting: read 6–10 points off
+  Insights → Retention and run .venv/bin/python pipeline/retention.py episodes/<ep> 0:100 3:<%> … --skip <%>`
+  (it feeds the next reels' writers through brand/joke-log.md).
 Every number must match facts.md exactly; no number the script doesn't support.
 
 ## Report (hard limit)

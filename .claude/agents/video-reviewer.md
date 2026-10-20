@@ -18,7 +18,9 @@ you pull with `pipeline/frames.py`; never open a gallery or unrelated image.
 **The mechanical checks are already done by code** — `.cache/qa.json` (from `pipeline/qa.py`): empty
 cut frames, safe zones, text over text, caption band, wordmark cover, odometer values, numbers shown
 before they're spoken, tiny text, fade entrances, short shots, true peak / LUFS, low-contrast text
-(incl. frame 1), an overlay covering text (`covered-text`), paper objects under ≈ 660 px (`small-object`). Don't re-measure any
+(incl. frame 1), an overlay covering text (`covered-text`), paper objects under ≈ 660 px (`small-object`), Chillar or
+any object on/under words (`hidden-text`), text cut off by its container (`clipped-text`), mid-word line breaks
+(`broken-word`), a number said before its shot shows it (`late-number`), an empty card (`late-text`). Don't re-measure any
 of that from frames. Copy each qa error into your notes with its route; spend your eyes on taste,
 comedy, clarity and retention.
 

@@ -27,6 +27,13 @@ Checks:
   late-content    settled, a shot shows < 40 % of what it ends on (header alone while the rows print late)
   same-layout     4 shots in a row with the same content box (template feel)
   short-shot      a shot shorter than its component's minDuration (or < 0.8 s)
+  hidden-text     text with a painted object on top of it — the mascot's SVG, a tray over its own letter
+                  (anything hit-testing finds above the glyphs; pen scribbles and marker swipes are exempt)
+  clipped-text    text cut off by its container (overflow) when settled — a letter line half under the tray
+  broken-word     a word split across two lines ("Camouflag / ed.")
+  late-number     a number the voice says while its shot will show it but doesn't yet (the bar arrives late)
+  late-text       a shot whose paper is up but nearly empty of text when settled (a chat card with only dots,
+                  a receipt with only its header) — counted in characters, not area
   audio           output/final.mp4 true peak > −1 dBTP, LUFS off −14 (reported only if final.mp4 is
                   older than scenes.json; make_reel re-runs it after mix)
 Every issue carries t, the scene/component, a route ([director] / [editor] / [component:x]) and a fix.
@@ -61,6 +68,13 @@ SMALL_OBJ = 0.75                          # paper objects with text spanning < 7
 EMPTY_PAPER, EMPTY_PAPER_MIN_H = 0.7, 300  # a ≥ 300 px paper whose text ends above 70 % of its height = half-empty
 LATE_SHARE, LATE_MIN_SHOT = 0.4, 1.5       # settled frame shows < 40 % of the shot's final content (shots ≥ 1.5 s)
 COVER_OK = {"marker-highlight", "transition", "captions"}   # overlays meant to sit on text
+HIDDEN_ERR, HIDDEN_WARN = 0.5, 0.3   # share of a text's probe points under a painted object
+OWN_COVER_OK = {"glyph-character"}   # its eyes and limbs are drawn on its own glyph by design
+CLIPPED_ERR, CLIPPED_WARN = 0.4, 0.2  # share of a text's ink clipped by an overflow ancestor
+LATE_NUM_ERR = 0.8                    # s after the voice says a number that its shot still hides it
+LATE_TEXT_ERR, LATE_TEXT_WARN, LATE_TEXT_MIN = 0.15, 0.35, 20   # settled chars / final chars (finals ≥ 20 chars)
+UNITS = {"l": 1e5, "lakh": 1e5, "lac": 1e5, "लाख": 1e5, "k": 1e3, "hazaar": 1e3, "hazar": 1e3, "हज़ार": 1e3,
+         "हजार": 1e3, "cr": 1e7, "crore": 1e7, "करोड़": 1e7}
 
 
 def inr(n: float, decimals: int | None = None) -> str:
@@ -113,6 +127,8 @@ def sample_times(spec: dict) -> dict[float, str]:
             add(st + 3 * F, f"{s['id']} cut+3f")
             add(st + min(d * 0.5, 1.2), f"{s['id']} settled")
             add(st + d - F, f"{s['id']} last frame")
+            if s["id"] == "outro":
+                add(st + 0.6, "outro settled")
         elif s["track"] == 2:
             add(st + min(0.25, d / 2), f"{s['id']} in")
             add(st + d / 2, f"{s['id']} mid")
@@ -148,6 +164,33 @@ def glyph_lines(x: dict) -> list:
     for b in x.get("lines") or [x["box"]]:
         cy, h = (b[1] + b[3]) / 2, min(b[3] - b[1], f * 0.8)
         out.append([b[0], cy - h / 2, b[2], cy + h / 2])
+    return out
+
+
+def values(text: str) -> set[float]:
+    """Numbers a viewer reads in a string, as values: ₹15,00,000 / 15L / ₹15 lakh → 1500000; 30% → 30."""
+    out = set()
+    for m in re.finditer(r"(\d[\d,]*(?:\.\d+)?)\s*(lakh|lac|crore|cr|hazaa?r|लाख|करोड़|हज़ार|हजार|[lLkK](?![a-zA-Z]))?", text):
+        try:
+            v = float(m.group(1).replace(",", ""))
+        except ValueError:
+            continue
+        u = (m.group(2) or "").lower()
+        out.add(round(v * UNITS.get(u, 1), 2))
+    return out
+
+
+def spoken_numbers(words: list[dict]) -> list[tuple[float, float, str]]:
+    """(value, start, as said) for every number in the voice; a unit word right after scales it (₹1 + लाख)."""
+    out = []
+    for i, w in enumerate(words):
+        vs = values(w["text"])
+        if not vs:
+            continue
+        nxt = words[i + 1]["text"].strip(".,!?;:").lower() if i + 1 < len(words) else ""
+        mult = UNITS.get(nxt, 1) if nxt in UNITS and len(nxt) > 1 else 1
+        for v in vs:
+            out.append((round(v * mult, 2), w["start"], w["text"] + (f" {words[i + 1]['text']}" if mult > 1 else "")))
     return out
 
 
@@ -217,6 +260,9 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
     in_transition = lambda t: any(a - 0.01 <= t <= b + 0.01 for a, b in trans)  # noqa: E731
 
     times = sample_times(spec)
+    said = spoken_numbers(words)
+    for v, st, _ in said:
+        times.setdefault(round(min(st + LATE_NUM_ERR, spec["duration"] - 0.05), 3), f"said {v:g}")
     for t in extra or []:
         times.setdefault(round(t, 3), "requested")
     data = probe(idx, list(times))
@@ -301,6 +347,31 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
             if x["font"] < MIN_FONT and x["clip"] != "outro" or (x["clip"] == "outro" and x["font"] < 24):
                 add("warn", "tiny-text", t, where, f"component:{x['comp']}",
                     f"text renders at ~{x['font']}px — unreadable on a phone", "≥ 28 px", key=("tiny", x["clip"], x["text"][:20]))
+            for wd in x.get("broken") or []:
+                if not moving and not is_cap:
+                    add("error", "broken-word", t, where, f"component:{x['comp']}",
+                        f"“{wd}” breaks across two lines", "shrink to fit (auto-fit) or rephrase so the word stays whole",
+                        key=("broken", x["clip"], wd))
+            if not moving and not x["odo"] and x["clip"] != "outro":
+                comps = {c["id"]: c["comp"] for c in smp["clips"]}
+                for cv in x.get("cover") or []:
+                    cid, _, under = cv["clip"].partition("|")
+                    other = comps.get(cid, "")
+                    own = cid == x["clip"]
+                    if other in COVER_OK or cid in ("wordmark", "bg") or cv["frac"] < HIDDEN_WARN \
+                            or (own and x["comp"] in OWN_COVER_OK):
+                        continue
+                    sev = "warn" if under or cv["frac"] < HIDDEN_ERR else "error"
+                    add(sev, "hidden-text", t, f"{where} {'over' if under else 'under'} {cid} ({other})",
+                        f"component:{x['comp']}|director" if own else "director",
+                        (f"Chillar sits under {cv['frac']:.0%} of the words — the text reads over a drawing" if under else
+                         f"{cv['frac']:.0%} of the text is under a painted object" + (" of its own shot" if own else "")),
+                        "move/shrink the object (mascot x/y, tray size) or the text so nothing sits on the words",
+                        key=("hidden", x["clip"], x["text"][:16], cid))
+                if (x.get("cut") or 0) >= CLIPPED_WARN and settled:
+                    add("error" if x["cut"] >= CLIPPED_ERR else "warn", "clipped-text", t, where,
+                        f"component:{x['comp']}|director", f"{x['cut']:.0%} of the text is cut off by its container",
+                        "make the container taller/wider or shorten the text", key=("clipped", x["clip"], x["text"][:16]))
             # numbers on screen before they are said (frame 1 and the outro are exempt: stakes / sign-off)
             sc = scenes.get(x["clip"])
             first = spec["scenes"][1]["id"] if len(spec["scenes"]) > 1 else ""
@@ -460,6 +531,57 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
                 f"{s_['t'] - sc['start']:.1f}s after its cut it shows {area(s_['box']) / end_a:.0%} of what it ends on "
                 "— the frame reads empty while the rest arrives",
                 "show the first rows/parts on the cut (smaller step, earlier start), or cut in later", key=("late", sid))
+    # late number: the voice says it, the live shot shows it at some point — but not yet LATE_NUM_ERR s later
+    # (the reviewer's "₹1 lakh is said while the Bonus bar is still missing")
+    shown: dict[str, list[tuple[float, set[float]]]] = {}
+    for smp in data["samples"]:
+        for c in smp["clips"]:
+            sc = scenes.get(c["id"])
+            if not sc or c["track"] not in (1, 2) or c["id"] == "outro":
+                continue
+            vis = set()
+            for x in c["texts"]:
+                if x["op"] >= 0.5:
+                    vis |= values(x["text"])
+            shown.setdefault(c["id"], []).append((smp["t"], vis))
+    for v, st, as_said in said:
+        if v < 10:          # "2 minute", "1 card": too common to mean a figure on screen
+            continue
+        t_chk = round(min(st + LATE_NUM_ERR, spec["duration"] - 0.05), 3)
+        for cid, seen_at in shown.items():
+            sc = scenes[cid]
+            if not (sc["start"] <= st < sc["start"] + sc["duration"]):
+                continue
+            later = [t for t, vis in seen_at if v in vis and t > t_chk]
+            now = [t for t, vis in seen_at if v in vis and t <= t_chk]
+            if later and not now:
+                add("error", "late-number", st, f"{cid} ({sc['component']})", f"director|component:{sc['component']}",
+                    f"the voice says “{as_said}” at {st:.1f}s but the shot shows it only at {min(later):.1f}s",
+                    "reveal that row/bar/number on its word (smaller stagger, earlier start)", key=("latenum", cid, v))
+    # late text: a paper up with (almost) none of its words — chat card with typing dots, a receipt header alone
+    chars_at: dict[str, list[tuple[float, int]]] = {}
+    for smp in data["samples"]:
+        if in_transition(smp["t"]):
+            continue
+        for c in smp["clips"]:
+            if c["track"] == 1 and c["id"] in scenes:
+                chars_at.setdefault(c["id"], []).append(
+                    (smp["t"], sum(len(x["text"]) for x in c["texts"] if x["op"] >= 0.5)))
+    for cid, seq_ in chars_at.items():
+        sc = scenes[cid]
+        if sc["duration"] < LATE_MIN_SHOT:
+            continue
+        final = max(n for _, n in seq_)
+        t_set = sc["start"] + min(sc["duration"] * 0.5, 1.2) if cid != "outro" else sc["start"] + 0.6
+        settled_ = [n for t, n in seq_ if abs(t - t_set) < 0.05]
+        if final < LATE_TEXT_MIN or not settled_:
+            continue
+        share = settled_[0] / final
+        if share < LATE_TEXT_WARN:
+            add("error" if share < LATE_TEXT_ERR else "warn", "late-text", t_set, f"{cid} ({sc['component']})",
+                f"director|component:{sc['component']}",
+                f"{t_set - sc['start']:.1f}s after its cut it shows {share:.0%} of its words — an empty card on screen",
+                "print the first message/line on the cut (stagger ≤ 0.2 s), or cut in later", key=("latetext", cid))
     cw = 1080 - SAFE["left"] - SAFE["right"]                       # content width  (≈ 880)
     ch = SAFE["captionBand"][0] - SAFE["top"]                       # content height above the captions (≈ 930)
     for sid, s in shots.items():

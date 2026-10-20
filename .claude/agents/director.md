@@ -105,7 +105,8 @@ and fix every ✗ (warnings: fix the ones that matter). Then `.venv/bin/python p
 (prints only your issues — never pipe it through `tail`/`head`; builds the composition and measures it in headless Chrome — no render, ~5 s) and fix every ✗ routed
 to `[director]`; leave `[component:…]` errors in your report for the producer. Also act on the layout
 warnings `narrow-frame`, `small-text`, `empty-paper`, `late-content` (the shot reads empty while its rows arrive —
-print the first rows on the cut) and `same-layout` (qa measures what the reviewer would otherwise
+print the first rows on the cut), `late-text` (a card up with almost none of its words), `hidden-text` (Chillar
+or an object on/under words — move it), `clipped-text` and `same-layout` (qa measures what the reviewer would otherwise
 flag by eye) — fix them or defend each in one line in your report. `.cache/qa.json` → `layout` lists every
 shot's content box. **Screenshots:** qa already measures layout; take at most 3 headless stills per pass, only
 for something qa can't see (a metaphor reading wrong). Return (≤ 8 lines): theme, scene count, transitions + stamps (times), qa result, anything you couldn't

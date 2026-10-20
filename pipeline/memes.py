@@ -44,6 +44,11 @@ INDIAN = re.compile(r"\b(bollywood|tollywood|hindi|indian?|desi|bharat|hera ?phe
                     r"bappa|chhath|punjabi|bhojpuri|tamil|telugu|marathi|gujarati|bengali)\b", re.I)
 POLITICS = re.compile(r"\b(modi|rahul gandhi|kejriwal|yogi|amit shah|owaisi|bjp|congress|aap|mamata|trump|biden|"
                       r"obama|putin|election)\b", re.I)
+# brand safety (CLAUDE.md §3: no sexual jokes, punch up): titles that are, or templates whose own printed text is,
+# sexual / drug / gore. Template text isn't visible to a title filter, so known offenders are listed by name.
+UNSAFE = re.compile(r"\b(sex\w*|nsfw|porn\w*|nude\w*|naked|virgin\w*|horny|boob\w*|dick|thicc|onlyfans|"
+                    r"weed|stoned|cocaine|drunk|suicid\w*|gore|corpse|hentai|waifu|"
+                    r"peak life events)\b", re.I)
 HINGLISH = re.compile(r"\b(hai|hain|kya|nahi|bhai|bhaiya|mere|mujhe|kar|raha|tha|aur|ko|ka|ki|ke|bhi|ye|wo|"
                       r"kaun|kidhar|abhi|yaar|arre|are|beta|ji|baap|yaad|aya|aaya|re|accha|achha|chal|bas|haan|"
                       r"matlab|kuch|sab|bohot|bahut|paisa|paise|kaise|kyun|kyu|tum|tu|mera|meri|tera|teri|"
@@ -96,7 +101,8 @@ def _myinstants(query: str) -> list[dict]:
 
 
 def allowed(title: str, kind: str) -> bool:
-    return not POLITICS.search(title) and (kind == "image" or not (INDIAN.search(title) or HINGLISH.search(title)))
+    return not POLITICS.search(title) and not UNSAFE.search(title) \
+        and (kind == "image" or not (INDIAN.search(title) or HINGLISH.search(title)))
 
 
 def search(query: str, kind: str, n: int = 8) -> list[dict]:

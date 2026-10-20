@@ -79,6 +79,10 @@ def spoken_len(tok: str) -> int:
     return n + (1 if v else 0)
 
 
+# "Hisaab: …", "Group chat: …", "Rule: …" — a 1–3 word label and a colon, outside a quote
+LABEL_COLON = re.compile(r"^((?:[\w'₹]+\s?){1,3}):\s")
+
+
 def script_lint(ep) -> list[str]:
     """Self-check the writer runs before handing off: spoken length, laughs, absolutes, long lines."""
     out = []
@@ -96,6 +100,12 @@ def script_lint(ep) -> list[str]:
         spoken += sp
         if w > MAX_LINE_WORDS:
             out.append(f"{line.id} is {w} words (> {MAX_LINE_WORDS}) — hard to say in one breath")
+        if (m := LABEL_COLON.match(line.spoken)) and not re.match(r"maan lo|socho|matlab", m.group(1), re.I):
+            out.append(f"{line.id} opens with '{m.group(0).strip()}' — a label-plus-colon reads as caption-speak when Sunny "
+                       f"says it; say it as a sentence (\"Hisaab simple hai —\", \"Group chat mein…\")")
+        for alt in re.findall(r"\{\s*alt\s*:([^}]*)\}", line.raw):
+            if re.search(r"\d", alt) and not re.search(r"\[F\d+\]", alt):
+                out.append(f"{line.id} alt has a number without its [F#]: {alt.strip()[:50]}")
         if line.facts and (m := ABSOLUTE.search(line.spoken)):
             out.append(f"{line.id} says '{m.group(0)}' — does {', '.join(line.facts)} support an absolute? \"{line.spoken}\"")
     secs = spoken / WPS + OUTRO_S

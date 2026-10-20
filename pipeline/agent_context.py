@@ -127,13 +127,13 @@ def edit_inputs(ep: Path, role: str, mode: str, note: Path | None = None, *,
     if role == "scriptwriter":
         if mode == "first":
             return [ep / "script.md", ep / "facts.md", ep / "cover.md", ep / "notes/premise.md",
-                    Path("brand/rules/comedy.md"), Path("brand/rules/formats.md")]
+                    Path("brand/rules/comedy.md"), Path("brand/rules/formats.md"), Path("brand/joke-log.md")]
         return [ep / "script.md", ep / "facts.md", ep / "cover.md", ep / "notes/premise.md"]
     if role == "script-reviewer":
         if mode == "revision":
             return [ep / "script.md", ep / "facts.md", ep / "cover.md"]
         return [ep / "script.md", ep / "facts.md", ep / "cover.md",
-                Path("brand/rules/comedy.md"), Path("brand/rules/formats.md")]
+                Path("brand/rules/comedy.md"), Path("brand/rules/formats.md"), Path("brand/joke-log.md")]
     return []
 
 

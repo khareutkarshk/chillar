@@ -37,6 +37,7 @@ import time
 from pathlib import Path
 
 from agent_context import build_brief, edit_inputs
+import budget
 
 ROOT = Path(__file__).resolve().parents[1]
 PY = str(ROOT / ".venv" / "bin" / "python")
@@ -161,6 +162,11 @@ class Line:
         print(f"  ▸ {name} ({model}, {meta.get('effort', '-')}) — {prompt[:90]}", flush=True)
         if self.dry:
             return "verdict: PASS (dry run)"
+        b = budget.check()               # an armed batch budget (budget.py start) counts every Claude session here
+        if b.get("over"):
+            stop(self.ep, f"batch budget reached: ${b['spent']} of ${b['cap']} (≈ {b['pct_now']}% weekly)",
+                 "The master stops every reel. Disarm with `.venv/bin/python pipeline/budget.py stop` only if the "
+                 "creator raises the limit, then resume with --from <this stage>.")
         t0 = time.time()
         r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, env=ENV)
         d, calls = parse_stream(r.stdout)
@@ -442,6 +448,7 @@ def st_script(L: Line, ep: Path, a) -> None:
     last = MAX_ROUNDS + a.extra_rounds           # rounds past the cap only when the creator grants them
     for n in range(start, last + 1):
         if n == 1:
+            L.sh(PY, "pipeline/joke_log.py", check=False)         # writers' room memory: games taken, what landed / fell flat
             topic = f" Topic: {a.topic}." if a.topic else ""
             L.scoped_agent("scriptwriter", ep, f"Write {e}/script.md, {a.format} s format.{topic} Fill cover.md first if it still "
                            "has placeholders, and the script.md frontmatter (title, series, concept).", "script", "first")
@@ -460,6 +467,8 @@ def st_script(L: Line, ep: Path, a) -> None:
                        (" This is a length-only fix: check changed lines and preserve the rest." if fix else "") +
                        (f" Verify unresolved items in {prior.relative_to(ROOT)}, then assess the current draft." if prior else ""),
                        "script", "revision" if prior else "first", note=prior)
+        # the reviewer's picks among the writer's {alt: …} lines — a punch-up without another round
+        L.sh(PY, "pipeline/script_picks.py", str(ep), "--review", str(ep / "notes" / f"script-review-{n}.md"), check=False)
         v = verdict(ep / "notes" / f"script-review-{n}.md")
         print(f"  script review {n}: {v}")
         if v == "PASS":
@@ -531,6 +540,9 @@ def st_align(L: Line, ep: Path, a) -> None:
         clean_align(L, ep)
     if L.dry:
         return
+    vchk = c / "voice_check.json"                  # a run resumed --from align skipped the voice stage's listen
+    if not vchk.exists() or vchk.stat().st_mtime < wj.stat().st_mtime:
+        L.sh(PY, "pipeline/voice_check.py", str(ep), check=False)
     dur = duration(ep / ".cache" / "voice_clean.wav")
     fmt = json.loads((ROOT / "brand" / "tokens.json").read_text())["formats"][str(a.format)]["seconds"]
     total = dur + OUTRO_S

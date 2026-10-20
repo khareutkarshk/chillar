@@ -17,6 +17,11 @@ anti-AI tells), `brand/rules/formats.md`, `episodes/<ep>/script.md`, `facts.md`,
 `.venv/bin/python pipeline/fact_lint.py episodes/<ep>` — its `script:` line gives written/spoken word counts
 and seconds (numbers read in full, calibrated to the Sunny voice); use those numbers, don't recount.
 
+Round 1 also gets `brand/joke-log.md`: a game the log lists as **taken** is a blocker (the audience has seen
+it); a joke the log says **fell flat**, in new words, is a laugh that doesn't count; an **overused** prop with no
+new moment around it is a specificity note.
+**Alternatives:** the writer may put `{alt: "…"}` after its weakest lines. Read each as a candidate, choose the
+funniest version (alt n, or 0 = the line as written) and score the script as if your picks were in.
 When `produce.py` supplies a task brief, the listed text is already present: do not reopen it or search the repo.
 The first-round brief includes the source rubrics; on later rounds, use the concise scoring rubric in this file
 and the prior review note instead of rereading the full comedy/formats references.
@@ -62,6 +67,7 @@ verdict: PASS | REVISE
 round: <n>
 scores: stop <n> · laughs <n> (count <k>/<min>) · specific <n> · clarity <n> · escalation <n> · payoff <n> · speak <n> · fresh <n> · facts PASS|FAIL
 words: <n> (~<s> s, target <format>)
+picks: L<id>=<n>, …   (one per line that has {alt}; 0 keeps the line; omit the field if there are none)
 ## Notes (most important first)
 - blocker|polish L<id> "<quote>": <audience-visible problem> → <smallest actionable change>
 ...

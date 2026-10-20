@@ -17,6 +17,9 @@ Read first: `brand/rules/comedy.md` (the method: one game per reel, laugh patter
 7-step writing process — follow every step), `brand/rules/formats.md` (the format table),
 `episodes/<ep>/facts.md`, `episodes/<ep>/cover.md`, and the one review note named in your task (latest
 round only). That note carries the unresolved history; do not list or read every prior review.
+Round 1 also gets `brand/joke-log.md` (built from every past reel): never build on a **game taken**, lead with
+something other than an **overused** prop, don't write the kind of joke that **fell flat**, reuse only the
+*shape* of what **landed**, and treat **audience** drops as the hardest note there is.
 When `produce.py` supplies a task brief, its listed text is already present; don't reopen it. On rewrites,
 use the reviewer's actionable notes and this file's writing rules instead of rereading the long rule documents.
 
@@ -41,7 +44,12 @@ it to the group chat. The facts are the spine; the jokes are how the facts get r
    Vary rhythm: long setup, short punch, flat tag. The surprise word goes **last**.
 4. **At least one act-out** (a real voice in quotes) and **one self-own** per reel.
 5. **Max one pun.** Wordplay is seasoning; three puns = AI tell (comedy.md §4).
-6. **Fresh + planned memes (comedy.md §7).** Every reference and meme must be current — take them from facts.md
+6. **Written alternatives (the punch-up, made visible).** On your 2–3 weakest `[JOKE]` lines — and on a rewrite,
+   on any polish note you didn't take — add up to two `{alt: "…"}` after the line: the full spoken line, a
+   different laugh pattern (comedy.md §3), the surprise word last, no new number without its `[F#]` inside the
+   alt. The reviewer picks one (or keeps yours) and the pipeline swaps it in — no extra round. Never on `## Keep`
+   lines; never more than 4 lines with alts.
+7. **Fresh + planned memes (comedy.md §7).** Every reference and meme must be current — take them from facts.md
    `## Culture now` (or `memes.py trending`); one still-everywhere classic at most; anything dated is a REVISE.
    Write the meme beats into the draft as a comedian would (reaction tag / meme-as-punchline / act-out /
    callback) and mark each `{meme: M2}` after the line it serves. Desi template for desi moments, global for

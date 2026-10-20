@@ -6,6 +6,7 @@
 Runs after clean + align (it uses .cache/voice_clean.wav and the line times in .cache/words.json).
 Whisper "medium" (int8, CPU) — "small" can't hear nasals, which is how "khansa" shipped as "khasa".
 It flags, it never fixes: the voice agent / reviewer judges each flag (ASR spelling noise is normal).
+A flagged line is re-rolled alone with `tts.py <ep> --retake L6` (other lines keep their cached takes).
 
 Flags per line:
   low-match   few of the line's Hindi words were heard as written (a skipped or mangled word)
@@ -25,6 +26,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.episode import load  # noqa: E402
+from tts import strip_tags  # noqa: E402
 
 MODEL = "medium"
 DEV = re.compile(r"[ऀ-ॣ०-ॿ]+")         # Devanagari words, not the danda । ॥
@@ -64,7 +66,7 @@ def transcribe_lines(wav: Path, spans: list[tuple[float, float]]) -> list[list[s
 
 def check(ep_dir: str) -> dict:
     ep = load(ep_dir)
-    tts = [x.strip() for x in (ep.dir / "voice" / "tts.txt").read_text().splitlines() if x.strip()]
+    tts = [t for t in (strip_tags(x) for x in (ep.dir / "voice" / "tts.txt").read_text().splitlines()) if t]
     words = json.loads((ep.cache / "words.json").read_text())
     spans: dict[str, list[float]] = {}
     for w in words:

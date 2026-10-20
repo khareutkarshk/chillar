@@ -18,11 +18,17 @@ change speaker/pace). Follow `brand/rules/voice.md`.
    - **Nasals:** Sunny drops ँ/ं inside a word (खाँसा → "khaasa"). Spell a mid-word nasal as a half
      consonant: खान्सा, अन्दर, ठण्डा. `brand/pronunciations.tsv` respells known words automatically — add a row
      there for any new one, so it stays fixed in every reel.
-2. `.venv/bin/python pipeline/tts.py episodes/<ep>` (it prints the lexicon rows it applied).
+   - **Comic timing (direction tags, never spoken):** `{beat}` (0.45 s pause; `{beat:0.6}` for longer) right
+     before a punchline or the turn of a joke, mid-line if the turn is mid-line ("हिसाब कभी नहीं दिया। {beat}
+     ITR देता है।"); `{slow}` on a line carrying a stamped number; `{fast}` on a rushed aside. **≤ 4 beats and
+     ≤ 2 pace tags per reel**; never on the first line; never change, add or drop a word for them.
+2. `.venv/bin/python pipeline/tts.py episodes/<ep>` (it prints the lexicon rows it applied). Every line is a
+   cached take: a re-run pays only for lines whose text changed.
 3. Don't transcribe — the pipeline listens next (`pipeline/voice_check.py`, whisper medium, line by line) and
    sends you `.cache/voice_check.md` only if a line is flagged. On that pass: a real mispronunciation (a
    `nasal` flag, a number read wrong, a skipped word) → a pronunciations.tsv row or a tts.txt respelling, then
-   regenerate once; ASR spelling noise → ignore.
+   regenerate once; a garbled take whose spelling is already right → `tts.py episodes/<ep> --retake L6,L8`
+   (new takes of only those lines); ASR spelling noise → ignore.
    If a later video-review note routes an exact line to `[voice] blocker`, treat that as a targeted repair
    request: preserve the approved script words exactly, use phonetic spelling only, regenerate once, and
    report any line still flagged. If the script wording itself must change, leave it untouched and report

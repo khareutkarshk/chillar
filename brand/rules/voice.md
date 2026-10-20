@@ -14,3 +14,10 @@
 - Sunny drops nasals (chandrabindu ँ and anusvara ं read as plain vowels: खाँसा → "khaasa"). Spell
   the nasal out as a half-consonant: खान्सा, not खाँसा/खांसा (fixed on 2026-10-sale-fine-print, checked
   by faster-whisper medium).
+- **Direction tags** in tts.txt (stripped before the API, never spoken, ignored by voice_check):
+  `{beat}` / `{beat:0.6}` a pause (0.45 s default, 0.15–1.2 s) at that spot — before a punchline;
+  `{slow}` / `{fast}` that line at 0.9× / 1.1× the channel pace. ≤ 4 beats, ≤ 2 pace tags per reel.
+  audio_clean keeps tagged beats (voice.json `beats`); every other pause is still capped at `max_gap_s`.
+- **Takes are per line** (`[tts] per_line = true`, cached in `.cache/tts_takes/` by text + settings), so a
+  respelling or `tts.py <ep> --retake L6` re-pays only that line and never re-rolls lines that were fine.
+  Sarvam bills characters (v4-flash ₹2 / 1,000), so per-line requests cost the same as one big one.

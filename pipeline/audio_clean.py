@@ -43,8 +43,10 @@ def find_voice(ep: Episode) -> Path:
     return cands[0]
 
 
-def tighten(x: np.ndarray, sr: int, thresh_db: float, max_gap: float) -> tuple[np.ndarray, list]:
+def tighten(x: np.ndarray, sr: int, thresh_db: float, max_gap: float,
+            keep_beats: list | None = None) -> tuple[np.ndarray, list]:
     """Shorten every pause (silence or breath below thresh) to max_gap, with 8 ms crossfades.
+    keep_beats: [[mid_s, seconds], …] — directed pauses from tts.py's {beat} tags, kept at their length.
     Returns new audio and an edit list of kept [src_start, src_end] seconds."""
     hop = int(sr * 0.01)
     frames = len(x) // hop
@@ -65,10 +67,11 @@ def tighten(x: np.ndarray, sr: int, thresh_db: float, max_gap: float) -> tuple[n
     keep, cursor = [], 0
     gap = int(max_gap / 0.01)
     for a, b in runs:
-        if b - a <= gap:
+        g = max([gap] + [int(sec / 0.01) for mid, sec in keep_beats or [] if a * 0.01 <= mid <= b * 0.01])
+        if b - a <= g:
             continue
-        lead = gap // 2 if a > 0 else 2           # leading silence of the file → nearly all cut
-        tail = gap - gap // 2 if b < frames else 2
+        lead = g // 2 if a > 0 else 2             # leading silence of the file → nearly all cut
+        tail = g - g // 2 if b < frames else 2
         keep.append((cursor, a + lead))
         cursor = b - tail
     keep.append((cursor, frames))
@@ -111,13 +114,17 @@ def clean(ep_dir: str) -> Path:
     ff("-i", str(src), "-af", ",".join(chain), "-ar", str(SR), "-ac", "1", "-c:a", "pcm_f32le", str(pre))
 
     x, sr = sf.read(pre, dtype="float32")
-    tight, edl = tighten(x, sr, float(v["silence_threshold_db"]), float(v["max_gap_s"]))
+    beats = []
+    meta = src.with_suffix(".json")             # tts.py's provenance; ignored if the wav was replaced after it
+    if meta.exists() and meta.stat().st_mtime >= src.stat().st_mtime:
+        beats = json.loads(meta.read_text()).get("beats", [])
+    tight, edl = tighten(x, sr, float(v["silence_threshold_db"]), float(v["max_gap_s"]), beats)
     tight_p = ep.cache / "voice_tight.wav"
     sf.write(tight_p, tight, sr, subtype="FLOAT")
 
     out = ep.cache / "voice_clean.wav"
     m = loudnorm(tight_p, out, float(v["lufs"]))
-    info = {"source": str(src.relative_to(ep.dir)), "chain": chain, "edl": edl,
+    info = {"source": str(src.relative_to(ep.dir)), "chain": chain, "edl": edl, "kept_beats": beats,
             "in_seconds": round(len(x) / sr, 2), "out_seconds": round(len(tight) / sr, 2),
             "loudnorm_first_pass": m}
     (ep.cache / "voice_edl.json").write_text(json.dumps(info, indent=2))

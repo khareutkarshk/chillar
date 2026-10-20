@@ -150,8 +150,8 @@
     "semantic_hash": ""
   },
   "components/outro/component.js": {
-    "mtime": 1792528117.671584,
-    "ast_hash": "f7cd430350e6302de2f382efe0224d75",
+    "mtime": 1792535471.8059602,
+    "ast_hash": "28f9675b3169a5a1a868428457b5d335",
     "semantic_hash": ""
   },
   "components/outro/component.json": {
@@ -280,9 +280,9 @@
     "semantic_hash": ""
   },
   "pipeline/audio_clean.py": {
-    "mtime": 1792347529.869675,
-    "ast_hash": "252c2616a96fdd8f2a263e0c7897af9d",
-    "semantic_hash": "252c2616a96fdd8f2a263e0c7897af9d"
+    "mtime": 1792535344.1033297,
+    "ast_hash": "0f186961a527b6f9cb08eb4cf2f89876",
+    "semantic_hash": ""
   },
   "pipeline/build_composition.py": {
     "mtime": 1792480922.890353,
@@ -305,8 +305,8 @@
     "semantic_hash": "36a4d64c0f29c2ccf433b4dd2fbaa76a"
   },
   "pipeline/fact_lint.py": {
-    "mtime": 1792492244.547876,
-    "ast_hash": "70d3094f96d17755fdbd4e1c81884c57",
+    "mtime": 1792535570.9401593,
+    "ast_hash": "b8bc4c73752462574cc330d32ad2e4fa",
     "semantic_hash": ""
   },
   "pipeline/fetch_assets.py": {
@@ -410,8 +410,8 @@
     "semantic_hash": "3309c2af27fdfd2de17f8cb86f35cb40"
   },
   "pipeline/tts.py": {
-    "mtime": 1792491986.8537388,
-    "ast_hash": "cf2f0752c2fc9586cf27673b6d21eca1",
+    "mtime": 1792535355.0948272,
+    "ast_hash": "07758a933027eae06b771a4bd83e1311",
     "semantic_hash": ""
   },
   "pipeline/validate_scenes.py": {
@@ -430,8 +430,8 @@
     "semantic_hash": "0dc2d491af9b5e44782e341239503b0e"
   },
   ".claude/agents/director.md": {
-    "mtime": 1792534461.9397862,
-    "ast_hash": "39381349d88c6a7f913c41c88cd21cae",
+    "mtime": 1792535705.8940272,
+    "ast_hash": "7fec3af2e8be7b049a382df72abb248c",
     "semantic_hash": ""
   },
   ".claude/agents/editor.md": {
@@ -445,18 +445,18 @@
     "semantic_hash": ""
   },
   ".claude/agents/script-reviewer.md": {
-    "mtime": 1792495028.5264428,
-    "ast_hash": "80b296a2f5b3a4a4d4e032ebe3b66e39",
+    "mtime": 1792535692.1151626,
+    "ast_hash": "f1649b009b0d6028c950e4de3525d68b",
     "semantic_hash": ""
   },
   ".claude/agents/scriptwriter.md": {
-    "mtime": 1792494969.1512265,
-    "ast_hash": "d4a65632b464ba7bfc3a8e5a17518453",
+    "mtime": 1792535692.1151626,
+    "ast_hash": "179eb22202f165150b947d9c3bfecb7c",
     "semantic_hash": ""
   },
   ".claude/agents/video-reviewer.md": {
-    "mtime": 1792521043.9737244,
-    "ast_hash": "e22f53e68ec813a72f2d7891b13292ce",
+    "mtime": 1792535705.8940272,
+    "ast_hash": "15202ee28389128e7d896af236450a98",
     "semantic_hash": ""
   },
   ".claude/commands/fact-check.md": {
@@ -560,13 +560,13 @@
     "semantic_hash": ""
   },
   "pipeline/lib/qa_probe.mjs": {
-    "mtime": 1792436454.9913213,
-    "ast_hash": "acbcf00b7c89878dd9751a48101ab202",
+    "mtime": 1792535457.507344,
+    "ast_hash": "2bf1a29ca8cc65fbbe0b16e407f0d575",
     "semantic_hash": ""
   },
   "pipeline/qa.py": {
-    "mtime": 1792534461.938786,
-    "ast_hash": "b9aa3cb689178bfb9fd6b283e216f9a2",
+    "mtime": 1792535358.2079675,
+    "ast_hash": "1eef6e076a1db24d28bed970f7734f8d",
     "semantic_hash": ""
   },
   "brand/facts-library.md": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "brand/rules/production.md": {
-    "mtime": 1792534505.1329653,
-    "ast_hash": "1dc74cb4f778d360b07a609eb212de74",
+    "mtime": 1792535749.6148763,
+    "ast_hash": "3878334489df88b86ca4846b05c9b387",
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
@@ -600,12 +600,12 @@
     "semantic_hash": ""
   },
   "brand/rules/voice.md": {
-    "mtime": 1792490803.1229618,
-    "ast_hash": "29011a6338570398ba5471a87a99926e",
+    "mtime": 1792535390.6064162,
+    "ast_hash": "1aa316deefa5dccad7cb16b2dcad592b",
     "semantic_hash": ""
   },
   "components/_catalog.md": {
-    "mtime": 1792534716.358035,
+    "mtime": 1792535478.4892473,
     "ast_hash": "a4f7230cef48e065369d9b8ad92d282a",
     "semantic_hash": ""
   },
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792534461.9407861,
-    "ast_hash": "aa95a2d62efc2c3283ee9e8a73bc4966",
+    "mtime": 1792535649.212404,
+    "ast_hash": "6589d74264df27a4461a0b53f9b55cb6",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -645,8 +645,8 @@
     "semantic_hash": ""
   },
   ".claude/agents/packager.md": {
-    "mtime": 1792486401.2571251,
-    "ast_hash": "899066257851cccdb48e71ce193bfb6c",
+    "mtime": 1792535748.4539042,
+    "ast_hash": "14f51179647a564e158f04134a838e54",
     "semantic_hash": ""
   },
   ".claude/agents/researcher.md": {
@@ -655,8 +655,8 @@
     "semantic_hash": ""
   },
   ".claude/agents/voice.md": {
-    "mtime": 1792521329.706488,
-    "ast_hash": "d3557a87912e1fc795cf9d12a6a08c04",
+    "mtime": 1792535390.6064162,
+    "ast_hash": "01557bec1d5e547ea46d0f034791c53f",
     "semantic_hash": ""
   },
   "episodes/2026-10-credit-card-myth/scenes/scenes.json": {
@@ -665,8 +665,8 @@
     "semantic_hash": ""
   },
   "brand/rules/comedy.md": {
-    "mtime": 1792481989.8170166,
-    "ast_hash": "bc2dcf211c742958b674765613acd6e3",
+    "mtime": 1792535692.1151626,
+    "ast_hash": "b6173deacc349880b4193f2c37560a22",
     "semantic_hash": ""
   },
   "episodes/2026-10-credit-card-myth/cover.md": {
@@ -715,8 +715,8 @@
     "semantic_hash": ""
   },
   "pipeline/memes.py": {
-    "mtime": 1792492081.1113408,
-    "ast_hash": "7ddbeb82a5879dce6962f7f03aab1c3e",
+    "mtime": 1792535505.4964008,
+    "ast_hash": "ea9bf26be7bed1cd23bd4b154e626e7f",
     "semantic_hash": ""
   },
   "episodes/2026-10-no-cost-emi/scenes/scenes.json": {
@@ -775,8 +775,8 @@
     "semantic_hash": ""
   },
   "pipeline/voice_check.py": {
-    "mtime": 1792492430.4855623,
-    "ast_hash": "b5c8f5da724cb87224f9f9f2501ec53d",
+    "mtime": 1792535344.1033297,
+    "ast_hash": "d41f86a65be30c881bb0cb7113ef49ea",
     "semantic_hash": ""
   },
   "components/chat-screen/component.js": {
@@ -790,13 +790,13 @@
     "semantic_hash": ""
   },
   "components/_backlog.md": {
-    "mtime": 1792534633.0269718,
-    "ast_hash": "74c43d097c4064ae00ee44cb61b859fb",
+    "mtime": 1792534833.2503057,
+    "ast_hash": "b47d128deea143198bfcf9e2437ffb8a",
     "semantic_hash": ""
   },
   "pipeline/agent_context.py": {
-    "mtime": 1792520945.2208476,
-    "ast_hash": "ee2d769d51e72344018a4b36dc823f9f",
+    "mtime": 1792535641.2180748,
+    "ast_hash": "dad1ef375537bca9d2442646fd7c06aa",
     "semantic_hash": ""
   },
   "brand/shot-patterns.json": {
@@ -882,6 +882,26 @@
   "episodes/2026-10-27-diwali-bonus-tax/script.md": {
     "mtime": 1792526869.975114,
     "ast_hash": "cc83b71c015f72a9aedba8253e98acc0",
+    "semantic_hash": ""
+  },
+  "pipeline/joke_log.py": {
+    "mtime": 1792535662.6569564,
+    "ast_hash": "5ffe4de8946f0db00708bb3540580add",
+    "semantic_hash": ""
+  },
+  "pipeline/retention.py": {
+    "mtime": 1792535629.6785989,
+    "ast_hash": "cf67efaf9805f7cb64645708b503ad71",
+    "semantic_hash": ""
+  },
+  "pipeline/script_picks.py": {
+    "mtime": 1792535556.579558,
+    "ast_hash": "163ca30dc46fd93f968cf188de0c1b10",
+    "semantic_hash": ""
+  },
+  "brand/joke-log.md": {
+    "mtime": 1792535662.7779613,
+    "ast_hash": "9cc385eabc15998ade40976d8476ea76",
     "semantic_hash": ""
   }
 }

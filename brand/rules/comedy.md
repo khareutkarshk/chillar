@@ -65,6 +65,13 @@ AI-written comedy has tells. Kill every one:
 - **Fake Gen Z slang** ("no cap", "slay", "it's giving", "bestie", "sigma"). One, ironically, at most.
 - **Morals and sermons** ("toh samajhdari se kharcha karo"). The payoff is a rule + a tag, never advice-speak.
 - **Laughing at the viewer** ("tum log toh…"). Punch at ourselves, the system, the fine print.
+- **The same joke shape three times** — three "not X, but Y" flips, three "X? Wahi…" zingers, three Q→short-answer
+  tags. Heard back to back it's a template. Two of a shape is the ceiling.
+- **Stock internet jokes** the feed already has: nobody reads T&C, "X was more excited than me", Monday blues,
+  "salary aayi aur gayi", "mere paas bhi nahi hai". Observe a moment instead.
+- **Label-plus-colon openers** ("Hisaab: …", "Rule: …", "Group chat: …") — caption-speak when said aloud;
+  fact_lint flags them. Say it: "Hisaab simple hai —", "Group chat mein…".
+- **Leaning on the props every reel uses** — `brand/joke-log.md` lists what's overused lately.
 
 ## 5. Writing process (do all of it — the reviewer can tell)
 1. **Spine:** the explanation in 5 plain sentences, no jokes. One concept.
@@ -73,8 +80,9 @@ AI-written comedy has tells. Kill every one:
    escalation. Note why in one line. (Round 1 only; on a rewrite, keep the game unless the review kills it.)
 3. **Hook:** 3 versions of sentence 1 — the myth in a real voice, the stakes, a laugh by 4–5 s. Keep the best.
 4. **Draft** the reel as one game: plant → heighten ×3 (each step carries a fact) → payoff with the callback.
-5. **Punch-up pass:** for each `[JOKE]`, write 3 alternatives in your head, keep the most specific and the
-   shortest. Replace the 2 weakest jokes with a pattern from §3 you haven't used.
+5. **Punch-up pass:** for each `[JOKE]`, try 3 alternatives, keep the most specific and the shortest. Replace the
+   2 weakest jokes with a pattern from §3 you haven't used — and if you're still unsure of them, leave up to two
+   written `{alt: "…"}` after each so the reviewer can pick (scriptwriter.md).
 6. **Table read:** say every line out loud at Sunny's pace (~3.2 words/s). If a line sounds written, not
    said, rewrite it as you'd say it to a friend. Then cut 10 % of the words.
 7. **AI-tell sweep:** check every line against §4.
