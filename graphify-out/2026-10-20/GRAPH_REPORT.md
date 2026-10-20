@@ -1,12 +1,12 @@
 # Graph Report - chillar  (2026-10-20)
 
 ## Corpus Check
-- 148 files · ~79,908 words
+- 152 files · ~82,287 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 628 nodes · 1063 edges · 76 communities (57 shown, 19 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 65 edges (avg confidence: 0.78)
+- 638 nodes · 1074 edges · 78 communities (59 shown, 19 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 68 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
@@ -56,11 +56,13 @@
 - qa.py
 - 2026-10-chai-vs-phone/cover.md
 - Facts — 2026-10-chai-vs-phone
-- audio_clean.py
-- Path
+- tts.py
+- Facts — <episode>
 - Facts — No Cost EMI ka hidden cost
 - 2026-10-no-cost-emi/script.md
 - 2026-10-no-cost-emi/cover.md
+- 2026-10-sale-fine-print/script.md
+- 2026-10-sale-fine-print/cover.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `Candidate` - 40 edges
@@ -79,12 +81,12 @@
   README.md → .claude/agents/director.md
 - `12 LPA episode script.md` --references--> `Chillar series: Chillar in 60, Chillar Report, Myth vs Math, ₹100 vs ₹1,00,000`  [INFERRED]
   episodes/2026-10-12lpa-in-hand/script.md → CLAUDE.md
-- `/new-reel command` --references--> `template cover.md`  [INFERRED]
-  .claude/commands/new-reel.md → episodes/_template/cover.md
 - `12 LPA episode script.md` --implements--> `Thappa red rubber stamp (2-3 per video)`  [INFERRED]
   episodes/2026-10-12lpa-in-hand/script.md → CLAUDE.md
 - `Script review rubric (stop power, laughs, specificity, clarity, escalation, payoff, speakability, facts)` --implements--> `Formats + retention (30/60/90 s)`  [INFERRED]
   .claude/agents/script-reviewer.md → CLAUDE.md
+- `Cover package scoring (curiosity, clarity, honesty ≥4)` --implements--> `Formats + retention (30/60/90 s)`  [INFERRED]
+  .claude/commands/package.md → CLAUDE.md
 
 ## Import Cycles
 - None detected.
@@ -94,7 +96,7 @@
 - **Edit suite loop (director → editor → render → video-reviewer)** — _claude_agents_director, _claude_agents_editor, _claude_agents_video_reviewer, _claude_commands_render, _claude_agents_director_scenes_json, pipeline_make_reel [EXTRACTED 1.00]
 - **12 LPA CTC → ₹86,468 in-hand computation** — episodes_2026_10_12lpa_in_hand_facts_f9, episodes_2026_10_12lpa_in_hand_facts_f1, episodes_2026_10_12lpa_in_hand_facts_f2, episodes_2026_10_12lpa_in_hand_facts_f4, episodes_2026_10_12lpa_in_hand_facts_f6, episodes_2026_10_12lpa_in_hand_facts_f7, episodes_2026_10_12lpa_in_hand_facts_f8 [EXTRACTED 1.00]
 
-## Communities (76 total, 19 thin omitted)
+## Communities (78 total, 19 thin omitted)
 
 ### Community 0 - "Candidate"
 Cohesion: 0.06
@@ -102,23 +104,23 @@ Nodes (68): Exception, Candidate, env(), polite_sleep(), Shared paths, env, HTTP
 
 ### Community 1 - "CLAUDE.md brand bible"
 Cohesion: 0.05
-Nodes (71): director agent, @chillar.ind wordmark (x 72-492, y 1460-1500), Motivated transitions (hard cut default; whip/zoom/wipe/page budgeted), No on-screen structure labels rule, Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists), scenes/scenes.json shot plan, Show, don't caption, editor agent (+63 more)
+Nodes (73): director agent, @chillar.ind wordmark (x 72-492, y 1460-1500), Motivated transitions (hard cut default; whip/zoom/wipe/page budgeted), No on-screen structure labels rule, Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists), scenes/scenes.json shot plan, Show, don't caption, editor agent (+65 more)
 
 ### Community 2 - "memes.py"
 Cohesion: 0.16
 Nodes (29): allowed(), culture_now(), _download(), ensure(), _ff(), freshness(), _get(), _imgflip() (+21 more)
 
 ### Community 3 - "episode.py"
-Cohesion: 0.08
-Nodes (31): align(), _model(), Path, The same timings as words.json in ~⅓ of the tokens, for the agents (one script…, words_txt(), grab(), main(), Path (+23 more)
+Cohesion: 0.07
+Nodes (32): align(), _model(), Path, The same timings as words.json in ~⅓ of the tokens, for the agents (one script…, words_txt(), clean(), ff(), find_voice() (+24 more)
 
 ### Community 4 - "fetch_assets.py"
 Cohesion: 0.22
 Nodes (19): /fetch-assets command, Asset licensing allow-list (CC0/MIT etc.), build_audition(), _diverse(), duration_of(), fetch(), ingest(), lock() (+11 more)
 
 ### Community 5 - "12 LPA episode script.md"
-Cohesion: 0.21
-Nodes (21): Theme selection: pastel / calm / night, Chillar ₹1 coin mascot (8 expressions), mithai-dabba component (laddoo deductions), 12 LPA episode cover.md, 12 LPA episode facts.md, F1 new-regime tax slabs, F10 EPF partial withdrawal after 12 months, F2 no tax up to ₹12 lakh (₹12.75 lakh salaried) rebate (+13 more)
+Cohesion: 0.24
+Nodes (19): Theme selection: pastel / calm / night, mithai-dabba component (laddoo deductions), 12 LPA episode cover.md, 12 LPA episode facts.md, F1 new-regime tax slabs, F10 EPF partial withdrawal after 12 months, F2 no tax up to ₹12 lakh (₹12.75 lakh salaried) rebate, F3 Income-tax Act 2025 from Apr 2026 (+11 more)
 
 ### Community 6 - "package.json"
 Cohesion: 0.14
@@ -178,7 +180,7 @@ Nodes (3): Facts — 2026-10-epf-explained, Texture for the writers (not facts �
 
 ### Community 59 - "produce.py"
 Cohesion: 0.13
-Nodes (36): Path, director(), draft(), duration(), find_cli(), frontmatter(), length_miss(), Line (+28 more)
+Nodes (36): director(), draft(), duration(), find_cli(), frontmatter(), length_miss(), Line, main() (+28 more)
 
 ### Community 64 - "Comedy craft — how a Chillar script gets funny"
 Cohesion: 0.22
@@ -192,9 +194,13 @@ Nodes (3): Hook {field: note10}, Payoff {field: note2000}, Turn {field: note500}
 Cohesion: 0.10
 Nodes (30): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+22 more)
 
-### Community 71 - "audio_clean.py"
-Cohesion: 0.33
-Nodes (10): clean(), ff(), find_voice(), has_filter(), loudnorm(), CompletedProcess, ndarray, Path (+2 more)
+### Community 71 - "tts.py"
+Cohesion: 0.40
+Nodes (9): audition_page(), chunks(), concat(), duration(), kokoro(), main(), Path, sarvam() (+1 more)
+
+### Community 72 - "Facts — <episode>"
+Cohesion: 0.50
+Nodes (3): Culture now, Facts — <episode>, Texture for the writers (not facts — don't put numbers from here on screen)
 
 ### Community 73 - "Facts — No Cost EMI ka hidden cost"
 Cohesion: 0.50
@@ -204,25 +210,29 @@ Nodes (3): Culture now, Facts — No Cost EMI ka hidden cost, Texture for the wr
 Cohesion: 0.50
 Nodes (3): Hook, Payoff, Turn
 
+### Community 76 - "2026-10-sale-fine-print/script.md"
+Cohesion: 0.50
+Nodes (3): Hook {field: note10}, Payoff {field: note50}, Turn {field: note20}
+
 ## Knowledge Gaps
-- **100 isolated node(s):** `Report (hard limit)`, `The week`, `Topic test: does this topic feel real or like AI slop?`, `Growth habits for the sprint (on top of the daily reel)`, `Checkpoints` (+95 more)
+- **107 isolated node(s):** `name`, `private`, `description`, `node`, `doctor` (+102 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
+- **Why does `clean()` connect `episode.py` to `produce.py`?**
+  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+- **Why does `st_fix()` connect `produce.py` to `episode.py`?**
+  _High betweenness centrality (0.046) - this node is a cross-community bridge._
 - **Why does `Candidate` connect `Candidate` to `memes.py`, `fetch_assets.py`?**
-  _High betweenness centrality (0.042) - this node is a cross-community bridge._
-- **Why does `CLAUDE.md brand bible` connect `CLAUDE.md brand bible` to `fetch_assets.py`, `12 LPA episode script.md`?**
-  _High betweenness centrality (0.032) - this node is a cross-community bridge._
-- **Why does `template facts.md` connect `CLAUDE.md brand bible` to `12 LPA episode script.md`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+  _High betweenness centrality (0.044) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Candidate` (e.g. with `LicenseRefused` and `_log()`) actually correct?**
   _`Candidate` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `Report (hard limit)`, `The week`, `Topic test: does this topic feel real or like AI slop?` to the rest of the system?**
-  _100 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `name`, `private`, `description` to the rest of the system?**
+  _107 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Candidate` be split into smaller, more focused modules?**
   _Cohesion score 0.05842259006815969 - nodes in this community are weakly interconnected._
 - **Should `CLAUDE.md brand bible` be split into smaller, more focused modules?**
-  _Cohesion score 0.051929824561403506 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05094905094905095 - nodes in this community are weakly interconnected._

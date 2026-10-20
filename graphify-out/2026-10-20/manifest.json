@@ -115,9 +115,9 @@
     "semantic_hash": "2ecdc2a1e481728095cf069360828acd"
   },
   "components/mascot-reaction/component.json": {
-    "mtime": 1792402002.2621174,
-    "ast_hash": "9ee370afb9102e7cf0fffa286475c56b",
-    "semantic_hash": "9ee370afb9102e7cf0fffa286475c56b"
+    "mtime": 1792490026.5292761,
+    "ast_hash": "0611faaea9366afbef207a88046d6ff2",
+    "semantic_hash": ""
   },
   "components/meme-format/component.js": {
     "mtime": 1792479521.3408134,
@@ -140,9 +140,9 @@
     "semantic_hash": ""
   },
   "components/odometer-number/component.js": {
-    "mtime": 1792405050.394257,
-    "ast_hash": "3498f91273f0a1ff4e405bfc8237dab4",
-    "semantic_hash": "3498f91273f0a1ff4e405bfc8237dab4"
+    "mtime": 1792489983.1517131,
+    "ast_hash": "3f846b3a9176bf881b313a7def78240f",
+    "semantic_hash": ""
   },
   "components/odometer-number/component.json": {
     "mtime": 1792433463.664448,
@@ -230,14 +230,14 @@
     "semantic_hash": ""
   },
   "components/tier-compare/component.js": {
-    "mtime": 1792398672.7032444,
-    "ast_hash": "93a1a8ab4efe54f1c22fadd5377c0e90",
-    "semantic_hash": "93a1a8ab4efe54f1c22fadd5377c0e90"
+    "mtime": 1792490069.612763,
+    "ast_hash": "875b7e399b40a355028ce368eff4531d",
+    "semantic_hash": ""
   },
   "components/tier-compare/component.json": {
-    "mtime": 1792397632.7134614,
-    "ast_hash": "8226cb0192472bea338e5419a14d9ac7",
-    "semantic_hash": "8226cb0192472bea338e5419a14d9ac7"
+    "mtime": 1792490072.4468286,
+    "ast_hash": "c42dd006740cb6e022ff23b77ac05f47",
+    "semantic_hash": ""
   },
   "components/transition/component.js": {
     "mtime": 1792397398.1284056,
@@ -305,8 +305,8 @@
     "semantic_hash": "36a4d64c0f29c2ccf433b4dd2fbaa76a"
   },
   "pipeline/fact_lint.py": {
-    "mtime": 1792416319.4028788,
-    "ast_hash": "0110a8fdbd3d77e4eb8cfed5b98e20ac",
+    "mtime": 1792489384.6109831,
+    "ast_hash": "a54f59a142768232fec6b34a1430763d",
     "semantic_hash": ""
   },
   "pipeline/fetch_assets.py": {
@@ -330,9 +330,9 @@
     "semantic_hash": "b76b4f06308e953497d4bd0e6ffeccd5"
   },
   "pipeline/lib/episode.py": {
-    "mtime": 1792402275.915136,
-    "ast_hash": "c7aab65b50134843cff132b687803f52",
-    "semantic_hash": "c7aab65b50134843cff132b687803f52"
+    "mtime": 1792489382.52397,
+    "ast_hash": "42d8bfd9e4a5a0cbd35a045b86f93232",
+    "semantic_hash": ""
   },
   "pipeline/lib/glyph_check.py": {
     "mtime": 1792398890.3045738,
@@ -415,8 +415,8 @@
     "semantic_hash": ""
   },
   "pipeline/validate_scenes.py": {
-    "mtime": 1792482294.196873,
-    "ast_hash": "e47eee55ccb7959023eaf93ac8588134",
+    "mtime": 1792490013.6787686,
+    "ast_hash": "10f4ddc0606d59ed80b0c69d0bd98dbc",
     "semantic_hash": ""
   },
   "pyproject.toml": {
@@ -495,8 +495,8 @@
     "semantic_hash": "7dea7cacd6c2b066c5ec6b73278df045"
   },
   "CLAUDE.md": {
-    "mtime": 1792481967.0929496,
-    "ast_hash": "1117fb7da392b0facd5f4c46ecf5b69b",
+    "mtime": 1792489394.6710472,
+    "ast_hash": "116bd5c1212b2016a596eb5db809b16f",
     "semantic_hash": ""
   },
   "README.md": {
@@ -600,13 +600,13 @@
     "semantic_hash": ""
   },
   "brand/rules/voice.md": {
-    "mtime": 1792406892.0599813,
-    "ast_hash": "0bceb503cd566828d65448732d2800a6",
+    "mtime": 1792490803.1229618,
+    "ast_hash": "29011a6338570398ba5471a87a99926e",
     "semantic_hash": ""
   },
   "components/_catalog.md": {
-    "mtime": 1792484490.5323818,
-    "ast_hash": "684a07c637e8fb4cf6a92ad8e1f3af7e",
+    "mtime": 1792490079.8811018,
+    "ast_hash": "1d5a4a839244e27b79d81f9f0a5decc7",
     "semantic_hash": ""
   },
   "brand/rules/posting-schedule.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792485534.3992953,
-    "ast_hash": "f6827ee99c8b7a55d80034de74a15eb5",
+    "mtime": 1792488712.3739662,
+    "ast_hash": "e827c7ec11fe0dcc23fab1e3ceef905b",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -715,8 +715,8 @@
     "semantic_hash": ""
   },
   "pipeline/memes.py": {
-    "mtime": 1792481979.182517,
-    "ast_hash": "0ba53647741226bca60512858a2101da",
+    "mtime": 1792490006.631602,
+    "ast_hash": "2bc6015cdecefabcb0f48a1763fcf03b",
     "semantic_hash": ""
   },
   "episodes/2026-10-no-cost-emi/scenes/scenes.json": {
@@ -737,6 +737,31 @@
   "episodes/2026-10-no-cost-emi/script.md": {
     "mtime": 1792483442.0947402,
     "ast_hash": "9a891c8f359c54a78ee113f3de23b324",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-sale-fine-print/scenes/scenes.json": {
+    "mtime": 1792490942.4068754,
+    "ast_hash": "19d4032d0edf1246b08fc495d96591a8",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-sale-fine-print/cover.md": {
+    "mtime": 1792488893.6799798,
+    "ast_hash": "7706031f599fc9d6d09f8e6e260d3a0c",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-sale-fine-print/facts.md": {
+    "mtime": 1792487691.4584951,
+    "ast_hash": "6731267b28e3c7d2c37bbe32c799e6e5",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-sale-fine-print/script.md": {
+    "mtime": 1792488907.0050569,
+    "ast_hash": "2c89a0f75b560b6365eb09a0e19826f1",
+    "semantic_hash": ""
+  },
+  "brand/sfx/cough.wav": {
+    "mtime": 1792490845.223537,
+    "ast_hash": "6f1180e2fc9fc1d6c1d1b73afb723b72",
     "semantic_hash": ""
   }
 }

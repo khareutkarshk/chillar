@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 638 nodes · 1074 edges · 78 communities (59 shown, 19 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 68 edges (avg confidence: 0.78)
+- 638 nodes · 1073 edges · 78 communities (59 shown, 19 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 67 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `099ff9e7`
+- Built from commit: `15f4acae`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -65,16 +65,16 @@
 - 2026-10-sale-fine-print/cover.md
 
 ## God Nodes (most connected - your core abstractions)
-1. `Candidate` - 40 edges
+1. `Candidate` - 39 edges
 2. `Component catalog (generated — `pipeline/component_catalog.py`, don't edit)` - 23 edges
 3. `CLAUDE.md brand bible` - 23 edges
 4. `Line` - 18 edges
 5. `qa()` - 16 edges
 6. `12 LPA episode script.md` - 16 edges
 7. `LicenseRefused` - 13 edges
-8. `director agent` - 12 edges
-9. `/make-reel command` - 12 edges
-10. `ensure()` - 11 edges
+8. `load()` - 12 edges
+9. `director agent` - 12 edges
+10. `/make-reel command` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Note Fields design (rupee-note colour fields)` --semantically_similar_to--> `Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists)`  [INFERRED] [semantically similar]
@@ -215,24 +215,24 @@ Cohesion: 0.50
 Nodes (3): Hook {field: note10}, Payoff {field: note50}, Turn {field: note20}
 
 ## Knowledge Gaps
-- **107 isolated node(s):** `name`, `private`, `description`, `node`, `doctor` (+102 more)
+- **107 isolated node(s):** `Voiceover details (/voiceover)`, `avatar`, `bar-chart`, `calendar-flip`, `checklist` (+102 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `clean()` connect `episode.py` to `produce.py`?**
-  _High betweenness centrality (0.048) - this node is a cross-community bridge._
-- **Why does `st_fix()` connect `produce.py` to `episode.py`?**
-  _High betweenness centrality (0.046) - this node is a cross-community bridge._
-- **Why does `Candidate` connect `Candidate` to `memes.py`, `fetch_assets.py`?**
-  _High betweenness centrality (0.044) - this node is a cross-community bridge._
-- **Are the 2 inferred relationships involving `Candidate` (e.g. with `LicenseRefused` and `_log()`) actually correct?**
-  _`Candidate` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `name`, `private`, `description` to the rest of the system?**
+- **Why does `load()` connect `episode.py` to `CLAUDE.md brand bible`, `memes.py`, `produce.py`?**
+  _High betweenness centrality (0.076) - this node is a cross-community bridge._
+- **Why does `spoken_words()` connect `produce.py` to `episode.py`?**
+  _High betweenness centrality (0.070) - this node is a cross-community bridge._
+- **Why does `Candidate` connect `Candidate` to `fetch_assets.py`?**
+  _High betweenness centrality (0.042) - this node is a cross-community bridge._
+- **What connects `Voiceover details (/voiceover)`, `avatar`, `bar-chart` to the rest of the system?**
   _107 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Candidate` be split into smaller, more focused modules?**
   _Cohesion score 0.05842259006815969 - nodes in this community are weakly interconnected._
 - **Should `CLAUDE.md brand bible` be split into smaller, more focused modules?**
   _Cohesion score 0.05094905094905095 - nodes in this community are weakly interconnected._
+- **Should `episode.py` be split into smaller, more focused modules?**
+  _Cohesion score 0.0743321718931475 - nodes in this community are weakly interconnected._
