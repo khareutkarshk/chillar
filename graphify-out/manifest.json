@@ -470,8 +470,8 @@
     "semantic_hash": "9f1e0027caa041138f7221fbe1661e50"
   },
   ".claude/commands/make-reel.md": {
-    "mtime": 1792503994.8389409,
-    "ast_hash": "b9407431a8f5c0ff0b0d1d76b5c887dd",
+    "mtime": 1792504227.9031048,
+    "ast_hash": "1853d013939b475968835f989a8261dc",
     "semantic_hash": ""
   },
   ".claude/commands/new-reel.md": {
@@ -495,8 +495,8 @@
     "semantic_hash": "7dea7cacd6c2b066c5ec6b73278df045"
   },
   "CLAUDE.md": {
-    "mtime": 1792492764.1390944,
-    "ast_hash": "66b0535f24b9b1465a920b3772314fb7",
+    "mtime": 1792504229.6111434,
+    "ast_hash": "985cbbbbf9884ae42c784f11ac2af2a2",
     "semantic_hash": ""
   },
   "README.md": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "brand/rules/production.md": {
-    "mtime": 1792503673.59827,
-    "ast_hash": "6d59c5323cd1d3c4612d07debe8f5222",
+    "mtime": 1792504229.6141434,
+    "ast_hash": "c2d1e570f70a6097bd56bc937ad6d4fc",
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
