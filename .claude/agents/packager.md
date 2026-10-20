@@ -15,7 +15,9 @@ Write `episodes/<ep>/output/post.md`:
   `paid_partnership` from script.md, cover/video paths.
 - **Caption:** Hinglish, ≤ 3 short lines in the reel's voice (reuse its best line, don't explain the joke)
   + a comment-bait question + a "send to" line; then one line stating the example's assumptions; then
-  "Educational only. Not investment advice." ("Paid partnership" if true). 5–8 relevant hashtags.
+  "Educational only. Not investment advice." ("Paid partnership" if true). 3–5 specific hashtags
+  (Instagram's cap is 5; no generic #reels/#explore); put the topic's plain keywords in line 1.
+- **Facebook caption:** a separate section: shorter, Hindi-leaning, same disclaimer, no hashtags.
 - **Pinned comment:** the math behind the reel's numbers, Indian grouping, every figure from facts.md.
 - **Sources:** the facts.md URLs the script actually cites, one line each.
 - **Posting checklist:** as in the reference file.
