@@ -1,6 +1,6 @@
 # Usage — 2026-10-27-diwali-bonus-tax (agent runs, from notes/usage.jsonl)
 
-Updated: 2026-10-21 03:47 local time. Agent totals exclude the interactive producer session and external services such as TTS.
+Updated: 2026-10-21 03:48 local time. Agent totals exclude the interactive producer session and external services such as TTS.
 
 | stage | runs | turns | prompt chars | cached read tokens | cost |
 |---|---:|---:|---:|---:|---:|
@@ -10,8 +10,8 @@ Updated: 2026-10-21 03:47 local time. Agent totals exclude the interactive produ
 | voice | 1 | 8 | 60 | 69,988 | $0.07 |
 | edit | 9 | 103 | 170,697 | 2,059,265 | $2.29 |
 | package | 4 | 28 | 232 | 171,988 | $0.29 |
-| components | 2 | 58 | 661 | 581,023 | $0.35 |
-| **total** | 22 | 270 | 238,858 | 4,088,106 | **$4.83** |
+| components | 3 | 93 | 991 | 1,217,621 | $0.68 |
+| **total** | 23 | 305 | 239,188 | 4,724,704 | **$5.15** |
 
 Review rounds: script 2 · video 2.
 Latest script quality: scores: stop 4 · laughs 4 (count 7/6) · specific 4 · clarity 4 · escalation 4 · payoff 4 · speak 4 · fresh 4 · facts PASS

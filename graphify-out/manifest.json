@@ -25,13 +25,13 @@
     "semantic_hash": ""
   },
   "components/calendar-flip/component.js": {
-    "mtime": 1792522354.4528153,
-    "ast_hash": "6eb2dae70e1aefa5ec789d892299c566",
+    "mtime": 1792534528.952201,
+    "ast_hash": "a6d3a4507f2b5c3a02995ee13a7d78df",
     "semantic_hash": ""
   },
   "components/calendar-flip/component.json": {
-    "mtime": 1792522365.16022,
-    "ast_hash": "500b5c8a3a42d877936c86559bd19c71",
+    "mtime": 1792534529.7122097,
+    "ast_hash": "493a80b7c1e05de8554d390d8d5613c9",
     "semantic_hash": ""
   },
   "components/captions/component.js": {
@@ -75,8 +75,8 @@
     "semantic_hash": "8dec81b95b54eda9bcc4d9e04ec41f46"
   },
   "components/hook-card/component.js": {
-    "mtime": 1792436521.037805,
-    "ast_hash": "30d409d5d9fdaa020147e912475ff32a",
+    "mtime": 1792534468.5837893,
+    "ast_hash": "071ccd4f71bdc3d7cdffcc196a3ef915",
     "semantic_hash": ""
   },
   "components/hook-card/component.json": {
@@ -85,8 +85,8 @@
     "semantic_hash": ""
   },
   "components/lib/runtime.js": {
-    "mtime": 1792492050.1563995,
-    "ast_hash": "a4e6a8f5f962216e669d4c7083927690",
+    "mtime": 1792534585.6970463,
+    "ast_hash": "be38e6bc565707609d20f60c77627dcc",
     "semantic_hash": ""
   },
   "components/line-chart/component.js": {
@@ -130,13 +130,13 @@
     "semantic_hash": ""
   },
   "components/mithai-dabba/component.js": {
-    "mtime": 1792412538.4777339,
-    "ast_hash": "0986ec9e932fb344f4a06a76742410e9",
+    "mtime": 1792534691.9112482,
+    "ast_hash": "7f797e24fe9135da5acda63ef0ddb782",
     "semantic_hash": ""
   },
   "components/mithai-dabba/component.json": {
-    "mtime": 1792412991.4235165,
-    "ast_hash": "2d889a934e31578f1bf693b3475362b2",
+    "mtime": 1792534694.159512,
+    "ast_hash": "e5ec0ac3bd53d9d24d05a8755d2e9642",
     "semantic_hash": ""
   },
   "components/odometer-number/component.js": {
@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "components/outro/component.js": {
-    "mtime": 1792404281.8586216,
-    "ast_hash": "a50a91ae4e9775a324ee87b7402d6473",
-    "semantic_hash": "a50a91ae4e9775a324ee87b7402d6473"
+    "mtime": 1792528117.671584,
+    "ast_hash": "f7cd430350e6302de2f382efe0224d75",
+    "semantic_hash": ""
   },
   "components/outro/component.json": {
     "mtime": 1792408197.4111278,
@@ -180,13 +180,13 @@
     "semantic_hash": "bc7f47ed4cf43200190e1c857e52886d"
   },
   "components/receipt-list/component.js": {
-    "mtime": 1792479647.693356,
-    "ast_hash": "399084fe824289ab8721502ecb13d95e",
+    "mtime": 1792534596.9142506,
+    "ast_hash": "015d9cd6d0fc1a92c37f5ef8174678b0",
     "semantic_hash": ""
   },
   "components/receipt-list/component.json": {
-    "mtime": 1792479510.3769894,
-    "ast_hash": "9e639af7fbb30812b94473210c314fa6",
+    "mtime": 1792534599.278295,
+    "ast_hash": "e4c5b516d859ed5df9b087540477f8d9",
     "semantic_hash": ""
   },
   "components/salary-slip/component.js": {
@@ -230,8 +230,8 @@
     "semantic_hash": ""
   },
   "components/tier-compare/component.js": {
-    "mtime": 1792506118.882022,
-    "ast_hash": "1f874bae1aadea7861bdf540bc2657a6",
+    "mtime": 1792534510.8640141,
+    "ast_hash": "53a42d5cb678b7eac5890b71f14f909f",
     "semantic_hash": ""
   },
   "components/tier-compare/component.json": {
@@ -310,8 +310,8 @@
     "semantic_hash": ""
   },
   "pipeline/fetch_assets.py": {
-    "mtime": 1792491964.7989376,
-    "ast_hash": "5ebdeba4ea990824d6dc7c1be1af4591",
+    "mtime": 1792534468.5827894,
+    "ast_hash": "46777511bd15be3c19e3d096b0f920ec",
     "semantic_hash": ""
   },
   "pipeline/ig_export.py": {
@@ -400,8 +400,8 @@
     "semantic_hash": "f649d02e270476515b2b166425e3fd09"
   },
   "pipeline/mix.py": {
-    "mtime": 1792480922.8913531,
-    "ast_hash": "5cfe6d30c6da3f1e927b9841fdbd4d14",
+    "mtime": 1792534468.5837893,
+    "ast_hash": "fe7f0b5e3902b6c8b0709d46c3244060",
     "semantic_hash": ""
   },
   "pipeline/profile_pic.py": {
@@ -430,8 +430,8 @@
     "semantic_hash": "0dc2d491af9b5e44782e341239503b0e"
   },
   ".claude/agents/director.md": {
-    "mtime": 1792521163.616029,
-    "ast_hash": "1a52e2f3bc5697367dae27164203e35b",
+    "mtime": 1792534461.9397862,
+    "ast_hash": "39381349d88c6a7f913c41c88cd21cae",
     "semantic_hash": ""
   },
   ".claude/agents/editor.md": {
@@ -560,13 +560,13 @@
     "semantic_hash": ""
   },
   "pipeline/lib/qa_probe.mjs": {
-    "mtime": 1792436454.9913213,
-    "ast_hash": "acbcf00b7c89878dd9751a48101ab202",
+    "mtime": 1792534823.2754555,
+    "ast_hash": "3514b586f845d52ca6601831cc2bdf07",
     "semantic_hash": ""
   },
   "pipeline/qa.py": {
-    "mtime": 1792502896.9576602,
-    "ast_hash": "bb9312a7840d4bec34bfa6182313fed3",
+    "mtime": 1792534461.938786,
+    "ast_hash": "b9aa3cb689178bfb9fd6b283e216f9a2",
     "semantic_hash": ""
   },
   "brand/facts-library.md": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "brand/rules/production.md": {
-    "mtime": 1792504229.6141434,
-    "ast_hash": "c2d1e570f70a6097bd56bc937ad6d4fc",
+    "mtime": 1792534505.1329653,
+    "ast_hash": "1dc74cb4f778d360b07a609eb212de74",
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
@@ -605,8 +605,8 @@
     "semantic_hash": ""
   },
   "components/_catalog.md": {
-    "mtime": 1792522373.3805294,
-    "ast_hash": "c58b7e2ee9016dca41d251a5874b3c00",
+    "mtime": 1792534759.0205085,
+    "ast_hash": "a4f7230cef48e065369d9b8ad92d282a",
     "semantic_hash": ""
   },
   "brand/rules/posting-schedule.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792522694.1569703,
-    "ast_hash": "03e6feee47ed62898d9914965b977f9c",
+    "mtime": 1792534461.9407861,
+    "ast_hash": "aa95a2d62efc2c3283ee9e8a73bc4966",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -705,13 +705,13 @@
     "semantic_hash": ""
   },
   "components/meme/component.js": {
-    "mtime": 1792521228.9450428,
-    "ast_hash": "c1d2755e2a2f109600fb7c5c1e5d240d",
+    "mtime": 1792527939.5110528,
+    "ast_hash": "9b702fc7ea0f9ad5e6a046d512914f89",
     "semantic_hash": ""
   },
   "components/meme/component.json": {
-    "mtime": 1792521244.7696116,
-    "ast_hash": "b0ebf649ebcb03d4c191a2f9ffae84f0",
+    "mtime": 1792527940.940088,
+    "ast_hash": "3409d36fd7e5b8a08c8359edcfb4d392",
     "semantic_hash": ""
   },
   "pipeline/memes.py": {
@@ -765,13 +765,13 @@
     "semantic_hash": ""
   },
   "components/glyph-character/component.js": {
-    "mtime": 1792492446.3807387,
-    "ast_hash": "1fc49dde6c1b8d2bf62130fc702d1f45",
+    "mtime": 1792534695.693691,
+    "ast_hash": "0619d7e74210827da98d994367b5b3a6",
     "semantic_hash": ""
   },
   "components/glyph-character/component.json": {
-    "mtime": 1792492433.9276001,
-    "ast_hash": "5f6b80a65e8b3c10083e90ad41a20ddf",
+    "mtime": 1792534697.1178565,
+    "ast_hash": "9eb1a97468a4d3a72ab3441765b1e4b8",
     "semantic_hash": ""
   },
   "pipeline/voice_check.py": {
@@ -790,8 +790,8 @@
     "semantic_hash": ""
   },
   "components/_backlog.md": {
-    "mtime": 1792506723.984023,
-    "ast_hash": "80f51ed83ddc4e4f10bd20b05ad77d2d",
+    "mtime": 1792534833.2503057,
+    "ast_hash": "b47d128deea143198bfcf9e2437ffb8a",
     "semantic_hash": ""
   },
   "pipeline/agent_context.py": {
@@ -852,6 +852,36 @@
   "episodes/2026-10-26-report-mdr-payer/script.md": {
     "mtime": 1792504864.2805517,
     "ast_hash": "ae2d517117b6c699c528c52cf9e40003",
+    "semantic_hash": ""
+  },
+  "components/envelope/component.js": {
+    "mtime": 1792534681.558014,
+    "ast_hash": "f48256a76aa45b49ec05e177fc284d39",
+    "semantic_hash": ""
+  },
+  "components/envelope/component.json": {
+    "mtime": 1792534674.2541225,
+    "ast_hash": "fc98a0b91aa88cda7d11f7b48b9f0aed",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-27-diwali-bonus-tax/scenes/scenes.json": {
+    "mtime": 1792530318.2632356,
+    "ast_hash": "a110e1f0af76b117cbaee3a9a794513d",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-27-diwali-bonus-tax/cover.md": {
+    "mtime": 1792526663.4783177,
+    "ast_hash": "c660940a351b8740190f8be5d5e576a8",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-27-diwali-bonus-tax/facts.md": {
+    "mtime": 1792526563.3569765,
+    "ast_hash": "bbd974cb96e432b8398e98e22ac4768f",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-27-diwali-bonus-tax/script.md": {
+    "mtime": 1792526869.975114,
+    "ast_hash": "cc83b71c015f72a9aedba8253e98acc0",
     "semantic_hash": ""
   }
 }

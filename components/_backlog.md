@@ -13,14 +13,14 @@ batch; done items get `- [x]`. One open line per component (produce.py merges re
 - [x] [component:marker-highlight] optional paper behind the quote → `paper` param  _(earlier episode)_
 - [x] [component:hook-card] `mascot: "none"` still drew a mascot → treated as no mascot  _(2026-10-27-diwali-bonus-tax · producer)_
 
-- [x] [component:tier-compare] (28 px floor; amtSize exists) tier labels/amounts render ~20–22 px in 3-tier wide mode (even with amtSize 48); need ≥ 28 px (≈ 44 px wide mode), and an amount-size option so the key number is big and the card fits it  _(mdr-payer ×6, diwali-bonus-tax ×5)_
+- [x] [component:tier-compare] (28 px floor; the 22 px reading was qa measuring a rising bar — probe fixed) tier labels/amounts render ~20–22 px in 3-tier wide mode (even with amtSize 48); need ≥ 28 px (≈ 44 px wide mode), and an amount-size option so the key number is big and the card fits it  _(mdr-payer ×6, diwali-bonus-tax ×5)_
 - [x] [component:chat-screen] (already 42/36 px, time padded) body text ≥ 40 px, name/time/header ≥ 36 px (or a `size` param); reserve right padding so the timestamp never overlaps the last word  _(credit-enquiry ×6)_
 - [x] [component:calendar-flip] (type scales; height -1 fits) `width` param (560–880, default 860), page type scales with it, page height fits its text (now 77 % blank)  _(mdr-payer ×5)_
 - [x] [component:meme] (covered: wide, height, position) `width`/`fit` param so portrait templates span ≈ 860 px; paper shrinks to the image + label text (half-empty paper warnings)  _(mdr-payer ×4, diwali-bonus-tax ×2)_
-- [ ] [component:mithai-dabba] mascot x/y params; paper height fits the letter text (qa empty-paper), tray excluded from the paper measurement  _(diwali-bonus-tax ×2)_
-- [ ] [component:glyph-character] wide-bubble / bubble `width` param, or count the glyph's ink in the object width so qa small-object stops firing  _(credit-enquiry ×4)_
+- [x] [component:mithai-dabba] (mascotX/mascotY; letter fits text) mascot x/y params; paper height fits the letter text (qa empty-paper), tray excluded from the paper measurement  _(diwali-bonus-tax ×2)_
+- [x] (new `bubbleWidth` param) [component:glyph-character] wide-bubble / bubble `width` param, or count the glyph's ink in the object width so qa small-object stops firing  _(credit-enquiry ×4)_
 - [x] (sub now sits below, flex none) [component:stamp] the `sub` line prints on top of the main text — set it below the main text inside the stamp  _(credit-enquiry)_
 - [x] (decimal point gets own spacing) [component:odometer-number] with `decimals:1` the '0' and '.' draw on top of each other  _(mdr-payer)_
 - [x] (title own row, no overlap) [component:split-compare] the title ('Rule') overlaps its own long text when the chits hold longer  _(mdr-payer)_
 - [x] (new `minHeight` param, default 0) [component:receipt-list] with one item + total, the paper shrinks to the printed rows  _(mdr-payer)_
-- [ ] [component:envelope] NEW: an addressed envelope ('Bill to / Address / Pincode') for letter beats — paper object per Note Fields  _(mdr-payer)_
+- [x] (built: lines/pincode/postmark params) [component:envelope] NEW: an addressed envelope ('Bill to / Address / Pincode') for letter beats — paper object per Note Fields  _(mdr-payer)_

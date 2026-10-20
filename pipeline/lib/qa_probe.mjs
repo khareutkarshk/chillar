@@ -108,7 +108,9 @@ try {
           const cs = getComputedStyle(el);
           const br = el.getBoundingClientRect();
           const sy = el.offsetHeight ? br.height / el.offsetHeight : 1;
-          byEl.set(el, { el, text: n.nodeValue.trim(), b: u, lines, op: e.op, font: parseFloat(cs.fontSize) * sy, color: cs.color, bg: ownBg(el, clip) });
+          const sx = el.offsetWidth ? br.width / el.offsetWidth : 1;
+          // a one-axis squash is an entrance (a bar rising from scaleY 0), not small type: scale by the larger axis
+          byEl.set(el, { el, text: n.nodeValue.trim(), b: u, lines, op: e.op, font: parseFloat(cs.fontSize) * Math.max(sx, sy), color: cs.color, bg: ownBg(el, clip) });
         }
       }
       const els = [...byEl.values()];
