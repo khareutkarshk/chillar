@@ -1,12 +1,12 @@
 # Graph Report - chillar  (2026-10-20)
 
 ## Corpus Check
-- 144 files · ~74,298 words
+- 144 files · ~75,516 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 597 nodes · 1022 edges · 72 communities (55 shown, 17 thin omitted)
-- Extraction: 93% EXTRACTED · 7% INFERRED · 0% AMBIGUOUS · INFERRED: 68 edges (avg confidence: 0.78)
+- 608 nodes · 1048 edges · 72 communities (55 shown, 17 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 68 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
@@ -97,12 +97,12 @@ Cohesion: 0.06
 Nodes (68): Exception, Candidate, env(), polite_sleep(), Shared paths, env, HTTP session and politeness helpers., One downloadable asset. `verify()` must be called right before download., text_of(), check_policy() (+60 more)
 
 ### Community 1 - "CLAUDE.md brand bible"
-Cohesion: 0.06
-Nodes (65): director agent, @chillar.ind wordmark (x 72-492, y 1460-1500), Motivated transitions (hard cut default; whip/zoom/wipe/page budgeted), No on-screen structure labels rule, Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists), scenes/scenes.json shot plan, Show, don't caption, editor agent (+57 more)
+Cohesion: 0.05
+Nodes (72): director agent, @chillar.ind wordmark (x 72-492, y 1460-1500), Motivated transitions (hard cut default; whip/zoom/wipe/page budgeted), No on-screen structure labels rule, Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists), scenes/scenes.json shot plan, Show, don't caption, editor agent (+64 more)
 
 ### Community 2 - "memes.py"
-Cohesion: 0.23
-Nodes (19): allowed(), _download(), ensure(), _ff(), _get(), _imgflip(), key(), _log() (+11 more)
+Cohesion: 0.16
+Nodes (29): allowed(), culture_now(), _download(), ensure(), _ff(), freshness(), _get(), _imgflip() (+21 more)
 
 ### Community 3 - "episode.py"
 Cohesion: 0.07
@@ -177,23 +177,23 @@ Cohesion: 0.15
 Nodes (32): director(), draft(), duration(), find_cli(), frontmatter(), length_miss(), Line, main() (+24 more)
 
 ### Community 64 - "Comedy craft — how a Chillar script gets funny"
-Cohesion: 0.25
-Nodes (7): 1. The voice, 2. One game per reel (the single biggest upgrade), 3. Where laughs come from (patterns to learn, not lines to copy), 4. Anti-AI writing (the script-reviewer fails these), 5. Writing process (do all of it — the reviewer can tell), 6. Format notes, Comedy craft — how a Chillar script gets funny
+Cohesion: 0.22
+Nodes (8): 1. The voice, 2. One game per reel (the single biggest upgrade), 3. Where laughs come from (patterns to learn, not lines to copy), 4. Anti-AI writing (the script-reviewer fails these), 5. Writing process (do all of it — the reviewer can tell), 6. Format notes, 7. Fresh, not dated — and memes planned like a comedian, not sprinkled, Comedy craft — how a Chillar script gets funny
 
 ### Community 65 - "2026-10-credit-card-myth/script.md"
 Cohesion: 0.50
 Nodes (3): Hook {field: note10}, Payoff {field: note2000}, Turn {field: note500}
 
 ### Community 68 - "qa.py"
-Cohesion: 0.08
-Nodes (37): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+29 more)
+Cohesion: 0.10
+Nodes (30): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+22 more)
 
 ### Community 71 - "tts.py"
 Cohesion: 0.35
 Nodes (10): Voiceover policy (Sarvam sunny_hi_reels, pace 1.2, every reel), audition_page(), chunks(), concat(), duration(), kokoro(), main(), Path (+2 more)
 
 ## Knowledge Gaps
-- **89 isolated node(s):** `name`, `private`, `description`, `node`, `doctor` (+84 more)
+- **90 isolated node(s):** `name`, `private`, `description`, `node`, `doctor` (+85 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **17 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -203,14 +203,14 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Candidate` connect `Candidate` to `memes.py`, `fetch_assets.py`?**
   _High betweenness centrality (0.049) - this node is a cross-community bridge._
 - **Why does `clean()` connect `episode.py` to `produce.py`?**
-  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+  _High betweenness centrality (0.047) - this node is a cross-community bridge._
 - **Why does `st_fix()` connect `produce.py` to `episode.py`?**
-  _High betweenness centrality (0.046) - this node is a cross-community bridge._
+  _High betweenness centrality (0.045) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Candidate` (e.g. with `LicenseRefused` and `_log()`) actually correct?**
   _`Candidate` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `name`, `private`, `description` to the rest of the system?**
-  _89 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _90 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Candidate` be split into smaller, more focused modules?**
   _Cohesion score 0.05842259006815969 - nodes in this community are weakly interconnected._
 - **Should `CLAUDE.md brand bible` be split into smaller, more focused modules?**
-  _Cohesion score 0.05834464043419267 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05160628844839371 - nodes in this community are weakly interconnected._

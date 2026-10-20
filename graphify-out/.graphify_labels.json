@@ -10,7 +10,7 @@
   "8": "meme/component.js",
   "9": "2026-10-chai-vs-phone/script.md",
   "10": "setup.sh",
-  "11": "mix.py",
+  "11": "ig_export.py",
   "12": "Component catalog (generated — `pipeline/component_catalog.py`, don't edit)",
   "13": "runtime.js",
   "14": "chillar.js",
@@ -70,5 +70,7 @@
   "68": "qa.py",
   "69": "2026-10-chai-vs-phone/cover.md",
   "70": "Facts — 2026-10-chai-vs-phone",
-  "71": "tts.py"
+  "71": "tts.py",
+  "72": "licenses.py",
+  "73": "CompletedProcess"
 }
