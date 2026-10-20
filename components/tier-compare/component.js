@@ -15,9 +15,12 @@ CH.define("tier-compare", {
       </div>`;
     const title = el.querySelector(".tc-title");
     if (title) CH.pop(tl, title, t);
+    // reveal "bars" (default): each column rises in turn, then its result.
+    // reveal "results": all columns rise together on the cut (full width at once), results step in.
+    const together = p.reveal === "results";
     [...el.querySelectorAll(".tc-col")].forEach((c, i) => {
       const at = t + 0.1 + i * (+p.stagger);
-      tl.fromTo(c.querySelector(".tc-bar"), { scaleY: 0 }, { scaleY: 1, duration: 7 * CH.F, ease: "power3.out", transformOrigin: "50% 100%" }, at);
+      tl.fromTo(c.querySelector(".tc-bar"), { scaleY: 0 }, { scaleY: 1, duration: 7 * CH.F, ease: "power3.out", transformOrigin: "50% 100%" }, together ? t : at);
       CH.pop(tl, c.querySelector(".tc-res"), at + 6 * CH.F, { from: 1.2, y: 0 });
       if (i === tiers.length - 1) CH.draw(tl, c.querySelector(".tc-res"), at + 0.5, 0.3);
     });

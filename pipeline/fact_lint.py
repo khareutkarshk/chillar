@@ -35,6 +35,10 @@ FIRST_LAUGH_S = 5.0
 # absolutes that a fact rarely supports — flag them on cited lines so the writer checks before review
 ABSOLUTE = re.compile(r"\b(hamesha|kabhi nahi|kabhi bhi nahi|har baar|sab kuch|guaranteed|guarantee|pakka|always|never|forever)\b", re.I)
 MAX_LINE_WORDS = 14
+# the only URL-less facts allowed (creator's call, 2026-10-20): an invented example the script frames as one,
+# or arithmetic on other facts ("computed from F1, F3") — and those must themselves be sourced or hypothetical
+HYPOTHETICAL = re.compile(r"\bhypothetical\b", re.I)
+COMPUTED = re.compile(r"\bcomputed from\b", re.I)
 NUM_TOKEN = re.compile(r"₹?\d[\d,]*(?:\.\d+)?%?(?:-\d+)?")
 
 
@@ -96,8 +100,19 @@ def lint(ep_dir: str) -> dict:
     ep = load(ep_dir)
     problems, warnings = [], []
     for fid, f in ep.facts.items():
-        if not f["source"]:
-            problems.append(f"{fid}: no source URL")
+        src = f.get("source_text", "")
+        if f["source"]:
+            pass
+        elif HYPOTHETICAL.search(src):
+            warnings.append(f"{fid}: hypothetical — the script must frame it as an example, never as a real offer")
+        elif COMPUTED.search(src):
+            base = re.findall(r"F\d+", src)
+            bad = [b for b in base if b not in ep.facts or not (ep.facts[b]["source"]
+                   or HYPOTHETICAL.search(ep.facts[b].get("source_text", "")))]
+            if not base or bad:
+                problems.append(f"{fid}: computed from {', '.join(bad) or '?'} — name sourced (or hypothetical) facts")
+        else:
+            problems.append(f"{fid}: no source URL (or mark it 'hypothetical' / 'computed from F#')")
         try:
             age = (dt.date.today() - dt.date.fromisoformat(f["checked"])).days
             if age > STALE_DAYS:

@@ -149,7 +149,7 @@ def parse_facts(text: str) -> dict[str, dict]:
             continue
         url = re.search(r"https?://[^\s>)\]]+", cells[2])
         facts[cells[0]] = {"id": cells[0], "claim": cells[1], "source": url.group(0) if url else "",
-                           "checked": cells[3], "notes": cells[4] if len(cells) > 4 else ""}
+                           "source_text": cells[2], "checked": cells[3], "notes": cells[4] if len(cells) > 4 else ""}
     return facts
 
 

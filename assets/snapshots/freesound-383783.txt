@@ -1,0 +1,12 @@
+# license snapshot 2026-10-20T10:03:54+00:00
+# https://freesound.org/people/deleted_user_7146007/sounds/383783/
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+Freesound API response at download time:
+{
+  "id": 383783,
+  "url": "https://freesound.org/people/deleted_user_7146007/sounds/383783/",
+  "name": "Man Coughing Cough",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "username": "deleted_user_7146007"
+}

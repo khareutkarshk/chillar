@@ -299,7 +299,8 @@ def st_script(L: Line, ep: Path, a) -> None:
     e = ep.relative_to(ROOT)
     start = len(list((ep / "notes").glob("script-review-*.md"))) + 1
     fix = ""
-    for n in range(start, MAX_ROUNDS + 1):
+    last = MAX_ROUNDS + a.extra_rounds           # rounds past the cap only when the creator grants them
+    for n in range(start, last + 1):
         if n == 1:
             topic = f" Topic: {a.topic}." if a.topic else ""
             L.agent("scriptwriter", f"Write {e}/script.md, {a.format} s format.{topic} Fill cover.md first if it still "
@@ -323,7 +324,8 @@ def st_script(L: Line, ep: Path, a) -> None:
     if fix:
         stop(ep, f"script PASSed but the length probe misses: {fix}",
              "trim/extend the script (new review round) or accept it (--accept-length), then --from factcheck")
-    stop(ep, f"script review: no PASS after {MAX_ROUNDS} rounds", f"last notes: notes/script-review-{MAX_ROUNDS}.md")
+    stop(ep, f"script review: no PASS after {last} rounds", f"last notes: notes/script-review-{last}.md · "
+         "options: accept the draft with --from factcheck, or one more round with --from script --extra-rounds N")
 
 
 def st_factcheck(L: Line, ep: Path, a) -> None:
@@ -376,8 +378,9 @@ def st_edit(L: Line, ep: Path, a) -> None:
         from align import words_txt
         wt.write_text(words_txt(json.loads(wj.read_text())))
     start = len(list((ep / "notes").glob("video-review-*.md"))) + 1
-    for n in range(start, MAX_ROUNDS + 1):
-        prev = ep / "notes" / f"video-review-{n - 1}.md"
+    last = MAX_ROUNDS + a.extra_rounds
+    for n in range(start, last + 1):
+        prev =ep / "notes" / f"video-review-{n - 1}.md"
         if n == 1:
             director(L, ep, f"Plan {e}/scenes/scenes.json from script.md + .cache/words.txt; validate + qa clean.", "edit")
             L.agent("editor", f"Tighten {e}/scenes/scenes.json (director's first pass); validate + qa clean.", "edit")
@@ -406,9 +409,9 @@ def st_edit(L: Line, ep: Path, a) -> None:
         print(f"  video review {n}: {v}")
         if v == "PASS":
             return
-    stop(ep, f"video review: no PASS after {MAX_ROUNDS} rounds",
-         f"last notes: notes/video-review-{MAX_ROUNDS}.md · draft: output/final.mp4 · "
-         "options: fix specific notes then --from deliver, or one more round with --from edit")
+    stop(ep, f"video review: no PASS after {last} rounds",
+         f"last notes: notes/video-review-{last}.md · draft: output/final.mp4 · "
+         "options: fix specific notes then --from deliver, or one more round with --from edit --extra-rounds N")
 
 
 def st_fix(L: Line, ep: Path, a) -> None:
@@ -493,6 +496,8 @@ def main() -> int:
     ap.add_argument("--from", dest="frm", choices=STAGES)
     ap.add_argument("--only", choices=STAGES + ["fix"])
     ap.add_argument("--accept-length", action="store_true", help="the creator accepted a voice outside the format range")
+    ap.add_argument("--extra-rounds", type=int, default=0,
+                    help="review rounds the creator grants past the 3-round cap (existing reviews count)")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
     ep = (ROOT / a.episode).resolve() if not Path(a.episode).is_absolute() else Path(a.episode)

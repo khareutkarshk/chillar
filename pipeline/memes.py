@@ -296,10 +296,10 @@ def ensure(ep_dir: str, want: list[tuple[str, str, int]]) -> tuple[dict, list[st
 def wanted(plan: dict) -> list[tuple[str, str, int]]:
     out = []
     for s in plan.get("scenes", []):
-        if s.get("component") != "meme":
+        if s.get("component") not in ("meme", "mascot-reaction"):   # mascot-reaction: optional meme sound only
             continue
         p = s.get("params", {})
-        if p.get("meme"):
+        if s.get("component") == "meme" and p.get("meme"):
             out.append((p.get("kind", "image"), p["meme"], int(p.get("pick", 0))))
         if p.get("sound"):
             out.append(("sound", p["sound"], int(p.get("soundPick", 0))))

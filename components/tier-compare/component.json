@@ -1,11 +1,12 @@
 {
   "name": "tier-compare",
-  "description": "₹100 vs ₹1,000 vs ₹1,00,000 escalation: three paper columns standing on the bottom of the content zone, each taller than the last, revealed in sequence; the last result gets a ballpoint circle.",
+  "description": "₹100 vs ₹1,000 vs ₹1,00,000 escalation: three paper columns standing on the bottom of the content zone, each taller than the last, revealed in sequence; the last result gets a ballpoint circle. The row spans the full content width (≈ 876 px) once every column stands. reveal: 'bars' (default — each column rises in turn, then its result) or 'results' (all columns rise together on the cut so the paper spans the full width from frame 1; only the results step in, `stagger` apart).",
   "layer": "scene",
   "params": {
     "title": "",
     "tiers": [{ "amount": "₹100", "result": "" }, { "amount": "₹1,000", "result": "" }, { "amount": "₹1,00,000", "result": "" }],
-    "stagger": 0.9
+    "stagger": 0.9,
+    "reveal": "bars"
   },
   "example": {
     "title": "Card pe MDR (0.90% tak)",

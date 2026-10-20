@@ -610,8 +610,8 @@
     "semantic_hash": ""
   },
   "brand/rules/posting-schedule.md": {
-    "mtime": 1792408275.9272742,
-    "ast_hash": "ea6977532e34fabeb4c3fffcaaf25df1",
+    "mtime": 1792487148.3954659,
+    "ast_hash": "2a34dda0289bcfcd0c0570c64be4f8fa",
     "semantic_hash": ""
   },
   "episodes/2026-10-epf-explained/scenes/scenes.json": {
@@ -645,8 +645,8 @@
     "semantic_hash": ""
   },
   ".claude/agents/packager.md": {
-    "mtime": 1792416406.5674536,
-    "ast_hash": "48652f462dc7df8d19e3ec0ef131bf6d",
+    "mtime": 1792486401.2571251,
+    "ast_hash": "899066257851cccdb48e71ce193bfb6c",
     "semantic_hash": ""
   },
   ".claude/agents/researcher.md": {

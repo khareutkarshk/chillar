@@ -177,6 +177,13 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
             snd = got.get(memes.key("sound", mp["sound"], int(mp["soundPick"]))) if mp.get("sound") else None
             if snd:
                 s["sfx_override"] = [{"at": float(mp["soundAt"]), "sound": "meme:" + snd["path"]}]
+        elif name == "mascot-reaction" and s["params"].get("sound"):
+            mp = s["params"]
+            snd = got.get(memes.key("sound", mp["sound"], int(mp.get("soundPick", 0))))
+            if snd:   # the meme sound replaces the arrival coin
+                s["sfx_override"] = [{"at": float(mp.get("soundAt", 0)), "sound": "meme:" + snd["path"]}]
+            else:
+                errors.append(f"{s['id']}: meme sound '{mp['sound']}' not fetched")
         unknown = set(raw.get("params", {})) - set(meta.get("params", {}))
         if unknown:
             warns.append(f"{s['id']}: params not declared by {name}: {sorted(unknown)}")
@@ -379,18 +386,20 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
 
     # ---------------- real memes: budget per format, never back to back
     mm = [s for s in scenes if s["component"] == "meme"]
+    # a mascot-reaction carrying a meme sound is a meme beat too: budget + freshness
+    mb = mm + [s for s in allv if s["component"] == "mascot-reaction" and s["params"].get("sound")]
     cap = {"30": 3, "60": 5, "90": 7}.get(fmt_key, 5)
-    if len(mm) > cap:
-        errors.append(f"{len(mm)} meme scenes — {fmt_key} s allows ≤ {cap} (CLAUDE.md §3)")
+    if len(mb) > cap:
+        errors.append(f"{len(mb)} meme beats — {fmt_key} s allows ≤ {cap} (CLAUDE.md §3)")
     for a, b in zip(scenes, scenes[1:]):
         if a["component"] == b["component"] == "meme":
             warns.append(f"{a['id']} → {b['id']}: two memes in a row — cut back to the story between them")
     # freshness: Gen Z has to recognise it from this week, not from 2015 (CLAUDE.md §3)
     try:
         classics = []
-        for s in mm:
+        for s in mb:
             p = s["params"]
-            checks = [(p.get("kind", "image"), p.get("meme"), int(p.get("pick", 0)))] if p.get("meme") else []
+            checks = [(p.get("kind", "image"), p.get("meme"), int(p.get("pick", 0)))] if p.get("meme") and s["component"] == "meme" else []
             checks += [("sound", p["sound"], int(p.get("soundPick", 0)))] if p.get("sound") else []
             for kind, q, pick in checks:
                 m = got.get(memes.key(kind, q, pick))

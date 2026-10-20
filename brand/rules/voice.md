@@ -11,3 +11,6 @@
   for that episode.
 - post.md carries `ai_voice: true`; apply Instagram's AI label if Meta's current policy requires it
   for realistic synthetic audio.
+- Sunny drops nasals (chandrabindu ँ and anusvara ं read as plain vowels: खाँसा → "khaasa"). Spell
+  the nasal out as a half-consonant: खान्सा, not खाँसा/खांसा (fixed on 2026-10-sale-fine-print, checked
+  by faster-whisper medium).

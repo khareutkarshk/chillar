@@ -109,6 +109,9 @@ work spoken, meme formats). Their craft, never their material: all jokes origina
 - **Every fact must appear in `episodes/<ep>/facts.md` with a source URL**, and the script line
   citing it carries its id, e.g. `UPI pe MDR zero hai [F1]`. `pipeline/fact_lint.py` blocks the
   render on any number without a fact id or a fact without a URL. Jokes can't smuggle in numbers.
+  Only two URL-less facts pass (creator's call, 2026-10-20): a source cell saying **hypothetical** (an
+  invented example; the script frames it as one, never as a real offer) or **computed from F#** (arithmetic
+  on facts that are themselves sourced or hypothetical).
   Recurring facts come from `brand/facts-library.md`.
 
 ## 4. Formats + retention

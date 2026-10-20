@@ -48,9 +48,9 @@ A headline on the chapter field; words wrapped in *asterisks* get the yellow mar
 params: text="UPI *free* nahi hai", sub="", size=168, align="left", markerAt=0.25, fit=true, paper=false
 
 ### mascot-reaction
-Chillar pops up from the bottom of the content zone with an expression + animation and an optional deadpan speech bubble (a paper bubble, no outline). Replaces memes; counts as a re-hook. Can be an overlay on another scene. ring: optional short text on a green profile-photo ring around the coin (e.g. 'open to work'), drawn after the pop.
+Chillar pops up from the bottom of the content zone with an expression + animation and an optional deadpan speech bubble (a paper bubble, no outline). Replaces memes; counts as a re-hook. Can be an overlay on another scene. ring: optional short text on a green profile-photo ring around the coin (e.g. 'open to work'), drawn after the pop. sound: optional meme sound (e.g. 'vine boom'), fetched by pipeline/memes.py (soundPick picks the result), played soundAt s after the pop; it replaces the arrival coin and counts as a meme beat in the reel's meme budget. Default '' keeps the coin.
 `layer overlay · min 1.0s · re-hook · sfx coin@0.05s`
-params: expr="side-eye", anim="blink", x=760, y=1120, size=320, bubble="", bubbleSide="left", ring=""
+params: expr="side-eye", anim="blink", x=760, y=1120, size=320, bubble="", bubbleSide="left", ring="", sound="", soundPick=0, soundAt=0.05
 
 ### meme
 A real global meme (imgflip template or GIF, fetched at build time by pipeline/memes.py) as a printed photo tossed onto the field, full content width, with optional paper-scrap labels on it and an optional meme sound (myinstants). Cut to it on the word after a punchline. kind image|video (video = silent GIF loop, stepped from a sprite). Pick the exact template with `memes.py search "<q>" --kind <kind>` and set pick. labels: [{text, x, y}] in % of the picture (centre of the scrap). Global memes only — no Indian films/TV/people.
@@ -108,9 +108,9 @@ One big statement on the chapter field: headline (≤ 6 words, *marker* words sw
 params: title="MDR kya hai?", body="", paper=false, size=156, width=0, tilt=null, markerAt=0.3, dy=0
 
 ### tier-compare
-₹100 vs ₹1,000 vs ₹1,00,000 escalation: three paper columns standing on the bottom of the content zone, each taller than the last, revealed in sequence; the last result gets a ballpoint circle.
+₹100 vs ₹1,000 vs ₹1,00,000 escalation: three paper columns standing on the bottom of the content zone, each taller than the last, revealed in sequence; the last result gets a ballpoint circle. The row spans the full content width (≈ 876 px) once every column stands. reveal: 'bars' (default — each column rises in turn, then its result) or 'results' (all columns rise together on the cut so the paper spans the full width from frame 1; only the results step in, `stagger` apart).
 `layer scene · min 2.6s · sfx coin@0.1s, ding@2.0s`
-params: title="", tiers=[{"amount": "₹100", "result": ""}, …], stagger=0.9
+params: title="", tiers=[{"amount": "₹100", "result": ""}, …], stagger=0.9, reveal="bars"
 
 ## Placed by the pipeline
 
