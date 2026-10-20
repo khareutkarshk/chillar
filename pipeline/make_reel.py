@@ -54,13 +54,14 @@ def build_staleness(ep) -> list[Path]:
     if not build_index.exists() or not resolved_path.exists():
         return [scene_path]
     built_at = build_index.stat().st_mtime
-    sources = [scene_path]
+    sources = [scene_path, resolved_path]
     try:
         resolved = json.loads(resolved_path.read_text())
         names = {s.get("component") for s in resolved.get("scenes", []) if s.get("component")}
         for name in names:
             component = ROOT / "components" / name
-            sources.extend(p for p in (component / "component.js", component / "component.css") if p.exists())
+            sources.extend(p for p in (component / "component.json", component / "component.js", component / "component.css")
+                           if p.exists())
     except (OSError, json.JSONDecodeError):
         return [resolved_path]
     return [p for p in sources if p.exists() and p.stat().st_mtime > built_at]
