@@ -18,11 +18,19 @@ outputs, scripts or frames unless a step below says so. Note `npx ccusage@latest
    `.venv/bin/python pipeline/produce.py episodes/<slug> --topic "<topic>" --format <30|60|90> --post-date YYYY-MM-DD`
    and wait for it to finish — don't poll its output.
 2. **Exit 0** → it printed the summary (cover, hook, words/seconds, fact-check) and the usage table.
-   **Exit 3** → read `notes/STOP.md` only, tell me the reason in two lines plus the options it lists, and
-   ask me. Then resume with `--from <stage>` (e.g. `--from deliver` after I accept a draft,
-   `--from script --extra-rounds 1` / `--from edit --extra-rounds 1` for one more round past the cap,
-   `--only fix` then `--from deliver` when I say "fix it and ship" after a
-   3-round video stop, `--from align --accept-length` when I accept a voice length).
+   **Exit 3** → read `notes/STOP.md` only, **decide like the creator would — don't ask** (creator's call,
+   2026-10-20), resume, and log one line per decision (stop → choice → why) in `notes/decisions.md`.
+   `--extra-rounds N` counts from the start: N = reviews already in notes/ − 3 + 1.
+   | stop | decision |
+   |---|---|
+   | script: no PASS after the cap | one more round (`--from script --extra-rounds N`); still no PASS → if the last review has facts PASS and no blocker, accept the draft (`--from factcheck`), else ask |
+   | script PASSed, length probe misses | one length round (`--from script --extra-rounds N`); still out → accept it (`--from factcheck --accept-length`) — a passed script beats more rounds |
+   | voice outside the range at align | `--from align --accept-length` |
+   | video: no PASS after 3 rounds | "fix it and ship": `--only fix`, then `--from deliver` |
+   | qa still blocks the draft after a fix pass | read `.cache/qa.json` errors, fix them surgically in scenes.json, `--from edit` |
+   | fact-check still BLOCK after a fix cycle | **ask** — a wrong or unsourced fact never ships (SEBI/ASCI) |
+   Also **ask** when a choice would break a §3 content rule, or the reel's agent cost passes $12.
+   The final report lists every autonomous decision.
    Component requests no longer run mid-reel: they collect in `components/_backlog.md`; build them in one
    batch with `produce.py episodes/<any> --only components` (weekly, or when the backlog has 3+ open). Never run a director/editor
    fix as an in-session subagent — `--only fix` does it headless and cheaper. Any other exit → read the last 30

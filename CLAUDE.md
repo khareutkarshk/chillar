@@ -149,7 +149,7 @@ continue. A creator recording is used only if the creator says so for that episo
   `/make-reel` runs `pipeline/produce.py` (headless lean agents, pinned models, real cost per run in
   `notes/usage.md`) — keep the producer session thin; see `brand/rules/production.md`.
 - Agents (`.claude/agents/`): scriptwriter ⇄ script-reviewer (≤ 3 rounds) · fact-checker · director ⇄
-  editor ⇄ video-reviewer (≤ 3 rounds). After 3 rounds without PASS, stop and ask the creator.
+  editor ⇄ video-reviewer (≤ 3 rounds). After 3 rounds without PASS the pipeline stops; the producer decides by the table in `.claude/commands/make-reel.md` and asks only for a fact-check BLOCK, a §3 conflict or cost > $12.
   **Each round is a fresh agent that reads the notes files — never resume an agent.** Model tiers,
   hand-off and image-budget rules: `brand/rules/production.md`.
 - Pipeline: `.venv/bin/python pipeline/make_reel.py episodes/<ep> [--from STAGE]`

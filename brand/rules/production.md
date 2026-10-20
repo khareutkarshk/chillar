@@ -15,7 +15,7 @@
 | `packager` | sonnet · medium | `output/post.md` (caption, pinned math, sources) | |
 Quality is decided by the writer, the script reviewer and the director — they keep the strongest
 model. The others do lookup, arithmetic and checking. Simple file chores and graphify extraction: haiku.
-After 3 rounds without PASS, stop and ask the creator.
+After 3 rounds without PASS the pipeline stops; the producer decides by the table in `.claude/commands/make-reel.md` (asks only for a fact-check BLOCK, a §3 conflict or cost > $12).
 
 ## Hand-offs: fresh agents, files carry the state
 - **Every round spawns a new agent.** Never resume/SendMessage an earlier director, editor or reviewer:
