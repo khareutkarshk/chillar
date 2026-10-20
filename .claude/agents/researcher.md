@@ -13,9 +13,12 @@ rules apply. The prompt gives you the episode folder (already created from `_tem
    `facts_library.py copy episodes/<ep> L-… L-…` for every entry the topic needs (they arrive as F# rows).
 2. **Research only the gaps** — budget ≈ 10 source reads. Primary sources only (RBI, NPCI, SEBI, PIB,
    EPFO, labour.gov.in, incometax, gazette, indiacode). Check `brand/sources/index.json` for a cached copy
-   first; otherwise `facts_library.py cache <url> <name>` and read the local file. Don't retry a blocked URL
-   more than twice — find the same document on PIB / egazette instead. Read the source itself, never a news
-   article for a number the primary source publishes.
+   first; otherwise `facts_library.py cache <url> <name>`. For a cached PDF/HTML, search the local text index
+   before opening the whole file: `.venv/bin/python pipeline/source_index.py search "<claim words>"
+   --source <cached-filename> --episode episodes/<slug>`. Use the exact excerpt and page number in fact notes.
+   Open only the cited page/section if an excerpt is unclear or extraction failed; do not load a large PDF
+   repeatedly. Don't retry a blocked URL more than twice — find the same document on PIB / egazette instead.
+   Verify the primary source itself, never a news article for a number the primary source publishes.
 3. Each fact = one row: `| F# | claim | source URL | <today> | notes |` — notes say page/section and anything
    recently changed, disputed, or easy to overstate. Anything you can't confirm from a primary source: leave
    it out, or mark the note `UNVERIFIED — do not use`.

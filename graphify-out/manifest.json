@@ -440,8 +440,8 @@
     "semantic_hash": ""
   },
   ".claude/agents/fact-checker.md": {
-    "mtime": 1792437496.0586643,
-    "ast_hash": "05b0ae957d88acd3af55ee290654700f",
+    "mtime": 1792503620.5872421,
+    "ast_hash": "a109ca9f2f337711830ea75b4d5b14e7",
     "semantic_hash": ""
   },
   ".claude/agents/script-reviewer.md": {
@@ -460,8 +460,8 @@
     "semantic_hash": ""
   },
   ".claude/commands/fact-check.md": {
-    "mtime": 1792407019.6866837,
-    "ast_hash": "3042077868f964dc947942361015cea9",
+    "mtime": 1792503721.672223,
+    "ast_hash": "a931524c9cd135daf250837084d6ee16",
     "semantic_hash": ""
   },
   ".claude/commands/fetch-assets.md": {
@@ -475,8 +475,8 @@
     "semantic_hash": ""
   },
   ".claude/commands/new-reel.md": {
-    "mtime": 1792407019.6856837,
-    "ast_hash": "8ee26fc5ad4aef3009bda337dc3c6c30",
+    "mtime": 1792503620.588242,
+    "ast_hash": "c8d43043f131b37076467731bbb75c22",
     "semantic_hash": ""
   },
   ".claude/commands/package.md": {
@@ -500,8 +500,8 @@
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1792407037.0890584,
-    "ast_hash": "a453b658ee7558699227152ba9c57146",
+    "mtime": 1792503760.5480072,
+    "ast_hash": "c3f578f552c9c62c04a2938c3e5ca92e",
     "semantic_hash": ""
   },
   "episodes/2026-10-12lpa-in-hand/cover.md": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "brand/rules/production.md": {
-    "mtime": 1792495031.4164083,
-    "ast_hash": "ac7f347b9268b34397a83dd8a39daf68",
+    "mtime": 1792503673.59827,
+    "ast_hash": "6d59c5323cd1d3c4612d07debe8f5222",
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792502921.453766,
-    "ast_hash": "ddc001d3ee0fd021677ccc23456e4201",
+    "mtime": 1792503802.3378627,
+    "ast_hash": "e198c198470329283341168d1590c034",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -650,8 +650,8 @@
     "semantic_hash": ""
   },
   ".claude/agents/researcher.md": {
-    "mtime": 1792492731.1815856,
-    "ast_hash": "20bae902994c1e91ec5d29d9ff68969c",
+    "mtime": 1792503611.6600716,
+    "ast_hash": "54f185cc687a2a20fe442e176583f080",
     "semantic_hash": ""
   },
   ".claude/agents/voice.md": {
@@ -827,6 +827,11 @@
   "brand/sfx/click.wav": {
     "mtime": 1792500706.2530708,
     "ast_hash": "990ea485b699630b77a5fce1213ab346",
+    "semantic_hash": ""
+  },
+  "pipeline/source_index.py": {
+    "mtime": 1792503666.1791246,
+    "ast_hash": "01c46e133c664a35f12c9c8f0ab19f28",
     "semantic_hash": ""
   }
 }

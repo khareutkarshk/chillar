@@ -55,6 +55,10 @@ visual metaphors and vary compositions across chapters.
 New episodes copy recurring facts from `brand/facts-library.md` (`pipeline/facts_library.py copy`).
 The fact-checker re-verifies only stale library entries (`facts_library.py fresh episodes/<ep>`) and
 episode-specific facts, reading cached sources in `brand/sources/` before fetching the web.
+Cached source PDFs/HTML are searchable through `pipeline/source_index.py` (SQLite FTS5, rebuildable
+under `.cache/`). Research and fact-check agents should retrieve exact cited passages before opening
+large files; page/URL provenance stays with each excerpt. Search volume is logged per episode and shown
+in `notes/usage.md` so context reduction can be measured.
 
 ## Session hygiene
 - One episode per session: start `/make-reel` in a fresh session; `/compact` after the fact-check

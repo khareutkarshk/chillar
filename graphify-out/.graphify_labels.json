@@ -1,6 +1,6 @@
 {
   "0": "Candidate",
-  "1": "CLAUDE.md brand bible",
+  "1": "fact_lint.py",
   "2": "memes.py",
   "3": "episode.py",
   "4": "fetch_assets.py",
@@ -84,5 +84,11 @@
   "82": "2026-10-credit-enquiry/script.md",
   "83": "Facts — 2026-10-credit-enquiry (\"Credit score check karne se girta hai\": soft vs hard enquiry; 4 festive card applications)",
   "84": "2026-10-credit-enquiry/cover.md",
-  "86": "build_brief"
+  "85": "source_index.py",
+  "86": "build_brief",
+  "87": "CLAUDE.md brand bible",
+  "88": "make_reel.py",
+  "89": "build_composition.py",
+  "90": "director agent",
+  "91": "validate_scenes.py"
 }

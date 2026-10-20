@@ -311,6 +311,7 @@ def st_research(L: Line, ep: Path, a) -> None:
     s = (ep / "script.md").read_text()
     s = re.sub(r"target_seconds: \d+", f"target_seconds: {a.format}", s)
     (ep / "script.md").write_text(s)
+    L.sh(PY, "pipeline/source_index.py", "sync", check=False)
     L.agent("researcher", f"Research {ep.relative_to(ROOT)} — topic: {a.topic}. Format {a.format} s.", "research")
 
 
@@ -635,6 +636,20 @@ def st_usage(L: Line, ep: Path, a) -> None:
     lines += [f"| **total** | {sum(v['runs'] for v in by.values())} | {sum(v['turns'] for v in by.values())} | "
               f"{sum(v['prompt_chars'] for v in by.values()):,} | {sum(v['cache_read'] for v in by.values()):,} | **${total:.2f}** |", "",
               f"Review rounds: script {rounds['script']} · video {rounds['video']}."]
+    source_log = ep / "notes" / "source-search.jsonl"
+    if source_log.exists():
+        try:
+            searches = [json.loads(x) for x in source_log.read_text().splitlines() if x.strip()]
+            sources = {}
+            for item in searches:
+                sources.update(item.get("sources", {}))
+            excerpt_chars = sum(x.get("excerpt_chars", 0) for x in searches)
+            hit_count = sum(x.get("hits", 0) for x in searches)
+            matched_chars = sum(x.get("chars", 0) for x in sources.values())
+            lines.append(f"Local source retrieval: {len(searches)} searches · {hit_count} excerpts · "
+                         f"{excerpt_chars:,} chars returned from {matched_chars:,} chars of matched sources")
+        except (json.JSONDecodeError, AttributeError, TypeError):
+            lines.append("Local source retrieval: search log could not be summarized")
     script_reviews = sorted((ep / "notes").glob("script-review-*.md"), key=lambda p: int(re.search(r"(\d+)", p.stem).group(1)))
     video_reviews = sorted((ep / "notes").glob("video-review-*.md"), key=lambda p: int(re.search(r"(\d+)", p.stem).group(1)))
     if script_reviews:

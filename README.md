@@ -14,6 +14,11 @@ Brand bible and all rules: [CLAUDE.md](CLAUDE.md).
 /render <ep>                                 # director → editor → render → video-reviewer loop → delivery
 ```
 
+Cached research sources are indexed locally on the first `/make-reel` run. To search manually:
+`.venv/bin/python pipeline/source_index.py search "<claim words>" --source <cached-filename>`.
+The SQLite FTS5 index is disposable (`.cache/source-index.sqlite3`); cached files and
+`brand/sources/index.json` remain canonical. PDF indexing needs `pdftotext` (Poppler).
+
 The pipeline by hand: `.venv/bin/python pipeline/make_reel.py episodes/<ep> [--from STAGE] [--quality draft]`
 (stages: `facts clean align validate build qa render mix cover sheet igcheck`; `qa` measures the built
 composition in headless Chrome and blocks the render on layout/timing errors).

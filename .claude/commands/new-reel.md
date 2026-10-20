@@ -15,7 +15,9 @@ Follow CLAUDE.md exactly (brand bible §1–§4, content rules §3). Steps:
    recurring fact the topic needs from `brand/facts-library.md` with
    `facts_library.py copy episodes/<slug> L-… L-…` (they arrive as F# rows with source + checked date).
    Research only what the library doesn't have. Use WebSearch/WebFetch (cache primary-source PDFs with
-   `facts_library.py cache <url> <name>` and read the local copy). Prefer primary sources (RBI, NPCI, SEBI,
+   `facts_library.py cache <url> <name>`, then retrieve exact passages with
+   `pipeline/source_index.py search "<claim words>" --source <cached-filename> --episode episodes/<slug>`).
+   Prefer primary sources (RBI, NPCI, SEBI,
    PIB, gazette notifications, ministry releases, company filings). For each fact add a row to
    `facts.md`: id, claim, source URL, today's date in `checked`, notes (what page/section; anything
    disputed or recently changed). Read the source itself — don't cite a news article for a number the
