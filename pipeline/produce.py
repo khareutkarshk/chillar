@@ -195,7 +195,8 @@ class Line:
     def scoped_agent(self, name: str, ep: Path, task: str, stage: str, mode: str,
                      *, note: Path | None = None, effort: str = "") -> str:
         """Run scene/review work with a bounded brief and only the tools needed for that role."""
-        brief = build_brief(ep, name, mode, task, edit_inputs(ep, name, mode, note), note=note,
+        only_blockers = name == "component-dev" and "blocker" in task.lower()
+        brief = build_brief(ep, name, mode, task, edit_inputs(ep, name, mode, note, only_blockers=only_blockers), note=note,
                             max_chars=32000 if name == "director" and mode == "first" else 24000)
         prompt = (f"{task}\n\nUse this bounded context brief as your source set; do not rediscover context "
                   f"with broad shell reads. Brief size: {len(brief)} chars.\n\n{brief}")

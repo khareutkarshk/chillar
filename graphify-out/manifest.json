@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792494997.1168385,
-    "ast_hash": "d04df25fa34994220760f89a35e535d7",
+    "mtime": 1792495261.7835975,
+    "ast_hash": "972b84c8581afd15d572bfd6644d4070",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "pipeline/agent_context.py": {
-    "mtime": 1792494962.827319,
-    "ast_hash": "ef78908179efd89463b406cff3a39675",
+    "mtime": 1792495257.6026163,
+    "ast_hash": "f84ffe7f72ae741c491aa91f55aaf562",
     "semantic_hash": ""
   },
   "brand/shot-patterns.json": {

@@ -7,6 +7,7 @@ source of truth.
 """
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 
@@ -19,6 +20,47 @@ def _read(path: Path, limit: int) -> str:
     if len(text) > limit:
         return text[:limit] + f"\n[truncated at {limit} chars; open source only for the missing detail]"
     return text
+
+
+def _note_for_role(path: Path, role: str, only_blockers: bool = False) -> str:
+    """Keep only the hand-off material an agent owns; preserve full prior notes for the reviewer."""
+    text = path.read_text(errors="replace")
+    if role == "video-reviewer" or path.name == "fact-check.md":
+        return text
+    if role in {"scriptwriter", "script-reviewer"}:
+        keep_sections = {"prior notes", "notes (most important first)", "keep"}
+        sections: set[str] = set()
+        out = [line for line in text.splitlines() if line.startswith(("verdict:", "round:", "scores:", "words:"))]
+        active = ""
+        for line in text.splitlines():
+            if line.startswith("## "):
+                active = line[3:].strip().lower()
+                continue
+            if active in keep_sections:
+                out.append(line)
+        return "\n".join(out) or text
+
+    owner = {"director": "director", "editor": "editor", "component-dev": "component"}.get(role)
+    if not owner:
+        return text
+    out = [line for line in text.splitlines() if line.startswith(("verdict:", "round:", "swipe risk:"))]
+    in_notes = False
+    for line in text.splitlines():
+        if line.startswith("## "):
+            in_notes = line[3:].strip().lower() == "notes"
+            continue
+        if not in_notes or not line.lstrip().startswith("-"):
+            continue
+        m = re.match(r"\s*-\s*\[([^\]]+)\]\s*(blocker|polish)?", line, re.I)
+        if not m:
+            continue
+        owners = {x.strip().split(":", 1)[0] for x in m.group(1).split("|")}
+        severity = (m.group(2) or "blocker").lower()
+        if owner in owners and (not only_blockers or severity == "blocker"):
+            out.append(line)
+    if len(out) <= 3:
+        return "\n".join(out + ["No review notes routed to this role."])
+    return "\n".join(out)
 
 
 def build_brief(ep: Path, role: str, mode: str, task: str, paths: list[Path], *,
@@ -43,7 +85,10 @@ def build_brief(ep: Path, role: str, mode: str, task: str, paths: list[Path], *,
         label = f"\n--- {path.relative_to(ep.parent.parent) if ep.parent.parent in path.parents else path} ---\n"
         if remaining <= len(label):
             break
-        body = _read(path, min(remaining - len(label), 12000 if note and path == note.resolve() else 18000))
+        body = (_note_for_role(path, role, only_blockers=(role == "component-dev" and "blocker" in task.lower()))
+                if note and path == note.resolve() else _read(path, min(remaining - len(label), 18000)))
+        if len(body) > remaining - len(label):
+            body = body[:remaining - len(label)] + "\n[truncated to brief budget]"
         part = label + body + "\n"
         if len(part) > remaining:
             part = part[:remaining]
@@ -53,7 +98,8 @@ def build_brief(ep: Path, role: str, mode: str, task: str, paths: list[Path], *,
     return brief + f"\n[brief payload: {len(brief)} chars]\n"
 
 
-def edit_inputs(ep: Path, role: str, mode: str, note: Path | None = None) -> list[Path]:
+def edit_inputs(ep: Path, role: str, mode: str, note: Path | None = None, *,
+                only_blockers: bool = False) -> list[Path]:
     """Canonical, small file sets for scene planning, revisions and visual review."""
     c, n = ep / ".cache", ep / "notes"
     if role == "director":
@@ -73,8 +119,7 @@ def edit_inputs(ep: Path, role: str, mode: str, note: Path | None = None) -> lis
     if role == "component-dev":
         names: set[str] = set()
         if note and note.exists():
-            import re
-            names.update(re.findall(r"\[component:([\w-]+)\]", note.read_text()))
+            names.update(re.findall(r"\[component:([\w-]+)\]", _note_for_role(note, role, only_blockers=only_blockers)))
         return [Path("components") / name / file for name in sorted(names)
                 for file in ("component.json", "component.css", "component.js")]
     if role == "scriptwriter":
@@ -102,8 +147,10 @@ def main() -> None:
     a = p.parse_args()
     ep = a.episode.resolve()
     note = a.note.resolve() if a.note else None
+    only_blockers = a.role == "component-dev" and "blocker" in a.task.lower()
     text = build_brief(ep, a.role, a.mode, a.task,
-                       edit_inputs(ep, a.role, a.mode, note), note=note, max_chars=a.max_chars)
+                       edit_inputs(ep, a.role, a.mode, note, only_blockers=only_blockers), note=note,
+                       max_chars=a.max_chars)
     print(text, end="")
     print(f"brief_chars={len(text)}", file=__import__("sys").stderr)
 
