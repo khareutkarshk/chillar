@@ -2,7 +2,13 @@
 
 Use it on round 1. **Games taken:** don't build a new reel on one of these. **Landed:** reuse the *shape* (act-out, self-own, callback), never the line. **Fell flat:** don't write that kind of joke again. **Audience drops** are real Instagram retention — the strongest signal here.
 
-**Overused lately** (in half or more of the last 6 scripts): cart (4/6), Diwali (3/6) — lead with a different person/place, or make the moment around it new.
+**Overused lately** (in half or more of the last 6 scripts): cart (3/6), Diwali (3/6) — lead with a different person/place, or make the moment around it new.
+
+## 2026-10-29-diwali-gifting-maths — Ek dabba × poora mohalla
+- game taken: the list only ever grows, and everyone, Papa included, keeps calling it "ek hi dabba".
+- landed: Main list kaatne baitha tha. Bua ka naam add karke utha.
+- landed: Matlab yeh gift nahi, udhaar hai. Bada karke chukana padta hai.
+- fell flat: Aur dabbe mein kaju katli kam, tray zyada
 
 ## 2026-10-28-free-trial-autopay — Free trial khatam, autopay nahi
 - game taken: "2 AM wala main" is a separate person who signs things that daytime me pays for: he gives the PIN, day-me buries the warning, the bill adds up,…
@@ -28,10 +34,3 @@ Use it on round 1. **Games taken:** don't build a new reel on one of these. **La
 - landed: Chautha crush dekh raha hai ki maine teen aur ko 'hey' bheja [F9].
 - fell flat: Left on read ka screenshot koi nahi leta
 - fell flat: Yeh 'chill kar' ka sabse lamba sarkari version hai
-
-## 2026-10-sale-fine-print — Sale ka 10%* asal mein kitna hai
-- game taken: "the asterisk is the offer's lawyer, and he argues your ₹10,000 down to ₹1,500 on technicalities, all of it technically true."
-- landed: Mere client ne 10% bola, ₹10,000 nahi.
-- landed: ₹100 pe bhi 10% milega. Bas cart ₹5,000 ka ho.
-- fell flat: Baaki log popcorn leke dekhein
-- fell flat: Vakeel: 'Marzi aapki, my lord.'

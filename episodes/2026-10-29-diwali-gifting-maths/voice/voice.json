@@ -1,0 +1,38 @@
+{
+  "provider": "sarvam",
+  "model": "bulbul:v4-flash",
+  "speaker": "sunny_hi_reels",
+  "pace": 1.2,
+  "language": "hi-IN",
+  "text_file": "voice/tts.txt",
+  "date": "2026-10-21",
+  "seconds": 54.35,
+  "ai_generated": true,
+  "lexicon": [],
+  "request_chars": 768,
+  "cached_chars": 0,
+  "takes": 23,
+  "per_line": true,
+  "beats": [
+    [
+      2.934,
+      0.51
+    ],
+    [
+      27.169,
+      0.51
+    ],
+    [
+      39.772,
+      0.51
+    ],
+    [
+      53.39,
+      0.51
+    ]
+  ],
+  "paced": [
+    8,
+    17
+  ]
+}

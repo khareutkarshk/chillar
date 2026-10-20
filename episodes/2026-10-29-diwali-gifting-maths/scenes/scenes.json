@@ -1,0 +1,459 @@
+{
+ "theme": "pastel",
+ "scenes": [
+  {
+   "id": "hook",
+   "component": "hook-card",
+   "at": 0,
+   "fact": "F4",
+   "params": {
+    "question": "Poore mohalle ka bill kitna?",
+    "wide": true,
+    "mascot": "side-eye",
+    "stakes": [
+     {
+      "label": "Kaju katli × 1 dabba",
+      "amount": "₹600"
+     },
+     {
+      "label": "× poora mohalla",
+      "amount": "₹ ?"
+     }
+    ],
+    "size": 116,
+    "dy": 50
+   }
+  },
+  {
+   "id": "papa-dabba",
+   "component": "mithai-dabba",
+   "at": "w8",
+   "params": {
+    "layout": "hero",
+    "count": 22,
+    "sticker": "Sirf ek",
+    "mascot": "side-eye"
+   }
+  },
+  {
+   "id": "arre-quote",
+   "component": "marker-highlight",
+   "at": "w14",
+   "params": {
+    "text": "\"Arre, *ek hi* dabba hai.\"",
+    "paper": true,
+    "size": 120
+   }
+  },
+  {
+   "id": "one-box-receipt",
+   "component": "receipt-list",
+   "at": "w20",
+   "fact": "F4",
+   "params": {
+    "title": "MITHAI BHANDAR",
+    "meta": "DIWALI 2026",
+    "items": [
+     {
+      "label": "Kaju katli, 1 dabba",
+      "amount": "₹600"
+     }
+    ],
+    "total": {
+     "label": "TOTAL",
+     "amount": "₹600",
+     "tone": "ink"
+    },
+    "width": 820,
+    "step": 0.2
+   }
+  },
+  {
+   "id": "group-list",
+   "component": "chat-screen",
+   "at": "w27",
+   "sfx": [],
+   "params": {
+    "name": "Parivaar (Diwali)",
+    "stagger": 0.6,
+    "highlight": -1,
+    "messages": [
+     {
+      "from": "them",
+      "text": "Gift list bana lo sab"
+     },
+     {
+      "from": "them",
+      "text": "1. Mamaji"
+     },
+     {
+      "from": "me",
+      "text": "2. Padosi"
+     }
+    ]
+   }
+  },
+  {
+   "id": "aunty-glyph",
+   "component": "glyph-character",
+   "at": "w35",
+   "params": {
+    "glyph": "?",
+    "costume": "none",
+    "eyes": "side-eye",
+    "bubble": "Naam? Kisi ko nahi pata",
+    "bubbleSide": "right",
+    "size": 420,
+    "x": 330,
+    "y": 700
+   }
+  },
+  {
+   "id": "meme-bas-karo",
+   "component": "meme",
+   "at": "w43+0.3",
+   "params": {
+    "meme": "Bas karo bhai",
+    "kind": "image",
+    "pick": 0,
+    "wide": true,
+    "headline": "List abhi shuru hui",
+    "labels": [
+     {
+      "text": "Gift list, naam #4",
+      "x": 50,
+      "y": 12
+     }
+    ]
+   }
+  },
+  {
+   "id": "thirty-receipt",
+   "component": "receipt-list",
+   "at": "w49+0.1",
+   "cut": "zoom",
+   "sfx": [],
+   "fact": "F6",
+   "params": {
+    "title": "MITHAI BHANDAR",
+    "meta": "DIWALI 2026",
+    "width": 820,
+    "step": 0.2,
+    "totalAt": 1.95,
+    "circleTotal": false,
+    "items": [
+     {
+      "label": "Kaju katli, 1 dabba",
+      "amount": "₹600"
+     },
+     {
+      "label": "× 30 ghar",
+      "amount": ""
+     }
+    ],
+    "total": {
+     "label": "TOTAL",
+     "amount": "₹18,000",
+     "tone": "red"
+    }
+   }
+  },
+  {
+   "id": "stamp-18000",
+   "component": "stamp",
+   "at": "w55+0.2",
+   "until": "w57",
+   "fact": "F6",
+   "params": {
+    "text": "₹18,000",
+    "sub": "30 dabbe",
+    "x": 540,
+    "y": 980,
+    "rotate": -8,
+    "size": 120
+   }
+  },
+  {
+   "id": "list-live",
+   "component": "checklist",
+   "at": "w56",
+   "params": {
+    "title": "List (live)",
+    "grow": false,
+    "stagger": 0.25,
+    "items": [
+     {
+      "text": "Mamaji",
+      "ok": true
+     },
+     {
+      "text": "Padosi",
+      "ok": true
+     },
+     {
+      "text": "Woh aunty",
+      "ok": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "saale",
+   "component": "marker-highlight",
+   "at": "w62",
+   "params": {
+    "text": "+ Mamaji ke *saale*",
+    "paper": true,
+    "size": 120
+   }
+  },
+  {
+   "id": "target-small",
+   "component": "marker-highlight",
+   "at": "w66",
+   "params": {
+    "text": "Target: *chhoti* list",
+    "paper": true,
+    "size": 120
+   }
+  },
+  {
+   "id": "papa-note",
+   "component": "statement",
+   "at": "w72",
+   "params": {
+    "title": "Papa ki diary",
+    "paper": true,
+    "size": 140,
+    "body": [
+     "Teesri manzil wale —",
+     "dhyaan rakhna"
+    ]
+   }
+  },
+  {
+   "id": "their-big-box",
+   "component": "mithai-dabba",
+   "at": "w79",
+   "params": {
+    "layout": "hero",
+    "count": 30,
+    "sticker": "Unka: bada wala"
+   }
+  },
+  {
+   "id": "gift-udhaar",
+   "component": "split-compare",
+   "at": "w85",
+   "params": {
+    "left": {
+     "title": "Socha",
+     "text": "Gift"
+    },
+    "right": {
+     "title": "Asal mein",
+     "text": "Udhaar"
+    },
+    "strikeAt": 1.2,
+    "revealAt": 2.05
+   }
+  },
+  {
+   "id": "facepalm",
+   "component": "mascot-reaction",
+   "at": "w93",
+   "until": "w96-0.2",
+   "params": {
+    "expr": "facepalm",
+    "anim": "blink"
+   }
+  },
+  {
+   "id": "cut-list",
+   "component": "checklist",
+   "at": "w96-0.2",
+   "sfx": [
+    {
+     "sound": "scissors",
+     "at": 0.85
+    }
+   ],
+   "params": {
+    "title": "Kaatne baitha",
+    "stagger": 0.5,
+    "items": [
+     {
+      "text": "Sharma uncle",
+      "ok": false
+     },
+     {
+      "text": "Woh aunty",
+      "ok": false
+     }
+    ]
+   }
+  },
+  {
+   "id": "plus-bua",
+   "component": "envelope",
+   "at": "w101",
+   "params": {
+    "lines": [
+     "Bill to",
+     "Bua ji",
+     "naya naam, list ke end mein"
+    ],
+    "pincode": "",
+    "postmark": "+1 GHAR"
+   }
+  },
+  {
+   "id": "gst-cut",
+   "component": "odometer-number",
+   "at": "w107",
+   "fact": "F1",
+   "params": {
+    "value": 5,
+    "from": 12,
+    "prefix": "",
+    "suffix": "%",
+    "label": "Badaam-pista pe GST",
+    "sub": "22 Sep 2025 se",
+    "rollStart": 1.5,
+    "rollDuration": 0.7
+   }
+  },
+  {
+   "id": "tax-vs-list",
+   "component": "meme-format",
+   "at": "w118",
+   "params": {
+    "format": "two-panel",
+    "reveal": 2.2,
+    "panels": [
+     {
+      "label": "Sarkar",
+      "text": "Tax kaat diya",
+      "expr": "smug"
+     },
+     {
+      "label": "Hum",
+      "text": "List? Ek naam nahi",
+      "expr": "facepalm"
+     }
+    ]
+   }
+  },
+  {
+   "id": "flip-it",
+   "component": "marker-highlight",
+   "at": "w126",
+   "cut": "wipe",
+   "params": {
+    "text": "Pehle *total*, phir divide"
+   }
+  },
+  {
+   "id": "per-house",
+   "component": "odometer-number",
+   "at": "w132",
+   "fact": "F7",
+   "params": {
+    "value": 400,
+    "from": 12000,
+    "label": "₹12,000 ÷ 30 ghar",
+    "rollStart": 2.45,
+    "rollDuration": 1.0
+   }
+  },
+  {
+   "id": "stamp-400",
+   "component": "stamp",
+   "at": "w143-0.1",
+   "fact": "F7",
+   "params": {
+    "text": "₹400 / ghar",
+    "x": 520,
+    "y": 1040,
+    "rotate": -7,
+    "size": 100
+   },
+   "until": "w145"
+  },
+  {
+   "id": "small-dabba",
+   "component": "mithai-dabba",
+   "at": "w145",
+   "params": {
+    "layout": "hero",
+    "count": 6,
+    "sticker": "Aura: kam"
+   }
+  },
+  {
+   "id": "meme-aura",
+   "component": "meme",
+   "at": "w153",
+   "params": {
+    "meme": "Aura Farming",
+    "kind": "image",
+    "pick": 0,
+    "headline": "Bada dabba wale log",
+    "labels": [
+     {
+      "text": "−400 ka aura",
+      "x": 50,
+      "y": 85
+     }
+    ]
+   }
+  },
+  {
+   "id": "callback-receipt",
+   "component": "receipt-list",
+   "at": "w160",
+   "fact": "F7",
+   "params": {
+    "title": "MITHAI BHANDAR",
+    "meta": "DIWALI 2026",
+    "printed": true,
+    "width": 820,
+    "items": [
+     {
+      "label": "Ek hi dabba",
+      "amount": "₹400"
+     }
+    ],
+    "total": {
+     "label": "PER GHAR",
+     "amount": "₹400",
+     "tone": "green"
+    }
+   }
+  },
+  {
+   "id": "smug",
+   "component": "mascot-reaction",
+   "at": "w160",
+   "duration": 2.0,
+   "params": {
+    "expr": "smug",
+    "anim": "blink"
+   }
+  }
+ ],
+ "effects": [
+  {
+   "type": "punch",
+   "at": "w89"
+  },
+  {
+   "type": "punch",
+   "at": "w125"
+  },
+  {
+   "type": "punch",
+   "at": "w150"
+  }
+ ]
+}
