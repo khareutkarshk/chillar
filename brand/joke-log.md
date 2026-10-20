@@ -2,7 +2,12 @@
 
 Use it on round 1. **Games taken:** don't build a new reel on one of these. **Landed:** reuse the *shape* (act-out, self-own, callback), never the line. **Fell flat:** don't write that kind of joke again. **Audience drops** are real Instagram retention — the strongest signal here.
 
-**Overused lately** (in half or more of the last 6 scripts): cart (4/6), dost (3/6), Diwali (3/6) — lead with a different person/place, or make the moment around it new.
+**Overused lately** (in half or more of the last 6 scripts): cart (4/6), Diwali (3/6) — lead with a different person/place, or make the moment around it new.
+
+## 2026-10-28-free-trial-autopay — Free trial khatam, autopay nahi
+- game taken: "2 AM wala main" is a separate person who signs things that daytime me pays for: he gives the PIN, day-me buries the warning, the bill adds up,…
+- landed: Main. Aadhi raat wala main.
+- landed: Woh PIN payment nahi, recurring debit ki permission thi.
 
 ## 2026-10-27-diwali-bonus-tax — Diwali bonus pe tax: mummy wala lifafa
 - game taken: tax/TDS is mummy keeping your Diwali lifafa "main rakh leti hoon"; every chapter replays it (slab = bigger cut from the last lifafa, rebate = dost…
@@ -30,8 +35,3 @@ Use it on round 1. **Games taken:** don't build a new reel on one of these. **La
 - landed: ₹100 pe bhi 10% milega. Bas cart ₹5,000 ka ho.
 - fell flat: Baaki log popcorn leke dekhein
 - fell flat: Vakeel: 'Marzi aapki, my lord.'
-
-## 2026-10-no-cost-emi — No Cost EMI ka hidden cost
-- game taken: interest is a kid hiding behind the "no cost" curtain with its chappals showing. It's
-- landed: Aksar processing fee mein camouflage hota hai. RBI ka shabd, mera nahi.
-- landed: 'Free mein pada' ab bhi pinned hai.

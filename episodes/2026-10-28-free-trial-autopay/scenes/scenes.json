@@ -1,0 +1,389 @@
+{
+ "theme": "night",
+ "scenes": [
+  {
+   "id": "s01-passbook",
+   "component": "passbook-page",
+   "at": 0,
+   "fact": "F9",
+   "params": {
+    "printed": true,
+    "opening": 5000,
+    "circleBalance": false,
+    "rows": [
+     {
+      "date": "15-03",
+      "text": "AUTOPAY",
+      "amount": 199,
+      "type": "dr"
+     },
+     {
+      "date": "15-04",
+      "text": "AUTOPAY",
+      "amount": 199,
+      "type": "dr"
+     },
+     {
+      "date": "15-05",
+      "text": "AUTOPAY",
+      "amount": 199,
+      "type": "dr"
+     },
+     {
+      "date": "15-06",
+      "text": "AUTOPAY",
+      "amount": 199,
+      "type": "dr"
+     },
+     {
+      "date": "15-07",
+      "text": "AUTOPAY",
+      "amount": 199,
+      "type": "dr"
+     },
+     {
+      "date": "15-08",
+      "text": "AUTOPAY",
+      "amount": 199,
+      "type": "dr"
+     },
+     {
+      "date": "15-09",
+      "text": "AUTOPAY",
+      "amount": 199,
+      "type": "dr"
+     },
+     {
+      "date": "15-10",
+      "text": "AUTOPAY",
+      "amount": 199,
+      "type": "dr"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s02-nobody",
+   "component": "meme-format",
+   "at": "w10+0.2",
+   "params": {
+    "format": "nobody-me",
+    "reveal": 0.4,
+    "panels": [
+     {
+      "label": "Nobody:",
+      "text": "...",
+      "expr": "neutral-tired"
+     },
+     {
+      "label": "Main, raat 2 baje:",
+      "text": "Free trial pe PIN",
+      "expr": "side-eye"
+     }
+    ]
+   }
+  },
+  {
+   "id": "s03-chat",
+   "component": "chat-screen",
+   "at": "w16",
+   "fact": "F6",
+   "params": {
+    "name": "Trial wala app",
+    "stagger": 0.5,
+    "highlight": 2,
+    "messages": [
+     {
+      "from": "them",
+      "text": "7 din free! Autopay on karein?"
+     },
+     {
+      "from": "me",
+      "text": "Haan haan, PIN daal diya"
+     },
+     {
+      "from": "me",
+      "text": "*Kal cancel kar dunga*"
+     }
+    ],
+    "times": false
+   }
+  },
+  {
+   "id": "s04-split",
+   "component": "split-compare",
+   "at": "w29",
+   "fact": "F6",
+   "params": {
+    "left": {
+     "title": "Socha",
+     "text": "Ek baar ka PIN"
+    },
+    "right": {
+     "title": "Asal",
+     "text": "Har mahine ki permission"
+    },
+    "strikeAt": 0.6,
+    "revealAt": 0.9
+   }
+  },
+  {
+   "id": "s06-notice",
+   "component": "marker-highlight",
+   "at": "w38",
+   "fact": "F2",
+   "params": {
+    "text": "Kal aapka *autopay debit* hoga.",
+    "sub": "Bank ka SMS, 24 ghante pehle",
+    "paper": true,
+    "size": 120
+   }
+  },
+  {
+   "id": "s06-sms",
+   "component": "chat-screen",
+   "at": "w48",
+   "params": {
+    "name": "BANK",
+    "stagger": 0.3,
+    "highlight": 2,
+    "dy": 0,
+    "messages": [
+     {
+      "from": "them",
+      "text": "OTP 482913. Kisi ko na batayein."
+     },
+     {
+      "from": "them",
+      "text": "OTP 771204. Kisi ko na batayein."
+     },
+     {
+      "from": "them",
+      "text": "Kal aapka *autopay debit* hoga."
+     },
+     {
+      "from": "them",
+      "text": "OTP 390557. Kisi ko na batayein."
+     },
+     {
+      "from": "them",
+      "text": "OTP 118846. Kisi ko na batayein."
+     }
+    ],
+    "times": false
+   }
+  },
+  {
+   "id": "o07-bury",
+   "component": "mascot-reaction",
+   "at": "w54",
+   "until": "w58",
+   "sfx": [],
+   "params": {
+    "expr": "facepalm",
+    "anim": "blink",
+    "x": 780,
+    "y": 1130,
+    "size": 260
+   }
+  },
+  {
+   "id": "s08-receipt",
+   "component": "receipt-list",
+   "at": "w58",
+   "fact": "F9",
+   "params": {
+    "title": "MAAN LO",
+    "meta": "har mahine",
+    "step": 0.15,
+    "items": [
+     {
+      "label": "Trial 1",
+      "amount": "₹199"
+     },
+     {
+      "label": "Trial 2",
+      "amount": "₹199"
+     },
+     {
+      "label": "Trial 3",
+      "amount": "₹199"
+     },
+     {
+      "label": "Trial 4",
+      "amount": "₹199"
+     },
+     {
+      "label": "Trial 5",
+      "amount": "₹199"
+     },
+     {
+      "label": "Trial 6",
+      "amount": "₹199"
+     }
+    ],
+    "total": {
+     "label": "MAHINA",
+     "amount": "₹1,194",
+     "tone": "ink"
+    }
+   }
+  },
+  {
+   "id": "s09-year",
+   "component": "odometer-number",
+   "at": "w63",
+   "fact": "F9",
+   "params": {
+    "value": 14328,
+    "prefix": "₹",
+    "label": "Saal ka",
+    "rollStart": 0.95,
+    "rollDuration": 0.6,
+    "dy": 80,
+    "from": 1194,
+    "size": 220
+   }
+  },
+  {
+   "id": "o10-stamp",
+   "component": "stamp",
+   "at": "w67+0.4",
+   "duration": 1.4,
+   "fact": "F9",
+   "params": {
+    "text": "₹14,328",
+    "sub": "saal ka",
+    "x": 560,
+    "y": 470,
+    "rotate": -7,
+    "size": 120
+   }
+  },
+  {
+   "id": "s11-calendar",
+   "component": "calendar-flip",
+   "at": "w68+0.3",
+   "params": {
+    "pages": [
+     "MAR 2026",
+     "OCT 2026",
+     "OCT 2027"
+    ],
+    "flip": 0.08,
+    "width": 860
+   }
+  },
+  {
+   "id": "o11b-shock",
+   "component": "mascot-reaction",
+   "at": "w69+0.6",
+   "until": "w72",
+   "params": {
+    "expr": "shocked",
+    "anim": "blink",
+    "x": 800,
+    "y": 1180,
+    "size": 230
+   }
+  },
+  {
+   "id": "s12-checklist",
+   "component": "checklist",
+   "at": "w72",
+   "cut": "wipe",
+   "fact": "F7",
+   "params": {
+    "title": "Aaj raat ka kaam",
+    "stagger": 0.2,
+    "items": [
+     {
+      "text": "UPI app kholo",
+      "ok": true
+     },
+     {
+      "text": "Autopay / Mandates section",
+      "ok": true
+     },
+     {
+      "text": "Bhoola hua trial dhoondo",
+      "ok": true
+     }
+    ],
+    "grow": false
+   }
+  },
+  {
+   "id": "s12b-mandate",
+   "component": "receipt-list",
+   "at": "w80",
+   "fact": "F7",
+   "params": {
+    "title": "MANDATE",
+    "meta": "Trial wala app",
+    "printed": true,
+    "width": 860,
+    "stampTotal": true,
+    "items": [
+     {
+      "label": "Type",
+      "amount": "Autopay"
+     },
+     {
+      "label": "Status",
+      "amount": "Active"
+     }
+    ],
+    "total": {
+     "label": "AB",
+     "amount": "REVOKED",
+     "tone": "ink"
+    }
+   }
+  },
+  {
+   "id": "s13-otp",
+   "component": "glyph-character",
+   "at": "w85",
+   "fact": "F4",
+   "params": {
+    "glyph": "PIN",
+    "costume": "detective",
+    "eyes": "side-eye",
+    "bubble": "Pehle verify.",
+    "bubbleSide": "right",
+    "size": 260,
+    "x": 440,
+    "y": 640,
+    "maxWidth": 520
+   }
+  },
+  {
+   "id": "o14-smug",
+   "component": "mascot-reaction",
+   "at": "w91",
+   "params": {
+    "expr": "smug",
+    "anim": "blink",
+    "x": 780,
+    "y": 1120,
+    "size": 280
+   },
+   "duration": 1.0
+  }
+ ],
+ "effects": [
+  {
+   "type": "punch",
+   "at": "w28"
+  },
+  {
+   "type": "punch",
+   "at": "w71"
+  },
+  {
+   "type": "punch",
+   "at": "w93"
+  }
+ ]
+}
