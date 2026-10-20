@@ -25,14 +25,14 @@
     "semantic_hash": ""
   },
   "components/calendar-flip/component.js": {
-    "mtime": 1792413917.6083624,
-    "ast_hash": "93d01e26e6102b39327640e86e237dab",
+    "mtime": 1792521115.1270914,
+    "ast_hash": "13edd68fe21adddd42f50b599ad71d51",
     "semantic_hash": ""
   },
   "components/calendar-flip/component.json": {
-    "mtime": 1792397458.6922088,
-    "ast_hash": "c3b48ec64006aa584cb8b9f86d938239",
-    "semantic_hash": "c3b48ec64006aa584cb8b9f86d938239"
+    "mtime": 1792521106.6449277,
+    "ast_hash": "fc48e308cb4d45cdd78294766a066664",
+    "semantic_hash": ""
   },
   "components/captions/component.js": {
     "mtime": 1792479529.5542626,
@@ -430,8 +430,8 @@
     "semantic_hash": "0dc2d491af9b5e44782e341239503b0e"
   },
   ".claude/agents/director.md": {
-    "mtime": 1792494895.949414,
-    "ast_hash": "1d6321134039a0963b7f61117ab0f023",
+    "mtime": 1792521163.616029,
+    "ast_hash": "1a52e2f3bc5697367dae27164203e35b",
     "semantic_hash": ""
   },
   ".claude/agents/editor.md": {
@@ -455,8 +455,8 @@
     "semantic_hash": ""
   },
   ".claude/agents/video-reviewer.md": {
-    "mtime": 1792494745.15379,
-    "ast_hash": "ca1aa2ff17172a5bdbf9f284395799dc",
+    "mtime": 1792521043.9737244,
+    "ast_hash": "e22f53e68ec813a72f2d7891b13292ce",
     "semantic_hash": ""
   },
   ".claude/commands/fact-check.md": {
@@ -470,8 +470,8 @@
     "semantic_hash": "9f1e0027caa041138f7221fbe1661e50"
   },
   ".claude/commands/make-reel.md": {
-    "mtime": 1792504227.9031048,
-    "ast_hash": "1853d013939b475968835f989a8261dc",
+    "mtime": 1792521060.0590324,
+    "ast_hash": "112f4cf1a47f8f1d15c90421a9940ae7",
     "semantic_hash": ""
   },
   ".claude/commands/new-reel.md": {
@@ -480,9 +480,9 @@
     "semantic_hash": ""
   },
   ".claude/commands/package.md": {
-    "mtime": 1792398894.6977437,
-    "ast_hash": "ec4e215f5e2125c6b10983256b022a5b",
-    "semantic_hash": "ec4e215f5e2125c6b10983256b022a5b"
+    "mtime": 1792521075.7443333,
+    "ast_hash": "78f84eb9c575bbca34c6bdc498174501",
+    "semantic_hash": ""
   },
   ".claude/commands/render.md": {
     "mtime": 1792407019.6866837,
@@ -605,8 +605,8 @@
     "semantic_hash": ""
   },
   "components/_catalog.md": {
-    "mtime": 1792506704.2019374,
-    "ast_hash": "10f4c5cf5ff9209cccf10ca4d37d6a2c",
+    "mtime": 1792521352.1014235,
+    "ast_hash": "67bebf323d44890e406749f0874b5b35",
     "semantic_hash": ""
   },
   "brand/rules/posting-schedule.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792503988.8888118,
-    "ast_hash": "d0738478b4a491e743590957cd15aee8",
+    "mtime": 1792521327.1742656,
+    "ast_hash": "9b89f1c0430a1bf1158f6367d7d1b660",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -655,8 +655,8 @@
     "semantic_hash": ""
   },
   ".claude/agents/voice.md": {
-    "mtime": 1792492705.2717526,
-    "ast_hash": "55ce99f00e418a68750772c70e427c32",
+    "mtime": 1792521329.706488,
+    "ast_hash": "d3557a87912e1fc795cf9d12a6a08c04",
     "semantic_hash": ""
   },
   "episodes/2026-10-credit-card-myth/scenes/scenes.json": {
@@ -705,13 +705,13 @@
     "semantic_hash": ""
   },
   "components/meme/component.js": {
-    "mtime": 1792480892.9513361,
-    "ast_hash": "f0daa667b45771d4ffb3882cd39f470d",
+    "mtime": 1792521228.9450428,
+    "ast_hash": "c1d2755e2a2f109600fb7c5c1e5d240d",
     "semantic_hash": ""
   },
   "components/meme/component.json": {
-    "mtime": 1792480892.9463358,
-    "ast_hash": "e462e58cbcc36431f1be949c64fd17f7",
+    "mtime": 1792521244.7696116,
+    "ast_hash": "b0ebf649ebcb03d4c191a2f9ffae84f0",
     "semantic_hash": ""
   },
   "pipeline/memes.py": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "pipeline/agent_context.py": {
-    "mtime": 1792495257.6026163,
-    "ast_hash": "f84ffe7f72ae741c491aa91f55aaf562",
+    "mtime": 1792520945.2208476,
+    "ast_hash": "ee2d769d51e72344018a4b36dc823f9f",
     "semantic_hash": ""
   },
   "brand/shot-patterns.json": {
@@ -835,8 +835,8 @@
     "semantic_hash": ""
   },
   "episodes/2026-10-26-report-mdr-payer/scenes/scenes.json": {
-    "mtime": 1792507621.5278566,
-    "ast_hash": "091358fc2c498cbef2c2d9bd03e651d2",
+    "mtime": 1792521822.5735388,
+    "ast_hash": "b4bccf6f6c897710656ba7d836863d53",
     "semantic_hash": ""
   },
   "episodes/2026-10-26-report-mdr-payer/cover.md": {
