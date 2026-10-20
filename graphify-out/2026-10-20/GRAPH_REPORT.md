@@ -1,11 +1,11 @@
 # Graph Report - chillar  (2026-10-20)
 
 ## Corpus Check
-- 157 files · ~90,447 words
+- 158 files · ~91,821 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 680 nodes · 1161 edges · 81 communities (62 shown, 19 thin omitted)
+- 682 nodes · 1162 edges · 82 communities (62 shown, 20 thin omitted)
 - Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 69 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
@@ -63,7 +63,8 @@
 - 2026-10-no-cost-emi/cover.md
 - 2026-10-sale-fine-print/script.md
 - 2026-10-sale-fine-print/cover.md
-- voice_check.py
+- audio_clean.py
+- _backlog.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `Candidate` - 40 edges
@@ -97,15 +98,15 @@
 - **Edit suite loop (director → editor → render → video-reviewer)** — _claude_agents_director, _claude_agents_editor, _claude_agents_video_reviewer, _claude_commands_render, _claude_agents_director_scenes_json, pipeline_make_reel [EXTRACTED 1.00]
 - **12 LPA CTC → ₹86,468 in-hand computation** — episodes_2026_10_12lpa_in_hand_facts_f9, episodes_2026_10_12lpa_in_hand_facts_f1, episodes_2026_10_12lpa_in_hand_facts_f2, episodes_2026_10_12lpa_in_hand_facts_f4, episodes_2026_10_12lpa_in_hand_facts_f6, episodes_2026_10_12lpa_in_hand_facts_f7, episodes_2026_10_12lpa_in_hand_facts_f8 [EXTRACTED 1.00]
 
-## Communities (81 total, 19 thin omitted)
+## Communities (82 total, 20 thin omitted)
 
 ### Community 0 - "Candidate"
 Cohesion: 0.06
 Nodes (68): Exception, Candidate, env(), polite_sleep(), Shared paths, env, HTTP session and politeness helpers., One downloadable asset. `verify()` must be called right before download., text_of(), check_policy() (+60 more)
 
 ### Community 1 - "CLAUDE.md brand bible"
-Cohesion: 0.06
-Nodes (66): director agent, @chillar.ind wordmark (x 72-492, y 1460-1500), Motivated transitions (hard cut default; whip/zoom/wipe/page budgeted), No on-screen structure labels rule, Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists), scenes/scenes.json shot plan, Show, don't caption, editor agent (+58 more)
+Cohesion: 0.05
+Nodes (73): director agent, @chillar.ind wordmark (x 72-492, y 1460-1500), Motivated transitions (hard cut default; whip/zoom/wipe/page budgeted), No on-screen structure labels rule, Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists), scenes/scenes.json shot plan, Show, don't caption, editor agent (+65 more)
 
 ### Community 2 - "memes.py"
 Cohesion: 0.13
@@ -113,7 +114,7 @@ Nodes (35): allowed(), _born(), culture_now(), culture_rows(), _download(), ensu
 
 ### Community 3 - "episode.py"
 Cohesion: 0.07
-Nodes (32): align(), _model(), Path, The same timings as words.json in ~⅓ of the tokens, for the agents (one script…, words_txt(), clean(), ff(), find_voice() (+24 more)
+Nodes (30): align(), _model(), Path, The same timings as words.json in ~⅓ of the tokens, for the agents (one script…, words_txt(), grab(), main(), Path (+22 more)
 
 ### Community 4 - "fetch_assets.py"
 Cohesion: 0.19
@@ -192,8 +193,8 @@ Cohesion: 0.50
 Nodes (3): Hook {field: note10}, Payoff {field: note2000}, Turn {field: note500}
 
 ### Community 68 - "qa.py"
-Cohesion: 0.08
-Nodes (37): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+29 more)
+Cohesion: 0.10
+Nodes (30): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+22 more)
 
 ### Community 71 - "tts.py"
 Cohesion: 0.26
@@ -215,14 +216,14 @@ Nodes (3): Hook, Payoff, Turn
 Cohesion: 0.50
 Nodes (3): Hook {field: note10}, Payoff {field: note50}, Turn {field: note20}
 
-### Community 78 - "voice_check.py"
+### Community 78 - "audio_clean.py"
 Cohesion: 0.33
-Nodes (8): best(), check(), main(), Path, Consonant skeleton of a Devanagari word — ASR vowel spelling noise mostly…, One transcription per line clip — a single pass drifts its word times and skips…, skeleton(), transcribe_lines()
+Nodes (10): clean(), ff(), find_voice(), has_filter(), loudnorm(), CompletedProcess, ndarray, Path (+2 more)
 
 ## Knowledge Gaps
-- **109 isolated node(s):** `name`, `private`, `description`, `node`, `doctor` (+104 more)
+- **110 isolated node(s):** `name`, `private`, `description`, `node`, `doctor` (+105 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **20 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -236,8 +237,8 @@ _Questions this graph is uniquely positioned to answer:_
 - **Are the 2 inferred relationships involving `Candidate` (e.g. with `LicenseRefused` and `_log()`) actually correct?**
   _`Candidate` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `name`, `private`, `description` to the rest of the system?**
-  _109 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _110 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Candidate` be split into smaller, more focused modules?**
   _Cohesion score 0.05842259006815969 - nodes in this community are weakly interconnected._
 - **Should `CLAUDE.md brand bible` be split into smaller, more focused modules?**
-  _Cohesion score 0.05750658472344162 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05094905094905095 - nodes in this community are weakly interconnected._

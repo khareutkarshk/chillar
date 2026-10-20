@@ -1029,8 +1029,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pipeline_audio_clean",
-      "community": 3,
-      "community_name": "episode.py",
+      "community": 78,
+      "community_name": "audio_clean.py",
       "norm_label": "audio_clean.py"
     },
     {
@@ -1040,8 +1040,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "pipeline_audio_clean_ff",
-      "community": 3,
-      "community_name": "episode.py",
+      "community": 78,
+      "community_name": "audio_clean.py",
       "norm_label": "ff()"
     },
     {
@@ -1051,8 +1051,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "pipeline_audio_clean_py_completedprocess",
-      "community": 3,
-      "community_name": "episode.py",
+      "community": 78,
+      "community_name": "audio_clean.py",
       "norm_label": "completedprocess"
     },
     {
@@ -1062,8 +1062,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "pipeline_audio_clean_has_filter",
-      "community": 3,
-      "community_name": "episode.py",
+      "community": 78,
+      "community_name": "audio_clean.py",
       "norm_label": "has_filter()"
     },
     {
@@ -1073,8 +1073,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "pipeline_audio_clean_find_voice",
-      "community": 3,
-      "community_name": "episode.py",
+      "community": 78,
+      "community_name": "audio_clean.py",
       "norm_label": "find_voice()"
     },
     {
@@ -1084,8 +1084,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "pipeline_audio_clean_py_path",
-      "community": 3,
-      "community_name": "episode.py",
+      "community": 78,
+      "community_name": "audio_clean.py",
       "norm_label": "path"
     },
     {
@@ -1095,8 +1095,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "pipeline_audio_clean_tighten",
-      "community": 3,
-      "community_name": "episode.py",
+      "community": 78,
+      "community_name": "audio_clean.py",
       "norm_label": "tighten()"
     },
     {
@@ -1106,8 +1106,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "pipeline_audio_clean_py_ndarray",
-      "community": 3,
-      "community_name": "episode.py",
+      "community": 78,
+      "community_name": "audio_clean.py",
       "norm_label": "ndarray"
     },
     {
@@ -1117,8 +1117,8 @@
       "source_location": "L88",
       "_origin": "ast",
       "id": "pipeline_audio_clean_loudnorm",
-      "community": 3,
-      "community_name": "episode.py",
+      "community": 78,
+      "community_name": "audio_clean.py",
       "norm_label": "loudnorm()"
     },
     {
@@ -1128,8 +1128,8 @@
       "source_location": "L98",
       "_origin": "ast",
       "id": "pipeline_audio_clean_clean",
-      "community": 3,
-      "community_name": "episode.py",
+      "community": 78,
+      "community_name": "audio_clean.py",
       "norm_label": "clean()"
     },
     {
@@ -1139,8 +1139,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "pipeline_audio_clean_rationale_47",
-      "community": 3,
-      "community_name": "episode.py",
+      "community": 78,
+      "community_name": "audio_clean.py",
       "norm_label": "shorten every pause (silence or breath below thresh) to max_gap, with 8 ms..."
     },
     {
@@ -4868,8 +4868,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pipeline_validate_scenes",
-      "community": 68,
-      "community_name": "qa.py",
+      "community": 1,
+      "community_name": "CLAUDE.md brand bible",
       "norm_label": "validate_scenes.py"
     },
     {
@@ -4879,8 +4879,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "pipeline_validate_scenes_ctx",
-      "community": 68,
-      "community_name": "qa.py",
+      "community": 1,
+      "community_name": "CLAUDE.md brand bible",
       "norm_label": "ctx"
     },
     {
@@ -4890,8 +4890,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "pipeline_validate_scenes_ctx_init",
-      "community": 68,
-      "community_name": "qa.py",
+      "community": 1,
+      "community_name": "CLAUDE.md brand bible",
       "norm_label": ".__init__()"
     },
     {
@@ -4901,8 +4901,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "pipeline_validate_scenes_ctx_t",
-      "community": 68,
-      "community_name": "qa.py",
+      "community": 1,
+      "community_name": "CLAUDE.md brand bible",
       "norm_label": ".t()"
     },
     {
@@ -4912,8 +4912,8 @@
       "source_location": "L76",
       "_origin": "ast",
       "id": "pipeline_validate_scenes_chapter_starts",
-      "community": 68,
-      "community_name": "qa.py",
+      "community": 1,
+      "community_name": "CLAUDE.md brand bible",
       "norm_label": "chapter_starts()"
     },
     {
@@ -4923,8 +4923,8 @@
       "source_location": "L85",
       "_origin": "ast",
       "id": "pipeline_validate_scenes_caption_groups",
-      "community": 68,
-      "community_name": "qa.py",
+      "community": 1,
+      "community_name": "CLAUDE.md brand bible",
       "norm_label": "caption_groups()"
     },
     {
@@ -4934,8 +4934,8 @@
       "source_location": "L111",
       "_origin": "ast",
       "id": "pipeline_validate_scenes_strings",
-      "community": 68,
-      "community_name": "qa.py",
+      "community": 1,
+      "community_name": "CLAUDE.md brand bible",
       "norm_label": "strings()"
     },
     {
@@ -4945,8 +4945,8 @@
       "source_location": "L123",
       "_origin": "ast",
       "id": "pipeline_validate_scenes_resolve",
-      "community": 68,
-      "community_name": "qa.py",
+      "community": 1,
+      "community_name": "CLAUDE.md brand bible",
       "norm_label": "resolve()"
     },
     {
@@ -4956,8 +4956,8 @@
       "source_location": "L499",
       "_origin": "ast",
       "id": "pipeline_validate_scenes_main",
-      "community": 68,
-      "community_name": "qa.py",
+      "community": 1,
+      "community_name": "CLAUDE.md brand bible",
       "norm_label": "main()"
     },
     {
@@ -4967,8 +4967,8 @@
       "source_location": "L112",
       "_origin": "ast",
       "id": "pipeline_validate_scenes_rationale_112",
-      "community": 68,
-      "community_name": "qa.py",
+      "community": 1,
+      "community_name": "CLAUDE.md brand bible",
       "norm_label": "every string a viewer could read in a params tree."
     },
     {
@@ -4978,8 +4978,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pipeline_voice_check",
-      "community": 78,
-      "community_name": "voice_check.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "voice_check.py"
     },
     {
@@ -4989,8 +4989,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "pipeline_voice_check_skeleton",
-      "community": 78,
-      "community_name": "voice_check.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "skeleton()"
     },
     {
@@ -5000,8 +5000,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "pipeline_voice_check_best",
-      "community": 78,
-      "community_name": "voice_check.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "best()"
     },
     {
@@ -5011,8 +5011,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "pipeline_voice_check_transcribe_lines",
-      "community": 78,
-      "community_name": "voice_check.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "transcribe_lines()"
     },
     {
@@ -5022,8 +5022,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "pipeline_voice_check_py_path",
-      "community": 78,
-      "community_name": "voice_check.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "path"
     },
     {
@@ -5033,8 +5033,8 @@
       "source_location": "L65",
       "_origin": "ast",
       "id": "pipeline_voice_check_check",
-      "community": 78,
-      "community_name": "voice_check.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "check()"
     },
     {
@@ -5044,8 +5044,8 @@
       "source_location": "L109",
       "_origin": "ast",
       "id": "pipeline_voice_check_main",
-      "community": 78,
-      "community_name": "voice_check.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "main()"
     },
     {
@@ -5055,8 +5055,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "pipeline_voice_check_rationale_40",
-      "community": 78,
-      "community_name": "voice_check.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "consonant skeleton of a devanagari word \u2014 asr vowel spelling noise mostly..."
     },
     {
@@ -5066,8 +5066,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "pipeline_voice_check_rationale_54",
-      "community": 78,
-      "community_name": "voice_check.py",
+      "community": 3,
+      "community_name": "episode.py",
       "norm_label": "one transcription per line clip \u2014 a single pass drifts its word times and skips..."
     },
     {
@@ -5308,7 +5308,7 @@
       "label": "Report (hard limit)",
       "file_type": "document",
       "source_file": ".claude/agents/researcher.md",
-      "source_location": "L39",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "claude_agents_researcher_report_hard_limit",
       "community": 62,
@@ -5330,7 +5330,7 @@
       "label": "Report (hard limit)",
       "file_type": "document",
       "source_file": ".claude/agents/voice.md",
-      "source_location": "L25",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "claude_agents_voice_report_hard_limit",
       "community": 63,
@@ -5776,6 +5776,28 @@
       "community": 54,
       "community_name": "voice.md",
       "norm_label": "voiceover details (/voiceover)"
+    },
+    {
+      "label": "_backlog.md",
+      "file_type": "document",
+      "source_file": "components/_backlog.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_backlog",
+      "community": 81,
+      "community_name": "_backlog.md",
+      "norm_label": "_backlog.md"
+    },
+    {
+      "label": "Component backlog",
+      "file_type": "document",
+      "source_file": "components/_backlog.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_backlog_component_backlog",
+      "community": 81,
+      "community_name": "_backlog.md",
+      "norm_label": "component backlog"
     },
     {
       "label": "_catalog.md",
@@ -18330,7 +18352,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".claude/agents/researcher.md",
-      "source_location": "L39",
+      "source_location": "L46",
       "weight": 1.0,
       "_origin": "ast",
       "source": "claude_agents_researcher",
@@ -18341,7 +18363,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": ".claude/agents/voice.md",
-      "source_location": "L25",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "claude_agents_voice",
@@ -18687,6 +18709,17 @@
       "_origin": "ast",
       "source": "brand_rules_voice",
       "target": "brand_rules_voice_voiceover_details_voiceover",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/_backlog.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_backlog",
+      "target": "components_backlog_component_backlog",
       "confidence_score": 1.0
     },
     {

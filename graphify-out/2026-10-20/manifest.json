@@ -430,13 +430,13 @@
     "semantic_hash": "0dc2d491af9b5e44782e341239503b0e"
   },
   ".claude/agents/director.md": {
-    "mtime": 1792482294.196873,
-    "ast_hash": "3b12b088ab763b26255610d2f7cb2cbc",
+    "mtime": 1792492685.963714,
+    "ast_hash": "233e42f1a18f64ce9e85aee2491d5a62",
     "semantic_hash": ""
   },
   ".claude/agents/editor.md": {
-    "mtime": 1792479461.7853887,
-    "ast_hash": "4c370fa57bf5b4fd7a123786816b03c2",
+    "mtime": 1792492706.3159125,
+    "ast_hash": "6371645667d891ba88d39851c2fef1e0",
     "semantic_hash": ""
   },
   ".claude/agents/fact-checker.md": {
@@ -445,18 +445,18 @@
     "semantic_hash": ""
   },
   ".claude/agents/script-reviewer.md": {
-    "mtime": 1792481967.0929496,
-    "ast_hash": "115c4146624fcd150c18d7beb2aa7724",
+    "mtime": 1792492733.263882,
+    "ast_hash": "59077a834b131a11e603b60e400c5dd2",
     "semantic_hash": ""
   },
   ".claude/agents/scriptwriter.md": {
-    "mtime": 1792481967.0929496,
-    "ast_hash": "b21eed4292004974511480e447547621",
+    "mtime": 1792492732.2237341,
+    "ast_hash": "f6aa3be7d22ec12090134195458a285a",
     "semantic_hash": ""
   },
   ".claude/agents/video-reviewer.md": {
-    "mtime": 1792481371.9234693,
-    "ast_hash": "b877736bc7a87df2c7a857cfcbcb43b9",
+    "mtime": 1792492708.3992298,
+    "ast_hash": "10800205968b3df611ad6014c1d8f540",
     "semantic_hash": ""
   },
   ".claude/commands/fact-check.md": {
@@ -470,8 +470,8 @@
     "semantic_hash": "9f1e0027caa041138f7221fbe1661e50"
   },
   ".claude/commands/make-reel.md": {
-    "mtime": 1792436619.8514402,
-    "ast_hash": "9e5fe7959dbc473802f45fc3cd064287",
+    "mtime": 1792492753.9897468,
+    "ast_hash": "714d4f43acbc79e5b5724bf26ad5b4dd",
     "semantic_hash": ""
   },
   ".claude/commands/new-reel.md": {
@@ -495,8 +495,8 @@
     "semantic_hash": "7dea7cacd6c2b066c5ec6b73278df045"
   },
   "CLAUDE.md": {
-    "mtime": 1792489394.6710472,
-    "ast_hash": "116bd5c1212b2016a596eb5db809b16f",
+    "mtime": 1792492764.1390944,
+    "ast_hash": "66b0535f24b9b1465a920b3772314fb7",
     "semantic_hash": ""
   },
   "README.md": {
@@ -525,9 +525,9 @@
     "semantic_hash": "2fca5a46232f517915db18158cc7d416"
   },
   "episodes/_template/facts.md": {
-    "mtime": 1792347427.99176,
-    "ast_hash": "a305f1e694a54949b5fc3b76e58f9386",
-    "semantic_hash": "a305f1e694a54949b5fc3b76e58f9386"
+    "mtime": 1792492751.9044657,
+    "ast_hash": "e30e549b4237f3fe09c36a4328db7e89",
+    "semantic_hash": ""
   },
   "episodes/_template/script.md": {
     "mtime": 1792398028.0783834,
@@ -590,8 +590,8 @@
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
-    "mtime": 1792406892.0589814,
-    "ast_hash": "3a64dcd254444678ebb617749639f17f",
+    "mtime": 1792492752.9506068,
+    "ast_hash": "20cff5d0d5bc36305509bf37b62ddc91",
     "semantic_hash": ""
   },
   "brand/rules/themes.md": {
@@ -650,13 +650,13 @@
     "semantic_hash": ""
   },
   ".claude/agents/researcher.md": {
-    "mtime": 1792481967.0919495,
-    "ast_hash": "a59f8ba53da8ad8e10656e2f0bfc3d02",
+    "mtime": 1792492731.1815856,
+    "ast_hash": "20bae902994c1e91ec5d29d9ff68969c",
     "semantic_hash": ""
   },
   ".claude/agents/voice.md": {
-    "mtime": 1792416405.4714339,
-    "ast_hash": "1d48a139c73b37ce2c7bd85205ff0f31",
+    "mtime": 1792492705.2717526,
+    "ast_hash": "55ce99f00e418a68750772c70e427c32",
     "semantic_hash": ""
   },
   "episodes/2026-10-credit-card-myth/scenes/scenes.json": {
@@ -787,6 +787,11 @@
   "components/chat-screen/component.json": {
     "mtime": 1792492543.1609952,
     "ast_hash": "a15566c322e4eb3feba66c5131b1410c",
+    "semantic_hash": ""
+  },
+  "components/_backlog.md": {
+    "mtime": 1792492784.0076337,
+    "ast_hash": "8ed533a87491d58c8636414badb68980",
     "semantic_hash": ""
   }
 }
