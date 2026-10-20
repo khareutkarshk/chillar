@@ -230,12 +230,13 @@ def routed(review: Path, who: str) -> bool:
     return review.exists() and who in routes(review.read_text())
 
 
-def director(L: Line, ep: Path, prompt: str, stage: str, effort: str = "") -> None:
+def director(L: Line, ep: Path, prompt: str, stage: str, effort: str = "", defer: bool = False) -> Path | None:
     """Run the director, then hand the [component:*] requests in its report to component-dev (existing components)
-    or to notes/component-wishlist.md (new ones, for the creator) — they used to go nowhere."""
+    or to notes/component-wishlist.md (new ones, for the creator) — they used to go nowhere. defer=True returns the
+    requests file instead, so the caller can fold it into one component-dev run with the review's notes."""
     L.agent("director", prompt, stage, effort)
     if L.dry:
-        return
+        return None
     asks = [x for x in L.last_out.read_text().splitlines() if re.search(r"\[component:[\w-]+\]", x)]
     have = [x for x in asks if (ROOT / "components" / re.search(r"\[component:([\w-]+)\]", x).group(1)).is_dir()]
     new = [x for x in asks if x not in have]
@@ -247,7 +248,10 @@ def director(L: Line, ep: Path, prompt: str, stage: str, effort: str = "") -> No
         k = len(list((ep / "notes").glob("component-requests-*.md"))) + 1
         req = ep / "notes" / f"component-requests-{k}.md"
         req.write_text("# Component requests from the director\n\n" + "\n".join(f"- {x.strip().lstrip('-* ').strip()}" for x in have) + "\n")
+        if defer:
+            return req
         L.agent("component-dev", f"Fix the [component:*] requests in {req.relative_to(ROOT)} (skip any already done).", stage)
+    return None
 
 
 # ------------------------------------------------------------------ stages
@@ -299,11 +303,15 @@ def st_script(L: Line, ep: Path, a) -> None:
         if n == 1:
             topic = f" Topic: {a.topic}." if a.topic else ""
             L.agent("scriptwriter", f"Write {e}/script.md, {a.format} s format.{topic} Fill cover.md first if it still "
-                    "has placeholders, and the script.md frontmatter (title, series, concept).", "script")
+                    "has placeholders, and the script.md frontmatter (title, series, concept). Your inputs: "
+                    f"brand/rules/comedy.md, brand/rules/formats.md, {e}/facts.md, {e}/cover.md, {e}/script.md "
+                    f"(template). {e}/notes/ has no reviews yet — don't list or search it.", "script")
         elif fix:
-            L.agent("scriptwriter", f"Fix the length of {e}/script.md: {fix}", "script")
+            L.agent("scriptwriter", f"Fix the length of {e}/script.md: {fix}", "script", REVISE_EFFORT)
         else:
-            L.agent("scriptwriter", f"Rewrite {e}/script.md from {e}/notes/script-review-{n - 1}.md.", "script")
+            L.agent("scriptwriter", f"Rewrite {e}/script.md from {e}/notes/script-review-{n - 1}.md. Your inputs: "
+                    f"that review, {e}/script.md, {e}/facts.md, {e}/notes/premise.md; reopen comedy.md / formats.md "
+                    "only for the section a note points at.", "script", REVISE_EFFORT)
         L.agent("script-reviewer", f"Review {e}/script.md, round {n}." + (" (A length-only fix: check the changed lines "
                 "still land and the rest still holds.)" if fix else ""), "script")
         v = verdict(ep / "notes" / f"script-review-{n}.md")
@@ -374,12 +382,17 @@ def st_edit(L: Line, ep: Path, a) -> None:
             director(L, ep, f"Plan {e}/scenes/scenes.json from script.md + .cache/words.txt; validate + qa clean.", "edit")
             L.agent("editor", f"Tighten {e}/scenes/scenes.json (director's first pass); validate + qa clean.", "edit")
         else:
-            # only the roles the review actually routed notes to
-            if routed(prev, "component"):
-                L.agent("component-dev", f"Fix the [component:*] notes in {e}/notes/video-review-{n - 1}.md.", "edit")
+            # only the roles the review actually routed notes to; the review's [component:*] notes and the
+            # director's own requests go to ONE component-dev run (two runs re-read the same previews)
+            comp = [f"{e}/notes/video-review-{n - 1}.md"] if routed(prev, "component") else []
             if routed(prev, "director"):
-                director(L, ep, f"Revise {e}/scenes/scenes.json from the [director] notes in "
-                         f"{e}/notes/video-review-{n - 1}.md and .cache/qa.json.", "edit", REVISE_EFFORT)
+                req = director(L, ep, f"Revise {e}/scenes/scenes.json from the [director] notes in "
+                               f"{e}/notes/video-review-{n - 1}.md and .cache/qa.json.", "edit", REVISE_EFFORT, defer=True)
+                if req:
+                    comp.append(str(req.relative_to(ROOT)))
+            if comp:
+                L.agent("component-dev", f"Fix the [component:*] notes in {' and '.join(comp)} in one pass "
+                        "(skip any already done).", "edit")
             if routed(prev, "editor"):
                 L.agent("editor", f"Apply the [editor] notes in {e}/notes/video-review-{n - 1}.md to "
                         f"{e}/scenes/scenes.json (skip any already resolved).", "edit")

@@ -635,13 +635,13 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792482656.0874488,
-    "ast_hash": "648bfb7a5b57122a9e3d53cb02778a78",
+    "mtime": 1792485534.3992953,
+    "ast_hash": "f6827ee99c8b7a55d80034de74a15eb5",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
-    "mtime": 1792416640.197693,
-    "ast_hash": "db6ce1fd7f6530f040fad5ad1be7d7c5",
+    "mtime": 1792485534.4202962,
+    "ast_hash": "82ea39e02fad20a54e43f51d0952f40c",
     "semantic_hash": ""
   },
   ".claude/agents/packager.md": {

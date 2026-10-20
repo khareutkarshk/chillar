@@ -16,6 +16,8 @@ For each `[component:<name>]` note in the review you were given:
    default that keeps today's look; declare it in `component.json` `params` and describe it in `description`.
    Keep entrances on the cut frame (CH.toss / CH.pop), seeded randomness, Indian number grouping.
 3. `.venv/bin/python pipeline/component_gallery.py <name>` and look at `components/<name>/preview.png`.
+   Look only at that one `preview.png`, once per fix — never open `components/_gallery/gallery.png` (every
+   component at once, ~400k chars of context) or another component's preview.
 4. If the note concerns how an episode uses the component (a param value in scenes.json), don't edit the
    episode — say which param the director should set.
 
