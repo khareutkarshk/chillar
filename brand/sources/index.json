@@ -108,5 +108,20 @@
   "file": "rbi-cic-master-jan25.pdf",
   "fetched": "2026-10-20",
   "bytes": 1226412
+ },
+ "https://www.pib.gov.in/PressReleaseDetail.aspx?PRID=2310586&reg=3&lang=1": {
+  "file": "pib-2310586-upi-mdr.html.html",
+  "fetched": "2026-10-20",
+  "bytes": 214810
+ },
+ "https://financialservices.gov.in/sites/default/files/2026-09/FAQs---Merchant-Discount-Rate--MDR--on-Select-UPI--P2M--Transactions_0.pdf": {
+  "file": "dfs-upi-mdr-faq.pdf.pdf",
+  "fetched": "2026-10-20",
+  "bytes": 191276
+ },
+ "https://www.npci.org.in/uploads/UPI_MDR_on_Select_Merchant_Transactions_Shall_be_Implemented_Post_Diwali_4c9cdd77d5.pdf": {
+  "file": "npci-mdr-post-diwali.pdf.pdf",
+  "fetched": "2026-10-20",
+  "bytes": 163210
  }
 }

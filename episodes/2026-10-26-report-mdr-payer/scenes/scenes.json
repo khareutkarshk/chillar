@@ -1,0 +1,539 @@
+{
+  "theme": "calm",
+  "scenes": [
+    {
+      "id": "hook",
+      "component": "hook-card",
+      "at": 0,
+      "fact": "F8",
+      "params": {
+        "question": "*Bill* kiske naam pe?",
+        "stakes": [
+          {
+            "label": "Sneakers (UPI)",
+            "amount": "₹3,000"
+          },
+          {
+            "label": "Naya charge",
+            "amount": "₹ ?"
+          }
+        ],
+        "circle": true,
+        "mascot": "side-eye",
+        "wide": true,
+        "dy": 90
+      }
+    },
+    {
+      "id": "group-forward",
+      "component": "chat-screen",
+      "at": "w9-0.2",
+      "params": {
+        "name": "Bhaiyon ka group",
+        "messages": [
+          {
+            "from": "them",
+            "text": "*UPI CHARGE!!*"
+          },
+          {
+            "from": "them",
+            "text": "Aage bhejo!!"
+          },
+          {
+            "from": "them",
+            "text": "Forwarded as received"
+          }
+        ],
+        "stagger": 0.45,
+        "highlight": 0,
+        "width": 760,
+        "tilt": -1.5
+      }
+    },
+    {
+      "id": "faaah",
+      "component": "mascot-reaction",
+      "at": "w13-0.2",
+      "until": "w15",
+      "params": {
+        "expr": "side-eye",
+        "anim": "blink",
+        "x": 780,
+        "y": 1110,
+        "size": 260,
+        "sound": "FAAAH",
+        "soundPick": 0,
+        "soundAt": 0.25
+      }
+    },
+    {
+      "id": "calendar",
+      "component": "calendar-flip",
+      "at": "w15",
+      "fact": "F1",
+      "params": {
+        "pages": [
+          "15 OCT 2026",
+          "DIWALI",
+          "? ? ?"
+        ],
+        "label": "UPI charge kab se?",
+        "flip": 0.3
+      }
+    },
+    {
+      "id": "date-glyph",
+      "component": "glyph-character",
+      "at": "w23-0.1",
+      "params": {
+        "glyph": "?",
+        "costume": "none",
+        "eyes": "side-eye",
+        "bubble": "Notify karenge.",
+        "bubbleSide": "right",
+        "size": 420,
+        "x": 340,
+        "y": 700
+      }
+    },
+    {
+      "id": "policy",
+      "component": "marker-highlight",
+      "at": "w27",
+      "params": {
+        "text": "Desh ki *national policy*",
+        "size": 150
+      }
+    },
+    {
+      "id": "official",
+      "component": "statement",
+      "at": "w31",
+      "params": {
+        "title": "Ab *official*",
+        "body": [
+          "Har kaam:",
+          "Diwali ke baad dekhte hain."
+        ],
+        "paper": true,
+        "tilt": -1.5
+      }
+    },
+    {
+      "id": "skeleton",
+      "component": "meme",
+      "at": "w37+0.2",
+      "params": {
+        "meme": "Waiting Skeleton",
+        "kind": "image",
+        "pick": 0,
+        "headline": "Date ka intezaar",
+        "labels": [
+          {
+            "text": "Merchant, date ke liye",
+            "x": 50,
+            "y": 88
+          }
+        ]
+      }
+    },
+    {
+      "id": "threshold",
+      "component": "tier-compare",
+      "at": "w41+0.3",
+      "fact": "F3",
+      "params": {
+        "tiers": [
+          {
+            "amount": "₹2,000 tak",
+            "result": "Fee nahi"
+          },
+          {
+            "amount": "₹2,000 se upar",
+            "result": "Fee lagegi"
+          }
+        ],
+        "reveal": "results",
+        "stagger": 1.0,
+        "wide": true
+      }
+    },
+    {
+      "id": "rate",
+      "component": "statement",
+      "at": "w50",
+      "fact": "F3",
+      "params": {
+        "title": "*0.4%* fee",
+        "body": "₹2,000 se upar, dukaan wali UPI payment pe",
+        "paper": true,
+        "size": 220,
+        "tilt": -1.2
+      }
+    },
+    {
+      "id": "bill-to",
+      "component": "statement",
+      "at": "w51",
+      "params": {
+        "title": "MDR ka *bill*",
+        "body": [
+          "Bill to: ______________",
+          "Address: ______________"
+        ],
+        "paper": true,
+        "tilt": 1.5
+      }
+    },
+    {
+      "id": "stamp-merchant",
+      "component": "stamp",
+      "at": "w56-0.5",
+      "until": "w57+0.3",
+      "fact": "F4",
+      "params": {
+        "text": "Merchant",
+        "x": 520,
+        "y": 1025,
+        "rotate": -7,
+        "size": 130
+      }
+    },
+    {
+      "id": "voice-note",
+      "component": "chat-screen",
+      "at": "w57+0.3",
+      "cut": "whip",
+      "fact": "F3",
+      "params": {
+        "name": "Bhaiyon ka group",
+        "messages": [
+          {
+            "from": "them",
+            "text": "▶ Voice note"
+          },
+          {
+            "from": "them",
+            "text": "*₹2,000 se upar cash dena*"
+          }
+        ],
+        "stagger": 0.55,
+        "highlight": 1,
+        "width": 860,
+        "tilt": 1.2
+      }
+    },
+    {
+      "id": "bhai-crown",
+      "component": "glyph-character",
+      "at": "w67",
+      "params": {
+        "glyph": "₹",
+        "costume": "crown",
+        "eyes": "side-eye",
+        "bubble": "Main nahi bharunga.",
+        "bubbleSide": "left",
+        "size": 400,
+        "x": 640,
+        "y": 700
+      }
+    },
+    {
+      "id": "who-asked",
+      "component": "checklist",
+      "at": "w71",
+      "fact": "F7",
+      "params": {
+        "title": "Tujhse fee maangi?",
+        "items": [
+          {
+            "text": "Dukaan wala",
+            "ok": false
+          },
+          {
+            "text": "Bank",
+            "ok": false
+          },
+          {
+            "text": "UPI app",
+            "ok": false
+          }
+        ],
+        "stagger": 0.4
+      }
+    },
+    {
+      "id": "cart",
+      "component": "receipt-list",
+      "at": "w75",
+      "fact": "F8",
+      "params": {
+        "title": "MERA CART",
+        "items": [
+          {
+            "label": "Sneakers",
+            "amount": "₹3,000"
+          }
+        ],
+        "total": {
+          "label": "CHECKOUT",
+          "amount": "Chhod diya",
+          "tone": "red"
+        },
+        "step": 0.3,
+        "width": 860,
+        "meta": "Size 9 · Kala",
+        "footer": "Payment: abhi nahi",
+        "stampTotal": true
+      }
+    },
+    {
+      "id": "saved-whose",
+      "component": "meme-format",
+      "at": "w84-0.1",
+      "params": {
+        "format": "expectation-reality",
+        "panels": [
+          {
+            "label": "Socha",
+            "text": "Apni fee bachai",
+            "expr": "smug"
+          },
+          {
+            "label": "Asal mein",
+            "text": "Dukaan wale ki fee bachai",
+            "expr": "facepalm"
+          }
+        ],
+        "reveal": 0.6
+      }
+    },
+    {
+      "id": "merchant-copy",
+      "component": "receipt-list",
+      "at": "w89",
+      "fact": "F8",
+      "params": {
+        "title": "DUKAAN KA HISAAB",
+        "meta": "Maan lo: ek UPI sale",
+        "items": [
+          {
+            "label": "Sale",
+            "amount": "₹3,000"
+          }
+        ],
+        "total": {
+          "label": "MDR 0.4%",
+          "amount": "− ₹12",
+          "tone": "red"
+        },
+        "step": 0.4,
+        "width": 860,
+        "totalAt": 1.0
+      }
+    },
+    {
+      "id": "in-hand",
+      "component": "odometer-number",
+      "at": "w94+0.1",
+      "fact": "F8",
+      "params": {
+        "value": 2988,
+        "from": 3000,
+        "prefix": "₹",
+        "label": "Dukaan ke haath",
+        "sub": "Sale thi ₹3,000",
+        "rollStart": 0.35,
+        "rollDuration": 0.4
+      }
+    },
+    {
+      "id": "customer-copy",
+      "component": "receipt-list",
+      "at": "w98",
+      "fact": "F8",
+      "params": {
+        "title": "MERA BILL",
+        "items": [
+          {
+            "label": "Tag price",
+            "amount": "₹3,000"
+          },
+          {
+            "label": "MDR",
+            "amount": "₹0"
+          }
+        ],
+        "total": {
+          "label": "MAINE DIYA",
+          "amount": "₹3,000",
+          "tone": "ink"
+        },
+        "step": 0.3,
+        "width": 860,
+        "totalAt": 0.95
+      }
+    },
+    {
+      "id": "aura",
+      "component": "meme",
+      "at": "w107+0.25",
+      "fact": "F8",
+      "params": {
+        "meme": "Aura",
+        "kind": "image",
+        "pick": 6,
+        "headline": "Dukaan ka aura: gaya",
+        "labels": []
+      }
+    },
+    {
+      "id": "zero",
+      "component": "glyph-character",
+      "at": "w112",
+      "params": {
+        "glyph": "0",
+        "costume": "none",
+        "eyes": "deadpan",
+        "bubble": "Pehle se hi.",
+        "bubbleSide": "right",
+        "size": 420,
+        "x": 340,
+        "y": 700
+      }
+    },
+    {
+      "id": "ninety-six",
+      "component": "odometer-number",
+      "at": "w116",
+      "fact": "F6",
+      "params": {
+        "value": 96,
+        "prefix": "",
+        "suffix": "%",
+        "label": "Merchant payments pe",
+        "sub": "Yeh charge lagega hi nahi",
+        "rollStart": 0.1,
+        "rollDuration": 0.6
+      }
+    },
+    {
+      "id": "address",
+      "component": "statement",
+      "at": "w127",
+      "fact": "F4",
+      "params": {
+        "title": "Baaki ka *bill*",
+        "body": [
+          "Bill to: Dukaan wala",
+          "Pincode: tumhara nahi"
+        ],
+        "paper": true,
+        "tilt": 1.5
+      }
+    },
+    {
+      "id": "rule",
+      "component": "split-compare",
+      "at": "w135",
+      "fact": "F4",
+      "params": {
+        "left": {
+          "title": "Forward",
+          "text": "Mere bill mein judega"
+        },
+        "right": {
+          "title": "Rule",
+          "text": "Dukaan ki kamai se katega"
+        },
+        "strikeAt": 0.35,
+        "revealAt": 0.9
+      }
+    },
+    {
+      "id": "bill-callback",
+      "component": "receipt-list",
+      "at": "w142",
+      "fact": "F8",
+      "params": {
+        "title": "MERA BILL",
+        "items": [
+          {
+            "label": "Tag price",
+            "amount": "₹3,000"
+          },
+          {
+            "label": "MDR",
+            "amount": "₹0"
+          }
+        ],
+        "total": {
+          "label": "MAINE DIYA",
+          "amount": "₹3,000",
+          "tone": "ink"
+        },
+        "printed": true,
+        "width": 860
+      }
+    },
+    {
+      "id": "stamp-bill",
+      "component": "stamp",
+      "at": "w144-0.1",
+      "until": "w148",
+      "fact": "F4",
+      "params": {
+        "text": "Bill pe nahi",
+        "x": 500,
+        "y": 850,
+        "rotate": -6,
+        "size": 100
+      }
+    },
+    {
+      "id": "forward-callback",
+      "component": "statement",
+      "at": "w148",
+      "params": {
+        "title": "Tumhare naam pe",
+        "body": [
+          "Sirf ek forward:",
+          "\"UPI CHARGE!! Aage bhejo!!\""
+        ],
+        "paper": true,
+        "tilt": -1.5
+      }
+    },
+    {
+      "id": "smug",
+      "component": "mascot-reaction",
+      "at": "w151",
+      "params": {
+        "expr": "smug",
+        "anim": "blink",
+        "x": 780,
+        "y": 1110,
+        "size": 280
+      },
+      "until": 50.37
+    }
+  ],
+  "effects": [
+    {
+      "type": "punch",
+      "at": "w37"
+    },
+    {
+      "type": "punch",
+      "at": "w74"
+    },
+    {
+      "type": "punch",
+      "at": "w115"
+    },
+    {
+      "type": "punch",
+      "at": "w154"
+    }
+  ]
+}

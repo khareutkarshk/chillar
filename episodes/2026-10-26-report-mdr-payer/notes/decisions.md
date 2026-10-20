@@ -1,0 +1,3 @@
+- 2026-10-20 · 2026-10-26-report-mdr-payer · video: no PASS after 3 rounds → --only fix, then --from deliver → make-reel table: fix it and ship
+- 2026-10-20 · 2026-10-26-report-mdr-payer · video review 3 voice blockers L6/L8/L13 → pronunciations.tsv rows (merchant→मर्चेंट, तुझसे→तुझ से), Sunny re-take, re-align (word-anchored scenes), make_reel --from validate delivery → voice_check 3→1 flag; L8 residual is ASR noise
+- 2026-10-20 · 2026-10-26-report-mdr-payer · re-take tightened timing → validate blocked (zoom 10.8s after whip; who-asked 0.98s) → in-hand zoom→hard cut, bhai-crown at w67, who-asked at w71, smug until outro cut → why: surgical, keeps every shot ≥70% minDuration

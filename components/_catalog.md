@@ -118,9 +118,9 @@ One big statement on the chapter field: headline (≤ 6 words, *marker* words sw
 params: title="MDR kya hai?", body="", paper=false, size=156, width=0, tilt=null, markerAt=0.3, dy=0, fit=true
 
 ### tier-compare
-₹100 vs ₹1,000 vs ₹1,00,000 escalation: three paper columns standing on the bottom of the content zone, each taller than the last, revealed in sequence; the last result gets a ballpoint circle. The row spans the full content width (≈ 876 px) once every column stands. reveal: 'bars' (default — each column rises in turn, then its result) or 'results' (all columns rise together on the cut so the paper spans the full width from frame 1; only the results step in, `stagger` apart). Optional: wide (default false) stretches the row to the full ≈876 px content width whatever the tier count (2 tiers otherwise stay 276 px columns); width (px, default 0 = auto) sets the row width exactly (max 880). A row of 4+ tiers always shrinks to fit the content width.
+₹100 vs ₹1,000 vs ₹1,00,000 escalation: three paper columns standing on the bottom of the content zone, each taller than the last, revealed in sequence; the last result gets a ballpoint circle. The row spans the full content width (≈ 876 px) once every column stands. reveal: 'bars' (default — each column rises in turn, then its result) or 'results' (all columns rise together on the cut so the paper spans the full width from frame 1; only the results step in, `stagger` apart). Optional: wide (default false) stretches the row to the full ≈876 px content width whatever the tier count (2 tiers otherwise stay 276 px columns); width (px, default 0 = auto) sets the row width exactly (max 880). amtSize / resSize (px, default 0 = 44 / 64, last result 92) enlarge the amount and result text; amtSize lets the amount wrap onto two lines in its bar instead of shrinking. A row of 4+ tiers always shrinks to fit the content width.
 `layer scene · min 2.6s · sfx coin@0.1s, ding@2.0s`
-params: title="", tiers=[{"amount": "₹100", "result": ""}, …], stagger=0.9, reveal="bars", wide=false, width=0
+params: title="", tiers=[{"amount": "₹100", "result": ""}, …], stagger=0.9, reveal="bars", wide=false, width=0, amtSize=0, resSize=0
 
 ## Placed by the pipeline
 

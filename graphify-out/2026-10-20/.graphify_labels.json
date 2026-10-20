@@ -46,7 +46,7 @@
   "44": "chillar-reels",
   "45": "facts_library.py",
   "46": "Production line — how work is routed, and what it costs",
-  "47": "component_catalog.py",
+  "47": "/make-reel command",
   "48": "qa_probe.mjs",
   "49": "facts-library.md",
   "50": "formats.md",
@@ -90,5 +90,6 @@
   "88": "make_reel.py",
   "89": "build_composition.py",
   "90": "director agent",
-  "91": "validate_scenes.py"
+  "91": "validate_scenes.py",
+  "92": "Path"
 }
