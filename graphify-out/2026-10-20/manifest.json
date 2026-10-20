@@ -415,8 +415,8 @@
     "semantic_hash": ""
   },
   "pipeline/validate_scenes.py": {
-    "mtime": 1792481914.4544845,
-    "ast_hash": "1d184bd2197562c09791746447a25aba",
+    "mtime": 1792482294.196873,
+    "ast_hash": "e47eee55ccb7959023eaf93ac8588134",
     "semantic_hash": ""
   },
   "pyproject.toml": {
@@ -430,8 +430,8 @@
     "semantic_hash": "0dc2d491af9b5e44782e341239503b0e"
   },
   ".claude/agents/director.md": {
-    "mtime": 1792481967.0929496,
-    "ast_hash": "a60eb016e0bd508c9a31ae08b16272bc",
+    "mtime": 1792482294.196873,
+    "ast_hash": "3b12b088ab763b26255610d2f7cb2cbc",
     "semantic_hash": ""
   },
   ".claude/agents/editor.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792479471.0689588,
-    "ast_hash": "fd13340864a543deec70701dcd7f0dbf",
+    "mtime": 1792482268.9451222,
+    "ast_hash": "27e835759284ab3a912ae65ee84f6c99",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
