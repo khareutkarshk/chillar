@@ -1,0 +1,282 @@
+{
+ "theme": "night",
+ "scenes": [
+  {
+   "id": "hook",
+   "component": "hook-card",
+   "at": 0,
+   "fact": "F1",
+   "params": {
+    "question": "No Cost EMI = *free* loan?",
+    "stakes": [
+     {
+      "label": "6 EMI",
+      "amount": "No Cost"
+     },
+     {
+      "label": "Interest",
+      "amount": "₹0"
+     }
+    ],
+    "circle": true,
+    "mascot": "side-eye",
+    "size": 128,
+    "wide": true,
+    "dy": 45
+   }
+  },
+  {
+   "id": "checkout",
+   "component": "checklist",
+   "at": "w6",
+   "fact": "F1",
+   "params": {
+    "title": "Checkout",
+    "items": [
+     {
+      "text": "No Cost EMI",
+      "ok": true
+     },
+     {
+      "text": "Interest ₹0",
+      "ok": true
+     },
+     {
+      "text": "Parde ke neeche chappal",
+      "ok": false
+     }
+    ],
+    "stagger": 0.45,
+    "grow": true
+   }
+  },
+  {
+   "id": "peak",
+   "component": "meme",
+   "at": "w14-0.1",
+   "params": {
+    "meme": "Drake Hotline Bling",
+    "kind": "image",
+    "pick": 0,
+    "labels": [
+     {
+      "text": "Full price dena",
+      "x": 76,
+      "y": 24
+     },
+     {
+      "text": "6 EMI, free mein",
+      "x": 76,
+      "y": 75
+     }
+    ]
+   }
+  },
+  {
+   "id": "rbi",
+   "component": "statement",
+   "at": "w25",
+   "cut": "wipe",
+   "fact": "F1",
+   "params": {
+    "title": "Zero percent?",
+    "body": "\"The very concept of zero percent interest is non-existent.\" — RBI, 2013",
+    "paper": true,
+    "size": 156,
+    "dy": -100
+   }
+  },
+  {
+   "id": "stamp-myth",
+   "component": "stamp",
+   "at": "w29-0.1",
+   "until": "w35",
+   "fact": "F1",
+   "params": {
+    "text": "0% = myth",
+    "sub": "",
+    "x": 500,
+    "y": 1000,
+    "rotate": -7,
+    "size": 115
+   }
+  },
+  {
+   "id": "fee",
+   "component": "receipt-list",
+   "at": "w35",
+   "fact": "F1",
+   "params": {
+    "title": "CHECKOUT",
+    "meta": "NO COST EMI · 6 MAHINE",
+    "items": [
+     {
+      "label": "Interest",
+      "amount": "₹0"
+     },
+     {
+      "label": "Processing fee",
+      "amount": "camouflage"
+     }
+    ],
+    "total": {
+     "label": "ASLI INTEREST",
+     "amount": "YAHIN HAI",
+     "tone": "red"
+    },
+    "step": 0.3,
+    "totalAt": 0.92,
+    "width": 860
+   }
+  },
+  {
+   "id": "shabd",
+   "component": "marker-highlight",
+   "at": "w42",
+   "fact": "F1",
+   "params": {
+    "text": "\"*Camouflaged.*\"",
+    "sub": "RBI circular, 2013, para 3",
+    "size": 120,
+    "markerAt": 0.15,
+    "fit": true,
+    "paper": true
+   }
+  },
+  {
+   "id": "parda",
+   "component": "statement",
+   "at": "w47",
+   "params": {
+    "title": "Parda kisne *khareeda*?",
+    "body": "Aapne. Har EMI ke saath.",
+    "paper": true,
+    "size": 140,
+    "width": 0,
+    "dy": -80
+   }
+  },
+  {
+   "id": "crying",
+   "component": "mascot-reaction",
+   "at": "w54",
+   "until": "w57",
+   "params": {
+    "expr": "crying",
+    "anim": "blink",
+    "x": 780,
+    "y": 1110,
+    "size": 260
+   }
+  },
+  {
+   "id": "example",
+   "component": "receipt-list",
+   "at": "w57",
+   "fact": "F3",
+   "params": {
+    "title": "MAAN LO",
+    "meta": "EXAMPLE · ASLI OFFER NAHI",
+    "items": [
+     {
+      "label": "Loan",
+      "amount": "₹60,000"
+     },
+     {
+      "label": "EMI",
+      "amount": "6 mahine"
+     },
+     {
+      "label": "Rate (maan lo)",
+      "amount": "15% saalana"
+     }
+    ],
+    "total": {
+     "label": "INTEREST",
+     "amount": "₹2,652",
+     "tone": "red"
+    },
+    "circleTotal": false,
+    "step": 0.75,
+    "totalAt": 4.0,
+    "width": 860,
+    "stampTotal": true
+   }
+  },
+  {
+   "id": "maanlo",
+   "component": "mascot-reaction",
+   "at": "w65",
+   "until": "w68",
+   "params": {
+    "expr": "thinking",
+    "anim": "blink",
+    "x": 780,
+    "y": 1100,
+    "size": 260,
+    "bubble": "Rate? Maan liya.",
+    "bubbleSide": "left"
+   }
+  },
+  {
+   "id": "pinned",
+   "component": "meme-format",
+   "at": "w76",
+   "params": {
+    "format": "two-panel",
+    "panels": [
+     {
+      "label": "Sale ki raat",
+      "text": "\"Free mein pada\"",
+      "expr": "smug"
+     },
+     {
+      "label": "Aaj",
+      "text": "Ab bhi pinned",
+      "expr": "facepalm"
+     }
+    ],
+    "reveal": 0.5
+   }
+  },
+  {
+   "id": "caught",
+   "component": "meme",
+   "at": "w86",
+   "params": {
+    "meme": "Why would I deceive you?",
+    "kind": "image",
+    "pick": 0,
+    "labels": [
+     {
+      "text": "Interest, parda hatne ke baad",
+      "x": 50,
+      "y": 84
+     }
+    ],
+    "sound": "VINE BOOM SOUND",
+    "soundPick": 0,
+    "soundAt": 0.92
+   }
+  }
+ ],
+ "outro": {
+  "params": {
+   "tearAt": 0.5
+  }
+ },
+ "effects": [
+  {
+   "type": "punch",
+   "at": "w12"
+  },
+  {
+   "type": "punch",
+   "at": "w45"
+  },
+  {
+   "type": "punch",
+   "at": "w92"
+  }
+ ]
+}

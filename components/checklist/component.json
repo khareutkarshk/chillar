@@ -1,8 +1,8 @@
 {
   "name": "checklist",
-  "description": "A paper chit list: each item gets a blue-ballpoint tick or a red-pen cross, written in sequence. Title sits on the field above the chit.",
+  "description": "A paper chit list: each item gets a blue-ballpoint tick or a red-pen cross, written in sequence. Title sits on the field above the chit. Optional `grow` (default false): the chit lands holding only the first row and lengthens downward as each later row is written; the final size is reserved, so the title never shifts.",
   "layer": "scene",
-  "params": { "title": "", "items": [{ "text": "Item", "ok": true }], "stagger": 0.35 },
+  "params": { "title": "", "items": [{ "text": "Item", "ok": true }], "stagger": 0.35, "grow": false },
   "example": {
     "title": "UPI pe kya free hai?",
     "items": [{ "text": "Tumhare liye payment", "ok": true }, { "text": "Dukaan wale ka MDR", "ok": true }, { "text": "Sarkar ka bill", "ok": false }]

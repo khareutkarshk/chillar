@@ -1,2 +1,6 @@
 .c-marker-highlight .mh-text { max-width: 870px; overflow-wrap: break-word; color: var(--on-field); }
 .c-marker-highlight .mh-sub { font-size: 58px; max-width: 820px; line-height: 1.15; color: var(--on-field); opacity: .86; }
+/* paper:true — the quote sits on a paper scrap lying on the field (paper ink, not field ink) */
+.c-marker-highlight .mh-scrap { display: inline-block; max-width: 880px; box-sizing: border-box; padding: 52px 56px 56px; text-align: left; }
+.c-marker-highlight .mh-scrap .mh-text { max-width: 768px; color: var(--ink); }
+.c-marker-highlight .mh-scrap .mh-sub { max-width: 768px; margin-top: 22px; color: var(--ink); opacity: .78; }

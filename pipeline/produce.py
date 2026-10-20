@@ -92,7 +92,10 @@ def parse_stream(out: str) -> tuple[dict, list[dict]]:
             ev = json.loads(line)
         except json.JSONDecodeError:
             continue
-        for c in (ev.get("message") or {}).get("content") or []:
+        if not isinstance(ev, dict):
+            continue
+        msg = ev.get("message")
+        for c in (msg.get("content") if isinstance(msg, dict) else None) or []:
             if not isinstance(c, dict):
                 continue
             if c.get("type") == "tool_use":

@@ -23,9 +23,9 @@ Tear-off desk calendar (paper pages, red month band) riffles through pages and l
 params: pages=["JAN 2020", "JAN 2023", "OCT 2026"], label="", flip=0.16
 
 ### checklist
-A paper chit list: each item gets a blue-ballpoint tick or a red-pen cross, written in sequence. Title sits on the field above the chit.
+A paper chit list: each item gets a blue-ballpoint tick or a red-pen cross, written in sequence. Title sits on the field above the chit. Optional `grow` (default false): the chit lands holding only the first row and lengthens downward as each later row is written; the final size is reserved, so the title never shifts.
 `layer scene · min 1.8s`
-params: title="", items=[{"text": "Item", "ok": true}], stagger=0.35
+params: title="", items=[{"text": "Item", "ok": true}], stagger=0.35, grow=false
 
 ### cover
 Static 1080x1920 cover (rendered to output/cover.png by cover.py from cover.md) on a note-colour field. Headline left-aligned, kicker under it, an optional stamp and Chillar. Key text sits inside the 3:4 profile-grid crop (y 240–1680). No series label.
@@ -43,9 +43,9 @@ Compounding curve vs a straight simple-interest/savings line, drawn on a sheet o
 params: title="Compounding", principal=10000, rate=0.12, years=30, compare="simple", compareLabel="Simple", curveLabel="Compound", drawDuration=1.2
 
 ### marker-highlight
-A headline on the chapter field; words wrapped in *asterisks* get the yellow marker swipe. Optional sub line below in the field ink. Left-aligned (align:center only for the one centred moment of a video). Keep it ≤ 6 words.
+A headline on the chapter field; words wrapped in *asterisks* get the yellow marker swipe. Optional sub line below in the field ink. Left-aligned (align:center only for the one centred moment of a video). Keep it ≤ 6 words. fit (default true): a word wider than the line shrinks the headline (down to 55% of size) instead of breaking mid-word; fit:false restores break-word wrapping. paper (default false): true puts the headline (and sub) on a paper scrap / circular lying on the field at a seeded tilt, tossed in on the cut frame, text in paper ink — use for quotes; ~120 size reads best since the scrap's padding narrows the line.
 `layer scene · min 1.2s`
-params: text="UPI *free* nahi hai", sub="", size=168, align="left", markerAt=0.25
+params: text="UPI *free* nahi hai", sub="", size=168, align="left", markerAt=0.25, fit=true, paper=false
 
 ### mascot-reaction
 Chillar pops up from the bottom of the content zone with an expression + animation and an optional deadpan speech bubble (a paper bubble, no outline). Replaces memes; counts as a re-hook. Can be an overlay on another scene. ring: optional short text on a green profile-photo ring around the coin (e.g. 'open to work'), drawn after the pop.

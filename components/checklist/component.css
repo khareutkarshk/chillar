@@ -5,3 +5,9 @@
 .c-checklist .cl-text { font-size: 58px; line-height: 1.1; }
 .c-checklist .cl-item.no .cl-text { color: var(--red); }
 .c-checklist .cl-item.no .scrib path { stroke: var(--red); }
+/* grow mode: ghost + live chit share one grid cell; later rows start at height 0 and open one by one */
+.c-checklist .cl-stack.grow { display: grid; }
+.c-checklist .cl-stack.grow > .cl-chit { grid-area: 1 / 1; align-self: start; gap: 0; transform-origin: 50% 0; }
+.c-checklist .cl-stack.grow .cl-ghost { visibility: hidden; }
+.c-checklist .cl-stack.grow .cl-row { overflow: hidden; }
+.c-checklist .cl-stack.grow .cl-row + .cl-row > .cl-item { padding-top: 34px; }

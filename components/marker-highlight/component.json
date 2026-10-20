@@ -1,13 +1,15 @@
 {
   "name": "marker-highlight",
-  "description": "A headline on the chapter field; words wrapped in *asterisks* get the yellow marker swipe. Optional sub line below in the field ink. Left-aligned (align:center only for the one centred moment of a video). Keep it ≤ 6 words.",
+  "description": "A headline on the chapter field; words wrapped in *asterisks* get the yellow marker swipe. Optional sub line below in the field ink. Left-aligned (align:center only for the one centred moment of a video). Keep it ≤ 6 words. fit (default true): a word wider than the line shrinks the headline (down to 55% of size) instead of breaking mid-word; fit:false restores break-word wrapping. paper (default false): true puts the headline (and sub) on a paper scrap / circular lying on the field at a seeded tilt, tossed in on the cut frame, text in paper ink — use for quotes; ~120 size reads best since the scrap's padding narrows the line.",
   "layer": "scene",
   "params": {
     "text": "UPI *free* nahi hai",
     "sub": "",
     "size": 168,
     "align": "left",
-    "markerAt": 0.25
+    "markerAt": 0.25,
+    "fit": true,
+    "paper": false
   },
   "example": { "text": "UPI *free* nahi hai", "sub": "bas bill tumhare naam pe nahi aata" },
   "sfx": [],

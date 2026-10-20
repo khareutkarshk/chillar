@@ -88,5 +88,15 @@
   "file": "rbi-cc-2025-id13155.html",
   "fetched": "2026-10-19",
   "bytes": 71141
+ },
+ "https://www.rbi.org.in/scripts/BS_CircularIndexDisplay.aspx?Id=8461": {
+  "file": "rbi-zero-pct-2013.html",
+  "fetched": "2026-10-20",
+  "bytes": 114845
+ },
+ "https://website.rbi.org.in/documents/87730/39710850/CS172509113FS.pdf": {
+  "file": "rbi-zero-pct-2013-pdf.pdf",
+  "fetched": "2026-10-20",
+  "bytes": 150291
  }
 }

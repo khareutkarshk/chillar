@@ -1,12 +1,34 @@
 CH.define("marker-highlight", {
-  build({ el, p, t, tl }) {
+  build({ el, p, t, tl, rng }) {
     const c = p.align === "center";
+    const paper = !!p.paper;
+    const tilt = paper ? CH.tilt(rng, 1.6) : 0;
+    const inner = `
+        <div class="mh-text t-head" style="font-size:${+p.size}px">${CH.rich(p.text)}</div>
+        ${p.sub ? `<div class="mh-sub t-body">${CH.rich(p.sub)}</div>` : ""}`;
     el.innerHTML = `
       <div class="zone ${c ? "center" : ""}" style="text-align:${c ? "center" : "left"}">
-        <div class="mh-text t-head" style="font-size:${+p.size}px">${CH.rich(p.text)}</div>
-        ${p.sub ? `<div class="mh-sub t-body">${CH.rich(p.sub)}</div>` : ""}
+        ${paper ? `<div class="mh-scrap paper-obj" style="transform: rotate(${tilt.toFixed(2)}deg)">${inner}</div>` : inner}
       </div>`;
-    [...el.querySelectorAll(".mh-text, .mh-sub")].forEach((n, i) => CH.pop(tl, n, t + i * 4 * CH.F));
+    // fit: never break inside a word — shrink the headline until its longest word fits the width.
+    const head = el.querySelector(".mh-text");
+    if (p.fit !== false) {
+      head.style.overflowWrap = "normal";
+      const min = +p.size * 0.55;
+      let s = +p.size;
+      while (head.scrollWidth > head.clientWidth + 1 && s > min) {
+        s = Math.max(min, s * 0.95);
+        head.style.fontSize = `${Math.round(s)}px`;
+      }
+    }
+    if (paper) {
+      // paper: the scrap carrying the quote is tossed onto the field on the cut frame; the sub follows
+      CH.toss(tl, el.querySelector(".mh-scrap"), t, tilt);
+      const sub = el.querySelector(".mh-sub");
+      if (sub) CH.pop(tl, sub, t + 4 * CH.F, { y: 14, from: 1 });
+    } else {
+      [...el.querySelectorAll(".mh-text, .mh-sub")].forEach((n, i) => CH.pop(tl, n, t + i * 4 * CH.F));
+    }
     CH.markers(tl, el, t + (+p.markerAt));
   },
 });
