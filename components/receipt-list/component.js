@@ -23,6 +23,7 @@ CH.define("receipt-list", {
       </div>`;
     const lines = [...el.querySelectorAll(".rc-line")];
     const paper = el.querySelector(".rc-paper");
+    if (+p.minHeight > 0) paper.style.minHeight = (+p.minHeight) + "px";   // optional: a short receipt keeps a real paper size
     if (!p.printed) {
       CH.pop(tl, el.querySelector(".rc-printer"), t, { frames: 5, y: -20 });
       const step = +p.step || 0.22, tot = el.querySelector(".rc-total");

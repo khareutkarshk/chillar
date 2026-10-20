@@ -185,7 +185,7 @@
     const s = (o.prefix ?? "") + CH.inr(value, o) + (o.suffix ?? "");
     const cells = [...s].map((ch) => /\d/.test(ch)
       ? `<span class="odo-d"><span class="odo-strip">${STRIP.map((n, k) => `<span${k ? ' style="visibility:hidden"' : ""}>${n}</span>`).join("")}</span></span>`
-      : `<span class="odo-s">${CH.esc(ch)}</span>`).join("");
+      : `<span class="odo-s${ch === "." ? " odo-dot" : ""}">${CH.esc(ch)}</span>`).join("");
     return `<span class="odo" data-target="${CH.esc(s)}">${cells}</span>`;
   };
   CH.roll = (tl, odoEl, t, dur = 0.9) => {

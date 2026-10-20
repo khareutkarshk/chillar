@@ -78,7 +78,7 @@ CH.define("mithai-dabba", {
         ${[-62, -30, 2, 34].map((y, i) => `<path class="skin" d="M-12 ${y} L${40 - i * 3} ${y} C${62 - i * 3} ${y} ${62 - i * 3} ${y + 30} ${40 - i * 3} ${y + 30} L-12 ${y + 30} Z"/>`).join("")}
       </svg>` : "";
     const msz = closing ? 240 : 270;
-    const mLeft = closing ? bx + BW * s - 50 : 880 - msz + 20, mTop = closing ? by - 70 : 890 - msz * 1.1 + 6;
+    const mLeft = p.mascotX != null ? +p.mascotX : closing ? bx + BW * s - 50 : 880 - msz + 20, mTop = p.mascotY != null ? +p.mascotY : closing ? by - 70 : 890 - msz * 1.1 + 6;
     const mascot = lay === "hero" && p.mascot ? `<div class="md-mascot" style="left:${mLeft}px; top:${mTop}px; width:${msz}px">${CH.mascot(p.mascot, id + "-m", msz)}</div>` : "";
 
     // ---------------------------------------------------------------- slip rows (slip + close)

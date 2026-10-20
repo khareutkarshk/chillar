@@ -1,0 +1,16 @@
+{
+  "name": "envelope",
+  "description": "An addressed paper envelope for letter beats: cream envelope with a folded flap, a haldi stamp square, an optional red postmark and an ink address block (first line = 'Bill to'-style label in pencil). Params: lines = address lines, pincode = optional last line printed big with a blue-ballpoint underline, postmark = optional red round text, x/y = top-left, width (default 860). Tossed in at a seeded tilt on the cut frame; fully drawn after it.",
+  "layer": "scene",
+  "params": {
+    "lines": ["Bill to", "Mr. A. Kumar", "12, Gali No. 4, Karol Bagh"],
+    "pincode": "110005",
+    "postmark": "",
+    "x": 110,
+    "y": 520,
+    "width": 860
+  },
+  "example": { "lines": ["Bill to", "Mr. A. Kumar", "12, Gali No. 4, Karol Bagh"], "pincode": "110005", "postmark": "DELHI" },
+  "sfx": [],
+  "minDuration": 1.2
+}

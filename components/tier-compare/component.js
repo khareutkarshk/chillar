@@ -19,12 +19,13 @@ CH.define("tier-compare", {
         </div>
       </div>`;
     // narrow columns (wide/width with many tiers): an amount or result never spills past its column
-    const shrink = (node, maxW) => { let f = parseFloat(getComputedStyle(node).fontSize); const min = f * 0.6;
+    const shrink = (node, maxW) => { let f = parseFloat(getComputedStyle(node).fontSize); const min = Math.max(28, f * 0.6);
       while (node.scrollWidth > maxW && f > min) { f = Math.max(min, f * 0.94); node.style.fontSize = `${Math.round(f)}px`; } };
     const aS = +p.amtSize > 0 ? +p.amtSize : 0, rS = +p.resSize > 0 ? +p.resSize : 0;
     if (aS) el.querySelectorAll(".tc-amt").forEach((a) => { a.style.fontSize = `${aS}px`; a.style.whiteSpace = "normal"; a.style.lineHeight = "1.02"; });
     if (rS) el.querySelectorAll(".tc-res").forEach((r) => { r.style.fontSize = `${rS}px`; });
-    el.querySelectorAll(".tc-amt").forEach((a) => { if (!aS) shrink(a, colW - 34); });
+    // amounts never drop under 28 px: past that they wrap onto two lines inside the bar
+    el.querySelectorAll(".tc-amt").forEach((a) => { if (!aS) { shrink(a, colW - 34); if (a.scrollWidth > colW - 34) { a.style.whiteSpace = "normal"; a.style.lineHeight = "1.02"; } } });
     el.querySelectorAll(".tc-res").forEach((r) => shrink(r, colW));
     const title = el.querySelector(".tc-title");
     if (title) CH.pop(tl, title, t);

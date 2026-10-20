@@ -47,7 +47,7 @@ SLOTS = {
     "printer": {"queries": ["receipt printer", "dot matrix printer", "printer"], "max_dur": 8, "trim": 2.5},
     "ding":    {"queries": ["cash register", "cash register bell", "register"], "max_dur": 5, "trim": 2.0},
     "coin":    {"queries": ["coin clink", "coins", "coin"], "max_dur": 3, "trim": 1.0},
-    "scratch": {"queries": ["record scratch", "vinyl scratch", "scratch"], "max_dur": 3, "trim": 1.2},
+    "scratch": {"queries": ["record scratch", "vinyl scratch", "scratch"], "max_dur": 3, "trim": 0.5},  # the hit; 1.2 s ran over the next words
     "glitch":  {"queries": ["glitch", "digital glitch"], "max_dur": 2.5, "trim": 0.9},
     "typing":  {"queries": ["keyboard typing", "typing"], "max_dur": 10, "trim": 3.0},
     "whoosh":  {"queries": ["whoosh", "swoosh"], "max_dur": 2.5, "trim": 1.0},

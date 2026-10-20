@@ -902,5 +902,43 @@
     "license_snapshot": "assets/snapshots/imgflip-azfk4m.txt",
     "status": "meme",
     "basis": "meme (uncleared)"
+  },
+  {
+    "name": "paisa laya",
+    "file": "episodes/2026-10-27-diwali-bonus-tax/.cache/memes/image-paisa-laya-343u7i.jpg",
+    "kind": "image",
+    "source": "imgflip",
+    "source_id": "343u7i",
+    "url": "https://imgflip.com/meme/188296110/paisa-laya",
+    "download_url": "https://i.imgflip.com/343u7i.jpg",
+    "author": "",
+    "license": "Meme (uncleared, creator-approved)",
+    "license_url": "",
+    "attribution_needed": "n",
+    "attribution_text": "",
+    "date": "2026-10-21",
+    "sha256": "15073a5132b70608406c73b4892142312bfa72498a6f77700d5c69c2ddc2be9b",
+    "license_snapshot": "assets/snapshots/imgflip-343u7i.txt",
+    "status": "meme",
+    "basis": "meme (uncleared)"
+  },
+  {
+    "name": "Peak Life Events",
+    "file": "episodes/2026-10-27-diwali-bonus-tax/.cache/memes/image-peak-life-events-ayioji.jpg",
+    "kind": "image",
+    "source": "imgflip",
+    "source_id": "ayioji",
+    "url": "https://imgflip.com/meme/662640318/Peak-Life-Events",
+    "download_url": "https://i.imgflip.com/ayioji.jpg",
+    "author": "",
+    "license": "Meme (uncleared, creator-approved)",
+    "license_url": "",
+    "attribution_needed": "n",
+    "attribution_text": "",
+    "date": "2026-10-21",
+    "sha256": "a36a3c0fe4de804714869f76635ba9452b57bca62fcc276df50e52d521e4d91d",
+    "license_snapshot": "assets/snapshots/imgflip-ayioji.txt",
+    "status": "meme",
+    "basis": "meme (uncleared)"
   }
 ]

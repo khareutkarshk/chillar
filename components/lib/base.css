@@ -20,6 +20,7 @@ html, body { margin: 0; background: var(--field); }
 .odo-strip span, .odo-s { display: block; height: 1em; }
 .odo-strip span { overflow: hidden; }   /* a digit's ink never bleeds into its neighbour's window */
 .odo-s { margin: 0 -.04em; }
+.odo-s.odo-dot { margin: 0 .05em 0 .03em; }   /* decimal point keeps its own room, never drawn over the 0 */
 
 /* blue-ballpoint scribbles laid over content (CH.scribble) */
 .scrib { position: absolute; overflow: visible; pointer-events: none; z-index: 5; }

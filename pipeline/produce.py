@@ -43,7 +43,7 @@ PY = str(ROOT / ".venv" / "bin" / "python")
 AGENTS = ROOT / ".claude" / "agents"
 STAGES = ["research", "script", "factcheck", "voice", "align", "edit", "deliver", "package", "usage"]
 MAX_ROUNDS = 3
-REVISE_EFFORT = "medium"         # director revisions / fix passes (the first plan keeps the frontmatter's high)
+REVISE_EFFORT = "medium"         # director revisions / fix passes (the first plan uses the frontmatter's, medium since 2026-10-21)
 OUTRO_S = 3.5                    # outro receipt after the voice
 CLEAN = 0.95                     # audio_clean trims ≈ 5 % of the raw voice (measured on 4 reels: 0.94–0.96)
 
@@ -267,9 +267,14 @@ def backlog(ep: Path, source: str, items: list[str]) -> int:
     have = BACKLOG.read_text() if BACKLOG.exists() else ("# Component backlog\n\nOpen requests from directors and "
                                                          "reviewers. `produce.py <any ep> --only components` builds "
                                                          "them in one batch; done items get `- [x]`.\n")
+    open_for = {m.group(1) for ln in have.splitlines() if ln.startswith("- [ ]") for m in COMP_TAG.finditer(ln)}
     new = []
     for x in items:
         body = re.sub(r"^\s*[-*\d.]+\s*", "", x).strip()
+        names = set(COMP_TAG.findall(body))
+        if names and names <= open_for:          # already open for this component — the batch run reads it there
+            continue
+        open_for |= names
         if body and body[:80] not in have:
             new.append(f"- [ ] {body}  _({ep.name} · {source})_")
     if new:
@@ -681,6 +686,11 @@ def st_deliver(L: Line, ep: Path, a) -> None:
 
 
 def st_package(L: Line, ep: Path, a) -> None:
+    post = ep / "output" / "post.md"
+    inputs = [ep / n for n in ("script.md", "facts.md", "cover.md", "notes/fact-check.md")]
+    if a.only != "package" and post.exists() and all(post.stat().st_mtime > p.stat().st_mtime for p in inputs if p.exists()):
+        print("  post.md is newer than script/facts/cover/fact-check — kept (--only package rewrites it)")
+        return
     L.agent("packager", f"Write {ep.relative_to(ROOT)}/output/post.md.", "package")
 
 

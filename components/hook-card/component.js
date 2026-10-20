@@ -10,7 +10,7 @@ CH.define("hook-card", {
             ${stakes.map((s, i) => `<div class="hk-line"><span>${CH.esc(s.label)}</span><span class="hk-amt num print">${CH.esc(s.amount)}${
               p.circle && i === stakes.length - 1 ? CH.scribble("circle", { x: -26, y: -8, w: (p.wide ? 42 : 30) * String(s.amount).length + 52, h: p.wide ? 104 : 78, rng }) : ""}</span></div>`).join("")}
           </div></div>
-          ${p.mascot ? `<div class="hk-mascot">${CH.mascot(p.mascot, id + "-m", 330)}</div>` : ""}
+          ${p.mascot && p.mascot !== "none" ? `<div class="hk-mascot">${CH.mascot(p.mascot, id + "-m", 330)}</div>` : ""}
         </div>
       </div>`;
     // frame 1 = final layout. Motion starts after it.

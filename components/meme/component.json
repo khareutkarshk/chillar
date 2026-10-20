@@ -1,6 +1,6 @@
 {
   "name": "meme",
-  "description": "A real global meme (imgflip template or GIF, fetched at build time by pipeline/memes.py) as a printed photo tossed onto the field, with optional paper-scrap labels and meme sound. Set wide:true for a broad image crop; height and position tune the crop while preserving default aspect-fit behavior. Cut to it on the word after a punchline. kind image|video (video = silent GIF loop, stepped from a sprite). Pick the exact template with `memes.py search \"<q>\" --kind <kind>` and set pick. labels: [{text, x, y}] in % of the picture. Global memes only — no Indian films/TV/people.",
+  "description": "A real global meme (imgflip template or GIF, fetched at build time by pipeline/memes.py) as a printed photo tossed onto the field, with optional paper-scrap labels and meme sound. Set wide:true for a broad image crop; height and position tune the crop while preserving default aspect-fit behavior. Cut to it on the word after a punchline. kind image|video (video = silent GIF loop, stepped from a sprite). Pick the exact template with `memes.py search \"<q>\" --kind <kind>` and set pick. labels: [{text, x, y}] in % of the picture. labelSize (px, default 52) shrinks all label boxes; a label may set its own size and w (max-width %, default 46) so labels sit in blank areas, not over the template's printed text. Global memes only — no Indian films/TV/people.",
   "layer": "scene",
   "rehook": true,
   "params": {
@@ -14,7 +14,8 @@
     "soundAt": 0.0,
     "wide": false,
     "height": 0,
-    "position": "center"
+    "position": "center",
+    "labelSize": 52
   },
   "example": {
     "meme": "Drake Hotline Bling",

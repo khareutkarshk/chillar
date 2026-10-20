@@ -18,7 +18,7 @@ Bars standing on the bottom of the content zone, straight on the chapter field �
 params: title="", bars=[{"label": "A", "value": 1}], highlight=-1, caption="", stagger=0.2, prefix="", bracket=false, bracketBars=null
 
 ### calendar-flip
-Tear-off desk calendar (paper pages, red month band) riffles through pages and lands on the last one — time passing, deadlines, 'since 2020'. Optional details sit in a fixed footer beneath the year; width, height and yearSize tune the paper layout.
+Tear-off desk calendar (paper pages, red month band) riffles through pages and lands on the last one — time passing, deadlines, 'since 2020'. Optional details sit in a fixed footer beneath the year; width (400–860) scales the page type too; height -1 fits the page to its text instead of a fixed height; yearSize tunes the number.
 `layer scene · min 1.6s · sfx whoosh@0.1s`
 params: pages=["JAN 2020", "JAN 2023", "OCT 2026"], details=[], label="", flip=0.16, width=600, height=620, yearSize=230
 
@@ -63,9 +63,9 @@ Chillar pops up from the bottom of the content zone with an expression + animati
 params: expr="side-eye", anim="blink", x=760, y=1120, size=320, bubble="", bubbleSide="left", ring="", sound="", soundPick=0, soundAt=0.05
 
 ### meme
-A real global meme (imgflip template or GIF, fetched at build time by pipeline/memes.py) as a printed photo tossed onto the field, with optional paper-scrap labels and meme sound. Set wide:true for a broad image crop; height and position tune the crop while preserving default aspect-fit behavior. Cut to it on the word after a punchline. kind image|video (video = silent GIF loop, stepped from a sprite). Pick the exact template with `memes.py search "<q>" --kind <kind>` and set pick. labels: [{text, x, y}] in % of the picture. Global memes only — no Indian films/TV/people.
+A real global meme (imgflip template or GIF, fetched at build time by pipeline/memes.py) as a printed photo tossed onto the field, with optional paper-scrap labels and meme sound. Set wide:true for a broad image crop; height and position tune the crop while preserving default aspect-fit behavior. Cut to it on the word after a punchline. kind image|video (video = silent GIF loop, stepped from a sprite). Pick the exact template with `memes.py search "<q>" --kind <kind>` and set pick. labels: [{text, x, y}] in % of the picture. labelSize (px, default 52) shrinks all label boxes; a label may set its own size and w (max-width %, default 46) so labels sit in blank areas, not over the template's printed text. Global memes only — no Indian films/TV/people.
 `layer scene · min 1.5s · re-hook`
-params: meme="This Is Fine", kind="image", pick=0, headline="", labels=[], sound="", soundPick=0, soundAt=0.0, wide=false, height=0, position="center"
+params: meme="This Is Fine", kind="image", pick=0, headline="", labels=[], sound="", soundPick=0, soundAt=0.0, wide=false, height=0, position="center", labelSize=52
 
 ### meme-format
 Recreated meme FORMATS with Chillar and original text — never real meme images. Formats: two-panel (nah/haan), expectation-reality, nobody-me. Each panel is a printed photo lying on the field, spanning the full content width (870 px), punchline text 60 px (48 px with 3 panels), the format word set big in the headline face. Panels drop in order.
@@ -95,7 +95,7 @@ params: from=0, to=0.5, coins=8
 ### receipt-list
 Thermal receipt that prints line by line (stepped) out of a printer slot, lying on the field; the paper feeds out with the print, so it is always sized to the lines already printed (rows 46 px, meta/footer 36 px). The total is circled in blue ballpoint after it prints. Great as frame 1 (printed:true shows it fully at t=0) or as a growing receipt meter. Optional: width (paper px, default 760, max 860; the printer is 100 px wider, capped at 880); stampTotal:true slams the total amount on as a textured red rubber-stamp mark (instead of the ballpoint circle) once it prints. dy (px) nudges the whole composition down (+) or up (−) inside the content zone. totalAt (s from scene start, optional) holds the total block until then, so the amount lands on its word.
 `layer scene · min 1.5s · sfx printer@0s`
-params: title="UPI RECEIPT", meta="", items=[{"label": "Chai", "amount": "₹20"}], total={"label": "TOTAL", "amount": "₹20", "tone": "ink"}, footer="", circleTotal=true, step=0.22, printed=false, width=760, stampTotal=false, dy=0, totalAt=null
+params: minHeight=0, title="UPI RECEIPT", meta="", items=[{"label": "Chai", "amount": "₹20"}], total={"label": "TOTAL", "amount": "₹20", "tone": "ink"}, footer="", circleTotal=true, step=0.22, printed=false, width=760, stampTotal=false, dy=0, totalAt=null
 
 ### salary-slip
 Payslip lying on the field: earnings in green, deductions in red with minus, rows print in steps, net pay rolls on an odometer and gets a double ballpoint underline. Amounts are numbers (formatted en-IN).

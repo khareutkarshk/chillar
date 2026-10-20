@@ -3,6 +3,7 @@
   "description": "Thermal receipt that prints line by line (stepped) out of a printer slot, lying on the field; the paper feeds out with the print, so it is always sized to the lines already printed (rows 46 px, meta/footer 36 px). The total is circled in blue ballpoint after it prints. Great as frame 1 (printed:true shows it fully at t=0) or as a growing receipt meter. Optional: width (paper px, default 760, max 860; the printer is 100 px wider, capped at 880); stampTotal:true slams the total amount on as a textured red rubber-stamp mark (instead of the ballpoint circle) once it prints. dy (px) nudges the whole composition down (+) or up (−) inside the content zone. totalAt (s from scene start, optional) holds the total block until then, so the amount lands on its word.",
   "layer": "scene",
   "params": {
+    "minHeight": 0,
     "title": "UPI RECEIPT",
     "meta": "",
     "items": [

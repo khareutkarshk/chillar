@@ -1,0 +1,583 @@
+{
+  "theme": "calm",
+  "scenes": [
+    {
+      "id": "hook",
+      "component": "hook-card",
+      "at": 0,
+      "params": {
+        "question": "Bonus aaya. Account mein *kitna*?",
+        "stakes": [
+          {
+            "label": "Bonus mail",
+            "amount": "aaya"
+          },
+          {
+            "label": "Phone",
+            "amount": "cart mein"
+          },
+          {
+            "label": "Account mein",
+            "amount": "??"
+          }
+        ],
+        "circle": true,
+        "mascot": "",
+        "wide": true,
+        "size": 84
+      }
+    },
+    {
+      "id": "kitna-side-eye",
+      "component": "mascot-reaction",
+      "at": "w10",
+      "until": "w14",
+      "params": {
+        "expr": "side-eye",
+        "anim": "blink",
+        "x": 785,
+        "y": 760,
+        "size": 240
+      }
+    },
+    {
+      "id": "mummy-lifafa",
+      "component": "mithai-dabba",
+      "at": "w14",
+      "params": {
+        "layout": "hero",
+        "count": 22,
+        "hand": true,
+        "mascot": "",
+        "letter": {
+          "title": "Diwali ka lifafa",
+          "note": "Mummy ke paas safe"
+        }
+      }
+    },
+    {
+      "id": "beta-tired",
+      "component": "mascot-reaction",
+      "at": "w20",
+      "until": "w25",
+      "params": {
+        "expr": "neutral-tired",
+        "anim": "blink",
+        "x": 760,
+        "y": 1100,
+        "size": 300
+      }
+    },
+    {
+      "id": "tds-grows",
+      "component": "glyph-character",
+      "at": "w25",
+      "params": {
+        "glyph": "TDS",
+        "costume": "none",
+        "eyes": "side-eye",
+        "tone": "red",
+        "anim": "grow",
+        "line": "Bonus credited",
+        "lineY": 340,
+        "growAt": 0.3,
+        "bubble": "Main rakh leti hoon.",
+        "bubbleSide": "right",
+        "size": 340,
+        "x": 360,
+        "y": 720,
+        "maxWidth": 520
+      }
+    },
+    {
+      "id": "paisa-laya",
+      "component": "meme",
+      "at": "w37",
+      "params": {
+        "meme": "paisa laya",
+        "kind": "image",
+        "pick": 0,
+        "headline": "Bonus aate hi:",
+        "labels": [
+          {
+            "text": "TDS",
+            "x": 50,
+            "y": 12
+          }
+        ]
+      }
+    },
+    {
+      "id": "one-income",
+      "component": "receipt-list",
+      "at": "w45",
+      "fact": "F1",
+      "params": {
+        "title": "SAAL KI KAMAI",
+        "items": [
+          {
+            "label": "Salary",
+            "amount": "✓"
+          },
+          {
+            "label": "+ Diwali bonus",
+            "amount": "✓"
+          }
+        ],
+        "total": {
+          "label": "Head",
+          "amount": "Salaries",
+          "tone": "ink"
+        },
+        "footer": "ek hi income, ek hi slab",
+        "step": 0.22
+      }
+    },
+    {
+      "id": "stamp-salary",
+      "component": "stamp",
+      "at": "w45+0.3",
+      "until": "w50",
+      "fact": "F1",
+      "params": {
+        "text": "Bonus = salary",
+        "x": 500,
+        "y": 900,
+        "rotate": -7,
+        "size": 90
+      }
+    },
+    {
+      "id": "slabs",
+      "component": "bar-chart",
+      "at": "w50",
+      "fact": "F2",
+      "params": {
+        "bars": [
+          {
+            "label": "4L",
+            "value": 0
+          },
+          {
+            "label": "8L",
+            "value": 5
+          },
+          {
+            "label": "12L",
+            "value": 10
+          },
+          {
+            "label": "16L",
+            "value": 15
+          },
+          {
+            "label": "20L",
+            "value": 20
+          },
+          {
+            "label": "24L",
+            "value": 25
+          },
+          {
+            "label": "24L+",
+            "value": 30
+          }
+        ],
+        "highlight": 6,
+        "caption": "tax % · income ₹ lakh tak · new regime",
+        "stagger": 0.1
+      }
+    },
+    {
+      "id": "lifafe",
+      "component": "tier-compare",
+      "at": "w58",
+      "fact": "F2",
+      "params": {
+        "tiers": [
+          {
+            "amount": "Pehla",
+            "result": "0%"
+          },
+          {
+            "amount": "Beech",
+            "result": "10%"
+          },
+          {
+            "amount": "Aakhri",
+            "result": "30%"
+          }
+        ],
+        "reveal": "results",
+        "stagger": 0.55,
+        "wide": true,
+        "amtSize": 48,
+        "title": "Lifafe ka tax"
+      }
+    },
+    {
+      "id": "assume",
+      "component": "checklist",
+      "at": "w68",
+      "fact": "F9",
+      "params": {
+        "title": "Maan lo",
+        "stagger": 0.35,
+        "items": [
+          {
+            "text": "New regime",
+            "ok": true
+          },
+          {
+            "text": "Sirf standard deduction",
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "slip-example",
+      "component": "bar-chart",
+      "at": "w74",
+      "fact": "F9",
+      "params": {
+        "title": "Maan lo, new regime",
+        "prefix": "₹",
+        "bars": [
+          {
+            "label": "Salary (saal)",
+            "value": 1500000
+          },
+          {
+            "label": "Bonus",
+            "value": 100000
+          }
+        ],
+        "highlight": 1,
+        "caption": "example · saal ki kamai",
+        "stagger": 0.5
+      }
+    },
+    {
+      "id": "bonus-bill",
+      "component": "receipt-list",
+      "at": "w78",
+      "cut": "zoom",
+      "fact": "F9",
+      "params": {
+        "title": "BONUS KA HISAAB",
+        "meta": "maan lo · new regime",
+        "items": [
+          {
+            "label": "Diwali bonus",
+            "amount": "₹1,00,000"
+          },
+          {
+            "label": "Extra tax (15% slab)",
+            "amount": "−₹15,000"
+          }
+        ],
+        "total": {
+          "label": "Haath mein (lagbhag)",
+          "amount": "₹85,000",
+          "tone": "ink"
+        },
+        "footer": "sirf standard deduction, cess ignored",
+        "step": 0.25,
+        "width": 820,
+        "totalAt": 3.54
+      }
+    },
+    {
+      "id": "stamp-15k",
+      "component": "stamp",
+      "at": "w81+0.1",
+      "until": "w84",
+      "fact": "F9",
+      "params": {
+        "text": "₹15,000",
+        "sub": "extra tax",
+        "x": 520,
+        "y": 1010,
+        "rotate": -6,
+        "size": 100
+      }
+    },
+    {
+      "id": "cart",
+      "component": "checklist",
+      "at": "w86",
+      "params": {
+        "title": "Mera cart",
+        "items": [
+          {
+            "text": "Naya phone: save for later",
+            "ok": false
+          }
+        ],
+        "stagger": 0.3
+      }
+    },
+    {
+      "id": "peak",
+      "component": "meme-format",
+      "at": "w91+0.1",
+      "params": {
+        "format": "expectation-reality",
+        "reveal": 0.9,
+        "panels": [
+          {
+            "label": "Expectation",
+            "text": "Phone cart se seedha ghar",
+            "expr": "smug"
+          },
+          {
+            "label": "Reality",
+            "text": "Phone: save for later",
+            "expr": "crying"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dost-vs-me",
+      "component": "bar-chart",
+      "at": 30.4,
+      "fact": "F10",
+      "params": {
+        "title": "Bonus pe extra tax",
+        "prefix": "₹",
+        "bars": [
+          {
+            "label": "Dost",
+            "value": 0
+          },
+          {
+            "label": "Main",
+            "value": 15000
+          }
+        ],
+        "highlight": 0,
+        "caption": "maan lo: ₹9L + ₹50,000 vs ₹15L + ₹1L",
+        "stagger": 0.6
+      }
+    },
+    {
+      "id": "dost-lifafa",
+      "component": "mithai-dabba",
+      "at": "w105",
+      "params": {
+        "layout": "hero",
+        "count": 22,
+        "mascot": "",
+        "letter": {
+          "title": "Dost ka lifafa",
+          "line": "Poora. Bina kaate.",
+          "note": "Mummy ki taraf se"
+        }
+      }
+    },
+    {
+      "id": "crying",
+      "component": "mascot-reaction",
+      "at": "w112",
+      "until": "w116",
+      "params": {
+        "expr": "crying",
+        "anim": "blink",
+        "x": 820,
+        "y": 1150,
+        "size": 240
+      }
+    },
+    {
+      "id": "myth-cut",
+      "component": "split-compare",
+      "at": "w116",
+      "cut": "wipe",
+      "params": {
+        "left": {
+          "title": "Socha",
+          "text": "Company ne kaata"
+        },
+        "right": {
+          "title": "Asal mein",
+          "text": "Tumhara apna tax"
+        },
+        "strikeAt": 1.6,
+        "revealAt": 1.9
+      },
+      "sfx": []
+    },
+    {
+      "id": "projection",
+      "component": "calendar-flip",
+      "at": "w124",
+      "fact": "F6",
+      "params": {
+        "pages": [
+          "APR 2026",
+          "SEP 2026",
+          "OCT 2026",
+          "MAR 2027"
+        ],
+        "label": "Saal ka andaaza",
+        "details": [
+          "TDS har mahine thoda thoda"
+        ],
+        "width": 820
+      }
+    },
+    {
+      "id": "hr-mail",
+      "component": "chat-screen",
+      "at": "w132",
+      "params": {
+        "name": "HR",
+        "messages": [
+          {
+            "from": "them",
+            "text": "Diwali bonus credited with Oct salary"
+          },
+          {
+            "from": "them",
+            "text": "*TDS as applicable*"
+          },
+          {
+            "from": "me",
+            "text": "Matlab?"
+          }
+        ],
+        "highlight": 1,
+        "stagger": 0.2
+      }
+    },
+    {
+      "id": "tds-mummy",
+      "component": "glyph-character",
+      "at": "w140",
+      "params": {
+        "glyph": "TDS",
+        "costume": "none",
+        "eyes": "deadpan",
+        "tone": "red",
+        "anim": "toss",
+        "bubble": "Beta, main rakh leti hoon.",
+        "bubbleSide": "right",
+        "size": 300,
+        "x": 360,
+        "y": 720,
+        "maxWidth": 520
+      }
+    },
+    {
+      "id": "your-slab",
+      "component": "bar-chart",
+      "at": "w143+0.3",
+      "fact": "F2",
+      "params": {
+        "bars": [
+          {
+            "label": "4L",
+            "value": 0
+          },
+          {
+            "label": "8L",
+            "value": 5
+          },
+          {
+            "label": "12L",
+            "value": 10
+          },
+          {
+            "label": "16L",
+            "value": 15
+          },
+          {
+            "label": "20L",
+            "value": 20
+          },
+          {
+            "label": "24L",
+            "value": 25
+          },
+          {
+            "label": "24L+",
+            "value": 30
+          }
+        ],
+        "highlight": 3,
+        "caption": "tumhara slab = tumhara tax %",
+        "stagger": 0.08
+      }
+    },
+    {
+      "id": "itr",
+      "component": "checklist",
+      "at": "w147+0.2",
+      "fact": "F6",
+      "params": {
+        "title": "ITR mein hisaab",
+        "grow": true,
+        "stagger": 0.3,
+        "items": [
+          {
+            "text": "Salary + bonus, apna slab",
+            "ok": true
+          },
+          {
+            "text": "Kata hua TDS ghatao",
+            "ok": true
+          },
+          {
+            "text": "Baaki: refund ya tax",
+            "ok": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "mummy-vs-itr",
+      "component": "meme-format",
+      "at": "w153",
+      "params": {
+        "format": "two-panel",
+        "reveal": 1.35,
+        "panels": [
+          {
+            "label": "Mummy",
+            "text": "Hisaab? Kabhi nahi",
+            "expr": "facepalm"
+          },
+          {
+            "label": "ITR",
+            "text": "Paise paise ka hisaab",
+            "expr": "smug"
+          }
+        ]
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "punch",
+      "at": "w35"
+    },
+    {
+      "type": "punch",
+      "at": "w89"
+    },
+    {
+      "type": "punch",
+      "at": "w115"
+    },
+    {
+      "type": "punch",
+      "at": "w141"
+    },
+    {
+      "type": "punch",
+      "at": "w159"
+    }
+  ]
+}

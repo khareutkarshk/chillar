@@ -1,0 +1,10 @@
+.c-envelope .ev-env { position: absolute; z-index: 4; box-sizing: border-box; background: var(--paper); border-radius: 8px; box-shadow: var(--lift); /* taste-skill-ignore: paper depth */ }
+.c-envelope .ev-flap { position: absolute; left: 0; right: 0; top: 0; height: 36%; background: rgba(var(--shadow-rgb), .06); border-radius: 8px 8px 0 0; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+.c-envelope .ev-fold { position: absolute; left: 0; top: 0; width: 100%; height: 36%; overflow: visible; }
+.c-envelope .ev-fold path { fill: none; stroke: var(--pencil); stroke-width: 3; stroke-linejoin: round; opacity: .6; }
+.c-envelope .ev-corner { position: absolute; right: 36px; bottom: 40px; width: 96px; height: 116px; background: var(--haldi); border: 4px dashed var(--ink); border-radius: 4px; transform: rotate(3deg); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 800; font-size: 44px; color: var(--ink); }
+.c-envelope .ev-mark { position: absolute; right: 150px; bottom: 36px; width: 150px; height: 150px; border: 5px solid var(--red); border-radius: 50%; color: var(--red); display: flex; align-items: center; justify-content: center; text-align: center; font-family: var(--font-body); font-weight: 800; font-size: 32px; line-height: 1; transform: rotate(-12deg); opacity: .85; }
+.c-envelope .ev-addr { position: absolute; left: 7%; top: 42%; display: flex; flex-direction: column; gap: 6px; }
+.c-envelope .ev-addr .t-body { font-size: 50px; line-height: 1.1; color: var(--ink); }
+.c-envelope .ev-addr .t-body:first-child { font-size: 40px; color: var(--pencil); }
+.c-envelope .ev-pin { position: relative; align-self: flex-start; font-family: var(--font-head); font-weight: 800; font-size: 72px; line-height: 1.1; letter-spacing: .08em; color: var(--ink); margin-top: 6px; }

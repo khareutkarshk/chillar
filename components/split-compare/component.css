@@ -1,9 +1,9 @@
 .c-split-compare .zone { gap: 30px; }
 .c-split-compare .sc-chit { width: 840px; box-sizing: border-box; padding: 34px 50px 48px; display: flex; flex-direction: column; gap: 6px; }
-.c-split-compare .sc-word { font-size: 84px; }
+.c-split-compare .sc-word { font-size: 84px; flex: none; line-height: 1.05; margin-bottom: 14px; }   /* own row: long chit text never climbs into the title */
 .c-split-compare .sc-myth .sc-word { color: var(--pencil); }
 .c-split-compare .sc-math { margin-left: 40px; position: relative; z-index: 2; }
 .c-split-compare .sc-math .sc-word { color: var(--green-text); }
-.c-split-compare .sc-text { font-size: 66px; line-height: 1.08; }
+.c-split-compare .sc-text { font-size: 66px; line-height: 1.08; flex: none; }
 .c-split-compare .sc-myth .sc-text { color: var(--pencil); position: relative; display: inline-block; align-self: flex-start; }
 .c-split-compare .sc-myth .scrib path { stroke: var(--red); }

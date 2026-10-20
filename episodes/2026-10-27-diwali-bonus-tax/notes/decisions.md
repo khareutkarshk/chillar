@@ -1,0 +1,5 @@
+- 2026-10-21 · run killed when VS Code closed mid voice_check → resumed `--from align` (detached) · nothing upstream needed redoing
+- 2026-10-21 · contact sheet: "Peak Life Events" meme kept its template labels ("Losing virginity", "Wedding day") → swapped to own `meme-format` expectation-reality, same joke · off-brand text, CLAUDE.md §3 "our own text on them"
+- 2026-10-21 · contact sheet: side-eye Chillar (x820 y900) covered receipt text at 3 s → moved onto the hook mascot (x785 y760); validate needs a visual change ≤ 3 s, so it stays · overlapping text
+- 2026-10-21 · creator: two coins stacked at 3 s → hook-card mascot "" (the string "none" still drew a mascot); side-eye reaction alone on the slip corner
+- 2026-10-21 · creator: noise after "मुझे आज तक नहीं" → it was split-compare's default record scratch (PROVISIONAL) over "Company ne bonus"; myth-cut "sfx": [] mutes it

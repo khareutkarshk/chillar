@@ -529,16 +529,20 @@ def main() -> int:
     ap.add_argument("--at", default="", help="extra comma-separated times to sample")
     ap.add_argument("--no-audio", action="store_true")
     ap.add_argument("--strict", action="store_true", help="exit 1 on warnings too")
+    ap.add_argument("--for", dest="role", default="", help="print only issues routed to this role (e.g. director); "
+                    ".cache/qa.json still holds all of them")
     a = ap.parse_args()
     extra = [float(x) for x in a.at.split(",") if x.strip()]
     r = qa(a.episode, extra, audio=not a.no_audio)
-    for i in r["issues"]:
+    shown = [i for i in r["issues"] if not a.role or a.role in i["route"]]
+    for i in shown:
         t = f"t={i['t']:.2f}" if i["t"] is not None else "t=–"
         print(f"  {'✗' if i['sev'] == 'error' else '!'} [{i['route']}] {t} {i['kind']}: {i['where']} — {i['msg']} → {i['fix']}")
     au = r["audio"]
     if au.get("checked"):
         print(f"  audio: {au['lufs']} LUFS, {au['true_peak_dbtp']} dBTP" + (" (final.mp4 is older than scenes.json)" if au["stale"] else ""))
-    print(f"qa: {r['samples']} samples, {r['errors']} error(s), {r['warnings']} warning(s) → .cache/qa.json")
+    hidden = f" ({len(r['issues']) - len(shown)} for other roles not shown)" if a.role else ""
+    print(f"qa: {r['samples']} samples, {r['errors']} error(s), {r['warnings']} warning(s) → .cache/qa.json{hidden}")
     return 1 if r["errors"] or (a.strict and r["warnings"]) else 0
 
 

@@ -7,7 +7,7 @@
 | `scriptwriter` | opus · high | writes/rewrites script.md (jokes, puns, meme refs, facts cited) | ⇄ script-reviewer, ≤ 3 rounds |
 | `script-reviewer` | opus · high | scores + line notes → `notes/script-review-<n>.md`, PASS/REVISE | |
 | `fact-checker` | sonnet · medium | verifies claims → `notes/fact-check.md`, PASS/BLOCK | BLOCK → scriptwriter |
-| `director` | opus · high | script + words.json → `scenes/scenes.json` (visuals, fields, stamps, cuts) | ⇄ video-reviewer |
+| `director` | opus · medium | script + words.json → `scenes/scenes.json` (visuals, fields, stamps, cuts) | ⇄ video-reviewer |
 | `editor` | sonnet · medium | rhythm, cut points, comedic timing, transitions, SFX in scenes.json | ⇄ video-reviewer |
 | `video-reviewer` | sonnet · medium | judges taste/comedy/retention on top of `qa.py` → `notes/video-review-<n>.md` | ≤ 3 rounds |
 | `component-dev` | sonnet · medium | fixes `[component:<name>]` review notes in `components/` (only when routed) | in the edit loop |
@@ -89,6 +89,10 @@ Baseline: the EPF reel made by a producer session routing in-session subagents c
   `notes/component-wishlist.md` (new ones, the creator's call). Director revisions and fix passes run at medium
   effort (`REVISE_EFFORT`). The video-reviewer marks notes `blocker|polish`, passes with no blockers, and adds
   only new blockers after round 1.
+- **(2026-10-21) Cost fixes after diwali-bonus-tax ($4.48; director = 33 % of all agent spend):** the director's
+  first pass runs at medium (was high; watch video rounds on the next reels). It reads `qa.py --for director` (only
+  its own issues) and never opens review frames or meme images. `package` skips when post.md is newer than
+  script/facts/cover/fact-check (re-deliveries reran it). The backlog keeps one open line per component.
 - **Real cost per run** (`total_cost_usd`) → `notes/usage.jsonl` → `notes/usage.md`; `--max-budget-usd`
   caps per agent (BUDGET in produce.py) are safety nets, not targets.
 - **Cost and quality together:** `usage.md` reports prompt characters, cached-read tokens and stage cost beside

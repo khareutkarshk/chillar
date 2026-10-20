@@ -8,3 +8,10 @@
 .c-calendar-flip .cf-big { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; line-height: .95; color: var(--ink); }
 .c-calendar-flip .cf-body { flex: 0 0 82px; display: flex; align-items: center; justify-content: center; padding: 6px 24px; box-sizing: border-box;
   color: var(--ink); font: 700 42px/1.05 var(--font-head); text-align: center; }
+/* page type scales with the calendar width (1 at 600 px); height:-1 fits the page to its text */
+.c-calendar-flip .cf-band { font-size: calc(84px * var(--cf-s, 1)); padding: calc(50px * var(--cf-s, 1)) 0 calc(22px * var(--cf-s, 1)); }
+.c-calendar-flip .cf-body { font-size: calc(42px * var(--cf-s, 1)); flex-basis: calc(82px * var(--cf-s, 1)); }
+.c-calendar-flip .cf-cal.auto { height: auto; }
+.c-calendar-flip .cf-stack.auto { position: relative; display: grid; inset: auto; }
+.c-calendar-flip .cf-stack.auto .cf-page { position: relative; grid-area: 1 / 1; inset: auto; }
+.c-calendar-flip .cf-stack.auto .cf-big { flex: none; padding: calc(10px * var(--cf-s, 1)) 0; }

@@ -21,7 +21,7 @@ CH.define("outro", {
       </div>`;
     CH.toss(tl, el.querySelector(".ou-receipt"), t, tilt, { frames: 6 });
     // receipt prints top-down (header → MDR → gyaan → disclaimer), THEN the follow stub, then it tears
-    const printed = CH.print(tl, [...el.querySelectorAll(".ou-line")], t + 0.1, 0.2);
+    const printed = CH.print(tl, [...el.querySelectorAll(".ou-line")], t - 0.05, 0.2);
     tl.fromTo([el.querySelector(".ou-perf"), el.querySelector(".ou-stub")], { opacity: 0 }, { opacity: 1, duration: 2 * CH.F, ease: "none" }, Math.min(printed, t + (+p.tearAt) - 0.2));
     const tear = t + (+p.tearAt);
     tl.fromTo(el.querySelector(".ou-stub"), { y: 0, rotation: 0 }, { y: 80, rotation: -7, duration: 7 * CH.F, ease: "power3.out", transformOrigin: "100% 0%" }, tear);

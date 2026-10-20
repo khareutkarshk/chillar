@@ -21,7 +21,7 @@ from fetch_assets import SLOTS  # noqa: E402
 from lib.common import BRAND  # noqa: E402
 from lib.episode import load  # noqa: E402
 
-SFX_GAIN_DB = {"stamp": -3, "printer": -12, "ding": -8, "coin": -9, "scratch": -7,
+SFX_GAIN_DB = {"stamp": -3, "printer": -12, "ding": -8, "coin": -9, "scratch": -11,
                "glitch": -10, "typing": -13, "whoosh": -12}
 AUDIO_EXT = (".wav", ".mp3", ".ogg", ".flac", ".m4a", ".aiff")
 

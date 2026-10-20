@@ -1,6 +1,6 @@
 {
   "name": "calendar-flip",
-  "description": "Tear-off desk calendar (paper pages, red month band) riffles through pages and lands on the last one — time passing, deadlines, 'since 2020'. Optional details sit in a fixed footer beneath the year; width, height and yearSize tune the paper layout.",
+  "description": "Tear-off desk calendar (paper pages, red month band) riffles through pages and lands on the last one — time passing, deadlines, 'since 2020'. Optional details sit in a fixed footer beneath the year; width (400–860) scales the page type too; height -1 fits the page to its text instead of a fixed height; yearSize tunes the number.",
   "layer": "scene",
   "params": { "pages": ["JAN 2020", "JAN 2023", "OCT 2026"], "details": [], "label": "", "flip": 0.16, "width": 600, "height": 620, "yearSize": 230 },
   "example": { "pages": ["JAN 2020", "JAN 2023", "OCT 2026"], "details": ["Pehle", "Phir", "Ab"], "label": "6 saal se MDR *zero*", "width": 820, "height": 460, "yearSize": 170 },

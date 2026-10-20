@@ -199,8 +199,8 @@ CH.define("glyph-character", {
       let edgeX, bottom;
       if (sideRoom >= 300) { edgeX = X + bs * (w / 2 - u * 0.04); bottom = 1920 - (Y - h / 2 + u * 0.16); }
       else { edgeX = X + bs * w * 0.05; bottom = 1920 - (Y - h / 2 - u * 0.08 - hat); }
-      if (bs > 0) Object.assign(bub.style, { left: `${f1(edgeX)}px`, maxWidth: `${f1(Math.min(520, 940 - edgeX))}px` });
-      else Object.assign(bub.style, { right: `${f1(1080 - edgeX)}px`, maxWidth: `${f1(Math.min(520, edgeX - 60))}px` });
+      if (bs > 0) Object.assign(bub.style, { left: `${f1(edgeX)}px`, maxWidth: `${f1(Math.min(+p.bubbleWidth || 520, 940 - edgeX))}px` });
+      else Object.assign(bub.style, { right: `${f1(1080 - edgeX)}px`, maxWidth: `${f1(Math.min(+p.bubbleWidth || 520, edgeX - 60))}px` });
       bub.style.bottom = `${f1(bottom)}px`;
     }
 

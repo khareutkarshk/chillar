@@ -1,6 +1,6 @@
 {
   "name": "glyph-character",
-  "description": "A big typographic glyph (\"*\", \"%\", \"₹\", \"0%\", \"T&C\") turned into a deadpan character for visual jokes ('the asterisk is the offer's lawyer'): headline-face glyph, Chillar's half-closed eyes, stick limbs and a hand-drawn SVG costume. Centred on x, y (the glyph's ink centre); size = ink height in px (wide glyphs are capped at maxWidth). costume: lawyer (tiny black coat + white bands, one arm raised — 'Objection.') | crown | detective (hat + magnifier) | none. eyes: deadpan | side-eye (pupils toward the bubble) | none. tone: ink (field ink) | red. bubble: optional paper speech bubble on bubbleSide (right | left; the busy arm goes on the other side), kept inside x 60–940. anim: toss (lands at a seeded tilt) | grow — needs line: a torn fine-print slip (y = lineY) ending in a tiny glyph like a footnote mark, which grows into the character growAt s after the cut; the costume drops on as it lands. legs/arms (default true) draw the stick limbs. Keep it clear of the caption band: default y 720 with size 400 ends ~ y 1060.",
+  "description": "A big typographic glyph (\"*\", \"%\", \"₹\", \"0%\", \"T&C\") turned into a deadpan character for visual jokes ('the asterisk is the offer's lawyer'): headline-face glyph, Chillar's half-closed eyes, stick limbs and a hand-drawn SVG costume. Centred on x, y (the glyph's ink centre); size = ink height in px (wide glyphs are capped at maxWidth). costume: lawyer (tiny black coat + white bands, one arm raised — 'Objection.') | crown | detective (hat + magnifier) | none. eyes: deadpan | side-eye (pupils toward the bubble) | none. tone: ink (field ink) | red. bubble: optional paper speech bubble on bubbleSide (right | left; the busy arm goes on the other side), kept inside x 60–940. anim: toss (lands at a seeded tilt) | grow — needs line: a torn fine-print slip (y = lineY) ending in a tiny glyph like a footnote mark, which grows into the character growAt s after the cut; the costume drops on as it lands. legs/arms (default true) draw the stick limbs. bubbleWidth (default 520) = bubble max width px, raise to ~800 for a wide bubble (clamped inside x 60-940). Keep it clear of the caption band: default y 720 with size 400 ends ~ y 1060.",
   "layer": "scene",
   "params": {
     "glyph": "*",
@@ -18,7 +18,8 @@
     "growAt": 0.45,
     "legs": true,
     "arms": true,
-    "maxWidth": 620
+    "maxWidth": 620,
+    "bubbleWidth": 520
   },
   "example": {
     "glyph": "*",
