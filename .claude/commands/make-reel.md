@@ -28,8 +28,9 @@ outputs, scripts or frames unless a step below says so. Note `npx ccusage@latest
    | voice outside the range at align | `--from align --accept-length` |
    | video: no PASS after 3 rounds | "fix it and ship": `--only fix`, then `--from deliver` |
    | qa still blocks the draft after a fix pass | read `.cache/qa.json` errors, fix them surgically in scenes.json, `--from edit` |
-   | fact-check still BLOCK after a fix cycle | **ask** — a wrong or unsourced fact never ships (SEBI/ASCI) |
-   Also **ask** when a choice would break a §3 content rule, or the reel's agent cost passes $12.
+   | fact-check still BLOCK after a fix cycle | one more fix: source the claim (facts.md) or cut/reframe it in script.md, `--from factcheck`. Core claim unsourceable → swap the date to a ★ buffer topic (same format, new slug), log it. **Ask** only if the buffer reel BLOCKs too — an unsourced fact never ships (SEBI/ASCI) |
+   | a choice would break a §3 content rule | take the safe option (cut the line / meme / brand), resume — don't ask |
+   Also **ask** when the reel's agent cost passes $12.
    The final report lists every autonomous decision.
    Component requests no longer run mid-reel: they collect in `components/_backlog.md`; build them in one
    batch with `produce.py episodes/<any> --only components` (weekly, or when the backlog has 3+ open). Never run a director/editor

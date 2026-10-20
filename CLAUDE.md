@@ -149,7 +149,13 @@ continue. A creator recording is used only if the creator says so for that episo
   `/make-reel` runs `pipeline/produce.py` (headless lean agents, pinned models, real cost per run in
   `notes/usage.md`) — keep the producer session thin; see `brand/rules/production.md`.
 - Agents (`.claude/agents/`): scriptwriter ⇄ script-reviewer (≤ 3 rounds) · fact-checker · director ⇄
-  editor ⇄ video-reviewer (≤ 3 rounds). After 3 rounds without PASS the pipeline stops; the producer decides by the table in `.claude/commands/make-reel.md` and asks only for a fact-check BLOCK, a §3 conflict or cost > $12.
+  editor ⇄ video-reviewer (≤ 3 rounds). After 3 rounds without PASS the pipeline stops; the producer decides by the table in `.claude/commands/make-reel.md` and asks only when a fact-check BLOCK survives its fix *and* the buffer-topic swap, or for cost > $12.
+  **Fact BLOCK, unattended (creator's call, 2026-10-21):** an unsourced fact never ships. One fix: source it or
+  cut/reframe the claim. If the topic's core claim can't be sourced, swap that date to a ★ buffer topic from
+  `posting-schedule.md` (same format) and log it. §3 conflicts: take the safe option (cut the line/meme), don't ask.
+- **Commits (creator's call, 2026-10-21):** commit as the configured git user (the creator) only — never add a
+  `Co-Authored-By` or any Claude/AI attribution line to commit messages or PRs. Commit as work lands; never push
+  unless asked.
   **Each round is a fresh agent that reads the notes files — never resume an agent.** Model tiers,
   hand-off and image-budget rules: `brand/rules/production.md`.
 - Pipeline: `.venv/bin/python pipeline/make_reel.py episodes/<ep> [--from STAGE]`

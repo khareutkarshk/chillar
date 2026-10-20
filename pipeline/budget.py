@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import os
 import subprocess
 import sys
 import time
@@ -31,26 +32,49 @@ CLAUDE = ("claude", "opus", "sonnet", "haiku", "fable")
 
 
 def claude_usd_since(day: str) -> float:
-    """API-equivalent $ of every Claude model since <day> (YYYYMMDD), from ccusage's local logs."""
-    r = subprocess.run(["npx", "--yes", "ccusage@latest", "daily", "--since", day, "--json"], cwd=ROOT,
-                       capture_output=True, text=True, timeout=180)
-    rows = json.loads(r.stdout).get("daily", [])
+    """API-equivalent $ of every Claude model since <day> (YYYYMMDD), from ccusage's local logs.
+    Raises RuntimeError when ccusage can't answer (offline npx, a malformed log line) — callers decide."""
+    try:
+        r = subprocess.run(["npx", "--yes", "ccusage@latest", "daily", "--since", day, "--json"], cwd=ROOT,
+                           capture_output=True, text=True, timeout=180)
+        rows = json.loads(r.stdout).get("daily", [])
+    except (subprocess.TimeoutExpired, json.JSONDecodeError, OSError, AttributeError) as e:
+        raise RuntimeError(f"ccusage unavailable: {e}") from e
     return round(sum(m.get("cost", 0) for row in rows for m in row.get("modelBreakdowns", [])
                      if any(k in m.get("modelName", "").lower() for k in CLAUDE)), 2)
 
 
 def state() -> dict | None:
-    return json.loads(LEDGER.read_text()) if LEDGER.exists() else None
+    for _ in range(3):              # two reels may write it at once; writes are atomic, so a retry suffices
+        if not LEDGER.exists():
+            return None
+        try:
+            return json.loads(LEDGER.read_text())
+        except (json.JSONDecodeError, OSError):
+            time.sleep(0.5)
+    return None
+
+
+def save(s: dict) -> None:
+    tmp = LEDGER.with_suffix(f".{os.getpid()}.tmp")
+    tmp.write_text(json.dumps(s, indent=1))
+    os.replace(tmp, LEDGER)
 
 
 def check(force: bool = False) -> dict:
+    """Never raises: a failed ccusage read keeps the last known spend (logged as stale) so a network blip
+    can't kill a reel mid-stage; the next check retries."""
     s = state()
     if not s:
         return {"armed": False}
     if force or time.time() - s.get("checked_at", 0) > CACHE_S:
-        s["spent"] = round(claude_usd_since(s["since"]) - s["baseline"], 2)
+        try:
+            s["spent"] = round(claude_usd_since(s["since"]) - s["baseline"], 2)
+            s.pop("stale", None)
+        except RuntimeError as e:
+            s["stale"] = str(e)[:200]
         s["checked_at"] = time.time()
-        LEDGER.write_text(json.dumps(s, indent=1))
+        save(s)
     s["pct_now"] = round(s["pct_start"] + s["spent"] / s["usd_per_pct"], 1)
     s["over"] = s["spent"] >= s["cap"]
     s["armed"] = True
@@ -73,7 +97,7 @@ def main() -> int:
              "cap": round((a.stop_at_pct - a.pct_now) * a.usd_per_pct, 2), "stop_at_pct": a.stop_at_pct,
              "spent": 0.0, "checked_at": time.time(), "armed_at": dt.datetime.now().isoformat(timespec="seconds")}
         LEDGER.parent.mkdir(exist_ok=True)
-        LEDGER.write_text(json.dumps(s, indent=1))
+        save(s)
         print(f"budget armed: cap ${s['cap']} (≈ {a.pct_now}% → {a.stop_at_pct}% of the weekly limit at "
               f"${a.usd_per_pct}/%), baseline ${s['baseline']} already spent today")
         return 0
@@ -86,7 +110,8 @@ def main() -> int:
         print("budget: not armed")
         return 0
     print(f"budget: ${s['spent']} of ${s['cap']} · ≈ {s['pct_now']}% weekly (stop at {s['stop_at_pct']}%)"
-          + (" · OVER — stop everything" if s["over"] else ""))
+          + (" · OVER — stop everything" if s["over"] else "")
+          + (f" · ⚠ stale (last good read kept): {s['stale']}" if s.get("stale") else ""))
     return 3 if s["over"] else 0
 
 
