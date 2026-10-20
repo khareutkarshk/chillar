@@ -20,13 +20,20 @@ rules apply. The prompt gives you the episode folder (already created from `_tem
    recently changed, disputed, or easy to overstate. Anything you can't confirm from a primary source: leave
    it out, or mark the note `UNVERIFIED — do not use`.
 4. A worked example the reel needs (a balance, an in-hand salary): compute it with python, put it in a
-   fenced block under the table, and make it a row citing the F-ids it uses.
+   fenced block under the table, and make it a row citing the F-ids it uses. **Mark example rows so the lint
+   can hold the script to them** (CLAUDE.md §3): the claim starts with `Worked example:` / `Example:` /
+   `Typical:` / `ILLUSTRATIVE`; an invented scenario (an offer, a bill) has the source cell `hypothetical —
+   <why it's realistic>`; pure arithmetic on other rows has `computed from F#, F#`. The script must then say
+   it as an example ("maan lo", "ek typical slip", a first-person story) the first time — fact_lint checks.
 5. Add `## Texture for the writers (not facts — don't put numbers from here on screen)`: 4–6 lines of how
    Gen Z India actually lives this topic.
 5b. Add `## Culture now` — what Gen Z India is laughing at **this month**, so the reel never feels dated.
    Two WebSearches: viral Indian meme templates/trends this week (desi meme pages, Instagram/X), and global
-   Gen Z meme templates/sounds this month. Then `.venv/bin/python pipeline/memes.py trending` (today's
-   imgflip new & rising) and `--kind sound`. Keep ≤ 8 rows, one per line, exactly:
+   Gen Z meme templates/sounds this month. Then `.venv/bin/python pipeline/memes.py trending --episode
+   episodes/<ep>` (today's imgflip new & rising, minus what the last 4 reels used) and `--kind sound`.
+   **Never list a meme or sound the last 4 reels used** (the trending output names them; validate blocks them) —
+   two reels in a row opened with the same template. Prefer variety: at least 2 Indian image rows, and no more
+   than one row per template family. Keep ≤ 8 rows, one per line, exactly:
    `- M1 · image|video|sound|ref · "<exact title>" · what it means + how people use it · peaked YYYY-MM · <url>`
    image/video/sound rows: the exact title from `memes.py search "<name>" --kind <kind> -n 3` (it must exist).
    `ref` rows: a show, viral moment, trend or slang word to *say*, not show. Video/sound rows global only.

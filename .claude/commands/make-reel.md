@@ -18,8 +18,11 @@ outputs, scripts or frames unless a step below says so. Note `npx ccusage@latest
 2. **Exit 0** → it printed the summary (cover, hook, words/seconds, fact-check) and the usage table.
    **Exit 3** → read `notes/STOP.md` only, tell me the reason in two lines plus the options it lists, and
    ask me. Then resume with `--from <stage>` (e.g. `--from deliver` after I accept a draft,
-   `--from edit` for one more round, `--only fix` then `--from deliver` when I say "fix it and ship" after a
-   3-round video stop, `--from align --accept-length` when I accept a voice length). Never run a director/editor
+   `--from script --extra-rounds 1` / `--from edit --extra-rounds 1` for one more round past the cap,
+   `--only fix` then `--from deliver` when I say "fix it and ship" after a
+   3-round video stop, `--from align --accept-length` when I accept a voice length).
+   Component requests no longer run mid-reel: they collect in `components/_backlog.md`; build them in one
+   batch with `produce.py episodes/<any> --only components` (weekly, or when the backlog has 3+ open). Never run a director/editor
    fix as an in-session subagent — `--only fix` does it headless and cheaper. Any other exit → read the last 30
    lines of its output and fix. Code lookups: `graphify query` first; grep only known lines / episode files.
 3. After `deliver`: look at `output/contact_sheet.png` **once** yourself (CLAUDE.md §8 — never claim a render

@@ -11,6 +11,8 @@ CH.define("statement", {
           ? `<div class="st-wrap torn-wrap st-b" style="${w}transform: rotate(${tilt.toFixed(2)}deg)"><div class="st-chit paper-torn t-body">${body}</div></div>`
           : `<div class="st-body t-body st-b" style="${w}">${body}</div>`) : ""}
       </div>`;
+    // fit (default true): a word wider than the line shrinks the headline instead of breaking mid-word
+    if (p.fit !== false) CH.fitHead(el.querySelector(".st-title"), +p.size, 0.55);
     CH.pop(tl, el.querySelector(".st-title"), t);
     const b = el.querySelector(".st-b");
     if (b) (p.paper ? CH.toss(tl, b, t + 4 * CH.F, tilt) : CH.pop(tl, b, t + 3 * CH.F));

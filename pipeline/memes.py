@@ -154,6 +154,19 @@ def norm_title(t: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", t.lower()).strip()
 
 
+def culture_rows(ep) -> dict[str, str]:
+    """facts.md `## Culture now` → {"M1": exact title} (what a script's `{meme: M1}` means)."""
+    p = ep.dir / "facts.md"
+    txt = p.read_text() if p.exists() else ""
+    m = re.search(r"^## Culture now.*?$(.*?)(?=^## |\Z)", txt, re.S | re.M)
+    out = {}
+    for row in (m.group(1).splitlines() if m else []):
+        r = re.match(r"\s*-\s*(M\d+)\s*·\s*(image|video|sound|ref)\s*·\s*\"([^\"]+)\"", row)
+        if r:
+            out[r.group(1).upper()] = r.group(3)
+    return out
+
+
 def culture_now(ep) -> dict[str, str]:
     """facts.md `## Culture now` rows → {normalised exact title: kind}. Row: `- M1 · image · "Title" · why · date · url`."""
     p = ep.dir / "facts.md"
@@ -164,6 +177,45 @@ def culture_now(ep) -> dict[str, str]:
         r = re.match(r"\s*-\s*(M\d+)\s*·\s*(image|video|sound|ref)\s*·\s*\"([^\"]+)\"", row)
         if r:
             out[norm_title(r.group(3))] = r.group(2)
+    return out
+
+
+RECENT_REELS = 4               # a meme used in any of the last 4 reels is off-limits — followers notice repeats
+
+
+def _born(d: Path) -> float:
+    """When an episode was started: its first agent run (usage.jsonl), else facts.md's mtime."""
+    u = d / "notes" / "usage.jsonl"
+    try:
+        first = json.loads(u.read_text().splitlines()[0])["at"]
+        return time.mktime(time.strptime(first[:19], "%Y-%m-%dT%H:%M:%S"))
+    except Exception:
+        f = d / "facts.md"
+        return f.stat().st_mtime if f.exists() else 0.0
+
+
+def recent_use(ep_dir, n: int = RECENT_REELS) -> dict[str, str]:
+    """{normalised meme title/query: episode} for every meme in the n reels started before this one."""
+    here = Path(ep_dir).resolve()
+    born = _born(here)
+    others = [p.parent.parent for p in (ROOT / "episodes").glob("*/scenes/scenes.json")
+              if p.parent.parent.resolve() != here and not p.parent.parent.name.startswith("_")]
+    others = sorted((d for d in others if _born(d) < born), key=_born, reverse=True)[:n]
+    out: dict[str, str] = {}
+    for d in others:
+        try:
+            plan = json.loads((d / "scenes" / "scenes.json").read_text())
+        except (OSError, json.JSONDecodeError):
+            continue
+        used = wanted(plan)
+        try:                                                  # the fetched titles, when a query differed
+            man = json.loads((d / ".cache" / "memes" / "memes.json").read_text())
+        except (OSError, json.JSONDecodeError):
+            man = {}
+        for kind, q, pick in used:
+            out.setdefault(norm_title(q), d.name)
+            out.setdefault(norm_title((man.get(key(kind, q, pick)) or {}).get("title", "")), d.name)
+    out.pop("", None)
     return out
 
 
@@ -316,6 +368,7 @@ def main() -> int:
     tr = sub.add_parser("trending")
     tr.add_argument("--kind", choices=["image", "video", "sound"], default="image")
     tr.add_argument("-n", type=int, default=40)
+    tr.add_argument("--episode", help="mark (and drop) memes used in the last few reels before this one")
     f = sub.add_parser("fetch")
     f.add_argument("episode")
     a = ap.parse_args()
@@ -325,8 +378,13 @@ def main() -> int:
             print(f"  pick {i}: {h['title']}{age}")
         return 0
     if a.cmd == "trending":
+        recent = recent_use(a.episode) if a.episode else {}
         for t in trending(a.kind, a.n):
-            print(f"  {t}")
+            if norm_title(t.rsplit("  (", 1)[0]) not in recent:
+                print(f"  {t}")
+        if recent:
+            print(f"  (left out — used in the last {RECENT_REELS} reels: "
+                  + "; ".join(f"{k} [{v}]" for k, v in sorted(recent.items())) + ")")
         print("  (Indian + this week's: facts.md '## Culture now', from the researcher)")
         return 0
     ep = load(a.episode)

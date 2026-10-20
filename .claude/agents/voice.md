@@ -15,10 +15,14 @@ change speaker/pace). Follow `brand/rules/voice.md`.
    - Acronyms with dots (P.F., U.A.N., L.P.A.). Integers with Indian commas (₹11,100, ₹40 लाख).
    - **Decimals and percents as spoken English**: "eight point two five percent", "one point six five crore
      रुपये" — Sunny reads "1.65" as "एक दशमलव छह पाँच", which is wrong for the brand.
-2. `.venv/bin/python pipeline/tts.py episodes/<ep>`.
-3. Pronunciation check: transcribe `voice/voice.wav` with faster-whisper (model "small", language "hi",
-   int8) and compare with tts.txt line by line. Fix tts.txt only for numbers/words that came out wrong
-   (ASR spelling noise is fine), regenerate — at most 2 regenerations.
+   - **Nasals:** Sunny drops ँ/ं inside a word (खाँसा → "khaasa"). Spell a mid-word nasal as a half
+     consonant: खान्सा, अन्दर, ठण्डा. `brand/pronunciations.tsv` respells known words automatically — add a row
+     there for any new one, so it stays fixed in every reel.
+2. `.venv/bin/python pipeline/tts.py episodes/<ep>` (it prints the lexicon rows it applied).
+3. Don't transcribe — the pipeline listens next (`pipeline/voice_check.py`, whisper medium, line by line) and
+   sends you `.cache/voice_check.md` only if a line is flagged. On that pass: a real mispronunciation (a
+   `nasal` flag, a number read wrong, a skipped word) → a pronunciations.tsv row or a tts.txt respelling, then
+   regenerate once; ASR spelling noise → ignore.
 4. Duration: print it. If it's outside the format range minus ~3.5 s of outro (60 s format: ~48–64 s of
    voice), say so — don't change the script.
 

@@ -19,6 +19,11 @@ before they're spoken, tiny text, fade entrances, short shots, true peak / LUFS,
 of that from frames. Copy each qa error into your notes with its route; spend your eyes on taste,
 comedy, clarity and retention.
 
+**You can't hear the reel, so read what code heard:** `.cache/voice_check.md` (the voice transcribed line by
+line by whisper medium — any row still flagged is a `blocker` for a wrong word/number, routed `[editor]` with
+"voice: re-take line Lx") and `scenes.resolved.json` → `sfx` (what plays) vs `sfx_dropped` (what the plan
+wanted but lost the 2 s thinning — a dropped foley or meme sound is a `[editor]` note: the joke has no sound).
+
 ## Gather (image budget: 1 contact sheet + ≤ 12 frames at 540×960 per round)
 1. Read `.cache/qa.json` (incl. `layout`: each shot's measured content box — don't call an object "small" or
    "half-width" if its box is ≥ 800 px wide; qa's `narrow-frame`/`small-text`/`same-layout` are the measured
@@ -75,6 +80,10 @@ it, text it can't size). The director can't fix a component from scenes.json —
 - `polish` — everything else: a nicer object, a bigger panel, a better entrance, a widow word, variety.
 
 **Verdict:** PASS when there is no blocker — polish notes go in the file but never block. REVISE only for blockers.
+Polish notes are **applied** after a PASS (one director/editor pass, qa-guarded), so write them as precisely as
+blockers: t, what, the exact fix. `[component:*]` polish goes to the shared backlog, not to this reel.
+- **Memes vs the last reels:** validate blocks a meme the last 4 reels used; if a meme feels like one the channel
+  has leaned on (same joke shape, same sound), say so as polish.
 **Round 2+:** check the prior notes, then add only *new blockers* (something this round broke or that was hidden
 before). No new polish notes after round 1 — the edit loop converges or it costs a round each time.
 

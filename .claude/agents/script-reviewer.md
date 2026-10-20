@@ -58,4 +58,10 @@ words: <n> (~<s> s, target <format>)
 ## Keep
 - the 2–3 lines that must survive the rewrite
 ```
+Keep the file tight — the writer acts on it and every extra paragraph is paid for twice: **≤ 8 notes, each ≤ 3
+lines** (quote, problem, direction), no restating fixed notes beyond `## Prior notes` one-liners (fixed / still
+open / escalated). Mechanical checks (length, uncited numbers, unframed example facts, laugh count, reused memes)
+were already enforced by fact_lint before you — don't spend notes re-measuring them; spend them on whether it's
+*funny*, *clear* and *true*. When the only thing between this draft and PASS is a single line, say so — the
+writer can fix one line without a new round of rewrites elsewhere.
 Return the verdict line + the top 3 notes (one line each); the rest is in the file.

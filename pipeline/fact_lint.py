@@ -39,6 +39,20 @@ MAX_LINE_WORDS = 14
 # or arithmetic on other facts ("computed from F1, F3") — and those must themselves be sourced or hypothetical
 HYPOTHETICAL = re.compile(r"\bhypothetical\b", re.I)
 COMPUTED = re.compile(r"\bcomputed from\b", re.I)
+# a fact that is an example (a typical slip, an invented offer, a worked balance) must be *said* as one the first
+# time the voice uses it — "₹13,532 gayab" stated as everyone's salary failed 4 of 6 first script reviews
+EXAMPLE_CLAIM = re.compile(r"^\W*(illustrative|hypothetical|worked example|example|typical)\b", re.I)
+FRAMING = re.compile(r"\b(maan lo|maano|maan le|man lo|socho|soch lo|imagine|example|misaal|jaise|jaisa|agar|typical|"
+                     r"aksar|kuch aisa|kuch aise|kisi|ek (offer|slip|bank|app|banda|bandi|dost|cart|phone|card|"
+                     r"loan|salary|naukri|company|shop|dukaan|sale)|"
+                     # a first-person story is framing too: "mere card pe ₹10,000" is one person's bill, not a law
+                     r"maine|mera|meri|mere|mujhe|humne|hamara|mummy|papa|mom|dad)\b", re.I)
+
+
+def is_example(f: dict) -> bool:
+    return bool(EXAMPLE_CLAIM.search(f["claim"]) or HYPOTHETICAL.search(f.get("source_text", ""))
+                or COMPUTED.search(f.get("source_text", "")))
+MEME_CUE = re.compile(r"\{meme:\s*(M\d+)", re.I)
 NUM_TOKEN = re.compile(r"₹?\d[\d,]*(?:\.\d+)?%?(?:-\d+)?")
 
 
@@ -129,6 +143,38 @@ def lint(ep_dir: str) -> dict:
             problems.append(f"{line.id} has a number/claim but no [F#]: \"{line.spoken}\"")
         elif soft and not line.facts and not hard:
             warnings.append(f"{line.id} may contain a number word ('{soft.group(0)}') — cite if it's a figure")
+    # examples said as examples: the first line citing one (or the line before it) carries a framing cue
+    first_use: dict[str, int] = {}
+    for i, line in enumerate(ep.lines):
+        for fid in line.facts:
+            first_use.setdefault(fid, i)
+    framed: set[str] = set()
+    for fid, i in sorted(first_use.items(), key=lambda kv: kv[1]):
+        f = ep.facts.get(fid)
+        if not f or not is_example(f):
+            continue
+        refs = set(re.findall(r"F\d+", " ".join((f["claim"], f.get("notes", ""), f.get("source_text", ""))))) - {fid}
+        said = " ".join(l.spoken for l in ep.lines[max(0, i - 1):i + 1])
+        if refs & framed or FRAMING.search(said):        # built on an example the viewer already heard framed
+            framed.add(fid)
+        else:
+            problems.append(f"{ep.lines[i].id} is the first line citing {fid}, an example/hypothetical fact, but says it as "
+                            f"a general truth — frame it as one (\"maan lo\", \"ek typical …\", \"jaise\") in this line or "
+                            f"the one before: \"{ep.lines[i].spoken}\"")
+    # planned memes the last few reels already used (validate blocks them later, at a higher price)
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import memes
+        rows = memes.culture_rows(ep)
+        recent = memes.recent_use(ep.dir)
+        for line in ep.lines:
+            for mid in MEME_CUE.findall(" ".join(line.directions) + " " + line.raw):
+                t = rows.get(mid.upper())
+                if t and memes.norm_title(t) in recent:
+                    warnings.append(f"{line.id} plans {mid} \"{t}\", already used in {recent[memes.norm_title(t)]} — "
+                                    "pick another Culture now row")
+    except Exception as ex:          # memes/network trouble never blocks the fact gate
+        warnings.append(f"recent-meme check skipped ({ex})")
     unused = set(ep.facts) - {f for l in ep.lines for f in l.facts}
     for fid in sorted(unused):
         warnings.append(f"{fid} is never cited in script.md")

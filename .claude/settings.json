@@ -1,4 +1,9 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(.venv/bin/python pipeline/*)"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {

@@ -8,6 +8,7 @@
   fetch_assets.py lock stamp=2 coin=1 music=1,4 ...
   fetch_assets.py ingest <file> --url <source page> --source mixkit|pixabay --kind sfx
   fetch_assets.py prune                  # drop ledger rows whose files are gone
+  fetch_assets.py foley cough "man cough" # one-off action sound, first hit only -> brand/sfx/cough.wav
 
 Every download: license re-checked on the source at download time, refused unless on the
 allow-list, logged in assets/licenses.json with a saved snapshot.
@@ -17,6 +18,7 @@ from __future__ import annotations
 import argparse
 import html
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -269,6 +271,50 @@ def lock(picks: list[str]) -> None:
             print(f"  ✓ locked {slot}: {src.name} -> {dest.relative_to(ROOT)}")
 
 
+# --------------------------------------------------------------------------- foley
+def _first_hit(path: Path, max_len: float) -> tuple[float, float]:
+    """(start, end) of the first sound burst: one cough, one knock — not the whole take."""
+    r = subprocess.run(["ffmpeg", "-v", "info", "-i", str(path), "-af", "silencedetect=n=-35dB:d=0.12", "-f", "null", "-"],
+                       capture_output=True, text=True)
+    marks = [(k, float(v)) for k, v in re.findall(r"silence_(start|end): ([\d.]+)", r.stderr)]
+    start = next((v for k, v in marks if k == "end"), 0.0) if marks and marks[0] == ("start", 0.0) else 0.0
+    end = next((v for k, v in marks if k == "start" and v > start + 0.05), start + max_len)
+    return max(0.0, start - 0.02), min(end + 0.06, start + max_len)
+
+
+def foley(name: str, query: str, max_len: float = 0.8, pick: int = 0) -> Path | None:
+    """One-off sound for a described action in a script line ("Star khansa" → cough) → brand/sfx/<name>.wav.
+    Fetched from the allowed sources (license re-checked, logged), cut to its first hit, peak −2 dB."""
+    if name in SLOTS:
+        sys.exit(f"'{name}' is a signature slot — use starter-kit/lock for it")
+    dest = BRAND / "sfx" / f"{name}.wav"
+    if dest.exists():
+        print(f"  = {dest.relative_to(ROOT)} already exists (delete it to fetch another)")
+        return dest
+    cands = search(query, "sfx", 6, max_dur=10)
+    for c in cands[pick:]:
+        src = fetch(c, ROOT / "assets" / "downloads" / "foley" / f"{c.source}-{slug(c.title, 30)}-{slug(c.source_id, 12)}")
+        if not src:
+            continue
+        a, b = _first_hit(src, max_len)
+        if b - a < 0.08:
+            continue
+        gain = -2.0 - _peak_db(src)
+        af = (f"atrim={a:.3f}:{b:.3f},asetpts=PTS-STARTPTS,afade=t=in:d=0.01,"
+              f"afade=t=out:st={max(b - a - 0.08, 0):.3f}:d=0.08,volume={gain:.2f}dB")
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", str(src), "-af", af, "-ar", "48000", "-ac", "2",
+                        "-c:a", "pcm_s16le", str(dest)], check=True)
+        e = licenses.entry_for(src)
+        licenses.record(c, dest, e["license_snapshot"] if e else "", status="locked", slot=f"foley:{name}",
+                        derived_from=str(src.relative_to(ROOT)), processing=af)
+        print(f"  ✓ foley {name}: {b - a:.2f}s from {c.key} -> {dest.relative_to(ROOT)}  (use \"sfx\": "
+              f"[{{\"sound\": \"{name}\", \"at\": …}}] on the scene)")
+        return dest
+    print(f"  ✗ no usable CC0 hit for '{query}' — try other words")
+    return None
+
+
 # --------------------------------------------------------------------------- ingest / prune
 def ingest(file: Path, url: str, source: str, kind: str) -> None:
     """Log a file you downloaded by hand. The license is re-checked on the source page."""
@@ -321,6 +367,11 @@ def main() -> None:
     ing.add_argument("--source", required=True)
     ing.add_argument("--kind", default="sfx")
     sub.add_parser("prune")
+    fo = sub.add_parser("foley", help="one-off action sound -> brand/sfx/<name>.wav (cut to its first hit)")
+    fo.add_argument("name")
+    fo.add_argument("query")
+    fo.add_argument("--max-len", type=float, default=0.8)
+    fo.add_argument("--pick", type=int, default=0, help="skip the first N candidates (a different take)")
     a = ap.parse_args()
 
     if a.cmd in ("search", "get"):
@@ -342,6 +393,8 @@ def main() -> None:
         lock(a.picks)
     elif a.cmd == "ingest":
         ingest(a.file, a.url, a.source, a.kind)
+    elif a.cmd == "foley":
+        foley(a.name, a.query, a.max_len, a.pick)
     elif a.cmd == "prune":
         prune()
 

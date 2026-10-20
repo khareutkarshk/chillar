@@ -71,7 +71,18 @@ expression, cover_field, the first frame (must show the stakes) and the hook lin
 Overwrite `episodes/<ep>/script.md` (keep the frontmatter, set `target_seconds`). Then run
 `.venv/bin/python pipeline/fact_lint.py episodes/<ep>` and fix every ✗ **and every `~` self-check line**
 (spoken length with numbers read in full, laugh margin, first laugh by 5 s, absolutes like "hamesha" on a
-cited line, lines > 14 words) before you hand off — each one you leave costs a review round.
+cited line, lines > 14 words) before you hand off — each one you leave costs a review round. The pipeline
+re-runs it after you and sends misses straight back before the reviewer reads a word.
+
+**The three facts failures that cost a round on 5 of the last 6 reels — check each line for them:**
+1. *Example said as a law.* An example/hypothetical row (claim starts `Example:`/`Worked example:`/`ILLUSTRATIVE`,
+   or source `hypothetical`/`computed from`) must be framed the first time it's said: "maan lo…", "ek typical
+   slip…", or a first-person story ("mere card pe ₹10,000"). fact_lint blocks an unframed first use.
+2. *More than the fact says.* "hamesha", "sab", "har", "kabhi nahi", or a scope the row doesn't have (all 12 LPA
+   offers vs. the one basic in the row). Read the row's notes column — "say X / never Y" there is binding.
+3. *The wrong citation.* The [F#] must carry this exact claim, not a neighbouring one; a mechanism the source
+   doesn't state ("hidden in the price") needs its own source or a "maan lo".
+Memes: a `{meme: M#}` the last 4 reels used is flagged by fact_lint (`already used in …`) — take another row.
 
 **Self-review before hand-off (every round — a failed review round costs more than this pass):** reread the
 draft cold as the script-reviewer would and score it 1–5 on its eight points — stop power, laughs (real

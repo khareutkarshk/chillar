@@ -156,6 +156,12 @@ continue. A creator recording is used only if the creator says so for that episo
   Stages: `facts → clean → align → validate → build → qa → render → mix → cover → sheet → igcheck`.
   `validate_scenes.py` (formats, fields, cuts, stamps, labels, facts) and `qa.py` (layout, timing,
   odometer, audio) must pass before a render.
+- Gates code runs so agents don't pay to find them (2026-10-20): `fact_lint` (unframed example facts, reused
+  memes, length) goes back to the writer **before** each script review · `voice_check.py` (whisper medium,
+  line by line) sends flagged lines back to the voice agent once; known fixes live in `brand/pronunciations.tsv`
+  · validate blocks memes from the last 4 reels and shots < 70 % of minDuration · a PASS's polish notes are
+  applied (qa-guarded) before delivery · component requests go to `components/_backlog.md`, built in batch
+  (`produce.py <ep> --only components`) · action words get foley (`fetch_assets.py foley`).
 - Components live in `components/<name>/` (`component.json` + css + js). Reuse them; don't hand-build
   one-offs inside episodes. Index: `components/_catalog.md`. After changing one, run
   `pipeline/component_gallery.py <name>` (also refreshes the catalog) and look at its `preview.png`.

@@ -18,6 +18,7 @@ html, body { margin: 0; background: var(--field); }
 .odo-d { display: inline-block; height: 1em; overflow: hidden; }
 .odo-strip { display: flex; flex-direction: column; }
 .odo-strip span, .odo-s { display: block; height: 1em; }
+.odo-strip span { overflow: hidden; }   /* a digit's ink never bleeds into its neighbour's window */
 .odo-s { margin: 0 -.04em; }
 
 /* blue-ballpoint scribbles laid over content (CH.scribble) */

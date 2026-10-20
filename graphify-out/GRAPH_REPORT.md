@@ -1,16 +1,16 @@
 # Graph Report - chillar  (2026-10-20)
 
 ## Corpus Check
-- 152 files · ~82,287 words
+- 158 files · ~91,821 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 638 nodes · 1073 edges · 78 communities (59 shown, 19 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 67 edges (avg confidence: 0.78)
+- 682 nodes · 1162 edges · 82 communities (62 shown, 20 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 69 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `15f4acae`
+- Built from commit: `0556206d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -63,16 +63,18 @@
 - 2026-10-no-cost-emi/cover.md
 - 2026-10-sale-fine-print/script.md
 - 2026-10-sale-fine-print/cover.md
+- audio_clean.py
+- _backlog.md
 
 ## God Nodes (most connected - your core abstractions)
-1. `Candidate` - 39 edges
-2. `Component catalog (generated — `pipeline/component_catalog.py`, don't edit)` - 23 edges
-3. `CLAUDE.md brand bible` - 23 edges
-4. `Line` - 18 edges
+1. `Candidate` - 40 edges
+2. `Component catalog (generated — `pipeline/component_catalog.py`, don't edit)` - 25 edges
+3. `Line` - 23 edges
+4. `CLAUDE.md brand bible` - 23 edges
 5. `qa()` - 16 edges
 6. `12 LPA episode script.md` - 16 edges
 7. `LicenseRefused` - 13 edges
-8. `load()` - 12 edges
+8. `st_edit()` - 12 edges
 9. `director agent` - 12 edges
 10. `/make-reel command` - 12 edges
 
@@ -96,7 +98,7 @@
 - **Edit suite loop (director → editor → render → video-reviewer)** — _claude_agents_director, _claude_agents_editor, _claude_agents_video_reviewer, _claude_commands_render, _claude_agents_director_scenes_json, pipeline_make_reel [EXTRACTED 1.00]
 - **12 LPA CTC → ₹86,468 in-hand computation** — episodes_2026_10_12lpa_in_hand_facts_f9, episodes_2026_10_12lpa_in_hand_facts_f1, episodes_2026_10_12lpa_in_hand_facts_f2, episodes_2026_10_12lpa_in_hand_facts_f4, episodes_2026_10_12lpa_in_hand_facts_f6, episodes_2026_10_12lpa_in_hand_facts_f7, episodes_2026_10_12lpa_in_hand_facts_f8 [EXTRACTED 1.00]
 
-## Communities (78 total, 19 thin omitted)
+## Communities (82 total, 20 thin omitted)
 
 ### Community 0 - "Candidate"
 Cohesion: 0.06
@@ -107,16 +109,16 @@ Cohesion: 0.05
 Nodes (73): director agent, @chillar.ind wordmark (x 72-492, y 1460-1500), Motivated transitions (hard cut default; whip/zoom/wipe/page budgeted), No on-screen structure labels rule, Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists), scenes/scenes.json shot plan, Show, don't caption, editor agent (+65 more)
 
 ### Community 2 - "memes.py"
-Cohesion: 0.16
-Nodes (29): allowed(), culture_now(), _download(), ensure(), _ff(), freshness(), _get(), _imgflip() (+21 more)
+Cohesion: 0.13
+Nodes (35): allowed(), _born(), culture_now(), culture_rows(), _download(), ensure(), _ff(), freshness() (+27 more)
 
 ### Community 3 - "episode.py"
 Cohesion: 0.07
-Nodes (32): align(), _model(), Path, The same timings as words.json in ~⅓ of the tokens, for the agents (one script…, words_txt(), clean(), ff(), find_voice() (+24 more)
+Nodes (30): align(), _model(), Path, The same timings as words.json in ~⅓ of the tokens, for the agents (one script…, words_txt(), grab(), main(), Path (+22 more)
 
 ### Community 4 - "fetch_assets.py"
-Cohesion: 0.22
-Nodes (19): /fetch-assets command, Asset licensing allow-list (CC0/MIT etc.), build_audition(), _diverse(), duration_of(), fetch(), ingest(), lock() (+11 more)
+Cohesion: 0.19
+Nodes (23): /fetch-assets command, Asset licensing allow-list (CC0/MIT etc.), build_audition(), _diverse(), duration_of(), fetch(), _first_hit(), foley() (+15 more)
 
 ### Community 5 - "12 LPA episode script.md"
 Cohesion: 0.24
@@ -143,8 +145,8 @@ Cohesion: 0.22
 Nodes (17): atoms(), check(), encode_args(), keyframe_gap(), probe(), Path, ffmpeg output args: H.264 High 4:2:0, 30 fps CFR, 1 s closed GOP, capped VBR,…, Top-level MP4 atoms in file order. (+9 more)
 
 ### Community 12 - "Component catalog (generated — `pipeline/component_catalog.py`, don't edit)"
-Cohesion: 0.07
-Nodes (28): avatar, bar-chart, calendar-flip, captions  _(auto — never place in scenes.json)_, chapter-field  _(auto — never place in scenes.json)_, checklist, Component catalog (generated — `pipeline/component_catalog.py`, don't edit), cover (+20 more)
+Cohesion: 0.06
+Nodes (30): avatar, bar-chart, calendar-flip, captions  _(auto — never place in scenes.json)_, chapter-field  _(auto — never place in scenes.json)_, chat-screen, checklist, Component catalog (generated — `pipeline/component_catalog.py`, don't edit) (+22 more)
 
 ### Community 14 - "chillar.js"
 Cohesion: 0.83
@@ -179,8 +181,8 @@ Cohesion: 0.50
 Nodes (3): Facts — 2026-10-epf-explained, Texture for the writers (not facts — don't put numbers from here on screen), Worked example (F19) — computed with python, rounded to whole rupees
 
 ### Community 59 - "produce.py"
-Cohesion: 0.13
-Nodes (36): director(), draft(), duration(), find_cli(), frontmatter(), length_miss(), Line, main() (+28 more)
+Cohesion: 0.10
+Nodes (49): backlog(), clean_align(), director(), draft(), duration(), find_cli(), frontmatter(), length_miss() (+41 more)
 
 ### Community 64 - "Comedy craft — how a Chillar script gets funny"
 Cohesion: 0.22
@@ -195,8 +197,8 @@ Cohesion: 0.10
 Nodes (30): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+22 more)
 
 ### Community 71 - "tts.py"
-Cohesion: 0.40
-Nodes (9): audition_page(), chunks(), concat(), duration(), kokoro(), main(), Path, sarvam() (+1 more)
+Cohesion: 0.26
+Nodes (13): Voiceover policy (Sarvam sunny_hi_reels, pace 1.2, every reel), audition_page(), chunks(), concat(), duration(), kokoro(), lexicon(), main() (+5 more)
 
 ### Community 72 - "Facts — <episode>"
 Cohesion: 0.50
@@ -214,25 +216,29 @@ Nodes (3): Hook, Payoff, Turn
 Cohesion: 0.50
 Nodes (3): Hook {field: note10}, Payoff {field: note50}, Turn {field: note20}
 
+### Community 78 - "audio_clean.py"
+Cohesion: 0.33
+Nodes (10): clean(), ff(), find_voice(), has_filter(), loudnorm(), CompletedProcess, ndarray, Path (+2 more)
+
 ## Knowledge Gaps
-- **107 isolated node(s):** `Voiceover details (/voiceover)`, `avatar`, `bar-chart`, `calendar-flip`, `checklist` (+102 more)
+- **110 isolated node(s):** `name`, `private`, `description`, `node`, `doctor` (+105 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **19 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **20 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `load()` connect `episode.py` to `CLAUDE.md brand bible`, `memes.py`, `produce.py`?**
+- **Why does `words_txt()` connect `episode.py` to `produce.py`?**
   _High betweenness centrality (0.076) - this node is a cross-community bridge._
-- **Why does `spoken_words()` connect `produce.py` to `episode.py`?**
-  _High betweenness centrality (0.070) - this node is a cross-community bridge._
-- **Why does `Candidate` connect `Candidate` to `fetch_assets.py`?**
+- **Why does `st_edit()` connect `produce.py` to `episode.py`?**
+  _High betweenness centrality (0.073) - this node is a cross-community bridge._
+- **Why does `Candidate` connect `Candidate` to `memes.py`, `fetch_assets.py`?**
   _High betweenness centrality (0.042) - this node is a cross-community bridge._
-- **What connects `Voiceover details (/voiceover)`, `avatar`, `bar-chart` to the rest of the system?**
-  _107 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Are the 2 inferred relationships involving `Candidate` (e.g. with `LicenseRefused` and `_log()`) actually correct?**
+  _`Candidate` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **What connects `name`, `private`, `description` to the rest of the system?**
+  _110 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Candidate` be split into smaller, more focused modules?**
   _Cohesion score 0.05842259006815969 - nodes in this community are weakly interconnected._
 - **Should `CLAUDE.md brand bible` be split into smaller, more focused modules?**
   _Cohesion score 0.05094905094905095 - nodes in this community are weakly interconnected._
-- **Should `episode.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.0743321718931475 - nodes in this community are weakly interconnected._

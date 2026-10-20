@@ -12,7 +12,3 @@
 
 Review rounds: script 5 · video 1.
 Producer session (the main Claude Code session) is not included — note it from `npx ccusage@latest session`.
-
-Producer session (ccusage): $704.55 → $707.16 = **$2.61** (incl. creator-requested fixes after delivery:
-re-voice "खान्सा", cough SFX, meme swap to "Did you say POTENTIAL blank", punch at w21, hard cut at "Star").
-Sarvam: 3 extra full takes for the pronunciation fix.

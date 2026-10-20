@@ -41,15 +41,7 @@ CH.define("odometer-number", {
       landed = rollAt + (+p.rollDuration);
     } else {
       const odo = el.querySelector(".odo");
-      landed = CH.roll(tl, odo, rollAt, +p.rollDuration);
-      // once landed, only the final digit of each strip stays painted: neighbours' glyph boxes poke
-      // into the 1em window (sub-pixel strip offsets), which read as "₹012,456901901" instead of ₹1,500
-      const digits = [...odo.dataset.target].filter((c) => /\d/.test(c));
-      [...odo.querySelectorAll(".odo-strip")].forEach((strip, i) => {
-        const keep = 11 + +digits[i];
-        const others = [...strip.children].filter((_, k) => k !== keep);
-        tl.set(others, { visibility: "hidden" }, landed);
-      });
+      landed = CH.roll(tl, odo, rollAt, +p.rollDuration);   // lands pixel-exact; neighbour cells hidden
     }
     // count mode: the sub-line (the maths for the FINAL value) never sits under the start value
     if (count && el.querySelector(".od-sub")) CH.pop(tl, el.querySelector(".od-sub"), landed - 0.05);

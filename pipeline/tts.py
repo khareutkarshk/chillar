@@ -36,6 +36,31 @@ DEFAULTS = {"provider": "sarvam", "model": "bulbul:v4-flash", "speaker": "sunny_
 MAX_CHARS = 2400  # API limit is 2500 for v3 / v4-flash
 
 
+LEXICON = ROOT / "brand" / "pronunciations.tsv"
+_WORD = r"\wऀ-ॿ"            # Devanagari matras aren't \w — count them as part of a word
+
+
+def lexicon() -> list[tuple[str, str]]:
+    rows = []
+    for line in (LEXICON.read_text().splitlines() if LEXICON.exists() else []):
+        if line.strip() and not line.startswith("#"):
+            cells = line.split("\t")
+            if len(cells) >= 2 and cells[0].strip() and cells[1].strip():
+                rows.append((cells[0].strip(), cells[1].strip()))
+    return rows
+
+
+def respell(text: str) -> tuple[str, list[str]]:
+    """Apply brand/pronunciations.tsv (whole words). Returns (text, ['खाँसा→खान्सा', …])."""
+    hits = []
+    for w, s in lexicon():
+        new, n = re.subn(rf"(?<![{_WORD}]){re.escape(w)}(?![{_WORD}])", s, text)
+        if n:
+            text = new
+            hits.append(f"{w}→{s}")
+    return text, hits
+
+
 def tts_text(ep) -> tuple[str, bool]:
     p = ep.dir / "voice" / "tts.txt"
     if p.exists():
@@ -126,10 +151,13 @@ def main() -> None:
     if a.probe:
         dest = ep.cache / "probe.wav"
         dest.parent.mkdir(parents=True, exist_ok=True)
-        (sarvam if cfg["provider"] == "sarvam" else kokoro)(ep.spoken_text, cfg, dest)
+        (sarvam if cfg["provider"] == "sarvam" else kokoro)(respell(ep.spoken_text)[0], cfg, dest)
         print(f"probe: {duration(dest):.1f} s of voice")
         return
     text, mixed = tts_text(ep)
+    text, hits = respell(text)
+    if hits:
+        print(f"  lexicon: {', '.join(hits)} (brand/pronunciations.tsv)")
     if cfg["provider"] == "sarvam" and not mixed:
         print("! no voice/tts.txt — sending romanised Hinglish; Sarvam quality will suffer "
               "(run /voiceover to write a Devanagari-mixed tts.txt)")
@@ -145,7 +173,7 @@ def main() -> None:
         meta = {"provider": c["provider"], "model": c["model"] if c["provider"] == "sarvam" else "kokoro-82m",
                 "speaker": c["speaker"], "pace": c["pace"], "language": c["language"],
                 "text_file": "voice/tts.txt" if mixed else "script.md", "date": dt.date.today().isoformat(),
-                "seconds": round(duration(dest), 2), "ai_generated": True, **info}
+                "seconds": round(duration(dest), 2), "ai_generated": True, "lexicon": hits, **info}
         dest.with_suffix(".json").write_text(json.dumps(meta, indent=2, ensure_ascii=False))
         print(f"  ✓ {c['speaker']:28s} {meta['seconds']:5.1f}s -> {dest.relative_to(ep.dir)}")
     if a.audition:

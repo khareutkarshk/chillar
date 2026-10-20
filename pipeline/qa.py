@@ -24,6 +24,7 @@ Checks:
   narrow-frame    a shot's content covers < 65 % of the content width and < 30 % of its height
   small-text      a shot shows text under 36 px (one warning per shot)
   empty-paper     a paper object whose text ends above 70 % of its height when settled (half-empty receipt)
+  late-content    settled, a shot shows < 40 % of what it ends on (header alone while the rows print late)
   same-layout     4 shots in a row with the same content box (template feel)
   short-shot      a shot shorter than its component's minDuration (or < 0.8 s)
   audio           output/final.mp4 true peak > −1 dBTP, LUFS off −14 (reported only if final.mp4 is
@@ -58,6 +59,7 @@ NO_PROBE = {"bg", "wordmark"}
 CONTRAST_ERR, CONTRAST_WARN = 2.0, 3.0   # text vs what is behind it (WCAG ratio; big headline type)
 SMALL_OBJ = 0.75                          # paper objects with text spanning < 75 % of the content width (≈ 660 px)
 EMPTY_PAPER, EMPTY_PAPER_MIN_H = 0.7, 300  # a ≥ 300 px paper whose text ends above 70 % of its height = half-empty
+LATE_SHARE, LATE_MIN_SHOT = 0.4, 1.5       # settled frame shows < 40 % of the shot's final content (shots ≥ 1.5 s)
 COVER_OK = {"marker-highlight", "transition", "captions"}   # overlays meant to sit on text
 
 
@@ -436,6 +438,27 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
                     f"its paper is {ph:.0f}px tall but the text ends at {used:.0%} of it — half-empty paper",
                     "size the paper to what has printed (grow it per row), or fewer/bigger rows", key=("emptypaper", sid))
                 break
+    # late content: what the viewer sees settled vs. what the shot ends on — a receipt header alone for 2 s while
+    # its rows print late reads as an empty frame (the reviewer had to catch it by eye)
+    last_area: dict[str, tuple[float, float]] = {}
+    for smp in data["samples"]:
+        if in_transition(smp["t"]) or smp["stage"] not in ("none", "matrix(1, 0, 0, 1, 0, 0)"):
+            continue
+        for c in smp["clips"]:
+            if c["track"] != 1 or c["id"] not in shots:
+                continue
+            bx = [p["box"] for p in c["painted"] if p["op"] >= 0.5] + [x["box"] for x in c["texts"] if x["op"] >= 0.5]
+            if bx and smp["t"] >= last_area.get(c["id"], (-1, 0))[0]:
+                u = [min(b[0] for b in bx), min(b[1] for b in bx), max(b[2] for b in bx), max(b[3] for b in bx)]
+                last_area[c["id"]] = (smp["t"], area(u))
+    for sid, s_ in shots.items():
+        sc = scenes[sid]
+        end_t, end_a = last_area.get(sid, (0, 0))
+        if sc["duration"] >= LATE_MIN_SHOT and end_a > 0 and end_t > s_["t"] and area(s_["box"]) < LATE_SHARE * end_a:
+            add("warn", "late-content", s_["t"], f"{sid} ({s_['comp']})", f"director|component:{s_['comp']}",
+                f"{s_['t'] - sc['start']:.1f}s after its cut it shows {area(s_['box']) / end_a:.0%} of what it ends on "
+                "— the frame reads empty while the rest arrives",
+                "show the first rows/parts on the cut (smaller step, earlier start), or cut in later", key=("late", sid))
     cw = 1080 - SAFE["left"] - SAFE["right"]                       # content width  (≈ 880)
     ch = SAFE["captionBand"][0] - SAFE["top"]                       # content height above the captions (≈ 930)
     for sid, s in shots.items():

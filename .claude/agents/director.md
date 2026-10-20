@@ -48,14 +48,24 @@ Say in your report which theme and why (one line). Don't mix themes inside one v
   split-compare twist, meme-format.
 - The `@chillar.ind` wordmark (x 72–492, y 1460–1500) is automatic; keep overlays off it.
 - Every scene showing a number carries `"fact": "F#"`.
+- **The script's `{visual: …}` jokes are the reel's best frames — build them, never fall back to the line as
+  text on paper.** A character made of a symbol ("the asterisk is a lawyer", "% wearing a crown") is
+  `glyph-character`; a chat/notification/DM beat is `chat-screen`. If no component can carry the idea, choose
+  the nearest object that shows it *and* file `[component:<name>] …` — never a statement card repeating the caption.
+- **Sounds the line describes are foley.** An action word in the voice ("khansa", "slurp", "knock", "sigh",
+  "chhink") gets its sound in the gap right after the word: `fetch_assets.py foley <name> "<search words>"`
+  (once — it lands in brand/sfx/<name>.wav for every reel), then `"sfx": [{"sound": "<name>", "at": <s from the
+  scene start, may be negative>}]` on that shot. Foley outranks component sounds in the 2 s thinning.
 
 ## Meme pass (after the plan, before validate)
 Go through every `[JOKE]` line and `{meme: …}` direction and ask: would a real meme hit harder than a Chillar
 reaction here? If yes, cut to a `meme` scene on the word **after** the punchline (≈ 1.5–2.5 s, then cut back).
 Pick it by text, not by looking: `.venv/bin/python pipeline/memes.py search "<template>" --kind image|video|sound`
 lists titles. Use the script's `{meme: M#}` beats first (facts.md `## Culture now` gives the exact title);
-otherwise only what's hot: `memes.py trending [--kind sound]`. validate **blocks stale memes** (not trending
-today and not in Culture now) and more than one old classic; set `meme` (the exact title), `kind`, `pick` (the index you chose), our own `labels` (x/y in % of the
+otherwise only what's hot: `memes.py trending --episode episodes/<ep> [--kind sound]` (it leaves out what the
+last 4 reels used). validate **blocks stale memes** (not trending today and not in Culture now), **any meme or
+meme sound the last 4 reels used** (followers notice — the vine boom and "Why would I deceive you?" ran in two
+reels back to back) and more than one old classic; set `meme` (the exact title), `kind`, `pick` (the index you chose), our own `labels` (x/y in % of the
 picture — imgflip box positions: two-row templates like Drake put text at x≈76, y≈24/75), an optional
 `headline` (≤ 6 words) and an optional `sound` (one meme sound, e.g. "vine boom", "bruh"). validate fetches
 them. **Images: global or Indian** (Hera Pheri, Jethalal… a desi template often lands harder for this
@@ -86,8 +96,11 @@ Write `episodes/<ep>/scenes/scenes.json`, run `.venv/bin/python pipeline/validat
 and fix every ✗ (warnings: fix the ones that matter). Then `.venv/bin/python pipeline/qa.py episodes/<ep>`
 (builds the composition and measures it in headless Chrome — no render, ~5 s) and fix every ✗ routed
 to `[director]`; leave `[component:…]` errors in your report for the producer. Also act on the layout
-warnings `narrow-frame`, `small-text`, `empty-paper` and `same-layout` (qa measures what the reviewer would otherwise
+warnings `narrow-frame`, `small-text`, `empty-paper`, `late-content` (the shot reads empty while its rows arrive —
+print the first rows on the cut) and `same-layout` (qa measures what the reviewer would otherwise
 flag by eye) — fix them or defend each in one line in your report. `.cache/qa.json` → `layout` lists every
 shot's content box. **Screenshots:** qa already measures layout; take at most 3 headless stills per pass, only
 for something qa can't see (a metaphor reading wrong). Return (≤ 8 lines): theme, scene count, transitions + stamps (times), qa result, anything you couldn't
-visualise well (as a component request: `[component:<name>] what it needs`).
+visualise well (as a component request: `[component:<name>] what it needs`). Requests go to the shared
+`components/_backlog.md` and are built in a weekly batch — not during this reel — so always work around them now.
+validate **blocks** a shot under 70 % of its component's minDuration: hold it to the next word or merge it.

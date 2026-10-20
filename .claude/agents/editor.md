@@ -29,6 +29,12 @@ they ask, nothing else.
 5. **Sound.** One SFX per 2 s max; the stamp thunk lands on the impact frame; printer buzz only while
    paper prints; whoosh only on whip/zoom/page cuts; coin clink on Chillar's entrances. Use a scene's
    `"sfx"` override to silence or move a sound. Music stays 20–24 dB under voice.
+   validate thins sounds closer than 2 s by rank (stamp > meme/scratch/**foley** > ding > printer/coin > whoosh;
+   a scene's own `"sfx"` gets +1) and lists them in `scenes.resolved.json` → `sfx_dropped`. Read that list:
+   every dropped sound is a decision — move it ≥ 2 s from the winner, or remove it (`"sfx": []`) so the plan
+   matches what plays. Never leave a foley/meme sound dropped: it was a joke. An action the voice describes
+   ("khansa", "slurp") with no sound yet → `fetch_assets.py foley <name> "<words>"` and place it in the gap
+   after the word.
 6. **Overlays end at the next cut** (`until` = the next scene's `at`).
 
 Run `.venv/bin/python pipeline/validate_scenes.py episodes/<ep>` until there are no ✗ and every

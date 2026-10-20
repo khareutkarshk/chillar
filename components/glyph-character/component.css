@@ -1,0 +1,22 @@
+.c-glyph-character .gc-wrap { position: absolute; z-index: 6; }
+.c-glyph-character .gc-svg { display: block; overflow: visible; }
+.c-glyph-character .gc-glyph { font-family: var(--font-head); font-weight: 800; letter-spacing: 0; }
+.c-glyph-character .gc-limb { fill: none; stroke: var(--on-field); stroke-linecap: round; stroke-linejoin: round; }
+
+/* optional fine-print slip the glyph grows out of (line param) */
+.c-glyph-character .gc-slip { position: absolute; left: 60px; width: 860px; z-index: 3; }
+.c-glyph-character .gc-slip-in { box-sizing: border-box; padding: 40px 50px 46px; font-size: 58px; line-height: 1.15; white-space: nowrap;
+  display: flex; align-items: flex-start; border-radius: 4px;
+  clip-path: polygon(0 4%, 7% 0, 21% 3%, 36% 0, 52% 2.5%, 67% 0, 83% 3%, 100% 1%, 99.6% 100%, 0 98%); }
+.c-glyph-character .gc-tiny { display: inline-block; margin: -6px 0 0 8px; flex: none; }
+.c-glyph-character .gc-tiny svg { display: block; }
+
+/* speech bubble: paper, no outline (same family as mascot-reaction) */
+.c-glyph-character .gc-bubble {
+  position: absolute; width: max-content; padding: 20px 30px 22px; box-sizing: border-box;
+  font-size: 54px; line-height: 1.12; z-index: 8; background: var(--paper); color: var(--ink); border-radius: 30px; box-shadow: var(--lift); /* taste-skill-ignore: paper depth */
+}
+.c-glyph-character .gc-bubble::after { content: ""; position: absolute; bottom: -26px; width: 0; height: 0;
+  border-left: 16px solid transparent; border-right: 16px solid transparent; border-top: 30px solid var(--paper); }
+.c-glyph-character .gc-bubble.r::after { left: 34px; transform: skewX(30deg); }
+.c-glyph-character .gc-bubble.l::after { right: 34px; transform: skewX(-30deg); }

@@ -46,6 +46,9 @@ SAFE = TOK["safeZone"]
 TR = TOK["transitions"]
 FIELDS = TOK["fieldSlots"]
 PRIORITY = {"meme": 4, "stamp": 5, "scratch": 4, "ding": 3, "glitch": 3, "printer": 2, "coin": 2, "typing": 1, "whoosh": 0}
+FOLEY_PRIORITY = 4    # a one-off sound (brand/sfx/<name>.wav: cough, slurp, knock) was placed on purpose for a line
+OVERRIDE_BONUS = 1    # a scene's own "sfx" beats a component default at the same rank
+SHORT_BLOCK = 0.7     # a shot under 70 % of its component's minDuration is an error, not a warning
 CHAPTER_SNAP = 0.35   # a scene must start this close to a chapter's first word
 # script-structure words that must never be shown as a label/title card
 STRUCTURE = re.compile(r"^(the\s+)?(setup|set-up|set up|escalation|payoff|pay-off|hook|intro|introduction|outro|"
@@ -280,8 +283,12 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
     for s in allv:
         s["duration"] = round(max(0.05, s["end"] - s["start"]), 3)
         md = component_meta(s["component"]).get("minDuration", 0)
-        if s["duration"] + 1e-6 < md and s["layer"] != "transition":
-            warns.append(f"{s['id']}: {s['duration']:.2f}s is shorter than {s['component']} minDuration {md}s")
+        if s["duration"] + 1e-6 < md and s["layer"] != "transition" and s["id"] != "wordmark":
+            msg = f"{s['id']}: {s['duration']:.2f}s is shorter than {s['component']} minDuration {md}s"
+            if s["duration"] < SHORT_BLOCK * md:     # it can't finish its own entrance/print — reads as a glitch
+                errors.append(msg + f" (< {SHORT_BLOCK:.0%}: hold it to the next word, or merge it into the shot before)")
+            else:
+                warns.append(msg)
 
     # ---------------- on-screen text: no structure labels, short headlines
     chapter_names = {re.sub(r"\W+", " ", c).strip().lower() for c, _ in chs}
@@ -419,27 +426,53 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
     tpl = [(s["params"].get("meme") or "").lower() for s in mm]
     if len(set(tpl)) < len(tpl):
         warns.append("the same meme template is used twice")
+    # no repeats across reels: followers saw last week's meme (CLAUDE.md §3 — fresh only)
+    recent = memes.recent_use(ep_dir)
+    for s in mb:
+        p = s["params"]
+        uses = [(p.get("kind", "image"), p["meme"], int(p.get("pick", 0)))] if s["component"] == "meme" and p.get("meme") else []
+        uses += [("sound", p["sound"], int(p.get("soundPick", 0)))] if p.get("sound") else []
+        for kind, q, pick in uses:
+            m = got.get(memes.key(kind, q, pick))
+            for n in {memes.norm_title(q), memes.norm_title((m or {}).get("title", ""))} - {""}:
+                if n in recent:
+                    errors.append(f"{s['id']}: meme '{q}' was used in {recent[n]} (one of the last {memes.RECENT_REELS} "
+                                  "reels) — pick another from facts.md '## Culture now' or "
+                                  f"`memes.py trending --episode episodes/{ep.name}`")
+                    break
 
     # ---------------- SFX: component defaults (or scene override), thinned to ≥2 s apart by priority
     cand = []
     for s in allv:
-        evs = s["sfx_override"] if s["sfx_override"] is not None else component_meta(s["component"]).get("sfx", [])
+        own = s["sfx_override"] is not None
+        evs = s["sfx_override"] if own else component_meta(s["component"]).get("sfx", [])
         for e in evs:
             if e.get("skipIf") and s["params"].get(e["skipIf"]):
                 continue
             t = s["start"] + float(e["at"])
             if t < total:
-                cand.append({"t": round(t, 3), "sound": e["sound"], "from": s["id"]})
+                base = e["sound"].split(":")[0]
+                rank = PRIORITY.get(base, FOLEY_PRIORITY) + (OVERRIDE_BONUS if own else 0)
+                if base not in PRIORITY and not (ROOT / "brand" / "sfx" / f"{e['sound']}.wav").exists() \
+                        and not list((ROOT / "brand" / "sfx" / "custom").glob(f"{e['sound']}.*")):
+                    errors.append(f"{s['id']}: sfx '{e['sound']}' has no file — `fetch_assets.py foley {e['sound']} "
+                                  f"\"<search words>\"` makes brand/sfx/{e['sound']}.wav")
+                cand.append({"t": round(t, 3), "sound": e["sound"], "from": s["id"], "rank": int(e.get("priority", rank))})
     keep, dropped = [], []
-    for c in sorted(cand, key=lambda c: (-PRIORITY.get(c["sound"].split(":")[0], 0), c["t"])):
-        if all(abs(c["t"] - k["t"]) >= M["minSecondsBetweenSfx"] for k in keep):
+    for c in sorted(cand, key=lambda c: (-c["rank"], c["t"])):
+        near = [k for k in keep if abs(c["t"] - k["t"]) < M["minSecondsBetweenSfx"]]
+        if not near:
             keep.append(c)
         else:
-            dropped.append(c)
+            dropped.append({**c, "lost_to": f"{near[0]['sound']}@{near[0]['t']:.1f} ({near[0]['from']})"})
     keep.sort(key=lambda c: c["t"])
     if dropped:      # expected thinning, one line (agents re-read this output every validate loop)
         warns.append(f"{len(dropped)} sfx dropped (within 2 s of a higher-priority sound): "
                      + ", ".join(f"{d['sound']}@{d['t']:.1f}" for d in sorted(dropped, key=lambda d: d["t"])))
+    for d in dropped:   # a sound the plan asked for by hand that will never play is a decision, not noise
+        if any(s["id"] == d["from"] and s["sfx_override"] for s in allv):
+            warns.append(f"{d['from']}: its own sfx '{d['sound']}'@{d['t']:.1f} loses to {d['lost_to']} — move one ≥ 2 s "
+                         "apart, or silence the other with \"sfx\": []")
 
     tracks = {"scene": 1, "overlay": 2, "transition": 3}
     out_scenes = [{"id": "bg", "component": "chapter-field", "start": 0, "duration": total, "track": 0,
@@ -454,6 +487,7 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
                 "theme": ep.theme,
                 "voice_end": round(voice_end, 3), "outro_start": outro_start,
                 "scenes": out_scenes, "effects": effects, "sfx": keep,
+                "sfx_dropped": sorted(dropped, key=lambda d: d["t"]),
                 "captions": caption_groups(words, outro_start),
                 "fields": field_cuts,
                 "music": {**ep.config["music"], **plan.get("music", {})},

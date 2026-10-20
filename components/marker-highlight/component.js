@@ -12,15 +12,7 @@ CH.define("marker-highlight", {
       </div>`;
     // fit: never break inside a word — shrink the headline until its longest word fits the width.
     const head = el.querySelector(".mh-text");
-    if (p.fit !== false) {
-      head.style.overflowWrap = "normal";
-      const min = +p.size * 0.55;
-      let s = +p.size;
-      while (head.scrollWidth > head.clientWidth + 1 && s > min) {
-        s = Math.max(min, s * 0.95);
-        head.style.fontSize = `${Math.round(s)}px`;
-      }
-    }
+    if (p.fit !== false) CH.fitHead(head, +p.size, 0.55);
     if (paper) {
       // paper: the scrap carrying the quote is tossed onto the field on the cut frame; the sub follows
       CH.toss(tl, el.querySelector(".mh-scrap"), t, tilt);

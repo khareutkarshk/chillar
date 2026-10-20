@@ -1,0 +1,9 @@
+# Sunny (Sarvam sunny_hi_reels) respellings — pipeline/tts.py applies every row to voice/tts.txt (and the
+# --probe text) before synthesis, whole words only. Captions/alignment still use script.md, so nothing else changes.
+# Add a row whenever voice_check.py (or your ear) catches a word; it stays fixed in every future reel.
+# written	spoken	why (episode it was caught on)
+खाँसा	खान्सा	nasal dropped → "khaasa" (2026-10-sale-fine-print)
+खांसा	खान्सा	same, anusvara spelling
+खंसा	खान्सा	same, short spelling → "khasa"
+खाँसी	खान्सी	same nasal rule
+खांसी	खान्सी	same nasal rule

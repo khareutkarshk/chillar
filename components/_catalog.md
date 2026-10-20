@@ -22,6 +22,11 @@ Tear-off desk calendar (paper pages, red month band) riffles through pages and l
 `layer scene · min 1.6s · sfx whoosh@0.1s`
 params: pages=["JAN 2020", "JAN 2023", "OCT 2026"], label="", flip=0.16
 
+### chat-screen
+A generic phone chat printed out and lying on the field (paper card, seeded tilt, soft shadow; no app colours or logos). 3–5 messages type in one by one, stagger s apart (first 0.3 s after the cut): 'them' messages after a typing-dots bubble, 'me' messages slide in from the right in a soft haldi tint. Layout is reserved from the cut — nothing reflows. messages: [{from: 'me'|'them', text, time?}] (text takes *marker*; max 6). name (optional) adds a header with a back chevron + initial avatar; pinned (optional) adds a pinned-message bar at the top. highlight (message index, default -1) gets a blue-ballpoint circle drawn 0.3 s after it lands. Timestamps are JetBrains Mono (printout metadata) on a seeded clock; set msg.time to fix one, times:false hides them. width px (560–880, default 820); tilt (deg) fixes the tilt instead of the seeded one. Keep it to ~5 one-line messages so it stays inside the content zone.
+`layer scene · min 2.6s · sfx typing@0.05s`
+params: messages=[{"from": "them", "text": "Hi"}, …], name="", pinned="", highlight=-1, stagger=0.5, width=820, times=true, tilt=null, dy=0
+
 ### checklist
 A paper chit list: each item gets a blue-ballpoint tick or a red-pen cross, written in sequence. Title sits on the field above the chit. Optional `grow` (default false): the chit lands holding only the first row and lengthens downward as each later row is written; the final size is reserved, so the title never shifts.
 `layer scene · min 1.8s`
@@ -31,6 +36,11 @@ params: title="", items=[{"text": "Item", "ok": true}], stagger=0.35, grow=false
 Static 1080x1920 cover (rendered to output/cover.png by cover.py from cover.md) on a note-colour field. Headline left-aligned, kicker under it, an optional stamp and Chillar. Key text sits inside the 3:4 profile-grid crop (y 240–1680). No series label.
 `layer scene · min 0.5s`
 params: text="UPI ka bill kaun bharta?", kicker="", stamp="", mascot="side-eye"
+
+### glyph-character
+A big typographic glyph ("*", "%", "₹", "0%", "T&C") turned into a deadpan character for visual jokes ('the asterisk is the offer's lawyer'): headline-face glyph, Chillar's half-closed eyes, stick limbs and a hand-drawn SVG costume. Centred on x, y (the glyph's ink centre); size = ink height in px (wide glyphs are capped at maxWidth). costume: lawyer (tiny black coat + white bands, one arm raised — 'Objection.') | crown | detective (hat + magnifier) | none. eyes: deadpan | side-eye (pupils toward the bubble) | none. tone: ink (field ink) | red. bubble: optional paper speech bubble on bubbleSide (right | left; the busy arm goes on the other side), kept inside x 60–940. anim: toss (lands at a seeded tilt) | grow — needs line: a torn fine-print slip (y = lineY) ending in a tiny glyph like a footnote mark, which grows into the character growAt s after the cut; the costume drops on as it lands. legs/arms (default true) draw the stick limbs. Keep it clear of the caption band: default y 720 with size 400 ends ~ y 1060.
+`layer scene · min 1.2s · sfx coin@0.05s`
+params: glyph="*", costume="lawyer", eyes="deadpan", bubble="", bubbleSide="right", size=400, x=380, y=720, tone="ink", anim="toss", line="", lineY=300, growAt=0.45, legs=true, arms=true, maxWidth=620
 
 ### hook-card
 Frame 1. FULLY DRAWN AT t=0 (no entrance): the question as a big left-aligned headline on the chapter field, a torn receipt stub with the stakes lying under it at a tilt, the last amount circled in blue ballpoint (drawn after frame 1), Chillar side-eyeing. No series label — the question is the headline. Optional: wide:true makes the stakes slip span the content width (≈860 px, bigger print) with Chillar sitting on its top-right corner. dy (px) nudges the whole composition down (+) or up (−) inside the content zone.
@@ -103,14 +113,14 @@ The thappa: a stamp-pad red rubber stamp slams in (140%→100% in 4 frames + 2-f
 params: text="MDR 0%", sub="", x=540, y=760, rotate=-8, size=150
 
 ### statement
-One big statement on the chapter field: headline (≤ 6 words, *marker* words swipe yellow) and an optional body line. With paper:true the body is a hand-torn chit lying under the headline (definitions, fine print). Left-aligned on the shared edge. Optional: body may be an array of lines (or use \n) to break it on purpose; width (px, default 0 = full 860) narrows the chit/body so a mascot overlay can sit beside it without covering text. Optional: tilt (deg) fixes the chit's tilt instead of the seeded one; markerAt (s) is when the marker swipe starts (default 0.3). dy (px) nudges the whole composition down (+) or up (−) inside the content zone.
+One big statement on the chapter field: headline (≤ 6 words, *marker* words swipe yellow) and an optional body line. With paper:true the body is a hand-torn chit lying under the headline (definitions, fine print). Left-aligned on the shared edge. Optional: body may be an array of lines (or use \n) to break it on purpose; width (px, default 0 = full 860) narrows the chit/body so a mascot overlay can sit beside it without covering text. Optional: tilt (deg) fixes the chit's tilt instead of the seeded one; markerAt (s) is when the marker swipe starts (default 0.3). fit (default true): a word wider than the line shrinks the headline (down to 55% of size) instead of breaking mid-word; fit:false keeps the fixed size. dy (px) nudges the whole composition down (+) or up (−) inside the content zone.
 `layer scene · min 1.2s`
-params: title="MDR kya hai?", body="", paper=false, size=156, width=0, tilt=null, markerAt=0.3, dy=0
+params: title="MDR kya hai?", body="", paper=false, size=156, width=0, tilt=null, markerAt=0.3, dy=0, fit=true
 
 ### tier-compare
-₹100 vs ₹1,000 vs ₹1,00,000 escalation: three paper columns standing on the bottom of the content zone, each taller than the last, revealed in sequence; the last result gets a ballpoint circle. The row spans the full content width (≈ 876 px) once every column stands. reveal: 'bars' (default — each column rises in turn, then its result) or 'results' (all columns rise together on the cut so the paper spans the full width from frame 1; only the results step in, `stagger` apart).
+₹100 vs ₹1,000 vs ₹1,00,000 escalation: three paper columns standing on the bottom of the content zone, each taller than the last, revealed in sequence; the last result gets a ballpoint circle. The row spans the full content width (≈ 876 px) once every column stands. reveal: 'bars' (default — each column rises in turn, then its result) or 'results' (all columns rise together on the cut so the paper spans the full width from frame 1; only the results step in, `stagger` apart). Optional: wide (default false) stretches the row to the full ≈876 px content width whatever the tier count (2 tiers otherwise stay 276 px columns); width (px, default 0 = auto) sets the row width exactly (max 880). A row of 4+ tiers always shrinks to fit the content width.
 `layer scene · min 2.6s · sfx coin@0.1s, ding@2.0s`
-params: title="", tiers=[{"amount": "₹100", "result": ""}, …], stagger=0.9, reveal="bars"
+params: title="", tiers=[{"amount": "₹100", "result": ""}, …], stagger=0.9, reveal="bars", wide=false, width=0
 
 ## Placed by the pipeline
 

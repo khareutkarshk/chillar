@@ -230,28 +230,50 @@ def routed(review: Path, who: str) -> bool:
     return review.exists() and who in routes(review.read_text())
 
 
-def director(L: Line, ep: Path, prompt: str, stage: str, effort: str = "", defer: bool = False) -> Path | None:
-    """Run the director, then hand the [component:*] requests in its report to component-dev (existing components)
-    or to notes/component-wishlist.md (new ones, for the creator) — they used to go nowhere. defer=True returns the
-    requests file instead, so the caller can fold it into one component-dev run with the review's notes."""
+BACKLOG = ROOT / "components" / "_backlog.md"
+COMP_TAG = re.compile(r"\[component:([\w-]+)\]")
+
+
+def backlog(ep: Path, source: str, items: list[str]) -> int:
+    """Component requests (director asks, polish notes) go to ONE shared list that `--only components` works through
+    in a batch — a mid-episode component-dev run cost ≈ $0.85 for work the director had already worked around."""
+    if not items:
+        return 0
+    have = BACKLOG.read_text() if BACKLOG.exists() else ("# Component backlog\n\nOpen requests from directors and "
+                                                         "reviewers. `produce.py <any ep> --only components` builds "
+                                                         "them in one batch; done items get `- [x]`.\n")
+    new = []
+    for x in items:
+        body = re.sub(r"^\s*[-*\d.]+\s*", "", x).strip()
+        if body and body[:80] not in have:
+            new.append(f"- [ ] {body}  _({ep.name} · {source})_")
+    if new:
+        BACKLOG.write_text(have.rstrip("\n") + "\n" + "\n".join(new) + "\n")
+        print(f"  {len(new)} component request(s) → components/_backlog.md (built in batch: --only components)")
+    return len(new)
+
+
+def director(L: Line, ep: Path, prompt: str, stage: str, effort: str = "") -> None:
+    """Run the director; its [component:*] requests go to the shared backlog (it works around them in scenes.json)."""
     L.agent("director", prompt, stage, effort)
     if L.dry:
-        return None
-    asks = [x for x in L.last_out.read_text().splitlines() if re.search(r"\[component:[\w-]+\]", x)]
-    have = [x for x in asks if (ROOT / "components" / re.search(r"\[component:([\w-]+)\]", x).group(1)).is_dir()]
-    new = [x for x in asks if x not in have]
-    if new:
-        with (ep / "notes" / "component-wishlist.md").open("a") as f:
-            f.write(f"\n## {ep.name} · {L.last_out.name}\n" + "\n".join(x.strip() for x in new) + "\n")
-        print(f"  {len(new)} new-component request(s) → notes/component-wishlist.md (creator's call, not built here)")
-    if have:
-        k = len(list((ep / "notes").glob("component-requests-*.md"))) + 1
-        req = ep / "notes" / f"component-requests-{k}.md"
-        req.write_text("# Component requests from the director\n\n" + "\n".join(f"- {x.strip().lstrip('-* ').strip()}" for x in have) + "\n")
-        if defer:
-            return req
-        L.agent("component-dev", f"Fix the [component:*] requests in {req.relative_to(ROOT)} (skip any already done).", stage)
-    return None
+        return
+    backlog(ep, L.last_out.name, [x for x in L.last_out.read_text().splitlines() if COMP_TAG.search(x)])
+
+
+NOTE_LINE = re.compile(r"^\s*-\s*\[([^\]]+)\]\s*(blocker|polish)?(.*)$", re.M)
+
+
+def notes_for(review: Path, who: str, sev: str | None = None) -> list[str]:
+    """Note lines routed to `who` (director / editor / component), optionally only one severity."""
+    if not review.exists():
+        return []
+    out = []
+    for m in NOTE_LINE.finditer(review.read_text()):
+        owners = {r.strip().split(":")[0] for r in m.group(1).split("|")}
+        if who in owners and (sev is None or (m.group(2) or "blocker") == sev):
+            out.append(m.group(0).strip())
+    return out
 
 
 # ------------------------------------------------------------------ stages
@@ -295,6 +317,27 @@ def length_miss(L: Line, ep: Path, a) -> str:
             "over the lint's estimate). Keep the best jokes; change nothing else.")
 
 
+def lint_gate(L: Line, ep: Path) -> None:
+    """Mechanical misses (length, framing of example facts, uncited numbers, laugh count, recently used memes) go back
+    to the writer once, before an Opus review is spent finding them: 5 of 6 first reviews failed on exactly these."""
+    if L.dry:
+        return
+    r = subprocess.run([PY, "pipeline/fact_lint.py", str(ep), "--json"], cwd=ROOT, capture_output=True, text=True)
+    try:
+        j = json.loads(r.stdout)
+    except json.JSONDecodeError:
+        return
+    miss = [p for p in j.get("problems", []) if not re.match(r"F\d+:", p)]       # facts.md rows aren't the writer's
+    miss += [w for w in j.get("warnings", []) if "already used in" in w]          # a meme last week's reel used
+    miss += [s for s in j.get("script", [])[1:] if re.search(r"outside|first laugh|minimum|absolute|support an", s)]
+    if not miss:
+        return
+    print(f"  lint gate: {len(miss)} mechanical miss(es) → writer, before the review")
+    L.agent("scriptwriter", f"Before review: fix only these fact_lint misses in {ep.relative_to(ROOT)}/script.md, "
+            "keep every joke that isn't involved, re-run fact_lint until they're gone. Misses: " + " | ".join(miss[:10]),
+            "script", REVISE_EFFORT)
+
+
 def st_script(L: Line, ep: Path, a) -> None:
     e = ep.relative_to(ROOT)
     start = len(list((ep / "notes").glob("script-review-*.md"))) + 1
@@ -313,8 +356,12 @@ def st_script(L: Line, ep: Path, a) -> None:
             L.agent("scriptwriter", f"Rewrite {e}/script.md from {e}/notes/script-review-{n - 1}.md. Your inputs: "
                     f"that review, {e}/script.md, {e}/facts.md, {e}/notes/premise.md; reopen comedy.md / formats.md "
                     "only for the section a note points at.", "script", REVISE_EFFORT)
+        if not fix:
+            lint_gate(L, ep)
         L.agent("script-reviewer", f"Review {e}/script.md, round {n}." + (" (A length-only fix: check the changed lines "
-                "still land and the rest still holds.)" if fix else ""), "script")
+                "still land and the rest still holds.)" if fix else "") +
+                (f" Start from notes/script-review-{n - 1}.md: verify each note, then judge the whole draft." if n > 1 else ""),
+                "script")
         v = verdict(ep / "notes" / f"script-review-{n}.md")
         print(f"  script review {n}: {v}")
         if v == "PASS":
@@ -345,16 +392,44 @@ def st_factcheck(L: Line, ep: Path, a) -> None:
                 "(change nothing else).", "factcheck")
         L.agent("script-reviewer", f"Review only the lines changed for {e}/notes/fact-check.md in {e}/script.md, "
                 f"round {n + 1} (PASS if they're fixed and still funny).", "factcheck")
-    stop(ep, "fact-check still BLOCK after one fix cycle", "see notes/fact-check.md")
+    stop(ep, "fact-check still BLOCK after one fix cycle",
+         "see notes/fact-check.md · options: fix the BLOCK rows (facts.md source / script line) then --from factcheck, "
+         "or accept a row the creator has verified and --from voice")
+
+
+def clean_align(L: Line, ep: Path) -> None:
+    L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", "clean")
+    L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", "align")
 
 
 def st_voice(L: Line, ep: Path, a) -> None:
-    L.agent("voice", f"Make the voiceover for {ep.relative_to(ROOT)}.", "voice")
+    """The voice agent writes tts.txt + the take; the pipeline then *listens* (voice_check.py, whisper medium) and
+    sends flagged lines back once. 'khansa' shipped as 'khasa' because nothing listened after the agent."""
+    e = ep.relative_to(ROOT)
+    L.agent("voice", f"Make the voiceover for {e}.", "voice")
+    if L.dry:
+        return
+    for attempt in (1, 2):
+        clean_align(L, ep)
+        L.sh(PY, "pipeline/voice_check.py", str(ep), check=False)
+        vc = ep / ".cache" / "voice_check.json"
+        flags = json.loads(vc.read_text()).get("flags", 0) if vc.exists() else 0
+        if not flags or attempt == 2:
+            if flags:
+                print(f"  ⚠ {flags} voice line(s) still flagged — the video reviewer gets .cache/voice_check.md")
+            return
+        L.agent("voice", f"Fix the flagged lines in {e}/.cache/voice_check.md (heard vs written, whisper medium): a real "
+                "mispronunciation → add a row to brand/pronunciations.tsv (it applies to every reel) or respell in "
+                "tts.txt; ASR spelling noise → ignore. Then regenerate with tts.py once. Don't run whisper yourself.",
+                "voice", REVISE_EFFORT)
 
 
 def st_align(L: Line, ep: Path, a) -> None:
-    L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", "clean")
-    L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", "align")
+    c = ep / ".cache"
+    v, vc, wj = ep / "voice" / "voice.wav", c / "voice_clean.wav", c / "words.json"
+    fresh = v.exists() and vc.exists() and wj.exists() and v.stat().st_mtime <= vc.stat().st_mtime <= wj.stat().st_mtime
+    if not fresh:                                  # the voice stage already cleaned + aligned this take
+        clean_align(L, ep)
     if L.dry:
         return
     dur = duration(ep / ".cache" / "voice_clean.wav")
@@ -385,17 +460,15 @@ def st_edit(L: Line, ep: Path, a) -> None:
             director(L, ep, f"Plan {e}/scenes/scenes.json from script.md + .cache/words.txt; validate + qa clean.", "edit")
             L.agent("editor", f"Tighten {e}/scenes/scenes.json (director's first pass); validate + qa clean.", "edit")
         else:
-            # only the roles the review actually routed notes to; the review's [component:*] notes and the
-            # director's own requests go to ONE component-dev run (two runs re-read the same previews)
-            comp = [f"{e}/notes/video-review-{n - 1}.md"] if routed(prev, "component") else []
+            # only the roles the review routed notes to. A component runs now only for a *blocker* (the frame is
+            # broken without it); component polish waits in the backlog for the batch run
+            backlog(ep, prev.name, [x for x in notes_for(prev, "component", "polish") if COMP_TAG.search(x)])
+            if notes_for(prev, "component", "blocker"):
+                L.agent("component-dev", f"Fix the [component:*] blocker notes in {e}/notes/video-review-{n - 1}.md "
+                        "(skip polish notes and any already done).", "edit")
             if routed(prev, "director"):
-                req = director(L, ep, f"Revise {e}/scenes/scenes.json from the [director] notes in "
-                               f"{e}/notes/video-review-{n - 1}.md and .cache/qa.json.", "edit", REVISE_EFFORT, defer=True)
-                if req:
-                    comp.append(str(req.relative_to(ROOT)))
-            if comp:
-                L.agent("component-dev", f"Fix the [component:*] notes in {' and '.join(comp)} in one pass "
-                        "(skip any already done).", "edit")
+                director(L, ep, f"Revise {e}/scenes/scenes.json from the [director] notes in "
+                         f"{e}/notes/video-review-{n - 1}.md and .cache/qa.json.", "edit", REVISE_EFFORT)
             if routed(prev, "editor"):
                 L.agent("editor", f"Apply the [editor] notes in {e}/notes/video-review-{n - 1}.md to "
                         f"{e}/scenes/scenes.json (skip any already resolved).", "edit")
@@ -408,10 +481,53 @@ def st_edit(L: Line, ep: Path, a) -> None:
         v = verdict(ep / "notes" / f"video-review-{n}.md")
         print(f"  video review {n}: {v}")
         if v == "PASS":
+            polish(L, ep, ep / "notes" / f"video-review-{n}.md")
             return
     stop(ep, f"video review: no PASS after {last} rounds",
          f"last notes: notes/video-review-{last}.md · draft: output/final.mp4 · "
          "options: fix specific notes then --from deliver, or one more round with --from edit --extra-rounds N")
+
+
+def qa_clean(L: Line, ep: Path) -> bool:
+    return all(L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", st, check=False) == 0 for st in ("validate", "build", "qa"))
+
+
+def polish(L: Line, ep: Path, review: Path) -> None:
+    """A PASS still carries the reviewer's polish notes (an empty frame, a chart at 60 % width, a 0.8 s blink) — they
+    used to be dropped on the way to delivery. One cheap pass applies them; if qa isn't clean afterwards, the
+    reviewed plan is restored, so polish can never cost the PASS."""
+    e = ep.relative_to(ROOT)
+    backlog(ep, review.name, [x for x in notes_for(review, "component") if COMP_TAG.search(x)])
+    d, ed = notes_for(review, "director"), notes_for(review, "editor")
+    if not (d or ed) or L.dry:
+        return
+    sj = ep / "scenes" / "scenes.json"
+    keep = sj.read_text()
+    rule = ("Polish pass after a PASS, no review follows: apply these notes where they're cheap and safe, change nothing "
+            "else, stay inside CLAUDE.md; skip a note you can't do cleanly and say why. Validate + qa clean.")
+    print(f"  polish: {len(d)} director + {len(ed)} editor note(s) from {review.name}")
+    if d:
+        director(L, ep, f"{rule} The [director] notes in {e}/notes/{review.name} (+ qa.json warnings routed to "
+                 "director: late-content, narrow-frame, small-object).", "edit", REVISE_EFFORT)
+    if ed:
+        L.agent("editor", f"{rule} The [editor] notes in {e}/notes/{review.name}.", "edit")
+    if not qa_clean(L, ep):
+        sj.write_text(keep)
+        qa_clean(L, ep)
+        print("  ⚠ polish broke qa — restored the reviewed scenes.json")
+
+
+def st_components(L: Line, ep: Path, a) -> None:
+    """Batch-build the shared component backlog (run weekly, or before a reel that needs one) — one component-dev
+    session for many requests instead of a run inside every episode."""
+    open_items = [x for x in (BACKLOG.read_text().splitlines() if BACKLOG.exists() else []) if x.startswith("- [ ]")]
+    if not open_items:
+        print("  components/_backlog.md: nothing open")
+        return
+    L.agent("component-dev", f"Work through the open items in components/_backlog.md ({len(open_items)} open): the "
+            "most-requested / most reusable first, at most 4 this run. For each: build or fix it, run "
+            "pipeline/component_gallery.py <name>, check its preview.png, then tick it `- [x]` with a 6-word note. "
+            "A request a scenes.json param already covers → tick it with that param.", "components")
 
 
 def st_fix(L: Line, ep: Path, a) -> None:
@@ -431,13 +547,10 @@ def st_fix(L: Line, ep: Path, a) -> None:
                  "fix", REVISE_EFFORT)
     if routed(ep / "notes" / f"video-review-{n}.md", "editor"):
         L.agent("editor", f"Apply the [editor] notes in {notes} to {e}/scenes/scenes.json. {final}", "fix")
-    def clean() -> bool:
-        return all(L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", st, check=False) == 0
-                   for st in ("validate", "build", "qa"))
-    if not clean():
+    if not qa_clean(L, ep):
         director(L, ep, f"qa blocks {e}: fix every error in .cache/qa.json (route [editor] timing errors too). "
                  "Validate + qa clean.", "fix", REVISE_EFFORT)
-        if not clean():
+        if not qa_clean(L, ep):
             stop(ep, "qa still blocks after the fix pass", "see .cache/qa.json")
     print("  fix pass done, qa clean → --from deliver")
 
@@ -472,7 +585,8 @@ def st_usage(L: Line, ep: Path, a) -> None:
 
 
 RUN = {"research": st_research, "script": st_script, "factcheck": st_factcheck, "voice": st_voice, "align": st_align,
-       "edit": st_edit, "fix": st_fix, "deliver": st_deliver, "package": st_package, "usage": st_usage}
+       "edit": st_edit, "fix": st_fix, "deliver": st_deliver, "package": st_package, "usage": st_usage,
+       "components": st_components}
 
 
 def summary(ep: Path) -> None:
@@ -494,7 +608,7 @@ def main() -> int:
     ap.add_argument("--topic", default="")
     ap.add_argument("--format", type=int, choices=[30, 60, 90])
     ap.add_argument("--from", dest="frm", choices=STAGES)
-    ap.add_argument("--only", choices=STAGES + ["fix"])
+    ap.add_argument("--only", choices=STAGES + ["fix", "components"])
     ap.add_argument("--accept-length", action="store_true", help="the creator accepted a voice outside the format range")
     ap.add_argument("--extra-rounds", type=int, default=0,
                     help="review rounds the creator grants past the 3-round cap (existing reviews count)")

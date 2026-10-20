@@ -27,6 +27,22 @@
     return Number(n).toLocaleString("en-IN", { minimumFractionDigits: d, maximumFractionDigits: d });
   };
   CH.money = (n, opts = {}) => (opts.prefix ?? "₹") + CH.inr(n, opts) + (opts.suffix ?? "");
+  // headline fit: never break inside a word — shrink the font (to `min` × size at most) until the
+  // longest word fits the line. Line breaks between words are untouched. Returns the final px size.
+  CH.fitHead = (node, size, min = 0.55) => {
+    if (!node) return size;
+    node.style.overflowWrap = "normal";
+    node.style.wordBreak = "keep-all";
+    node.style.hyphens = "none";
+    let s = +size;
+    const floor = +size * min;
+    node.style.fontSize = `${Math.round(s)}px`;
+    while (node.scrollWidth > node.clientWidth + 1 && s > floor) {
+      s = Math.max(floor, s * 0.95);
+      node.style.fontSize = `${Math.round(s)}px`;
+    }
+    return Math.round(s);
+  };
   CH.esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   // "*word*" -> marker span ; numbers/₹ amounts -> tabular num span. Works on text, never on HTML.
   const NUM = /(₹\s?[\d,]+(?:\.\d+)?|\b\d[\d,]*(?:\.\d+)?%?)/g;
@@ -168,20 +184,30 @@
   CH.odometer = (value, o = {}) => {
     const s = (o.prefix ?? "") + CH.inr(value, o) + (o.suffix ?? "");
     const cells = [...s].map((ch) => /\d/.test(ch)
-      ? `<span class="odo-d"><span class="odo-strip">${STRIP.map((n) => `<span>${n}</span>`).join("")}</span></span>`
+      ? `<span class="odo-d"><span class="odo-strip">${STRIP.map((n, k) => `<span${k ? ' style="visibility:hidden"' : ""}>${n}</span>`).join("")}</span></span>`
       : `<span class="odo-s">${CH.esc(ch)}</span>`).join("");
     return `<span class="odo" data-target="${CH.esc(s)}">${cells}</span>`;
   };
   CH.roll = (tl, odoEl, t, dur = 0.9) => {
     const target = odoEl.dataset.target;
     const digits = [...target].filter((c) => /\d/.test(c));
+    const end = t + dur + digits.length * 0.04;
     [...odoEl.querySelectorAll(".odo-strip")].forEach((strip, i) => {
       const final = +digits[i];
       const land = 11 + final;                          // blank → one full cycle → the final digit
       const lag = (digits.length - 1 - i) * 0.04;      // lower digits keep spinning longer
-      tl.fromTo(strip, { yPercent: 0 }, { yPercent: -(land / STRIP.length) * 100, duration: dur + lag, ease: "power3.out" }, t);
+      // land on the cell's exact layout offset (px), not a rounded % of the 21-cell strip: a %-based
+      // offset leaves sub-pixel slivers of the neighbouring digits inside the 1em window
+      const cell = strip.children[land];
+      const y = cell && cell.offsetHeight ? -cell.offsetTop : null;
+      tl.set([...strip.children].slice(1), { visibility: "inherit" }, t);   // only the blank shows before the roll
+      tl.fromTo(strip, y === null ? { yPercent: 0 } : { y: 0 }, y === null
+        ? { yPercent: -(land / STRIP.length) * 100, duration: dur + lag, ease: "power3.out" }
+        : { y, duration: dur + lag, ease: "power3.out" }, t);
+      // once landed only the final digit stays painted, so every landed frame reads exactly the value
+      tl.set([...strip.children].filter((_, k) => k !== land), { visibility: "hidden" }, end);
     });
-    return t + dur + digits.length * 0.04;
+    return end;
   };
 
   // ---------------------------------------------------------------- mascot motion (GSAP mirrors of mascot.css)
