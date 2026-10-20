@@ -77,8 +77,9 @@
   "75": "2026-10-no-cost-emi/cover.md",
   "76": "2026-10-sale-fine-print/script.md",
   "77": "2026-10-sale-fine-print/cover.md",
-  "78": "audio_clean.py",
   "79": "glyph-character/component.js",
   "80": "chat-screen/component.js",
-  "81": "_backlog.md"
+  "81": "_backlog.md",
+  "82": "voice_check.py",
+  "86": "build_brief"
 }

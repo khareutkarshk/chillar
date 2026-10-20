@@ -1,16 +1,16 @@
 # Graph Report - chillar  (2026-10-20)
 
 ## Corpus Check
-- 158 files · ~91,829 words
+- 159 files · ~92,818 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 683 nodes · 1150 edges · 83 communities (63 shown, 20 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 57 edges (avg confidence: 0.77)
+- 693 nodes · 1182 edges · 83 communities (63 shown, 20 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 71 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `636926a4`
+- Built from commit: `b6706b1e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -63,21 +63,21 @@
 - 2026-10-no-cost-emi/cover.md
 - 2026-10-sale-fine-print/script.md
 - 2026-10-sale-fine-print/cover.md
-- build_composition.py
 - _backlog.md
 - voice_check.py
+- build_brief
 
 ## God Nodes (most connected - your core abstractions)
-1. `Candidate` - 34 edges
+1. `Candidate` - 40 edges
 2. `Component catalog (generated — `pipeline/component_catalog.py`, don't edit)` - 25 edges
-3. `Line` - 23 edges
+3. `Line` - 24 edges
 4. `CLAUDE.md brand bible` - 23 edges
-5. `12 LPA episode script.md` - 16 edges
-6. `qa()` - 14 edges
+5. `qa()` - 16 edges
+6. `12 LPA episode script.md` - 16 edges
 7. `LicenseRefused` - 13 edges
-8. `director agent` - 12 edges
-9. `/make-reel command` - 12 edges
-10. `st_edit()` - 11 edges
+8. `st_edit()` - 12 edges
+9. `director agent` - 12 edges
+10. `/make-reel command` - 12 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Note Fields design (rupee-note colour fields)` --semantically_similar_to--> `Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists)`  [INFERRED] [semantically similar]
@@ -103,7 +103,7 @@
 
 ### Community 0 - "Candidate"
 Cohesion: 0.06
-Nodes (69): Exception, Candidate, env(), polite_sleep(), Shared paths, env, HTTP session and politeness helpers., One downloadable asset. `verify()` must be called right before download., slug(), text_of() (+61 more)
+Nodes (68): Exception, Candidate, env(), polite_sleep(), Shared paths, env, HTTP session and politeness helpers., One downloadable asset. `verify()` must be called right before download., text_of(), check_policy() (+60 more)
 
 ### Community 1 - "CLAUDE.md brand bible"
 Cohesion: 0.05
@@ -118,8 +118,8 @@ Cohesion: 0.07
 Nodes (32): align(), _model(), Path, The same timings as words.json in ~⅓ of the tokens, for the agents (one script…, words_txt(), clean(), ff(), find_voice() (+24 more)
 
 ### Community 4 - "fetch_assets.py"
-Cohesion: 0.20
-Nodes (23): /fetch-assets command, Candidate, Asset licensing allow-list (CC0/MIT etc.), build_audition(), _diverse(), duration_of(), fetch(), _first_hit() (+15 more)
+Cohesion: 0.19
+Nodes (23): /fetch-assets command, Asset licensing allow-list (CC0/MIT etc.), build_audition(), _diverse(), duration_of(), fetch(), _first_hit(), foley() (+15 more)
 
 ### Community 5 - "12 LPA episode script.md"
 Cohesion: 0.24
@@ -158,8 +158,8 @@ Cohesion: 0.47
 Nodes (9): date, cmd_cache(), cmd_copy(), cmd_fresh(), entries(), main(), next_fid(), Path (+1 more)
 
 ### Community 46 - "Production line — how work is routed, and what it costs"
-Cohesion: 0.22
-Nodes (8): Agents (`.claude/agents/`), one job each; `pipeline/produce.py` routes them, Facts, Hand-offs: fresh agents, files carry the state, Image budget (a full 1080×1920 frame ≈ 1.5k tokens every time it's viewed), Mechanical QA before taste, Production line — how work is routed, and what it costs, Session hygiene, The cheap way to run it: `pipeline/produce.py` (since 2026-10-19)
+Cohesion: 0.20
+Nodes (9): Agents (`.claude/agents/`), one job each; `pipeline/produce.py` routes them, Bounded edit briefs, Facts, Hand-offs: fresh agents, files carry the state, Image budget (a full 1080×1920 frame ≈ 1.5k tokens every time it's viewed), Mechanical QA before taste, Production line — how work is routed, and what it costs, Session hygiene (+1 more)
 
 ### Community 47 - "component_catalog.py"
 Cohesion: 0.48
@@ -183,7 +183,7 @@ Nodes (3): Facts — 2026-10-epf-explained, Texture for the writers (not facts �
 
 ### Community 59 - "produce.py"
 Cohesion: 0.10
-Nodes (49): backlog(), clean_align(), director(), draft(), duration(), find_cli(), frontmatter(), length_miss() (+41 more)
+Nodes (50): backlog(), clean_align(), director(), draft(), duration(), find_cli(), frontmatter(), length_miss() (+42 more)
 
 ### Community 64 - "Comedy craft — how a Chillar script gets funny"
 Cohesion: 0.22
@@ -194,8 +194,8 @@ Cohesion: 0.50
 Nodes (3): Hook {field: note10}, Payoff {field: note2000}, Turn {field: note500}
 
 ### Community 68 - "qa.py"
-Cohesion: 0.17
-Nodes (20): area(), audio_check(), centre_in(), chrome_path(), contrast(), digits(), glyph_lines(), inr() (+12 more)
+Cohesion: 0.10
+Nodes (30): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+22 more)
 
 ### Community 71 - "tts.py"
 Cohesion: 0.26
@@ -217,33 +217,33 @@ Nodes (3): Hook, Payoff, Turn
 Cohesion: 0.50
 Nodes (3): Hook {field: note10}, Payoff {field: note50}, Turn {field: note20}
 
-### Community 78 - "build_composition.py"
-Cohesion: 0.23
-Nodes (10): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+2 more)
-
 ### Community 82 - "voice_check.py"
 Cohesion: 0.33
 Nodes (8): best(), check(), main(), Path, Consonant skeleton of a Devanagari word — ASR vowel spelling noise mostly…, One transcription per line clip — a single pass drifts its word times and skips…, skeleton(), transcribe_lines()
 
+### Community 86 - "build_brief"
+Cohesion: 0.43
+Nodes (7): build_brief(), edit_inputs(), main(), Path, Return a size-bounded brief with only the files selected by the orchestrator., Canonical, small file sets for scene planning, revisions and visual review., _read()
+
 ## Knowledge Gaps
-- **110 isolated node(s):** `Report (hard limit)`, `Report (hard limit)`, `Sound design (editor)`, `Component backlog`, `avatar` (+105 more)
+- **111 isolated node(s):** `name`, `private`, `description`, `node`, `doctor` (+106 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **20 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `CLAUDE.md brand bible` connect `CLAUDE.md brand bible` to `fetch_assets.py`, `tts.py`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
-- **Why does `template facts.md` connect `CLAUDE.md brand bible` to `12 LPA episode script.md`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
-- **What connects `Report (hard limit)`, `Report (hard limit)`, `Sound design (editor)` to the rest of the system?**
-  _110 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Why does `words_txt()` connect `episode.py` to `produce.py`?**
+  _High betweenness centrality (0.087) - this node is a cross-community bridge._
+- **Why does `st_edit()` connect `produce.py` to `episode.py`?**
+  _High betweenness centrality (0.084) - this node is a cross-community bridge._
+- **Why does `Candidate` connect `Candidate` to `memes.py`, `fetch_assets.py`?**
+  _High betweenness centrality (0.042) - this node is a cross-community bridge._
+- **Are the 2 inferred relationships involving `Candidate` (e.g. with `LicenseRefused` and `_log()`) actually correct?**
+  _`Candidate` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **What connects `name`, `private`, `description` to the rest of the system?**
+  _111 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Candidate` be split into smaller, more focused modules?**
-  _Cohesion score 0.058544303797468354 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05842259006815969 - nodes in this community are weakly interconnected._
 - **Should `CLAUDE.md brand bible` be split into smaller, more focused modules?**
   _Cohesion score 0.05094905094905095 - nodes in this community are weakly interconnected._
-- **Should `memes.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected._
-- **Should `episode.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.0743321718931475 - nodes in this community are weakly interconnected._

@@ -36,6 +36,8 @@ import sys
 import time
 from pathlib import Path
 
+from agent_context import build_brief, edit_inputs
+
 ROOT = Path(__file__).resolve().parents[1]
 PY = str(ROOT / ".venv" / "bin" / "python")
 AGENTS = ROOT / ".claude" / "agents"
@@ -141,14 +143,16 @@ class Line:
         self.out.mkdir(parents=True, exist_ok=True)
         (ep / "notes").mkdir(exist_ok=True)
 
-    def agent(self, name: str, prompt: str, stage: str, effort: str = "") -> str:
+    def agent(self, name: str, prompt: str, stage: str, effort: str = "", *,
+              tools_override: str | None = None, bash_allow: list[str] | None = None) -> str:
         """effort overrides the frontmatter's (revisions run a level below the first pass)."""
         meta = frontmatter(name)
         if effort:
             meta["effort"] = effort
         model = MODELS.get(meta.get("model", "sonnet"), meta.get("model", "sonnet"))
-        tools = ",".join(t.strip() for t in meta.get("tools", "Read").split(","))
-        allow = [t for t in tools.split(",") if t != "Bash"] + ([f"Bash({b}:*)" for b in BASH_OK] if "Bash" in tools else [])
+        tools = tools_override or ",".join(t.strip() for t in meta.get("tools", "Read").split(","))
+        allowed_bash = BASH_OK if bash_allow is None else bash_allow
+        allow = [t for t in tools.split(",") if t != "Bash"] + ([f"Bash({b}:*)" for b in allowed_bash] if "Bash" in tools else [])
         cmd = [self.cli, "-p", "--agent", name, "--model", model, "--tools", tools, "--allowedTools", " ".join(allow),
                "--max-budget-usd", str(BUDGET.get(name, 1.0)), *LEAN]
         if meta.get("effort"):
@@ -164,6 +168,7 @@ class Line:
             d = {"result": (r.stdout + r.stderr)[-2000:], "is_error": True}
         u = d.get("usage", {})
         rec = {"at": dt.datetime.now().isoformat(timespec="seconds"), "stage": stage, "agent": name,
+               "prompt_chars": len(prompt),
                "models": list(d.get("modelUsage", {})), "cost": round(d.get("total_cost_usd", 0) or 0, 4),
                "turns": d.get("num_turns"), "secs": round(time.time() - t0),
                "effort": meta.get("effort"),
@@ -186,6 +191,22 @@ class Line:
         if rec["error"] and "budget" in str(rec["error"]):
             print(f"    ⚠ {name} hit its ${BUDGET.get(name)} cap — check its output before trusting it", flush=True)
         return d.get("result", "")
+
+    def scoped_agent(self, name: str, ep: Path, task: str, stage: str, mode: str,
+                     *, note: Path | None = None, effort: str = "") -> str:
+        """Run scene/review work with a bounded brief and only the tools needed for that role."""
+        brief = build_brief(ep, name, mode, task, edit_inputs(ep, name, mode, note), note=note,
+                            max_chars=32000 if name == "director" and mode == "first" else 24000)
+        prompt = (f"{task}\n\nUse this bounded context brief as your source set; do not rediscover context "
+                  f"with broad shell reads. Brief size: {len(brief)} chars.\n\n{brief}")
+        tools = {
+            "director": "Read,Write,Edit,Bash",
+            "editor": "Read,Edit,Bash",
+            "video-reviewer": "Read,Write,Bash",
+            "component-dev": "Read,Write,Edit,Bash",
+        }.get(name)
+        return self.agent(name, prompt, stage, effort, tools_override=tools,
+                          bash_allow=[".venv/bin/python"] if tools and "Bash" in tools else [])
 
     def sh(self, *args: str, check: bool = True) -> int:
         print(f"  $ {' '.join(args)}", flush=True)
@@ -255,7 +276,11 @@ def backlog(ep: Path, source: str, items: list[str]) -> int:
 
 def director(L: Line, ep: Path, prompt: str, stage: str, effort: str = "") -> None:
     """Run the director; its [component:*] requests go to the shared backlog (it works around them in scenes.json)."""
-    L.agent("director", prompt, stage, effort)
+    import re
+    m = re.search(r"notes/video-review-(\d+)\.md", prompt)
+    note = ep / "notes" / f"video-review-{m.group(1)}.md" if m else None
+    mode = "first" if prompt.startswith("Plan ") else "revision"
+    L.scoped_agent("director", ep, prompt, stage, mode, note=note, effort=effort)
     if L.dry:
         return
     backlog(ep, L.last_out.name, [x for x in L.last_out.read_text().splitlines() if COMP_TAG.search(x)])
@@ -458,26 +483,27 @@ def st_edit(L: Line, ep: Path, a) -> None:
         prev =ep / "notes" / f"video-review-{n - 1}.md"
         if n == 1:
             director(L, ep, f"Plan {e}/scenes/scenes.json from script.md + .cache/words.txt; validate + qa clean.", "edit")
-            L.agent("editor", f"Tighten {e}/scenes/scenes.json (director's first pass); validate + qa clean.", "edit")
+            L.scoped_agent("editor", ep, f"Tighten {e}/scenes/scenes.json (director's first pass); validate + qa clean.", "edit", "first")
         else:
             # only the roles the review routed notes to. A component runs now only for a *blocker* (the frame is
             # broken without it); component polish waits in the backlog for the batch run
             backlog(ep, prev.name, [x for x in notes_for(prev, "component", "polish") if COMP_TAG.search(x)])
             if notes_for(prev, "component", "blocker"):
-                L.agent("component-dev", f"Fix the [component:*] blocker notes in {e}/notes/video-review-{n - 1}.md "
-                        "(skip polish notes and any already done).", "edit")
+                L.scoped_agent("component-dev", ep, f"Fix the [component:*] blocker notes in {e}/notes/video-review-{n - 1}.md "
+                                 "(skip polish notes and any already done).", "edit", "revision", note=prev)
             if routed(prev, "director"):
                 director(L, ep, f"Revise {e}/scenes/scenes.json from the [director] notes in "
                          f"{e}/notes/video-review-{n - 1}.md and .cache/qa.json.", "edit", REVISE_EFFORT)
             if routed(prev, "editor"):
-                L.agent("editor", f"Apply the [editor] notes in {e}/notes/video-review-{n - 1}.md to "
-                        f"{e}/scenes/scenes.json (skip any already resolved).", "edit")
+                L.scoped_agent("editor", ep, f"Apply the [editor] notes in {e}/notes/video-review-{n - 1}.md to "
+                               f"{e}/scenes/scenes.json (skip any already resolved).", "edit", "revision", note=prev)
         if draft(L, ep):            # qa blocked the render: one fix pass, then try again
             director(L, ep, f"qa blocked the render of {e}: fix every error in .cache/qa.json "
                      "(route [editor] timing errors too). Validate + qa clean.", "edit", REVISE_EFFORT)
             if draft(L, ep):
                 stop(ep, "qa still blocks the draft render after a fix pass", "see .cache/qa.json")
-        L.agent("video-reviewer", f"Review the draft of {e}, round {n} → notes/video-review-{n}.md.", "edit")
+        L.scoped_agent("video-reviewer", ep, f"Review the draft of {e}, round {n} → notes/video-review-{n}.md.",
+                       "edit", "review", note=prev if n > 1 else None)
         v = verdict(ep / "notes" / f"video-review-{n}.md")
         print(f"  video review {n}: {v}")
         if v == "PASS":
@@ -510,7 +536,8 @@ def polish(L: Line, ep: Path, review: Path) -> None:
         director(L, ep, f"{rule} The [director] notes in {e}/notes/{review.name} (+ qa.json warnings routed to "
                  "director: late-content, narrow-frame, small-object).", "edit", REVISE_EFFORT)
     if ed:
-        L.agent("editor", f"{rule} The [editor] notes in {e}/notes/{review.name}.", "edit")
+        L.scoped_agent("editor", ep, f"{rule} The [editor] notes in {e}/notes/{review.name}.",
+                       "edit", "revision", note=review)
     if not qa_clean(L, ep):
         sj.write_text(keep)
         qa_clean(L, ep)
@@ -541,12 +568,14 @@ def st_fix(L: Line, ep: Path, a) -> None:
     final = ("Final targeted pass, no review round follows: fix exactly these notes, keep everything else as it is, "
              "and stay within CLAUDE.md (stamp budget, safe zones) — if a note is impossible under it, skip it and say why.")
     if routed(ep / "notes" / f"video-review-{n}.md", "component"):
-        L.agent("component-dev", f"Fix the [component:*] notes in {notes}. {final}", "fix")
+        L.scoped_agent("component-dev", ep, f"Fix the [component:*] notes in {notes}. {final}",
+                       "fix", "revision", note=ep / "notes" / f"video-review-{n}.md")
     if routed(ep / "notes" / f"video-review-{n}.md", "director"):
         director(L, ep, f"Revise {e}/scenes/scenes.json from the [director] notes in {notes} and .cache/qa.json. {final}",
                  "fix", REVISE_EFFORT)
     if routed(ep / "notes" / f"video-review-{n}.md", "editor"):
-        L.agent("editor", f"Apply the [editor] notes in {notes} to {e}/scenes/scenes.json. {final}", "fix")
+        L.scoped_agent("editor", ep, f"Apply the [editor] notes in {notes} to {e}/scenes/scenes.json. {final}",
+                       "fix", "revision", note=ep / "notes" / f"video-review-{n}.md")
     if not qa_clean(L, ep):
         director(L, ep, f"qa blocks {e}: fix every error in .cache/qa.json (route [editor] timing errors too). "
                  "Validate + qa clean.", "fix", REVISE_EFFORT)

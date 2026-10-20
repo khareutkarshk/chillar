@@ -430,13 +430,13 @@
     "semantic_hash": "0dc2d491af9b5e44782e341239503b0e"
   },
   ".claude/agents/director.md": {
-    "mtime": 1792492685.963714,
-    "ast_hash": "233e42f1a18f64ce9e85aee2491d5a62",
+    "mtime": 1792494739.3229496,
+    "ast_hash": "749295b745c06718cbed0f9ffb96159e",
     "semantic_hash": ""
   },
   ".claude/agents/editor.md": {
-    "mtime": 1792492706.3159125,
-    "ast_hash": "6371645667d891ba88d39851c2fef1e0",
+    "mtime": 1792494742.7818546,
+    "ast_hash": "19d4f2a59c7763c5d977aae43f69115f",
     "semantic_hash": ""
   },
   ".claude/agents/fact-checker.md": {
@@ -455,8 +455,8 @@
     "semantic_hash": ""
   },
   ".claude/agents/video-reviewer.md": {
-    "mtime": 1792492708.3992298,
-    "ast_hash": "10800205968b3df611ad6014c1d8f540",
+    "mtime": 1792494745.15379,
+    "ast_hash": "ca1aa2ff17172a5bdbf9f284395799dc",
     "semantic_hash": ""
   },
   ".claude/commands/fact-check.md": {
@@ -535,8 +535,8 @@
     "semantic_hash": "52b0d5cd38d8b9bde43931ecab95d8f7"
   },
   ".claude/settings.json": {
-    "mtime": 1792405527.5026236,
-    "ast_hash": "8ba8d82bb3d51047ac42a6d55aace617",
+    "mtime": 1792493380.7210572,
+    "ast_hash": "ecdbbb2153bb8d0ac498a0c2bd13268e",
     "semantic_hash": ""
   },
   "brand/sources/index.json": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "brand/rules/production.md": {
-    "mtime": 1792445500.8604023,
-    "ast_hash": "da1c47faaff9f6b26378d86f1a480846",
+    "mtime": 1792494773.6740427,
+    "ast_hash": "330088a1f6a1b69f7ea749028df43d9e",
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
@@ -635,13 +635,13 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792492245.5828826,
-    "ast_hash": "f0d2dc2910f33a563a9ba39211a4e681",
+    "mtime": 1792494726.2433164,
+    "ast_hash": "2a8fc18e38a59f3815a9bec9e4e68a4d",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
-    "mtime": 1792485534.4202962,
-    "ast_hash": "82ea39e02fad20a54e43f51d0952f40c",
+    "mtime": 1792494748.0747108,
+    "ast_hash": "d6de1f4004650d3274a0425dd6adecc9",
     "semantic_hash": ""
   },
   ".claude/agents/packager.md": {
@@ -792,6 +792,11 @@
   "components/_backlog.md": {
     "mtime": 1792492784.0076337,
     "ast_hash": "8ed533a87491d58c8636414badb68980",
+    "semantic_hash": ""
+  },
+  "pipeline/agent_context.py": {
+    "mtime": 1792494733.087123,
+    "ast_hash": "a400ed47eea8ed1e4bb8acd081056a55",
     "semantic_hash": ""
   }
 }

@@ -10,6 +10,9 @@ You direct 9:16 Reels for **Chillar** (CLAUDE.md (the brand bible) is already in
 `brand/rules/themes.md` and `brand/rules/formats.md`). Inputs: `episodes/<ep>/script.md` (chapters,
 `{…}` directions, `[JOKE]` lines), `.cache/words.txt` (word ids + start times, one script line per row; open `.cache/words.json` only for an exact mid-line word end), `facts.md`, `cover.md`.
 Components: **`components/_catalog.md`** (one entry per component: purpose, params, min duration, SFX).
+When `produce.py` supplies a task brief, its listed files are already in context: do not reopen them or
+search the repo. Read another file only for a specific missing detail; never use broad `cat`, `find`, or
+gallery reads. Revision briefs contain only the current plan, routed notes and QA report.
 The catalog lists every param with its full default shape and the scenes.json keys — that is enough to
 write the plan. Open a `components/<name>/component.json` only if a param you need isn't in the catalog;
 never open component js/css, gallery PNGs or `validate_scenes.py` (its errors tell you what's wrong).

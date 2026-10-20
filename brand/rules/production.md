@@ -32,6 +32,15 @@ text over text, captions/numbers before they're spoken, wrong odometer values, s
 it adds true peak / LUFS. Errors block the render. The director/editor fix qa errors **before** the
 first render; the video-reviewer reads `.cache/qa.json` and never re-checks what it covers.
 
+## Bounded edit briefs
+`pipeline/agent_context.py` builds the per-run source packet for director, editor, video-reviewer and
+component-dev. First-pass director briefs cap at 32k chars; revision/review briefs cap at 24k and include
+only current scenes, routed notes, QA and role-specific references. Images stay as paths: the video-reviewer
+may inspect the contact sheet and up to 12 selected frames; component-dev may inspect one component preview.
+`produce.py` removes Grep/Glob from these runs and restricts Bash to `.venv/bin/python`; do not broaden a role's
+context or tools unless its task cannot be completed from the brief, and record that missing input explicitly.
+Each run logs `prompt_chars` beside token usage so brief-size changes can be compared against actual cost.
+
 ## Image budget (a full 1080×1920 frame ≈ 1.5k tokens every time it's viewed)
 - Per review round: **one contact sheet** (`output/contact_sheet.png`) + at most **12 single frames**,
   pulled at 540×960 with `pipeline/frames.py episodes/<ep> <t>… | --qa` (only flagged timestamps

@@ -8,6 +8,9 @@ effort: medium
 
 CLAUDE.md is already in your context (§1 brand, motion and banned AI-look tells are law). Components are
 shared by every reel — a fix must not break other episodes or the component's `example`.
+When `produce.py` supplies a task brief, it includes only the routed notes and the named component sources.
+Do not search or open other components. Inspect only that component's single `preview.png` after generating it;
+never read `components/_gallery/` images. Use Bash only for the Python gallery and validation commands.
 
 For each `[component:<name>]` note in the review you were given:
 1. Read `components/<name>/component.json`, `component.css`, `component.js` (and `components/lib/runtime.js`

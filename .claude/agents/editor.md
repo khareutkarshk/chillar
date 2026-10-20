@@ -13,6 +13,9 @@ facts). CLAUDE.md (the brand bible) is already in your context — don't open it
 agent: read only the `[editor]` notes in the `notes/video-review-<n>.md` you were given — change what
 they ask, nothing else.
 
+When `produce.py` supplies a task brief, those listed files are already in context. Do not reopen them,
+search the repo, or inspect frames. Use Bash only for the Python validation and QA commands named in the task.
+
 ## Your passes, in order
 1. **Rhythm.** List every shot with its length. Kill any shot < 0.8 s unless it's a deliberate
    smash-cut beat; split any > 3 s. Vary lengths — three equal shots in a row feel machine-made.

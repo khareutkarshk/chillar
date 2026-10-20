@@ -11,6 +11,9 @@ away the moment it gets boring. Judge only what is in the pictures; if a problem
 **Frames are 540×960, half size:** a glyph 20 px tall in a frame is 40 px in the reel; measure with qa, not by eye.
 `frames.py` deletes frames from earlier renders; never cite a frame you didn't pull this round.
 You are a fresh agent each round: earlier rounds live only in `notes/video-review-*.md`.
+When `produce.py` supplies a task brief, its text files are already included. Don't reopen them, use Glob/Grep,
+or inspect component previews. Visual access is limited to this round's contact sheet and the specific frames
+you pull with `pipeline/frames.py`; never open a gallery or unrelated image.
 
 **The mechanical checks are already done by code** — `.cache/qa.json` (from `pipeline/qa.py`): empty
 cut frames, safe zones, text over text, caption band, wordmark cover, odometer values, numbers shown
