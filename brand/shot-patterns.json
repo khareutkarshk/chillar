@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "guidance": "Patterns are starting points for visual rhythm, not templates. Pick only the pattern that clarifies the spoken idea; adapt the object, timing, and component to the episode. Keep original visual metaphors when they are stronger.",
+  "patterns": [
+    {
+      "id": "stakes-first",
+      "use_when": "The opening line asks a concrete money question or shows a consequence.",
+      "shape": ["show the amount or consequence in frame 1", "reveal the question in the voice", "cut to the first explanation"],
+      "components": ["hook-card", "receipt-list", "passbook-page"],
+      "quality_check": "At a glance, the viewer knows what is at stake; avoid an intro card."
+    },
+    {
+      "id": "money-comparison",
+      "use_when": "The explanation compares amounts, outcomes, time periods, or choices.",
+      "shape": ["establish the baseline", "change one variable at a time", "hold on the meaningful difference"],
+      "components": ["split-compare", "bar-chart", "tier-compare"],
+      "quality_check": "Use Indian number grouping and show the comparison without repeating the caption."
+    },
+    {
+      "id": "fine-print-reveal",
+      "use_when": "A condition, fee, or exception changes what an offer appears to mean.",
+      "shape": ["show the attractive promise", "physically expose the condition", "stamp or mark the actual consequence"],
+      "components": ["receipt-list", "salary-slip", "glyph-character", "stamp"],
+      "quality_check": "The condition must be readable and fact-supported; the reveal must not imply an unsupported claim."
+    },
+    {
+      "id": "myth-to-math",
+      "use_when": "The reel corrects a common belief or explains a misconception.",
+      "shape": ["state the belief fairly", "cross it out or turn the page", "show the sourced calculation"],
+      "components": ["split-compare", "passbook-page", "bar-chart"],
+      "quality_check": "Keep the correction visually distinct; don't put the myth in a misleading standalone frame."
+    },
+    {
+      "id": "punchline-reaction",
+      "use_when": "A spoken joke has a clear reaction beat after its punch word.",
+      "shape": ["hold the setup visual", "land the punch word", "hard cut to a brief reaction"],
+      "components": ["mascot-reaction", "meme", "meme-format"],
+      "quality_check": "The reaction starts after the punchline and adds a joke; don't use a meme as decoration."
+    },
+    {
+      "id": "payoff-callback",
+      "use_when": "The ending can resolve the opening object, phrase, or comparison.",
+      "shape": ["return to the opening object", "show how its meaning changed", "leave the answer readable through the final spoken beat"],
+      "components": ["receipt-list", "passbook-page", "odometer-number", "outro"],
+      "quality_check": "Deliver the cover promise exactly; keep the mandatory outro intact."
+    }
+  ]
+}

@@ -10,7 +10,7 @@
 | `director` | opus · high | script + words.json → `scenes/scenes.json` (visuals, fields, stamps, cuts) | ⇄ video-reviewer |
 | `editor` | sonnet · medium | rhythm, cut points, comedic timing, transitions, SFX in scenes.json | ⇄ video-reviewer |
 | `video-reviewer` | sonnet · medium | judges taste/comedy/retention on top of `qa.py` → `notes/video-review-<n>.md` | ≤ 3 rounds |
-| `component-dev` | opus · medium | fixes `[component:<name>]` review notes in `components/` (only when routed) | in the edit loop |
+| `component-dev` | sonnet · medium | fixes `[component:<name>]` review notes in `components/` (only when routed) | in the edit loop |
 | `voice` | sonnet · medium | `voice/tts.txt` → Sunny voice → pronunciation check | |
 | `packager` | sonnet · medium | `output/post.md` (caption, pinned math, sources) | |
 Quality is decided by the writer, the script reviewer and the director — they keep the strongest
@@ -20,9 +20,9 @@ After 3 rounds without PASS, stop and ask the creator.
 ## Hand-offs: fresh agents, files carry the state
 - **Every round spawns a new agent.** Never resume/SendMessage an earlier director, editor or reviewer:
   resuming replays its whole history (the first reel's director replay cost ~200k tokens).
-- The prompt names only the files to read: e.g. director round 2 = "Revise episodes/<ep>/scenes/scenes.json
-  from the [director] notes in notes/video-review-1.md and the errors in .cache/qa.json." The notes files
-  already carry everything an agent needs; write them so they stand alone.
+- The prompt names only the files to read; scoped edit agents get a bounded brief assembled by
+  `pipeline/agent_context.py`. Revision briefs contain the current artifact, routed notes and QA, not the
+  episode's full history. The notes files must stand alone.
 - The producer (main session) passes paths, not file contents, and doesn't re-read what an agent
   just wrote unless it must decide something from it.
 
@@ -33,13 +33,16 @@ it adds true peak / LUFS. Errors block the render. The director/editor fix qa er
 first render; the video-reviewer reads `.cache/qa.json` and never re-checks what it covers.
 
 ## Bounded edit briefs
-`pipeline/agent_context.py` builds the per-run source packet for director, editor, video-reviewer and
-component-dev. First-pass director briefs cap at 32k chars; revision/review briefs cap at 24k and include
+`pipeline/agent_context.py` builds the per-run source packet for scriptwriter, script-reviewer, director,
+editor, video-reviewer and component-dev. First-pass director briefs cap at 32k chars; other briefs cap at 24k and include
 only current scenes, routed notes, QA and role-specific references. Images stay as paths: the video-reviewer
 may inspect the contact sheet and up to 12 selected frames; component-dev may inspect one component preview.
 `produce.py` removes Grep/Glob from these runs and restricts Bash to `.venv/bin/python`; do not broaden a role's
 context or tools unless its task cannot be completed from the brief, and record that missing input explicitly.
 Each run logs `prompt_chars` beside token usage so brief-size changes can be compared against actual cost.
+The first director brief also includes `brand/shot-patterns.json`: optional recipes for hooks, comparisons,
+reveals, myths, reactions and callbacks. Adapt them only where they improve clarity; preserve stronger original
+visual metaphors and vary compositions across chapters.
 
 ## Image budget (a full 1080×1920 frame ≈ 1.5k tokens every time it's viewed)
 - Per review round: **one contact sheet** (`output/contact_sheet.png`) + at most **12 single frames**,
@@ -72,6 +75,9 @@ Baseline: the EPF reel made by a producer session routing in-session subagents c
 - **Reports ≤ 8 lines**; detail lives in notes files. The script reads only verdict lines.
 - **Rounds only for routed roles:** round ≥ 2 runs director / editor / component-dev only if the review
   routed notes to them.
+- **Targeted script revisions:** rewrites read only the latest review, preserve unmentioned lines and address
+  exact actionable notes. Reviewers separate blockers from polish and avoid repeating resolved or subjective
+  preferences. Routine component fixes use Sonnet; use Opus when a new component needs creative design.
 - **(2026-10-20) Cost fixes after chai-vs-phone ($7.83, 4/4 reels stuck at 3 video rounds):**
   `FORCE_PROMPT_CACHING_5M` on every agent (1-hour cache writes billed 2× input; runs are < 6 min) — a run that
   still writes 1-hour cache is flagged. Routing reads every owner in a note tag (`[director|component:x]` used to
@@ -81,6 +87,9 @@ Baseline: the EPF reel made by a producer session routing in-session subagents c
   only new blockers after round 1.
 - **Real cost per run** (`total_cost_usd`) → `notes/usage.jsonl` → `notes/usage.md`; `--max-budget-usd`
   caps per agent (BUDGET in produce.py) are safety nets, not targets.
+- **Cost and quality together:** `usage.md` reports prompt characters, cached-read tokens and stage cost beside
+  the latest script scores, video swipe-risk/blocker/polish counts and final mechanical QA. Lower cost is not a
+  win if quality signals regress.
 - **Fewer wasted rounds:** fact_lint's script self-check (spoken length with numbers in full at the measured
   3.2 words/s + outro, laugh margin, first laugh, absolutes on cited lines, long lines); qa's layout warnings
   (`narrow-frame`, `small-text`, `same-layout`) + `layout` boxes in qa.json; frames.py deletes stale frames;

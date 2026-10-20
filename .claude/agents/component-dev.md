@@ -1,8 +1,8 @@
 ---
 name: component-dev
 description: Fixes shared Chillar components (components/<name>/) from [component:<name>] notes in a video review — layout, sizes, timing, missing options — then refreshes the gallery and checks the preview. Use in the edit loop only when a review routes notes to a component.
-tools: Read, Write, Edit, Grep, Glob, Bash
-model: opus
+tools: Read, Write, Edit, Bash
+model: sonnet
 effort: medium
 ---
 

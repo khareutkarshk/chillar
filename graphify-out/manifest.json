@@ -430,8 +430,8 @@
     "semantic_hash": "0dc2d491af9b5e44782e341239503b0e"
   },
   ".claude/agents/director.md": {
-    "mtime": 1792494739.3229496,
-    "ast_hash": "749295b745c06718cbed0f9ffb96159e",
+    "mtime": 1792494895.949414,
+    "ast_hash": "1d6321134039a0963b7f61117ab0f023",
     "semantic_hash": ""
   },
   ".claude/agents/editor.md": {
@@ -445,13 +445,13 @@
     "semantic_hash": ""
   },
   ".claude/agents/script-reviewer.md": {
-    "mtime": 1792492733.263882,
-    "ast_hash": "59077a834b131a11e603b60e400c5dd2",
+    "mtime": 1792495028.5264428,
+    "ast_hash": "80b296a2f5b3a4a4d4e032ebe3b66e39",
     "semantic_hash": ""
   },
   ".claude/agents/scriptwriter.md": {
-    "mtime": 1792492732.2237341,
-    "ast_hash": "f6aa3be7d22ec12090134195458a285a",
+    "mtime": 1792494969.1512265,
+    "ast_hash": "d4a65632b464ba7bfc3a8e5a17518453",
     "semantic_hash": ""
   },
   ".claude/agents/video-reviewer.md": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "brand/rules/production.md": {
-    "mtime": 1792494795.0655177,
-    "ast_hash": "b79a95fd2efabd078664ba31b7964779",
+    "mtime": 1792495031.4164083,
+    "ast_hash": "ac7f347b9268b34397a83dd8a39daf68",
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
@@ -635,13 +635,13 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792494791.6595993,
-    "ast_hash": "5c28cd6bffe5281c1e6f0e918e9e554b",
+    "mtime": 1792494997.1168385,
+    "ast_hash": "d04df25fa34994220760f89a35e535d7",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
-    "mtime": 1792494748.0747108,
-    "ast_hash": "d6de1f4004650d3274a0425dd6adecc9",
+    "mtime": 1792494999.435808,
+    "ast_hash": "b3e10ecab45b4f0f7a2a454a63c3ec71",
     "semantic_hash": ""
   },
   ".claude/agents/packager.md": {
@@ -795,8 +795,13 @@
     "semantic_hash": ""
   },
   "pipeline/agent_context.py": {
-    "mtime": 1792494788.0616863,
-    "ast_hash": "60b581aada6a4bf710d71b7d5c7d5e13",
+    "mtime": 1792494962.827319,
+    "ast_hash": "ef78908179efd89463b406cff3a39675",
+    "semantic_hash": ""
+  },
+  "brand/shot-patterns.json": {
+    "mtime": 1792494893.198464,
+    "ast_hash": "80e662f353c019020ef2f2aa2ca2ca39",
     "semantic_hash": ""
   }
 }

@@ -16,6 +16,9 @@ gallery reads. Revision briefs contain only the current plan, routed notes and Q
 The catalog lists every param with its full default shape and the scenes.json keys — that is enough to
 write the plan. Open a `components/<name>/component.json` only if a param you need isn't in the catalog;
 never open component js/css, gallery PNGs or `validate_scenes.py` (its errors tell you what's wrong).
+Use `brand/shot-patterns.json` as optional composition prompts: choose a pattern only when it clarifies the idea,
+adapt it to the script, and avoid repeating the same pattern sequence across chapters. It never overrides the
+script's strongest original visual metaphor.
 
 **Revision rounds** (you are a fresh agent each round — no memory of earlier rounds): read the current
 `scenes/scenes.json`, the `[director]` notes in the `notes/video-review-<n>.md` you were given, and the

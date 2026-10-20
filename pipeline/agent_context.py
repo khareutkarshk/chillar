@@ -59,7 +59,8 @@ def edit_inputs(ep: Path, role: str, mode: str, note: Path | None = None) -> lis
     if role == "director":
         if mode == "first":
             return [ep / "script.md", c / "words.txt", ep / "facts.md", ep / "cover.md",
-                    Path("components/_catalog.md"), Path("brand/rules/themes.md"), Path("brand/rules/formats.md")]
+                    Path("components/_catalog.md"), Path("brand/rules/themes.md"), Path("brand/rules/formats.md"),
+                    Path("brand/shot-patterns.json")]
         return [ep / "scenes/scenes.json", c / "qa.json"]
     if role == "editor":
         if mode == "first":
@@ -76,6 +77,16 @@ def edit_inputs(ep: Path, role: str, mode: str, note: Path | None = None) -> lis
             names.update(re.findall(r"\[component:([\w-]+)\]", note.read_text()))
         return [Path("components") / name / file for name in sorted(names)
                 for file in ("component.json", "component.css", "component.js")]
+    if role == "scriptwriter":
+        if mode == "first":
+            return [ep / "script.md", ep / "facts.md", ep / "cover.md", ep / "notes/premise.md",
+                    Path("brand/rules/comedy.md"), Path("brand/rules/formats.md")]
+        return [ep / "script.md", ep / "facts.md", ep / "cover.md", ep / "notes/premise.md"]
+    if role == "script-reviewer":
+        if mode == "revision":
+            return [ep / "script.md", ep / "facts.md", ep / "cover.md"]
+        return [ep / "script.md", ep / "facts.md", ep / "cover.md",
+                Path("brand/rules/comedy.md"), Path("brand/rules/formats.md")]
     return []
 
 

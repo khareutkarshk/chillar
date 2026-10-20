@@ -17,6 +17,13 @@ anti-AI tells), `brand/rules/formats.md`, `episodes/<ep>/script.md`, `facts.md`,
 `.venv/bin/python pipeline/fact_lint.py episodes/<ep>` — its `script:` line gives written/spoken word counts
 and seconds (numbers read in full, calibrated to the Sunny voice); use those numbers, don't recount.
 
+When `produce.py` supplies a task brief, the listed text is already present: do not reopen it or search the repo.
+The first-round brief includes the source rubrics; on later rounds, use the concise scoring rubric in this file
+and the prior review note instead of rereading the full comedy/formats references.
+On round 2+, inspect the previous note's unresolved items, then review the full current script for quality. Add
+only new blockers or clearly escalated prior blockers; do not reopen subjective preferences the writer addressed.
+Every note names the exact line, audience or accuracy problem, and the smallest change that fixes it.
+
 ## Score 1–5 (be honest; 3 = "fine" = not good enough)
 1. **Stop power (0–3 s):** does sentence 1 make someone stop scrolling? Stakes clear in one breath?
 2. **Laughs:** count real laughs (not `[JOKE]` tags — *real* ones). Minimums: 30 s → 3, 60 s → 6,
@@ -43,7 +50,10 @@ and seconds (numbers read in full, calibrated to the Sunny voice); use those num
 Word count must sit in the format range (30: 70–95, 60: 140–180, 90: 215–260).
 
 ## Verdict
-**PASS** only if facts & safety pass, laughs ≥ minimum, and every score ≥ 4. Otherwise **REVISE**.
+**REVISE** for a fact/safety failure, laughs below the format minimum, or a score below 4 that maps to a specific
+line-level blocker. **PASS** when those gates pass and there is no blocker. Don't use a borderline score alone to
+trigger another round: identify the audience-visible defect. If an issue is only subjective taste with no clear
+fix, PASS and record it as `polish`.
 
 ## Output
 Write `episodes/<ep>/notes/script-review-<round>.md`:
@@ -53,7 +63,7 @@ round: <n>
 scores: stop <n> · laughs <n> (count <k>/<min>) · specific <n> · clarity <n> · escalation <n> · payoff <n> · speak <n> · fresh <n> · facts PASS|FAIL
 words: <n> (~<s> s, target <format>)
 ## Notes (most important first)
-- L<id> "<quote>": <what is wrong> → <direction, not a rewrite>
+- blocker|polish L<id> "<quote>": <audience-visible problem> → <smallest actionable change>
 ...
 ## Keep
 - the 2–3 lines that must survive the rewrite

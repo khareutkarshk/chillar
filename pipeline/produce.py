@@ -151,7 +151,7 @@ class Line:
             meta["effort"] = effort
         model = MODELS.get(meta.get("model", "sonnet"), meta.get("model", "sonnet"))
         tools = tools_override or ",".join(t.strip() for t in meta.get("tools", "Read").split(","))
-        allowed_bash = BASH_OK if bash_allow is None else bash_allow
+        allowed_bash = ([".venv/bin/python"] if name == "component-dev" else BASH_OK) if bash_allow is None else bash_allow
         allow = [t for t in tools.split(",") if t != "Bash"] + ([f"Bash({b}:*)" for b in allowed_bash] if "Bash" in tools else [])
         cmd = [self.cli, "-p", "--agent", name, "--model", model, "--tools", tools, "--allowedTools", " ".join(allow),
                "--max-budget-usd", str(BUDGET.get(name, 1.0)), *LEAN]
@@ -204,6 +204,8 @@ class Line:
             "editor": "Read,Edit,Bash",
             "video-reviewer": "Read,Write,Bash",
             "component-dev": "Read,Write,Edit,Bash",
+            "scriptwriter": "Read,Write,Edit,Bash",
+            "script-reviewer": "Read,Write,Bash",
         }.get(name)
         return self.agent(name, prompt, stage, effort, tools_override=tools,
                           bash_allow=[".venv/bin/python"] if tools and "Bash" in tools else [])
@@ -358,9 +360,9 @@ def lint_gate(L: Line, ep: Path) -> None:
     if not miss:
         return
     print(f"  lint gate: {len(miss)} mechanical miss(es) → writer, before the review")
-    L.agent("scriptwriter", f"Before review: fix only these fact_lint misses in {ep.relative_to(ROOT)}/script.md, "
-            "keep every joke that isn't involved, re-run fact_lint until they're gone. Misses: " + " | ".join(miss[:10]),
-            "script", REVISE_EFFORT)
+    L.scoped_agent("scriptwriter", ep, f"Before review: fix only these fact_lint misses in {ep.relative_to(ROOT)}/script.md, "
+                   "keep every joke that isn't involved, re-run fact_lint until they're gone. Misses: " + " | ".join(miss[:10]),
+                   "script", "revision", effort=REVISE_EFFORT)
 
 
 def st_script(L: Line, ep: Path, a) -> None:
@@ -371,22 +373,22 @@ def st_script(L: Line, ep: Path, a) -> None:
     for n in range(start, last + 1):
         if n == 1:
             topic = f" Topic: {a.topic}." if a.topic else ""
-            L.agent("scriptwriter", f"Write {e}/script.md, {a.format} s format.{topic} Fill cover.md first if it still "
-                    "has placeholders, and the script.md frontmatter (title, series, concept). Your inputs: "
-                    f"brand/rules/comedy.md, brand/rules/formats.md, {e}/facts.md, {e}/cover.md, {e}/script.md "
-                    f"(template). {e}/notes/ has no reviews yet — don't list or search it.", "script")
+            L.scoped_agent("scriptwriter", ep, f"Write {e}/script.md, {a.format} s format.{topic} Fill cover.md first if it still "
+                           "has placeholders, and the script.md frontmatter (title, series, concept).", "script", "first")
         elif fix:
-            L.agent("scriptwriter", f"Fix the length of {e}/script.md: {fix}", "script", REVISE_EFFORT)
+            L.scoped_agent("scriptwriter", ep, f"Fix the length of {e}/script.md: {fix}", "script", "revision",
+                           note=ep / "notes" / f"script-review-{n - 1}.md", effort=REVISE_EFFORT)
         else:
-            L.agent("scriptwriter", f"Rewrite {e}/script.md from {e}/notes/script-review-{n - 1}.md. Your inputs: "
-                    f"that review, {e}/script.md, {e}/facts.md, {e}/notes/premise.md; reopen comedy.md / formats.md "
-                    "only for the section a note points at.", "script", REVISE_EFFORT)
+            L.scoped_agent("scriptwriter", ep, f"Revise {e}/script.md using only actionable items in "
+                           f"{e}/notes/script-review-{n - 1}.md. Preserve unmentioned lines.", "script", "revision",
+                           note=ep / "notes" / f"script-review-{n - 1}.md", effort=REVISE_EFFORT)
         if not fix:
             lint_gate(L, ep)
-        L.agent("script-reviewer", f"Review {e}/script.md, round {n}." + (" (A length-only fix: check the changed lines "
-                "still land and the rest still holds.)" if fix else "") +
-                (f" Start from notes/script-review-{n - 1}.md: verify each note, then judge the whole draft." if n > 1 else ""),
-                "script")
+        prior = ep / "notes" / f"script-review-{n - 1}.md" if n > 1 else None
+        L.scoped_agent("script-reviewer", ep, f"Review {e}/script.md, round {n}." +
+                       (" This is a length-only fix: check changed lines and preserve the rest." if fix else "") +
+                       (f" Verify unresolved items in {prior.relative_to(ROOT)}, then assess the current draft." if prior else ""),
+                       "script", "revision" if prior else "first", note=prior)
         v = verdict(ep / "notes" / f"script-review-{n}.md")
         print(f"  script review {n}: {v}")
         if v == "PASS":
@@ -413,10 +415,11 @@ def st_factcheck(L: Line, ep: Path, a) -> None:
         if cycle == 2:
             break
         n = len(list((ep / "notes").glob("script-review-*.md")))
-        L.agent("scriptwriter", f"Fix only the BLOCK rows listed in {e}/notes/fact-check.md in {e}/script.md "
-                "(change nothing else).", "factcheck")
-        L.agent("script-reviewer", f"Review only the lines changed for {e}/notes/fact-check.md in {e}/script.md, "
-                f"round {n + 1} (PASS if they're fixed and still funny).", "factcheck")
+        fc_note = ep / "notes" / "fact-check.md"
+        L.scoped_agent("scriptwriter", ep, f"Fix only the BLOCK rows listed in {e}/notes/fact-check.md in {e}/script.md "
+                       "(change nothing else).", "factcheck", "revision", note=fc_note)
+        L.scoped_agent("script-reviewer", ep, f"Review only the lines changed for {e}/notes/fact-check.md in {e}/script.md, "
+                       f"round {n + 1} (PASS if they're fixed and still funny).", "factcheck", "revision", note=fc_note)
     stop(ep, "fact-check still BLOCK after one fix cycle",
          "see notes/fact-check.md · options: fix the BLOCK rows (facts.md source / script line) then --from factcheck, "
          "or accept a row the creator has verified and --from voice")
@@ -599,15 +602,40 @@ def st_usage(L: Line, ep: Path, a) -> None:
     recs = [json.loads(x) for x in L.log.read_text().splitlines() if x.strip()]
     by: dict[str, dict] = {}
     for r in recs:
-        s = by.setdefault(r["stage"], {"cost": 0.0, "runs": 0, "turns": 0})
+        s = by.setdefault(r["stage"], {"cost": 0.0, "runs": 0, "turns": 0, "prompt_chars": 0, "cache_read": 0})
         s["cost"] += r["cost"]; s["runs"] += 1; s["turns"] += r["turns"] or 0
+        s["prompt_chars"] += r.get("prompt_chars", 0)
+        s["cache_read"] += r.get("tokens", {}).get("cache_read_input_tokens", 0)
     total = sum(s["cost"] for s in by.values())
     rounds = {k: len(list((ep / "notes").glob(f"{k}-review-*.md"))) for k in ("script", "video")}
     lines = [f"# Usage — {ep.name} (agent runs, from notes/usage.jsonl)", "",
-             "| stage | runs | turns | cost |", "|---|---|---|---|"]
-    lines += [f"| {k} | {v['runs']} | {v['turns']} | ${v['cost']:.2f} |" for k, v in by.items()]
-    lines += [f"| **total** | {sum(v['runs'] for v in by.values())} | | **${total:.2f}** |", "",
-              f"Review rounds: script {rounds['script']} · video {rounds['video']}.",
+             "| stage | runs | turns | prompt chars | cached read tokens | cost |", "|---|---:|---:|---:|---:|---:|"]
+    lines += [f"| {k} | {v['runs']} | {v['turns']} | {v['prompt_chars']:,} | {v['cache_read']:,} | ${v['cost']:.2f} |" for k, v in by.items()]
+    lines += [f"| **total** | {sum(v['runs'] for v in by.values())} | {sum(v['turns'] for v in by.values())} | "
+              f"{sum(v['prompt_chars'] for v in by.values()):,} | {sum(v['cache_read'] for v in by.values()):,} | **${total:.2f}** |", "",
+              f"Review rounds: script {rounds['script']} · video {rounds['video']}."]
+    script_reviews = sorted((ep / "notes").glob("script-review-*.md"), key=lambda p: int(re.search(r"(\d+)", p.stem).group(1)))
+    video_reviews = sorted((ep / "notes").glob("video-review-*.md"), key=lambda p: int(re.search(r"(\d+)", p.stem).group(1)))
+    if script_reviews:
+        score = next((x.strip() for x in script_reviews[-1].read_text().splitlines() if x.lower().startswith("scores:")), "scores not recorded")
+        lines.append(f"Latest script quality: {score}")
+    if video_reviews:
+        review_text = video_reviews[-1].read_text()
+        risk = next((x.strip() for x in review_text.splitlines() if x.lower().startswith("swipe risk:")), "swipe risk not recorded")
+        blockers = len(re.findall(r"^\s*-\s*\[[^\]]+\]\s*blocker\b", review_text, re.M | re.I))
+        polish_n = len(re.findall(r"^\s*-\s*\[[^\]]+\]\s*polish\b", review_text, re.M | re.I))
+        lines.append(f"Latest video quality: {risk} · blockers {blockers} · polish notes {polish_n}")
+    qa_path = ep / ".cache" / "qa.json"
+    if qa_path.exists():
+        try:
+            qa = json.loads(qa_path.read_text())
+            errors = qa.get("errors", 0); warnings = qa.get("warnings", 0)
+            errors = errors if isinstance(errors, int) else len(errors)
+            warnings = warnings if isinstance(warnings, int) else len(warnings)
+            lines.append(f"Final mechanical QA: {errors} errors · {warnings} warnings")
+        except (json.JSONDecodeError, AttributeError):
+            pass
+    lines += [
               "Producer session (the main Claude Code session) is not included — note it from `npx ccusage@latest session`."]
     (ep / "notes" / "usage.md").write_text("\n".join(lines) + "\n")
     print("\n".join(lines))

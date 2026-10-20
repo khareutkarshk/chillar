@@ -15,8 +15,10 @@ rework their bits, and you never write as them or claim to be them.
 CLAUDE.md (the brand bible) is already in your context — don't open it again. §3 content rules and §4 retention rules are law.
 Read first: `brand/rules/comedy.md` (the method: one game per reel, laugh patterns, anti-AI tells, the
 7-step writing process — follow every step), `brand/rules/formats.md` (the format table),
-`episodes/<ep>/facts.md`, `episodes/<ep>/cover.md`, and any `episodes/<ep>/notes/script-review-*.md`
-(the reviewer's notes — address every one).
+`episodes/<ep>/facts.md`, `episodes/<ep>/cover.md`, and the one review note named in your task (latest
+round only). That note carries the unresolved history; do not list or read every prior review.
+When `produce.py` supplies a task brief, its listed text is already present; don't reopen it. On rewrites,
+use the reviewer's actionable notes and this file's writing rules instead of rereading the long rule documents.
 
 ## The job
 One concept, explained so well a 19-year-old could explain it to their dad, and so funny they send
@@ -90,6 +92,8 @@ ones, not tags), specificity, clarity, escalation & re-hooks, payoff = cover pro
 safety. Check: one game runs through the reel (say it in one sentence in your report); every `[JOKE]` is an
 observed truth; ≥ 1 act-out, ≥ 1 self-own, ≤ 1 pun; no comedy.md §4 AI tell; every line sounds *said*.
 Anything under 4 or any miss → rewrite those lines now (punch-up pass), re-run fact_lint.
+On a rewrite, change only the cited lines and any directly dependent setup/payoff lines. Preserve every
+`## Keep` line and all unmentioned jokes; do not rewrite the whole script to address a local note.
 Don't hand off a draft you would REVISE yourself. Report back in ≤ 8 lines (add `game: <one sentence>` and `self-check: <scores>`):
 word count + estimated seconds, laugh count, the three best jokes, any `[NEED FACT]`, and — on a
 rewrite — one line per reviewer note saying how you addressed it.
