@@ -1,6 +1,6 @@
 ---
 description: Full Chillar production line — research → writers' room (scriptwriter ⇄ script-reviewer) → fact-check → voice → director → editor → render → video-reviewer loop → delivery, run by pipeline/produce.py
-argument-hint: <topic> [30|60|90]
+argument-hint: <topic> [30|60|90] [post-date YYYY-MM-DD]
 ---
 
 Make a Chillar Reel about **$ARGUMENTS** (format = the number given, default 60). You are the producer,
@@ -12,8 +12,10 @@ when a decision is the creator's. CLAUDE.md is law; the loops and their limits a
 the writer, reviewer and director keep Opus — their model is pinned in produce.py). Don't read agent
 outputs, scripts or frames unless a step below says so. Note `npx ccusage@latest session` at the start.
 
-1. Slug `YYYY-MM-<short-topic>`. Run in the background (it takes 30–60 min):
-   `.venv/bin/python pipeline/produce.py episodes/<slug> --topic "<topic>" --format <30|60|90>`
+1. Resolve the planned posting date from the matching row in `brand/rules/posting-schedule.md`; if this topic is
+   not on the calendar, use the next unassigned posting day. An explicit date in the command takes precedence.
+   Slug `YYYY-MM-DD-<short-topic>`. Run in the background (it takes 30–60 min):
+   `.venv/bin/python pipeline/produce.py episodes/<slug> --topic "<topic>" --format <30|60|90> --post-date YYYY-MM-DD`
    and wait for it to finish — don't poll its output.
 2. **Exit 0** → it printed the summary (cover, hook, words/seconds, fact-check) and the usage table.
    **Exit 3** → read `notes/STOP.md` only, tell me the reason in two lines plus the options it lists, and

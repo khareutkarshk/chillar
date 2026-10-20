@@ -1,13 +1,16 @@
 ---
 description: Create a new Chillar episode — research sourced facts, cover, then the writers' room (scriptwriter ⇄ script-reviewer) writes the Hinglish script
-argument-hint: <topic> [30|60|90]
+argument-hint: <topic> [30|60|90] [post-date YYYY-MM-DD]
 ---
 
 Create a new Chillar Reel episode about: **$ARGUMENTS** (format 30 / 60 / 90 s; default 60).
 
 Follow CLAUDE.md exactly (brand bible §1–§4, content rules §3). Steps:
 
-1. **Folder.** Pick a slug `YYYY-MM-<short-topic>` (today's year-month). `cp -r episodes/_template episodes/<slug>`.
+1. **Folder.** Resolve the planned posting date from the matching row in `brand/rules/posting-schedule.md`;
+   if the topic is not on the calendar, use the next unassigned posting day. An explicit date in the command
+   takes precedence. Pick a slug `YYYY-MM-DD-<short-topic>` and run
+   `cp -r episodes/_template episodes/<slug>`.
    Pick the series that fits (Chillar in 60 / Chillar Report / Myth vs Math / ₹100 vs ₹1,00,000).
    Set `target_seconds` in script.md frontmatter to the format.
 

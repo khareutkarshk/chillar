@@ -470,13 +470,13 @@
     "semantic_hash": "9f1e0027caa041138f7221fbe1661e50"
   },
   ".claude/commands/make-reel.md": {
-    "mtime": 1792492753.9897468,
-    "ast_hash": "714d4f43acbc79e5b5724bf26ad5b4dd",
+    "mtime": 1792503994.8389409,
+    "ast_hash": "b9407431a8f5c0ff0b0d1d76b5c887dd",
     "semantic_hash": ""
   },
   ".claude/commands/new-reel.md": {
-    "mtime": 1792503620.588242,
-    "ast_hash": "c8d43043f131b37076467731bbb75c22",
+    "mtime": 1792503998.845028,
+    "ast_hash": "7fcdd79f0ff11bc1e6b7be5e48c901e2",
     "semantic_hash": ""
   },
   ".claude/commands/package.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792503802.3378627,
-    "ast_hash": "e198c198470329283341168d1590c034",
+    "mtime": 1792503988.8888118,
+    "ast_hash": "d0738478b4a491e743590957cd15aee8",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {

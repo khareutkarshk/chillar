@@ -700,6 +700,7 @@ def main() -> int:
     ap.add_argument("episode")
     ap.add_argument("--topic", default="")
     ap.add_argument("--format", type=int, choices=[30, 60, 90])
+    ap.add_argument("--post-date", help="planned posting date (YYYY-MM-DD); required when starting a new episode")
     ap.add_argument("--from", dest="frm", choices=STAGES)
     ap.add_argument("--only", choices=STAGES + ["fix", "components"])
     ap.add_argument("--accept-length", action="store_true", help="the creator accepted a voice outside the format range")
@@ -708,6 +709,23 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
     ep = (ROOT / a.episode).resolve() if not Path(a.episode).is_absolute() else Path(a.episode)
+    is_new = not (ep / "script.md").exists()
+    if is_new and a.topic:
+        # The folder is the durable episode identifier, so bind it to its scheduled publishing day.
+        date_text = a.post_date
+        if not date_text:
+            match = re.match(r"^(\d{4}-\d{2}-\d{2})-", ep.name)
+            date_text = match.group(1) if match else ""
+        try:
+            post_date = dt.date.fromisoformat(date_text)
+        except ValueError:
+            sys.exit("produce: new episode needs --post-date YYYY-MM-DD (the planned posting date)")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date_text):
+            sys.exit("produce: --post-date must use YYYY-MM-DD")
+        if not re.match(r"^\d{4}-\d{2}-\d{2}-", ep.name):
+            ep = ep.with_name(f"{post_date.isoformat()}-{ep.name}")
+        elif ep.name[:10] != post_date.isoformat():
+            sys.exit(f"produce: episode folder date {ep.name[:10]} does not match --post-date {post_date.isoformat()}")
     if a.format is None:
         m = re.search(r"target_seconds:\s*(\d+)", (ep / "script.md").read_text()) if (ep / "script.md").exists() else None
         a.format = int(m.group(1)) if m else 60
