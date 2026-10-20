@@ -10,7 +10,7 @@
   "8": "meme/component.js",
   "9": "2026-10-chai-vs-phone/script.md",
   "10": "setup.sh",
-  "11": "mix.py",
+  "11": "make_reel.py",
   "12": "Component catalog (generated — `pipeline/component_catalog.py`, don't edit)",
   "13": "runtime.js",
   "14": "chillar.js",
@@ -90,8 +90,9 @@
   "88": "/make-reel command",
   "89": "2026-10-26-report-mdr-payer/script.md",
   "90": "director agent",
-  "91": "README (chillar-reels)",
+  "91": "validate_scenes.py",
   "92": "Facts — <episode>",
   "93": "2026-10-26-report-mdr-payer/cover.md",
-  "94": "CompletedProcess"
+  "94": "CompletedProcess",
+  "95": "Path"
 }
