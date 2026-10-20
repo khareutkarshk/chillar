@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "brand/rules/production.md": {
-    "mtime": 1792494773.6740427,
-    "ast_hash": "330088a1f6a1b69f7ea749028df43d9e",
+    "mtime": 1792494795.0655177,
+    "ast_hash": "b79a95fd2efabd078664ba31b7964779",
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792494726.2433164,
-    "ast_hash": "2a8fc18e38a59f3815a9bec9e4e68a4d",
+    "mtime": 1792494791.6595993,
+    "ast_hash": "5c28cd6bffe5281c1e6f0e918e9e554b",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -795,8 +795,8 @@
     "semantic_hash": ""
   },
   "pipeline/agent_context.py": {
-    "mtime": 1792494733.087123,
-    "ast_hash": "a400ed47eea8ed1e4bb8acd081056a55",
+    "mtime": 1792494788.0616863,
+    "ast_hash": "60b581aada6a4bf710d71b7d5c7d5e13",
     "semantic_hash": ""
   }
 }
