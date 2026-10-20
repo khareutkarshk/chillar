@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 693 nodes · 1182 edges · 83 communities (63 shown, 20 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 71 edges (avg confidence: 0.78)
+- 693 nodes · 1180 edges · 83 communities (63 shown, 20 thin omitted)
+- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 69 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `348710ba`
+- Built from commit: `3547b851`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -75,9 +75,9 @@
 5. `qa()` - 16 edges
 6. `12 LPA episode script.md` - 16 edges
 7. `LicenseRefused` - 13 edges
-8. `st_edit()` - 12 edges
-9. `director agent` - 12 edges
-10. `/make-reel command` - 12 edges
+8. `director agent` - 12 edges
+9. `/make-reel command` - 12 edges
+10. `st_edit()` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Note Fields design (rupee-note colour fields)` --semantically_similar_to--> `Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists)`  [INFERRED] [semantically similar]
@@ -226,22 +226,22 @@ Cohesion: 0.43
 Nodes (7): build_brief(), edit_inputs(), main(), Path, Return a size-bounded brief with only the files selected by the orchestrator., Canonical, small file sets for scene planning, revisions and visual review., _read()
 
 ## Knowledge Gaps
-- **111 isolated node(s):** `name`, `private`, `description`, `node`, `doctor` (+106 more)
+- **111 isolated node(s):** `Report (hard limit)`, `Agents (`.claude/agents/`), one job each; `pipeline/produce.py` routes them`, `Hand-offs: fresh agents, files carry the state`, `Mechanical QA before taste`, `Bounded edit briefs` (+106 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **20 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `words_txt()` connect `episode.py` to `produce.py`?**
-  _High betweenness centrality (0.087) - this node is a cross-community bridge._
-- **Why does `st_edit()` connect `produce.py` to `episode.py`?**
-  _High betweenness centrality (0.084) - this node is a cross-community bridge._
 - **Why does `Candidate` connect `Candidate` to `memes.py`, `fetch_assets.py`?**
-  _High betweenness centrality (0.042) - this node is a cross-community bridge._
+  _High betweenness centrality (0.037) - this node is a cross-community bridge._
+- **Why does `CLAUDE.md brand bible` connect `CLAUDE.md brand bible` to `fetch_assets.py`, `tts.py`?**
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+- **Why does `template facts.md` connect `CLAUDE.md brand bible` to `12 LPA episode script.md`?**
+  _High betweenness centrality (0.016) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Candidate` (e.g. with `LicenseRefused` and `_log()`) actually correct?**
   _`Candidate` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `name`, `private`, `description` to the rest of the system?**
+- **What connects `Report (hard limit)`, `Agents (`.claude/agents/`), one job each; `pipeline/produce.py` routes them`, `Hand-offs: fresh agents, files carry the state` to the rest of the system?**
   _111 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Candidate` be split into smaller, more focused modules?**
   _Cohesion score 0.05842259006815969 - nodes in this community are weakly interconnected._
