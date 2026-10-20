@@ -55,14 +55,14 @@
     "semantic_hash": "3fe27fb874130977a26ca6197efaa2df"
   },
   "components/checklist/component.js": {
-    "mtime": 1792398616.1761131,
-    "ast_hash": "2f2291fde05ab523f7c29ea2aa0380cf",
-    "semantic_hash": "2f2291fde05ab523f7c29ea2aa0380cf"
+    "mtime": 1792484047.6266158,
+    "ast_hash": "8d024739e2bcafbdfb6aa8a87993bcbc",
+    "semantic_hash": ""
   },
   "components/checklist/component.json": {
-    "mtime": 1792397458.700209,
-    "ast_hash": "cb8483669d382f3b06267a99b197609a",
-    "semantic_hash": "cb8483669d382f3b06267a99b197609a"
+    "mtime": 1792484105.484582,
+    "ast_hash": "aa978282b29b5000527947eb0bd0e5fe",
+    "semantic_hash": ""
   },
   "components/cover/component.js": {
     "mtime": 1792398672.7152448,
@@ -100,14 +100,14 @@
     "semantic_hash": "ec79bf861474a6ea34edeee7c5525a12"
   },
   "components/marker-highlight/component.js": {
-    "mtime": 1792397527.1423347,
-    "ast_hash": "cb95385b2a451272208f83408213be51",
-    "semantic_hash": "cb95385b2a451272208f83408213be51"
+    "mtime": 1792484458.8665395,
+    "ast_hash": "621c4782423cb6b52d3cde2e5477e23e",
+    "semantic_hash": ""
   },
   "components/marker-highlight/component.json": {
-    "mtime": 1792398616.1831133,
-    "ast_hash": "5c004aebb35776442102d728c31042c0",
-    "semantic_hash": "5c004aebb35776442102d728c31042c0"
+    "mtime": 1792484484.12621,
+    "ast_hash": "048d3a01dd19530bb1c8e8a7c1d0e87d",
+    "semantic_hash": ""
   },
   "components/mascot-reaction/component.js": {
     "mtime": 1792403436.629512,
@@ -540,8 +540,8 @@
     "semantic_hash": ""
   },
   "brand/sources/index.json": {
-    "mtime": 1792427332.6989377,
-    "ast_hash": "ece1eef325d3c86b4177475ddab05617",
+    "mtime": 1792482588.9965682,
+    "ast_hash": "aea736f111d3237f2d5fbb70467e8943",
     "semantic_hash": ""
   },
   "pipeline/component_catalog.py": {
@@ -570,8 +570,8 @@
     "semantic_hash": ""
   },
   "brand/facts-library.md": {
-    "mtime": 1792437479.8831887,
-    "ast_hash": "1d9c05f22da1aa6383a2f1b70a6efdf5",
+    "mtime": 1792483596.5468695,
+    "ast_hash": "eed475568fbbba371b1a795f05485db8",
     "semantic_hash": ""
   },
   "brand/rules/formats.md": {
@@ -605,8 +605,8 @@
     "semantic_hash": ""
   },
   "components/_catalog.md": {
-    "mtime": 1792481025.1230865,
-    "ast_hash": "ab5da425fe34d07123590aa6e32517cb",
+    "mtime": 1792484490.5323818,
+    "ast_hash": "684a07c637e8fb4cf6a92ad8e1f3af7e",
     "semantic_hash": ""
   },
   "brand/rules/posting-schedule.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792482268.9451222,
-    "ast_hash": "27e835759284ab3a912ae65ee84f6c99",
+    "mtime": 1792482656.0874488,
+    "ast_hash": "648bfb7a5b57122a9e3d53cb02778a78",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -717,6 +717,26 @@
   "pipeline/memes.py": {
     "mtime": 1792481979.182517,
     "ast_hash": "0ba53647741226bca60512858a2101da",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-no-cost-emi/scenes/scenes.json": {
+    "mtime": 1792484518.4091365,
+    "ast_hash": "dc4a2de75d1bf7d8b8acd3f8109deb11",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-no-cost-emi/cover.md": {
+    "mtime": 1792483448.9809644,
+    "ast_hash": "6b759515caf62edf9347cdfdd2550ee4",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-no-cost-emi/facts.md": {
+    "mtime": 1792482639.39521,
+    "ast_hash": "b134d4b324da43a181e5f34b7d3e4328",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-no-cost-emi/script.md": {
+    "mtime": 1792483442.0947402,
+    "ast_hash": "9a891c8f359c54a78ee113f3de23b324",
     "semantic_hash": ""
   }
 }
