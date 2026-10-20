@@ -23,6 +23,8 @@ script's strongest original visual metaphor.
 **Revision rounds** (you are a fresh agent each round — no memory of earlier rounds): read the current
 `scenes/scenes.json`, the `[director]` notes in the `notes/video-review-<n>.md` you were given, and the
 errors in `.cache/qa.json`. Change only what the notes and errors ask; don't re-plan the whole video.
+When the producer includes a component-dev handoff, apply its episode-level params in scenes.json in this
+same pass; a shared component change alone does not fix the current reel. Recheck the relevant QA warning.
 Use Edit on the scenes you change — never rewrite the whole file. Theme, formats and the catalog are already
 settled in scenes.json: open `components/_catalog.md` (or a rules file) only for a component the plan doesn't use yet.
 

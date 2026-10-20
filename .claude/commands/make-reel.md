@@ -38,6 +38,10 @@ outputs, scripts or frames unless a step below says so. Note `npx ccusage@latest
 3. After `deliver`: look at `output/contact_sheet.png` **once** yourself (CLAUDE.md §8 — never claim a render
    is done without it). If something is clearly broken (overlapping text, empty frame, off-palette), fix
    it surgically in scenes.json, `--from deliver` again, look again.
+   For a scheduled Chillar Report or any claim about a current date/status, recheck the primary source as of
+   the planned posting date before packaging. If the update is over 5 days old on that date, keep it as a brief
+   item and lead with fresher news. After any manual voice/scene/render fix, refresh the report with
+   `.venv/bin/python pipeline/produce.py episodes/<slug> --only usage`.
 4. Append the ccusage end figure to `notes/usage.md` (the agent table is already there).
 5. Report: duration, format, stamps, transitions, review rounds (script + video), LUFS, agent cost +
    session cost, and paths to final.mp4, cover.png, post.md, contact sheet.

@@ -46,6 +46,26 @@ from lib.episode import load  # noqa: E402
 STAGES = ["facts", "clean", "align", "validate", "build", "qa", "render", "mix", "cover", "sheet", "igcheck"]
 
 
+def build_staleness(ep) -> list[Path]:
+    """Return source files newer than the compiled composition used by render-only retries."""
+    build_index = ep.dir / "build" / "index.html"
+    resolved_path = ep.cache / "scenes.resolved.json"
+    scene_path = ep.dir / "scenes" / "scenes.json"
+    if not build_index.exists() or not resolved_path.exists():
+        return [scene_path]
+    built_at = build_index.stat().st_mtime
+    sources = [scene_path]
+    try:
+        resolved = json.loads(resolved_path.read_text())
+        names = {s.get("component") for s in resolved.get("scenes", []) if s.get("component")}
+        for name in names:
+            component = ROOT / "components" / name
+            sources.extend(p for p in (component / "component.js", component / "component.css") if p.exists())
+    except (OSError, json.JSONDecodeError):
+        return [resolved_path]
+    return [p for p in sources if p.exists() and p.stat().st_mtime > built_at]
+
+
 def run(cmd: list[str]) -> subprocess.CompletedProcess:
     print("  $ " + " ".join(cmd))
     return subprocess.run(cmd, cwd=ROOT, text=True)
@@ -64,6 +84,13 @@ def main() -> int:
     stages = [a.only] if a.only else STAGES[STAGES.index(a.start):]
     quality = a.quality or ep.config["render"]["quality"]
     t0 = time.time()
+
+    if stages and stages[0] == "render":
+        stale = build_staleness(ep)
+        if stale:
+            changed = ", ".join(str(p.relative_to(ROOT)) for p in stale)
+            print(f"RENDER BLOCKED: the build is older than {changed}; resume with --from validate to rebuild first")
+            return 1
 
     for st in stages:
         print(f"\n▶ {st}")

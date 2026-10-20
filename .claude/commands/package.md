@@ -7,6 +7,10 @@ Package episode **$ARGUMENTS** (resolve to `episodes/<slug>` if a bare slug is g
 
 Read `script.md`, `facts.md`, `cover.md` and CLAUDE.md §4 (retention rules).
 
+For a dated Chillar Report or another time-sensitive claim, resolve the planned posting date from the folder
+name and recheck the primary source as of that date before writing the posting package. If the update is over
+5 days old by then, recommend it as a brief item and ask for a fresher lead.
+
 1. Write **5 distinct packages**. Each = cover text (≤ 5 words, Bricolage Grotesque, sentence case) + cover_field (chapter slot), first frame (what is
    literally on screen at t=0 — must show the stakes, using our components: hook-card, printed
    receipt-list, odometer-number…), and hook line (sentence 1 = the question, Hinglish).

@@ -205,6 +205,7 @@ class Line:
             "editor": "Read,Edit,Bash",
             "video-reviewer": "Read,Write,Bash",
             "component-dev": "Read,Write,Edit,Bash",
+            "voice": "Read,Write,Edit",
             "scriptwriter": "Read,Write,Edit,Bash",
             "script-reviewer": "Read,Write,Bash",
         }.get(name)
@@ -293,7 +294,7 @@ NOTE_LINE = re.compile(r"^\s*-\s*\[([^\]]+)\]\s*(blocker|polish)?(.*)$", re.M)
 
 
 def notes_for(review: Path, who: str, sev: str | None = None) -> list[str]:
-    """Note lines routed to `who` (director / editor / component), optionally only one severity."""
+    """Note lines routed to `who` (director / editor / component / voice), optionally only one severity."""
     if not review.exists():
         return []
     out = []
@@ -301,6 +302,52 @@ def notes_for(review: Path, who: str, sev: str | None = None) -> list[str]:
         owners = {r.strip().split(":")[0] for r in m.group(1).split("|")}
         if who in owners and (sev is None or (m.group(2) or "blocker") == sev):
             out.append(m.group(0).strip())
+    return out
+
+
+def repair_voice(L: Line, ep: Path, review: Path, stage: str) -> None:
+    """Handle reviewer-owned voice blockers once, then realign before any scene render."""
+    e = ep.relative_to(ROOT)
+    notes = "\n".join(notes_for(review, "voice", "blocker"))
+    if not notes:
+        return
+    L.scoped_agent("voice", ep,
+                   f"Fix only these voice blockers from {e}/notes/{review.name}. Compare each line with "
+                   f".cache/voice_check.md. Prefer a pronunciation respelling in voice/tts.txt or "
+                   f"brand/pronunciations.tsv that preserves the approved script words exactly. Do not edit "
+                   f"script.md or scenes. If no safe respelling fixes a genuinely unclear line, leave it "
+                   f"unchanged and report it unresolved so the pipeline can stop for a creator decision.\n\n{notes}",
+                   stage, "revision", note=review)
+    if L.dry:
+        return
+    L.sh(PY, "pipeline/tts.py", str(ep))
+    clean_align(L, ep)
+    L.sh(PY, "pipeline/voice_check.py", str(ep), check=False)
+    vc = ep / ".cache" / "voice_check.json"
+    if not vc.exists():
+        stop(ep, "voice repair did not produce a voice-check report", "Inspect the TTS and alignment output before resuming.")
+    data = json.loads(vc.read_text())
+    blocker_ids = set(re.findall(r"\bL\d+\b", notes))
+    remaining = [r["line"] for r in data.get("rows", []) if r.get("line") in blocker_ids and r.get("flags")]
+    if remaining:
+        stop(ep, f"voice blockers remain after one targeted re-take: {', '.join(remaining)}",
+             "Listen to these lines, then correct voice/tts.txt or mark the reviewer note resolved before resuming.")
+
+
+def blocker_signature(review: Path) -> set[tuple[str, str]]:
+    """Stable enough to catch a review round that repeats the same blockers without progress."""
+    if not review.exists():
+        return set()
+    out = set()
+    for m in NOTE_LINE.finditer(review.read_text()):
+        if (m.group(2) or "blocker").lower() != "blocker":
+            continue
+        owners = ",".join(sorted(x.strip().split(":")[0] for x in m.group(1).split("|")))
+        body = m.group(3)
+        line_id = re.search(r"\bL\d+\b", body)
+        timestamp = re.search(r"\bt\s*=\s*[\d.]+", body)
+        anchor = line_id.group(0).lower() if line_id else (re.sub(r"\s+", "", timestamp.group(0).lower()) if timestamp else re.sub(r"\s+", " ", body.lower()).strip()[:100])
+        out.add((owners, anchor))
     return out
 
 
@@ -513,12 +560,18 @@ def st_edit(L: Line, ep: Path, a) -> None:
             # only the roles the review routed notes to. A component runs now only for a *blocker* (the frame is
             # broken without it); component polish waits in the backlog for the batch run
             backlog(ep, prev.name, [x for x in notes_for(prev, "component", "polish") if COMP_TAG.search(x)])
+            component_output = ""
             if notes_for(prev, "component", "blocker"):
                 L.scoped_agent("component-dev", ep, f"Fix the [component:*] blocker notes in {e}/notes/video-review-{n - 1}.md "
                                  "(skip polish notes and any already done).", "edit", "revision", note=prev)
-            if routed(prev, "director"):
+                component_output = L.last_out.read_text() if getattr(L, "last_out", None) and L.last_out.exists() else ""
+            if notes_for(prev, "voice", "blocker"):
+                repair_voice(L, ep, prev, "edit")
+            if routed(prev, "director") or component_output:
+                wiring = ("\n\nComponent implementation handoff (apply its episode-level param advice in scenes.json; "
+                          "do not leave the same QA finding unresolved):\n" + component_output[:4000]) if component_output else ""
                 director(L, ep, f"Revise {e}/scenes/scenes.json from the [director] notes in "
-                         f"{e}/notes/video-review-{n - 1}.md and .cache/qa.json.", "edit", REVISE_EFFORT)
+                         f"{e}/notes/video-review-{n - 1}.md and .cache/qa.json.{wiring}", "edit", REVISE_EFFORT)
             if routed(prev, "editor"):
                 L.scoped_agent("editor", ep, f"Apply the [editor] notes in {e}/notes/video-review-{n - 1}.md to "
                                f"{e}/scenes/scenes.json (skip any already resolved).", "edit", "revision", note=prev)
@@ -534,6 +587,12 @@ def st_edit(L: Line, ep: Path, a) -> None:
         if v == "PASS":
             polish(L, ep, ep / "notes" / f"video-review-{n}.md")
             return
+        if n > 1:
+            current = blocker_signature(ep / "notes" / f"video-review-{n}.md")
+            previous = blocker_signature(ep / "notes" / f"video-review-{n - 1}.md")
+            if current and current == previous:
+                stop(ep, f"video review repeated the same {len(current)} blocker(s) with no progress in round {n}",
+                     f"Review notes: notes/video-review-{n}.md. Resolve those blockers, then resume with --from edit.")
     stop(ep, f"video review: no PASS after {last} rounds",
          f"last notes: notes/video-review-{last}.md · draft: output/final.mp4 · "
          "options: fix specific notes then --from deliver, or one more round with --from edit --extra-rounds N")
@@ -592,15 +651,22 @@ def st_fix(L: Line, ep: Path, a) -> None:
     notes = f"{e}/notes/video-review-{n}.md"
     final = ("Final targeted pass, no review round follows: fix exactly these notes, keep everything else as it is, "
              "and stay within CLAUDE.md (stamp budget, safe zones) — if a note is impossible under it, skip it and say why.")
+    review = ep / "notes" / f"video-review-{n}.md"
+    if notes_for(review, "voice", "blocker"):
+        repair_voice(L, ep, review, "fix")
+    component_output = ""
     if routed(ep / "notes" / f"video-review-{n}.md", "component"):
         L.scoped_agent("component-dev", ep, f"Fix the [component:*] notes in {notes}. {final}",
                        "fix", "revision", note=ep / "notes" / f"video-review-{n}.md")
-    if routed(ep / "notes" / f"video-review-{n}.md", "director"):
-        director(L, ep, f"Revise {e}/scenes/scenes.json from the [director] notes in {notes} and .cache/qa.json. {final}",
+        component_output = L.last_out.read_text() if getattr(L, "last_out", None) and L.last_out.exists() else ""
+    if routed(review, "director") or component_output:
+        wiring = ("\n\nComponent implementation handoff (apply episode-level param advice in scenes.json):\n" +
+                  component_output[:4000]) if component_output else ""
+        director(L, ep, f"Revise {e}/scenes/scenes.json from the [director] notes in {notes} and .cache/qa.json. {final}{wiring}",
                  "fix", REVISE_EFFORT)
-    if routed(ep / "notes" / f"video-review-{n}.md", "editor"):
+    if routed(review, "editor"):
         L.scoped_agent("editor", ep, f"Apply the [editor] notes in {notes} to {e}/scenes/scenes.json. {final}",
-                       "fix", "revision", note=ep / "notes" / f"video-review-{n}.md")
+                       "fix", "revision", note=review)
     if not qa_clean(L, ep):
         director(L, ep, f"qa blocks {e}: fix every error in .cache/qa.json (route [editor] timing errors too). "
                  "Validate + qa clean.", "fix", REVISE_EFFORT)
@@ -621,6 +687,11 @@ def st_package(L: Line, ep: Path, a) -> None:
 def st_usage(L: Line, ep: Path, a) -> None:
     if not L.log.exists():
         return
+    report_path = ep / "notes" / "usage.md"
+    previous_report = report_path.read_text() if report_path.exists() else ""
+    producer_section = ""
+    if (m := re.search(r"(?m)^## Producer session.*$", previous_report)):
+        producer_section = previous_report[m.start():].strip()
     recs = [json.loads(x) for x in L.log.read_text().splitlines() if x.strip()]
     by: dict[str, dict] = {}
     for r in recs:
@@ -631,6 +702,7 @@ def st_usage(L: Line, ep: Path, a) -> None:
     total = sum(s["cost"] for s in by.values())
     rounds = {k: len(list((ep / "notes").glob(f"{k}-review-*.md"))) for k in ("script", "video")}
     lines = [f"# Usage — {ep.name} (agent runs, from notes/usage.jsonl)", "",
+             f"Updated: {dt.datetime.now():%Y-%m-%d %H:%M} local time. Agent totals exclude the interactive producer session and external services such as TTS.", "",
              "| stage | runs | turns | prompt chars | cached read tokens | cost |", "|---|---:|---:|---:|---:|---:|"]
     lines += [f"| {k} | {v['runs']} | {v['turns']} | {v['prompt_chars']:,} | {v['cache_read']:,} | ${v['cost']:.2f} |" for k, v in by.items()]
     lines += [f"| **total** | {sum(v['runs'] for v in by.values())} | {sum(v['turns'] for v in by.values())} | "
@@ -660,7 +732,22 @@ def st_usage(L: Line, ep: Path, a) -> None:
         risk = next((x.strip() for x in review_text.splitlines() if x.lower().startswith("swipe risk:")), "swipe risk not recorded")
         blockers = len(re.findall(r"^\s*-\s*\[[^\]]+\]\s*blocker\b", review_text, re.M | re.I))
         polish_n = len(re.findall(r"^\s*-\s*\[[^\]]+\]\s*polish\b", review_text, re.M | re.I))
-        lines.append(f"Latest video quality: {risk} · blockers {blockers} · polish notes {polish_n}")
+        video = ep / "output" / "final.mp4"
+        stale = video.exists() and video.stat().st_mtime > video_reviews[-1].stat().st_mtime
+        freshness = " · STALE: final.mp4 rendered after this review" if stale else ""
+        lines.append(f"Latest reviewer report: {risk} · blockers {blockers} · polish notes {polish_n}{freshness}")
+    if ep.name[:10] and re.fullmatch(r"\d{4}-\d{2}-\d{2}", ep.name[:10]):
+        try:
+            post_date = dt.date.fromisoformat(ep.name[:10])
+            script_text = (ep / "script.md").read_text() if (ep / "script.md").exists() else ""
+            if re.search(r'^series:\s*["\']?Chillar Report', script_text, re.M):
+                fact_text = (ep / "facts.md").read_text() if (ep / "facts.md").exists() else ""
+                checked = [dt.date.fromisoformat(x) for x in re.findall(r"\|\s*(\d{4}-\d{2}-\d{2})\s*\|", fact_text)]
+                latest = max(checked, default=None)
+                if latest and (post_date - latest).days > 5:
+                    lines.append(f"⚠ Recheck Chillar Report status before posting {post_date}: latest fact check is {latest} (>5 days before post date).")
+        except ValueError:
+            lines.append("⚠ Could not parse the scheduled posting date or fact check date; verify current claims before posting.")
     qa_path = ep / ".cache" / "qa.json"
     if qa_path.exists():
         try:
@@ -668,12 +755,15 @@ def st_usage(L: Line, ep: Path, a) -> None:
             errors = qa.get("errors", 0); warnings = qa.get("warnings", 0)
             errors = errors if isinstance(errors, int) else len(errors)
             warnings = warnings if isinstance(warnings, int) else len(warnings)
-            lines.append(f"Final mechanical QA: {errors} errors · {warnings} warnings")
+            qa_time = dt.datetime.fromtimestamp(qa_path.stat().st_mtime).strftime("%Y-%m-%d %H:%M")
+            lines.append(f"Mechanical QA: {errors} errors · {warnings} warnings (qa.json updated {qa_time})")
         except (json.JSONDecodeError, AttributeError):
             pass
-    lines += [
-              "Producer session (the main Claude Code session) is not included — note it from `npx ccusage@latest session`."]
-    (ep / "notes" / "usage.md").write_text("\n".join(lines) + "\n")
+    if producer_section:
+        lines += ["", producer_section]
+    else:
+        lines += ["", "## Producer session", "", "Not included in the agent table. Record it with `npx ccusage@latest session`."]
+    report_path.write_text("\n".join(lines) + "\n")
     print("\n".join(lines))
 
 

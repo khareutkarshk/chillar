@@ -23,8 +23,11 @@ of that from frames. Copy each qa error into your notes with its route; spend yo
 comedy, clarity and retention.
 
 **You can't hear the reel, so read what code heard:** `.cache/voice_check.md` (the voice transcribed line by
-line by whisper medium — any row still flagged is a `blocker` for a wrong word/number, routed `[editor]` with
-"voice: re-take line Lx") and `scenes.resolved.json` → `sfx` (what plays) vs `sfx_dropped` (what the plan
+line by whisper medium). A flagged number, missing word, or clearly wrong pronunciation is a `blocker`
+routed `[voice]` (include the exact line ID and a phonetic respelling or equivalent short wording). A low
+match caused only by normal ASR spelling noise is not a blocker; say why in a polish note if uncertain.
+For a component issue that needs both a reusable component change and an episode-specific param, route it
+as `[director|component:<name>]` so both roles run. `.cache/scenes.resolved.json` → `sfx` (what plays) vs `sfx_dropped` (what the plan
 wanted but lost the 2 s thinning — a dropped foley or meme sound is a `[editor]` note: the joke has no sound).
 
 ## Gather (image budget: 1 contact sheet + ≤ 12 frames at 540×960 per round)

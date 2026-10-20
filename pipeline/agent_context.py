@@ -40,7 +40,7 @@ def _note_for_role(path: Path, role: str, only_blockers: bool = False) -> str:
                 out.append(line)
         return "\n".join(out) or text
 
-    owner = {"director": "director", "editor": "editor", "component-dev": "component"}.get(role)
+    owner = {"director": "director", "editor": "editor", "component-dev": "component", "voice": "voice"}.get(role)
     if not owner:
         return text
     out = [line for line in text.splitlines() if line.startswith(("verdict:", "round:", "swipe risk:"))]
@@ -122,6 +122,8 @@ def edit_inputs(ep: Path, role: str, mode: str, note: Path | None = None, *,
             names.update(re.findall(r"\[component:([\w-]+)\]", _note_for_role(note, role, only_blockers=only_blockers)))
         return [Path("components") / name / file for name in sorted(names)
                 for file in ("component.json", "component.css", "component.js")]
+    if role == "voice":
+        return [ep / "voice/tts.txt", c / "voice_check.md", ep / "script.md", Path("brand/pronunciations.tsv")]
     if role == "scriptwriter":
         if mode == "first":
             return [ep / "script.md", ep / "facts.md", ep / "cover.md", ep / "notes/premise.md",

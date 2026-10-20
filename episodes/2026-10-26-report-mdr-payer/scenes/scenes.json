@@ -74,11 +74,19 @@
       "params": {
         "pages": [
           "15 OCT 2026",
-          "DIWALI",
-          "? ? ?"
+          "DIWALI 2026",
+          "DATE TBD"
+        ],
+        "details": [
+          "Original date",
+          "Festive delay",
+          "Date pending"
         ],
         "label": "UPI charge kab se?",
-        "flip": 0.3
+        "flip": 0.3,
+        "width": 820,
+        "height": 460,
+        "yearSize": 170
       }
     },
     {
@@ -122,12 +130,15 @@
     {
       "id": "skeleton",
       "component": "meme",
-      "at": "w37+0.2",
+      "at": "w37+0.1",
       "params": {
         "meme": "Waiting Skeleton",
         "kind": "image",
         "pick": 0,
         "headline": "Date ka intezaar",
+        "wide": true,
+        "height": 700,
+        "position": "center 35%",
         "labels": [
           {
             "text": "Merchant, date ke liye",
@@ -140,22 +151,23 @@
     {
       "id": "threshold",
       "component": "tier-compare",
-      "at": "w41+0.3",
+      "at": "w41",
       "fact": "F3",
       "params": {
         "tiers": [
           {
-            "amount": "₹2,000 tak",
+            "amount": "≤ ₹2,000",
             "result": "Fee nahi"
           },
           {
-            "amount": "₹2,000 se upar",
+            "amount": "> ₹2,000",
             "result": "Fee lagegi"
           }
         ],
         "reveal": "results",
         "stagger": 1.0,
-        "wide": true
+        "wide": true,
+        "amtSize": 60
       }
     },
     {
@@ -189,7 +201,7 @@
       "id": "stamp-merchant",
       "component": "stamp",
       "at": "w56-0.5",
-      "until": "w57+0.3",
+      "until": "w57",
       "fact": "F4",
       "params": {
         "text": "Merchant",
@@ -202,7 +214,7 @@
     {
       "id": "voice-note",
       "component": "chat-screen",
-      "at": "w57+0.3",
+      "at": "w57",
       "cut": "whip",
       "fact": "F3",
       "params": {
@@ -226,7 +238,7 @@
     {
       "id": "bhai-crown",
       "component": "glyph-character",
-      "at": "w67",
+      "at": "w69-0.12",
       "params": {
         "glyph": "₹",
         "costume": "crown",
@@ -241,7 +253,7 @@
     {
       "id": "who-asked",
       "component": "checklist",
-      "at": "w71",
+      "at": "w71+0.08",
       "fact": "F7",
       "params": {
         "title": "Tujhse fee maangi?",
@@ -265,7 +277,7 @@
     {
       "id": "cart",
       "component": "receipt-list",
-      "at": "w75",
+      "at": "w75+0.32",
       "fact": "F8",
       "params": {
         "title": "MERA CART",
@@ -390,7 +402,7 @@
     {
       "id": "zero",
       "component": "glyph-character",
-      "at": "w112",
+      "at": "w112+0.2",
       "params": {
         "glyph": "0",
         "costume": "none",

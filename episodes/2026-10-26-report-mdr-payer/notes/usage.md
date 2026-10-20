@@ -1,5 +1,7 @@
 # Usage — 2026-10-26-report-mdr-payer (agent runs, from notes/usage.jsonl)
 
+Updated: 2026-10-21 00:28 local time. Agent totals exclude the interactive producer session and external services such as TTS.
+
 | stage | runs | turns | prompt chars | cached read tokens | cost |
 |---|---:|---:|---:|---:|---:|
 | research | 1 | 53 | 212 | 1,086,329 | $0.51 |
@@ -14,9 +16,9 @@
 Review rounds: script 2 · video 3.
 Local source retrieval: 9 searches · 28 excerpts · 6,120 chars returned from 34,372 chars of matched sources
 Latest script quality: scores: stop 4 · laughs 4 (count 6/6) · specific 4 · clarity 4 · escalation 4 · payoff 4 · speak 4 · fresh 4 · facts PASS
-Latest video quality: swipe risk: 0–3s low · 3–15s med · middle med · payoff low · blockers 3 · polish notes 4
-Final mechanical QA: 0 errors · 6 warnings
-Producer session (the main Claude Code session) is not included — note it from `npx ccusage@latest session`.
+Latest reviewer report: swipe risk: 0–3s low · 3–15s med · middle med · payoff low · blockers 3 · polish notes 4 · STALE: final.mp4 rendered after this review
+⚠ Recheck Chillar Report status before posting 2026-10-26: latest fact check is 2026-10-20 (>5 days before post date).
+Mechanical QA: 0 errors · 3 warnings (qa.json updated 2026-10-21 00:25)
 
 ## Producer session (ccusage)
 

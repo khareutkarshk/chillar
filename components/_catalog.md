@@ -18,9 +18,9 @@ Bars standing on the bottom of the content zone, straight on the chapter field �
 params: title="", bars=[{"label": "A", "value": 1}], highlight=-1, caption="", stagger=0.2, prefix="", bracket=false, bracketBars=null
 
 ### calendar-flip
-Tear-off desk calendar (paper pages, red month band) riffles through pages and lands on the last one — time passing, deadlines, 'since 2020'. Label sits on the field above it.
+Tear-off desk calendar (paper pages, red month band) riffles through pages and lands on the last one — time passing, deadlines, 'since 2020'. Optional details sit in a fixed footer beneath the year; width, height and yearSize tune the paper layout.
 `layer scene · min 1.6s · sfx whoosh@0.1s`
-params: pages=["JAN 2020", "JAN 2023", "OCT 2026"], label="", flip=0.16
+params: pages=["JAN 2020", "JAN 2023", "OCT 2026"], details=[], label="", flip=0.16, width=600, height=620, yearSize=230
 
 ### chat-screen
 A generic phone chat printed out and lying on the field (paper card, seeded tilt, soft shadow; no app colours or logos). 3–5 messages type in one by one, stagger s apart (first 0.3 s after the cut): 'them' messages after a typing-dots bubble, 'me' messages slide in from the right in a soft haldi tint. Layout is reserved from the cut — nothing reflows. messages: [{from: 'me'|'them', text, time?}] (text takes *marker*; max 6). name (optional) adds a header with a back chevron + initial avatar; pinned (optional) adds a pinned-message bar at the top. highlight (message index, default -1) gets a blue-ballpoint circle drawn 0.3 s after it lands. Timestamps are JetBrains Mono (printout metadata) on a seeded clock; set msg.time to fix one, times:false hides them. width px (560–880, default 820); tilt (deg) fixes the tilt instead of the seeded one. Keep it to ~5 one-line messages so it stays inside the content zone.
@@ -63,9 +63,9 @@ Chillar pops up from the bottom of the content zone with an expression + animati
 params: expr="side-eye", anim="blink", x=760, y=1120, size=320, bubble="", bubbleSide="left", ring="", sound="", soundPick=0, soundAt=0.05
 
 ### meme
-A real global meme (imgflip template or GIF, fetched at build time by pipeline/memes.py) as a printed photo tossed onto the field, full content width, with optional paper-scrap labels on it and an optional meme sound (myinstants). Cut to it on the word after a punchline. kind image|video (video = silent GIF loop, stepped from a sprite). Pick the exact template with `memes.py search "<q>" --kind <kind>` and set pick. labels: [{text, x, y}] in % of the picture (centre of the scrap). Global memes only — no Indian films/TV/people.
+A real global meme (imgflip template or GIF, fetched at build time by pipeline/memes.py) as a printed photo tossed onto the field, with optional paper-scrap labels and meme sound. Set wide:true for a broad image crop; height and position tune the crop while preserving default aspect-fit behavior. Cut to it on the word after a punchline. kind image|video (video = silent GIF loop, stepped from a sprite). Pick the exact template with `memes.py search "<q>" --kind <kind>` and set pick. labels: [{text, x, y}] in % of the picture. Global memes only — no Indian films/TV/people.
 `layer scene · min 1.5s · re-hook`
-params: meme="This Is Fine", kind="image", pick=0, headline="", labels=[], sound="", soundPick=0, soundAt=0.0
+params: meme="This Is Fine", kind="image", pick=0, headline="", labels=[], sound="", soundPick=0, soundAt=0.0, wide=false, height=0, position="center"
 
 ### meme-format
 Recreated meme FORMATS with Chillar and original text — never real meme images. Formats: two-panel (nah/haan), expectation-reality, nobody-me. Each panel is a printed photo lying on the field, spanning the full content width (870 px), punchline text 60 px (48 px with 3 panels), the format word set big in the headline face. Panels drop in order.

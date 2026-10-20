@@ -23,6 +23,11 @@ change speaker/pace). Follow `brand/rules/voice.md`.
    sends you `.cache/voice_check.md` only if a line is flagged. On that pass: a real mispronunciation (a
    `nasal` flag, a number read wrong, a skipped word) → a pronunciations.tsv row or a tts.txt respelling, then
    regenerate once; ASR spelling noise → ignore.
+   If a later video-review note routes an exact line to `[voice] blocker`, treat that as a targeted repair
+   request: preserve the approved script words exactly, use phonetic spelling only, regenerate once, and
+   report any line still flagged. If the script wording itself must change, leave it untouched and report
+   that a script revision is needed. Do not leave a number or setup word the visual payoff depends on
+   unresolved without saying so.
 4. Duration: print it. If it's outside the format range minus ~3.5 s of outro (60 s format: ~48–64 s of
    voice), say so — don't change the script.
 
