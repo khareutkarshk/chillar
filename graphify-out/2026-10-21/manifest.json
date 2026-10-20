@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "brand/rules/production.md": {
-    "mtime": 1792535749.6148763,
-    "ast_hash": "3878334489df88b86ca4846b05c9b387",
+    "mtime": 1792536457.546977,
+    "ast_hash": "861f35b0e5d1a54a6fc5b7440394e1ef",
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792535649.212404,
-    "ast_hash": "6589d74264df27a4461a0b53f9b55cb6",
+    "mtime": 1792536345.9321842,
+    "ast_hash": "1c5a28606b369830a58a0fb1109a81af",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -902,6 +902,16 @@
   "brand/joke-log.md": {
     "mtime": 1792535662.7779613,
     "ast_hash": "9cc385eabc15998ade40976d8476ea76",
+    "semantic_hash": ""
+  },
+  "pipeline/budget.py": {
+    "mtime": 1792536337.7100677,
+    "ast_hash": "04892209058095c4db13e90db0710b80",
+    "semantic_hash": ""
+  },
+  ".claude/commands/batch-reels.md": {
+    "mtime": 1792536447.9938092,
+    "ast_hash": "e92344ba606f87f3325b2adbbab07de5",
     "semantic_hash": ""
   }
 }
