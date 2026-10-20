@@ -1,18 +1,38 @@
 {
   "name": "split-compare",
-  "description": "Myth vs Math: the MYTH chit lands, gets scratched out with a red pen, then the MATH chit is slapped down over its lower half (record-scratch twist). Works best on the note2000 field.",
+  "description": "Myth vs Math: the MYTH chit lands, gets scratched out with a red pen, then the MATH chit is slapped down below it (record-scratch twist). The chits never overlap: they keep a clear gap of at least `gap` px (default 30) at their closest tilted corners. Main text is set at headline scale, sized by the longer side (textSize \"auto\": ≤8 chars 128 px, ≤14 → 100, ≤22 → 80, else 66; or a px number). Works best on the note2000 field.",
   "layer": "scene",
   "rehook": true,
   "params": {
-    "left": { "title": "Myth", "text": "UPI free hai" },
-    "right": { "title": "Math", "text": "Sarkar ne ₹3,631 crore bhare" },
+    "left": {
+      "title": "Myth",
+      "text": "UPI free hai"
+    },
+    "right": {
+      "title": "Math",
+      "text": "Sarkar ne ₹3,631 crore bhare"
+    },
     "strikeAt": 0.6,
-    "revealAt": 0.9
+    "revealAt": 0.9,
+    "gap": 30,
+    "textSize": "auto"
   },
   "example": {
-    "left": { "title": "Myth", "text": "UPI bilkul free hai" },
-    "right": { "title": "Math", "text": "Bill sarkar bharti hai: *₹3,631 crore* (2023-24)" }
+    "left": {
+      "title": "Myth",
+      "text": "UPI bilkul free hai"
+    },
+    "right": {
+      "title": "Math",
+      "text": "Bill sarkar bharti hai: *₹3,631 crore* (2023-24)"
+    }
   },
-  "sfx": [{ "sound": "scratch", "at": 0.85, "event": "twist" }],
+  "sfx": [
+    {
+      "sound": "scratch",
+      "at": 0.85,
+      "event": "twist"
+    }
+  ],
   "minDuration": 1.8
 }

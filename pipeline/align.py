@@ -19,6 +19,20 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.episode import load, norm, tokenize  # noqa: E402
 
 
+
+def words_txt(words: list[dict]) -> str:
+    """The same timings as words.json in ~⅓ of the tokens, for the agents (one script line per row):
+    `L3 · Chapter · 4.12–6.80 | w14 4.12 Roz | w15 4.40 ₹100 | …` (time = the word's start)."""
+    rows, cur = [], None
+    for w in words:
+        if w["line"] != cur:
+            cur = w["line"]
+            ln = [x for x in words if x["line"] == cur]
+            rows.append([f"{cur} · {w['chapter']} · {ln[0]['start']:.2f}–{ln[-1]['end']:.2f}"])
+        rows[-1].append(f"{w['id']} {w['start']:.2f} {w['text']}")
+    return "# words.json, compact: id start text (ends = next word's start; line end in the header)\n" + \
+        "\n".join(" | ".join(r) for r in rows) + "\n"
+
 def _model(name: str):
     import stable_whisper
     return stable_whisper.load_faster_whisper(name, device="cpu", compute_type="int8")
@@ -79,6 +93,7 @@ def align(ep_dir: str, adlib: bool = True) -> Path:
             b["end"] = b["start"] + 0.05
     out = ep.cache / "words.json"
     out.write_text(json.dumps(words, indent=1, ensure_ascii=False))
+    (ep.cache / "words.txt").write_text(words_txt(words))
     matched = sum(blk.size for blk in sm.get_matching_blocks())
     print(f"align: {len(words)} words, {matched}/{len(words)} matched directly → {out.relative_to(ep.dir)}")
 

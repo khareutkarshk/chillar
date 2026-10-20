@@ -13,9 +13,9 @@ Instagram profile picture: Chillar's face, big, centred in the 1080x1080 square 
 params: expr="side-eye"
 
 ### bar-chart
-Bars standing on the bottom of the content zone, straight on the chapter field — no card, no axes, no grid. Bars are paper; the one the line is about is haldi with its value circled by hand. Values in the headline face above each bar. Optional: prefix (e.g. "₹", default "") goes before every value, and a 0 bar then shows as a thin paper slab labelled "₹0" instead of a bare line.
+Bars standing on the bottom of the content zone, straight on the chapter field — no card, no axes, no grid. Each bar is a strip of paper (paper stock, soft contact shadow, seeded blue-ballpoint hatching); the one the line is about is haldi with its value circled by hand. Every bar's value sits above it in the headline face; labels 54 px, caption 44 px (put notes like "example" in caption, never a loose tag). Optional: prefix (e.g. "₹", default "") goes before every value, and a 0 bar then shows as a thin paper slab labelled "₹0" instead of a bare line. bracket (default false): true draws a pen bracket on the taller bar spanning the difference, labelled "+<difference>" (prefix + Indian grouping); a string sets the label text instead. bracketBars ([i, j], optional) picks which two bars to compare (default: the two tallest).
 `layer scene · min 1.6s`
-params: title="", bars=[{"label": "A", "value": 1}], highlight=-1, caption="", stagger=0.2, prefix=""
+params: title="", bars=[{"label": "A", "value": 1}], highlight=-1, caption="", stagger=0.2, prefix="", bracket=false, bracketBars=null
 
 ### calendar-flip
 Tear-off desk calendar (paper pages, red month band) riffles through pages and lands on the last one — time passing, deadlines, 'since 2020'. Label sits on the field above it.
@@ -53,7 +53,7 @@ Chillar pops up from the bottom of the content zone with an expression + animati
 params: expr="side-eye", anim="blink", x=760, y=1120, size=320, bubble="", bubbleSide="left", ring=""
 
 ### meme-format
-Recreated meme FORMATS with Chillar and original text — never real meme images. Formats: two-panel (nah/haan), expectation-reality, nobody-me. Each panel is a printed photo lying on the field, the format word set big in the headline face. Panels drop in order.
+Recreated meme FORMATS with Chillar and original text — never real meme images. Formats: two-panel (nah/haan), expectation-reality, nobody-me. Each panel is a printed photo lying on the field, spanning the full content width (870 px), punchline text 60 px (48 px with 3 panels), the format word set big in the headline face. Panels drop in order.
 `layer scene · min 1.8s · re-hook`
 params: format="two-panel", panels=[{"label": "Nah", "text": "Cash mein chillar dhoondna", "expr": "facepalm"}, …], reveal=0.8
 
@@ -78,7 +78,7 @@ The chillar meter: a row of ₹1 coins along the top (y≈170, decorative, outsi
 params: from=0, to=0.5, coins=8
 
 ### receipt-list
-Thermal receipt that prints line by line (stepped) out of a printer slot, lying on the field. The total is circled in blue ballpoint after it prints. Great as frame 1 (printed:true shows it fully at t=0) or as a growing receipt meter. Optional: width (paper px, default 760, max 860; the printer is 100 px wider, capped at 880); stampTotal:true slams the total amount on as a textured red rubber-stamp mark (instead of the ballpoint circle) once it prints. dy (px) nudges the whole composition down (+) or up (−) inside the content zone. totalAt (s from scene start, optional) holds the total block until then, so the amount lands on its word.
+Thermal receipt that prints line by line (stepped) out of a printer slot, lying on the field; the paper feeds out with the print, so it is always sized to the lines already printed (rows 46 px, meta/footer 36 px). The total is circled in blue ballpoint after it prints. Great as frame 1 (printed:true shows it fully at t=0) or as a growing receipt meter. Optional: width (paper px, default 760, max 860; the printer is 100 px wider, capped at 880); stampTotal:true slams the total amount on as a textured red rubber-stamp mark (instead of the ballpoint circle) once it prints. dy (px) nudges the whole composition down (+) or up (−) inside the content zone. totalAt (s from scene start, optional) holds the total block until then, so the amount lands on its word.
 `layer scene · min 1.5s · sfx printer@0s`
 params: title="UPI RECEIPT", meta="", items=[{"label": "Chai", "amount": "₹20"}], total={"label": "TOTAL", "amount": "₹20", "tone": "ink"}, footer="", circleTotal=true, step=0.22, printed=false, width=760, stampTotal=false, dy=0, totalAt=null
 
@@ -88,9 +88,9 @@ Payslip lying on the field: earnings in green, deductions in red with minus, row
 params: title="Salary slip", month="OCT 2026", rows=[{"label": "Basic", "amount": 50000, "type": "earn"}], netLabel="In-hand", step=0.2
 
 ### split-compare
-Myth vs Math: the MYTH chit lands, gets scratched out with a red pen, then the MATH chit is slapped down over its lower half (record-scratch twist). Works best on the note2000 field.
+Myth vs Math: the MYTH chit lands, gets scratched out with a red pen, then the MATH chit is slapped down below it (record-scratch twist). The chits never overlap: they keep a clear gap of at least `gap` px (default 30) at their closest tilted corners. Main text is set at headline scale, sized by the longer side (textSize "auto": ≤8 chars 128 px, ≤14 → 100, ≤22 → 80, else 66; or a px number). Works best on the note2000 field.
 `layer scene · min 1.8s · re-hook · sfx scratch@0.85s`
-params: left={"title": "Myth", "text": "UPI free hai"}, right={"title": "Math", "text": "Sarkar ne ₹3,631 crore bhare"}, strikeAt=0.6, revealAt=0.9
+params: left={"title": "Myth", "text": "UPI free hai"}, right={"title": "Math", "text": "Sarkar ne ₹3,631 crore bhare"}, strikeAt=0.6, revealAt=0.9, gap=30, textSize="auto"
 
 ### stamp
 The thappa: a stamp-pad red rubber stamp slams in (140%→100% in 4 frames + 2-frame shake) on a scrap of paper, so it reads on every field. Ink is textured (not a clean vector). Max 3 per video. Overlay on top of a scene.
@@ -110,7 +110,7 @@ params: title="", tiers=[{"amount": "₹100", "result": ""}, …], stagger=0.9
 ## Placed by the pipeline
 
 ### captions  _(auto — never place in scenes.json)_
-Word-highlight captions in the caption band (y 1150–1450). Mukta ExtraBold in the chapter field's ink; the active word gets a flat haldi highlight with ink text (no shadow, no box outline). Built automatically from words.json — not placed in scenes.
+Word-highlight captions in the caption band (y 1150–1450). Mukta ExtraBold in the chapter field's ink; the active word gets a flat haldi highlight with ink text (no shadow, no box outline). Built automatically from words.json — not placed in scenes. Lines wrap balanced (text-wrap: balance) and the last two words never split, so no line ends on a one-word widow.
 `layer captions`
 
 ### chapter-field  _(auto — never place in scenes.json)_

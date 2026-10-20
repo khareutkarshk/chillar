@@ -4,11 +4,11 @@
 .c-receipt-list .rc-slot { position: absolute; left: 70px; right: 70px; bottom: 18px; height: 8px; background: #000; border-radius: 4px; }
 .c-receipt-list .rc-wrap { margin-top: -18px; }
 .c-receipt-list .rc-paper {
-  width: 760px; padding: 60px 54px 72px; box-sizing: border-box;
+  width: 760px; padding: 52px 54px 56px; box-sizing: border-box;
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 18px), 95% 100%, 90% calc(100% - 18px), 85% 100%, 80% calc(100% - 18px), 75% 100%, 70% calc(100% - 18px), 65% 100%, 60% calc(100% - 18px), 55% 100%, 50% calc(100% - 18px), 45% 100%, 40% calc(100% - 18px), 35% 100%, 30% calc(100% - 18px), 25% 100%, 20% calc(100% - 18px), 15% 100%, 10% calc(100% - 18px), 5% 100%, 0 calc(100% - 18px));
 }
 .c-receipt-list .rc-title { font-size: 60px; text-align: center; line-height: 1; font-weight: 800; }
-.c-receipt-list .rc-meta { text-align: center; font-size: 28px; color: var(--pencil); margin-top: 14px; }
+.c-receipt-list .rc-meta { text-align: center; font-size: 36px; color: var(--pencil); margin-top: 14px; }
 .c-receipt-list .rc-rule { border-top: 4px dashed var(--ink); opacity: .7; margin: 28px 0 16px; }
 .c-receipt-list .rc-rule2 { border-top: 4px solid var(--ink); border-bottom: 4px solid var(--ink); height: 5px; margin: 20px 0 14px; }
 .c-receipt-list .rc-row { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; font-size: 46px; line-height: 1.5; }
@@ -16,7 +16,7 @@
 .c-receipt-list .rc-total { font-size: 54px; font-weight: 800; }
 .c-receipt-list .tone-red .rc-a { color: var(--red); }
 .c-receipt-list .tone-green .rc-a { color: var(--green-text); }
-.c-receipt-list .rc-foot { text-align: center; font-size: 28px; color: var(--pencil); margin-top: 28px; }
+.c-receipt-list .rc-foot { text-align: center; font-size: 36px; color: var(--pencil); margin-top: 28px; }
 /* stampTotal: the total amount is a red rubber-stamp mark on the paper (textured ink, rectangular rule) */
 .c-receipt-list .rc-stampmark { display: inline-block; font-family: var(--font-head); font-weight: 800; font-size: 76px; line-height: 1;
   color: var(--red); padding: .1em .28em .08em; border: .07em solid var(--red); outline: .03em solid var(--red); outline-offset: .07em; border-radius: .06em;

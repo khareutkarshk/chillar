@@ -42,6 +42,8 @@ AGENTS = ROOT / ".claude" / "agents"
 STAGES = ["research", "script", "factcheck", "voice", "align", "edit", "deliver", "package", "usage"]
 MAX_ROUNDS = 3
 REVISE_EFFORT = "medium"         # director revisions / fix passes (the first plan keeps the frontmatter's high)
+OUTRO_S = 3.5                    # outro receipt after the voice
+CLEAN = 0.95                     # audio_clean trims ≈ 5 % of the raw voice (measured on 4 reels: 0.94–0.96)
 
 # frontmatter alias -> pinned model id (update here when the brand moves to a new model)
 MODELS = {"opus": "claude-opus-5-5", "sonnet": "claude-sonnet-5-5", "haiku": "claude-haiku-5-5"}
@@ -218,21 +220,61 @@ def st_research(L: Line, ep: Path, a) -> None:
     L.agent("researcher", f"Research {ep.relative_to(ROOT)} — topic: {a.topic}. Format {a.format} s.", "research")
 
 
+def duration(p: Path) -> float:
+    r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(p)],
+                       capture_output=True, text=True)
+    return float(r.stdout.strip() or 0)
+
+
+def spoken_words(ep: Path) -> int:
+    sys.path.insert(0, str(ROOT / "pipeline"))
+    from lib.episode import load
+    return len(load(str(ep)).spoken_text.split())
+
+
+def length_miss(L: Line, ep: Path, a) -> str:
+    """Time the passed script with the real voice (tts.py --probe, a few paise) — the words/s estimate is off by up
+    to 25 % between reels, and a miss found at align costs a script round + fact-check + voice again."""
+    if L.dry or a.accept_length:
+        return ""
+    if L.sh(PY, "pipeline/tts.py", str(ep), "--probe", check=False):
+        return ""                    # no probe (API down): align still checks the real voice
+    total = duration(ep / ".cache" / "probe.wav") * CLEAN + OUTRO_S
+    lo, hi = json.loads((ROOT / "brand" / "tokens.json").read_text())["formats"][str(a.format)]["seconds"]
+    print(f"  length probe: ≈ {total:.1f} s incl. outro (format {lo}–{hi} s)")
+    if lo <= total <= hi:
+        return ""
+    wps = spoken_words(ep) / max(total - OUTRO_S, 1)
+    goal = (lo + hi) / 2 - total
+    return (f"Sunny reads this script in ≈ {total:.0f} s incl. outro (real voice, measured) — outside {lo}–{hi} s. "
+            f"{'Add' if goal > 0 else 'Cut'} ≈ {abs(goal) * wps:.0f} words (she reads ≈ {wps:.1f} words/s; trust this "
+            "over the lint's estimate). Keep the best jokes; change nothing else.")
+
+
 def st_script(L: Line, ep: Path, a) -> None:
     e = ep.relative_to(ROOT)
     start = len(list((ep / "notes").glob("script-review-*.md"))) + 1
+    fix = ""
     for n in range(start, MAX_ROUNDS + 1):
         if n == 1:
             topic = f" Topic: {a.topic}." if a.topic else ""
             L.agent("scriptwriter", f"Write {e}/script.md, {a.format} s format.{topic} Fill cover.md first if it still "
                     "has placeholders, and the script.md frontmatter (title, series, concept).", "script")
+        elif fix:
+            L.agent("scriptwriter", f"Fix the length of {e}/script.md: {fix}", "script")
         else:
             L.agent("scriptwriter", f"Rewrite {e}/script.md from {e}/notes/script-review-{n - 1}.md.", "script")
-        L.agent("script-reviewer", f"Review {e}/script.md, round {n}.", "script")
+        L.agent("script-reviewer", f"Review {e}/script.md, round {n}." + (" (A length-only fix: check the changed lines "
+                "still land and the rest still holds.)" if fix else ""), "script")
         v = verdict(ep / "notes" / f"script-review-{n}.md")
         print(f"  script review {n}: {v}")
         if v == "PASS":
-            return
+            fix = length_miss(L, ep, a)
+            if not fix:
+                return
+    if fix:
+        stop(ep, f"script PASSed but the length probe misses: {fix}",
+             "trim/extend the script (new review round) or accept it (--accept-length), then --from factcheck")
     stop(ep, f"script review: no PASS after {MAX_ROUNDS} rounds", f"last notes: notes/script-review-{MAX_ROUNDS}.md")
 
 
@@ -265,10 +307,9 @@ def st_align(L: Line, ep: Path, a) -> None:
     L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", "align")
     if L.dry:
         return
-    dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
-                                str(ep / ".cache" / "voice_clean.wav")], capture_output=True, text=True).stdout or 0)
+    dur = duration(ep / ".cache" / "voice_clean.wav")
     fmt = json.loads((ROOT / "brand" / "tokens.json").read_text())["formats"][str(a.format)]["seconds"]
-    total = dur + 3.5
+    total = dur + OUTRO_S
     print(f"  voice {dur:.1f} s + outro ≈ {total:.1f} s (format {fmt[0]}–{fmt[1]} s)")
     if not fmt[0] <= total <= fmt[1] and not a.accept_length:
         stop(ep, f"voice is {dur:.1f} s (+ outro ≈ {total:.1f} s) — outside {fmt[0]}–{fmt[1]} s",
@@ -281,11 +322,16 @@ def draft(L: Line, ep: Path) -> int:
 
 def st_edit(L: Line, ep: Path, a) -> None:
     e = ep.relative_to(ROOT)
+    wt, wj = ep / ".cache" / "words.txt", ep / ".cache" / "words.json"
+    if wj.exists() and (not wt.exists() or wt.stat().st_mtime < wj.stat().st_mtime):   # episodes aligned before words.txt
+        sys.path.insert(0, str(ROOT / "pipeline"))
+        from align import words_txt
+        wt.write_text(words_txt(json.loads(wj.read_text())))
     start = len(list((ep / "notes").glob("video-review-*.md"))) + 1
     for n in range(start, MAX_ROUNDS + 1):
         prev = ep / "notes" / f"video-review-{n - 1}.md"
         if n == 1:
-            director(L, ep, f"Plan {e}/scenes/scenes.json from script.md + .cache/words.json; validate + qa clean.", "edit")
+            director(L, ep, f"Plan {e}/scenes/scenes.json from script.md + .cache/words.txt; validate + qa clean.", "edit")
             L.agent("editor", f"Tighten {e}/scenes/scenes.json (director's first pass); validate + qa clean.", "edit")
         else:
             # only the roles the review actually routed notes to

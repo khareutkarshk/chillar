@@ -1,6 +1,6 @@
 {
   "name": "bar-chart",
-  "description": "Bars standing on the bottom of the content zone, straight on the chapter field — no card, no axes, no grid. Bars are paper; the one the line is about is haldi with its value circled by hand. Values in the headline face above each bar. Optional: prefix (e.g. \"₹\", default \"\") goes before every value, and a 0 bar then shows as a thin paper slab labelled \"₹0\" instead of a bare line.",
+  "description": "Bars standing on the bottom of the content zone, straight on the chapter field — no card, no axes, no grid. Each bar is a strip of paper (paper stock, soft contact shadow, seeded blue-ballpoint hatching); the one the line is about is haldi with its value circled by hand. Every bar's value sits above it in the headline face; labels 54 px, caption 44 px (put notes like \"example\" in caption, never a loose tag). Optional: prefix (e.g. \"₹\", default \"\") goes before every value, and a 0 bar then shows as a thin paper slab labelled \"₹0\" instead of a bare line. bracket (default false): true draws a pen bracket on the taller bar spanning the difference, labelled \"+<difference>\" (prefix + Indian grouping); a string sets the label text instead. bracketBars ([i, j], optional) picks which two bars to compare (default: the two tallest).",
   "layer": "scene",
   "params": {
     "title": "",
@@ -13,7 +13,9 @@
     "highlight": -1,
     "caption": "",
     "stagger": 0.2,
-    "prefix": ""
+    "prefix": "",
+    "bracket": false,
+    "bracketBars": null
   },
   "example": {
     "title": "Sarkar ka UPI bill (₹ crore)",
@@ -32,7 +34,9 @@
       }
     ],
     "highlight": 2,
-    "caption": "Source: PIB, Mar 2025"
+    "caption": "Source: PIB, Mar 2025",
+    "bracket": true,
+    "prefix": ""
   },
   "sfx": [],
   "minDuration": 1.6

@@ -28,8 +28,14 @@ CH.define("receipt-list", {
       const step = +p.step || 0.22, tot = el.querySelector(".rc-total");
       // totalAt (s from scene start): the total block (double rule onwards) waits for the voice
       const cut = tot && p.totalAt !== null && p.totalAt !== undefined && p.totalAt !== "" ? lines.indexOf(tot) - 1 : lines.length;
-      let end = CH.print(tl, lines.slice(0, cut), t + 0.12, step);
-      if (cut < lines.length) end = CH.print(tl, lines.slice(cut), Math.max(end, t + (+p.totalAt) - step), step);
+      // the paper feeds out with the print: a line takes no space until it prints, so the sheet is
+      // always sized to what is on it (never a half-empty paper waiting for its total)
+      const feed = (els, at) => {
+        els.forEach((e, i) => { e.style.display = "none"; tl.fromTo(e, { display: "none" }, { display: "", duration: 0, immediateRender: false }, at + i * step); });
+        return CH.print(tl, els, at, step);
+      };
+      let end = feed(lines.slice(0, cut), t + 0.12);
+      if (cut < lines.length) end = feed(lines.slice(cut), Math.max(end, t + (+p.totalAt) - step));
       CH.draw(tl, paper, end + 0.05, 0.3);
       const sm = el.querySelector(".rc-stampmark");
       if (sm) {   // slams onto the paper right after the total line prints

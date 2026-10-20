@@ -6,7 +6,7 @@ CH.define("meme-format", {
     }[p.format] || [];
     const tilts = panels.map((_, i) => CH.tilt(rng, 2.2) * (i % 2 ? -1 : 1));
     el.innerHTML = `
-      <div class="zone">
+      <div class="zone${panels.length > 2 ? " n3" : ""}">
         ${panels.map((pn, i) => `
           <div class="mf-panel paper-obj fmt-${CH.esc(p.format)} i${i}" style="transform: rotate(${tilts[i].toFixed(2)}deg)">
             <div class="mf-pic">${pn.expr ? CH.mascot(pn.expr, `${id}-p${i}`, 250) : ""}</div>

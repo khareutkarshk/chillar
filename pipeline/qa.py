@@ -23,6 +23,7 @@ Checks:
   small-object    the paper objects carrying text span < 75 % of the content width (brand: ≈ 860–880 px)
   narrow-frame    a shot's content covers < 65 % of the content width and < 30 % of its height
   small-text      a shot shows text under 36 px (one warning per shot)
+  empty-paper     a paper object whose text ends above 70 % of its height when settled (half-empty receipt)
   same-layout     4 shots in a row with the same content box (template feel)
   short-shot      a shot shorter than its component's minDuration (or < 0.8 s)
   audio           output/final.mp4 true peak > −1 dBTP, LUFS off −14 (reported only if final.mp4 is
@@ -56,6 +57,7 @@ SAME_RUN, SAME_TOL = 4, 70        # 4 shots in a row with content boxes within 7
 NO_PROBE = {"bg", "wordmark"}
 CONTRAST_ERR, CONTRAST_WARN = 2.0, 3.0   # text vs what is behind it (WCAG ratio; big headline type)
 SMALL_OBJ = 0.75                          # paper objects with text spanning < 75 % of the content width (≈ 660 px)
+EMPTY_PAPER, EMPTY_PAPER_MIN_H = 0.7, 300  # a ≥ 300 px paper whose text ends above 70 % of its height = half-empty
 COVER_OK = {"marker-highlight", "transition", "captions"}   # overlays meant to sit on text
 
 
@@ -413,7 +415,27 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
             pb = [p["box"] for p in c["painted"] if p["op"] >= 0.5 and p["kind"] != "svg" and "marker" not in p["cls"]
                   and any(centre_in(b, p["box"]) for b in txt)]
             paper_w = (max(b[2] for b in pb) - min(b[0] for b in pb)) if pb else 0   # span: side-by-side papers count together
-            shots[c["id"]] = {"t": t, "start": sc["start"], "box": u, "comp": c["comp"], "small": small, "paper_w": paper_w}
+            shots[c["id"]] = {"t": t, "start": sc["start"], "box": u, "comp": c["comp"], "small": small, "paper_w": paper_w,
+                            "clip": c}
+    # empty paper: judged at the settled sample (what the viewer sees for most of the shot — a receipt sized
+    # for all its rows while one row has printed reads as half-empty paper)
+    for sid, s_ in shots.items():
+        c = s_["clip"]
+        txt = [x["box"] for x in c["texts"] if x["op"] >= 0.5]
+        for p in c["painted"]:
+            pb = p["box"]
+            ph = pb[3] - pb[1]
+            if p["op"] < 0.5 or p["kind"] == "svg" or "marker" in p["cls"] or ph < EMPTY_PAPER_MIN_H:
+                continue
+            inner = [b for b in txt if centre_in(b, pb)]
+            if not inner:
+                continue
+            used = (max(b[3] for b in inner) - pb[1]) / ph
+            if used < EMPTY_PAPER:
+                add("warn", "empty-paper", s_["t"], f"{sid} ({c['comp']})", f"director|component:{c['comp']}",
+                    f"its paper is {ph:.0f}px tall but the text ends at {used:.0%} of it — half-empty paper",
+                    "size the paper to what has printed (grow it per row), or fewer/bigger rows", key=("emptypaper", sid))
+                break
     cw = 1080 - SAFE["left"] - SAFE["right"]                       # content width  (≈ 880)
     ch = SAFE["captionBand"][0] - SAFE["top"]                       # content height above the captions (≈ 930)
     for sid, s in shots.items():

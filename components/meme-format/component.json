@@ -1,21 +1,37 @@
 {
   "name": "meme-format",
-  "description": "Recreated meme FORMATS with Chillar and original text — never real meme images. Formats: two-panel (nah/haan), expectation-reality, nobody-me. Each panel is a printed photo lying on the field, the format word set big in the headline face. Panels drop in order.",
+  "description": "Recreated meme FORMATS with Chillar and original text — never real meme images. Formats: two-panel (nah/haan), expectation-reality, nobody-me. Each panel is a printed photo lying on the field, spanning the full content width (870 px), punchline text 60 px (48 px with 3 panels), the format word set big in the headline face. Panels drop in order.",
   "layer": "scene",
   "rehook": true,
   "params": {
     "format": "two-panel",
     "panels": [
-      { "label": "Nah", "text": "Cash mein chillar dhoondna", "expr": "facepalm" },
-      { "label": "Haan", "text": "UPI pe ₹1 bhi bhej do", "expr": "smug" }
+      {
+        "label": "Nah",
+        "text": "Cash mein chillar dhoondna",
+        "expr": "facepalm"
+      },
+      {
+        "label": "Haan",
+        "text": "UPI pe ₹1 bhi bhej do",
+        "expr": "smug"
+      }
     ],
     "reveal": 0.8
   },
   "example": {
     "format": "expectation-reality",
     "panels": [
-      { "label": "Expectation", "text": "UPI free hai, koi kharcha nahi", "expr": "smug" },
-      { "label": "Reality", "text": "₹3,631 crore ka bill, sarkar ke naam", "expr": "shocked" }
+      {
+        "label": "Expectation",
+        "text": "UPI free hai, koi kharcha nahi",
+        "expr": "smug"
+      },
+      {
+        "label": "Reality",
+        "text": "₹3,631 crore ka bill, sarkar ke naam",
+        "expr": "shocked"
+      }
     ]
   },
   "sfx": [],

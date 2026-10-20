@@ -4,6 +4,8 @@
   tts.py episodes/<ep>                         -> voice/voice.wav  (+ voice/voice.json provenance)
   tts.py episodes/<ep> --audition a,b,c        -> voice/audition/<speaker>.wav (pick by ear)
   tts.py episodes/<ep> --provider kokoro       -> local Kokoro (offline test voice, poor Hinglish)
+  tts.py episodes/<ep> --probe                 -> .cache/probe.wav: real Sunny length of script.md before the
+                                                  voice stage (Roman text; for timing only, never the voiceover)
 
 Text: voice/tts.txt if present, else the spoken lines of script.md.
 Sarvam quality drops a lot on romanised Hindi: tts.txt should have Hindi words in Devanagari
@@ -113,6 +115,7 @@ def main() -> None:
     ap.add_argument("--model")
     ap.add_argument("--pace", type=float)
     ap.add_argument("--audition", help="comma list of speakers; writes voice/audition/<speaker>.wav")
+    ap.add_argument("--probe", action="store_true", help="time script.md with the real voice -> .cache/probe.wav")
     a = ap.parse_args()
 
     ep = load(a.episode)
@@ -120,6 +123,12 @@ def main() -> None:
     for k in ("provider", "speaker", "model", "pace"):
         if getattr(a, k) is not None:
             cfg[k] = getattr(a, k)
+    if a.probe:
+        dest = ep.cache / "probe.wav"
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        (sarvam if cfg["provider"] == "sarvam" else kokoro)(ep.spoken_text, cfg, dest)
+        print(f"probe: {duration(dest):.1f} s of voice")
+        return
     text, mixed = tts_text(ep)
     if cfg["provider"] == "sarvam" and not mixed:
         print("! no voice/tts.txt — sending romanised Hinglish; Sarvam quality will suffer "

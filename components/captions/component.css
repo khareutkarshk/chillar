@@ -1,6 +1,9 @@
 #captions { position: absolute; inset: 0; pointer-events: none; z-index: 50; }
 .cap-group { position: absolute; left: 60px; width: 880px; top: 1170px; height: 280px; display: flex; align-items: center; justify-content: center; }
-.cap-line { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 16px; max-width: 860px; }
+/* inline flow (not flex) so text-wrap: balance can even the lines; the last two words are one
+   unbreakable unit (.cap-nw), so a line never ends on a one-word widow */
+.cap-line { display: block; text-align: center; text-wrap: balance; max-width: 860px; font-family: var(--font-body); font-weight: 800; font-size: 76px; line-height: 1.2; word-spacing: 0; }
+.cap-nw { white-space: nowrap; }
 .cap-w {
   display: inline-block; font-family: var(--font-body); font-weight: 800; font-size: 76px; line-height: 1.12;
   font-variant-numeric: tabular-nums; padding: 0 .14em; border-radius: 12px;

@@ -5,7 +5,10 @@ window.CHCaptions = {
     (groups || []).forEach((g, i) => {
       const el = document.getElementById("cap" + i);
       if (!el) return;
-      el.innerHTML = `<div class="cap-line">${g.words.map((w) => `<span class="cap-w">${CH.esc(w.text)}</span>`).join(" ")}</div>`;
+      // no-widow: the last two words travel together; text-wrap: balance (css) evens the rest
+      const spans = g.words.map((w) => `<span class="cap-w">${CH.esc(w.text)}</span>`);
+      if (spans.length >= 3) spans.splice(-2, 2, `<span class="cap-nw">${spans.slice(-2).join(" ")}</span>`);
+      el.innerHTML = `<div class="cap-line">${spans.join(" ")}</div>`;
     });
   },
   animate(tl, groups) {

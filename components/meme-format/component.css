@@ -1,9 +1,16 @@
 .c-meme-format .zone { gap: 40px; }
-.c-meme-format .mf-panel { width: 870px; height: 400px; box-sizing: border-box; display: grid; grid-template-columns: 320px 1fr; padding: 16px; }
+/* each panel is a printed photo spanning the full content width (870 px) */
+.c-meme-format .mf-panel { width: 870px; min-height: 400px; box-sizing: border-box; display: grid; grid-template-columns: 300px 1fr; padding: 16px; }
 .c-meme-format .mf-pic { display: flex; align-items: center; justify-content: center; background: var(--field); border-radius: 4px; }
 .c-meme-format .mf-pic svg { width: 250px; height: 275px; }
-.c-meme-format .mf-copy { padding: 18px 24px 18px 36px; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
-.c-meme-format .mf-label { font-size: 76px; color: var(--ink); }
+.c-meme-format .mf-copy { padding: 18px 20px 18px 34px; display: flex; flex-direction: column; justify-content: center; gap: 14px; min-width: 0; }
+.c-meme-format .mf-label { font-size: 84px; color: var(--ink); }
 .c-meme-format .i1 .mf-label { color: var(--red); }
 .c-meme-format .fmt-two-panel.i1 .mf-label { color: var(--green-text); }
-.c-meme-format .mf-text { font-size: 52px; line-height: 1.1; }
+.c-meme-format .mf-text { font-size: 60px; line-height: 1.08; overflow-wrap: break-word; }
+/* three panels still fit the 890 px zone */
+.c-meme-format .zone.n3 { gap: 26px; }
+.c-meme-format .n3 .mf-panel { min-height: 272px; grid-template-columns: 220px 1fr; }
+.c-meme-format .n3 .mf-pic svg { width: 180px; height: 200px; }
+.c-meme-format .n3 .mf-label { font-size: 64px; }
+.c-meme-format .n3 .mf-text { font-size: 48px; }

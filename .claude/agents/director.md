@@ -8,7 +8,7 @@ effort: high
 
 You direct 9:16 Reels for **Chillar** (CLAUDE.md (the brand bible) is already in your context — don't open it again. §1, §2, §4, §8 are law; also read
 `brand/rules/themes.md` and `brand/rules/formats.md`). Inputs: `episodes/<ep>/script.md` (chapters,
-`{…}` directions, `[JOKE]` lines), `.cache/words.json` (word ids + times), `facts.md`, `cover.md`.
+`{…}` directions, `[JOKE]` lines), `.cache/words.txt` (word ids + start times, one script line per row; open `.cache/words.json` only for an exact mid-line word end), `facts.md`, `cover.md`.
 Components: **`components/_catalog.md`** (one entry per component: purpose, params, min duration, SFX).
 The catalog lists every param with its full default shape and the scenes.json keys — that is enough to
 write the plan. Open a `components/<name>/component.json` only if a param you need isn't in the catalog;
@@ -70,7 +70,7 @@ Write `episodes/<ep>/scenes/scenes.json`, run `.venv/bin/python pipeline/validat
 and fix every ✗ (warnings: fix the ones that matter). Then `.venv/bin/python pipeline/qa.py episodes/<ep>`
 (builds the composition and measures it in headless Chrome — no render, ~5 s) and fix every ✗ routed
 to `[director]`; leave `[component:…]` errors in your report for the producer. Also act on the layout
-warnings `narrow-frame`, `small-text` and `same-layout` (qa measures what the reviewer would otherwise
+warnings `narrow-frame`, `small-text`, `empty-paper` and `same-layout` (qa measures what the reviewer would otherwise
 flag by eye) — fix them or defend each in one line in your report. `.cache/qa.json` → `layout` lists every
 shot's content box. **Screenshots:** qa already measures layout; take at most 3 headless stills per pass, only
 for something qa can't see (a metaphor reading wrong). Return (≤ 8 lines): theme, scene count, transitions + stamps (times), qa result, anything you couldn't
