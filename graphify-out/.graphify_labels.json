@@ -1,6 +1,7 @@
 {
   "0": "Candidate",
   "1": "CLAUDE.md brand bible",
+  "2": "build_composition.py",
   "3": "episode.py",
   "4": "fetch_assets.py",
   "5": "12 LPA episode script.md",
@@ -68,5 +69,11 @@
   "67": "Facts — 2026-10-credit-card-myth",
   "68": "qa.py",
   "69": "2026-10-chai-vs-phone/cover.md",
-  "70": "Facts — 2026-10-chai-vs-phone"
+  "70": "Facts — 2026-10-chai-vs-phone",
+  "71": "make_reel.py",
+  "72": "director agent",
+  "73": "fact_lint.py",
+  "74": "/make-reel command",
+  "75": "validate_scenes.py",
+  "76": "align.py"
 }
