@@ -58,7 +58,7 @@ BASH_OK = [".venv/bin/python", "python3", "npx", "ffmpeg", "ffprobe", "ls", "cat
 # writes at 2x input instead of 1.25x (≈ $1.5 a reel, measured on chai-vs-phone).
 ENV = {**os.environ, "FORCE_PROMPT_CACHING_5M": "1"}
 LEAN = ["--strict-mcp-config", "--disable-slash-commands", "--settings", '{"disableAllHooks": true}',
-        "--permission-mode", "acceptEdits", "--output-format", "json", "--no-session-persistence"]
+        "--permission-mode", "acceptEdits", "--output-format", "stream-json", "--verbose", "--no-session-persistence"]
 
 
 # ------------------------------------------------------------------ claude CLI
@@ -81,6 +81,42 @@ def find_cli() -> str:
         sys.exit(f"produce: need Claude Code ≥ {'.'.join(map(str, MIN_CLI))} for {MODELS['opus']} "
                  f"(found {best or 'none'} {'.'.join(map(str, _ver(best))) if best else ''}). Run `claude update`.")
     return best
+
+
+def parse_stream(out: str) -> tuple[dict, list[dict]]:
+    """stream-json → (the final result event, every tool call with the size of what it returned). The calls show
+    where an agent's cache writes go (each tool result is written to the cache once, then re-read every turn)."""
+    res, calls, by_id = {}, [], {}
+    for line in out.splitlines():
+        try:
+            ev = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        for c in (ev.get("message") or {}).get("content") or []:
+            if not isinstance(c, dict):
+                continue
+            if c.get("type") == "tool_use":
+                i = c.get("input") or {}
+                what = i.get("file_path") or i.get("command") or i.get("pattern") or i.get("query") or ""
+                by_id[c.get("id")] = call = {"tool": c.get("name"), "what": str(what)[:160], "chars": 0}
+                calls.append(call)
+            elif c.get("type") == "tool_result" and c.get("tool_use_id") in by_id:
+                body = c.get("content")
+                by_id[c["tool_use_id"]]["chars"] = len(body if isinstance(body, str) else json.dumps(body))
+        if ev.get("type") == "result":
+            res = ev
+    return res, calls
+
+
+def tool_summary(calls: list[dict]) -> dict:
+    """{tool: [calls, result chars]} + the 3 biggest reads — enough to see a wasteful run in usage.jsonl."""
+    out: dict = {}
+    for c in calls:
+        n, k = out.get(c["tool"], [0, 0])
+        out[c["tool"]] = [n + 1, k + c["chars"]]
+    big = sorted((c for c in calls if c["tool"] in ("Read", "Bash")), key=lambda c: -c["chars"])[:3]
+    out["_biggest"] = [f"{c['what'][-60:]} ({c['chars']})" for c in big]
+    return out
 
 
 def frontmatter(agent: str) -> dict:
@@ -120,9 +156,8 @@ class Line:
             return "verdict: PASS (dry run)"
         t0 = time.time()
         r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, env=ENV)
-        try:
-            d = json.loads(r.stdout)
-        except json.JSONDecodeError:
+        d, calls = parse_stream(r.stdout)
+        if not d:
             d = {"result": (r.stdout + r.stderr)[-2000:], "is_error": True}
         u = d.get("usage", {})
         rec = {"at": dt.datetime.now().isoformat(timespec="seconds"), "stage": stage, "agent": name,
@@ -131,12 +166,14 @@ class Line:
                "effort": meta.get("effort"),
                "tokens": {k: u.get(k, 0) for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens", "output_tokens")},
                "cache_1h": (u.get("cache_creation") or {}).get("ephemeral_1h_input_tokens", 0),
+               "tools": tool_summary(calls),
                "error": d.get("subtype") if d.get("is_error") or d.get("subtype", "success") != "success" else None}
         with self.log.open("a") as f:
             f.write(json.dumps(rec) + "\n")
         n = len(list(self.out.glob(f"{stage}-*.txt"))) + 1
         self.last_out = self.out / f"{stage}-{n}-{name}.txt"
         self.last_out.write_text(d.get("result", ""))
+        self.last_out.with_suffix(".tools.json").write_text(json.dumps(calls, indent=1, ensure_ascii=False))
         flag = f"  ⚠ {rec['error']}" if rec["error"] else ""
         if rec["cache_1h"]:
             flag += f"  ⚠ {rec['cache_1h']} cache tokens written at the 1-hour rate"

@@ -17,6 +17,8 @@ never open component js/css, gallery PNGs or `validate_scenes.py` (its errors te
 **Revision rounds** (you are a fresh agent each round — no memory of earlier rounds): read the current
 `scenes/scenes.json`, the `[director]` notes in the `notes/video-review-<n>.md` you were given, and the
 errors in `.cache/qa.json`. Change only what the notes and errors ask; don't re-plan the whole video.
+Use Edit on the scenes you change — never rewrite the whole file. Theme, formats and the catalog are already
+settled in scenes.json: open `components/_catalog.md` (or a rules file) only for a component the plan doesn't use yet.
 
 ## First: pick the theme for this script
 All three looks are brand (`brand/rules/themes.md`). Choose by the script's mood and set `"theme"` at the top of scenes.json:

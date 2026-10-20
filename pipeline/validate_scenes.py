@@ -428,8 +428,9 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
         else:
             dropped.append(c)
     keep.sort(key=lambda c: c["t"])
-    for d in dropped:
-        warns.append(f"sfx '{d['sound']}' at {d['t']:.2f}s ({d['from']}) dropped — within 2 s of a higher-priority sound")
+    if dropped:      # expected thinning, one line (agents re-read this output every validate loop)
+        warns.append(f"{len(dropped)} sfx dropped (within 2 s of a higher-priority sound): "
+                     + ", ".join(f"{d['sound']}@{d['t']:.1f}" for d in sorted(dropped, key=lambda d: d["t"])))
 
     tracks = {"scene": 1, "overlay": 2, "transition": 3}
     out_scenes = [{"id": "bg", "component": "chapter-field", "start": 0, "duration": total, "track": 0,
