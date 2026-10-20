@@ -5,12 +5,12 @@
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 708 nodes · 1198 edges · 86 communities (65 shown, 21 thin omitted)
-- Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 71 edges (avg confidence: 0.78)
+- 708 nodes · 1190 edges · 86 communities (65 shown, 21 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 63 edges (avg confidence: 0.77)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `c7b31640`
+- Built from commit: `ea1045ed`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -75,12 +75,12 @@
 2. `Component catalog (generated — `pipeline/component_catalog.py`, don't edit)` - 25 edges
 3. `Line` - 24 edges
 4. `CLAUDE.md brand bible` - 23 edges
-5. `qa()` - 16 edges
-6. `12 LPA episode script.md` - 16 edges
+5. `12 LPA episode script.md` - 16 edges
+6. `qa()` - 14 edges
 7. `LicenseRefused` - 13 edges
-8. `st_edit()` - 12 edges
-9. `director agent` - 12 edges
-10. `/make-reel command` - 12 edges
+8. `director agent` - 12 edges
+9. `/make-reel command` - 12 edges
+10. `st_edit()` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Note Fields design (rupee-note colour fields)` --semantically_similar_to--> `Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists)`  [INFERRED] [semantically similar]
@@ -109,8 +109,8 @@ Cohesion: 0.06
 Nodes (69): Exception, Candidate, env(), polite_sleep(), Shared paths, env, HTTP session and politeness helpers., One downloadable asset. `verify()` must be called right before download., slug(), text_of() (+61 more)
 
 ### Community 1 - "CLAUDE.md brand bible"
-Cohesion: 0.06
-Nodes (67): director agent, @chillar.ind wordmark (x 72-492, y 1460-1500), Motivated transitions (hard cut default; whip/zoom/wipe/page budgeted), No on-screen structure labels rule, Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists), scenes/scenes.json shot plan, Show, don't caption, editor agent (+59 more)
+Cohesion: 0.05
+Nodes (74): director agent, @chillar.ind wordmark (x 72-492, y 1460-1500), Motivated transitions (hard cut default; whip/zoom/wipe/page budgeted), No on-screen structure labels rule, Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists), scenes/scenes.json shot plan, Show, don't caption, editor agent (+66 more)
 
 ### Community 2 - "memes.py"
 Cohesion: 0.13
@@ -197,8 +197,8 @@ Cohesion: 0.50
 Nodes (3): Hook {field: note10}, Payoff {field: note2000}, Turn {field: note500}
 
 ### Community 68 - "qa.py"
-Cohesion: 0.08
-Nodes (37): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+29 more)
+Cohesion: 0.10
+Nodes (30): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+22 more)
 
 ### Community 71 - "tts.py"
 Cohesion: 0.29
@@ -237,24 +237,24 @@ Cohesion: 0.38
 Nodes (9): build_brief(), edit_inputs(), main(), _note_for_role(), Path, Canonical, small file sets for scene planning, revisions and visual review., Keep only the hand-off material an agent owns; preserve full prior notes for…, Return a size-bounded brief with only the files selected by the orchestrator. (+1 more)
 
 ## Knowledge Gaps
-- **120 isolated node(s):** `name`, `private`, `description`, `node`, `doctor` (+115 more)
+- **120 isolated node(s):** `Facts library`, `Component backlog`, `First frame (frame 1 of the video)`, `Hook line (sentence 1)`, `Texture for the writers (not facts — don't put numbers from here on screen)` (+115 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **21 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `words_txt()` connect `episode.py` to `produce.py`?**
-  _High betweenness centrality (0.086) - this node is a cross-community bridge._
-- **Why does `st_edit()` connect `produce.py` to `episode.py`?**
-  _High betweenness centrality (0.083) - this node is a cross-community bridge._
 - **Why does `Candidate` connect `Candidate` to `memes.py`, `fetch_assets.py`?**
-  _High betweenness centrality (0.040) - this node is a cross-community bridge._
+  _High betweenness centrality (0.035) - this node is a cross-community bridge._
+- **Why does `CLAUDE.md brand bible` connect `CLAUDE.md brand bible` to `fetch_assets.py`?**
+  _High betweenness centrality (0.027) - this node is a cross-community bridge._
+- **Why does `template facts.md` connect `CLAUDE.md brand bible` to `12 LPA episode script.md`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Candidate` (e.g. with `LicenseRefused` and `_log()`) actually correct?**
   _`Candidate` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `name`, `private`, `description` to the rest of the system?**
+- **What connects `Facts library`, `Component backlog`, `First frame (frame 1 of the video)` to the rest of the system?**
   _120 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Candidate` be split into smaller, more focused modules?**
   _Cohesion score 0.058544303797468354 - nodes in this community are weakly interconnected._
 - **Should `CLAUDE.md brand bible` be split into smaller, more focused modules?**
-  _Cohesion score 0.056692242114237 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05030834144758196 - nodes in this community are weakly interconnected._

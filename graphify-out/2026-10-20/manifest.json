@@ -565,8 +565,8 @@
     "semantic_hash": ""
   },
   "pipeline/qa.py": {
-    "mtime": 1792492051.000397,
-    "ast_hash": "a73549ff8e7bb11151bf7bb919b1b022",
+    "mtime": 1792502896.9576602,
+    "ast_hash": "bb9312a7840d4bec34bfa6182313fed3",
     "semantic_hash": ""
   },
   "brand/facts-library.md": {
@@ -605,7 +605,7 @@
     "semantic_hash": ""
   },
   "components/_catalog.md": {
-    "mtime": 1792492580.2426932,
+    "mtime": 1792502906.8927004,
     "ast_hash": "da05f95cd0a3fea49e12b8c298030579",
     "semantic_hash": ""
   },
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792501148.8322737,
-    "ast_hash": "ba4f8feb7f169ae40612933dccd96652",
+    "mtime": 1792502921.453766,
+    "ast_hash": "ddc001d3ee0fd021677ccc23456e4201",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -810,8 +810,8 @@
     "semantic_hash": ""
   },
   "episodes/2026-10-credit-enquiry/cover.md": {
-    "mtime": 1792498174.5218654,
-    "ast_hash": "75dce5bb5d0dd86a159904499240d7b6",
+    "mtime": 1792502528.0558643,
+    "ast_hash": "484074f8d1d6af7d066aad4fefce0d31",
     "semantic_hash": ""
   },
   "episodes/2026-10-credit-enquiry/facts.md": {

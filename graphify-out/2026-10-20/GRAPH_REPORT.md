@@ -1,11 +1,11 @@
 # Graph Report - chillar  (2026-10-20)
 
 ## Corpus Check
-- 164 files · ~97,771 words
+- 164 files · ~97,869 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 708 nodes · 1197 edges · 86 communities (65 shown, 21 thin omitted)
+- 708 nodes · 1198 edges · 86 communities (65 shown, 21 thin omitted)
 - Extraction: 94% EXTRACTED · 6% INFERRED · 0% AMBIGUOUS · INFERRED: 71 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
@@ -245,7 +245,7 @@ Nodes (9): build_brief(), edit_inputs(), main(), _note_for_role(), Path, Canonic
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `words_txt()` connect `episode.py` to `produce.py`?**
-  _High betweenness centrality (0.085) - this node is a cross-community bridge._
+  _High betweenness centrality (0.086) - this node is a cross-community bridge._
 - **Why does `st_edit()` connect `produce.py` to `episode.py`?**
   _High betweenness centrality (0.083) - this node is a cross-community bridge._
 - **Why does `Candidate` connect `Candidate` to `memes.py`, `fetch_assets.py`?**
