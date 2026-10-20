@@ -347,29 +347,45 @@ def length_miss(L: Line, ep: Path, a) -> str:
 
 def lint_gate(L: Line, ep: Path) -> None:
     """Mechanical misses (length, framing of example facts, uncited numbers, laugh count, recently used memes) go back
-    to the writer once, before an Opus review is spent finding them: 5 of 6 first reviews failed on exactly these."""
+    to the writer once, before an Opus review is spent finding them: 5 of 6 first reviews failed on exactly these.
+    Recheck after the repair so a still-invalid draft never reaches the paid reviewer."""
     if L.dry:
         return
-    r = subprocess.run([PY, "pipeline/fact_lint.py", str(ep), "--json"], cwd=ROOT, capture_output=True, text=True)
-    try:
-        j = json.loads(r.stdout)
-    except json.JSONDecodeError:
+    def mechanical_misses() -> list[str] | None:
+        r = subprocess.run([PY, "pipeline/fact_lint.py", str(ep), "--json"], cwd=ROOT, capture_output=True, text=True)
+        try:
+            j = json.loads(r.stdout)
+        except json.JSONDecodeError:
+            return None
+        miss = [p for p in j.get("problems", []) if not re.match(r"F\d+:", p)]  # facts.md rows aren't the writer's
+        miss += [w for w in j.get("warnings", []) if "already used in" in w]     # a meme last week's reel used
+        miss += [s for s in j.get("script", [])[1:] if re.search(r"outside|first laugh|minimum|absolute|support an", s)]
+        return miss
+
+    miss = mechanical_misses()
+    if miss is None:
         return
-    miss = [p for p in j.get("problems", []) if not re.match(r"F\d+:", p)]       # facts.md rows aren't the writer's
-    miss += [w for w in j.get("warnings", []) if "already used in" in w]          # a meme last week's reel used
-    miss += [s for s in j.get("script", [])[1:] if re.search(r"outside|first laugh|minimum|absolute|support an", s)]
     if not miss:
         return
     print(f"  lint gate: {len(miss)} mechanical miss(es) → writer, before the review")
     L.scoped_agent("scriptwriter", ep, f"Before review: fix only these fact_lint misses in {ep.relative_to(ROOT)}/script.md, "
                    "keep every joke that isn't involved, re-run fact_lint until they're gone. Misses: " + " | ".join(miss[:10]),
                    "script", "revision", effort=REVISE_EFFORT)
+    remaining = mechanical_misses()
+    if remaining:
+        stop(ep, "mechanical script lint still fails after one targeted repair",
+             "Remaining misses: " + " | ".join(remaining[:10]) +
+             "\nFix these in script.md, then resume with --from script. The script reviewer was skipped.")
 
 
 def st_script(L: Line, ep: Path, a) -> None:
     e = ep.relative_to(ROOT)
     start = len(list((ep / "notes").glob("script-review-*.md"))) + 1
     fix = ""
+    if start > 1 and verdict(ep / "notes" / f"script-review-{start - 1}.md") == "PASS":
+        fix = length_miss(L, ep, a)              # resumed after a length stop: the writer gets the length fix, not the notes
+        if not fix:
+            return
     last = MAX_ROUNDS + a.extra_rounds           # rounds past the cap only when the creator grants them
     for n in range(start, last + 1):
         if n == 1:
@@ -383,8 +399,9 @@ def st_script(L: Line, ep: Path, a) -> None:
             L.scoped_agent("scriptwriter", ep, f"Revise {e}/script.md using only actionable items in "
                            f"{e}/notes/script-review-{n - 1}.md. Preserve unmentioned lines.", "script", "revision",
                            note=ep / "notes" / f"script-review-{n - 1}.md", effort=REVISE_EFFORT)
-        if not fix:
-            lint_gate(L, ep)
+        # Re-run mechanical checks after every write, including measured length fixes.
+        # Otherwise a length-only rewrite can regress facts or written-length bounds before review.
+        lint_gate(L, ep)
         prior = ep / "notes" / f"script-review-{n - 1}.md" if n > 1 else None
         L.scoped_agent("script-reviewer", ep, f"Review {e}/script.md, round {n}." +
                        (" This is a length-only fix: check changed lines and preserve the rest." if fix else "") +
@@ -485,7 +502,10 @@ def st_edit(L: Line, ep: Path, a) -> None:
     last = MAX_ROUNDS + a.extra_rounds
     for n in range(start, last + 1):
         prev =ep / "notes" / f"video-review-{n - 1}.md"
-        if n == 1:
+        sp = ep / "scenes" / "scenes.json"
+        if n == 1 and sp.exists() and wj.exists() and sp.stat().st_mtime > wj.stat().st_mtime:
+            print("  scenes.json already planned for this voice — keeping it (delete it to re-plan)")
+        elif n == 1:
             director(L, ep, f"Plan {e}/scenes/scenes.json from script.md + .cache/words.txt; validate + qa clean.", "edit")
             L.scoped_agent("editor", ep, f"Tighten {e}/scenes/scenes.json (director's first pass); validate + qa clean.", "edit", "first")
         else:
@@ -682,6 +702,11 @@ def main() -> int:
     stages = [a.only] if a.only else STAGES[STAGES.index(a.frm or ("research" if a.topic else "script")):]
     (ep / "notes").mkdir(parents=True, exist_ok=True)
     (ep / "notes" / "STOP.md").unlink(missing_ok=True)
+    toml = ep / "episode.toml"
+    if a.accept_length and not a.dry_run and toml.exists() and "length_accepted" not in toml.read_text():
+        # persist the creator's call so validate_scenes (and every later --from) stops blocking on the format range
+        toml.write_text(toml.read_text().replace("[render]\n", "[render]\nlength_accepted = true       "
+                                                 "# creator accepted a voice outside the format range\n", 1))
     global DRY
     DRY = a.dry_run
     L = Line(ep, a.dry_run)

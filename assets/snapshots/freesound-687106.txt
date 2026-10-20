@@ -1,0 +1,12 @@
+# license snapshot 2026-10-20T12:51:45+00:00
+# https://freesound.org/people/aphom000/sounds/687106/
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+Freesound API response at download time:
+{
+  "id": 687106,
+  "url": "https://freesound.org/people/aphom000/sounds/687106/",
+  "name": "Mouse 1 Button Long Click",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "username": "aphom000"
+}

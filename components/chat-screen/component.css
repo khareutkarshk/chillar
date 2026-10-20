@@ -5,7 +5,7 @@
   background: color-mix(in srgb, var(--field) 38%, var(--paper)); }
 .c-chat-screen .cs-back path { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
 .c-chat-screen .cs-ava { width: 60px; height: 60px; border-radius: 50%; flex: none; display: flex; align-items: center; justify-content: center;
-  background: var(--field); color: var(--on-field); font-size: 34px; line-height: 1; padding-top: 4px; box-sizing: border-box; }
+  background: var(--field); color: var(--on-field); font-size: 36px; line-height: 1; padding-top: 4px; box-sizing: border-box; }
 .c-chat-screen .cs-name { font-size: 42px; line-height: 1.1; }
 .c-chat-screen .cs-pin { display: flex; align-items: center; gap: 16px; padding: 12px 40px; background: color-mix(in srgb, var(--field) 18%, var(--paper)); }
 .c-chat-screen .cs-pin.top { border-radius: 44px 44px 0 0; padding-top: 24px; }
@@ -14,10 +14,10 @@
 .c-chat-screen .cs-list { display: flex; flex-direction: column; gap: 14px; padding: 24px 30px 0; }
 .c-chat-screen .cs-row { position: relative; display: flex; }
 .c-chat-screen .cs-row.me { justify-content: flex-end; }
-.c-chat-screen .cs-bub { position: relative; max-width: 82%; box-sizing: border-box; padding: 13px 118px 11px 24px; font-size: 42px; line-height: 1.16; border-radius: 28px; }
+.c-chat-screen .cs-bub { position: relative; max-width: 82%; box-sizing: border-box; padding: 13px 190px 11px 24px; font-size: 42px; line-height: 1.16; border-radius: 28px; }
 .c-chat-screen .them .cs-bub { background: color-mix(in srgb, var(--field) 42%, var(--paper)); border-bottom-left-radius: 8px; }
 .c-chat-screen .me .cs-bub { background: color-mix(in srgb, var(--haldi) 42%, var(--paper)); border-bottom-right-radius: 8px; }
-.c-chat-screen .cs-time { position: absolute; right: 22px; bottom: 13px; font-family: var(--font-print); font-weight: 600; font-size: 27px; line-height: 1;
+.c-chat-screen .cs-time { position: absolute; right: 22px; bottom: 13px; font-family: var(--font-print); font-weight: 600; font-size: 36px; line-height: 1;
   color: var(--pencil); white-space: nowrap; }
 .c-chat-screen .notime .cs-bub { padding-right: 24px; }
 .c-chat-screen .cs-dots { position: absolute; left: 0; top: 0; display: flex; gap: 10px; padding: 26px 28px; border-radius: 30px; border-bottom-left-radius: 8px;

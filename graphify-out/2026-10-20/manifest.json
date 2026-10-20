@@ -415,8 +415,8 @@
     "semantic_hash": ""
   },
   "pipeline/validate_scenes.py": {
-    "mtime": 1792491923.7014391,
-    "ast_hash": "7a34b7d70f72f7690b324dd6683ac0b4",
+    "mtime": 1792501085.762727,
+    "ast_hash": "02ee1b86df3489e2498d83d5af840fb9",
     "semantic_hash": ""
   },
   "pyproject.toml": {
@@ -540,8 +540,8 @@
     "semantic_hash": ""
   },
   "brand/sources/index.json": {
-    "mtime": 1792482588.9965682,
-    "ast_hash": "aea736f111d3237f2d5fbb70467e8943",
+    "mtime": 1792497909.1243515,
+    "ast_hash": "ede769d51e44d6e56ebe9d02426dade2",
     "semantic_hash": ""
   },
   "pipeline/component_catalog.py": {
@@ -570,8 +570,8 @@
     "semantic_hash": ""
   },
   "brand/facts-library.md": {
-    "mtime": 1792483596.5468695,
-    "ast_hash": "eed475568fbbba371b1a795f05485db8",
+    "mtime": 1792498023.2762976,
+    "ast_hash": "4223cecd9de26d573fc068d0608cde03",
     "semantic_hash": ""
   },
   "brand/rules/formats.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792495261.7835975,
-    "ast_hash": "972b84c8581afd15d572bfd6644d4070",
+    "mtime": 1792501148.8322737,
+    "ast_hash": "ba4f8feb7f169ae40612933dccd96652",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -790,8 +790,8 @@
     "semantic_hash": ""
   },
   "components/_backlog.md": {
-    "mtime": 1792492784.0076337,
-    "ast_hash": "8ed533a87491d58c8636414badb68980",
+    "mtime": 1792501927.3055613,
+    "ast_hash": "b7bcad73dcc6eb422da8a148f84ff7a3",
     "semantic_hash": ""
   },
   "pipeline/agent_context.py": {
@@ -802,6 +802,31 @@
   "brand/shot-patterns.json": {
     "mtime": 1792494893.198464,
     "ast_hash": "80e662f353c019020ef2f2aa2ca2ca39",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-credit-enquiry/scenes/scenes.json": {
+    "mtime": 1792501678.8299243,
+    "ast_hash": "a5bb850d28aab26f65be788451e5f31c",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-credit-enquiry/cover.md": {
+    "mtime": 1792498174.5218654,
+    "ast_hash": "75dce5bb5d0dd86a159904499240d7b6",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-credit-enquiry/facts.md": {
+    "mtime": 1792498443.1558106,
+    "ast_hash": "447000945d9b442f4d1040fcd4cb239b",
+    "semantic_hash": ""
+  },
+  "episodes/2026-10-credit-enquiry/script.md": {
+    "mtime": 1792499992.5306091,
+    "ast_hash": "4576412a484d0b06325ff20a0c22c00b",
+    "semantic_hash": ""
+  },
+  "brand/sfx/click.wav": {
+    "mtime": 1792500706.2530708,
+    "ast_hash": "990ea485b699630b77a5fce1213ab346",
     "semantic_hash": ""
   }
 }

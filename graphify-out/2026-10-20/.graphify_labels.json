@@ -77,15 +77,12 @@
   "75": "2026-10-no-cost-emi/cover.md",
   "76": "2026-10-sale-fine-print/script.md",
   "77": "2026-10-sale-fine-print/cover.md",
-  "78": "make_reel.py",
+  "78": "voice_check.py",
   "79": "glyph-character/component.js",
   "80": "chat-screen/component.js",
   "81": "_backlog.md",
-  "82": "fact_lint.py",
-  "83": "/make-reel command",
-  "84": "director agent",
-  "85": "audio_clean.py",
-  "86": "build_brief",
-  "87": "validate_scenes.py",
-  "88": "/package command"
+  "82": "2026-10-credit-enquiry/script.md",
+  "83": "Facts — 2026-10-credit-enquiry (\"Credit score check karne se girta hai\": soft vs hard enquiry; 4 festive card applications)",
+  "84": "2026-10-credit-enquiry/cover.md",
+  "86": "build_brief"
 }

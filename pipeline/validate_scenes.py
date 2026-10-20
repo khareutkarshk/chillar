@@ -343,8 +343,8 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
 
     # ---------------- duration + word count for the format
     lo, hi = FMT["seconds"]
-    if not lo <= total <= hi:
-        soft.append(f"duration {total:.1f}s outside {lo}–{hi}s for the {fmt_key}s format")
+    if not lo <= total <= hi:     # creator accepted the length (produce.py --accept-length) → a warning, not a block
+        (warns if ep.config.get("render", {}).get("length_accepted") else soft).append(f"duration {total:.1f}s outside {lo}–{hi}s for the {fmt_key}s format")
     lo_w, hi_w = FMT["words"]
     if not lo_w <= len(words) <= hi_w:
         warns.append(f"{len(words)} spoken words — the {fmt_key}s format reads best at {lo_w}–{hi_w}")

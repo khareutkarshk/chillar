@@ -415,6 +415,7 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
             small = sorted({round(x["font"]) for x in c["texts"] if x["op"] >= 0.5 and x["font"] < SMALL_FONT})
             txt = [x["box"] for x in c["texts"] if x["op"] >= 0.5]
             pb = [p["box"] for p in c["painted"] if p["op"] >= 0.5 and p["kind"] != "svg" and "marker" not in p["cls"]
+                  and not (c["comp"] == "glyph-character" and "gc-bubble" in p["cls"])
                   and any(centre_in(b, p["box"]) for b in txt)]
             paper_w = (max(b[2] for b in pb) - min(b[0] for b in pb)) if pb else 0   # span: side-by-side papers count together
             shots[c["id"]] = {"t": t, "start": sc["start"], "box": u, "comp": c["comp"], "small": small, "paper_w": paper_w,

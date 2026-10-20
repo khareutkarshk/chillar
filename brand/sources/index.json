@@ -98,5 +98,15 @@
   "file": "rbi-zero-pct-2013-pdf.pdf",
   "fetched": "2026-10-20",
   "bytes": 150291
+ },
+ "https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=13188&Mode=0": {
+  "file": "rbi-cic-13188.html",
+  "fetched": "2026-10-20",
+  "bytes": 115872
+ },
+ "https://www.fidcindia.org.in/wp-content/uploads/2025/01/RBI-CICs-MASTER-DIRECTIONS-06-01-25.pdf": {
+  "file": "rbi-cic-master-jan25.pdf",
+  "fetched": "2026-10-20",
+  "bytes": 1226412
  }
 }

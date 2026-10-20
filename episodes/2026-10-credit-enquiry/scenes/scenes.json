@@ -1,0 +1,766 @@
+{
+  "theme": "pastel",
+  "scenes": [
+    {
+      "id": "hook",
+      "component": "hook-card",
+      "at": 0,
+      "fact": "F9",
+      "params": {
+        "question": "Score *dekhne* se girta hai?",
+        "stakes": [
+          {
+            "label": "Score check",
+            "amount": "roz"
+          },
+          {
+            "label": "Card apply",
+            "amount": "?"
+          }
+        ],
+        "circle": true,
+        "mascot": "side-eye",
+        "size": 112,
+        "wide": true,
+        "dy": 60
+      }
+    },
+    {
+      "id": "views-log",
+      "component": "checklist",
+      "at": "w9",
+      "params": {
+        "title": "Aaj kya dekha",
+        "items": [
+          {
+            "text": "Crush ki story",
+            "ok": true
+          },
+          {
+            "text": "Credit score",
+            "ok": true
+          },
+          {
+            "text": "Credit score (phir se)",
+            "ok": true
+          }
+        ],
+        "stagger": 0.3
+      }
+    },
+    {
+      "id": "views-sideeye",
+      "component": "mascot-reaction",
+      "at": "w13",
+      "until": "w16",
+      "params": {
+        "expr": "side-eye",
+        "anim": "blink",
+        "x": 780,
+        "y": 1110,
+        "size": 280
+      }
+    },
+    {
+      "id": "short-nahi",
+      "component": "marker-highlight",
+      "at": "w16",
+      "params": {
+        "text": "Short answer: *nahi*",
+        "size": 150,
+        "markerAt": 0.7
+      }
+    },
+    {
+      "id": "four-slips",
+      "component": "receipt-list",
+      "at": "w21",
+      "fact": "F9",
+      "params": {
+        "title": "DIWALI WEEK",
+        "meta": "MAAN LO · CARD APPLICATIONS",
+        "items": [
+          {
+            "label": "Kapde wali site",
+            "amount": "APPLIED"
+          },
+          {
+            "label": "Phone wali site",
+            "amount": "APPLIED"
+          },
+          {
+            "label": "Khana wali app",
+            "amount": "APPLIED"
+          },
+          {
+            "label": "Ticket wali site",
+            "amount": "APPLIED"
+          }
+        ],
+        "total": {
+          "label": "APPLICATIONS",
+          "amount": "4",
+          "tone": "red"
+        },
+        "step": 0.3,
+        "totalAt": 1.5,
+        "width": 860
+      }
+    },
+    {
+      "id": "mausi-chat",
+      "component": "chat-screen",
+      "at": "w31",
+      "params": {
+        "name": "Mausi",
+        "messages": [
+          {
+            "from": "them",
+            "text": "Beta, score baar baar mat dekh"
+          },
+          {
+            "from": "them",
+            "text": "*Nazar* lagti hai"
+          }
+        ],
+        "highlight": 1,
+        "stagger": 0.9,
+        "width": 880
+      }
+    },
+    {
+      "id": "nazar-sideeye",
+      "component": "mascot-reaction",
+      "at": "w42",
+      "until": "w47-0.1",
+      "params": {
+        "expr": "side-eye",
+        "anim": "blink",
+        "x": 800,
+        "y": 1120,
+        "size": 260
+      }
+    },
+    {
+      "id": "score-range",
+      "component": "odometer-number",
+      "at": "w47-0.1",
+      "fact": "F2",
+      "params": {
+        "value": 900,
+        "from": 300,
+        "prefix": "",
+        "label": "Credit score",
+        "sub": "300 se 900 tak",
+        "rollStart": 0.1,
+        "rollDuration": 1.0
+      }
+    },
+    {
+      "id": "report-file",
+      "component": "statement",
+      "at": "w53-0.1",
+      "fact": "F1",
+      "params": {
+        "title": "Score = *number*",
+        "body": [
+          "Report = peeche ki file:",
+          "cards, loans, enquiries"
+        ],
+        "paper": true,
+        "size": 150
+      }
+    },
+    {
+      "id": "kal-raat",
+      "component": "receipt-list",
+      "at": "w59",
+      "cut": "whip",
+      "fact": "F10",
+      "params": {
+        "title": "SCORE CHECK LOG",
+        "meta": "KAL RAAT",
+        "items": [
+          {
+            "label": "Check 1",
+            "amount": "WAHI"
+          },
+          {
+            "label": "Check 2",
+            "amount": "WAHI"
+          },
+          {
+            "label": "Check 3",
+            "amount": "WAHI"
+          }
+        ],
+        "total": {
+          "label": "SCORE MEIN FARAK",
+          "amount": "KUCH NAHI",
+          "tone": "ink"
+        },
+        "step": 0.35,
+        "totalAt": 2.0,
+        "width": 820
+      }
+    },
+    {
+      "id": "same-score-tired",
+      "component": "mascot-reaction",
+      "at": "w65",
+      "until": "w69",
+      "params": {
+        "expr": "neutral-tired",
+        "anim": "blink",
+        "x": 800,
+        "y": 1120,
+        "size": 260
+      }
+    },
+    {
+      "id": "neend",
+      "component": "glyph-character",
+      "at": "w69",
+      "params": {
+        "glyph": "Zzz",
+        "costume": "none",
+        "eyes": "deadpan",
+        "bubble": "Main ja raha.",
+        "bubbleSide": "right",
+        "size": 500,
+        "maxWidth": 660,
+        "x": 420,
+        "y": 660
+      }
+    },
+    {
+      "id": "soft-rule",
+      "component": "statement",
+      "at": "w74",
+      "fact": "F4",
+      "params": {
+        "title": "RBI ki *category*",
+        "body": "\"soft enquiry — score unaffected\"",
+        "paper": true,
+        "size": 150,
+        "dy": -60
+      }
+    },
+    {
+      "id": "soft-smug",
+      "component": "mascot-reaction",
+      "at": "w77",
+      "until": "w84",
+      "params": {
+        "expr": "smug",
+        "anim": "blink",
+        "x": 790,
+        "y": 1110,
+        "size": 280
+      }
+    },
+    {
+      "id": "stamp-unaffected",
+      "component": "stamp",
+      "at": "w84",
+      "until": "w86",
+      "fact": "F4",
+      "params": {
+        "text": "Score unaffected",
+        "x": 480,
+        "y": 1040,
+        "rotate": -6,
+        "size": 80
+      }
+    },
+    {
+      "id": "popup",
+      "component": "marker-highlight",
+      "at": "w86",
+      "fact": "F9",
+      "params": {
+        "text": "Card lo, *voucher pao*",
+        "sub": "Apply now  ·  Baad mein",
+        "paper": true,
+        "size": 120,
+        "markerAt": 1.4
+      }
+    },
+    {
+      "id": "yes-x4",
+      "component": "checklist",
+      "at": "w94",
+      "fact": "F9",
+      "params": {
+        "title": "Chaaron pe",
+        "items": [
+          {
+            "text": "Kapde site: yes",
+            "ok": true
+          },
+          {
+            "text": "Phone site: yes",
+            "ok": true
+          },
+          {
+            "text": "Khana app: yes",
+            "ok": true
+          },
+          {
+            "text": "Ticket site: yes",
+            "ok": true
+          }
+        ],
+        "stagger": 0.22
+      },
+      "sfx": [
+        {
+          "sound": "click",
+          "at": 1.25
+        }
+      ]
+    },
+    {
+      "id": "otp-excited",
+      "component": "glyph-character",
+      "at": "w100",
+      "params": {
+        "glyph": "OTP",
+        "costume": "none",
+        "eyes": "deadpan",
+        "bubble": "Aa gaya! Aa gaya!",
+        "bubbleSide": "right",
+        "size": 500,
+        "maxWidth": 660,
+        "x": 420,
+        "y": 660
+      }
+    },
+    {
+      "id": "crush-hey",
+      "component": "chat-screen",
+      "at": "w104-0.2",
+      "params": {
+        "name": "Crush",
+        "pinned": "Card application = yeh",
+        "messages": [
+          {
+            "from": "me",
+            "text": "hey",
+            "time": "11:58 PM"
+          }
+        ],
+        "highlight": 0,
+        "stagger": 0.5,
+        "width": 880
+      }
+    },
+    {
+      "id": "lender-opens",
+      "component": "odometer-number",
+      "at": "w112",
+      "fact": "F10",
+      "params": {
+        "value": 1,
+        "from": 0,
+        "prefix": "+",
+        "label": "Hard enquiry",
+        "sub": "Lender ne report kholi",
+        "tone": "red",
+        "rollStart": 0.2,
+        "rollDuration": 0.8
+      }
+    },
+    {
+      "id": "voucher-vs-enquiry",
+      "component": "split-compare",
+      "at": "w121",
+      "fact": "F9",
+      "params": {
+        "left": {
+          "title": "Laga",
+          "text": "Vouchers collect"
+        },
+        "right": {
+          "title": "Asal mein",
+          "text": "Enquiries collect"
+        },
+        "strikeAt": 1.6,
+        "revealAt": 1.75
+      }
+    },
+    {
+      "id": "facepalm",
+      "component": "mascot-reaction",
+      "at": "w128",
+      "until": "w132",
+      "params": {
+        "expr": "facepalm",
+        "anim": "blink",
+        "x": 800,
+        "y": 1120,
+        "size": 260
+      }
+    },
+    {
+      "id": "sms-alerts",
+      "component": "chat-screen",
+      "at": "w132",
+      "fact": "F3",
+      "params": {
+        "name": "Bureau alerts",
+        "messages": [
+          {
+            "from": "them",
+            "text": "Aapki report dekhi gayi"
+          },
+          {
+            "from": "them",
+            "text": "Aapki report dekhi gayi"
+          },
+          {
+            "from": "them",
+            "text": "Aapki report dekhi gayi"
+          },
+          {
+            "from": "them",
+            "text": "Aapki report dekhi gayi"
+          }
+        ],
+        "stagger": 0.3,
+        "times": true,
+        "width": 880
+      }
+    },
+    {
+      "id": "ignore-meme",
+      "component": "meme",
+      "at": "w140",
+      "params": {
+        "meme": "he tryna ignore it",
+        "kind": "image",
+        "pick": 1,
+        "labels": [
+          {
+            "text": "Kurta, add to cart",
+            "x": 50,
+            "y": 86
+          }
+        ]
+      }
+    },
+    {
+      "id": "fourth-sees",
+      "component": "receipt-list",
+      "at": "w146",
+      "cut": "wipe",
+      "fact": "F9",
+      "params": {
+        "title": "CREDIT REPORT",
+        "meta": "LENDER 4 KO DIKHTA HAI",
+        "items": [
+          {
+            "label": "Enquiry · Lender 1",
+            "amount": "HARD"
+          },
+          {
+            "label": "Enquiry · Lender 2",
+            "amount": "HARD"
+          },
+          {
+            "label": "Enquiry · Lender 3",
+            "amount": "HARD"
+          }
+        ],
+        "total": {
+          "label": "IS HAFTE",
+          "amount": "4",
+          "tone": "red"
+        },
+        "printed": true,
+        "circleTotal": true,
+        "width": 860
+      }
+    },
+    {
+      "id": "stamp-four",
+      "component": "stamp",
+      "at": "w151",
+      "until": "w155",
+      "fact": "F9",
+      "params": {
+        "text": "4 enquiries",
+        "x": 480,
+        "y": 1030,
+        "rotate": -7,
+        "size": 100
+      }
+    },
+    {
+      "id": "crush-sees",
+      "component": "chat-screen",
+      "at": "w155",
+      "fact": "F9",
+      "params": {
+        "name": "Crush no. 4",
+        "messages": [
+          {
+            "from": "me",
+            "text": "hey",
+            "time": "11:58 PM"
+          },
+          {
+            "from": "them",
+            "text": "Teen aur ko bhi *hey* bheja na?"
+          }
+        ],
+        "highlight": 1,
+        "stagger": 0.9,
+        "width": 880
+      }
+    },
+    {
+      "id": "beggars-meme",
+      "component": "mascot-reaction",
+      "at": "w167",
+      "until": "w172",
+      "params": {
+        "expr": "shocked",
+        "anim": "blink",
+        "x": 790,
+        "y": 1110,
+        "size": 300
+      }
+    },
+    {
+      "id": "screenshot",
+      "component": "checklist",
+      "at": "w172",
+      "fact": "F5",
+      "params": {
+        "title": "Rejection kaun yaad rakhta?",
+        "items": [
+          {
+            "text": "Dost: screenshot",
+            "ok": true
+          },
+          {
+            "text": "Bureau: koi record nahi",
+            "ok": false
+          }
+        ],
+        "stagger": 0.9,
+        "grow": true
+      }
+    },
+    {
+      "id": "hey-shows",
+      "component": "receipt-list",
+      "at": "w178",
+      "fact": "F3",
+      "params": {
+        "title": "CREDIT REPORT",
+        "meta": "LENDER 4",
+        "items": [
+          {
+            "label": "Rejection",
+            "amount": "—"
+          },
+          {
+            "label": "Enquiry ('hey')",
+            "amount": "DIKHTI"
+          }
+        ],
+        "total": {
+          "label": "ALERT",
+          "amount": "SMS",
+          "tone": "red"
+        },
+        "printed": true,
+        "width": 860
+      }
+    },
+    {
+      "id": "check-freely",
+      "component": "statement",
+      "at": "w184",
+      "fact": "F4",
+      "params": {
+        "title": "Jitna *marzi* dekho",
+        "body": "Khud ka check = soft. Score unaffected.",
+        "paper": true,
+        "size": 150,
+        "dy": -60
+      }
+    },
+    {
+      "id": "screen-time-cry",
+      "component": "mascot-reaction",
+      "at": "w192",
+      "until": "w198",
+      "params": {
+        "expr": "crying",
+        "anim": "blink",
+        "x": 790,
+        "y": 1110,
+        "size": 280,
+        "bubbleSide": "left"
+      }
+    },
+    {
+      "id": "hey-counts",
+      "component": "glyph-character",
+      "at": "w198",
+      "fact": "F10",
+      "params": {
+        "glyph": "hey",
+        "costume": "none",
+        "eyes": "side-eye",
+        "tone": "red",
+        "bubble": "Main count hota hoon.",
+        "bubbleSide": "right",
+        "size": 500,
+        "maxWidth": 660,
+        "x": 420,
+        "y": 660
+      }
+    },
+    {
+      "id": "free-report",
+      "component": "receipt-list",
+      "at": "w207",
+      "cut": "zoom",
+      "fact": "F1",
+      "params": {
+        "title": "FREE CREDIT REPORT",
+        "meta": "HAR BUREAU SE",
+        "items": [
+          {
+            "label": "Score",
+            "amount": "✓"
+          },
+          {
+            "label": "Cards · loans",
+            "amount": "✓"
+          },
+          {
+            "label": "Enquiries",
+            "amount": "✓"
+          }
+        ],
+        "total": {
+          "label": "KITNI BAAR",
+          "amount": "SAAL MEIN 1",
+          "tone": "ink"
+        },
+        "step": 0.3,
+        "totalAt": 1.9,
+        "width": 860
+      }
+    },
+    {
+      "id": "stamp-free",
+      "component": "stamp",
+      "at": "w213-0.1",
+      "until": "w219-0.2",
+      "fact": "F1",
+      "params": {
+        "text": "1 free report",
+        "x": 480,
+        "y": 1045,
+        "rotate": -6,
+        "size": 96
+      }
+    },
+    {
+      "id": "mausi-callback",
+      "component": "chat-screen",
+      "at": "w219-0.2",
+      "params": {
+        "name": "Mausi",
+        "messages": [
+          {
+            "from": "them",
+            "text": "Beta, nazar lagti hai"
+          },
+          {
+            "from": "me",
+            "text": "Aadhi *sahi* ho, Mausi"
+          }
+        ],
+        "highlight": 1,
+        "stagger": 0.8,
+        "width": 880
+      }
+    },
+    {
+      "id": "nazar-math",
+      "component": "split-compare",
+      "at": "w223",
+      "fact": "F10",
+      "params": {
+        "left": {
+          "title": "Mausi",
+          "text": "Dekhne se nazar"
+        },
+        "right": {
+          "title": "Math",
+          "text": "Apply se nazar"
+        },
+        "strikeAt": 1.0,
+        "revealAt": 2.2
+      }
+    },
+    {
+      "id": "final-sideeye",
+      "component": "mascot-reaction",
+      "at": "w229",
+      "until": "w232.end",
+      "params": {
+        "expr": "smug",
+        "anim": "blink",
+        "x": 800,
+        "y": 1120,
+        "size": 260
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "punch",
+      "at": "w12"
+    },
+    {
+      "type": "punch",
+      "at": "w42"
+    },
+    {
+      "type": "punch",
+      "at": "w72"
+    },
+    {
+      "type": "punch",
+      "at": "w101"
+    },
+    {
+      "type": "punch",
+      "at": "w127"
+    },
+    {
+      "type": "punch",
+      "at": "w156"
+    },
+    {
+      "type": "punch",
+      "at": "w173"
+    },
+    {
+      "type": "punch",
+      "at": "w193"
+    },
+    {
+      "type": "punch",
+      "at": "w230"
+    }
+  ]
+}
