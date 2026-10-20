@@ -285,9 +285,9 @@
     "semantic_hash": "252c2616a96fdd8f2a263e0c7897af9d"
   },
   "pipeline/build_composition.py": {
-    "mtime": 1792398574.8615658,
-    "ast_hash": "1469dcdf472eb634ce963e2674fc903c",
-    "semantic_hash": "1469dcdf472eb634ce963e2674fc903c"
+    "mtime": 1792480922.890353,
+    "ast_hash": "c2aaff3ba6e35d38f17a5aa0fa5a546d",
+    "semantic_hash": ""
   },
   "pipeline/component_gallery.py": {
     "mtime": 1792406785.6927996,
@@ -340,9 +340,9 @@
     "semantic_hash": "7ee184007ef8807393126b28f8072a73"
   },
   "pipeline/lib/licenses.py": {
-    "mtime": 1792347018.5451314,
-    "ast_hash": "2a81246dd8a998d82764cb3ca88779ac",
-    "semantic_hash": "2a81246dd8a998d82764cb3ca88779ac"
+    "mtime": 1792480826.3343866,
+    "ast_hash": "5817652bbc821fdfd06c442eb9a29fc6",
+    "semantic_hash": ""
   },
   "pipeline/lib/sources/__init__.py": {
     "mtime": 1792347018.5431314,
@@ -400,9 +400,9 @@
     "semantic_hash": "f649d02e270476515b2b166425e3fd09"
   },
   "pipeline/mix.py": {
-    "mtime": 1792404281.8586216,
-    "ast_hash": "19400f6612a212814ebd0b1eab40f88b",
-    "semantic_hash": "19400f6612a212814ebd0b1eab40f88b"
+    "mtime": 1792480922.8913531,
+    "ast_hash": "5cfe6d30c6da3f1e927b9841fdbd4d14",
+    "semantic_hash": ""
   },
   "pipeline/profile_pic.py": {
     "mtime": 1792399679.712054,
@@ -415,8 +415,8 @@
     "semantic_hash": ""
   },
   "pipeline/validate_scenes.py": {
-    "mtime": 1792436562.8363538,
-    "ast_hash": "4311b29e72c6d4feec979059bba62340",
+    "mtime": 1792481914.4544845,
+    "ast_hash": "1d184bd2197562c09791746447a25aba",
     "semantic_hash": ""
   },
   "pyproject.toml": {
@@ -430,8 +430,8 @@
     "semantic_hash": "0dc2d491af9b5e44782e341239503b0e"
   },
   ".claude/agents/director.md": {
-    "mtime": 1792479461.7853887,
-    "ast_hash": "843833d2e463fb20e5a3f397a97f77e6",
+    "mtime": 1792481967.0929496,
+    "ast_hash": "a60eb016e0bd508c9a31ae08b16272bc",
     "semantic_hash": ""
   },
   ".claude/agents/editor.md": {
@@ -445,18 +445,18 @@
     "semantic_hash": ""
   },
   ".claude/agents/script-reviewer.md": {
-    "mtime": 1792438230.9360242,
-    "ast_hash": "643503583d22f6c43fbeda80ffa6e90b",
+    "mtime": 1792481967.0929496,
+    "ast_hash": "115c4146624fcd150c18d7beb2aa7724",
     "semantic_hash": ""
   },
   ".claude/agents/scriptwriter.md": {
-    "mtime": 1792438220.975715,
-    "ast_hash": "5e4d73e9aa28cfbe685762800b463563",
+    "mtime": 1792481967.0929496,
+    "ast_hash": "b21eed4292004974511480e447547621",
     "semantic_hash": ""
   },
   ".claude/agents/video-reviewer.md": {
-    "mtime": 1792445482.6331012,
-    "ast_hash": "551a1603968927d370eebf5d026312d6",
+    "mtime": 1792481371.9234693,
+    "ast_hash": "b877736bc7a87df2c7a857cfcbcb43b9",
     "semantic_hash": ""
   },
   ".claude/commands/fact-check.md": {
@@ -495,8 +495,8 @@
     "semantic_hash": "7dea7cacd6c2b066c5ec6b73278df045"
   },
   "CLAUDE.md": {
-    "mtime": 1792416748.3777056,
-    "ast_hash": "09e64f7953df188b8caa19811aa5dbc3",
+    "mtime": 1792481967.0929496,
+    "ast_hash": "1117fb7da392b0facd5f4c46ecf5b69b",
     "semantic_hash": ""
   },
   "README.md": {
@@ -605,8 +605,8 @@
     "semantic_hash": ""
   },
   "components/_catalog.md": {
-    "mtime": 1792479662.8266962,
-    "ast_hash": "c403629c99acb958bc72d5ff6648f47f",
+    "mtime": 1792481025.1230865,
+    "ast_hash": "ab5da425fe34d07123590aa6e32517cb",
     "semantic_hash": ""
   },
   "brand/rules/posting-schedule.md": {
@@ -650,8 +650,8 @@
     "semantic_hash": ""
   },
   ".claude/agents/researcher.md": {
-    "mtime": 1792416404.373414,
-    "ast_hash": "159764aaabac29360e5a620740f63635",
+    "mtime": 1792481967.0919495,
+    "ast_hash": "a59f8ba53da8ad8e10656e2f0bfc3d02",
     "semantic_hash": ""
   },
   ".claude/agents/voice.md": {
@@ -665,8 +665,8 @@
     "semantic_hash": ""
   },
   "brand/rules/comedy.md": {
-    "mtime": 1792438204.667209,
-    "ast_hash": "dd05e2552baba2fb418d335bf15206d7",
+    "mtime": 1792481979.182517,
+    "ast_hash": "813966411a9d1aeed588b53a4fe70dd6",
     "semantic_hash": ""
   },
   "episodes/2026-10-credit-card-myth/cover.md": {
@@ -702,6 +702,21 @@
   "episodes/2026-10-chai-vs-phone/script.md": {
     "mtime": 1792439459.4655654,
     "ast_hash": "81e963a2951f8c679f8af27f474aea1d",
+    "semantic_hash": ""
+  },
+  "components/meme/component.js": {
+    "mtime": 1792480892.9513361,
+    "ast_hash": "f0daa667b45771d4ffb3882cd39f470d",
+    "semantic_hash": ""
+  },
+  "components/meme/component.json": {
+    "mtime": 1792480892.9463358,
+    "ast_hash": "e462e58cbcc36431f1be949c64fd17f7",
+    "semantic_hash": ""
+  },
+  "pipeline/memes.py": {
+    "mtime": 1792481979.182517,
+    "ast_hash": "0ba53647741226bca60512858a2101da",
     "semantic_hash": ""
   }
 }

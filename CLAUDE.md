@@ -78,7 +78,7 @@ shake, thunk SFX. **30 s: 1–2 · 60 s: 2–3 · 90 s: 3. Never more than 3.**
 
 ### Mascot "Chillar"
 Healthy, round ₹1 coin (no dent, no damage), haldi yellow, thick ink outline, deadpan half-closed
-eyes, tiny stick limbs, **never fully smiles.** Chillar reactions replace memes. Files: `brand/mascot/`.
+eyes, tiny stick limbs, **never fully smiles.** Chillar reactions and real global memes carry the reaction beats. Files: `brand/mascot/`.
 Expressions: neutral-tired, shocked, side-eye, smug, crying, facepalm, thinking, counting-money.
 
 ### Tone
@@ -96,8 +96,15 @@ work spoken, meme formats). Their craft, never their material: all jokes origina
 - Education only. **Never recommend specific stocks/funds/apps, never promise returns.**
 - Outro + post caption carry "Educational only. Not investment advice." (SEBI finfluencer norms,
   ASCI influencer guidelines). Paid partnerships: on-screen "Paid partnership" label + caption tag.
-- No real brand logos or names, no app sounds, no copyrighted memes / movie stills / clips / lyrics.
-  Recreate meme **formats** with Chillar and original text; filmy-line nods only as a few-word parody.
+- No real brand logos or names, no app sounds, no song lyrics, no movie/TV clips with their audio.
+- **Real memes are allowed** (creator's call, 2026-10-20): imgflip templates/GIFs and meme sounds,
+  fetched per episode at build time by `pipeline/memes.py` (`meme` component), the Fireship way: cut to
+  one on the word after a punchline. **Images: global or Indian. Video and sound: global only.**
+  **Fresh only:** every meme and reference is from this month — facts.md `## Culture now` (researcher)
+  or `memes.py trending`; ≤ 1 old-but-everywhere classic per reel; validate blocks stale ones.
+  Meme beats are written into the script as jokes (`brand/rules/comedy.md` §7), not sprinkled on.
+  No politician memes. Our own text on them; never a meme that mocks a private person.
+  Budget: 30 s ≤ 3 · 60 s ≤ 5 · 90 s ≤ 7. Filmy-line nods stay a few-word parody.
 - Never show realistic rupee banknotes — note *colours* as fields only, never note imagery.
 - **Every fact must appear in `episodes/<ep>/facts.md` with a source URL**, and the script line
   citing it carries its id, e.g. `UPI pe MDR zero hai [F1]`. `pipeline/fact_lint.py` blocks the
@@ -121,6 +128,8 @@ override downloads. Details: `brand/rules/sound.md`.
   icons (MIT), Google Noto Emoji, Google Fonts (OFL, via `setup.sh`). Nothing else.
 - Fetch only through `pipeline/fetch_assets.py`; every file is logged in `assets/licenses.json`
   with a saved license snapshot. Refuse anything without a clear commercial-use license.
+  **One exception: memes** (§3) come only through `pipeline/memes.py`, are logged as
+  `"Meme (uncleared, creator-approved)"` with their source page, and live in the episode's `.cache/memes/`.
 - Scraping (Pixabay/Mixkit audio) is low-volume and polite; it is against Pixabay's ToS, so keep
   volume minimal.
 

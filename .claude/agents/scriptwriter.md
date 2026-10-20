@@ -39,8 +39,12 @@ it to the group chat. The facts are the spine; the jokes are how the facts get r
    Vary rhythm: long setup, short punch, flat tag. The surprise word goes **last**.
 4. **At least one act-out** (a real voice in quotes) and **one self-own** per reel.
 5. **Max one pun.** Wordplay is seasoning; three puns = AI tell (comedy.md §4).
-6. Memes only as formats/paraphrase (`{meme: <format>}`, a few parodied words, never lyrics or clips) and
-   only if it is the game's next step, not a detour.
+6. **Fresh + planned memes (comedy.md §7).** Every reference and meme must be current — take them from facts.md
+   `## Culture now` (or `memes.py trending`); one still-everywhere classic at most; anything dated is a REVISE.
+   Write the meme beats into the draft as a comedian would (reaction tag / meme-as-punchline / act-out /
+   callback) and mark each `{meme: M2}` after the line it serves. Desi template for desi moments, global for
+   internet-universal ones; video/sound memes global only; no politicians, never lyrics. 2–4 meme beats in
+   60 s is plenty — the line still has to be funny without the picture.
 
 ## Hard rules
 - Sentence 1 = the question/stakes, **no intro**, no "hey guys / toh / basically / dosto / friends".

@@ -23,6 +23,14 @@ rules apply. The prompt gives you the episode folder (already created from `_tem
    fenced block under the table, and make it a row citing the F-ids it uses.
 5. Add `## Texture for the writers (not facts — don't put numbers from here on screen)`: 4–6 lines of how
    Gen Z India actually lives this topic.
+5b. Add `## Culture now` — what Gen Z India is laughing at **this month**, so the reel never feels dated.
+   Two WebSearches: viral Indian meme templates/trends this week (desi meme pages, Instagram/X), and global
+   Gen Z meme templates/sounds this month. Then `.venv/bin/python pipeline/memes.py trending` (today's
+   imgflip new & rising) and `--kind sound`. Keep ≤ 8 rows, one per line, exactly:
+   `- M1 · image|video|sound|ref · "<exact title>" · what it means + how people use it · peaked YYYY-MM · <url>`
+   image/video/sound rows: the exact title from `memes.py search "<name>" --kind <kind> -n 3` (it must exist).
+   `ref` rows: a show, viral moment, trend or slang word to *say*, not show. Video/sound rows global only.
+   Nothing that peaked > 6 months ago unless the source shows it's everywhere this month. No politicians.
 6. New facts that will recur in other reels and are fully verified → also append them to
    `brand/facts-library.md` (same columns + `changes`: budget | notification | stable).
 7. Run `.venv/bin/python pipeline/fact_lint.py episodes/<ep>` and fix facts.md format problems (it will say

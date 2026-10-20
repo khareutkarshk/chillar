@@ -1,0 +1,8 @@
+/* the meme is a printed photo lying on the field: white border, soft contact shadow, seeded tilt */
+.c-meme .zone { gap: 34px; }
+.c-meme .mm-head { font-size: 92px; line-height: 1; letter-spacing: -.022em; color: var(--on-field); max-width: 860px; }
+.c-meme .mm-photo { padding: 18px; box-sizing: border-box; }
+.c-meme .mm-pic { position: relative; background-color: #111; background-repeat: no-repeat; background-size: cover; border-radius: 2px; }
+.c-meme .mm-label { position: absolute; transform: translate(-50%, -50%); background: var(--paper); color: var(--ink);
+  font-family: var(--font-body); font-weight: 800; font-size: 52px; line-height: 1.04; padding: 10px 18px 8px;
+  border-radius: 3px; max-width: 46%; text-align: center; box-shadow: var(--lift); /* taste-skill-ignore: paper depth */ }

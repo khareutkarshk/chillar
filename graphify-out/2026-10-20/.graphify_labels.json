@@ -1,12 +1,13 @@
 {
   "0": "Candidate",
   "1": "CLAUDE.md brand bible",
+  "2": "memes.py",
   "3": "episode.py",
   "4": "fetch_assets.py",
   "5": "12 LPA episode script.md",
   "6": "package.json",
   "7": "contact_sheet.py",
-  "8": "tts.py",
+  "8": "meme/component.js",
   "9": "2026-10-chai-vs-phone/script.md",
   "10": "setup.sh",
   "11": "mix.py",
@@ -68,5 +69,6 @@
   "67": "Facts — 2026-10-credit-card-myth",
   "68": "qa.py",
   "69": "2026-10-chai-vs-phone/cover.md",
-  "70": "Facts — 2026-10-chai-vs-phone"
+  "70": "Facts — 2026-10-chai-vs-phone",
+  "71": "tts.py"
 }

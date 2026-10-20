@@ -1,0 +1,27 @@
+{
+  "name": "meme",
+  "description": "A real global meme (imgflip template or GIF, fetched at build time by pipeline/memes.py) as a printed photo tossed onto the field, full content width, with optional paper-scrap labels on it and an optional meme sound (myinstants). Cut to it on the word after a punchline. kind image|video (video = silent GIF loop, stepped from a sprite). Pick the exact template with `memes.py search \"<q>\" --kind <kind>` and set pick. labels: [{text, x, y}] in % of the picture (centre of the scrap). Global memes only — no Indian films/TV/people.",
+  "layer": "scene",
+  "rehook": true,
+  "params": {
+    "meme": "This Is Fine",
+    "kind": "image",
+    "pick": 0,
+    "headline": "",
+    "labels": [],
+    "sound": "",
+    "soundPick": 0,
+    "soundAt": 0.0
+  },
+  "example": {
+    "meme": "Drake Hotline Bling",
+    "kind": "image",
+    "labels": [
+      {"text": "Cash mein chillar", "x": 76, "y": 24},
+      {"text": "UPI pe ₹1", "x": 76, "y": 75}
+    ],
+    "sound": "vine boom"
+  },
+  "sfx": [],
+  "minDuration": 1.5
+}

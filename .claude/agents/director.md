@@ -34,7 +34,7 @@ Say in your report which theme and why (one line). Don't mix themes inside one v
   receipt, salary slip, calendar), the number rolling, the comparison growing, Chillar's reaction.
 - **Frame 1 shows the stakes, fully drawn** (`hook-card`, or a `printed:true` receipt/passbook).
 - **A new visual every 2–3 s.** Within a chapter: hard cuts. Shots of ~1.5–2.5 s, varied (fast-fast-hold).
-- **Comedy is timing.** Cut *to* the reaction (`mascot-reaction`, `meme-format`) right after a
+- **Comedy is timing.** Cut *to* the reaction (`meme`, `mascot-reaction`, `meme-format`) right after a
   punchline lands — on the word after it, not on it. A `punch` effect on the punchline word.
 - **Chapters = rupee-note fields.** Each chapter is one flat field (brand/tokens.json `fields`);
   default sequence ₹10 brown → ₹20 lime → ₹50 blue → ₹500 stone (escalation by denomination); the
@@ -46,6 +46,20 @@ Say in your report which theme and why (one line). Don't mix themes inside one v
   split-compare twist, meme-format.
 - The `@chillar.ind` wordmark (x 72–492, y 1460–1500) is automatic; keep overlays off it.
 - Every scene showing a number carries `"fact": "F#"`.
+
+## Meme pass (after the plan, before validate)
+Go through every `[JOKE]` line and `{meme: …}` direction and ask: would a real meme hit harder than a Chillar
+reaction here? If yes, cut to a `meme` scene on the word **after** the punchline (≈ 1.5–2.5 s, then cut back).
+Pick it by text, not by looking: `.venv/bin/python pipeline/memes.py search "<template>" --kind image|video|sound`
+lists titles. Use the script's `{meme: M#}` beats first (facts.md `## Culture now` gives the exact title);
+otherwise only what's hot: `memes.py trending [--kind sound]`. validate **blocks stale memes** (not trending
+today and not in Culture now) and more than one old classic; set `meme` (the exact title), `kind`, `pick` (the index you chose), our own `labels` (x/y in % of the
+picture — imgflip box positions: two-row templates like Drake put text at x≈76, y≈24/75), an optional
+`headline` (≤ 6 words) and an optional `sound` (one meme sound, e.g. "vine boom", "bruh"). validate fetches
+them. **Images: global or Indian** (Hera Pheri, Jethalal… a desi template often lands harder for this
+audience). **Video and sound: global only.** No politician memes. Budget 30 s ≤ 3 · 60 s ≤ 5 ·
+90 s ≤ 7, never two in a row, never the same template twice. Memes count as re-hooks. Don't put a
+number on a meme unless the line saying it is cited.
 
 ## Transitions — like a real editor, never a title card
 - **Default is the hard cut** (+ field change at chapter starts). Most cuts in a good Reel are hard cuts.

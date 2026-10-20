@@ -38,13 +38,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_composition import component_meta, merged_params  # noqa: E402
 from lib.common import ROOT  # noqa: E402
 from lib.episode import load  # noqa: E402
+import memes  # noqa: E402
 
 TOK = json.loads((ROOT / "brand" / "tokens.json").read_text())
 M = TOK["motion"]
 SAFE = TOK["safeZone"]
 TR = TOK["transitions"]
 FIELDS = TOK["fieldSlots"]
-PRIORITY = {"stamp": 5, "scratch": 4, "ding": 3, "glitch": 3, "printer": 2, "coin": 2, "typing": 1, "whoosh": 0}
+PRIORITY = {"meme": 4, "stamp": 5, "scratch": 4, "ding": 3, "glitch": 3, "printer": 2, "coin": 2, "typing": 1, "whoosh": 0}
 CHAPTER_SNAP = 0.35   # a scene must start this close to a chapter's first word
 # script-structure words that must never be shown as a label/title card
 STRUCTURE = re.compile(r"^(the\s+)?(setup|set-up|set up|escalation|payoff|pay-off|hook|intro|introduction|outro|"
@@ -138,6 +139,10 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
         errors.append(f"theme '{ep.theme}' unknown — one of {sorted(TOK['themes'])}")
     soft = warns if demo else errors
 
+    # real memes: fetched now (build time), cached in .cache/memes — pipeline/memes.py
+    got, merrs = memes.ensure(ep_dir, memes.wanted(plan)) if memes.wanted(plan) else ({}, [])
+    errors.extend(merrs)
+
     scenes, overlays = [], []
     for raw in plan.get("scenes", []):
         name = raw.get("component")
@@ -160,6 +165,18 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
              "start": round(start, 3), "layer": meta.get("layer", "scene"), "fact": raw.get("fact"),
              "rehook": raw.get("rehook", meta.get("rehook", False)), "sfx_override": raw.get("sfx"),
              "raw_params": raw.get("params", {}), "cut": raw.get("cut", TR["default"])}
+        if name == "meme":
+            mp = s["params"]
+            m = got.get(memes.key(mp["kind"], mp["meme"], int(mp["pick"]))) if mp.get("meme") else None
+            if m:
+                mp["kind"] = m.get("as", mp["kind"])    # an "image" template that is really animated plays as a GIF
+                mp.update({"_file": m["path"], "_w": m["w"], "_h": m["h"],
+                           **({"_" + k: m[k] for k in ("frames", "cols", "rows", "fps")} if mp["kind"] == "video" else {})})
+            elif mp.get("meme"):
+                errors.append(f"{s['id']}: meme '{mp['meme']}' not fetched")
+            snd = got.get(memes.key("sound", mp["sound"], int(mp["soundPick"]))) if mp.get("sound") else None
+            if snd:
+                s["sfx_override"] = [{"at": float(mp["soundAt"]), "sound": "meme:" + snd["path"]}]
         unknown = set(raw.get("params", {})) - set(meta.get("params", {}))
         if unknown:
             warns.append(f"{s['id']}: params not declared by {name}: {sorted(unknown)}")
@@ -360,6 +377,40 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
         if box[3] > cb[0] + 30 and box[1] < cb[1]:
             warns.append(f"{s['id']}: overlaps the caption band (y {cb[0]}–{cb[1]})")
 
+    # ---------------- real memes: budget per format, never back to back
+    mm = [s for s in scenes if s["component"] == "meme"]
+    cap = {"30": 3, "60": 5, "90": 7}.get(fmt_key, 5)
+    if len(mm) > cap:
+        errors.append(f"{len(mm)} meme scenes — {fmt_key} s allows ≤ {cap} (CLAUDE.md §3)")
+    for a, b in zip(scenes, scenes[1:]):
+        if a["component"] == b["component"] == "meme":
+            warns.append(f"{a['id']} → {b['id']}: two memes in a row — cut back to the story between them")
+    # freshness: Gen Z has to recognise it from this week, not from 2015 (CLAUDE.md §3)
+    try:
+        classics = []
+        for s in mm:
+            p = s["params"]
+            checks = [(p.get("kind", "image"), p.get("meme"), int(p.get("pick", 0)))] if p.get("meme") else []
+            checks += [("sound", p["sound"], int(p.get("soundPick", 0)))] if p.get("sound") else []
+            for kind, q, pick in checks:
+                m = got.get(memes.key(kind, q, pick))
+                if not m:
+                    continue
+                state, why = memes.freshness(m["title"], kind, m.get("hit", {}).get("tid"), ep)
+                if state == "stale":
+                    errors.append(f"{s['id']}: {kind} meme '{m['title']}' is stale — {why}. Use `memes.py trending` "
+                                  "or facts.md '## Culture now'")
+                elif state == "classic":
+                    classics.append(f"{s['id']} ('{m['title']}', {why})")
+        if len(classics) > memes.CLASSICS_PER_REEL:
+            errors.append(f"{len(classics)} classic (old but still-everywhere) memes — ≤ {memes.CLASSICS_PER_REEL} per reel, "
+                          f"the rest must be this week's: {'; '.join(classics)}")
+    except Exception as ex:                     # offline: can't prove freshness, don't block on the network
+        warns.append(f"meme freshness not checked ({ex})")
+    tpl = [(s["params"].get("meme") or "").lower() for s in mm]
+    if len(set(tpl)) < len(tpl):
+        warns.append("the same meme template is used twice")
+
     # ---------------- SFX: component defaults (or scene override), thinned to ≥2 s apart by priority
     cand = []
     for s in allv:
@@ -371,7 +422,7 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
             if t < total:
                 cand.append({"t": round(t, 3), "sound": e["sound"], "from": s["id"]})
     keep, dropped = [], []
-    for c in sorted(cand, key=lambda c: (-PRIORITY.get(c["sound"], 0), c["t"])):
+    for c in sorted(cand, key=lambda c: (-PRIORITY.get(c["sound"].split(":")[0], 0), c["t"])):
         if all(abs(c["t"] - k["t"]) >= M["minSecondsBetweenSfx"] for k in keep):
             keep.append(c)
         else:

@@ -33,6 +33,9 @@ comedy, clarity and retention.
    refuses more than 12. Never pull full-size frames to check layout; `--full` only to read small text.
 
 ## Judge (what code can't)
+- **Memes** (`meme` scenes): does each one land on the word after its punchline, read in under a second, and
+  fit the joke? Video/sound memes must be global (Indian memes are images only); no politician memes. A meme that explains the joke or arrives late is a
+  `[director]` note; an unreadable label is `[component:meme]`.
 - **Empty by design — never a note:** the band below the captions (y > 1450, Instagram's bottom 420 px UI
   zone) and the right 140 px are *meant* to be empty field; nothing may go there. "Bottom of the frame is empty"
   is not a defect. Judge emptiness only inside the content zone above the captions (y 220–1150).

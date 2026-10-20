@@ -33,7 +33,11 @@ and seconds (numbers read in full, calibrated to the Sunny voice); use those num
    ~10 s (30 s), ~16 s (60 s), ~18 s (90 s) — use fact_lint's spoken-length estimate (≈ 3.2 words/s, Sunny).
 6. **Payoff:** delivers exactly the cover promise; ends on a line worth rewatching; callback if planted.
 7. **Speakability:** read it aloud at pace — tongue-twisters, long numbers, lines > 14 words.
-8. **Facts & safety (pass/fail):** every number cited and supported by its fact (no overstatement);
+8. **Freshness (score `fresh`):** every meme/reference/slang current (in facts.md `## Culture now` or
+   clearly this month) — one dated reference (comedy.md §7 list, or anything Gen Z stopped using) caps it at 2.
+   Are the `{meme: M#}` beats planned as jokes (reaction tag, punchline, act-out, callback), not decoration?
+   Desi vs global template right for the moment?
+9. **Facts & safety (pass/fail):** every number cited and supported by its fact (no overstatement);
    no advice, recommendations, return promises, brand names; no punching down; no copyrighted lyrics/quotes.
 
 Word count must sit in the format range (30: 70–95, 60: 140–180, 90: 215–260).
@@ -46,7 +50,7 @@ Write `episodes/<ep>/notes/script-review-<round>.md`:
 ```
 verdict: PASS | REVISE
 round: <n>
-scores: stop <n> · laughs <n> (count <k>/<min>) · specific <n> · clarity <n> · escalation <n> · payoff <n> · speak <n> · facts PASS|FAIL
+scores: stop <n> · laughs <n> (count <k>/<min>) · specific <n> · clarity <n> · escalation <n> · payoff <n> · speak <n> · fresh <n> · facts PASS|FAIL
 words: <n> (~<s> s, target <format>)
 ## Notes (most important first)
 - L<id> "<quote>": <what is wrong> → <direction, not a rewrite>

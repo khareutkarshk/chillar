@@ -52,6 +52,11 @@ Chillar pops up from the bottom of the content zone with an expression + animati
 `layer overlay · min 1.0s · re-hook · sfx coin@0.05s`
 params: expr="side-eye", anim="blink", x=760, y=1120, size=320, bubble="", bubbleSide="left", ring=""
 
+### meme
+A real global meme (imgflip template or GIF, fetched at build time by pipeline/memes.py) as a printed photo tossed onto the field, full content width, with optional paper-scrap labels on it and an optional meme sound (myinstants). Cut to it on the word after a punchline. kind image|video (video = silent GIF loop, stepped from a sprite). Pick the exact template with `memes.py search "<q>" --kind <kind>` and set pick. labels: [{text, x, y}] in % of the picture (centre of the scrap). Global memes only — no Indian films/TV/people.
+`layer scene · min 1.5s · re-hook`
+params: meme="This Is Fine", kind="image", pick=0, headline="", labels=[], sound="", soundPick=0, soundAt=0.0
+
 ### meme-format
 Recreated meme FORMATS with Chillar and original text — never real meme images. Formats: two-panel (nah/haan), expectation-reality, nobody-me. Each panel is a printed photo lying on the field, spanning the full content width (870 px), punchline text 60 px (48 px with 3 panels), the format word set big in the headline face. Panels drop in order.
 `layer scene · min 1.8s · re-hook`

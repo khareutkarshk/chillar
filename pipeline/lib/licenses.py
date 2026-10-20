@@ -26,6 +26,8 @@ ALLOWED = {
     "ISC": (True, True),
     "Apache-2.0": (True, True),
     "OFL-1.1": (True, False),
+    # not a license: real global memes, the creator's call (CLAUDE.md §6) — pipeline/memes.py only
+    "Meme (uncleared, creator-approved)": (True, False),
 }
 
 

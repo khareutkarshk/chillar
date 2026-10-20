@@ -31,6 +31,9 @@ def ff(*a: str) -> subprocess.CompletedProcess:
 
 
 def resolve_sound(slot: str) -> tuple[Path | None, str]:
+    if slot.startswith("meme:"):                # a real meme sound fetched by pipeline/memes.py
+        p = Path(slot[5:])
+        return (p, "meme") if p.exists() else (None, "missing")
     for p in sorted((BRAND / "sfx" / "custom").glob(f"{slot}.*")):
         if p.suffix.lower() in AUDIO_EXT:
             return p, "custom"
@@ -102,12 +105,13 @@ def mix(ep_dir: str, video: Path | None = None) -> Path:
         if not path:
             print(f"  ! no sound for '{s['sound']}' — skipped")
             continue
-        trim = SLOTS.get(s["sound"], {}).get("trim", 2.0)
+        meme = s["sound"].startswith("meme:")
+        trim = 3.0 if meme else SLOTS.get(s["sound"], {}).get("trim", 2.0)
         ms = int(round(s["t"] * 1000))
         inputs += ["-i", str(path)]
         graph.append(f"[{idx}:a]aformat=sample_rates=48000:channel_layouts=stereo,"
                      f"silenceremove=start_periods=1:start_threshold=-50dB,atrim=0:{trim},"
-                     f"afade=t=out:st={max(trim - 0.15, 0):.2f}:d=0.15,volume={SFX_GAIN_DB.get(s['sound'], -10)}dB,"
+                     f"afade=t=out:st={max(trim - 0.15, 0):.2f}:d=0.15,volume={-9 if meme else SFX_GAIN_DB.get(s['sound'], -10)}dB,"
                      f"adelay={ms}|{ms}[s{i}]")
         mixins.append(f"[s{i}]")
         report["sfx"].append({**s, "file": str(path), "state": state})

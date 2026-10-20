@@ -78,6 +78,8 @@ AI-written comedy has tells. Kill every one:
 6. **Table read:** say every line out loud at Sunny's pace (~3.2 words/s). If a line sounds written, not
    said, rewrite it as you'd say it to a friend. Then cut 10 % of the words.
 7. **AI-tell sweep:** check every line against §4.
+8. **Culture pass (§7):** read facts.md `## Culture now`; swap every dated reference for a current one or
+   for an observed truth, and place 2–4 meme beats (60 s) where a picture lands the turn harder than words.
 
 ## 6. Format notes
 - **30 s Myth vs Math (~80 words):** hook = the myth in someone's voice + the game planted (laugh by 4 s) ·
@@ -88,3 +90,27 @@ AI-written comedy has tells. Kill every one:
 - Numbers always come from facts.md — jokes can't carry numbers. Specificity comes from nouns and moments
   ("2 baje raat ka cart", "woh sale jo har mahine last chance hoti hai"), not invented prices.
 - No brand names even in jokes; no punching down (CLAUDE.md §3).
+
+## 7. Fresh, not dated — and memes planned like a comedian, not sprinkled
+**Freshness.** A reference Gen Z stopped using makes the whole reel feel old, however good the math is.
+Every meme, show, song, trend, slang word or viral moment must be one people are using **this month**:
+take it from facts.md `## Culture now` (the researcher's, with dates) or `memes.py trending`. At most
+**one** still-everywhere classic per reel (imgflip top-30-days, e.g. Drake) — and only if it's the best
+tool for the beat. Dead on arrival, global: Justin Bieber "Baby", Gangnam Style, Harlem Shake, rage
+comics/trollface, "Y U No", Doge, Ice Bucket, "Why so serious", minions. Indian: Kolaveri, Binod,
+"Rasode mein kaun tha", "Pawri ho rahi hai", "Pappu", demonetisation jokes, "Bade bade deshon mein".
+If you're not sure it's current, it isn't — write the observed truth instead.
+
+**Mix the two worlds.** A desi template (from Culture now) for a desi situation — the family, the office,
+the bank; a global one for internet-universal feelings — being broke, pretending to be fine, a bad
+decision you'll make again. The joke must work for a 21-year-old in Pune who scrolls both.
+
+**Meme beats are written, not added.** Plan them in the draft like Tanmay/Samay-style edits and Fireship:
+1. **Reaction tag** — the line lands, cut to a meme face that says the tag nobody voices.
+2. **The meme is the punchline** — the voice sets up, the meme lands the turn; write the setup so it
+   *needs* the picture, and leave a beat after it (a short flat line, or end the sentence there).
+3. **Act-out meme** — the meme character "says" the act-out as its label (`labels` in the director's scene).
+4. **Callback meme** — plant a template in the hook, bring it back in the payoff with a new label.
+Never explain the meme in the voiceover, never "jaise woh meme". One meme per chapter at most; a meme
+never replaces a fact. Mark it in the script: `{meme: M2}` (the Culture-now id) after the line it serves.
+Slang from Culture now only, once, said like we know it's slang.

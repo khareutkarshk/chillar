@@ -57,6 +57,11 @@ def build(spec: dict, out: Path, comp_id: str = "reel") -> Path:
     for s in spec["scenes"]:
         s = dict(s)
         s["params"] = merged_params(s["component"], s.get("params", {}))
+        if s["params"].get("_file"):            # fetched media (memes): copied next to index.html
+            src = Path(s["params"].pop("_file"))
+            (out / "media").mkdir(exist_ok=True)
+            shutil.copy2(src, out / "media" / src.name)
+            s["params"]["_src"] = f"media/{src.name}"
         scenes.append(s)
     dur = round(float(spec["duration"]), 3)
 
