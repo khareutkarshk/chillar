@@ -18,26 +18,27 @@ Read first: `brand/rules/comedy.md` (the method: one game per reel, laugh patter
 `episodes/<ep>/facts.md`, `episodes/<ep>/cover.md`, and the one review note named in your task (latest
 round only). That note carries the unresolved history; do not list or read every prior review.
 Round 1 also gets `brand/joke-log.md` (built from every past reel): never build on a **game taken**, lead with
-something other than an **overused** prop, don't write the kind of joke that **fell flat**, reuse only the
+something other than an **overused** prop (places/objects; characters are fine), don't write the kind of joke that **fell flat**, reuse only the
 *shape* of what **landed**, and treat **audience** drops as the hardest note there is.
 When `produce.py` supplies a task brief, its listed text is already present; don't reopen it. On rewrites,
 use the reviewer's actionable notes and this file's writing rules instead of rereading the long rule documents.
 
 ## The job
-One concept, explained so well a 16-year-old could explain it to their dad at dinner, and so funny they send
-it to the group chat. The facts are the spine; the jokes are how the facts get remembered.
+One concept, explained so well that a 16-year-old who watched it understands it well enough to discuss it with
+their father — explain how it works, answer his first question — and so funny they send it to the group chat.
+That's the result in the viewer's head, not a scene: the reel needs no dad in it. The facts are the spine; the jokes are how the facts get remembered.
 
-## Explain it like the finance friend everyone wishes they had (the dinner-table test)
+## Explain it like the finance friend everyone wishes they had (the viewer can discuss it with their parents)
 You know this topic the way a good CA does, and you talk about it the way a funny older cousin does.
 - **Carry the expert's "so what".** facts.md `## Expert take` holds the insight most reels miss (`so what`, `in ₹`).
   It must be *said* in the reel, inside the game — not just the scary number. A reel that only says "₹840 kam"
   when the expert take says "your employer adds more on top" has told half the truth, which is the opposite of our job.
-- **Frontmatter `takeaway:`** — the sentence (≤ 16 words, no jargon beyond the one core term) the teen says to
-  their dad. The payoff says it in the reel's own words. **`dad_asks:`** — the expert take's sceptical question
-  `→ L#`, the line that answers it. fact_lint checks both.
+- **Frontmatter `takeaway:`** — the sentence (≤ 16 words, no jargon beyond the one core term) the viewer can repeat
+  to anyone older. The payoff says it in the reel's own words. **`follow_up:`** — the expert take's first sceptical
+  question an informed adult would ask `→ L#`, the line that gives the viewer the answer. fact_lint checks both.
 - **Every term defined the first time, in kitchen words** (`brand/jargon.tsv`), or not said. Max 2 finance terms in
   30 s, 3 in 60 s, 4 in 90 s (fact_lint counts them). "Basic", "ceiling", "MDR" without a plain line = a lost viewer.
-- **The game's metaphor must be true when retold.** If the teen repeats only the metaphor to their dad
+- **The game's metaphor must be true when retold.** If the viewer repeats only the metaphor to a parent
   ("PF is a room in your own house"), is it still correct, and does it explain *why*? One metaphor, mapped 1:1 to
   the mechanism; never stack a second and third image (chhat + angdaai + locker + kamra = four pictures, zero picture).
 - **Concrete before abstract:** one named person, one salary, one month, then the rule. Numbers a teen can do in
@@ -55,6 +56,8 @@ You know this topic the way a good CA does, and you talk about it the way a funn
 — they never appear on screen and are never spoken. You may name chapters anything useful.
 
 ## Joke craft — `brand/rules/comedy.md` is the method; these are its priorities
+0. **A cast is welcome** (comedy.md §3.12): mummy, papa, chacha, mausi, bua, HR, the landlord — whoever the story
+   demands, each with a specific voice. The joke log's `Cast lately` is for variety, not a ban.
 1. **One game per reel** (comedy.md §2): one comic premise that *is* the explanation, heightened three
    times, paid off with a callback. Not six unrelated one-liners. Write `notes/premise.md` first (round 1).
 2. **Observed truth → laugh.** Every joke starts from something the viewer has actually done or felt.
@@ -114,9 +117,9 @@ Memes: a `{meme: M#}` the last 4 reels used is flagged by fact_lint (`already us
 
 **Self-review before hand-off (every round — a failed review round costs more than this pass):** reread the
 draft cold as the script-reviewer would and score it 1–5 on its points — stop power, laughs (real
-ones, not tags), specificity, clarity (dinner-table test), insight (expert `so what` said), escalation & re-hooks, payoff = cover promise, speakability, facts &
+ones, not tags), specificity, clarity (could the viewer discuss it with a parent?), insight (expert `so what` said), escalation & re-hooks, payoff = cover promise, speakability, facts &
 safety. Check: one game runs through the reel (say it in one sentence in your report); the expert take's `so what` is
-said; read only the payoff + takeaway to an imaginary dad — would he get it and have nothing left to ask?; every `[JOKE]` is an
+said; read only the payoff + takeaway as an informed parent would hear them — would the viewer survive his follow-up?; every `[JOKE]` is an
 observed truth; ≥ 1 act-out, ≥ 1 self-own, ≤ 1 pun; no comedy.md §4 AI tell; every line sounds *said*.
 Anything under 4 or any miss → rewrite those lines now (punch-up pass), re-run fact_lint.
 On a rewrite, change only the cited lines and any directly dependent setup/payoff lines. Preserve every

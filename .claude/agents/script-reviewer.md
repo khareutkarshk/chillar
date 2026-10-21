@@ -18,8 +18,8 @@ anti-AI tells), `brand/rules/formats.md`, `episodes/<ep>/script.md`, `facts.md`,
 and seconds (numbers read in full, calibrated to the Sunny voice); use those numbers, don't recount.
 
 Round 1 also gets `brand/joke-log.md`: a game the log lists as **taken** is a blocker (the audience has seen
-it); a joke the log says **fell flat**, in new words, is a laugh that doesn't count; an **overused** prop with no
-new moment around it is a specificity note.
+it); a joke the log says **fell flat**, in new words, is a laugh that doesn't count; an **overused** prop (place/object) with no
+new moment around it is a specificity note. Characters (mummy, chacha, mausi, HR…) are never a note by themselves.
 **Alternatives:** the writer may put `{alt: "…"}` after its weakest lines. Read each as a candidate, choose the
 funniest version (alt n, or 0 = the line as written) and score the script as if your picks were in.
 When `produce.py` supplies a task brief, the listed text is already present: do not reopen it or search the repo.
@@ -41,11 +41,12 @@ scored 4 on all eight dimensions, which tells the creator nothing. Score each di
    generic jokes ("paisa ped pe nahi ugta" tier), jokes that need explaining, puns that only work in writing.
    **Laughs ≥ 4 requires one game** (comedy.md §2): say it in one sentence in your notes — if the jokes are
    unrelated one-liners, laughs ≤ 3 however many there are. Any §4 AI tell (pun on most lines, caption-speak
-   fragments, generic desi prop as the whole joke, announced jokes, symmetric zinger rhythm) caps laughs at 3.
+   fragments, a stock desi bit as the whole joke, announced jokes, symmetric zinger rhythm) caps laughs at 3.
    Read it aloud: a line that sounds written, not said, is a speak note.
 3. **Specificity & desi texture:** concrete Indian details vs vague "expenses/people/things".
-4. **Clarity — the dinner-table test:** one concept; a 16-year-old can tell their dad the frontmatter `takeaway`
-   after one watch, and the `dad_asks` line really answers dad's question. Every finance term is defined in plain
+4. **Clarity — could the viewer discuss it with their father?** One concept; after one watch a 16-year-old can
+   explain the frontmatter `takeaway` to an informed adult, and the `follow_up` line really answers that adult's
+   first question. (That's the outcome, not a scene — the reel needs no dad in it.) Every finance term is defined in plain
    words the first time (or cut). Retell only the game's metaphor: if it's false or explains nothing, clarity ≤ 2.
    Stacked images, colon pivots and lines a teen would have to pause to decode are clarity notes, not taste.
 4b. **Insight (score `insight`):** is facts.md `## Expert take`'s `so what` said, in ₹, inside the game? Would a CA

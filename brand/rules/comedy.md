@@ -21,7 +21,7 @@ bigger. At most one joke from outside the game.
 - Test: can you describe the reel's humour in one sentence? "The minimum due is a gym membership you pay
   to not go to the gym." If you can't, you have jokes, not a game.
 - **The game must be true when retold.** The metaphor carries the mechanism: the teen who repeats only the
-  metaphor to their dad has still said something correct. A funny metaphor that teaches the wrong model is cut.
+  metaphor to a parent has still said something correct. A funny metaphor that teaches the wrong model is cut.
   Pick the game *from* facts.md `## Expert take` (`so what`): the best game makes that insight the punchline.
 - Heighten the game logically, not randomly: step 1 is true, step 2 is true and worse, step 3 is true and
   absurd — and the math confirms it.
@@ -54,9 +54,10 @@ poora bharo.` Every beat is the same game, getting bigger.
 10. **Rule of three with a swerve.** Two normal items, the third absurd *and* true. Use it once per reel, not more.
 11. **Tag the laugh you already have.** Comedians milk a landed punch with one or two short tags before moving on;
     a new setup for every laugh is how AI writes. `Bua ka naam add karke utha.` → tag: `Bua ko pata bhi nahi tha.`
-12. **The family argument.** Money lands hardest as a generational clash said in both voices: what papa believes
-    (in his words), what the slip says, and the line the kid can now say back. It's also the dinner-table test
-    rehearsed on screen — but a *specific* moment, never "papa ko samjhao" (the joke log tracks the papa prop).
+12. **A cast, used like a sitcom.** Mummy, papa, chacha, mausi, bua, mamaji, the society uncle, HR, the landlord,
+    the bank's call-centre voice, a dost — bring in whoever the story demands, as many as it needs, each with a
+    specific voice and a want (mummy's lifafa logic, chacha's "maine 1998 mein…" certainty). Characters are welcome;
+    what goes stale is the same *moment* twice. The joke log's `Cast lately` is for variety, never a ban.
 
 ## 4. Anti-AI writing (the script-reviewer fails these)
 AI-written comedy has tells. Kill every one:
@@ -64,8 +65,8 @@ AI-written comedy has tells. Kill every one:
 - **Disconnected one-liners** — six metaphors in 30 s (see §2). One game.
 - **Telegraphic caption-speak** ("Galat. Bill pe do number. Card warden nikla.") — nobody talks like this.
   Use full spoken sentences with connectors; let a setup breathe for one line.
-- **Generic desi props as the joke:** Sharma ji ka beta, "middle class problems", chai, "mummy ki chappal",
-  EMI-uncle, "paisa ped pe nahi ugta". A prop is fine only if the moment around it is specific and new.
+- **Stock desi jokes as the joke:** Sharma ji ka beta, "middle class problems", "mummy ki chappal", EMI-uncle,
+  "paisa ped pe nahi ugta". The characters are great; the stock bit is the tell. A specific new moment fixes it.
 - **Explaining or announcing the joke:** "Plot twist:", "Spoiler:", "Ironic, right?", "Let that sink in",
   "Socho zara", "Fun fact".
 - **Symmetric rhythm** — every line the same length, every line ending in a zinger. Vary it: a long
@@ -85,7 +86,7 @@ AI-written comedy has tells. Kill every one:
 
 ## 5. Writing process (do all of it — the reviewer can tell)
 1. **Spine:** the explanation in 5 plain sentences, no jokes, built from facts.md `## Expert take`: myth → mechanism
-   → so what → in ₹ → do. Then the `takeaway` and `dad_asks`. If the spine bores a 16-year-old, no joke will save it;
+   → so what → in ₹ → do. Then the `takeaway` and `follow_up`. If the spine bores a 16-year-old, no joke will save it;
    if it confuses one, no joke may be added to it.
 2. **Find the game:** write **8 candidate premises** (§2) into `notes/premise.md`, one line each, plus one
    line on how each heightens. Pick the one that makes the concept clearest *and* has three steps of

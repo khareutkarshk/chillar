@@ -432,7 +432,7 @@ def lint_gate(L: Line, ep: Path) -> None:
             return None
         miss = [p for p in j.get("problems", []) if not re.match(r"F\d+:", p)]  # facts.md rows aren't the writer's
         miss += [w for w in j.get("warnings", []) if "already used in" in w or "classic meme budget" in w]  # reused / too many classics
-        miss += [s for s in j.get("script", [])[1:] if re.search(r"outside|first laugh|minimum|absolute|support an|takeaway|dad_asks|jargon", s)]
+        miss += [s for s in j.get("script", [])[1:] if re.search(r"outside|first laugh|minimum|absolute|support an|takeaway|follow_up|jargon", s)]
         return miss
 
     miss = mechanical_misses()

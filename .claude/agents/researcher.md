@@ -38,7 +38,7 @@ rules apply. The prompt gives you the episode folder (already created from `_tem
      (who else pays in, what you get back, what it costs over a year, what you lose by doing nothing). [F#]
    - `in ₹:` the insight for one realistic person, per month and per year (from a worked-example row). [F#]
    - `do:` one legal, product-free action a 19-year-old can take this week (check the slip, ask HR X, switch off Y).
-   - `dad asks:` the first sceptical question a father would ask, and its sourced answer. [F#]
+   - `follow-up:` the first sceptical question an informed adult (a parent) would ask, and its sourced answer. [F#]
    - `jargon:` each term the reel can't avoid → plain words a 16-year-old gets (use `brand/jargon.tsv`'s wording).
 5. Add `## Texture for the writers (not facts — don't put numbers from here on screen)`: 4–6 lines of how
    Gen Z India actually lives this topic.

@@ -20,8 +20,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.common import ROOT  # noqa: E402
 
 # recurring desi props/settings — a prop in most recent reels has stopped being specific (comedy.md §4)
-PROPS = ["mummy", "papa", "mausi", "chacha", "bhaiya", "dost", "group chat", "cart", "tapri", "chai", "HR", "crush",
-         "Diwali", "mithai", "lifafa", "Sharma ji", "EMI", "forward", "OTP", "salary", "boss"]
+# objects/settings: one in most recent reels has stopped being specific. People are a cast, not props — the
+# creator wants family and everyday characters (2026-10-21); the log only shows who's been on lately, for variety.
+PROPS = ["group chat", "cart", "tapri", "chai", "crush", "Diwali", "mithai", "lifafa", "Sharma ji", "EMI", "forward",
+         "OTP", "salary"]
+CAST = ["mummy", "papa", "mausi", "chacha", "chachi", "bua", "mamaji", "nani", "dadi", "bhaiya", "didi", "dost", "HR",
+        "boss", "landlord", "padosi", "aunty", "uncle"]
 FLAT = re.compile(r"\b(flat\w*|generic|stock|weakest|borrowed|dated|mild|doesn't land|does not land|dies|echo)\b", re.I)
 MAX_EPISODES, MAX_KEEP, MAX_FLAT, MAX_CHARS = 8, 2, 2, 2800   # it rides in a 24k brief
 
@@ -79,7 +83,12 @@ def build(out: Path) -> str:
     hot = [f"{w} ({n}/{len(scripts)})" for n, w in hot if n >= max(3, len(scripts) // 2)]
     if hot:
         lines += [f"**Overused lately** (in half or more of the last {len(scripts)} scripts): {', '.join(hot)} — "
-                  "lead with a different person/place, or make the moment around it new.", ""]
+                  "lead with a different place/object, or make the moment around it new.", ""]
+    cast = sorted(((sum(bool(re.search(rf"\b{re.escape(w.lower())}\b", t)) for t in scripts), w) for w in CAST), reverse=True)
+    cast = [f"{w} ({n}/{len(scripts)})" for n, w in cast if n]
+    if cast:
+        lines += [f"**Cast lately** (characters are welcome — use whoever the story needs): {', '.join(cast)}. "
+                  "A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.", ""]
     for e in entries:
         lines.append(f"## {e['name']}" + (f" — {e['title']}" if e["title"] else ""))
         if e["game"]:

@@ -86,34 +86,36 @@ LABEL_COLON = re.compile(r"^((?:[\w'₹]+\s?){1,3}):\s")
 JARGON = [l.split("\t")[0] for l in (BRAND / "jargon.tsv").read_text().splitlines()
           if l.strip() and not l.startswith("#")] if (BRAND / "jargon.tsv").exists() else []
 JARGON_MAX = {"30": 2, "60": 3, "90": 4}     # distinct finance terms one reel can define and still be followed
-TAKEAWAY_MAX = 16                           # what a teen says to their dad, in one breath
+TAKEAWAY_MAX = 16                           # what the viewer can repeat to a parent, in one breath
 
 
 def jargon_in(text: str) -> list[str]:
     return [t for t in JARGON if re.search(rf"(?<![\w-]){re.escape(t)}(?![\w-])", text, re.I if len(t) > 3 else 0)]
 
 
-def dinner_table(ep) -> list[str]:
-    """The teen→dad test (2026-10-21): a jargon-free takeaway, dad's first question answered by a line, few terms."""
+def discussable(ep) -> list[str]:
+    """After one watch the viewer can discuss it with their father (2026-10-21): a jargon-free takeaway, an informed
+    adult's first question answered by a line, few terms. An outcome, not a scene — the reel needs no dad in it."""
     out, m = [], ep.meta
     take = str(m.get("takeaway", "")).strip()
     if not take or take.startswith("<"):
-        out.append("takeaway missing in the frontmatter — the one sentence (≤ 16 words) a teen says to their dad after "
-                   "watching; the payoff line must say it in the reel's words")
+        out.append("takeaway missing in the frontmatter — the one sentence (≤ 16 words) the viewer can explain to a parent "
+                   "after watching; the payoff line must say it in the reel's words")
     else:
         if len(take.split()) > TAKEAWAY_MAX:
             out.append(f"takeaway is {len(take.split())} words (> {TAKEAWAY_MAX}) — say it in one breath")
         if len(jargon_in(take)) > 1:
             out.append(f"takeaway uses jargon ({', '.join(jargon_in(take))}) — keep at most the reel's one core term, "
                        "say the rest in plain words")
-    dad = str(m.get("dad_asks", "")).strip()
+    dad = str(m.get("follow_up", "")).strip()
     ids = {l.id for l in ep.lines}
     hit = re.search(r"(?:→|->)\s*(L\d+)", dad)
     if not dad or dad.startswith("<"):
-        out.append("dad_asks missing in the frontmatter — dad's first sceptical question + the line that answers it: "
+        out.append("follow_up missing in the frontmatter — an informed adult's first sceptical question + the line "
+                   "that answers it: "
                    "\"Toh mera paisa gaya kahan? → L7\"")
     elif not hit or hit.group(1) not in ids:
-        out.append(f"dad_asks must end with → L# of a line that answers it (got: {dad[:60]})")
+        out.append(f"follow_up must end with → L# of a line that answers it (got: {dad[:60]})")
     used = sorted({t for l in ep.lines for t in jargon_in(l.spoken)}, key=str.lower)
     cap = JARGON_MAX.get(ep.format, 3)
     if len(used) > cap:
@@ -155,7 +157,7 @@ def script_lint(ep) -> list[str]:
         out.append(f"{jokes} [JOKE] lines — minimum {LAUGH_MIN[fmt]} real laughs; aim for {LAUGH_MIN[fmt] + 1}+ so one dud doesn't fail review")
     if first_joke_at is None or first_joke_at > FIRST_LAUGH_S:
         out.append(f"first laugh lands at ≈ {first_joke_at or 0:.1f} s — must be by {FIRST_LAUGH_S:.0f} s")
-    out += dinner_table(ep)
+    out += discussable(ep)
     out.insert(0, f"script: {words} words written · ≈ {spoken} spoken (numbers in full) · ≈ {secs:.0f} s incl. outro · {jokes} jokes")
     return out
 

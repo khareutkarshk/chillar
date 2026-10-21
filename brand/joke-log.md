@@ -2,6 +2,21 @@
 
 Use it on round 1. **Games taken:** don't build a new reel on one of these. **Landed:** reuse the *shape* (act-out, self-own, callback), never the line. **Fell flat:** don't write that kind of joke again. **Audience drops** are real Instagram retention — the strongest signal here.
 
+**Cast lately** (characters are welcome — use whoever the story needs): HR (2/6), papa (1/6), padosi (1/6), mummy (1/6), mamaji (1/6), dost (1/6), bua (1/6), aunty (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
+
+## 2026-10-31-epf-wage-ceiling — October ki salary kam kyun aayi?
+- game taken: the reel translates HR's "as per policy" into what actually happened (L1 plants it, L2 translates it, L9 pays it off). Angdaai and refresh are the…
+- landed: PF ne saalon baad angdaai li. Meri salary mein.
+- landed: Kal raat se app refresh kar raha hoon. Baaki aate hi honge.
+- fell flat: Paisa mere PF mein hai, locker mein nahi, ghar ke kamre mein
+
+## 2026-10-30-account-rent-mule — Account rent pe do, ₹5,000 kamao?
+- game taken: renting your account is a college group project: they do the work, your name goes on the cover. Here, though, whoever reads the cover is looking…
+- landed: Badhai ho, group project mil gaya.
+- landed: maal kidhar hai?
+- fell flat: Par yahan bank ka AI check karta hai
+- fell flat: Account, card, SIM, OTP — kisi ko mat do
+
 ## 2026-10-29-diwali-gifting-maths — Ek dabba × poora mohalla
 - game taken: the list only ever grows, and everyone, Papa included, keeps calling it "ek hi dabba".
 - landed: Main list kaatne baitha tha. Bua ka naam add karke utha.
@@ -18,17 +33,3 @@ Use it on round 1. **Games taken:** don't build a new reel on one of these. **La
 - landed: Phone ab 'save for later' mein hai.
 - landed: Usko mummy ne poora lifafa de diya. Mujhe aaj tak nahi.
 - fell flat: Slab zero se tees percent tak hain
-
-## 2026-10-26-report-mdr-payer — UPI ka charge kaun bharega?
-- game taken: the UPI charge is a bill with an address on it, and it isn't yours (bill kiske naam pe → address: merchant → tujhse maanga kisne → pincode nahi →…
-- landed: Maine bhi ₹3,000 ke sneakers cart mein chhod diye. Fee bachane. Dukaan wale ki.
-- landed: Bhai, tujhse maanga kisne?
-- fell flat: Matlab zyaadatar dukaanon tak yeh bill pahunchega bhi nahi
-- fell flat: Tumhare naam pe is news mein aaya kya? Sirf group chat ka forward
-
-## 2026-10-credit-enquiry — Score check karne se girta hai?
-- game taken: credit is dating etiquette. Looking (at your own score or your stories) is free. Applying is sending "hey", and the fourth crush can see every…
-- landed: Mausi aadhi sahi thi. Nazar lagti hai, par dekhne se nahi. Apply karne se.
-- landed: Chautha crush dekh raha hai ki maine teen aur ko 'hey' bheja [F9].
-- fell flat: Left on read ka screenshot koi nahi leta
-- fell flat: Yeh 'chill kar' ka sabse lamba sarkari version hai
