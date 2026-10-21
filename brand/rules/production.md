@@ -126,3 +126,9 @@ Baseline: the EPF reel made by a producer session routing in-session subagents c
 Target per reel: agents ≈ $2.5–4, producer session ≤ $1 → **$3–5**. Check it in `notes/usage.md`; if a stage
 runs over its share twice, fix the cause (a missing component, a vague note), not the cap.
 
+
+**Quality gates (2026-10-21, from the 6-reel analysis):** a Culture now row is only as fresh as its `peaked` date
+(`memes.freshness`): ≤ 1 month = now, ≤ 6 = classic (≤ 1 per reel), older = stale unless imgflip's top-30-days
+proves it; `fact_lint` sends past-peak memes back to the writer before the review (3 of 6 delivered reels had one).
+The polish pass also fixes qa's `late-text` / `empty-paper` warnings (blank paper fired on 5 of 6 reels and was
+never routed). The script reviewer scores against anchors and writes an `evidence:` line (best / weakest line).

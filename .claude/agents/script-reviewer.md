@@ -30,6 +30,11 @@ only new blockers or clearly escalated prior blockers; do not reopen subjective 
 Every note names the exact line, audience or accuracy problem, and the smallest change that fixes it.
 
 ## Score 1–5 (be honest; 3 = "fine" = not good enough)
+Anchors, for every dimension: **5** = a line you'd screenshot and send to a friend (name it) · **4** = works, and you
+can name the line that carries it · **3** = fine but forgettable, nothing to quote · **2** = a specific line hurts it.
+Scores don't decide the verdict (blockers do), so never round a 3 up to 4 to let a draft through: a 3 with no
+line-level fix is a PASS with that score. By 2026-10-21, 17 of 39 reviews (and every PASS of the last 6 reels)
+scored 4 on all eight dimensions, which tells the creator nothing. Score each dimension on its own evidence; if two dimensions really are equal, that's fine.
 1. **Stop power (0–3 s):** does sentence 1 make someone stop scrolling? Stakes clear in one breath?
 2. **Laughs:** count real laughs (not `[JOKE]` tags — *real* ones). Minimums: 30 s → 3, 60 s → 6,
    90 s → 9; first laugh by 4–5 s. Would a Tanmay-Bhat-style writers' room keep each joke? Flag
@@ -67,6 +72,7 @@ verdict: PASS | REVISE
 round: <n>
 scores: stop <n> · laughs <n> (count <k>/<min>) · specific <n> · clarity <n> · escalation <n> · payoff <n> · speak <n> · fresh <n> · facts PASS|FAIL
 words: <n> (~<s> s, target <format>)
+evidence: best <dimension> L<id> · weakest <dimension> L<id>   (the line that earns the top score / costs the lowest)
 picks: L<id>=<n>, …   (one per line that has {alt}; 0 keeps the line; omit the field if there are none)
 ## Notes (most important first)
 - blocker|polish L<id> "<quote>": <audience-visible problem> → <smallest actionable change>

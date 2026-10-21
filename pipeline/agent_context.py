@@ -30,7 +30,7 @@ def _note_for_role(path: Path, role: str, only_blockers: bool = False) -> str:
     if role in {"scriptwriter", "script-reviewer"}:
         keep_sections = {"prior notes", "notes (most important first)", "keep"}
         sections: set[str] = set()
-        out = [line for line in text.splitlines() if line.startswith(("verdict:", "round:", "scores:", "words:"))]
+        out = [line for line in text.splitlines() if line.startswith(("verdict:", "round:", "scores:", "evidence:", "words:"))]
         active = ""
         for line in text.splitlines():
             if line.startswith("## "):

@@ -417,7 +417,7 @@ def lint_gate(L: Line, ep: Path) -> None:
         except json.JSONDecodeError:
             return None
         miss = [p for p in j.get("problems", []) if not re.match(r"F\d+:", p)]  # facts.md rows aren't the writer's
-        miss += [w for w in j.get("warnings", []) if "already used in" in w]     # a meme last week's reel used
+        miss += [w for w in j.get("warnings", []) if "already used in" in w or "stale meme" in w]  # reused / past-peak
         miss += [s for s in j.get("script", [])[1:] if re.search(r"outside|first laugh|minimum|absolute|support an", s)]
         return miss
 
@@ -619,6 +619,9 @@ def qa_clean(L: Line, ep: Path) -> bool:
     return all(L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", st, check=False) == 0 for st in ("validate", "build", "qa"))
 
 
+POLISH_QA = ("late-content", "late-text", "empty-paper", "narrow-frame", "small-object")   # qa warns polish fixes
+
+
 def polish(L: Line, ep: Path, review: Path) -> None:
     """A PASS still carries the reviewer's polish notes (an empty frame, a chart at 60 % width, a 0.8 s blink) — they
     used to be dropped on the way to delivery. One cheap pass applies them; if qa isn't clean afterwards, the
@@ -626,16 +629,21 @@ def polish(L: Line, ep: Path, review: Path) -> None:
     e = ep.relative_to(ROOT)
     backlog(ep, review.name, [x for x in notes_for(review, "component") if COMP_TAG.search(x)])
     d, ed = notes_for(review, "director"), notes_for(review, "editor")
-    if not (d or ed) or L.dry:
+    try:        # blank paper on screen (late-text / empty-paper) fired on 5 of 6 reels and nobody was ever sent to fix it
+        qa_warns = [i for i in json.loads((ep / ".cache" / "qa.json").read_text()).get("issues", [])
+                    if i.get("sev") == "warn" and i.get("kind") in POLISH_QA and "director" in str(i.get("route", ""))]
+    except (OSError, ValueError, AttributeError):
+        qa_warns = []
+    if not (d or ed or qa_warns) or L.dry:
         return
     sj = ep / "scenes" / "scenes.json"
     keep = sj.read_text()
     rule = ("Polish pass after a PASS, no review follows: apply these notes where they're cheap and safe, change nothing "
             "else, stay inside CLAUDE.md; skip a note you can't do cleanly and say why. Validate + qa clean.")
-    print(f"  polish: {len(d)} director + {len(ed)} editor note(s) from {review.name}")
-    if d:
+    print(f"  polish: {len(d)} director + {len(ed)} editor note(s) from {review.name} + {len(qa_warns)} qa warning(s)")
+    if d or qa_warns:
         director(L, ep, f"{rule} The [director] notes in {e}/notes/{review.name} (+ qa.json warnings routed to "
-                 "director: late-content, narrow-frame, small-object).", "edit", REVISE_EFFORT)
+                 f"director: {', '.join(POLISH_QA)}).", "edit", REVISE_EFFORT)
     if ed:
         L.scoped_agent("editor", ep, f"{rule} The [editor] notes in {e}/notes/{review.name}.",
                        "edit", "revision", note=review)
@@ -749,6 +757,9 @@ def st_usage(L: Line, ep: Path, a) -> None:
     if script_reviews:
         score = next((x.strip() for x in script_reviews[-1].read_text().splitlines() if x.lower().startswith("scores:")), "scores not recorded")
         lines.append(f"Latest script quality: {score}")
+        ev = next((x.strip() for x in script_reviews[-1].read_text().splitlines() if x.lower().startswith("evidence:")), "")
+        if ev:
+            lines.append(f"Score evidence: {ev[9:].strip()}")
     if video_reviews:
         review_text = video_reviews[-1].read_text()
         risk = next((x.strip() for x in review_text.splitlines() if x.lower().startswith("swipe risk:")), "swipe risk not recorded")

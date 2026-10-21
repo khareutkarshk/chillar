@@ -59,6 +59,9 @@ HINGLISH = re.compile(r"\b(hai|hain|kya|nahi|bhai|bhaiya|mere|mujhe|kar|raha|tha
 ANCHORS = [(112126428, 2017 + 7 / 12), (222403160, 2020 + 1 / 12), (309868304, 2021 + 5 / 12), (371619279, 2022 + 2 / 12)]
 CLASSICS_PER_REEL = 1          # a still-everywhere classic (imgflip top-30-days) — at most one per reel
 MAX_TEMPLATE_MONTHS = 36       # older uploads need the researcher's proof that they're everywhere this week
+FRESH_PEAK_MONTHS = 1          # a Culture now row that peaked this month or last is "now"; older is a classic at best
+OLD_PEAK_MONTHS = 6            # past this, only imgflip's top-30-days proves it's still everywhere (else stale)
+PEAKED = re.compile(r"·\s*peaked\s+(\d{4})-(\d{1,2})\b", re.I)
 TREND = ROOT / ".cache" / "memes_trending.json"
 DELAY = 1.5     # seconds between requests to one site (low volume, polite)
 _last: dict[str, float] = {}
@@ -186,7 +189,23 @@ def culture_now(ep) -> dict[str, str]:
     return out
 
 
-RECENT_REELS = 4               # a meme used in any of the last 4 reels is off-limits — followers notice repeats
+def culture_peaks(ep) -> dict[str, int | None]:
+    """Culture now rows → {normalised exact title: months since its `peaked YYYY-MM` (None = no date)}. A row is
+    only as fresh as its peak: the researcher has filed 2021 templates under Culture now."""
+    p = ep.dir / "facts.md"
+    txt = p.read_text() if p.exists() else ""
+    m = re.search(r"^## Culture now.*?$(.*?)(?=^## |\Z)", txt, re.S | re.M)
+    t, out = time.localtime(), {}
+    for row in (m.group(1).splitlines() if m else []):
+        r = re.match(r"\s*-\s*(M\d+)\s*·\s*(image|video|sound|ref)\s*·\s*\"([^\"]+)\"", row)
+        if r:
+            pk = PEAKED.search(row)
+            out[norm_title(r.group(3))] = (max(0, (t.tm_year - int(pk.group(1))) * 12 + t.tm_mon - int(pk.group(2)))
+                                           if pk else None)
+    return out
+
+
+RECENT_REELS = 4              # a meme used in any of the last 4 reels is off-limits — followers notice repeats
 
 
 def _born(d: Path) -> float:
@@ -228,8 +247,11 @@ def recent_use(ep_dir, n: int = RECENT_REELS) -> dict[str, str]:
 def freshness(title: str, kind: str, tid: str | None, ep) -> tuple[str, str]:
     """('now' | 'classic' | 'stale', why). now = this week (trending new / sound trending / Culture now)."""
     L, cn, n = lists(), culture_now(ep), norm_title(title)
-    if n in cn:
+    peak = culture_peaks(ep).get(n) if n in cn else None
+    if n in cn and (peak is None or peak <= FRESH_PEAK_MONTHS):
         return "now", "facts.md Culture now"
+    if n in cn and peak <= OLD_PEAK_MONTHS:
+        return "classic", f"facts.md Culture now, but it peaked {peak} months ago"
     if kind == "sound":
         return ("now", "myinstants trending") if any(norm_title(x["title"]) == n for x in L["sound"]) else \
             ("stale", "not in myinstants trending or Culture now")
@@ -239,7 +261,8 @@ def freshness(title: str, kind: str, tid: str | None, ep) -> tuple[str, str]:
         age = months_old(tid)
         return "classic", f"imgflip top-30-days, template ≈ {age} months old"
     age = months_old(tid) if tid else 999
-    return "stale", f"not trending today (template ≈ {age} months old) — not in Culture now"
+    where = f"its Culture now row peaked {peak} months ago" if n in cn else "not in Culture now"
+    return "stale", f"not trending today (template ≈ {age} months old) — {where}"
 
 
 def trending(kind: str = "image", n: int = 30) -> list[str]:
