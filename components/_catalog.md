@@ -118,9 +118,9 @@ A plain phone-notes list on a paper sheet that grows name by name: title line, t
 params: title="Diwali gifts", items=[{"text": "Sharma ji", "strike": false}], stagger=0.35, total=""
 
 ### photo-frame
-A framed photo (placeholder portrait silhouette on a paper mat, optional `caption` below) and a speech bubble from someone off-screen above it. Params: speech (bubble text), speaker (small name under the speech, optional), caption (under the photo, e.g. 'didi'), side 'left'|'right' (which side the bubble tail sits on, default 'left'), frameWidth (default 620). Frame is tossed in on the cut; the bubble pops 4 frames later.
+A framed photo of a drawn family character (our style: paper face, ink outline, Chillar's half-closed deadpan eyes, seeded hair/outfit so each reel's character is unique) on a paper mat, optional `caption` below, and a speech bubble from someone off-screen above it. Params: speech (bubble text), speaker (small name under the speech, optional), caption (under the photo, e.g. 'didi'), who: didi | mummy | papa | chacha | dadi | bhai | mausi | uncle | hr | dost (default: read from the caption — mummy/maa, nani, bua, sharma ji, boss, friend… — else a seeded pick), expr: deadpan | side-eye | smug | proud | shocked (default per character), side 'left'|'right' (bubble tail side; side-eye looks that way, default 'left'), frameWidth (default 620). Frame is tossed in on the cut; the bubble pops 4 frames later; the character blinks.
 `layer scene · min 1.8s`
-params: speech="Dekha? Didi ko 20 lakh ka package!", speaker="", caption="didi", side="left", frameWidth=620
+params: speech="Dekha? Didi ko 20 lakh ka package!", speaker="", caption="didi", who="", expr="", side="left", frameWidth=620
 
 ### progress-meter
 The chillar meter: a row of ₹1 coins along the top (y≈170, decorative, outside the content zone). Filled coins are haldi, the rest are empty rings in the field ink; each newly earned coin drops in. Place one per chapter; it fills from→to (fractions of the row).

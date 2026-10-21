@@ -25,13 +25,13 @@
     "semantic_hash": ""
   },
   "components/calendar-flip/component.js": {
-    "mtime": 1792534528.952201,
-    "ast_hash": "a6d3a4507f2b5c3a02995ee13a7d78df",
+    "mtime": 1792586357.58455,
+    "ast_hash": "782dc6671ed8aa4a11b94a1e9849fba6",
     "semantic_hash": ""
   },
   "components/calendar-flip/component.json": {
-    "mtime": 1792534529.7122097,
-    "ast_hash": "493a80b7c1e05de8554d390d8d5613c9",
+    "mtime": 1792586358.483581,
+    "ast_hash": "efe955c44f8b74ed752d07002ddf4a47",
     "semantic_hash": ""
   },
   "components/captions/component.js": {
@@ -140,13 +140,13 @@
     "semantic_hash": ""
   },
   "components/odometer-number/component.js": {
-    "mtime": 1792491876.0822666,
-    "ast_hash": "253b0b974643053cbc94584a354ddd85",
+    "mtime": 1792586492.0412343,
+    "ast_hash": "135a4f88b0a092d08a07d91cc39d3077",
     "semantic_hash": ""
   },
   "components/odometer-number/component.json": {
-    "mtime": 1792433463.664448,
-    "ast_hash": "8891e42cea35eb5e3a613fab6f5301d6",
+    "mtime": 1792586492.0422342,
+    "ast_hash": "1e8c3a388481dde06069f9f231cda227",
     "semantic_hash": ""
   },
   "components/outro/component.js": {
@@ -180,13 +180,13 @@
     "semantic_hash": "bc7f47ed4cf43200190e1c857e52886d"
   },
   "components/receipt-list/component.js": {
-    "mtime": 1792534596.9142506,
-    "ast_hash": "015d9cd6d0fc1a92c37f5ef8174678b0",
+    "mtime": 1792586495.7693644,
+    "ast_hash": "bdf1645e8da646f1e931b5ad2edb1f56",
     "semantic_hash": ""
   },
   "components/receipt-list/component.json": {
-    "mtime": 1792534599.278295,
-    "ast_hash": "e4c5b516d859ed5df9b087540477f8d9",
+    "mtime": 1792586492.0702353,
+    "ast_hash": "c08bed300ed213d21530d45cc11897d4",
     "semantic_hash": ""
   },
   "components/salary-slip/component.js": {
@@ -200,13 +200,13 @@
     "semantic_hash": "ee41a468e82fa01cd0608c1cc1fa0fc5"
   },
   "components/split-compare/component.js": {
-    "mtime": 1792479455.46912,
-    "ast_hash": "2874c22a87894297f3389136533c1b85",
+    "mtime": 1792586378.5382786,
+    "ast_hash": "1ce5ca9b51ce3c81fc6e4f9d5dcb39e6",
     "semantic_hash": ""
   },
   "components/split-compare/component.json": {
-    "mtime": 1792479455.4881148,
-    "ast_hash": "dceff77ef24df786de40b26810e6d166",
+    "mtime": 1792586383.3374455,
+    "ast_hash": "02cfa4baf2bddf60128bc151a409c3af",
     "semantic_hash": ""
   },
   "components/stamp/component.js": {
@@ -605,8 +605,8 @@
     "semantic_hash": ""
   },
   "components/_catalog.md": {
-    "mtime": 1792575977.623812,
-    "ast_hash": "a1c83c0e39c3feac36967b4af5b4d390",
+    "mtime": 1792586865.657326,
+    "ast_hash": "c92ce85477be5c3ae3164c48d2eb4355",
     "semantic_hash": ""
   },
   "brand/rules/posting-schedule.md": {
@@ -780,18 +780,18 @@
     "semantic_hash": ""
   },
   "components/chat-screen/component.js": {
-    "mtime": 1792492543.1599948,
-    "ast_hash": "35bab4d0e9a73477f0aa8ca3a5a40809",
+    "mtime": 1792586492.0462344,
+    "ast_hash": "740d2ac9d64859a83041058c1db0364d",
     "semantic_hash": ""
   },
   "components/chat-screen/component.json": {
-    "mtime": 1792492543.1609952,
-    "ast_hash": "a15566c322e4eb3feba66c5131b1410c",
+    "mtime": 1792586492.0472343,
+    "ast_hash": "5abe998825ca00a36a83a9b4f37a83cd",
     "semantic_hash": ""
   },
   "components/_backlog.md": {
-    "mtime": 1792583767.7652512,
-    "ast_hash": "7fd9dad8740e33abaa9477d53c8ed4e3",
+    "mtime": 1792586852.3338578,
+    "ast_hash": "471d20428c0f7cb518d1708d5698d280",
     "semantic_hash": ""
   },
   "pipeline/agent_context.py": {
@@ -1055,8 +1055,8 @@
     "semantic_hash": ""
   },
   "notes/batches/2026-11-01_2026-11-07.md": {
-    "mtime": 1792586098.9196048,
-    "ast_hash": "d0cb9bd10a7b01ccf104dab31e158e2c",
+    "mtime": 1792586145.544209,
+    "ast_hash": "87caf4b1efc8a6c0d953feef018bed37",
     "semantic_hash": ""
   },
   "brand/sfx/breath.wav": {
@@ -1132,6 +1132,76 @@
   "episodes/2026-11-07-guests-kharcha/scenes/scenes.json": {
     "mtime": 1792585861.8445225,
     "ast_hash": "5b50f48cea072cf9eac2d656f748fb25",
+    "semantic_hash": ""
+  },
+  "components/app-slip/component.js": {
+    "mtime": 1792586837.2943294,
+    "ast_hash": "1cf628d3729115baf03bf8dee16b9a41",
+    "semantic_hash": ""
+  },
+  "components/app-slip/component.json": {
+    "mtime": 1792586772.508054,
+    "ast_hash": "7a8b1d8bd75ac8bbb832b81b3a14b667",
+    "semantic_hash": ""
+  },
+  "components/calculator/component.js": {
+    "mtime": 1792586656.5839887,
+    "ast_hash": "53af0edac63b8ca51cf7b96a9e25ed2b",
+    "semantic_hash": ""
+  },
+  "components/calculator/component.json": {
+    "mtime": 1792586607.9132843,
+    "ast_hash": "f3cdb10eec0f0b294d64f53e22d6f0be",
+    "semantic_hash": ""
+  },
+  "components/jewel-tag/component.js": {
+    "mtime": 1792586836.7663107,
+    "ast_hash": "3e0dcf693ac6979b3f0105436e0d87e6",
+    "semantic_hash": ""
+  },
+  "components/jewel-tag/component.json": {
+    "mtime": 1792586730.3725755,
+    "ast_hash": "c5149460fea3fa2fd172f734a3a27d18",
+    "semantic_hash": ""
+  },
+  "components/passbook-cover/component.js": {
+    "mtime": 1792586598.0789402,
+    "ast_hash": "00fec14a5833c6eb49df33710123244b",
+    "semantic_hash": ""
+  },
+  "components/passbook-cover/component.json": {
+    "mtime": 1792586592.9807618,
+    "ast_hash": "e7327f8b31c7a4141f45115fd3248303",
+    "semantic_hash": ""
+  },
+  "components/phone-note/component.js": {
+    "mtime": 1792586657.8280323,
+    "ast_hash": "b91a3129dfa7d904a46d5ce46d3797fb",
+    "semantic_hash": ""
+  },
+  "components/phone-note/component.json": {
+    "mtime": 1792586584.863478,
+    "ast_hash": "55378c160221d1f7fdf506fffa0d9dd5",
+    "semantic_hash": ""
+  },
+  "components/photo-frame/component.js": {
+    "mtime": 1792586605.9132144,
+    "ast_hash": "4f7bea1f92b978c7e1d325cead4234a3",
+    "semantic_hash": ""
+  },
+  "components/photo-frame/component.json": {
+    "mtime": 1792586599.9800067,
+    "ast_hash": "566dcd04a8a1c989994c425f816fa30a",
+    "semantic_hash": ""
+  },
+  "components/steel-dabba/component.js": {
+    "mtime": 1792586834.8632438,
+    "ast_hash": "c1a84929f5d81df56f3b6028af4af1ba",
+    "semantic_hash": ""
+  },
+  "components/steel-dabba/component.json": {
+    "mtime": 1792586791.7707303,
+    "ast_hash": "41b513dfd6a6cdd43db11b994c33755c",
     "semantic_hash": ""
   }
 }
