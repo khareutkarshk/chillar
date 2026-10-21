@@ -16,7 +16,10 @@ the last ≤ 30 lines of a produce log, `budget.py check` lines, helper reports 
 per finished reel. Never open scripts, scenes, reviews, transcripts or `.cache/agents/*`. Code lookups: graphify.
 
 ## 0. Set up (once)
-1. `git status --short` — note anything uncommitted (don't touch it). `pgrep -af produce.py` — nothing may be
+1. `git status --short`. Interactive sessions don't commit (creator's call, 2026-10-21: only this batch commits), so
+   pending changes to pipeline code, agents, commands, components, brand rules, CLAUDE.md or `episodes/_template`
+   are the creator's approved work: commit them first, as one commit (`Pipeline + rules: changes since last batch`,
+   explicit paths, same attribution rule as §3). Leave anything else uncommitted alone. `pgrep -af produce.py` — nothing may be
    running already. If a reel's episode folder for a date already exists with `output/final.mp4`, skip that date.
    **Keep the laptop awake** (it suspends after 15 idle minutes, even on power): start in the background
    (`run_in_background`) `systemd-inhibit --what=sleep:idle --who=chillar-batch --why="reel batch" --mode=block sleep 43200`
@@ -75,6 +78,8 @@ before grep", and "return ≤ 8 lines: what changed + the exact resume command".
 ## 3. Rules that hold all batch
 - Never post or schedule anything (the creator does that in Meta Business Suite from `output/post.md`).
 - Never edit CLAUDE.md, brand rules §1–7, facts to fit a script, or another reel's files.
+- **Delivered reels are frozen** (creator's call, 2026-10-21): never re-edit or re-render a reel from an earlier
+  batch, even when a new check finds something in it; improvements apply to future reels only.
 - **Commit as you go**, on the current branch, as the configured git user (the creator) — **no `Co-Authored-By`
   or any Claude/AI attribution line** (CLAUDE.md §8, creator's call). Stage explicit paths only
   (`git add episodes/<slug> notes/batches brand/joke-log.md` …), never `git add -A`; heavy media is
