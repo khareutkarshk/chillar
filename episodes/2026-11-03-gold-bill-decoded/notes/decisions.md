@@ -1,0 +1,1 @@
+- 2026-10-21 16:00 stop: fact-check BLOCK after fix cycle → helper sources or cuts/reframes the BLOCK rows, --from factcheck → unsourced facts never ship (creator's call 2026-10-21)

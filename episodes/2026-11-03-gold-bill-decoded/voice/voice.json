@@ -1,0 +1,36 @@
+{
+  "provider": "sarvam",
+  "model": "bulbul:v4-flash",
+  "speaker": "sunny_hi_reels",
+  "pace": 1.2,
+  "language": "hi-IN",
+  "text_file": "voice/tts.txt",
+  "date": "2026-10-21",
+  "seconds": 62.79,
+  "ai_generated": true,
+  "lexicon": [
+    "क्योंकि→क्योन्कि"
+  ],
+  "request_chars": 137,
+  "cached_chars": 836,
+  "takes": 23,
+  "per_line": true,
+  "beats": [
+    [
+      4.001,
+      0.51
+    ],
+    [
+      19.428,
+      0.51
+    ],
+    [
+      51.554,
+      0.51
+    ]
+  ],
+  "paced": [
+    7,
+    12
+  ]
+}

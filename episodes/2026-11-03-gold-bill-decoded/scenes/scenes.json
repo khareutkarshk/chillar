@@ -1,0 +1,581 @@
+{
+ "theme": "pastel",
+ "scenes": [
+  {
+   "id": "hook",
+   "component": "hook-card",
+   "at": 0,
+   "fact": "F8",
+   "params": {
+    "question": "Rate wahi, bill *itna* kyun?",
+    "stakes": [
+     {
+      "label": "Sona",
+      "amount": "₹1,20,000"
+     },
+     {
+      "label": "Bill",
+      "amount": "₹1,38,432"
+     }
+    ],
+    "circle": true,
+    "mascot": "side-eye",
+    "size": 96,
+    "wide": true,
+    "dy": 84
+   }
+  },
+  {
+   "id": "mummy-viva",
+   "component": "checklist",
+   "at": "w8",
+   "params": {
+    "title": "Mummy ka viva",
+    "items": [
+     {
+      "text": "Aaj ka rate?",
+      "ok": true
+     },
+     {
+      "text": "22 carat ya 24?",
+      "ok": true
+     },
+     {
+      "text": "Making charge?",
+      "ok": false
+     }
+    ],
+    "stagger": 0.8,
+    "grow": true
+   }
+  },
+  {
+   "id": "viva-side-eye",
+   "component": "mascot-reaction",
+   "at": "w16",
+   "until": "w22",
+   "params": {
+    "expr": "side-eye",
+    "anim": "blink",
+    "x": 780,
+    "y": 1110,
+    "size": 240
+   }
+  },
+  {
+   "id": "bill-gold-line",
+   "component": "receipt-list",
+   "at": "w22",
+   "cut": "zoom",
+   "fact": "F8",
+   "params": {
+    "title": "JEWELLER ESTIMATE",
+    "meta": "22K · 10 g · maan lo",
+    "items": [
+     {
+      "label": "Sona 22K, 10 g",
+      "amount": "₹1,20,000"
+     }
+    ],
+    "total": {
+     "label": "Ab tak",
+     "amount": "₹1,20,000",
+     "tone": "ink"
+    },
+    "width": 860,
+    "step": 0.3,
+    "dy": 280
+   }
+  },
+  {
+   "id": "gold-value",
+   "component": "odometer-number",
+   "at": "w27-0.2",
+   "fact": "F8",
+   "params": {
+    "value": 120000,
+    "prefix": "₹",
+    "label": "Sona, 10 g",
+    "sub": "maan lo",
+    "rollStart": 0.0,
+    "rollDuration": 0.3
+   }
+  },
+  {
+   "id": "q1-making",
+   "component": "marker-highlight",
+   "at": "w29",
+   "params": {
+    "text": "*Making* charge?",
+    "sub": "banai ki fees",
+    "size": 120,
+    "paper": true,
+    "markerAt": 1.2
+   }
+  },
+  {
+   "id": "q1-thinking",
+   "component": "mascot-reaction",
+   "at": "w33",
+   "until": "w37",
+   "params": {
+    "expr": "thinking",
+    "anim": "blink",
+    "x": 780,
+    "y": 1110,
+    "size": 240
+   }
+  },
+  {
+   "id": "uncle-quote",
+   "component": "statement",
+   "at": "w37",
+   "fact": "F8",
+   "params": {
+    "title": "“Bas *thodi si* hai.”",
+    "size": 150,
+    "markerAt": 0.9
+   }
+  },
+  {
+   "id": "bill-making-line",
+   "component": "receipt-list",
+   "at": "w45",
+   "fact": "F8",
+   "params": {
+    "title": "JEWELLER ESTIMATE",
+    "meta": "22K · 10 g · maan lo",
+    "items": [
+     {
+      "label": "Sona 22K, 10 g",
+      "amount": "₹1,20,000"
+     },
+     {
+      "label": "Making 12%",
+      "amount": "₹14,400"
+     }
+    ],
+    "total": {
+     "label": "Subtotal",
+     "amount": "₹1,34,400",
+     "tone": "ink"
+    },
+    "step": 0.45,
+    "totalAt": 1.6,
+    "width": 860,
+    "dy": 180
+   }
+  },
+  {
+   "id": "stamp-making",
+   "component": "stamp",
+   "at": "w48-0.35",
+   "until": "w49",
+   "fact": "F8",
+   "params": {
+    "text": "₹14,400",
+    "sub": "thodi si",
+    "x": 560,
+    "y": 1000,
+    "rotate": -8,
+    "size": 120
+   }
+  },
+  {
+   "id": "thoda-kam",
+   "component": "marker-highlight",
+   "at": "w49",
+   "params": {
+    "text": "“Uncle, thoda *kam*?”",
+    "size": 120,
+    "paper": true,
+    "markerAt": 0.3
+   }
+  },
+  {
+   "id": "meme-beggars",
+   "component": "meme",
+   "at": "w52",
+   "params": {
+    "meme": "he tryna ignore it",
+    "kind": "image",
+    "pick": 0,
+    "labels": [
+     {
+      "text": "Uncle, “thoda kam?” sunke",
+      "x": 50,
+      "y": 20
+     }
+    ],
+    "wide": true
+   }
+  },
+  {
+   "id": "gst-crown",
+   "component": "glyph-character",
+   "at": "w57",
+   "fact": "F1",
+   "params": {
+    "glyph": "%",
+    "costume": "crown",
+    "eyes": "side-eye",
+    "bubble": "Sarkari tax. Poore bill pe.",
+    "size": 380,
+    "x": 330,
+    "y": 760,
+    "bubbleWidth": 560
+   }
+  },
+  {
+   "id": "bill-gst-line",
+   "component": "receipt-list",
+   "at": "w62",
+   "fact": "F8",
+   "params": {
+    "title": "JEWELLER ESTIMATE",
+    "meta": "22K · 10 g · maan lo",
+    "items": [
+     {
+      "label": "Sona 22K, 10 g",
+      "amount": "₹1,20,000"
+     },
+     {
+      "label": "Making 12%",
+      "amount": "₹14,400"
+     },
+     {
+      "label": "Subtotal",
+      "amount": "₹1,34,400"
+     }
+    ],
+    "total": {
+     "label": "GST 3% (making samet)",
+     "amount": "₹4,032",
+     "tone": "red"
+    },
+    "step": 0.1,
+    "totalAt": 0.5,
+    "width": 860
+   }
+  },
+  {
+   "id": "making-tax",
+   "component": "odometer-number",
+   "at": "w68",
+   "fact": "F8",
+   "params": {
+    "value": 432,
+    "prefix": "₹",
+    "label": "Making pe bhi tax",
+    "sub": "₹14,400 ka 3%",
+    "tone": "red",
+    "rollStart": 0.1,
+    "rollDuration": 0.8
+   }
+  },
+  {
+   "id": "meme-kharcha",
+   "component": "meme",
+   "at": "w78",
+   "fact": "F1",
+   "params": {
+    "meme": "Ab itna kharcha ho hi gaya",
+    "kind": "image",
+    "pick": 0,
+    "labels": [
+     {
+      "text": "3% aur sahi",
+      "x": 50,
+      "y": 85
+     }
+    ]
+   }
+  },
+  {
+   "id": "extra-bars",
+   "component": "odometer-number",
+   "at": "w86",
+   "fact": "F9",
+   "params": {
+    "value": 138432,
+    "from": 120000,
+    "prefix": "₹",
+    "label": "Sone ke upar",
+    "sub": "₹18,432 extra",
+    "rollStart": 0.1,
+    "rollDuration": 0.9
+   }
+  },
+  {
+   "id": "stamp-sab-pe",
+   "component": "stamp",
+   "at": "w89+0.6",
+   "until": "w91",
+   "fact": "F2",
+   "params": {
+    "text": "3% sab pe",
+    "x": 520,
+    "y": 1000,
+    "rotate": -7,
+    "size": 100
+   }
+  },
+  {
+   "id": "result-sheet",
+   "component": "checklist",
+   "at": "w91",
+   "params": {
+    "title": "Viva ka result",
+    "items": [
+     {
+      "text": "Rate yaad",
+      "ok": true
+     },
+     {
+      "text": "Making ka sawaal",
+      "ok": false
+     },
+     {
+      "text": "GST making pe bhi",
+      "ok": false
+     }
+    ],
+    "stagger": 0.3
+   }
+  },
+  {
+   "id": "result-facepalm",
+   "component": "mascot-reaction",
+   "at": "w95",
+   "until": "w98",
+   "params": {
+    "expr": "facepalm",
+    "anim": "blink",
+    "x": 780,
+    "y": 1110,
+    "size": 240
+   }
+  },
+  {
+   "id": "q3-huid",
+   "component": "marker-highlight",
+   "at": "w98",
+   "params": {
+    "text": "*HUID* kya hai?",
+    "sub": "compulsory · kai shehron mein",
+    "size": 120,
+    "paper": true,
+    "markerAt": 1.9
+   }
+  },
+  {
+   "id": "huid-crying",
+   "component": "mascot-reaction",
+   "at": "w105",
+   "until": "w111",
+   "params": {
+    "expr": "crying",
+    "anim": "blink",
+    "x": 780,
+    "y": 1110,
+    "size": 240
+   }
+  },
+  {
+   "id": "huid-id",
+   "component": "statement",
+   "at": "w111",
+   "fact": "F4",
+   "params": {
+    "title": "HUID = gehne ka *ID*",
+    "size": 150,
+    "markerAt": 0.4
+   }
+  },
+  {
+   "id": "huid-roll-number",
+   "component": "marker-highlight",
+   "at": "w116",
+   "fact": "F4",
+   "params": {
+    "text": "Gehne ka *roll number*",
+    "sub": "6 character, laser se likha",
+    "size": 120,
+    "paper": true,
+    "markerAt": 1.4
+   }
+  },
+  {
+   "id": "huid-match",
+   "component": "checklist",
+   "at": "w121",
+   "params": {
+    "title": "Bill se milao",
+    "items": [
+     {
+      "text": "Gehne pe laser: HUID ✔",
+      "ok": true
+     },
+     {
+      "text": "Bill pe likha: wahi HUID",
+      "ok": true
+     }
+    ],
+    "stagger": 1.0,
+    "grow": true
+   }
+  },
+  {
+   "id": "papa-chat",
+   "component": "chat-screen",
+   "at": "w131",
+   "params": {
+    "name": "Papa",
+    "messages": [
+     {
+      "from": "them",
+      "text": "Chalis saal purana *jeweller* hai."
+     },
+     {
+      "from": "me",
+      "text": "Aur HUID?"
+     },
+     {
+      "from": "them",
+      "text": "Bharosa rakh."
+     }
+    ],
+    "stagger": 0.55,
+    "highlight": 0
+   }
+  },
+  {
+   "id": "trust-vs-check",
+   "component": "meme-format",
+   "at": "w140",
+   "params": {
+    "format": "two-panel",
+    "panels": [
+     {
+      "label": "Papa",
+      "text": "Chalis saal ka bharosa",
+      "expr": "smug"
+     },
+     {
+      "label": "Bill",
+      "text": "Chhe character ka check",
+      "expr": "side-eye"
+     }
+    ],
+    "reveal": 0.8,
+    "dy": 100
+   }
+  },
+  {
+   "id": "verify-detective",
+   "component": "glyph-character",
+   "at": "w146",
+   "fact": "F5",
+   "params": {
+    "glyph": "ID",
+    "costume": "detective",
+    "eyes": "side-eye",
+    "bubble": "BIS ka sarkari Verify HUID",
+    "size": 340,
+    "x": 330,
+    "y": 760,
+    "bubbleWidth": 560
+   }
+  },
+  {
+   "id": "bill-final",
+   "component": "receipt-list",
+   "at": "w156",
+   "fact": "F8",
+   "params": {
+    "title": "JEWELLER BILL",
+    "meta": "22K · 10 g · maan lo",
+    "items": [
+     {
+      "label": "Sona 22K, 10 g",
+      "amount": "₹1,20,000"
+     },
+     {
+      "label": "Making 12%",
+      "amount": "₹14,400"
+     },
+     {
+      "label": "GST 3% (sab pe)",
+      "amount": "₹4,032"
+     }
+    ],
+    "total": {
+     "label": "TOTAL",
+     "amount": "₹1,38,432",
+     "tone": "ink"
+    },
+    "step": 0.35,
+    "totalAt": 2.5,
+    "stampTotal": true,
+    "width": 860,
+    "dy": 160
+   }
+  },
+  {
+   "id": "bill-smug",
+   "component": "mascot-reaction",
+   "at": "w163",
+   "until": "w168",
+   "params": {
+    "expr": "smug",
+    "anim": "blink",
+    "x": 830,
+    "y": 1150,
+    "size": 200
+   }
+  },
+  {
+   "id": "new-syllabus",
+   "component": "checklist",
+   "at": "w168",
+   "cut": "whip",
+   "fact": "F2",
+   "params": {
+    "title": "Naya syllabus",
+    "items": [
+     {
+      "text": "Aaj ka rate",
+      "ok": true
+     },
+     {
+      "text": "Making %",
+      "ok": true
+     },
+     {
+      "text": "GST 3% sab pe",
+      "ok": true
+     },
+     {
+      "text": "HUID milao",
+      "ok": true
+     }
+    ],
+    "stagger": 0.3
+   }
+  }
+ ],
+ "effects": [
+  {
+   "type": "punch",
+   "at": "w48"
+  },
+  {
+   "type": "punch",
+   "at": "w89"
+  },
+  {
+   "type": "punch",
+   "at": "w143"
+  }
+ ]
+}

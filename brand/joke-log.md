@@ -2,7 +2,13 @@
 
 Use it on round 1. **Games taken:** don't build a new reel on one of these. **Landed:** reuse the *shape* (act-out, self-own, callback), never the line. **Fell flat:** don't write that kind of joke again. **Audience drops** are real Instagram retention — the strongest signal here.
 
-**Cast lately** (characters are welcome — use whoever the story needs): papa (1/6), padosi (1/6), mummy (1/6), mamaji (1/6), didi (1/6), chacha (1/6), bua (1/6), aunty (1/6), HR (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
+**Cast lately** (characters are welcome — use whoever the story needs): papa (2/6), mummy (2/6), uncle (1/6), padosi (1/6), mamaji (1/6), didi (1/6), chacha (1/6), bua (1/6), aunty (1/6), HR (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
+
+## 2026-11-03-gold-bill-decoded — Sone ka bill, line by line
+- game taken: the gold bill is an exam that mummy prepped you for on the rate alone, and every other line on it is out of syllabus (making = Q1, GST = negative…
+- landed: Maine 'thoda kam?' bola, unhone ladoo pakda diya.
+- landed: compulsory sawaal, HUID… maine padha hi nahi
+- fell flat: Sarkar 'thodi si' nahi samajhti
 
 ## 2026-11-01-gold-kabhi-girta — Sona kabhi girta nahi? Didi vs main
 - game taken: the family's gold gospel (didi is the sanskaari one, chacha says "never falls") meets the calculator, and the calculator keeps making them look silly.
@@ -29,8 +35,3 @@ Use it on round 1. **Games taken:** don't build a new reel on one of these. **La
 - landed: Main list kaatne baitha tha. Bua ka naam add karke utha.
 - landed: Matlab yeh gift nahi, udhaar hai. Bada karke chukana padta hai.
 - fell flat: Aur dabbe mein kaju katli kam, tray zyada
-
-## 2026-10-28-free-trial-autopay — Free trial khatam, autopay nahi
-- game taken: "2 AM wala main" is a separate person who signs things that daytime me pays for: he gives the PIN, day-me buries the warning, the bill adds up,…
-- landed: Main. Aadhi raat wala main.
-- landed: Woh PIN payment nahi, recurring debit ki permission thi.
