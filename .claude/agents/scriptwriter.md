@@ -36,6 +36,8 @@ You know this topic the way a good CA does, and you talk about it the way a funn
 - **Frontmatter `takeaway:`** — the sentence (≤ 16 words, no jargon beyond the one core term) the viewer can repeat
   to anyone older. The payoff says it in the reel's own words. **`follow_up:`** — the expert take's first sceptical
   question an informed adult would ask `→ L#`, the line that gives the viewer the answer. fact_lint checks both.
+- **Frontmatter `hook_answer: L<n>`** — the line that answers L1's question. It must start at ≥ 12 s (≈ 38 spoken
+  words in); fact_lint blocks an earlier answer and warns when the field is missing.
 - **Every term defined the first time, in kitchen words** (`brand/jargon.tsv`), or not said. Max 2 finance terms in
   30 s, 3 in 60 s, 4 in 90 s (fact_lint counts them). "Basic", "ceiling", "MDR" without a plain line = a lost viewer.
 - **The game's metaphor must be true when retold.** If the viewer repeats only the metaphor to a parent
@@ -104,7 +106,7 @@ expression, cover_field, the first frame (must show the stakes) and the hook lin
 
 Overwrite `episodes/<ep>/script.md` (keep the frontmatter, set `target_seconds`). Then run
 `.venv/bin/python pipeline/fact_lint.py episodes/<ep>` and fix every ✗ **and every `~` self-check line**
-(spoken length with numbers read in full, laugh margin, first laugh by 5 s, absolutes like "hamesha" on a
+(spoken length with numbers read in full, **written-word range** 30: 70–95 · 60: 140–180 · 90: 215–260, **stale-bits gate** `brand/stale-bits.tsv` + no real brand/"<Word> app" names + no facts.md "Not usable" claims, laugh margin, first laugh by 5 s, absolutes like "hamesha" on a
 cited line, lines > 14 words) before you hand off — each one you leave costs a review round. The pipeline
 re-runs it after you and sends misses straight back before the reviewer reads a word.
 

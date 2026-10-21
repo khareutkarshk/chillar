@@ -305,8 +305,8 @@
     "semantic_hash": "36a4d64c0f29c2ccf433b4dd2fbaa76a"
   },
   "pipeline/fact_lint.py": {
-    "mtime": 1792575851.9667733,
-    "ast_hash": "71c8b498b3b27f4826c73e9675acc507",
+    "mtime": 1792587806.3291144,
+    "ast_hash": "858f13773ebc08ff56c47d7334f65ad9",
     "semantic_hash": ""
   },
   "pipeline/fetch_assets.py": {
@@ -415,8 +415,8 @@
     "semantic_hash": ""
   },
   "pipeline/validate_scenes.py": {
-    "mtime": 1792575831.4931092,
-    "ast_hash": "e5941b6893f4b98a265575288beb7894",
+    "mtime": 1792587792.171625,
+    "ast_hash": "f67f9d9d5c133d10abae5d8cba095318",
     "semantic_hash": ""
   },
   "pyproject.toml": {
@@ -430,8 +430,8 @@
     "semantic_hash": "0dc2d491af9b5e44782e341239503b0e"
   },
   ".claude/agents/director.md": {
-    "mtime": 1792575880.6216996,
-    "ast_hash": "3362141ea2191ebd8c21209cd95a9c06",
+    "mtime": 1792587860.6539948,
+    "ast_hash": "f2ada99d1c192588cbbda7b49ae63527",
     "semantic_hash": ""
   },
   ".claude/agents/editor.md": {
@@ -445,13 +445,13 @@
     "semantic_hash": ""
   },
   ".claude/agents/script-reviewer.md": {
-    "mtime": 1792575851.9937742,
-    "ast_hash": "d2a6138041dcc9bf2e3dafb8b22fe0b2",
+    "mtime": 1792587853.328741,
+    "ast_hash": "be2c8c333ec270e58db2229af9648cd9",
     "semantic_hash": ""
   },
   ".claude/agents/scriptwriter.md": {
-    "mtime": 1792575851.9937742,
-    "ast_hash": "90be4fc8562d529ed96f0e34223a70af",
+    "mtime": 1792587818.7385437,
+    "ast_hash": "b5eb63ca2dc2eef80bdc78121a2f164c",
     "semantic_hash": ""
   },
   ".claude/agents/video-reviewer.md": {
@@ -530,8 +530,8 @@
     "semantic_hash": ""
   },
   "episodes/_template/script.md": {
-    "mtime": 1792575851.9857738,
-    "ast_hash": "90b7dd598a4fc11cbcf6f802af6e7961",
+    "mtime": 1792587818.7385437,
+    "ast_hash": "b370cfb8945069a13455c18e7cb4806a",
     "semantic_hash": ""
   },
   ".claude/settings.json": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "brand/rules/production.md": {
-    "mtime": 1792572622.4997041,
-    "ast_hash": "d316267541559289c2d456da72cf75ee",
+    "mtime": 1792588266.9351163,
+    "ast_hash": "03da59866c6a91e23aefbd04e03070b7",
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792575851.9847739,
-    "ast_hash": "daba893ee714622564a580539a08d93f",
+    "mtime": 1792587919.2280247,
+    "ast_hash": "c580c8ffee3cb39b1b9d5418bb8410e4",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -775,8 +775,8 @@
     "semantic_hash": ""
   },
   "pipeline/voice_check.py": {
-    "mtime": 1792535344.1033297,
-    "ast_hash": "d41f86a65be30c881bb0cb7113ef49ea",
+    "mtime": 1792587792.1726248,
+    "ast_hash": "c4616d0712bc34c981b78599d49d9ffa",
     "semantic_hash": ""
   },
   "components/chat-screen/component.js": {

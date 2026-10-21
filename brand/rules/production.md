@@ -117,6 +117,12 @@ Baseline: the EPF reel made by a producer session routing in-session subagents c
   - Audience: `retention.py` maps a posted reel's Instagram retention points to the lines being said.
   - memes.py refuses unsafe titles (and templates whose own printed text is unsafe, by name).
 
+- **(2026-10-21) Batch 1–7 Nov analysis ($25.83 / 6 reels; director 29 %, writer 29 %, reviewer 17 %):** the
+  director's first-plan brief truncated `_catalog.md` (32k cap) so every plan grepped it, so the full catalog is now in the
+  prompt; director fix/polish passes run on Sonnet (`REVISE_MODEL`); reviewer round 2+ at medium with capped notes and
+  fact_lint's count is final. fact_lint now blocks the written-word range, stale bits (`brand/stale-bits.tsv`), brand/app
+  names, "Not usable" restatements and a hook answered before 12 s (`hook_answer: L#`). validate blocks numbered labels
+  ("Q1.", "Sawaal 2"); voice_check pads windows 0.3 s; repair_voice never reuses a spelling that failed.
 - **Batches (`/batch-reels <first> <last> --pct-now N`, 2026-10-21):** one master session runs every scheduled reel
   in a date range (≤ 2 produce.py at once), decides stops like the creator via helper subagents, then analyses and
   optimises. `pipeline/budget.py` is the hard stop: armed with the weekly % now and a stop %, it converts ccusage

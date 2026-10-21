@@ -59,6 +59,10 @@ OUTRO_GAP, OUTRO_S = 0.12, 1.9
 STRUCTURE = re.compile(r"^(the\s+)?(setup|set-up|set up|escalation|payoff|pay-off|hook|intro|introduction|outro|"
                        r"conclusion|twist|plot twist|context|recap|summary|chapter\s*\d*|part\s*\d+|page\s*\d+|"
                        r"step\s*\d+|act\s*\d+|section\s*\d+|last page)$", re.I)
+# numbered quiz/question labels as a PREFIX of a headline ("Q1. Making charge?", "Sawaal 2: ...", "#1."). Punctuation (or the
+# end of the text) must follow the number so "Q3 results", "Round 1 funding", "#1 rule", "No. 1 gram" stay legal.
+NUMBERED_LABEL = re.compile(r"^[\s*_]*((q|question|sawaal|sawal|savaal|round|no\.?)\s*#?\s*\d+|#\s*\d+(?=\s*[.:]))"
+                            r"\s*([.:)\-–—]|$)", re.I)
 HEADLINE_KEYS = {"question", "title", "text"}
 TEXT_FREE_LAYERS = {"transition", "background"}
 
@@ -303,7 +307,7 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
     for s in scenes + overlays + [outro]:
         for txt in strings(s.get("raw_params", {})):
             plain = re.sub(r"[*_#:.!?\-–—]+", " ", txt).strip()
-            if STRUCTURE.match(plain) or plain.lower() in chapter_names:
+            if STRUCTURE.match(plain) or NUMBERED_LABEL.match(txt) or plain.lower() in chapter_names:
                 errors.append(f"{s['id']}: shows '{txt}' — script structure (chapter names, setup/escalation/payoff, "
                               f"part/page/step numbers) never appears on screen; show the content instead")
         for k in HEADLINE_KEYS & set(s.get("raw_params", {})):

@@ -35,7 +35,7 @@ NASAL_MID = re.compile(r"[ँं](?=[क-ह])")          # nasal followed by a 
 NASALS = set("ँंनमणङञ")
 MATRAS = re.compile(r"[ा-्॑-ॗॢॣ़]")   # vowel signs, virama, nukta
 LOW_MATCH = 0.6
-PAD = 0.12                     # seconds of context either side of a line clip
+PAD = 0.3                      # seconds of context either side of a line clip (aligned starts clip the first word)
 
 
 def skeleton(w: str) -> str:
@@ -52,13 +52,27 @@ def best(word: str, heard: list[str]) -> tuple[str, float]:
     return max(scored, key=lambda x: x[1], default=("", 0.0))
 
 
+def trim_edges(got: list[str], mine: list[str]) -> list[str]:
+    """Drop heard words at either edge that match nothing in the expected line (the padding caught a neighbour's words)."""
+    if not mine:
+        return got
+    ok = [any(best(w, [g])[1] >= 0.6 for w in mine) for g in got]
+    if not any(ok):
+        return got
+    return got[ok.index(True): len(ok) - ok[::-1].index(True)]
+
+
 def transcribe_lines(wav: Path, spans: list[tuple[float, float]]) -> list[list[str]]:
     """One transcription per line clip — a single pass drifts its word times and skips stretches of a fast read."""
     from faster_whisper import WhisperModel
     m = WhisperModel(MODEL, device="cpu", compute_type="int8")
     out = []
+    import wave
+    with wave.open(str(wav)) as wf:
+        total = wf.getnframes() / wf.getframerate()
     for a, b in spans:
-        segs, _ = m.transcribe(str(wav), language="hi", clip_timestamps=[max(0.0, a - PAD), b + PAD],
+        # padded window, clamped to the audio; a neighbour's edge words get trimmed in trim_edges()
+        segs, _ = m.transcribe(str(wav), language="hi", clip_timestamps=[max(0.0, a - PAD), min(total, b + PAD)],
                                vad_filter=False, beam_size=1, condition_on_previous_text=False)
         out.append(" ".join(s.text.strip() for s in segs).split())
     return out
@@ -77,9 +91,9 @@ def check(ep_dir: str) -> dict:
     rows, flags = [], 0
     for i, (lid, (a, b)) in enumerate(lines):
         said = tts[i] if i < len(tts) else ""
-        got = heard[i]
-        got_dev = [g for x in got for g in DEV.findall(x)]
         mine = DEV.findall(said)
+        got = trim_edges(heard[i], mine)
+        got_dev = [g for x in got for g in DEV.findall(x)]
         f = []
         if mine:
             score = sum(best(w, got_dev)[1] >= 0.6 for w in mine) / len(mine)

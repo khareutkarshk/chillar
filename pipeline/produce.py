@@ -45,6 +45,7 @@ AGENTS = ROOT / ".claude" / "agents"
 STAGES = ["research", "script", "factcheck", "voice", "align", "edit", "deliver", "package", "usage"]
 MAX_ROUNDS = 3
 REVISE_EFFORT = "medium"         # director revisions / fix passes (the first plan uses the frontmatter's, medium since 2026-10-21)
+REVISE_MODEL = "sonnet"          # director fix/polish passes edit a few scenes from routed notes: Opus only for the first plan
 OUTRO_S = 2.0                    # outro receipt after the voice (cuts on the last word, 1.9 s)
 CLEAN = 0.95                     # audio_clean trims ≈ 5 % of the raw voice (measured on 4 reels: 0.94–0.96)
 
@@ -144,12 +145,14 @@ class Line:
         self.out.mkdir(parents=True, exist_ok=True)
         (ep / "notes").mkdir(exist_ok=True)
 
-    def agent(self, name: str, prompt: str, stage: str, effort: str = "", *,
+    def agent(self, name: str, prompt: str, stage: str, effort: str = "", *, model: str = "",
               tools_override: str | None = None, bash_allow: list[str] | None = None) -> str:
-        """effort overrides the frontmatter's (revisions run a level below the first pass)."""
+        """effort / model (an alias from MODELS) override the frontmatter's (revisions run below the first pass)."""
         meta = frontmatter(name)
         if effort:
             meta["effort"] = effort
+        if model:
+            meta["model"] = model
         model = MODELS.get(meta.get("model", "sonnet"), meta.get("model", "sonnet"))
         tools = tools_override or ",".join(t.strip() for t in meta.get("tools", "Read").split(","))
         allowed_bash = ([".venv/bin/python"] if name == "component-dev" else BASH_OK) if bash_allow is None else bash_allow
@@ -199,11 +202,21 @@ class Line:
         return d.get("result", "")
 
     def scoped_agent(self, name: str, ep: Path, task: str, stage: str, mode: str,
-                     *, note: Path | None = None, effort: str = "") -> str:
+                     *, note: Path | None = None, effort: str = "", model: str = "") -> str:
         """Run scene/review work with a bounded brief and only the tools needed for that role."""
         only_blockers = name == "component-dev" and "blocker" in task.lower()
-        brief = build_brief(ep, name, mode, task, edit_inputs(ep, name, mode, note, only_blockers=only_blockers), note=note,
-                            max_chars=32000 if name == "director" and mode == "first" else 24000)
+        paths = edit_inputs(ep, name, mode, note, only_blockers=only_blockers)
+        catalog = ""
+        if name == "director" and mode == "first":
+            # the brief cuts any file at 18k chars and the whole brief at 32k: the 27k catalog arrived truncated (and
+            # themes/formats/shot-patterns after it), so every first plan re-grepped it, 5–9k chars a call, 15–34 turns.
+            # Inline it whole once (≈ 7k tokens, cached) — cheaper than greps whose results ride along every later turn.
+            cat_path = ROOT / "components" / "_catalog.md"
+            paths = [p for p in paths if p.name != "_catalog.md"]
+            catalog = (f"\n--- components/_catalog.md (complete — do not open or grep it) ---\n"
+                       f"{cat_path.read_text()}\n") if cat_path.exists() else ""
+        brief = build_brief(ep, name, mode, task, paths, note=note,
+                            max_chars=32000 if name == "director" and mode == "first" else 24000) + catalog
         prompt = (f"{task}\n\nUse this bounded context brief as your source set; do not rediscover context "
                   f"with broad shell reads. Brief size: {len(brief)} chars.\n\n{brief}")
         tools = {
@@ -215,7 +228,7 @@ class Line:
             "scriptwriter": "Read,Write,Edit,Bash",
             "script-reviewer": "Read,Write,Bash",
         }.get(name)
-        return self.agent(name, prompt, stage, effort, tools_override=tools,
+        return self.agent(name, prompt, stage, effort, model=model, tools_override=tools,
                           bash_allow=[".venv/bin/python"] if tools and "Bash" in tools else [])
 
     def sh(self, *args: str, check: bool = True) -> int:
@@ -295,7 +308,13 @@ def director(L: Line, ep: Path, prompt: str, stage: str, effort: str = "") -> No
     m = re.search(r"notes/video-review-(\d+)\.md", prompt)
     note = ep / "notes" / f"video-review-{m.group(1)}.md" if m else None
     mode = "first" if prompt.startswith("Plan ") else "revision"
-    L.scoped_agent("director", ep, prompt, stage, mode, note=note, effort=effort)
+    if mode == "first":
+        prompt += (" Budget: the whole catalog is below — never grep or reopen it. Write scenes.json, run validate, then "
+                   "`qa.py --for director` once, fix every ✗ in one batch of edits, run validate + qa once more and stop "
+                   "(a third run only if that one still shows a ✗). No grep|qa loops, no output filters on qa.")
+    # fix / polish passes edit a handful of scenes from routed notes — Sonnet does that at ~1/5 of Opus
+    L.scoped_agent("director", ep, prompt, stage, mode, note=note, effort=effort,
+                   model="" if mode == "first" else REVISE_MODEL)
     if L.dry:
         return
     backlog(ep, L.last_out.name, [x for x in L.last_out.read_text().splitlines() if COMP_TAG.search(x)])
@@ -322,27 +341,56 @@ def repair_voice(L: Line, ep: Path, review: Path, stage: str) -> None:
     notes = "\n".join(notes_for(review, "voice", "blocker"))
     if not notes:
         return
+    blocker_ids = set(re.findall(r"\bL\d+\b", notes))
+    vc = ep / ".cache" / "voice_check.json"
+    # 2026-11 batch: the repair agent re-applied the reviewer's respelling that had already failed → the same stop
+    # twice. Every spelling Sunny was heard to miss is kept per line and shown with what whisper heard, never reused.
+    tried_p = ep / ".cache" / "voice_failed.json"
+    tried: dict[str, list[str]] = json.loads(tried_p.read_text()) if tried_p.exists() else {}
+    rows = {r["line"]: r for r in json.loads(vc.read_text()).get("rows", [])} if vc.exists() else {}
+    for lid in sorted(blocker_ids):
+        r = rows.get(lid)
+        if r and r["tts"] not in tried.setdefault(lid, []):
+            tried[lid].append(r["tts"])
+    evidence = "\n".join(
+        f"- {lid}: heard \"{rows[lid]['heard'] if lid in rows else '?'}\" · flags {'; '.join(rows[lid]['flags']) or '—' if lid in rows else '?'}"
+        f" · spellings that already failed (never reuse, not even the reviewer's suggestion if it is one of these): "
+        + " | ".join(f'"{t}"' for t in tried.get(lid, [])) for lid in sorted(blocker_ids))
+    if not L.dry:
+        tried_p.write_text(json.dumps(tried, ensure_ascii=False, indent=1))
     L.scoped_agent("voice", ep,
                    f"Fix only these voice blockers from {e}/notes/{review.name}. Compare each line with "
                    f".cache/voice_check.md. Prefer a pronunciation respelling in voice/tts.txt or "
                    f"brand/pronunciations.tsv that preserves the approved script words exactly. Do not edit "
-                   f"script.md or scenes. If no safe respelling fixes a genuinely unclear line, leave it "
-                   f"unchanged and report it unresolved so the pipeline can stop for a creator decision.\n\n{notes}",
+                   f"script.md or scenes. Each blocker line below lists what the voice-check heard and every "
+                   f"spelling that already failed: a new spelling must differ from all of them (a different "
+                   f"syllable split, Latin vs Devanagari, or a pronunciations.tsv row). If no safe new respelling "
+                   f"fixes a genuinely unclear line, leave it unchanged and report it unresolved so the pipeline "
+                   f"can stop for a creator decision.\n\n{notes}\n\nCurrent voice check + failed spellings:\n{evidence}",
                    stage, "revision", note=review)
     if L.dry:
         return
     L.sh(PY, "pipeline/tts.py", str(ep))
     clean_align(L, ep)
     L.sh(PY, "pipeline/voice_check.py", str(ep), check=False)
-    vc = ep / ".cache" / "voice_check.json"
     if not vc.exists():
         stop(ep, "voice repair did not produce a voice-check report", "Inspect the TTS and alignment output before resuming.")
     data = json.loads(vc.read_text())
-    blocker_ids = set(re.findall(r"\bL\d+\b", notes))
-    remaining = [r["line"] for r in data.get("rows", []) if r.get("line") in blocker_ids and r.get("flags")]
+    flagged = [r for r in data.get("rows", []) if r.get("line") in blocker_ids and r.get("flags")]
+    for r in flagged:
+        if r["tts"] not in tried.setdefault(r["line"], []):
+            tried[r["line"]].append(r["tts"])
+    tried_p.write_text(json.dumps(tried, ensure_ascii=False, indent=1))
+    # every word of the line heard inside its padded window (match 100 %) = Sunny says it; a leftover nasal/ASR flag
+    # alone isn't worth a creator stop. A number flag still stops: a line with no Hindi words scores 100 % by default.
+    remaining = [r["line"] for r in flagged
+                 if r.get("match", 0) < 1.0 or any(f.startswith("number") for f in r["flags"])]
+    if flagged and not remaining:
+        print(f"  voice re-take: {', '.join(r['line'] for r in flagged)} still flagged, but every word is heard — continuing")
     if remaining:
         stop(ep, f"voice blockers remain after one targeted re-take: {', '.join(remaining)}",
-             "Listen to these lines, then correct voice/tts.txt or mark the reviewer note resolved before resuming.")
+             "Listen to these lines, then correct voice/tts.txt or mark the reviewer note resolved before resuming. "
+             "Spellings already tried per line: .cache/voice_failed.json.")
 
 
 def blocker_signature(review: Path) -> set[tuple[str, str]]:
@@ -480,7 +528,8 @@ def st_script(L: Line, ep: Path, a) -> None:
         L.scoped_agent("script-reviewer", ep, f"Review {e}/script.md, round {n}." +
                        (" This is a length-only fix: check changed lines and preserve the rest." if fix else "") +
                        (f" Verify unresolved items in {prior.relative_to(ROOT)}, then assess the current draft." if prior else ""),
-                       "script", "revision" if prior else "first", note=prior)
+                       "script", "revision" if prior else "first", note=prior,
+                       effort=REVISE_EFFORT if prior else "")     # round 1 judges cold at high; 2+ checks known notes
         # the reviewer's picks among the writer's {alt: …} lines — a punch-up without another round
         L.sh(PY, "pipeline/script_picks.py", str(ep), "--review", str(ep / "notes" / f"script-review-{n}.md"), check=False)
         v = verdict(ep / "notes" / f"script-review-{n}.md")

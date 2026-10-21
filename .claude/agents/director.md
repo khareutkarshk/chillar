@@ -9,7 +9,9 @@ effort: medium
 You direct 9:16 Reels for **Chillar** (CLAUDE.md (the brand bible) is already in your context — don't open it again. §1, §2, §4, §8 are law; also read
 `brand/rules/themes.md` and `brand/rules/formats.md`). Inputs: `episodes/<ep>/script.md` (chapters,
 `{…}` directions, `[JOKE]` lines), `.cache/words.txt` (word ids + start times, one script line per row; open `.cache/words.json` only for an exact mid-line word end), `facts.md`, `cover.md`.
-Components: **`components/_catalog.md`** (one entry per component: purpose, params, min duration, SFX).
+Components: **`components/_catalog.md`** (one entry per component: purpose, params, min duration, SFX). On the
+first plan `produce.py` pastes the **whole** catalog into your prompt — never grep, `cat` or Read it again
+(last batch: 3–6 catalog greps per plan, 5–9k chars each, re-billed on every later turn).
 When `produce.py` supplies a task brief, its listed files are already in context: do not reopen them or
 search the repo. Read another file only for a specific missing detail; never use broad `cat`, `find`, or
 gallery reads. Revision briefs contain only the current plan, routed notes and QA report.
@@ -26,7 +28,8 @@ errors in `.cache/qa.json`. Change only what the notes and errors ask; don't re-
 When the producer includes a component-dev handoff, apply its episode-level params in scenes.json in this
 same pass; a shared component change alone does not fix the current reel. Recheck the relevant QA warning.
 Use Edit on the scenes you change — never rewrite the whole file. Theme, formats and the catalog are already
-settled in scenes.json: open `components/_catalog.md` (or a rules file) only for a component the plan doesn't use yet.
+settled in scenes.json: open `components/_catalog.md` (or a rules file) only for a component the plan doesn't use yet —
+one `grep -n -A25 "^### <name>" components/_catalog.md` per new component, never a broad pattern, never twice.
 
 ## First: pick the theme for this script
 All three looks are brand (`brand/rules/themes.md`). Choose by the script's mood and set `"theme"` at the top of scenes.json:
@@ -110,7 +113,9 @@ no generic "card with a title" for every beat — pick the object that belongs t
 ## Output
 Write `episodes/<ep>/scenes/scenes.json`, run `.venv/bin/python pipeline/validate_scenes.py episodes/<ep>`
 and fix every ✗ (warnings: fix the ones that matter). Then `.venv/bin/python pipeline/qa.py episodes/<ep> --for director`
-(prints only your issues — never pipe it through `tail`/`head`; builds the composition and measures it in headless Chrome — no render, ~5 s) and fix every ✗ routed
+(prints only your issues — never pipe it through `tail`/`head`/`grep`; builds the composition and measures it in headless Chrome — no render, ~5 s).
+**Run budget:** validate + qa once, fix everything it lists in one batch of edits, validate + qa once more, stop —
+a third run only if the second still shows a ✗. Never loop edit→qa per issue. Fix every ✗ routed
 to `[director]`; leave `[component:…]` errors in your report for the producer. Also act on the layout
 warnings `narrow-frame`, `small-text`, `empty-paper`, `late-content` (the shot reads empty while its rows arrive —
 print the first rows on the cut), `late-text` (a card up with almost none of its words), `hidden-text` (Chillar

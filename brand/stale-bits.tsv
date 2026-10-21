@@ -1,0 +1,15 @@
+# pattern (regex, case-insensitive, Roman Hinglish)<TAB>why — fact_lint.py flags any script line that matches (blocking)
+good\s*morning.*(flower|phool|forward|whatsapp)|(flower|phool).*good\s*morning	uncle's good-morning flower forward: reviewers rejected it as stock
+kuch\s*nahi\s*(lenge|lungi|lunga|khayenge).*(kha|khaa|plate|ras|sandwich|samosa)|(kuch|kucch)\s*nahi\s*lenge	relative says "kuch nahi lenge" then eats everything: stock
+sharma\s*ji\s*(ka|ke|ki)\s*(beta|bete|ladka|beti)	Sharma ji ka beta comparison: the most overused desi bit
+padosi\s*aunty|pados\s*wali\s*aunty|neighbou?r\s*aunty	padosi aunty gossip: stock
+paise\s*(ped|pedh)\s*pe?\s*(nahi\s*)?(ug|lag)te	"paise ped pe nahi ugte": every dad joke ever
+mummy\s*ki\s*chapp?al|chappal\s*(uda|phek|fek)	mummy ki chappal: stock
+bijli\s*ka\s*bill.*(shock|jhatka)|(shock|jhatka).*bijli\s*ka\s*bill	bijli bill shock pun: stock
+rishtedaar.*(shaadi|wedding).*(kab|kab\s*kar)|shaadi\s*kab\s*kar(oge|ega|egi)	"shaadi kab karoge" relatives: stock
+engineering\s*(ke|ki)\s*(baad|degree).*(chai|pakod)|chai\s*(ki|ka)\s*tapri.*engineer	engineer ends up selling chai: stock
+(1st|first)\s*(of|ko)\s*the\s*month.*salary.*(gayab|ud)|salary\s*(aate\s*hi|ke\s*)?(ek\s*tareekh|1\s*tareekh).*gayab	salary vanishes on the 1st: stock
+mere\s*paas\s*(gaadi|bangla|paisa)\s*hai.*tumhare\s*paas	"mere paas ... hai, tumhare paas kya hai": Deewar line is over-parodied
+(rs|rupees?|₹)?\s*\S+\s*(ka|ki)\s*chai\s*(roz|daily).*lakhpati|latte\s*factor|chai\s*chhod\s*do.*(ameer|lakhpati)	"skip the chai, get rich": stock finance-bro cliche
+baba\s*ka\s*dhaba|kya\s*se\s*kya\s*ho\s*gaya|nobody\s*can\s*stop\s*me.*(hdfc|sip)	dated meme phrases
+boss\s*(ne)?\s*(kaha|bola).*(monday|weekend)\s*(ko)?\s*(aana|kaam)	"boss called on weekend": stock office joke

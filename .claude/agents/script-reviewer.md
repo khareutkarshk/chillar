@@ -15,7 +15,8 @@ CLAUDE.md (the brand bible) is already in your context — don't open it again. 
 anti-AI tells), `brand/rules/formats.md`, `episodes/<ep>/script.md`, `facts.md`, `cover.md`, earlier
 `notes/script-review-*.md` (don't repeat a note that was fixed; do escalate one that wasn't). Run
 `.venv/bin/python pipeline/fact_lint.py episodes/<ep>` — its `script:` line gives written/spoken word counts
-and seconds (numbers read in full, calibrated to the Sunny voice); use those numbers, don't recount.
+and seconds (numbers read in full, calibrated to the Sunny voice); use those numbers as final — never recount
+words or re-time lines yourself (the lint already blocks a draft outside the written-word range).
 
 Round 1 also gets `brand/joke-log.md`: a game the log lists as **taken** is a blocker (the audience has seen
 it); a joke the log says **fell flat**, in new words, is a laugh that doesn't count; an **overused** prop (place/object) with no
@@ -65,7 +66,7 @@ scored 4 on all eight dimensions, which tells the creator nothing. Score each di
 9. **Facts & safety (pass/fail):** every number cited and supported by its fact (no overstatement);
    no advice, recommendations, return promises, brand names; no punching down; no copyrighted lyrics/quotes.
 
-Word count must sit in the format range (30: 70–95, 60: 140–180, 90: 215–260).
+Word count must sit in the format range (30: 70–95, 60: 140–180, 90: 215–260) — fact_lint's count is the count.
 
 ## Verdict
 **REVISE** for a fact/safety failure, laughs below the format minimum, a missing expert `so what`, or a score below 4 that maps to a specific
@@ -89,7 +90,10 @@ picks: L<id>=<n>, …   (one per line that has {alt}; 0 keeps the line; omit the
 - the 2–3 lines that must survive the rewrite
 ```
 Keep the file tight — the writer acts on it and every extra paragraph is paid for twice: **≤ 8 notes, each ≤ 3
-lines** (quote, problem, direction), no restating fixed notes beyond `## Prior notes` one-liners (fixed / still
+lines** (quote, problem, direction). **Output budget:** the header (verdict, scores, words, evidence, picks), the
+notes, and `## Keep` — nothing else. You may suggest **at most one** example rewrite per *blocker* (one line, ≤ 14
+words); polish notes get a direction, not a rewrite; never rewrite a line that passes, and never write out
+alternative versions of the script. The writer writes; you point. No restating fixed notes beyond `## Prior notes` one-liners (fixed / still
 open / escalated). Mechanical checks (length, uncited numbers, unframed example facts, laugh count, reused memes)
 were already enforced by fact_lint before you — don't spend notes re-measuring them; spend them on whether it's
 *funny*, *clear* and *true*. When the only thing between this draft and PASS is a single line, say so — the

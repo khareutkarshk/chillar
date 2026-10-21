@@ -6,6 +6,7 @@ target_seconds: 60        # format: 30 | 60 | 90
 takeaway: "<the one sentence, ≤ 16 words, the viewer can explain to a parent after watching>"
 follow_up: "<an informed adult's first sceptical question → L# that answers it>"
 open_loop: "<L# in the hook that plants the question → L# in the payoff that answers it>"
+hook_answer: "<L# — the line that answers L1's question; must start at 12 s or later>"
 paid_partnership: false
 ---
 

@@ -86,6 +86,16 @@ LABEL_COLON = re.compile(r"^((?:[\w'₹]+\s?){1,3}):\s")
 JARGON = [l.split("\t")[0] for l in (BRAND / "jargon.tsv").read_text().splitlines()
           if l.strip() and not l.startswith("#")] if (BRAND / "jargon.tsv").exists() else []
 JARGON_MAX = {"30": 2, "60": 3, "90": 4}     # distinct finance terms one reel can define and still be followed
+HOOK_HOLD_S = 12.0                          # the line that answers L1's question must not start before this
+WORD_RANGE = {"30": (70, 95), "60": (140, 180), "90": (215, 260)}   # CLAUDE.md §4, written words
+STALE_TSV = BRAND / "stale-bits.tsv"
+# §3: no real finance/payment/jeweller brands on screen or in the voice; "<Word> app" is always suspect
+BRAND_NAMES = ("paytm|phonepe|phone pe|gpay|google pay|bhim|cred|zerodha|groww|upstox|razorpay|amazon pay|mobikwik|"
+               "freecharge|hdfc|icici|sbi|axis bank|kotak|paypal|flipkart|swiggy|zomato|tanishq|malabar|kalyan|joyalukkas|"
+               "bajaj|lic|policybazaar|navi|slice|jupiter|fi money|angel one|nippon|sbi mf|mirae|bharatpe")
+BRAND_RE = re.compile(rf"(?<![\w-])({BRAND_NAMES})(?![\w-])", re.I)
+APP_RE = re.compile(r"\b([A-Z][\w]+(?: Care)? app)\b")      # "BIS Care app", "Foo app" (capitalised, as written)
+APP_OK = {"UPI app", "Banking app", "Bank app", "Phone app"}
 TAKEAWAY_MAX = 16                           # what the viewer can repeat to a parent, in one breath
 
 
@@ -138,6 +148,60 @@ def discussable(ep) -> list[str]:
     return out
 
 
+def hook_hold(ep) -> list[str]:
+    """The answer to L1's question must not arrive before ~12 s (3–15 s is where viewers swipe)."""
+    ans = str(ep.meta.get("hook_answer", "")).strip()
+    ids = [l.id for l in ep.lines]
+    if not re.fullmatch(r"L\d+", ans) or ans not in ids:
+        return ["hook_answer missing in the frontmatter — the line (L#) that answers L1's question; the lint checks it "
+                "starts at 12 s or later"] if not ans or ans.startswith("<") else [f"hook_answer must be one existing line like L5 (got: {ans[:20]})"]
+    spoken = 0
+    for line in ep.lines:
+        if line.id == ans:
+            break
+        spoken += sum(spoken_len(m) - 1 for m in NUM_TOKEN.findall(line.spoken)) + len(line.spoken.split())
+    t = spoken / WPS
+    if t < HOOK_HOLD_S:
+        return [f"hook answered too early: {ans} starts at ≈ {t:.1f} s, outside the hold of ≥ {HOOK_HOLD_S:.0f} s — "
+                "keep L1's question open longer (move the answer later or add a complication first)"]
+    return []
+
+
+def stale_lint(ep) -> list[str]:
+    """Bits reviewers already rejected, §3 brand/app names, and claims facts.md lists as Not usable."""
+    out = []
+    pats = []
+    if STALE_TSV.exists():
+        for l in STALE_TSV.read_text().splitlines():
+            if l.strip() and not l.startswith("#"):
+                pat, _, why = l.partition("\t")
+                pats.append((re.compile(pat, re.I), why.strip() or "stale bit"))
+    nu = []
+    fp = Path(ep.dir) / "facts.md"
+    if fp.exists():
+        m = re.search(r"^##\s*Not usable[^\n]*\n(.*?)(?=^##\s|\Z)", fp.read_text(), re.M | re.S)
+        for b in re.findall(r"^\s*[-*]\s+(.+)$", m.group(1), re.M) if m else []:
+            # distinctive words: ≥ 6 letters, outside the parenthetical reason; need 3 of them to call it a restatement
+            core = re.sub(r"\(.*?\)", "", b)
+            kw = {w.lower() for w in re.findall(r"[A-Za-z]{6,}", core)} - {"average", "indian", "household", "source", "primary"}
+            if len(kw) >= 3:
+                nu.append((kw, b.strip()[:60]))
+    for line in ep.lines:
+        for rx, why in pats:
+            if rx.search(line.spoken):
+                out.append(f"{line.id} stale bit /{rx.pattern}/ — {why}: \"{line.spoken[:70]}\"")
+        for m in BRAND_RE.finditer(line.spoken):
+            out.append(f"{line.id} names a real brand '{m.group(0)}' (CLAUDE.md §3) — say it generically: \"{line.spoken[:70]}\"")
+        for m in APP_RE.finditer(line.spoken):
+            if m.group(1) not in APP_OK and not BRAND_RE.search(m.group(1)):
+                out.append(f"{line.id} names an app '{m.group(1)}' (CLAUDE.md §3: no app/brand names) — say it generically")
+        low = {w.lower() for w in re.findall(r"[A-Za-z]{6,}", line.spoken)}
+        for kw, b in nu:
+            if len(kw & low) >= max(3, (len(kw) + 1) // 2 + (len(kw) % 2 == 0)):
+                out.append(f"{line.id} restates a facts.md 'Not usable' claim ({b}…) — cut or reframe it")
+    return out
+
+
 def script_lint(ep) -> list[str]:
     """Self-check the writer runs before handing off: spoken length, laughs, absolutes, long lines."""
     out = []
@@ -171,6 +235,12 @@ def script_lint(ep) -> list[str]:
         out.append(f"{jokes} [JOKE] lines — minimum {LAUGH_MIN[fmt]} real laughs; aim for {LAUGH_MIN[fmt] + 1}+ so one dud doesn't fail review")
     if first_joke_at is None or first_joke_at > FIRST_LAUGH_S:
         out.append(f"first laugh lands at ≈ {first_joke_at or 0:.1f} s — must be by {FIRST_LAUGH_S:.0f} s")
+    wlo, whi = WORD_RANGE[fmt]
+    if not wlo <= words <= whi:
+        out.append(f"written words: {words} outside {wlo}–{whi} for {fmt} s ({'cut' if words > whi else 'add'} "
+                   f"{words - whi if words > whi else wlo - words}) — counted as the reviewer does: spoken words of script lines, "
+                   "no [F#]/[JOKE]/{directions}")
+    out += hook_hold(ep)
     out += discussable(ep)
     out.insert(0, f"script: {words} words written · ≈ {spoken} spoken (numbers in full) · ≈ {secs:.0f} s incl. outro · {jokes} jokes")
     return out
@@ -257,6 +327,8 @@ def lint(ep_dir: str) -> dict:
         warnings.append(f"{fid} is never cited in script.md")
     jokes = [l.id for l in ep.lines if l.joke]
     script = script_lint(ep) if ep.lines else []
+    if ep.lines:
+        problems += stale_lint(ep)            # writer-fixable, and /produce's gate sends non-F# problems back
     return {"episode": ep.name, "ok": not problems, "problems": problems, "warnings": warnings, "script": script,
             "joke_lines": jokes, "facts": len(ep.facts), "lines": len(ep.lines)}
 
