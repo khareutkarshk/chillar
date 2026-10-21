@@ -3,10 +3,10 @@
 ## Agents (`.claude/agents/`), one job each; `pipeline/produce.py` routes them
 | agent | model · effort | does | loop |
 |---|---|---|---|
-| `researcher` | sonnet · medium | library facts first, then primary-source gaps → `facts.md` (+ library) | |
+| `researcher` | sonnet · medium | library facts first, then primary-source gaps → `facts.md` (+ library) | fact_lint row problems → researcher once, before the writer |
 | `scriptwriter` | opus · high | writes/rewrites script.md (jokes, puns, meme refs, facts cited) | ⇄ script-reviewer, ≤ 3 rounds |
 | `script-reviewer` | opus · high | scores + line notes → `notes/script-review-<n>.md`, PASS/REVISE | |
-| `fact-checker` | sonnet · medium | verifies claims → `notes/fact-check.md`, PASS/BLOCK | BLOCK → scriptwriter |
+| `fact-checker` | sonnet · medium | verifies claims → `notes/fact-check.md`, PASS/BLOCK; makes ≤ 3-word hedge fixes + facts.md housekeeping itself (🔧) | script-line BLOCK → scriptwriter; facts.md-only BLOCK → fact-checker again |
 | `director` | opus · medium | script + words.json → `scenes/scenes.json` (visuals, fields, stamps, cuts) | ⇄ video-reviewer |
 | `editor` | sonnet · medium | rhythm, cut points, comedic timing, transitions, SFX in scenes.json | ⇄ video-reviewer |
 | `video-reviewer` | sonnet · medium | judges taste/comedy/retention on top of `qa.py` → `notes/video-review-<n>.md` | ≤ 3 rounds |

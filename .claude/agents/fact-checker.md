@@ -29,7 +29,14 @@ tax — credit cards, UPI, insurance included) that isn't already there: id `L-<
 episode-specific numbers out. Your report's last line: `library: +<n> (<ids>)` or `library: +0 (none recurring)`. Check each script line says no more than its fact supports (jokes included — a joke
 can't smuggle in an unsourced number). Also scan `scenes/scenes.json` if it exists.
 
-Update `checked` dates only for facts you re-verified. Never change claim text or script lines
-yourself — list the fix. Write `episodes/<ep>/notes/fact-check.md` with the table
-(line · claim · fact · status ✅/⚠/❌ · fix) and return (≤ 8 lines): `verdict: PASS` (all ✅) or `verdict: BLOCK` + the rows that block. Put the verdict line
+Update `checked` dates only for facts you re-verified.
+**Fix it yourself — no writer/reviewer round (2026-10-21; each round cost ≈ $0.35):**
+- facts.md housekeeping: a URL-less row the script doesn't cite moves out of the table to `## Not usable
+  (unverified)`; notes reworded to match what the source says.
+- a **hedge fix** in script.md: an overstatement fixed by swapping ≤ 3 words for the source's own scope
+  ("aksar" → "kai jagah", "sabka" → "kai logon ka", a dropped "tak"). No new number, no new fact id, not the
+  last word of a punchline, word count unchanged ±1. Mark the row status `🔧 hedged` with the before → after.
+Anything bigger (a wrong number, a missing source, a joke that only works overstated) stays ❌ with the fix
+listed — the writer handles it. Never edit a line only to improve it. Write `episodes/<ep>/notes/fact-check.md` with the table
+(line · claim · fact · status ✅/⚠/❌ · fix) and return (≤ 8 lines): `verdict: PASS` (all ✅ or 🔧) or `verdict: BLOCK` + the rows that block. Put the verdict line
 (`verdict: PASS` / `verdict: BLOCK`) at the top of notes/fact-check.md too — the producer script reads it.

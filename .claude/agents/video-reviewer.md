@@ -67,7 +67,8 @@ wanted but lost the 2 s thinning — a dropped foley or meme sound is a `[editor
   chapter cut); no text card between chapters.
 - **Retention:** frame 1 shows stakes; something new every 2–3 s; a re-hook at the format cadence;
   the payoff frame delivers the cover promise; the outro is complete with the disclaimer.
-- **Numbers on screen** match facts.md, Indian grouping (₹1,00,000). **Theme fits the mood**, used consistently.
+- **Numbers on screen** match facts.md, Indian grouping (₹1,00,000), and every label + number pair, read alone on
+  a paused frame, says no more than the fact (sign, "extra" vs "total", per month vs once). **Theme fits the mood**, used consistently.
 
 ## Output
 Write `episodes/<ep>/notes/video-review-<round>.md`:
@@ -84,14 +85,18 @@ it, text it can't size). The director can't fix a component from scenes.json —
 
 **Severity:**
 - `blocker` — a qa error; a brand, safety or disclaimer break; an AI-look tell; a frame whose main idea doesn't
-  read in ~1 s (clipped, overlapping, unreadable); a wrong or early number; a visual that kills or gives away a joke.
+  read in ~1 s (clipped, overlapping, unreadable); a wrong or early number — **including a correct number whose
+  label or neighbour makes a paused frame say something false** (2026-10-31 frame 1: "PF kata −₹2,640" beside
+  "In-hand −₹840" read as ₹2,640 extra cut; it was filed as polish). Fact-check runs before scenes.json exists, so
+  you are the only check on what the screen claims; a visual that kills or gives away a joke.
 - `polish` — everything else: a nicer object, a bigger panel, a better entrance, a widow word, variety.
 
 **Verdict:** PASS when there is no blocker — polish notes go in the file but never block. REVISE only for blockers.
 Polish notes are **applied** after a PASS (one director/editor pass, qa-guarded), so write them as precisely as
 blockers: t, what, the exact fix. `[component:*]` polish goes to the shared backlog, not to this reel.
 - **Memes vs the last reels:** validate blocks a meme the last 4 reels used; if a meme feels like one the channel
-  has leaned on (same joke shape, same sound), say so as polish.
+  has leaned on (same joke shape, same sound), say so as polish. Up to 2 evergreen classics per reel are allowed
+  (CLAUDE.md §3, validate counts them): an old-but-everywhere meme is never a note for being old.
 **Round 2+:** check the prior notes, then add only *new blockers* (something this round broke or that was hidden
 before). No new polish notes after round 1 — the edit loop converges or it costs a round each time.
 

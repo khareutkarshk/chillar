@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """A hard spending stop for a batch of reels — counts every Claude session on this machine (the master, its
-helpers and every headless produce.py agent), not just one episode's agents.
+helpers and every headless produce.py agent), not just one episode's agents. Headless agents run with
+--no-session-persistence, so ccusage never sees them: their cost is read from episodes/*/notes/usage.jsonl instead
+(the 2026-10-28 batch showed $0.63 spent while its agents had spent ≈ $13).
 
   budget.py start --pct-now 53 --stop-at-pct 70 [--usd-per-pct 4.5]   arm it (writes .cache/batch_budget.json)
   budget.py check                                                     spent / cap / projected weekly %; exit 3 = over
@@ -44,6 +46,20 @@ def claude_usd_since(day: str) -> float:
                      if any(k in m.get("modelName", "").lower() for k in CLAUDE)), 2)
 
 
+def agent_usd_since(armed_at: str) -> float:
+    """$ of every headless produce.py agent run since the batch was armed, from the episodes' usage.jsonl."""
+    total = 0.0
+    for log in (ROOT / "episodes").glob("*/notes/usage.jsonl"):
+        for line in log.read_text(errors="replace").splitlines():
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if str(row.get("at", "")) >= armed_at:
+                total += float(row.get("cost") or 0)
+    return round(total, 2)
+
+
 def state() -> dict | None:
     for _ in range(3):              # two reels may write it at once; writes are atomic, so a retry suffices
         if not LEDGER.exists():
@@ -69,7 +85,7 @@ def check(force: bool = False) -> dict:
         return {"armed": False}
     if force or time.time() - s.get("checked_at", 0) > CACHE_S:
         try:
-            s["spent"] = round(claude_usd_since(s["since"]) - s["baseline"], 2)
+            s["spent"] = round(claude_usd_since(s["since"]) - s["baseline"] + agent_usd_since(s["armed_at"]), 2)
             s.pop("stale", None)
         except RuntimeError as e:
             s["stale"] = str(e)[:200]

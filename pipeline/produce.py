@@ -371,6 +371,20 @@ def st_research(L: Line, ep: Path, a) -> None:
     (ep / "script.md").write_text(s)
     L.sh(PY, "pipeline/source_index.py", "sync", check=False)
     L.agent("researcher", f"Research {ep.relative_to(ROOT)} — topic: {a.topic}. Format {a.format} s.", "research")
+    rows = facts_rows_lint(ep)      # 2026-10-30: two URL-less "do not use" rows rode through every script round to a BLOCK
+    if rows and not L.dry:
+        print(f"  facts gate: {len(rows)} facts.md row problem(s) → researcher, before the writer")
+        L.agent("researcher", f"Fix only these facts.md rows in {ep.relative_to(ROOT)} (source each one, or move it out of "
+                "the table under `## Not usable (unverified)`), then re-run fact_lint: " + " | ".join(rows[:10]), "research")
+
+
+def facts_rows_lint(ep: Path) -> list[str]:
+    """fact_lint problems that belong to facts.md rows (`F3: …`), not to the script."""
+    r = subprocess.run([PY, "pipeline/fact_lint.py", str(ep), "--json"], cwd=ROOT, capture_output=True, text=True)
+    try:
+        return [p for p in json.loads(r.stdout).get("problems", []) if re.match(r"F\d+:", p)]
+    except json.JSONDecodeError:
+        return []
 
 
 def duration(p: Path) -> float:
@@ -494,6 +508,9 @@ def st_factcheck(L: Line, ep: Path, a) -> None:
             return
         if cycle == 2:
             break
+        if not script_blocks(fc):       # only facts.md rows block: the fact-checker re-runs, no writer/reviewer round
+            print("  fact-check BLOCK is facts.md-only → no script round")
+            continue
         n = len(list((ep / "notes").glob("script-review-*.md")))
         fc_note = ep / "notes" / "fact-check.md"
         L.scoped_agent("scriptwriter", ep, f"Fix only the BLOCK rows listed in {e}/notes/fact-check.md in {e}/script.md "
@@ -503,6 +520,12 @@ def st_factcheck(L: Line, ep: Path, a) -> None:
     stop(ep, "fact-check still BLOCK after one fix cycle",
          "see notes/fact-check.md · options: fix the BLOCK rows (facts.md source / script line) then --from factcheck, "
          "or accept a row the creator has verified and --from voice")
+
+
+def script_blocks(fc: Path) -> bool:
+    """Does any blocking row of notes/fact-check.md point at a script line (L#) or an on-screen shot?"""
+    rows = [l for l in fc.read_text().splitlines() if l.startswith("|") and re.search(r"❌|⚠", l)]
+    return not rows or any(re.match(r"\|\s*(L\d+|scene|shot|on-screen)", l, re.I) for l in rows)
 
 
 def clean_align(L: Line, ep: Path) -> None:
@@ -765,9 +788,11 @@ def st_usage(L: Line, ep: Path, a) -> None:
         risk = next((x.strip() for x in review_text.splitlines() if x.lower().startswith("swipe risk:")), "swipe risk not recorded")
         blockers = len(re.findall(r"^\s*-\s*\[[^\]]+\]\s*blocker\b", review_text, re.M | re.I))
         polish_n = len(re.findall(r"^\s*-\s*\[[^\]]+\]\s*polish\b", review_text, re.M | re.I))
-        video = ep / "output" / "final.mp4"
-        stale = video.exists() and video.stat().st_mtime > video_reviews[-1].stat().st_mtime
-        freshness = " · STALE: final.mp4 rendered after this review" if stale else ""
+        # the delivery render always follows the review; what matters is whether the reviewed plan changed after it
+        plan = ep / "scenes" / "scenes.json"
+        changed = plan.exists() and plan.stat().st_mtime > video_reviews[-1].stat().st_mtime
+        freshness = ("" if not changed else " · polished after this PASS (qa-guarded, not re-reviewed: look at the "
+                     "contact sheet)" if verdict(video_reviews[-1]) == "PASS" else " · STALE: scenes.json changed after this review")
         lines.append(f"Latest reviewer report: {risk} · blockers {blockers} · polish notes {polish_n}{freshness}")
     if ep.name[:10] and re.fullmatch(r"\d{4}-\d{2}-\d{2}", ep.name[:10]):
         try:

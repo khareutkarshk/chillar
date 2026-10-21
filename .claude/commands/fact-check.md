@@ -25,4 +25,6 @@ Fact-check episode **$ARGUMENTS**.
 
 5. Output a table: line id · claim as written · fact id · status (✅ verified / ⚠ outdated /
    ⚠ overstated / ❌ unsourced / ❌ wrong) · fix. Update `checked` dates for facts you re-verified (in the episode and in `brand/facts-library.md`)
-   (ask before changing any claim text or script line). Anything not ✅ blocks /render.
+   Hedge fixes (≤ 3 words, no new number) and facts.md housekeeping you make yourself and mark `🔧 hedged`
+   (rules: `.claude/agents/fact-checker.md`); ask before any other change to claim text or a script line.
+   Anything not ✅/🔧 blocks /render.

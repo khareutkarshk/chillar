@@ -20,8 +20,10 @@ rules apply. The prompt gives you the episode folder (already created from `_tem
    repeatedly. Don't retry a blocked URL more than twice — find the same document on PIB / egazette instead.
    Verify the primary source itself, never a news article for a number the primary source publishes.
 3. Each fact = one row: `| F# | claim | source URL | <today> | notes |` — notes say page/section and anything
-   recently changed, disputed, or easy to overstate. Anything you can't confirm from a primary source: leave
-   it out, or mark the note `UNVERIFIED — do not use`.
+   recently changed, disputed, or easy to overstate — and the **widest wording the source supports** ("kai
+   employers", not "most"), so the writer never overstates. Anything you can't confirm from a primary source
+   stays **out of the table** (a URL-less row blocks the render): list it under `## Not usable (unverified)`
+   below the table, one bullet each, no F-id.
 4. A worked example the reel needs (a balance, an in-hand salary): compute it with python, put it in a
    fenced block under the table, and make it a row citing the F-ids it uses. **Mark example rows so the lint
    can hold the script to them** (CLAUDE.md §3): the claim starts with `Worked example:` / `Example:` /

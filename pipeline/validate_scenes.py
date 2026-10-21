@@ -45,7 +45,9 @@ M = TOK["motion"]
 SAFE = TOK["safeZone"]
 TR = TOK["transitions"]
 FIELDS = TOK["fieldSlots"]
-PRIORITY = {"meme": 4, "stamp": 5, "scratch": 4, "ding": 3, "glitch": 3, "printer": 2, "coin": 2, "typing": 1, "whoosh": 0}
+# action foley (printer on a printing slip, whoosh on a styled cut, typing) beats the reaction coin: the 2026-10-26→31
+# reels lost 1–3 printers/whooshes each to a decorative coin, so receipts printed and transitions moved in silence
+PRIORITY = {"meme": 4, "stamp": 5, "scratch": 4, "ding": 3, "glitch": 3, "printer": 3, "typing": 2, "whoosh": 2, "coin": 1}
 FOLEY_PRIORITY = 4    # a one-off sound (brand/sfx/<name>.wav: cough, slurp, knock) was placed on purpose for a line
 OVERRIDE_BONUS = 1    # a scene's own "sfx" beats a component default at the same rank
 SHORT_BLOCK = 0.7     # a shot under 70 % of its component's minDuration is an error, not a warning

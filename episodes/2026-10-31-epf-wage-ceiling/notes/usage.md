@@ -1,6 +1,6 @@
 # Usage — 2026-10-31-epf-wage-ceiling (agent runs, from notes/usage.jsonl)
 
-Updated: 2026-10-21 11:59 local time. Agent totals exclude the interactive producer session and external services such as TTS.
+Updated: 2026-10-21 14:20 local time. Agent totals exclude the interactive producer session and external services such as TTS.
 
 | stage | runs | turns | prompt chars | cached read tokens | cost |
 |---|---:|---:|---:|---:|---:|
@@ -16,7 +16,7 @@ Updated: 2026-10-21 11:59 local time. Agent totals exclude the interactive produ
 Review rounds: script 3 · video 1.
 Local source retrieval: 7 searches · 16 excerpts · 3,521 chars returned from 403,423 chars of matched sources
 Latest script quality: scores: stop 4 · laughs 4 (count 4/3) · specific 4 · clarity 4 · escalation 4 · payoff 4 · speak 4 · fresh 4 · facts PASS
-Latest reviewer report: swipe risk: 0–3s low · 3–15s med · middle low · payoff med · blockers 0 · polish notes 6 · STALE: final.mp4 rendered after this review
+Latest reviewer report: swipe risk: 0–3s low · 3–15s med · middle low · payoff med · blockers 0 · polish notes 6 · polished after this PASS (qa-guarded, not re-reviewed: look at the contact sheet)
 Mechanical QA: 0 errors · 1 warnings (qa.json updated 2026-10-21 05:51)
 
 ## Producer session
