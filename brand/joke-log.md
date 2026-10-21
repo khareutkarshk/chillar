@@ -2,8 +2,6 @@
 
 Use it on round 1. **Games taken:** don't build a new reel on one of these. **Landed:** reuse the *shape* (act-out, self-own, callback), never the line. **Fell flat:** don't write that kind of joke again. **Audience drops** are real Instagram retention — the strongest signal here.
 
-**Overused lately** (in half or more of the last 6 scripts): cart (3/6), Diwali (3/6) — lead with a different person/place, or make the moment around it new.
-
 ## 2026-10-29-diwali-gifting-maths — Ek dabba × poora mohalla
 - game taken: the list only ever grows, and everyone, Papa included, keeps calling it "ek hi dabba".
 - landed: Main list kaatne baitha tha. Bua ka naam add karke utha.

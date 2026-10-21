@@ -1,0 +1,40 @@
+{
+  "theme": "night",
+  "scenes": [
+    {"id": "s01-hook", "component": "hook-card", "at": 0, "fact": "F4",
+     "params": {"question": "Account *rent* pe do?", "stakes": [{"label": "DM: ghar baithe kamao", "amount": ""}, {"label": "Commission", "amount": "₹5,000"}], "circle": true, "mascot": "side-eye", "wide": true, "dy": 60}},
+    {"id": "s02-group", "component": "chat-screen", "at": "w7-0.3",
+     "params": {"name": "Part-time job 💼", "messages": [{"from": "them", "text": "Welcome to the *team*!"}, {"from": "them", "text": "Bas account use hone do"}, {"from": "me", "text": "Aur main kya karun?"}, {"from": "them", "text": "Kuch nahi 🙂"}], "highlight": 1, "stagger": 0.4, "times": false}},
+    {"id": "s03-naam", "component": "receipt-list", "at": "w13",
+     "params": {"title": "ACCOUNT TRAIL", "items": [{"label": "Paisa aaya", "amount": "unka"}, {"label": "Paisa gaya", "amount": "unka"}, {"label": "KYC", "amount": "tumhara"}], "total": {"label": "NAAM", "amount": "TUMHARA", "tone": "red"}, "step": 0.16, "width": 860, "totalAt": 1.3, "dy": 160}},
+    {"id": "s04-college", "component": "meme-format", "at": "w20",
+     "params": {"format": "two-panel", "panels": [{"label": "Kaam", "text": "Zero", "expr": "facepalm"}, {"label": "Cover pe naam", "text": "Main", "expr": "smug"}], "reveal": 0.8}},
+    {"id": "s05-grader", "component": "glyph-character", "at": "w30", "fact": "F1",
+     "params": {"glyph": "AI", "costume": "detective", "eyes": "side-eye", "bubble": "Trail dekh raha hoon.", "bubbleSide": "right", "size": 360, "x": 330, "y": 700}},
+    {"id": "s06-maal", "component": "meme", "at": "w38",
+     "params": {"meme": "Maal kidhar hai", "kind": "image", "pick": 0, "headline": "Grader ka mood"}},
+    {"id": "s07-lakh", "component": "odometer-number", "at": "w43", "fact": "F2", "cut": "zoom",
+     "params": {"value": 26, "prefix": "", "suffix": "", "unit": "lakh se zyada", "label": "mule accounts", "sub": "list mein share ho chuke", "rollDuration": 0.6}},
+    {"id": "s08-list", "component": "receipt-list", "at": "w54", "fact": "F2",
+     "params": {"title": "I4C LIST", "items": [{"label": "Account holder", "amount": "tumhara naam"}, {"label": "Status", "amount": "shared"}], "total": {"label": "LIST", "amount": "Suspect Registry", "tone": "ink"}, "circleTotal": false, "step": 0.2, "width": 860, "totalAt": 1.6, "dy": 160}},
+    {"id": "o08-stamp", "component": "stamp", "at": "w56+0.15", "until": "w59-0.1",
+     "params": {"text": "SUSPECT", "x": 540, "y": 1010, "rotate": -8, "size": 130}},
+    {"id": "s09-seat", "component": "meme", "at": "w59-0.1",
+     "params": {"meme": "Robert Pattinson as Chris Hansen", "kind": "image", "pick": 0, "headline": "Suspect ji, baithiye"}},
+    {"id": "s10-matdo", "component": "checklist", "at": "w62-0.06",
+     "params": {"title": "Kisi ko mat do", "items": [{"text": "Account", "ok": false}, {"text": "Card", "ok": false}, {"text": "SIM", "ok": false}, {"text": "OTP", "ok": false}], "stagger": 0.1, "grow": true}},
+    {"id": "s11-report", "component": "envelope", "at": "w69-0.1", "fact": "F3",
+     "params": {"lines": ["Complaint", "Recruiter ka number", "Account rent wala DM"], "pincode": "", "postmark": "", "x": 110, "y": 250, "width": 820}},
+    {"id": "o11-stamp", "component": "stamp", "at": "w69", "until": "w73",
+     "params": {"text": "1930", "sub": "helpline", "x": 520, "y": 960, "rotate": -7, "size": 150}},
+    {"id": "s12-forward", "component": "chat-screen", "at": "w73",
+     "params": {"name": "Hostel 4th floor", "messages": [{"from": "me", "text": "Account rent pe *mat* do"}, {"from": "them", "text": "Bhai thanks"}, {"from": "them", "text": "Naam bach gaya 🙏"}], "highlight": 0, "stagger": 0.6, "times": false}},
+    {"id": "o12-smug", "component": "mascot-reaction", "at": "w76", "duration": 2.4,
+     "params": {"expr": "smug", "anim": "blink", "x": 800, "y": 1120, "size": 260}}
+  ],
+  "effects": [
+    {"type": "punch", "at": "w19"},
+    {"type": "punch", "at": "w26"},
+    {"type": "punch", "at": "w58"}
+  ]
+}
