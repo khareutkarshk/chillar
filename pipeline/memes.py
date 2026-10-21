@@ -59,8 +59,7 @@ HINGLISH = re.compile(r"\b(hai|hain|kya|nahi|bhai|bhaiya|mere|mujhe|kar|raha|tha
 ANCHORS = [(112126428, 2017 + 7 / 12), (222403160, 2020 + 1 / 12), (309868304, 2021 + 5 / 12), (371619279, 2022 + 2 / 12)]
 CLASSICS_PER_REEL = 1          # a still-everywhere classic (imgflip top-30-days) — at most one per reel
 MAX_TEMPLATE_MONTHS = 36       # older uploads need the researcher's proof that they're everywhere this week
-FRESH_PEAK_MONTHS = 1          # a Culture now row that peaked this month or last is "now"; older is a classic at best
-OLD_PEAK_MONTHS = 6            # past this, only imgflip's top-30-days proves it's still everywhere (else stale)
+FRESH_PEAK_MONTHS = 1          # a Culture now row that peaked this month or last is "now"; older is an evergreen classic
 PEAKED = re.compile(r"·\s*peaked\s+(\d{4})-(\d{1,2})\b", re.I)
 TREND = ROOT / ".cache" / "memes_trending.json"
 DELAY = 1.5     # seconds between requests to one site (low volume, polite)
@@ -250,7 +249,7 @@ def freshness(title: str, kind: str, tid: str | None, ep) -> tuple[str, str]:
     peak = culture_peaks(ep).get(n) if n in cn else None
     if n in cn and (peak is None or peak <= FRESH_PEAK_MONTHS):
         return "now", "facts.md Culture now"
-    if n in cn and peak <= OLD_PEAK_MONTHS:
+    if n in cn:     # evergreen classics (Bas karo bhai, Waiting Skeleton) are fine — creator's call 2026-10-21
         return "classic", f"facts.md Culture now, but it peaked {peak} months ago"
     if kind == "sound":
         return ("now", "myinstants trending") if any(norm_title(x["title"]) == n for x in L["sound"]) else \
@@ -261,8 +260,7 @@ def freshness(title: str, kind: str, tid: str | None, ep) -> tuple[str, str]:
         age = months_old(tid)
         return "classic", f"imgflip top-30-days, template ≈ {age} months old"
     age = months_old(tid) if tid else 999
-    where = f"its Culture now row peaked {peak} months ago" if n in cn else "not in Culture now"
-    return "stale", f"not trending today (template ≈ {age} months old) — {where}"
+    return "stale", f"not trending today (template ≈ {age} months old) — not in Culture now"
 
 
 def trending(kind: str = "image", n: int = 30) -> list[str]:

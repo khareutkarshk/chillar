@@ -183,7 +183,7 @@ def lint(ep_dir: str) -> dict:
                 if t and memes.norm_title(t) in recent:
                     warnings.append(f"{line.id} plans {mid} \"{t}\", already used in {recent[memes.norm_title(t)]} — "
                                     "pick another Culture now row")
-        # a Culture now row is only as fresh as its `peaked` date: ≤ 1 old classic per reel, nothing past 6 months
+        # a Culture now row that peaked over a month ago is an evergreen classic: fine, but ≤ 1 per reel (CLAUDE.md §3)
         peaks, old = memes.culture_peaks(ep), {}
         for line in ep.lines:
             for mid in MEME_CUE.findall(" ".join(line.directions) + " " + line.raw):
@@ -191,13 +191,9 @@ def lint(ep_dir: str) -> dict:
                 age = peaks.get(memes.norm_title(t)) if t else None
                 if age is not None and age > memes.FRESH_PEAK_MONTHS:
                     old.setdefault(mid.upper(), (line.id, t, age))
-        for mid, (lid, t, age) in old.items():
-            if age > memes.OLD_PEAK_MONTHS:
-                warnings.append(f"{lid} plans {mid} \"{t}\", which peaked {age} months ago — stale meme; use a row that "
-                                "peaked this month or cut the beat")
         if len(old) > memes.CLASSICS_PER_REEL:
-            warnings.append(f"{len(old)} planned memes peaked over a month ago ({', '.join(old)}) — stale meme budget is "
-                            f"≤ {memes.CLASSICS_PER_REEL} classic per reel; swap the rest for rows that peaked this month")
+            warnings.append(f"{len(old)} planned memes peaked over a month ago ({', '.join(old)}) — classic meme budget "
+                            f"is ≤ {memes.CLASSICS_PER_REEL} per reel; swap the rest for rows that peaked this month")
     except Exception as ex:          # memes/network trouble never blocks the fact gate
         warnings.append(f"recent-meme check skipped ({ex})")
     unused = set(ep.facts) - {f for l in ep.lines for f in l.facts}
