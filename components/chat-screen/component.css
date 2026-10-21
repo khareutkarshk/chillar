@@ -18,7 +18,7 @@
 .c-chat-screen .them .cs-bub { background: color-mix(in srgb, var(--field) 42%, var(--paper)); border-bottom-left-radius: 8px; }
 .c-chat-screen .me .cs-bub { background: color-mix(in srgb, var(--haldi) 42%, var(--paper)); border-bottom-right-radius: 8px; }
 .c-chat-screen .cs-time { position: absolute; right: 22px; bottom: 13px; font-family: var(--font-print); font-weight: 600; font-size: 36px; line-height: 1;
-  color: var(--pencil); white-space: nowrap; }
+  color: color-mix(in srgb, var(--ink) 82%, var(--paper)); white-space: nowrap; }
 .c-chat-screen .notime .cs-bub { padding-right: 24px; }
 .c-chat-screen .cs-dots { position: absolute; left: 0; top: 0; display: flex; gap: 10px; padding: 26px 28px; border-radius: 30px; border-bottom-left-radius: 8px;
   background: color-mix(in srgb, var(--field) 42%, var(--paper)); opacity: 0; }

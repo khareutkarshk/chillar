@@ -1,7 +1,7 @@
 .c-salary-slip .ss-sheet { width: 870px; box-sizing: border-box; padding: 48px 54px 54px; display: flex; flex-direction: column; }
 .c-salary-slip .ss-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 18px; margin-bottom: 8px; border-bottom: 5px solid var(--ink); }
 .c-salary-slip .ss-head .t-head { font-size: 82px; }
-.c-salary-slip .ss-head .t-print { font-size: 32px; color: var(--pencil); }
+.c-salary-slip .ss-head .t-print { font-size: 38px; color: var(--pencil); }
 .c-salary-slip .ss-row { display: flex; justify-content: space-between; align-items: baseline; font-size: 50px; padding: 16px 0; }
 .c-salary-slip .ss-row .num { font-size: 56px; }
 .c-salary-slip .ss-row.pos .num { color: var(--green-text); }

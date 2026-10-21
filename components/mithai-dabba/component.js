@@ -32,6 +32,7 @@ CH.define("mithai-dabba", {
       close: { s: 1.2, x: -330, y: -380, tilt: -4 },
       locker: { s: 0.6, x: 0, y: 40, tilt: -2 },
     }[lay];
+    if (lay === "hero" && +p.boxWidth > 0) BOX.s = +p.boxWidth / BW;
     const { s, x: bx, y: by, tilt } = BOX;
 
     const laddoo = (k, size) => {
@@ -66,7 +67,7 @@ CH.define("mithai-dabba", {
           <span class="md-letter-amt t-num">${CH.esc(L.amount || "")}${CH.scribble("circle", { x: -22, y: -14, w: 34 * String(L.amount || "").length + 50, h: 120, rng, stroke: 7 })}</span></div>
       </div>` : "";
     const stk = p.sticker ? `
-      <div class="md-sticker t-head" style="left:${p.closeAt != null && lay === "hero" ? bx + 30 : bx + BW * s - 330}px; top:${by - 30}px">${CH.esc(p.sticker)}
+      <div class="md-sticker t-head" style="${+p.stickerSize > 0 ? `font-size:${+p.stickerSize}px; ` : ""}left:${p.closeAt != null && lay === "hero" ? bx + 30 : bx + BW * s - 330}px; top:${by - 30}px">${CH.esc(p.sticker)}
         ${p.stickerStrike != null ? CH.scribble("strike", { x: 4, y: 20, w: 310, h: 26, rng, stroke: 7 }) : ""}</div>` : "";
     const hy = by + BH * 0.62;
     const hand = lay === "hero" && p.hand ? `

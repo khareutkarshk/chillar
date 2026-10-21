@@ -1,12 +1,12 @@
 .c-passbook-page .pb-page {
-  width: 880px; box-sizing: border-box; padding: 26px 34px 46px 40px; font-size: 38px; border-radius: 6px;
+  width: 880px; box-sizing: border-box; padding: 26px 34px 46px 40px; font-size: var(--pb-fs, 38px); border-radius: 6px;
   /* the passbook's own printed ruling (part of the object) */
   background-image: repeating-linear-gradient(to bottom, transparent 0 82px, rgba(47, 79, 163, .13) 82px 85px);   /* taste-skill-ignore: the passbook's printed ruling */
   background-position: 0 126px;
 }
 .c-passbook-page .pb-stitch { height: 34px; margin: 0 -34px 8px -40px; border-bottom: 3px dashed rgba(47, 79, 163, .35); }
 .c-passbook-page .pb-row { display: grid; grid-template-columns: 112px 1fr 200px 214px; align-items: baseline; column-gap: 14px; height: 85px; line-height: 85px; white-space: nowrap; }
-.c-passbook-page .pb-headrow { font-family: var(--font-body); font-weight: 800; font-size: 32px; color: var(--pen); height: 70px; line-height: 70px; }
+.c-passbook-page .pb-headrow { font-family: var(--font-body); font-weight: 800; font-size: max(36px, calc(var(--pb-fs, 38px) * .95)); color: var(--pen); height: 70px; line-height: 70px; }
 .c-passbook-page .pb-r { text-align: right; position: relative; }
 .c-passbook-page .dr .pb-amt { color: var(--red); }
 .c-passbook-page .cr .pb-amt { color: var(--green-text); }

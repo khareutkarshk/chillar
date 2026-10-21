@@ -1,6 +1,6 @@
 {
   "name": "mithai-dabba",
-  "description": "Mummy's mithai dabba: a red box with a haldi trim, laddoos in paper cups (rows 6-5-6-5 for 22). Honest share: one laddoo = 1/count. Layouts — hero: big box (letter {title,line,amount,note} under it, Mummy's hand, sticker, static mascot); fully drawn at t=0, good as frame 1; closeAt = the lid standing open behind the box folds shut while Chillar leans in and pushes it. slip: big box on top, payslip below (slip {title, meta, at, rows}); a line with laddoo:true pulls the next laddoo, which arcs high and lands on that row as it prints. close: push-in on the slip — 1-2 big rows, the box corner peeking in top-left. locker: box top-left + a PF locker (locker {label, amount, sub, tag, laddooAt, doorAt, lockAt, openAt}): laddoo flies in, door swings shut, padlock with a paper tag drops; doorAt:null + lockAt:null = already shut and locked at t=0 (fully drawn, good as frame 1); openAt = padlock pops off and the door swings open; locker.inside = a printed paper slip on the shelf, seen once the door opens; box:false (locker layout) = no dabba, the locker alone centred and 1.3× bigger. Lines: {label, amount, sub, icon:'lock', tone: red|green|ink, circle, laddoo, at, amountAt}. removed = laddoos already gone (empty cups). Times are seconds from the scene start; null = already there. mascotX / mascotY (stage px; null = default spot) place the mascot; the offer-letter paper fits its text height.",
+  "description": "Mummy's mithai dabba: a red box with a haldi trim, laddoos in paper cups (rows 6-5-6-5 for 22). Honest share: one laddoo = 1/count. Layouts — hero: big box (letter {title,line,amount,note} under it, Mummy's hand, sticker, static mascot); fully drawn at t=0, good as frame 1; closeAt = the lid standing open behind the box folds shut while Chillar leans in and pushes it. slip: big box on top, payslip below (slip {title, meta, at, rows}); a line with laddoo:true pulls the next laddoo, which arcs high and lands on that row as it prints. close: push-in on the slip — 1-2 big rows, the box corner peeking in top-left. locker: box top-left + a PF locker (locker {label, amount, sub, tag, laddooAt, doorAt, lockAt, openAt}): laddoo flies in, door swings shut, padlock with a paper tag drops; doorAt:null + lockAt:null = already shut and locked at t=0 (fully drawn, good as frame 1); openAt = padlock pops off and the door swings open; locker.inside = a printed paper slip on the shelf, seen once the door opens; box:false (locker layout) = no dabba, the locker alone centred and 1.3× bigger. Lines: {label, amount, sub, icon:'lock', tone: red|green|ink, circle, laddoo, at, amountAt}. removed = laddoos already gone (empty cups). Times are seconds from the scene start; null = already there. mascotX / mascotY (stage px; null = default spot) place the mascot; the offer-letter paper fits its text height. boxWidth (px, hero layout; 0 = default scale) sizes the box, e.g. 870 to span the content width; stickerSize (px, 0 = default 46) sets the sticker text size.",
   "layer": "scene",
   "params": {
     "layout": "hero",
@@ -17,6 +17,8 @@
     "locker": null,
     "closeAt": null,
     "box": true,
+    "boxWidth": 0,
+    "stickerSize": 0,
     "mascotX": null,
     "mascotY": null
   },

@@ -24,3 +24,14 @@ batch; done items get `- [x]`. One open line per component (produce.py merges re
 - [x] (title own row, no overlap) [component:split-compare] the title ('Rule') overlaps its own long text when the chits hold longer  _(mdr-payer)_
 - [x] (new `minHeight` param, default 0) [component:receipt-list] with one item + total, the paper shrinks to the printed rows  _(mdr-payer)_
 - [x] (built: lines/pincode/postmark params) [component:envelope] NEW: an addressed envelope ('Bill to / Address / Pincode') for letter beats — paper object per Note Fields  _(mdr-payer)_
+- [x] (new `size` param; heads 36+ px) The passbook text is 33 px. I'm defending it because it's a component default (8 rows on frame 1); that's a `[component:passbook-page]` matter.  _(2026-10-28-free-trial-autopay · edit-1-director.txt)_
+- [x] (time now ink 82%, passes contrast) **Component request:** `[component:chat-screen]` — its timestamps fail contrast at 1.5:1 on the night theme, so I hid them with `times:false`.  _(2026-10-28-free-trial-autopay · edit-1-director.txt)_
+- [ ] `[component:calendar-flip]` qa should count only the visible page.  _(2026-10-28-free-trial-autopay · edit-5-director.txt)_
+- [ ] `[component:meme-format]` a `textSize` param for panel text.  _(2026-10-28-free-trial-autopay · edit-5-director.txt)_
+- [ ] `[component:checklist] a grow mode that doesn't clip rows on short shots`  _(2026-10-29-diwali-gifting-maths · edit-1-director.txt)_
+- [ ] `[component:phone-note] a plain phone-notes list that grows name by name`. The script asked for one; I used `chat-screen` for now.  _(2026-10-29-diwali-gifting-maths · edit-1-director.txt)_
+- [x] (new `boxWidth`, `stickerSize` params) `[component:mithai-dabba]` needs a width/scale setting so the box spans about 860–880 px, plus a sticker size setting.  _(2026-10-29-diwali-gifting-maths · edit-4-director.txt)_
+- [ ] `[component:meme]` qa should not run the empty-paper check on meme photos.  _(2026-10-29-diwali-gifting-maths · edit-4-director.txt)_
+- [ ] **qa:** every error routed to me is fixed. The 2 left are the odometer's digits overlapping each other mid-roll at 14.8 s, in `[component:odometer-number]`. Four shots are a little under their minimum length (chat 2.30 s, memes 1.28 s and 1.46 s, checklist 1.36 s). That's a warning only; I kept them so the cuts stay on the right words. The SUSPECT stamp runs 0.4 s into the next meme because it has to hold its minimum length.  _(2026-10-30-account-rent-mule · edit-1-director.txt)_
+- [ ] `[component:passbook-cover]`: a passbook front cover with only the name line filled ("aapka naam", red double underline). I used a receipt instead.  _(2026-10-30-account-rent-mule · edit-1-director.txt)_
+- [x] (meta text now 38 px) `[component:salary-slip]` raise the row and meta text to at least 36 px, or add a size param.  _(2026-10-31-epf-wage-ceiling · edit-1-director.txt)_

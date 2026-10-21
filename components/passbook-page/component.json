@@ -1,12 +1,13 @@
 {
   "name": "passbook-page",
-  "description": "An open bank passbook page lying on the field: printed column heads, entries printed dot-matrix style one line at a time (printer buzz), running balance computed, the final balance circled in blue ballpoint. Debits red, credits green. The most Chillar object there is — strong as frame 1 (printed:true) or as the growing-receipt meter.",
+  "description": "An open bank passbook page lying on the field: printed column heads, entries printed dot-matrix style one line at a time (printer buzz), running balance computed, the final balance circled in blue ballpoint. Debits red, credits green. The most Chillar object there is — strong as frame 1 (printed:true) or as the growing-receipt meter. size (px, default 38) is the row text size; column heads are always 36+ px.",
   "layer": "scene",
   "params": {
     "opening": 10000,
     "rows": [{ "date": "01-10", "text": "Salary", "amount": 50000, "type": "cr" }],
     "step": 0.24,
     "printed": false,
+    "size": 38,
     "circleBalance": true
   },
   "example": {

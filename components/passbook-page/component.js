@@ -10,7 +10,7 @@ CH.define("passbook-page", {
     const balTxt = (b) => CH.inr(b);
     el.innerHTML = `
       <div class="zone">
-        <div class="pb-page paper-obj t-print" style="transform: rotate(${tilt.toFixed(2)}deg)">
+        <div class="pb-page paper-obj t-print" style="transform: rotate(${tilt.toFixed(2)}deg); --pb-fs: ${+p.size || 38}px">
           <div class="pb-stitch"></div>
           <div class="pb-row pb-headrow"><span>Date</span><span>Particulars</span><span class="pb-r">Amount</span><span class="pb-r">Balance</span></div>
           <div class="pb-row pb-line"><span></span><span class="pb-text">B/F</span><span></span><span class="pb-r">${balTxt(+p.opening || 0)}</span></div>
