@@ -2427,7 +2427,7 @@
       "_origin": "ast",
       "id": "pipeline_ig_export",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "ig_export.py"
     },
     {
@@ -2438,7 +2438,7 @@
       "_origin": "ast",
       "id": "pipeline_ig_export_encode_args",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "encode_args()"
     },
     {
@@ -2449,7 +2449,7 @@
       "_origin": "ast",
       "id": "pipeline_ig_export_probe",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "probe()"
     },
     {
@@ -2460,7 +2460,7 @@
       "_origin": "ast",
       "id": "pipeline_ig_export_py_path",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "path"
     },
     {
@@ -2471,7 +2471,7 @@
       "_origin": "ast",
       "id": "pipeline_ig_export_atoms",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "atoms()"
     },
     {
@@ -2482,7 +2482,7 @@
       "_origin": "ast",
       "id": "pipeline_ig_export_keyframe_gap",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "keyframe_gap()"
     },
     {
@@ -2493,7 +2493,7 @@
       "_origin": "ast",
       "id": "pipeline_ig_export_check",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "check()"
     },
     {
@@ -2504,7 +2504,7 @@
       "_origin": "ast",
       "id": "pipeline_ig_export_report",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "report()"
     },
     {
@@ -2515,7 +2515,7 @@
       "_origin": "ast",
       "id": "pipeline_ig_export_rationale_26",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "ffmpeg output args: h.264 high 4:2:0, 30 fps cfr, 1 s closed gop, capped vbr,..."
     },
     {
@@ -2526,7 +2526,7 @@
       "_origin": "ast",
       "id": "pipeline_ig_export_rationale_46",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "top-level mp4 atoms in file order."
     },
     {
@@ -2657,8 +2657,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "pipeline_lib_common_slug",
-      "community": 0,
-      "community_name": "Candidate",
+      "community": 4,
+      "community_name": "fetch_assets.py",
       "norm_label": "slug()"
     },
     {
@@ -3933,7 +3933,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "pipeline_make_reel",
-      "community": 112,
+      "community": 11,
       "community_name": "make_reel.py",
       "norm_label": "make_reel.py"
     },
@@ -3944,7 +3944,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "pipeline_make_reel_build_staleness",
-      "community": 112,
+      "community": 11,
       "community_name": "make_reel.py",
       "norm_label": "build_staleness()"
     },
@@ -3955,7 +3955,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "pipeline_make_reel_py_path",
-      "community": 112,
+      "community": 11,
       "community_name": "make_reel.py",
       "norm_label": "path"
     },
@@ -3966,7 +3966,7 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "pipeline_make_reel_run",
-      "community": 112,
+      "community": 11,
       "community_name": "make_reel.py",
       "norm_label": "run()"
     },
@@ -3977,7 +3977,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "pipeline_make_reel_py_completedprocess",
-      "community": 112,
+      "community": 11,
       "community_name": "make_reel.py",
       "norm_label": "completedprocess"
     },
@@ -3988,7 +3988,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "pipeline_make_reel_main",
-      "community": 112,
+      "community": 11,
       "community_name": "make_reel.py",
       "norm_label": "main()"
     },
@@ -3999,7 +3999,7 @@
       "source_location": "L50",
       "_origin": "ast",
       "id": "pipeline_make_reel_rationale_50",
-      "community": 112,
+      "community": 11,
       "community_name": "make_reel.py",
       "norm_label": "return source files newer than the compiled composition used by render-only..."
     },
@@ -4451,7 +4451,7 @@
       "_origin": "ast",
       "id": "pipeline_mix",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "mix.py"
     },
     {
@@ -4462,7 +4462,7 @@
       "_origin": "ast",
       "id": "pipeline_mix_ff",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "ff()"
     },
     {
@@ -4473,7 +4473,7 @@
       "_origin": "ast",
       "id": "pipeline_mix_py_completedprocess",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "completedprocess"
     },
     {
@@ -4484,7 +4484,7 @@
       "_origin": "ast",
       "id": "pipeline_mix_resolve_sound",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "resolve_sound()"
     },
     {
@@ -4495,7 +4495,7 @@
       "_origin": "ast",
       "id": "pipeline_mix_py_path",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "path"
     },
     {
@@ -4506,7 +4506,7 @@
       "_origin": "ast",
       "id": "pipeline_mix_resolve_music",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "resolve_music()"
     },
     {
@@ -4517,7 +4517,7 @@
       "_origin": "ast",
       "id": "pipeline_mix_lufs",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "lufs()"
     },
     {
@@ -4528,7 +4528,7 @@
       "_origin": "ast",
       "id": "pipeline_mix_loudnorm_2pass",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "loudnorm_2pass()"
     },
     {
@@ -4539,7 +4539,7 @@
       "_origin": "ast",
       "id": "pipeline_mix_mix",
       "community": 11,
-      "community_name": "mix.py",
+      "community_name": "make_reel.py",
       "norm_label": "mix()"
     },
     {
@@ -9551,7 +9551,7 @@
       "norm_label": "payoff"
     },
     {
-      "label": "episodes/2026-11-04-digital-gold-sebi/cover.md",
+      "label": "2026-11-04-digital-gold-sebi/cover.md",
       "file_type": "document",
       "source_file": "episodes/2026-11-04-digital-gold-sebi/cover.md",
       "source_location": "L1",
@@ -9559,7 +9559,7 @@
       "id": "episodes_2026_11_04_digital_gold_sebi_cover",
       "community": 126,
       "community_name": "2026-11-04-digital-gold-sebi/cover.md",
-      "norm_label": "episodes/2026-11-04-digital-gold-sebi/cover.md"
+      "norm_label": "2026-11-04-digital-gold-sebi/cover.md"
     },
     {
       "label": "First frame (frame 1 of the video)",
@@ -9584,7 +9584,7 @@
       "norm_label": "hook line (sentence 1)"
     },
     {
-      "label": "episodes/2026-11-04-digital-gold-sebi/facts.md",
+      "label": "2026-11-04-digital-gold-sebi/facts.md",
       "file_type": "document",
       "source_file": "episodes/2026-11-04-digital-gold-sebi/facts.md",
       "source_location": "L1",
@@ -9592,7 +9592,7 @@
       "id": "episodes_2026_11_04_digital_gold_sebi_facts",
       "community": 124,
       "community_name": "Facts \u2014 2026-11-04-digital-gold-sebi",
-      "norm_label": "episodes/2026-11-04-digital-gold-sebi/facts.md"
+      "norm_label": "2026-11-04-digital-gold-sebi/facts.md"
     },
     {
       "label": "Facts \u2014 2026-11-04-digital-gold-sebi",
@@ -9650,7 +9650,7 @@
       "norm_label": "not usable (unverified)"
     },
     {
-      "label": "episodes/2026-11-04-digital-gold-sebi/script.md",
+      "label": "2026-11-04-digital-gold-sebi/script.md",
       "file_type": "document",
       "source_file": "episodes/2026-11-04-digital-gold-sebi/script.md",
       "source_location": "L1",
@@ -9658,7 +9658,7 @@
       "id": "episodes_2026_11_04_digital_gold_sebi_script",
       "community": 125,
       "community_name": "2026-11-04-digital-gold-sebi/script.md",
-      "norm_label": "episodes/2026-11-04-digital-gold-sebi/script.md"
+      "norm_label": "2026-11-04-digital-gold-sebi/script.md"
     },
     {
       "label": "Hook",
@@ -9694,7 +9694,7 @@
       "norm_label": "payoff"
     },
     {
-      "label": "episodes/2026-11-05-card-swipes-bill/cover.md",
+      "label": "2026-11-05-card-swipes-bill/cover.md",
       "file_type": "document",
       "source_file": "episodes/2026-11-05-card-swipes-bill/cover.md",
       "source_location": "L1",
@@ -9702,7 +9702,7 @@
       "id": "episodes_2026_11_05_card_swipes_bill_cover",
       "community": 133,
       "community_name": "2026-11-05-card-swipes-bill/cover.md",
-      "norm_label": "episodes/2026-11-05-card-swipes-bill/cover.md"
+      "norm_label": "2026-11-05-card-swipes-bill/cover.md"
     },
     {
       "label": "First frame (frame 1 of the video)",
@@ -9727,7 +9727,7 @@
       "norm_label": "hook line (sentence 1)"
     },
     {
-      "label": "episodes/2026-11-05-card-swipes-bill/facts.md",
+      "label": "2026-11-05-card-swipes-bill/facts.md",
       "file_type": "document",
       "source_file": "episodes/2026-11-05-card-swipes-bill/facts.md",
       "source_location": "L1",
@@ -9735,7 +9735,7 @@
       "id": "episodes_2026_11_05_card_swipes_bill_facts",
       "community": 131,
       "community_name": "Facts \u2014 <episode>",
-      "norm_label": "episodes/2026-11-05-card-swipes-bill/facts.md"
+      "norm_label": "2026-11-05-card-swipes-bill/facts.md"
     },
     {
       "label": "Facts \u2014 <episode>",
@@ -9793,7 +9793,7 @@
       "norm_label": "not usable (unverified)"
     },
     {
-      "label": "episodes/2026-11-05-card-swipes-bill/script.md",
+      "label": "2026-11-05-card-swipes-bill/script.md",
       "file_type": "document",
       "source_file": "episodes/2026-11-05-card-swipes-bill/script.md",
       "source_location": "L1",
@@ -9801,7 +9801,7 @@
       "id": "episodes_2026_11_05_card_swipes_bill_script",
       "community": 132,
       "community_name": "2026-11-05-card-swipes-bill/script.md",
-      "norm_label": "episodes/2026-11-05-card-swipes-bill/script.md"
+      "norm_label": "2026-11-05-card-swipes-bill/script.md"
     },
     {
       "label": "Hook",
@@ -9991,7 +9991,7 @@
       "norm_label": "payoff {field: note50}"
     },
     {
-      "label": "episodes/2026-11-07-guests-kharcha/cover.md",
+      "label": "2026-11-07-guests-kharcha/cover.md",
       "file_type": "document",
       "source_file": "episodes/2026-11-07-guests-kharcha/cover.md",
       "source_location": "L1",
@@ -9999,7 +9999,7 @@
       "id": "episodes_2026_11_07_guests_kharcha_cover",
       "community": 135,
       "community_name": "2026-11-07-guests-kharcha/cover.md",
-      "norm_label": "episodes/2026-11-07-guests-kharcha/cover.md"
+      "norm_label": "2026-11-07-guests-kharcha/cover.md"
     },
     {
       "label": "First frame (frame 1 of the video)",
@@ -10024,7 +10024,7 @@
       "norm_label": "hook line (sentence 1)"
     },
     {
-      "label": "episodes/2026-11-07-guests-kharcha/facts.md",
+      "label": "2026-11-07-guests-kharcha/facts.md",
       "file_type": "document",
       "source_file": "episodes/2026-11-07-guests-kharcha/facts.md",
       "source_location": "L1",
@@ -10032,7 +10032,7 @@
       "id": "episodes_2026_11_07_guests_kharcha_facts",
       "community": 129,
       "community_name": "Facts \u2014 guests-kharcha",
-      "norm_label": "episodes/2026-11-07-guests-kharcha/facts.md"
+      "norm_label": "2026-11-07-guests-kharcha/facts.md"
     },
     {
       "label": "Facts \u2014 guests-kharcha",
@@ -10090,7 +10090,7 @@
       "norm_label": "culture now"
     },
     {
-      "label": "episodes/2026-11-07-guests-kharcha/script.md",
+      "label": "2026-11-07-guests-kharcha/script.md",
       "file_type": "document",
       "source_file": "episodes/2026-11-07-guests-kharcha/script.md",
       "source_location": "L1",
@@ -10098,7 +10098,7 @@
       "id": "episodes_2026_11_07_guests_kharcha_script",
       "community": 134,
       "community_name": "2026-11-07-guests-kharcha/script.md",
-      "norm_label": "episodes/2026-11-07-guests-kharcha/script.md"
+      "norm_label": "2026-11-07-guests-kharcha/script.md"
     },
     {
       "label": "Hook",
@@ -10131,1392 +10131,6 @@
       "id": "episodes_2026_11_07_guests_kharcha_script_payoff_field_note500",
       "community": 134,
       "community_name": "2026-11-07-guests-kharcha/script.md",
-      "norm_label": "payoff {field: note500}"
-    },
-    {
-      "label": "_vcheck/2026-11-04-digital-gold-sebi/cover.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/cover.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_cover",
-      "community": 158,
-      "community_name": "_vcheck/2026-11-04-digital-gold-sebi/cover.md",
-      "norm_label": "_vcheck/2026-11-04-digital-gold-sebi/cover.md"
-    },
-    {
-      "label": "First frame (frame 1 of the video)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/cover.md",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_cover_first_frame_frame_1_of_the_video",
-      "community": 158,
-      "community_name": "_vcheck/2026-11-04-digital-gold-sebi/cover.md",
-      "norm_label": "first frame (frame 1 of the video)"
-    },
-    {
-      "label": "Hook line (sentence 1)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/cover.md",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_cover_hook_line_sentence_1",
-      "community": 158,
-      "community_name": "_vcheck/2026-11-04-digital-gold-sebi/cover.md",
-      "norm_label": "hook line (sentence 1)"
-    },
-    {
-      "label": "_vcheck/2026-11-04-digital-gold-sebi/facts.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/facts.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts",
-      "community": 5,
-      "community_name": "Facts \u2014 2026-11-04-digital-gold-sebi",
-      "norm_label": "_vcheck/2026-11-04-digital-gold-sebi/facts.md"
-    },
-    {
-      "label": "Facts \u2014 2026-11-04-digital-gold-sebi",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/facts.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts_facts_2026_11_04_digital_gold_sebi",
-      "community": 5,
-      "community_name": "Facts \u2014 2026-11-04-digital-gold-sebi",
-      "norm_label": "facts \u2014 2026-11-04-digital-gold-sebi"
-    },
-    {
-      "label": "Expert take",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/facts.md",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts_expert_take",
-      "community": 5,
-      "community_name": "Facts \u2014 2026-11-04-digital-gold-sebi",
-      "norm_label": "expert take"
-    },
-    {
-      "label": "Texture for the writers (not facts \u2014 don't put numbers from here on screen)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/facts.md",
-      "source_location": "L29",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts_texture_for_the_writers_not_facts_don_t_put_numbers_from_here_on_screen",
-      "community": 5,
-      "community_name": "Facts \u2014 2026-11-04-digital-gold-sebi",
-      "norm_label": "texture for the writers (not facts \u2014 don't put numbers from here on screen)"
-    },
-    {
-      "label": "Culture now",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/facts.md",
-      "source_location": "L36",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts_culture_now",
-      "community": 5,
-      "community_name": "Facts \u2014 2026-11-04-digital-gold-sebi",
-      "norm_label": "culture now"
-    },
-    {
-      "label": "Not usable (unverified)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/facts.md",
-      "source_location": "L43",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts_not_usable_unverified",
-      "community": 5,
-      "community_name": "Facts \u2014 2026-11-04-digital-gold-sebi",
-      "norm_label": "not usable (unverified)"
-    },
-    {
-      "label": "2026-11-04-digital-gold-sebi/notes/fact-check.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/fact-check.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_fact_check",
-      "community": 169,
-      "community_name": "2026-11-04-digital-gold-sebi/notes/fact-check.md",
-      "norm_label": "2026-11-04-digital-gold-sebi/notes/fact-check.md"
-    },
-    {
-      "label": "2026-11-04-digital-gold-sebi/notes/premise.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/premise.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_premise",
-      "community": 168,
-      "community_name": "2026-11-04-digital-gold-sebi/notes/premise.md",
-      "norm_label": "2026-11-04-digital-gold-sebi/notes/premise.md"
-    },
-    {
-      "label": "Premise \u2014 digital gold & SEBI (30 s, Myth vs Math)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/premise.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_premise_premise_digital_gold_sebi_30_s_myth_vs_math",
-      "community": 168,
-      "community_name": "2026-11-04-digital-gold-sebi/notes/premise.md",
-      "norm_label": "premise \u2014 digital gold & sebi (30 s, myth vs math)"
-    },
-    {
-      "label": "2026-11-04-digital-gold-sebi/notes/script-review-1.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/script-review-1.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_1",
-      "community": 159,
-      "community_name": "2026-11-04-digital-gold-sebi/notes/script-review-1.md",
-      "norm_label": "2026-11-04-digital-gold-sebi/notes/script-review-1.md"
-    },
-    {
-      "label": "Notes (most important first)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/script-review-1.md",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_1_notes_most_important_first",
-      "community": 159,
-      "community_name": "2026-11-04-digital-gold-sebi/notes/script-review-1.md",
-      "norm_label": "notes (most important first)"
-    },
-    {
-      "label": "Keep",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/script-review-1.md",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_1_keep",
-      "community": 159,
-      "community_name": "2026-11-04-digital-gold-sebi/notes/script-review-1.md",
-      "norm_label": "keep"
-    },
-    {
-      "label": "2026-11-04-digital-gold-sebi/notes/script-review-2.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/script-review-2.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_2",
-      "community": 151,
-      "community_name": "2026-11-04-digital-gold-sebi/notes/script-review-2.md",
-      "norm_label": "2026-11-04-digital-gold-sebi/notes/script-review-2.md"
-    },
-    {
-      "label": "Prior notes",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/script-review-2.md",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_2_prior_notes",
-      "community": 151,
-      "community_name": "2026-11-04-digital-gold-sebi/notes/script-review-2.md",
-      "norm_label": "prior notes"
-    },
-    {
-      "label": "Notes (most important first)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/script-review-2.md",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_2_notes_most_important_first",
-      "community": 151,
-      "community_name": "2026-11-04-digital-gold-sebi/notes/script-review-2.md",
-      "norm_label": "notes (most important first)"
-    },
-    {
-      "label": "Keep",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/script-review-2.md",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_2_keep",
-      "community": 151,
-      "community_name": "2026-11-04-digital-gold-sebi/notes/script-review-2.md",
-      "norm_label": "keep"
-    },
-    {
-      "label": "2026-11-04-digital-gold-sebi/notes/usage.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/usage.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_usage",
-      "community": 160,
-      "community_name": "Usage \u2014 2026-11-04-digital-gold-sebi (agent runs, from notes/usage.jsonl)",
-      "norm_label": "2026-11-04-digital-gold-sebi/notes/usage.md"
-    },
-    {
-      "label": "Usage \u2014 2026-11-04-digital-gold-sebi (agent runs, from notes/usage.jsonl)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/usage.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_usage_usage_2026_11_04_digital_gold_sebi_agent_runs_from_notes_usage_jsonl",
-      "community": 160,
-      "community_name": "Usage \u2014 2026-11-04-digital-gold-sebi (agent runs, from notes/usage.jsonl)",
-      "norm_label": "usage \u2014 2026-11-04-digital-gold-sebi (agent runs, from notes/usage.jsonl)"
-    },
-    {
-      "label": "Producer session",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/usage.md",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_usage_producer_session",
-      "community": 160,
-      "community_name": "Usage \u2014 2026-11-04-digital-gold-sebi (agent runs, from notes/usage.jsonl)",
-      "norm_label": "producer session"
-    },
-    {
-      "label": "2026-11-04-digital-gold-sebi/notes/video-review-1.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/video-review-1.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_video_review_1",
-      "community": 152,
-      "community_name": "2026-11-04-digital-gold-sebi/notes/video-review-1.md",
-      "norm_label": "2026-11-04-digital-gold-sebi/notes/video-review-1.md"
-    },
-    {
-      "label": "Prior notes",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/video-review-1.md",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_video_review_1_prior_notes",
-      "community": 152,
-      "community_name": "2026-11-04-digital-gold-sebi/notes/video-review-1.md",
-      "norm_label": "prior notes"
-    },
-    {
-      "label": "QA / voice",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/video-review-1.md",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_video_review_1_qa_voice",
-      "community": 152,
-      "community_name": "2026-11-04-digital-gold-sebi/notes/video-review-1.md",
-      "norm_label": "qa / voice"
-    },
-    {
-      "label": "Notes",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/video-review-1.md",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_video_review_1_notes",
-      "community": 152,
-      "community_name": "2026-11-04-digital-gold-sebi/notes/video-review-1.md",
-      "norm_label": "notes"
-    },
-    {
-      "label": "2026-11-04-digital-gold-sebi/output/post.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/output/post.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post",
-      "community": 100,
-      "community_name": "2026-11-04-digital-gold-sebi/output/post.md",
-      "norm_label": "2026-11-04-digital-gold-sebi/output/post.md"
-    },
-    {
-      "label": "Caption (paste this)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/output/post.md",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post_caption_paste_this",
-      "community": 100,
-      "community_name": "2026-11-04-digital-gold-sebi/output/post.md",
-      "norm_label": "caption (paste this)"
-    },
-    {
-      "label": "Facebook caption",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/output/post.md",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post_facebook_caption",
-      "community": 100,
-      "community_name": "2026-11-04-digital-gold-sebi/output/post.md",
-      "norm_label": "facebook caption"
-    },
-    {
-      "label": "Pinned comment (post right after publishing)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/output/post.md",
-      "source_location": "L23",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post_pinned_comment_post_right_after_publishing",
-      "community": 100,
-      "community_name": "2026-11-04-digital-gold-sebi/output/post.md",
-      "norm_label": "pinned comment (post right after publishing)"
-    },
-    {
-      "label": "Sources",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/output/post.md",
-      "source_location": "L26",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post_sources",
-      "community": 100,
-      "community_name": "2026-11-04-digital-gold-sebi/output/post.md",
-      "norm_label": "sources"
-    },
-    {
-      "label": "Posting checklist",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/output/post.md",
-      "source_location": "L34",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post_posting_checklist",
-      "community": 100,
-      "community_name": "2026-11-04-digital-gold-sebi/output/post.md",
-      "norm_label": "posting checklist"
-    },
-    {
-      "label": "_vcheck/2026-11-04-digital-gold-sebi/script.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/script.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_script",
-      "community": 153,
-      "community_name": "_vcheck/2026-11-04-digital-gold-sebi/script.md",
-      "norm_label": "_vcheck/2026-11-04-digital-gold-sebi/script.md"
-    },
-    {
-      "label": "Hook",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/script.md",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_script_hook",
-      "community": 153,
-      "community_name": "_vcheck/2026-11-04-digital-gold-sebi/script.md",
-      "norm_label": "hook"
-    },
-    {
-      "label": "Turn {field: note2000}",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/script.md",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_script_turn_field_note2000",
-      "community": 153,
-      "community_name": "_vcheck/2026-11-04-digital-gold-sebi/script.md",
-      "norm_label": "turn {field: note2000}"
-    },
-    {
-      "label": "Payoff",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/script.md",
-      "source_location": "L24",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_04_digital_gold_sebi_script_payoff",
-      "community": 153,
-      "community_name": "_vcheck/2026-11-04-digital-gold-sebi/script.md",
-      "norm_label": "payoff"
-    },
-    {
-      "label": "_vcheck/2026-11-05-card-swipes-bill/cover.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/cover.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_cover",
-      "community": 161,
-      "community_name": "_vcheck/2026-11-05-card-swipes-bill/cover.md",
-      "norm_label": "_vcheck/2026-11-05-card-swipes-bill/cover.md"
-    },
-    {
-      "label": "First frame (frame 1 of the video)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/cover.md",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_cover_first_frame_frame_1_of_the_video",
-      "community": 161,
-      "community_name": "_vcheck/2026-11-05-card-swipes-bill/cover.md",
-      "norm_label": "first frame (frame 1 of the video)"
-    },
-    {
-      "label": "Hook line (sentence 1)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/cover.md",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_cover_hook_line_sentence_1",
-      "community": 161,
-      "community_name": "_vcheck/2026-11-05-card-swipes-bill/cover.md",
-      "norm_label": "hook line (sentence 1)"
-    },
-    {
-      "label": "_vcheck/2026-11-05-card-swipes-bill/facts.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/facts.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_facts",
-      "community": 116,
-      "community_name": "Facts \u2014 <episode>",
-      "norm_label": "_vcheck/2026-11-05-card-swipes-bill/facts.md"
-    },
-    {
-      "label": "Facts \u2014 <episode>",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/facts.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_facts_facts_episode",
-      "community": 116,
-      "community_name": "Facts \u2014 <episode>",
-      "norm_label": "facts \u2014 <episode>"
-    },
-    {
-      "label": "Expert take",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/facts.md",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_facts_expert_take",
-      "community": 116,
-      "community_name": "Facts \u2014 <episode>",
-      "norm_label": "expert take"
-    },
-    {
-      "label": "Texture for the writers (not facts \u2014 don't put numbers from here on screen)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/facts.md",
-      "source_location": "L38",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_facts_texture_for_the_writers_not_facts_don_t_put_numbers_from_here_on_screen",
-      "community": 116,
-      "community_name": "Facts \u2014 <episode>",
-      "norm_label": "texture for the writers (not facts \u2014 don't put numbers from here on screen)"
-    },
-    {
-      "label": "Culture now",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/facts.md",
-      "source_location": "L46",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_facts_culture_now",
-      "community": 116,
-      "community_name": "Facts \u2014 <episode>",
-      "norm_label": "culture now"
-    },
-    {
-      "label": "Not usable (unverified)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/facts.md",
-      "source_location": "L53",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_facts_not_usable_unverified",
-      "community": 116,
-      "community_name": "Facts \u2014 <episode>",
-      "norm_label": "not usable (unverified)"
-    },
-    {
-      "label": "2026-11-05-card-swipes-bill/notes/decisions.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/decisions.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_decisions",
-      "community": 170,
-      "community_name": "2026-11-05-card-swipes-bill/notes/decisions.md",
-      "norm_label": "2026-11-05-card-swipes-bill/notes/decisions.md"
-    },
-    {
-      "label": "2026-11-05-card-swipes-bill/notes/fact-check.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/fact-check.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_fact_check",
-      "community": 171,
-      "community_name": "2026-11-05-card-swipes-bill/notes/fact-check.md",
-      "norm_label": "2026-11-05-card-swipes-bill/notes/fact-check.md"
-    },
-    {
-      "label": "2026-11-05-card-swipes-bill/notes/premise.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/premise.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_premise",
-      "community": 146,
-      "community_name": "Premise \u2014 2026-11-05-card-swipes-bill",
-      "norm_label": "2026-11-05-card-swipes-bill/notes/premise.md"
-    },
-    {
-      "label": "Premise \u2014 2026-11-05-card-swipes-bill",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/premise.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_premise_premise_2026_11_05_card_swipes_bill",
-      "community": 146,
-      "community_name": "Premise \u2014 2026-11-05-card-swipes-bill",
-      "norm_label": "premise \u2014 2026-11-05-card-swipes-bill"
-    },
-    {
-      "label": "Spine (no jokes)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/premise.md",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_premise_spine_no_jokes",
-      "community": 146,
-      "community_name": "Premise \u2014 2026-11-05-card-swipes-bill",
-      "norm_label": "spine (no jokes)"
-    },
-    {
-      "label": "8 candidate games",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/premise.md",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_premise_8_candidate_games",
-      "community": 146,
-      "community_name": "Premise \u2014 2026-11-05-card-swipes-bill",
-      "norm_label": "8 candidate games"
-    },
-    {
-      "label": "Hook versions",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/premise.md",
-      "source_location": "L24",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_premise_hook_versions",
-      "community": 146,
-      "community_name": "Premise \u2014 2026-11-05-card-swipes-bill",
-      "norm_label": "hook versions"
-    },
-    {
-      "label": "2026-11-05-card-swipes-bill/notes/script-review-1.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-1.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_1",
-      "community": 162,
-      "community_name": "2026-11-05-card-swipes-bill/notes/script-review-1.md",
-      "norm_label": "2026-11-05-card-swipes-bill/notes/script-review-1.md"
-    },
-    {
-      "label": "Notes (most important first)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-1.md",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_1_notes_most_important_first",
-      "community": 162,
-      "community_name": "2026-11-05-card-swipes-bill/notes/script-review-1.md",
-      "norm_label": "notes (most important first)"
-    },
-    {
-      "label": "Keep",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-1.md",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_1_keep",
-      "community": 162,
-      "community_name": "2026-11-05-card-swipes-bill/notes/script-review-1.md",
-      "norm_label": "keep"
-    },
-    {
-      "label": "2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_2",
-      "community": 147,
-      "community_name": "2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "norm_label": "2026-11-05-card-swipes-bill/notes/script-review-2.md"
-    },
-    {
-      "label": "Prior notes",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_2_prior_notes",
-      "community": 147,
-      "community_name": "2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "norm_label": "prior notes"
-    },
-    {
-      "label": "Notes (most important first)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_2_notes_most_important_first",
-      "community": 147,
-      "community_name": "2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "norm_label": "notes (most important first)"
-    },
-    {
-      "label": "Game (for the record)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_2_game_for_the_record",
-      "community": 147,
-      "community_name": "2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "norm_label": "game (for the record)"
-    },
-    {
-      "label": "Keep",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_2_keep",
-      "community": 147,
-      "community_name": "2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "norm_label": "keep"
-    },
-    {
-      "label": "script-review-3.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-3.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_3",
-      "community": 154,
-      "community_name": "script-review-3.md",
-      "norm_label": "script-review-3.md"
-    },
-    {
-      "label": "Prior notes",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-3.md",
-      "source_location": "L7",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_3_prior_notes",
-      "community": 154,
-      "community_name": "script-review-3.md",
-      "norm_label": "prior notes"
-    },
-    {
-      "label": "Notes (most important first)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-3.md",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_3_notes_most_important_first",
-      "community": 154,
-      "community_name": "script-review-3.md",
-      "norm_label": "notes (most important first)"
-    },
-    {
-      "label": "Keep",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-3.md",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_3_keep",
-      "community": 154,
-      "community_name": "script-review-3.md",
-      "norm_label": "keep"
-    },
-    {
-      "label": "2026-11-05-card-swipes-bill/notes/usage.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/usage.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_usage",
-      "community": 163,
-      "community_name": "Usage \u2014 2026-11-05-card-swipes-bill (agent runs, from notes/usage.jsonl)",
-      "norm_label": "2026-11-05-card-swipes-bill/notes/usage.md"
-    },
-    {
-      "label": "Usage \u2014 2026-11-05-card-swipes-bill (agent runs, from notes/usage.jsonl)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/usage.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_usage_usage_2026_11_05_card_swipes_bill_agent_runs_from_notes_usage_jsonl",
-      "community": 163,
-      "community_name": "Usage \u2014 2026-11-05-card-swipes-bill (agent runs, from notes/usage.jsonl)",
-      "norm_label": "usage \u2014 2026-11-05-card-swipes-bill (agent runs, from notes/usage.jsonl)"
-    },
-    {
-      "label": "Producer session",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/usage.md",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_usage_producer_session",
-      "community": 163,
-      "community_name": "Usage \u2014 2026-11-05-card-swipes-bill (agent runs, from notes/usage.jsonl)",
-      "norm_label": "producer session"
-    },
-    {
-      "label": "2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_video_review_1",
-      "community": 148,
-      "community_name": "2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "norm_label": "2026-11-05-card-swipes-bill/notes/video-review-1.md"
-    },
-    {
-      "label": "Prior notes",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_video_review_1_prior_notes",
-      "community": 148,
-      "community_name": "2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "norm_label": "prior notes"
-    },
-    {
-      "label": "qa items (copied)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_video_review_1_qa_items_copied",
-      "community": 148,
-      "community_name": "2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "norm_label": "qa items (copied)"
-    },
-    {
-      "label": "voice_check",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_video_review_1_voice_check",
-      "community": 148,
-      "community_name": "2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "norm_label": "voice_check"
-    },
-    {
-      "label": "Notes",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "source_location": "L15",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_video_review_1_notes",
-      "community": 148,
-      "community_name": "2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "norm_label": "notes"
-    },
-    {
-      "label": "2026-11-05-card-swipes-bill/output/post.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/output/post.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post",
-      "community": 136,
-      "community_name": "2026-11-05-card-swipes-bill/output/post.md",
-      "norm_label": "2026-11-05-card-swipes-bill/output/post.md"
-    },
-    {
-      "label": "Caption (paste this)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/output/post.md",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post_caption_paste_this",
-      "community": 136,
-      "community_name": "2026-11-05-card-swipes-bill/output/post.md",
-      "norm_label": "caption (paste this)"
-    },
-    {
-      "label": "Facebook caption",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/output/post.md",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post_facebook_caption",
-      "community": 136,
-      "community_name": "2026-11-05-card-swipes-bill/output/post.md",
-      "norm_label": "facebook caption"
-    },
-    {
-      "label": "Pinned comment (post right after publishing)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/output/post.md",
-      "source_location": "L25",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post_pinned_comment_post_right_after_publishing",
-      "community": 136,
-      "community_name": "2026-11-05-card-swipes-bill/output/post.md",
-      "norm_label": "pinned comment (post right after publishing)"
-    },
-    {
-      "label": "Sources",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/output/post.md",
-      "source_location": "L28",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post_sources",
-      "community": 136,
-      "community_name": "2026-11-05-card-swipes-bill/output/post.md",
-      "norm_label": "sources"
-    },
-    {
-      "label": "Posting checklist",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/output/post.md",
-      "source_location": "L35",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post_posting_checklist",
-      "community": 136,
-      "community_name": "2026-11-05-card-swipes-bill/output/post.md",
-      "norm_label": "posting checklist"
-    },
-    {
-      "label": "_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_script",
-      "community": 149,
-      "community_name": "_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "norm_label": "_vcheck/2026-11-05-card-swipes-bill/script.md"
-    },
-    {
-      "label": "Hook",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_script_hook",
-      "community": 149,
-      "community_name": "_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "norm_label": "hook"
-    },
-    {
-      "label": "Setup",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_script_setup",
-      "community": 149,
-      "community_name": "_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "norm_label": "setup"
-    },
-    {
-      "label": "Escalation",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_script_escalation",
-      "community": 149,
-      "community_name": "_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "norm_label": "escalation"
-    },
-    {
-      "label": "Payoff {field: note500}",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_05_card_swipes_bill_script_payoff_field_note500",
-      "community": 149,
-      "community_name": "_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "norm_label": "payoff {field: note500}"
-    },
-    {
-      "label": "_vcheck/2026-11-07-guests-kharcha/cover.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/cover.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_cover",
-      "community": 164,
-      "community_name": "_vcheck/2026-11-07-guests-kharcha/cover.md",
-      "norm_label": "_vcheck/2026-11-07-guests-kharcha/cover.md"
-    },
-    {
-      "label": "First frame (frame 1 of the video)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/cover.md",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_cover_first_frame_frame_1_of_the_video",
-      "community": 164,
-      "community_name": "_vcheck/2026-11-07-guests-kharcha/cover.md",
-      "norm_label": "first frame (frame 1 of the video)"
-    },
-    {
-      "label": "Hook line (sentence 1)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/cover.md",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_cover_hook_line_sentence_1",
-      "community": 164,
-      "community_name": "_vcheck/2026-11-07-guests-kharcha/cover.md",
-      "norm_label": "hook line (sentence 1)"
-    },
-    {
-      "label": "_vcheck/2026-11-07-guests-kharcha/facts.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/facts.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_facts",
-      "community": 144,
-      "community_name": "Facts \u2014 guests-kharcha",
-      "norm_label": "_vcheck/2026-11-07-guests-kharcha/facts.md"
-    },
-    {
-      "label": "Facts \u2014 guests-kharcha",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/facts.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_facts_facts_guests_kharcha",
-      "community": 144,
-      "community_name": "Facts \u2014 guests-kharcha",
-      "norm_label": "facts \u2014 guests-kharcha"
-    },
-    {
-      "label": "Expert take",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/facts.md",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_facts_expert_take",
-      "community": 144,
-      "community_name": "Facts \u2014 guests-kharcha",
-      "norm_label": "expert take"
-    },
-    {
-      "label": "Not usable (unverified)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/facts.md",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_facts_not_usable_unverified",
-      "community": 144,
-      "community_name": "Facts \u2014 guests-kharcha",
-      "norm_label": "not usable (unverified)"
-    },
-    {
-      "label": "Texture for the writers (not facts \u2014 don't put numbers from here on screen)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/facts.md",
-      "source_location": "L34",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_facts_texture_for_the_writers_not_facts_don_t_put_numbers_from_here_on_screen",
-      "community": 144,
-      "community_name": "Facts \u2014 guests-kharcha",
-      "norm_label": "texture for the writers (not facts \u2014 don't put numbers from here on screen)"
-    },
-    {
-      "label": "Culture now",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/facts.md",
-      "source_location": "L41",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_facts_culture_now",
-      "community": 144,
-      "community_name": "Facts \u2014 guests-kharcha",
-      "norm_label": "culture now"
-    },
-    {
-      "label": "2026-11-07-guests-kharcha/notes/decisions.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/decisions.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_decisions",
-      "community": 172,
-      "community_name": "2026-11-07-guests-kharcha/notes/decisions.md",
-      "norm_label": "2026-11-07-guests-kharcha/notes/decisions.md"
-    },
-    {
-      "label": "2026-11-07-guests-kharcha/notes/fact-check.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/fact-check.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_fact_check",
-      "community": 173,
-      "community_name": "2026-11-07-guests-kharcha/notes/fact-check.md",
-      "norm_label": "2026-11-07-guests-kharcha/notes/fact-check.md"
-    },
-    {
-      "label": "2026-11-07-guests-kharcha/notes/premise.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/premise.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_premise",
-      "community": 150,
-      "community_name": "Premise \u2014 guests-kharcha (round 1)",
-      "norm_label": "2026-11-07-guests-kharcha/notes/premise.md"
-    },
-    {
-      "label": "Premise \u2014 guests-kharcha (round 1)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/premise.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_premise_premise_guests_kharcha_round_1",
-      "community": 150,
-      "community_name": "Premise \u2014 guests-kharcha (round 1)",
-      "norm_label": "premise \u2014 guests-kharcha (round 1)"
-    },
-    {
-      "label": "Spine (no jokes)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/premise.md",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_premise_spine_no_jokes",
-      "community": 150,
-      "community_name": "Premise \u2014 guests-kharcha (round 1)",
-      "norm_label": "spine (no jokes)"
-    },
-    {
-      "label": "8 candidate games",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/premise.md",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_premise_8_candidate_games",
-      "community": 150,
-      "community_name": "Premise \u2014 guests-kharcha (round 1)",
-      "norm_label": "8 candidate games"
-    },
-    {
-      "label": "Pick: #1, the doorbell as a register",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/premise.md",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_premise_pick_1_the_doorbell_as_a_register",
-      "community": 150,
-      "community_name": "Premise \u2014 guests-kharcha (round 1)",
-      "norm_label": "pick: #1, the doorbell as a register"
-    },
-    {
-      "label": "2026-11-07-guests-kharcha/notes/script-review-1.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/script-review-1.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_1",
-      "community": 165,
-      "community_name": "2026-11-07-guests-kharcha/notes/script-review-1.md",
-      "norm_label": "2026-11-07-guests-kharcha/notes/script-review-1.md"
-    },
-    {
-      "label": "Notes (most important first)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/script-review-1.md",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_1_notes_most_important_first",
-      "community": 165,
-      "community_name": "2026-11-07-guests-kharcha/notes/script-review-1.md",
-      "norm_label": "notes (most important first)"
-    },
-    {
-      "label": "Keep",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/script-review-1.md",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_1_keep",
-      "community": 165,
-      "community_name": "2026-11-07-guests-kharcha/notes/script-review-1.md",
-      "norm_label": "keep"
-    },
-    {
-      "label": "2026-11-07-guests-kharcha/notes/script-review-2.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/script-review-2.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_2",
-      "community": 155,
-      "community_name": "2026-11-07-guests-kharcha/notes/script-review-2.md",
-      "norm_label": "2026-11-07-guests-kharcha/notes/script-review-2.md"
-    },
-    {
-      "label": "Prior notes",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/script-review-2.md",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_2_prior_notes",
-      "community": 155,
-      "community_name": "2026-11-07-guests-kharcha/notes/script-review-2.md",
-      "norm_label": "prior notes"
-    },
-    {
-      "label": "Notes (most important first)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/script-review-2.md",
-      "source_location": "L13",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_2_notes_most_important_first",
-      "community": 155,
-      "community_name": "2026-11-07-guests-kharcha/notes/script-review-2.md",
-      "norm_label": "notes (most important first)"
-    },
-    {
-      "label": "Keep",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/script-review-2.md",
-      "source_location": "L18",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_2_keep",
-      "community": 155,
-      "community_name": "2026-11-07-guests-kharcha/notes/script-review-2.md",
-      "norm_label": "keep"
-    },
-    {
-      "label": "2026-11-07-guests-kharcha/notes/usage.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/usage.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_usage",
-      "community": 166,
-      "community_name": "Usage \u2014 2026-11-07-guests-kharcha (agent runs, from notes/usage.jsonl)",
-      "norm_label": "2026-11-07-guests-kharcha/notes/usage.md"
-    },
-    {
-      "label": "Usage \u2014 2026-11-07-guests-kharcha (agent runs, from notes/usage.jsonl)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/usage.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_usage_usage_2026_11_07_guests_kharcha_agent_runs_from_notes_usage_jsonl",
-      "community": 166,
-      "community_name": "Usage \u2014 2026-11-07-guests-kharcha (agent runs, from notes/usage.jsonl)",
-      "norm_label": "usage \u2014 2026-11-07-guests-kharcha (agent runs, from notes/usage.jsonl)"
-    },
-    {
-      "label": "Producer session",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/usage.md",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_usage_producer_session",
-      "community": 166,
-      "community_name": "Usage \u2014 2026-11-07-guests-kharcha (agent runs, from notes/usage.jsonl)",
-      "norm_label": "producer session"
-    },
-    {
-      "label": "2026-11-07-guests-kharcha/notes/video-review-1.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/video-review-1.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_1",
-      "community": 156,
-      "community_name": "2026-11-07-guests-kharcha/notes/video-review-1.md",
-      "norm_label": "2026-11-07-guests-kharcha/notes/video-review-1.md"
-    },
-    {
-      "label": "Prior notes",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/video-review-1.md",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_1_prior_notes",
-      "community": 156,
-      "community_name": "2026-11-07-guests-kharcha/notes/video-review-1.md",
-      "norm_label": "prior notes"
-    },
-    {
-      "label": "qa warnings (copied)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/video-review-1.md",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_1_qa_warnings_copied",
-      "community": 156,
-      "community_name": "2026-11-07-guests-kharcha/notes/video-review-1.md",
-      "norm_label": "qa warnings (copied)"
-    },
-    {
-      "label": "Notes",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/video-review-1.md",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_1_notes",
-      "community": 156,
-      "community_name": "2026-11-07-guests-kharcha/notes/video-review-1.md",
-      "norm_label": "notes"
-    },
-    {
-      "label": "video-review-2.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/video-review-2.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_2",
-      "community": 167,
-      "community_name": "video-review-2.md",
-      "norm_label": "video-review-2.md"
-    },
-    {
-      "label": "Prior notes",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/video-review-2.md",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_2_prior_notes",
-      "community": 167,
-      "community_name": "video-review-2.md",
-      "norm_label": "prior notes"
-    },
-    {
-      "label": "Notes (round 2: no new blockers, no new polish)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/video-review-2.md",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_2_notes_round_2_no_new_blockers_no_new_polish",
-      "community": 167,
-      "community_name": "video-review-2.md",
-      "norm_label": "notes (round 2: no new blockers, no new polish)"
-    },
-    {
-      "label": "2026-11-07-guests-kharcha/output/post.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/output/post.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_output_post",
-      "community": 145,
-      "community_name": "2026-11-07-guests-kharcha/output/post.md",
-      "norm_label": "2026-11-07-guests-kharcha/output/post.md"
-    },
-    {
-      "label": "Caption (paste this)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/output/post.md",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_output_post_caption_paste_this",
-      "community": 145,
-      "community_name": "2026-11-07-guests-kharcha/output/post.md",
-      "norm_label": "caption (paste this)"
-    },
-    {
-      "label": "Facebook caption",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/output/post.md",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_output_post_facebook_caption",
-      "community": 145,
-      "community_name": "2026-11-07-guests-kharcha/output/post.md",
-      "norm_label": "facebook caption"
-    },
-    {
-      "label": "Pinned comment (post right after publishing)",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/output/post.md",
-      "source_location": "L25",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_output_post_pinned_comment_post_right_after_publishing",
-      "community": 145,
-      "community_name": "2026-11-07-guests-kharcha/output/post.md",
-      "norm_label": "pinned comment (post right after publishing)"
-    },
-    {
-      "label": "Sources",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/output/post.md",
-      "source_location": "L28",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_output_post_sources",
-      "community": 145,
-      "community_name": "2026-11-07-guests-kharcha/output/post.md",
-      "norm_label": "sources"
-    },
-    {
-      "label": "Posting checklist",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/output/post.md",
-      "source_location": "L32",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_output_post_posting_checklist",
-      "community": 145,
-      "community_name": "2026-11-07-guests-kharcha/output/post.md",
-      "norm_label": "posting checklist"
-    },
-    {
-      "label": "_vcheck/2026-11-07-guests-kharcha/script.md",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/script.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_script",
-      "community": 157,
-      "community_name": "_vcheck/2026-11-07-guests-kharcha/script.md",
-      "norm_label": "_vcheck/2026-11-07-guests-kharcha/script.md"
-    },
-    {
-      "label": "Hook",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/script.md",
-      "source_location": "L12",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_script_hook",
-      "community": 157,
-      "community_name": "_vcheck/2026-11-07-guests-kharcha/script.md",
-      "norm_label": "hook"
-    },
-    {
-      "label": "Turn {field: note50}",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/script.md",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_script_turn_field_note50",
-      "community": 157,
-      "community_name": "_vcheck/2026-11-07-guests-kharcha/script.md",
-      "norm_label": "turn {field: note50}"
-    },
-    {
-      "label": "Payoff {field: note500}",
-      "file_type": "document",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/script.md",
-      "source_location": "L22",
-      "_origin": "ast",
-      "id": "episodes_vcheck_2026_11_07_guests_kharcha_script_payoff_field_note500",
-      "community": 157,
-      "community_name": "_vcheck/2026-11-07-guests-kharcha/script.md",
       "norm_label": "payoff {field: note500}"
     },
     {
@@ -11766,10 +10380,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 5,
       "norm_label": "/package command",
       "_origin": "semantic",
-      "community_name": "CLAUDE.md brand bible",
+      "community_name": "/package command",
       "id": "_claude_commands_package"
     },
     {
@@ -11826,10 +10440,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 112,
+      "community": 106,
       "norm_label": "readme (chillar-reels)",
       "_origin": "semantic",
-      "community_name": "make_reel.py",
+      "community_name": "CLAUDE.md brand bible",
       "id": "readme"
     },
     {
@@ -11886,10 +10500,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 5,
       "norm_label": "template cover.md",
       "_origin": "semantic",
-      "community_name": "CLAUDE.md brand bible",
+      "community_name": "/package command",
       "id": "episodes__template_cover"
     },
     {
@@ -11995,10 +10609,10 @@
       "author": null,
       "contributor": null,
       "rationale": "Signature move; capped at 2-3 per video so it stays a re-hook rather than noise.",
-      "community": 106,
+      "community": 111,
       "norm_label": "thappa red rubber stamp (2-3 per video)",
       "_origin": "semantic",
-      "community_name": "CLAUDE.md brand bible",
+      "community_name": "/make-reel command",
       "id": "claude_thappa_stamp"
     },
     {
@@ -12042,10 +10656,10 @@
       "author": null,
       "contributor": null,
       "rationale": "Mascot reactions replace copyrighted memes; deadpan, never fully smiles.",
-      "community": 106,
+      "community": 5,
       "norm_label": "chillar \u20b91 coin mascot (8 expressions)",
       "_origin": "semantic",
-      "community_name": "CLAUDE.md brand bible",
+      "community_name": "/package command",
       "id": "claude_chillar_mascot"
     },
     {
@@ -12074,10 +10688,10 @@
       "author": null,
       "contributor": null,
       "rationale": "SEBI finfluencer norms and ASCI influencer guidelines.",
-      "community": 106,
+      "community": 5,
       "norm_label": "content rules: education only, no recommendations, disclaimer",
       "_origin": "semantic",
-      "community_name": "CLAUDE.md brand bible",
+      "community_name": "/package command",
       "id": "claude_content_rules"
     },
     {
@@ -12106,10 +10720,10 @@
       "author": null,
       "contributor": null,
       "rationale": "Formats 30/60/90 s set words, chapters, laughs, re-hook cadence, stamps and styled-cut budget; cover/first frame first, no intros, payoff = cover promise.",
-      "community": 106,
+      "community": 111,
       "norm_label": "formats + retention (30/60/90 s)",
       "_origin": "semantic",
-      "community_name": "CLAUDE.md brand bible",
+      "community_name": "/make-reel command",
       "id": "claude_retention_rules"
     },
     {
@@ -12122,10 +10736,10 @@
       "author": null,
       "contributor": null,
       "rationale": "Custom recorded SFX override downloaded ones of same name.",
-      "community": 112,
+      "community": 106,
       "norm_label": "sound design: sonic signature, max one sfx / 2 s, -14 lufs",
       "_origin": "semantic",
-      "community_name": "make_reel.py",
+      "community_name": "CLAUDE.md brand bible",
       "id": "claude_sound_design"
     },
     {
@@ -12154,10 +10768,10 @@
       "author": null,
       "contributor": null,
       "rationale": "Channel voice is Sarvam Bulbul sunny_hi_reels at pace 1.2, used automatically (no asking); reads tts.txt (Devanagari Hindi + Latin English, same words/order as script.md) so captions align.",
-      "community": 106,
+      "community": 111,
       "norm_label": "voiceover policy (sarvam sunny_hi_reels, pace 1.2, every reel)",
       "_origin": "semantic",
-      "community_name": "CLAUDE.md brand bible",
+      "community_name": "/make-reel command",
       "id": "claude_voiceover_policy"
     },
     {
@@ -12169,10 +10783,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 112,
+      "community": 106,
       "norm_label": "make_reel.py pipeline stages (clean\u2192align\u2192validate\u2192build\u2192render\u2192mix\u2192cover\u2192sheet)",
       "_origin": "semantic",
-      "community_name": "make_reel.py",
+      "community_name": "CLAUDE.md brand bible",
       "id": "claude_reel_pipeline_stages"
     },
     {
@@ -12229,10 +10843,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 112,
+      "community": 106,
       "norm_label": "brand/tokens.json",
       "_origin": "semantic",
-      "community_name": "make_reel.py",
+      "community_name": "CLAUDE.md brand bible",
       "id": "brand_tokens"
     },
     {
@@ -12261,10 +10875,10 @@
       "author": null,
       "contributor": null,
       "rationale": "Escalation by denomination; field change rides the chapter cut.",
-      "community": 112,
+      "community": 106,
       "norm_label": "chapters = rupee-note colour fields (\u20b910\u2192\u20b920\u2192\u20b950\u2192\u20b9500, \u20b92000 for twists)",
       "_origin": "semantic",
-      "community_name": "make_reel.py",
+      "community_name": "CLAUDE.md brand bible",
       "id": "_claude_agents_director_rupee_note_fields"
     },
     {
@@ -12355,10 +10969,10 @@
       "author": null,
       "contributor": null,
       "rationale": "Vary shot lengths (equal shots feel machine-made); hold punchline until word ends then cut to reaction.",
-      "community": 112,
+      "community": 106,
       "norm_label": "editor passes: rhythm, cut points, comedic timing, transitions, sound, overlays",
       "_origin": "semantic",
-      "community_name": "make_reel.py",
+      "community_name": "CLAUDE.md brand bible",
       "id": "_claude_agents_editor_edit_passes"
     },
     {
@@ -12371,10 +10985,10 @@
       "author": null,
       "contributor": null,
       "rationale": "3 = fine = not good enough; PASS only if facts pass, laughs \u2265 minimum and every score \u2265 4.",
-      "community": 106,
+      "community": 111,
       "norm_label": "script review rubric (stop power, laughs, specificity, clarity, escalation, payoff, speakability, facts)",
       "_origin": "semantic",
-      "community_name": "CLAUDE.md brand bible",
+      "community_name": "/make-reel command",
       "id": "_claude_agents_script_reviewer_scoring_rubric"
     },
     {
@@ -12449,10 +11063,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 99,
       "norm_label": "3-second brand test on every frame",
       "_origin": "semantic",
-      "community_name": "CLAUDE.md brand bible",
+      "community_name": "director agent",
       "id": "_claude_agents_video_reviewer_three_second_test"
     },
     {
@@ -12496,10 +11110,10 @@
       "author": null,
       "contributor": null,
       "rationale": "Honesty < 4 disqualified: payoff must deliver exactly the cover.",
-      "community": 106,
+      "community": 5,
       "norm_label": "cover package scoring (curiosity, clarity, honesty \u22654)",
       "_origin": "semantic",
-      "community_name": "CLAUDE.md brand bible",
+      "community_name": "/package command",
       "id": "_claude_commands_package_package_scoring"
     },
     {
@@ -12511,10 +11125,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 5,
       "norm_label": "output/post.md instagram caption",
       "_origin": "semantic",
-      "community_name": "CLAUDE.md brand bible",
+      "community_name": "/package command",
       "id": "_claude_commands_package_post_md"
     },
     {
@@ -12526,10 +11140,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 106,
+      "community": 5,
       "norm_label": "bricolage grotesque cover font",
       "_origin": "semantic",
-      "community_name": "CLAUDE.md brand bible",
+      "community_name": "/package command",
       "id": "_claude_commands_package_bricolage_grotesque"
     },
     {
@@ -12541,10 +11155,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 112,
+      "community": 106,
       "norm_label": "igcheck stage (upload-safe)",
       "_origin": "semantic",
-      "community_name": "make_reel.py",
+      "community_name": "CLAUDE.md brand bible",
       "id": "_claude_commands_render_igcheck"
     },
     {
@@ -12556,10 +11170,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 112,
+      "community": 106,
       "norm_label": "note fields design (rupee-note colour fields)",
       "_origin": "semantic",
-      "community_name": "make_reel.py",
+      "community_name": "CLAUDE.md brand bible",
       "id": "readme_note_fields_design"
     },
     {
@@ -12571,10 +11185,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 112,
+      "community": 106,
       "norm_label": "sound audition + lock (brand/_audition, provisional sounds)",
       "_origin": "semantic",
-      "community_name": "make_reel.py",
+      "community_name": "CLAUDE.md brand bible",
       "id": "readme_sound_lock_audition"
     },
     {
@@ -28342,1018 +26956,6 @@
       "_origin": "ast",
       "source": "episodes_2026_11_07_guests_kharcha_script",
       "target": "episodes_2026_11_07_guests_kharcha_script_turn_field_note50",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/cover.md",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_cover",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_cover_first_frame_frame_1_of_the_video",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/cover.md",
-      "source_location": "L13",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_cover",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_cover_hook_line_sentence_1",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/facts.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts_facts_2026_11_04_digital_gold_sebi",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/facts.md",
-      "source_location": "L36",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts_facts_2026_11_04_digital_gold_sebi",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts_culture_now",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/facts.md",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts_facts_2026_11_04_digital_gold_sebi",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts_expert_take",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/facts.md",
-      "source_location": "L43",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts_facts_2026_11_04_digital_gold_sebi",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts_not_usable_unverified",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/facts.md",
-      "source_location": "L29",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts_facts_2026_11_04_digital_gold_sebi",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_facts_texture_for_the_writers_not_facts_don_t_put_numbers_from_here_on_screen",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/premise.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_premise",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_premise_premise_digital_gold_sebi_30_s_myth_vs_math",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/script-review-1.md",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_1",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_1_keep",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/script-review-1.md",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_1",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_1_notes_most_important_first",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/script-review-2.md",
-      "source_location": "L18",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_2",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_2_keep",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/script-review-2.md",
-      "source_location": "L13",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_2",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_2_notes_most_important_first",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/script-review-2.md",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_2",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_script_review_2_prior_notes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/usage.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_usage",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_usage_usage_2026_11_04_digital_gold_sebi_agent_runs_from_notes_usage_jsonl",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/usage.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_usage_usage_2026_11_04_digital_gold_sebi_agent_runs_from_notes_usage_jsonl",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_usage_producer_session",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/video-review-1.md",
-      "source_location": "L13",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_video_review_1",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_video_review_1_notes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/video-review-1.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_video_review_1",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_video_review_1_prior_notes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/notes/video-review-1.md",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_video_review_1",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_notes_video_review_1_qa_voice",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/output/post.md",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post_caption_paste_this",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/output/post.md",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post_facebook_caption",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/output/post.md",
-      "source_location": "L23",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post_pinned_comment_post_right_after_publishing",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/output/post.md",
-      "source_location": "L34",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post_posting_checklist",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/output/post.md",
-      "source_location": "L26",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_output_post_sources",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/script.md",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_script",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_script_hook",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/script.md",
-      "source_location": "L24",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_script",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_script_payoff",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-04-digital-gold-sebi/script.md",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_04_digital_gold_sebi_script",
-      "target": "episodes_vcheck_2026_11_04_digital_gold_sebi_script_turn_field_note2000",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/cover.md",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_cover",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_cover_first_frame_frame_1_of_the_video",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/cover.md",
-      "source_location": "L13",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_cover",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_cover_hook_line_sentence_1",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/facts.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_facts",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_facts_facts_episode",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/facts.md",
-      "source_location": "L46",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_facts_facts_episode",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_facts_culture_now",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/facts.md",
-      "source_location": "L30",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_facts_facts_episode",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_facts_expert_take",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/facts.md",
-      "source_location": "L53",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_facts_facts_episode",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_facts_not_usable_unverified",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/facts.md",
-      "source_location": "L38",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_facts_facts_episode",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_facts_texture_for_the_writers_not_facts_don_t_put_numbers_from_here_on_screen",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/premise.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_premise",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_premise_premise_2026_11_05_card_swipes_bill",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/premise.md",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_premise_premise_2026_11_05_card_swipes_bill",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_premise_8_candidate_games",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/premise.md",
-      "source_location": "L24",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_premise_premise_2026_11_05_card_swipes_bill",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_premise_hook_versions",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/premise.md",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_premise_premise_2026_11_05_card_swipes_bill",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_premise_spine_no_jokes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-1.md",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_1",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_1_keep",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-1.md",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_1",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_1_notes_most_important_first",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "source_location": "L16",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_2",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_2_game_for_the_record",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_2",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_2_keep",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_2",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_2_notes_most_important_first",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-2.md",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_2",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_2_prior_notes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-3.md",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_3",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_3_keep",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-3.md",
-      "source_location": "L14",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_3",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_3_notes_most_important_first",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/script-review-3.md",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_3",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_script_review_3_prior_notes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/usage.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_usage",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_usage_usage_2026_11_05_card_swipes_bill_agent_runs_from_notes_usage_jsonl",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/usage.md",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_usage_usage_2026_11_05_card_swipes_bill_agent_runs_from_notes_usage_jsonl",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_usage_producer_session",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "source_location": "L15",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_video_review_1",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_video_review_1_notes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_video_review_1",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_video_review_1_prior_notes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_video_review_1",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_video_review_1_qa_items_copied",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/notes/video-review-1.md",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_video_review_1",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_notes_video_review_1_voice_check",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/output/post.md",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post_caption_paste_this",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/output/post.md",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post_facebook_caption",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/output/post.md",
-      "source_location": "L25",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post_pinned_comment_post_right_after_publishing",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/output/post.md",
-      "source_location": "L35",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post_posting_checklist",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/output/post.md",
-      "source_location": "L28",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_output_post_sources",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_script",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_script_escalation",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_script",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_script_hook",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "source_location": "L30",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_script",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_script_payoff_field_note500",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-05-card-swipes-bill/script.md",
-      "source_location": "L16",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_05_card_swipes_bill_script",
-      "target": "episodes_vcheck_2026_11_05_card_swipes_bill_script_setup",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/cover.md",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_cover",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_cover_first_frame_frame_1_of_the_video",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/cover.md",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_cover",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_cover_hook_line_sentence_1",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/facts.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_facts",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_facts_facts_guests_kharcha",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/facts.md",
-      "source_location": "L41",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_facts_facts_guests_kharcha",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_facts_culture_now",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/facts.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_facts_facts_guests_kharcha",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_facts_expert_take",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/facts.md",
-      "source_location": "L30",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_facts_facts_guests_kharcha",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_facts_not_usable_unverified",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/facts.md",
-      "source_location": "L34",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_facts_facts_guests_kharcha",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_facts_texture_for_the_writers_not_facts_don_t_put_numbers_from_here_on_screen",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/premise.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_premise",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_premise_premise_guests_kharcha_round_1",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/premise.md",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_premise_premise_guests_kharcha_round_1",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_premise_8_candidate_games",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/premise.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_premise_premise_guests_kharcha_round_1",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_premise_pick_1_the_doorbell_as_a_register",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/premise.md",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_premise_premise_guests_kharcha_round_1",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_premise_spine_no_jokes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/script-review-1.md",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_1",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_1_keep",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/script-review-1.md",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_1",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_1_notes_most_important_first",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/script-review-2.md",
-      "source_location": "L18",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_2",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_2_keep",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/script-review-2.md",
-      "source_location": "L13",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_2",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_2_notes_most_important_first",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/script-review-2.md",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_2",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_script_review_2_prior_notes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/usage.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_usage",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_usage_usage_2026_11_07_guests_kharcha_agent_runs_from_notes_usage_jsonl",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/usage.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_usage_usage_2026_11_07_guests_kharcha_agent_runs_from_notes_usage_jsonl",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_usage_producer_session",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/video-review-1.md",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_1",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_1_notes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/video-review-1.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_1",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_1_prior_notes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/video-review-1.md",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_1",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_1_qa_warnings_copied",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/video-review-2.md",
-      "source_location": "L14",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_2",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_2_notes_round_2_no_new_blockers_no_new_polish",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/notes/video-review-2.md",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_2",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_notes_video_review_2_prior_notes",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/output/post.md",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_output_post",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_output_post_caption_paste_this",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/output/post.md",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_output_post",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_output_post_facebook_caption",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/output/post.md",
-      "source_location": "L25",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_output_post",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_output_post_pinned_comment_post_right_after_publishing",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/output/post.md",
-      "source_location": "L32",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_output_post",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_output_post_posting_checklist",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/output/post.md",
-      "source_location": "L28",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_output_post",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_output_post_sources",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/script.md",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_script",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_script_hook",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/script.md",
-      "source_location": "L22",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_script",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_script_payoff_field_note500",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "episodes/_vcheck/2026-11-07-guests-kharcha/script.md",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "episodes_vcheck_2026_11_07_guests_kharcha_script",
-      "target": "episodes_vcheck_2026_11_07_guests_kharcha_script_turn_field_note50",
       "confidence_score": 1.0
     },
     {
