@@ -2,7 +2,14 @@
 
 Use it on round 1. **Games taken:** don't build a new reel on one of these. **Landed:** reuse the *shape* (act-out, self-own, callback), never the line. **Fell flat:** don't write that kind of joke again. **Audience drops** are real Instagram retention — the strongest signal here.
 
-**Cast lately** (characters are welcome — use whoever the story needs): HR (2/6), papa (1/6), padosi (1/6), mummy (1/6), mamaji (1/6), dost (1/6), bua (1/6), aunty (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
+**Cast lately** (characters are welcome — use whoever the story needs): papa (1/6), padosi (1/6), mummy (1/6), mamaji (1/6), didi (1/6), chacha (1/6), bua (1/6), aunty (1/6), HR (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
+
+## 2026-11-01-gold-kabhi-girta — Sona kabhi girta nahi? Didi vs main
+- game taken: the family's gold gospel (didi is the sanskaari one, chacha says "never falls") meets the calculator, and the calculator keeps making them look silly.
+- landed: Plan tha pehli salary se mummy ka sona. Calculator bola, pehli paanch.
+- landed: sona saans le raha tha
+- fell flat: Phool wali good morning image ke saath
+- fell flat: BP upar-neeche
 
 ## 2026-10-31-epf-wage-ceiling — October ki salary kam kyun aayi?
 - game taken: the reel translates HR's "as per policy" into what actually happened (L1 plants it, L2 translates it, L9 pays it off). Angdaai and refresh are the…
@@ -27,9 +34,3 @@ Use it on round 1. **Games taken:** don't build a new reel on one of these. **La
 - game taken: "2 AM wala main" is a separate person who signs things that daytime me pays for: he gives the PIN, day-me buries the warning, the bill adds up,…
 - landed: Main. Aadhi raat wala main.
 - landed: Woh PIN payment nahi, recurring debit ki permission thi.
-
-## 2026-10-27-diwali-bonus-tax — Diwali bonus pe tax: mummy wala lifafa
-- game taken: tax/TDS is mummy keeping your Diwali lifafa "main rakh leti hoon"; every chapter replays it (slab = bigger cut from the last lifafa, rebate = dost…
-- landed: Phone ab 'save for later' mein hai.
-- landed: Usko mummy ne poora lifafa de diya. Mujhe aaj tak nahi.
-- fell flat: Slab zero se tees percent tak hain

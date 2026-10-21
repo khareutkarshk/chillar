@@ -1,0 +1,729 @@
+{
+ "theme": "night",
+ "scenes": [
+  {
+   "id": "hook",
+   "component": "hook-card",
+   "at": 0,
+   "fact": "F11",
+   "params": {
+    "question": "10 gram sona = kitne *mahine*?",
+    "stakes": [
+     {
+      "label": "2016",
+      "amount": "₹30,070"
+     },
+     {
+      "label": "2026",
+      "amount": "₹1,47,250"
+     }
+    ],
+    "circle": true,
+    "mascot": "side-eye",
+    "size": 112,
+    "wide": true,
+    "dy": 75
+   }
+  },
+  {
+   "id": "meter-1",
+   "component": "progress-meter",
+   "at": "w5",
+   "duration": 1.0,
+   "params": {
+    "from": 0,
+    "to": 0.2,
+    "coins": 10
+   }
+  },
+  {
+   "id": "mummy-chat",
+   "component": "chat-screen",
+   "at": "w9",
+   "params": {
+    "name": "Mummy",
+    "messages": [
+     {
+      "from": "me",
+      "text": "10 gram = kitne mahine ki salary?"
+     },
+     {
+      "from": "them",
+      "text": "Pata nahi. Didi se pooch."
+     },
+     {
+      "from": "them",
+      "text": "Didi ne *pehli salary* se le liya tha."
+     }
+    ],
+    "highlight": 2,
+    "stagger": 0.95,
+    "width": 820
+   },
+   "fact": "F3"
+  },
+  {
+   "id": "mummy-side-eye",
+   "component": "mascot-reaction",
+   "at": "w15",
+   "until": "w24",
+   "params": {
+    "expr": "side-eye",
+    "anim": "blink",
+    "x": 800,
+    "y": 1130,
+    "size": 260
+   }
+  },
+  {
+   "id": "chacha-forward",
+   "component": "marker-highlight",
+   "at": "w24",
+   "params": {
+    "text": "Sona kabhi *girta nahi.*",
+    "sub": "Forwarded many times",
+    "paper": true,
+    "size": 120,
+    "markerAt": 1.3
+   }
+  },
+  {
+   "id": "bp-check",
+   "component": "checklist",
+   "at": "w31",
+   "params": {
+    "title": "Upar-neeche hota hai?",
+    "items": [
+     {
+      "text": "Chacha ka BP",
+      "ok": true
+     },
+     {
+      "text": "Sona (chacha ke hisaab se)",
+      "ok": false
+     }
+    ],
+    "stagger": 1.5,
+    "grow": true
+   }
+  },
+  {
+   "id": "bp-side-eye",
+   "component": "mascot-reaction",
+   "at": "w37",
+   "until": "w44",
+   "params": {
+    "expr": "side-eye",
+    "anim": "blink",
+    "x": 800,
+    "y": 1130,
+    "size": 240
+   }
+  },
+  {
+   "id": "question-detective",
+   "component": "glyph-character",
+   "at": "w44",
+   "fact": "F1",
+   "params": {
+    "glyph": "?",
+    "costume": "detective",
+    "eyes": "side-eye",
+    "anim": "grow",
+    "line": "RBI gold bond: sone ka rate?",
+    "lineY": 300,
+    "growAt": 0.5,
+    "bubble": "RBI likhta hai.",
+    "size": 380,
+    "x": 360,
+    "y": 760
+   }
+  },
+  {
+   "id": "didi-slip",
+   "component": "receipt-list",
+   "at": "w55",
+   "cut": "whip",
+   "fact": "F8",
+   "params": {
+    "title": "DIDI · SALARY SLIP",
+    "meta": "OCT 2016 · maan lo",
+    "items": [
+     {
+      "label": "Naukri",
+      "amount": "pehli"
+     }
+    ],
+    "total": {
+     "label": "IN-HAND",
+     "amount": "₹20,000",
+     "tone": "ink"
+    },
+    "totalAt": 2.55,
+    "width": 820,
+    "step": 0.3,
+    "dy": 120
+   }
+  },
+  {
+   "id": "rbi-2016",
+   "component": "receipt-list",
+   "at": "w65",
+   "fact": "F10",
+   "params": {
+    "title": "RBI · SGB OCT 2016",
+    "meta": "IBJA 999 · per gram",
+    "items": [
+     {
+      "label": "1 gram",
+      "amount": "₹3,007"
+     },
+     {
+      "label": "× 10 gram",
+      "amount": ""
+     }
+    ],
+    "total": {
+     "label": "10 GRAM",
+     "amount": "₹30,070",
+     "tone": "ink"
+    },
+    "totalAt": 2.2,
+    "width": 820,
+    "step": 0.3,
+    "dy": 240
+   }
+  },
+  {
+   "id": "bill-upar",
+   "component": "statement",
+   "at": "w75",
+   "fact": "F1",
+   "params": {
+    "title": "Dukaan ka bill upar",
+    "paper": true,
+    "body": [
+     "Yeh rate: 24-carat, bina banwai",
+     "Dukaan pe: + banwai + GST"
+    ],
+    "size": 140,
+    "markerAt": 0
+   }
+  },
+  {
+   "id": "meter-2",
+   "component": "progress-meter",
+   "at": "w81",
+   "duration": 1.0,
+   "params": {
+    "from": 0.2,
+    "to": 0.4,
+    "coins": 10
+   }
+  },
+  {
+   "id": "didi-months",
+   "component": "odometer-number",
+   "at": "w87",
+   "fact": "F10",
+   "params": {
+    "value": 1.5,
+    "prefix": "",
+    "decimals": 1,
+    "unit": "mahine",
+    "label": "Didi ke liye 10 gram",
+    "size": 300,
+    "rollStart": 0.1,
+    "rollDuration": 0.6,
+    "dy": -60
+   }
+  },
+  {
+   "id": "stamp-1",
+   "component": "stamp",
+   "at": "w90",
+   "duration": 1.6,
+   "fact": "F10",
+   "params": {
+    "text": "1.5 mahine",
+    "x": 520,
+    "y": 1000,
+    "rotate": -7,
+    "size": 100
+   }
+  },
+  {
+   "id": "aura-smug",
+   "component": "mascot-reaction",
+   "at": "w97",
+   "params": {
+    "expr": "smug",
+    "anim": "pop",
+    "x": 800,
+    "y": 1120,
+    "size": 260
+   },
+   "until": "w102"
+  },
+  {
+   "id": "main-slip",
+   "component": "receipt-list",
+   "at": "w102",
+   "fact": "F9",
+   "params": {
+    "title": "MERI · SALARY SLIP",
+    "meta": "OCT 2026 · maan lo",
+    "items": [
+     {
+      "label": "Naukri",
+      "amount": "meri"
+     }
+    ],
+    "total": {
+     "label": "IN-HAND",
+     "amount": "₹30,000",
+     "tone": "ink"
+    },
+    "totalAt": 2.7,
+    "width": 820,
+    "step": 0.3,
+    "dy": 120
+   }
+  },
+  {
+   "id": "didi-vs-main",
+   "component": "bar-chart",
+   "at": "w110",
+   "fact": "F9",
+   "params": {
+    "bars": [
+     {
+      "label": "Didi 2016",
+      "value": 20000
+     },
+     {
+      "label": "Main 2026",
+      "value": 30000
+     }
+    ],
+    "highlight": 1,
+    "prefix": "₹",
+    "stagger": 0.2
+   }
+  },
+  {
+   "id": "mummy-silent",
+   "component": "mascot-reaction",
+   "at": "w116",
+   "until": "w120",
+   "params": {
+    "expr": "facepalm",
+    "anim": "pop",
+    "x": 260,
+    "y": 640,
+    "size": 240
+   }
+  },
+  {
+   "id": "gold-2026",
+   "component": "odometer-number",
+   "at": "w120",
+   "cut": "zoom",
+   "fact": "F11",
+   "params": {
+    "from": 30070,
+    "value": 147250,
+    "prefix": "₹",
+    "label": "10 gram · Oct 2026",
+    "sub": "2016: ₹30,070",
+    "size": 210,
+    "rollStart": 1.3,
+    "rollDuration": 1.1,
+    "tone": "field"
+   }
+  },
+  {
+   "id": "months-gone",
+   "component": "calendar-flip",
+   "at": "w126",
+   "fact": "F11",
+   "params": {
+    "pages": [
+     "NOV 2026",
+     "JAN 2027",
+     "MAR 2027"
+    ],
+    "details": [
+     "Itni salary = 10 gram"
+    ],
+    "flip": 0.2,
+    "width": 760,
+    "yearSize": 200
+   }
+  },
+  {
+   "id": "stamp-2",
+   "component": "stamp",
+   "at": "w128",
+   "duration": 1.6,
+   "fact": "F11",
+   "params": {
+    "text": "4.9 mahine",
+    "x": 520,
+    "y": 1010,
+    "rotate": 6,
+    "size": 100
+   }
+  },
+  {
+   "id": "plan-vs-calc",
+   "component": "meme-format",
+   "at": "w132",
+   "fact": "F11",
+   "params": {
+    "format": "expectation-reality",
+    "reveal": 2.6,
+    "panels": [
+     {
+      "label": "Plan",
+      "text": "Pehli salary se mummy ka sona",
+      "expr": "smug"
+     },
+     {
+      "label": "Calculator",
+      "text": "Pehli *paanch* salary",
+      "expr": "crying"
+     }
+    ],
+    "dy": 100
+   }
+  },
+  {
+   "id": "meter-3",
+   "component": "progress-meter",
+   "at": "w140",
+   "duration": 1.0,
+   "params": {
+    "from": 0.4,
+    "to": 0.6,
+    "coins": 10
+   }
+  },
+  {
+   "id": "beggars-meme",
+   "component": "meme",
+   "at": "w144",
+   "params": {
+    "meme": "Somebody get these beggars out of here | The Odyssey",
+    "kind": "image",
+    "pick": 0,
+    "headline": "Jeweller, calculator dekh ke"
+   }
+  },
+  {
+   "id": "didi-quote",
+   "component": "marker-highlight",
+   "at": "w154",
+   "cut": "wipe",
+   "params": {
+    "text": "Didi ka sona *dekho*",
+    "sub": "— Mummy",
+    "paper": true,
+    "size": 120,
+    "markerAt": 0.5
+   }
+  },
+  {
+   "id": "gram-rise",
+   "component": "bar-chart",
+   "at": "w161",
+   "fact": "F12",
+   "params": {
+    "bars": [
+     {
+      "label": "1 g · 2016",
+      "value": 3007
+     },
+     {
+      "label": "1 g · 2026",
+      "value": 14725
+     }
+    ],
+    "highlight": 1,
+    "prefix": "₹",
+    "bracket": "lagbhag 4.9×",
+    "caption": "RBI / IBJA 999 rate",
+    "stagger": 0.2
+   }
+  },
+  {
+   "id": "myth-math",
+   "component": "split-compare",
+   "at": "w169",
+   "fact": "F6",
+   "params": {
+    "left": {
+     "title": "Myth",
+     "text": "Sona girta nahi"
+    },
+    "right": {
+     "title": "Math",
+     "text": "6 hafte: ₹15,384 → ₹14,614"
+    },
+    "strikeAt": 0.9,
+    "revealAt": 2.2,
+    "dy": 100
+   }
+  },
+  {
+   "id": "stamp-3",
+   "component": "stamp",
+   "at": "w179",
+   "fact": "F6",
+   "params": {
+    "text": "5% gira",
+    "x": 600,
+    "y": 1072,
+    "rotate": -6,
+    "size": 88
+   },
+   "duration": 1.2
+  },
+  {
+   "id": "chacha-chat",
+   "component": "chat-screen",
+   "at": "w181",
+   "params": {
+    "name": "Chacha",
+    "messages": [
+     {
+      "from": "them",
+      "text": "Gira nahi beta"
+     },
+     {
+      "from": "them",
+      "text": "Sona *saans* le raha tha 🙏"
+     }
+    ],
+    "stagger": 1.5,
+    "width": 820
+   },
+   "sfx": [
+    {
+     "sound": "breath",
+     "at": 2.85
+    }
+   ]
+  },
+  {
+   "id": "meter-4",
+   "component": "progress-meter",
+   "at": "w186",
+   "duration": 1.0,
+   "params": {
+    "from": 0.6,
+    "to": 0.8,
+    "coins": 10
+   }
+  },
+  {
+   "id": "gold-passbook",
+   "component": "passbook-page",
+   "at": "w191",
+   "fact": "F7",
+   "params": {
+    "opening": 3119,
+    "rows": [
+     {
+      "date": "02-17",
+      "text": "Sona 1 g",
+      "amount": 176,
+      "type": "dr"
+     }
+    ],
+    "step": 0.4,
+    "size": 38,
+    "circleBalance": true
+   }
+  },
+  {
+   "id": "passbook-shock",
+   "component": "mascot-reaction",
+   "at": "w198",
+   "until": "w201",
+   "params": {
+    "expr": "shocked",
+    "anim": "pop",
+    "x": 800,
+    "y": 1130,
+    "size": 240
+   }
+  },
+  {
+   "id": "nobody-chacha",
+   "component": "meme-format",
+   "at": "w201",
+   "params": {
+    "format": "nobody-me",
+    "reveal": 0.6,
+    "panels": [
+     {
+      "label": "Nobody:",
+      "text": "",
+      "expr": "neutral-tired"
+     },
+     {
+      "label": "Chacha:",
+      "text": "Saat mahine ki *saans*",
+      "expr": "smug"
+     }
+    ]
+   }
+  },
+  {
+   "id": "both-true",
+   "component": "bar-chart",
+   "at": "w212",
+   "fact": "F6",
+   "params": {
+    "bars": [
+     {
+      "label": "Feb 2017",
+      "value": 2943
+     },
+     {
+      "label": "Sep 2026",
+      "value": 15384
+     },
+     {
+      "label": "Oct 2026",
+      "value": 14614
+     }
+    ],
+    "highlight": 2,
+    "prefix": "₹",
+    "caption": "RBI rate, 1 gram",
+    "stagger": 0.25
+   }
+  },
+  {
+   "id": "meter-5",
+   "component": "progress-meter",
+   "at": "w221",
+   "duration": 1.0,
+   "params": {
+    "from": 0.8,
+    "to": 1.0,
+    "coins": 10
+   }
+  },
+  {
+   "id": "next-chart",
+   "component": "glyph-character",
+   "at": "w224",
+   "params": {
+    "glyph": "?",
+    "costume": "detective",
+    "eyes": "side-eye",
+    "anim": "toss",
+    "bubble": "Agla chart? Kisi ke paas nahi.",
+    "size": 380,
+    "x": 360,
+    "y": 760
+   }
+  },
+  {
+   "id": "jeweller-bill",
+   "component": "receipt-list",
+   "at": "w235",
+   "fact": "F1",
+   "params": {
+    "title": "JEWELLER BILL",
+    "meta": "Dhanteras",
+    "items": [
+     {
+      "label": "Sona (aaj ka rate)",
+      "amount": "____"
+     },
+     {
+      "label": "Banwai",
+      "amount": "alag"
+     },
+     {
+      "label": "GST",
+      "amount": "alag"
+     }
+    ],
+    "total": {
+     "label": "TOTAL",
+     "amount": "likhwao",
+     "tone": "ink"
+    },
+    "printed": true,
+    "width": 820
+   }
+  },
+  {
+   "id": "didi-vs-me",
+   "component": "tier-compare",
+   "at": "w244",
+   "fact": "F11",
+   "params": {
+    "tiers": [
+     {
+      "amount": "Didi · 2016",
+      "result": "1.5 mahine"
+     },
+     {
+      "amount": "Main · 2026",
+      "result": "4.9 mahine"
+     }
+    ],
+    "reveal": "results",
+    "wide": true,
+    "stagger": 0.7
+   }
+  },
+  {
+   "id": "rasode-meme",
+   "component": "meme",
+   "at": "w253",
+   "params": {
+    "meme": "Rasode me kaun tha",
+    "kind": "image",
+    "pick": 0,
+    "headline": "Sanskaari kaun tha?"
+   }
+  }
+ ],
+ "effects": [
+  {
+   "type": "punch",
+   "at": "w43"
+  },
+  {
+   "type": "punch",
+   "at": "w63"
+  },
+  {
+   "type": "punch",
+   "at": "w99"
+  },
+  {
+   "type": "punch",
+   "at": "w108"
+  },
+  {
+   "type": "punch",
+   "at": "w143"
+  },
+  {
+   "type": "punch",
+   "at": "w211"
+  },
+  {
+   "type": "punch",
+   "at": "w234"
+  }
+ ]
+}
