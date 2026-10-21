@@ -1,0 +1,2 @@
+- 2026-10-21 17:33 stop: voice blocker L7 after re-take → helper respells L7 in tts.txt, regen, voice_check → not in table; one helper fix rule
+- 2026-10-21 17:51 same stop (L7) again: pipeline voice agent re-applied failing पान्च → producer restored पाञ्च, lexicon row updated, whisper on true window clean, note marked resolved, --from align

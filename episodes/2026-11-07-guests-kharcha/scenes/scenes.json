@@ -1,0 +1,316 @@
+{
+  "theme": "pastel",
+  "scenes": [
+    {
+      "id": "s01-hook",
+      "component": "hook-card",
+      "at": 0,
+      "fact": "F1",
+      "params": {
+        "question": "Diwali ki *doorbell* kitne ki?",
+        "stakes": [
+          {
+            "label": "Guest 1 · chai-plate",
+            "amount": "₹100"
+          }
+        ],
+        "circle": true,
+        "mascot": "side-eye",
+        "wide": true,
+        "dy": 60
+      }
+    },
+    {
+      "id": "s02-papa-zero",
+      "component": "marker-highlight",
+      "at": "w7",
+      "params": {
+        "text": "Papa ka hisaab: *zero*",
+        "paper": true,
+        "size": 120,
+        "markerAt": 0.7
+      }
+    },
+    {
+      "id": "s03-crowned-zero",
+      "component": "glyph-character",
+      "at": "w11",
+      "params": {
+        "glyph": "0",
+        "costume": "crown",
+        "eyes": "deadpan",
+        "bubble": "Guest toh bhagwan hai",
+        "bubbleSide": "right",
+        "size": 420,
+        "x": 300,
+        "y": 760
+      }
+    },
+    {
+      "id": "s04-meme-deceive",
+      "component": "meme",
+      "at": "w14.end",
+      "params": {
+        "meme": "Why would I deceive you?",
+        "kind": "image",
+        "pick": 0,
+        "headline": "Papa, Diwali week",
+        "labels": [
+          {
+            "text": "Kharcha zero hai",
+            "x": 50,
+            "y": 85
+          }
+        ]
+      }
+    },
+    {
+      "id": "s06-chacha-parcel",
+      "component": "receipt-list",
+      "at": "w22",
+      "fact": "F1",
+      "params": {
+        "title": "CHACHA KA ORDER",
+        "meta": "\"Kuch nahi lenge\"",
+        "items": [
+          {
+            "label": "Chai",
+            "amount": "nahi"
+          },
+          {
+            "label": "Namkeen",
+            "amount": "nahi"
+          },
+          {
+            "label": "Baccho ke liye parcel",
+            "amount": "₹100"
+          }
+        ],
+        "total": {
+          "label": "TOTAL",
+          "amount": "₹100",
+          "tone": "red"
+        },
+        "step": 0.3,
+        "totalAt": 2.76,
+        "width": 860,
+        "dy": 70
+      }
+    },
+    {
+      "id": "s07-ding-sideeye",
+      "component": "mascot-reaction",
+      "at": "w30",
+      "params": {
+        "expr": "side-eye",
+        "anim": "blink",
+        "x": 760,
+        "y": 1150,
+        "size": 240,
+        "bubble": "Ding.",
+        "bubbleSide": "left"
+      },
+      "sfx": [],
+      "until": "w32"
+    },
+    {
+      "id": "s08a-forty-count",
+      "component": "odometer-number",
+      "at": "w32",
+      "fact": "F2",
+      "params": {
+        "value": 40,
+        "from": 1,
+        "prefix": "",
+        "suffix": " guest",
+        "label": "Roz ke guest",
+        "underline": false,
+        "rollStart": 0.1,
+        "rollDuration": 0.7,
+        "size": 240
+      },
+      "sfx": [
+        {
+          "sound": "ding",
+          "at": 1.25
+        }
+      ]
+    },
+    {
+      "id": "s08-forty-guests",
+      "component": "receipt-list",
+      "at": "w36",
+      "fact": "F2",
+      "params": {
+        "title": "DIWALI · DIN 1",
+        "meta": "40 ding",
+        "items": [
+          {
+            "label": "Guest 1",
+            "amount": "₹100"
+          },
+          {
+            "label": "Guest 2",
+            "amount": "₹100"
+          },
+          {
+            "label": "Guest 40",
+            "amount": "₹100"
+          }
+        ],
+        "total": {
+          "label": "DIN KA",
+          "amount": "₹4,000",
+          "tone": "red"
+        },
+        "step": 0.15,
+        "totalAt": 1.2,
+        "circleTotal": false,
+        "width": 860
+      }
+    },
+    {
+      "id": "s09-stamp-4000",
+      "component": "stamp",
+      "at": "w40",
+      "until": "w43",
+      "fact": "F2",
+      "params": {
+        "text": "₹4,000",
+        "sub": "har din",
+        "x": 560,
+        "y": 1010,
+        "rotate": -7,
+        "size": 110
+      }
+    },
+    {
+      "id": "s10-calculator-x",
+      "component": "glyph-character",
+      "at": "w43",
+      "params": {
+        "glyph": "×",
+        "costume": "detective",
+        "eyes": "side-eye",
+        "bubble": "Ding hua? Guna karo.",
+        "bubbleSide": "right",
+        "size": 260,
+        "x": 320,
+        "y": 680
+      }
+    },
+    {
+      "id": "s11-twenty-thousand",
+      "component": "odometer-number",
+      "at": "w48",
+      "cut": "zoom",
+      "fact": "F3",
+      "params": {
+        "value": 5,
+        "from": 1,
+        "prefix": "",
+        "suffix": " din",
+        "label": "Agar sab roz aaye",
+        "rollStart": 0.0,
+        "rollDuration": 0.4,
+        "dy": 0,
+        "size": 240
+      }
+    },
+    {
+      "id": "s12-stamp-20000",
+      "component": "stamp",
+      "at": "w55-0.1",
+      "until": "w59",
+      "fact": "F3",
+      "params": {
+        "text": "₹20,000",
+        "x": 600,
+        "y": 1010,
+        "rotate": -6,
+        "size": 130
+      }
+    },
+    {
+      "id": "s14-ceiling",
+      "component": "statement",
+      "at": "w59",
+      "fact": "F3",
+      "params": {
+        "title": "₹20,000 = *upar ki* limit",
+        "body": "Sab 40 roz nahi aate.",
+        "paper": true,
+        "size": 130
+      }
+    },
+    {
+      "id": "s15-guest-list-first",
+      "component": "receipt-list",
+      "at": "w66",
+      "fact": "F3",
+      "params": {
+        "title": "PEHLE GUEST LIST",
+        "meta": "phir shopping list",
+        "items": [
+          {
+            "label": "Guest",
+            "amount": "40"
+          },
+          {
+            "label": "× plate",
+            "amount": "₹100"
+          },
+          {
+            "label": "× din",
+            "amount": "5"
+          }
+        ],
+        "total": {
+          "label": "BUDGET",
+          "amount": "₹20,000",
+          "tone": "ink"
+        },
+        "step": 0.4,
+        "totalAt": 1.8,
+        "width": 860,
+        "dy": 280
+      }
+    },
+    {
+      "id": "s16-callback",
+      "component": "meme-format",
+      "at": "w77",
+      "params": {
+        "format": "two-panel",
+        "panels": [
+          {
+            "label": "Guest",
+            "text": "Bhagwan hai",
+            "expr": "smug"
+          },
+          {
+            "label": "Plate",
+            "text": "Bhagwan nahi",
+            "expr": "side-eye"
+          }
+        ],
+        "reveal": 2.1,
+        "dy": 140
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "punch",
+      "at": "w13"
+    },
+    {
+      "type": "punch",
+      "at": "w31"
+    },
+    {
+      "type": "punch",
+      "at": "w81"
+    }
+  ]
+}
