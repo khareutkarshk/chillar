@@ -1,0 +1,12 @@
+# license snapshot 2026-10-20T23:41:07+00:00
+# https://freesound.org/people/richwise/sounds/476834/
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+Freesound API response at download time:
+{
+  "id": 476834,
+  "url": "https://freesound.org/people/richwise/sounds/476834/",
+  "name": "scissors",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "username": "richwise"
+}

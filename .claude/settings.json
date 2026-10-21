@@ -1,7 +1,31 @@
 {
   "permissions": {
     "allow": [
-      "Bash(.venv/bin/python pipeline/*)"
+      "Bash(.venv/bin/python pipeline/*)",
+      "Bash(.venv/bin/python:*)",
+      "Bash(npx --yes ccusage@latest:*)",
+      "Bash(npx ccusage@latest:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(pgrep:*)",
+      "Bash(mkdir:*)",
+      "Bash(tail:*)",
+      "Bash(head:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(wc:*)",
+      "Bash(date:*)",
+      "Bash(sleep:*)",
+      "Bash(systemd-inhibit:*)",
+      "Bash(graphify:*)",
+      "Bash(ffprobe:*)",
+      "Edit(./**)",
+      "Write(./**)"
     ]
   },
   "hooks": {

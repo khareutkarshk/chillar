@@ -123,5 +123,25 @@
   "file": "npci-mdr-post-diwali.pdf.pdf",
   "fetched": "2026-10-20",
   "bytes": 163210
+ },
+ "https://www.rbi.org.in/Scripts/BS_ViewMasDirections.aspx?id=13374": {
+  "file": "rbi-emandate-2026.html",
+  "fetched": "2026-10-21",
+  "bytes": 95972
+ },
+ "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2163555&reg=48&lang=2": {
+  "file": "pib-2163555-gst56.html.html",
+  "fetched": "2026-10-21",
+  "bytes": 5466014
+ },
+ "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260277&reg=3&lang=2": {
+  "file": "pib-2260277-i4c-rbih-mule.html",
+  "fetched": "2026-10-21",
+  "bytes": 104101
+ },
+ "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2223095&reg=3&lang=1": {
+  "file": "pib-2223095-suspect-registry.html",
+  "fetched": "2026-10-21",
+  "bytes": 92992
  }
 }
