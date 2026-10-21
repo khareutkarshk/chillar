@@ -1,0 +1,337 @@
+{
+ "theme": "pastel",
+ "scenes": [
+  {
+   "id": "s01-hook",
+   "component": "hook-card",
+   "at": 0,
+   "fact": "F1",
+   "params": {
+    "question": "Sarkar ko kitna *gift*?",
+    "wide": false,
+    "mascot": "side-eye",
+    "stakes": [
+     {
+      "label": "Dry fruit box",
+      "amount": "₹2,100"
+     },
+     {
+      "label": "Gold set",
+      "amount": "₹51,500"
+     },
+     {
+      "label": "Sarkar ko",
+      "amount": "₹ ____"
+     }
+    ],
+    "size": 110,
+    "dy": 130
+   }
+  },
+  {
+   "id": "s02-fufaji-lie",
+   "component": "photo-frame",
+   "at": "w8",
+   "params": {
+    "speech": "Arre, sasta mila!",
+    "caption": "fufaji",
+    "who": "uncle",
+    "expr": "smug",
+    "side": "left"
+   }
+  },
+  {
+   "id": "s04-dryfruit-prints",
+   "component": "receipt-list",
+   "at": "w16",
+   "fact": "F1",
+   "params": {
+    "title": "DRY FRUITS",
+    "meta": "mummy: bas ek box",
+    "width": 860,
+    "step": 0.22,
+    "items": [
+     {
+      "label": "Dry fruit box",
+      "amount": "₹2,000",
+      "at": 1.0
+     },
+     {
+      "label": "GST 5%",
+      "amount": "₹100",
+      "at": 2.4
+     }
+    ],
+    "total": {
+     "label": "TOTAL",
+     "amount": "₹2,100",
+     "tone": "ink"
+    },
+    "totalAt": 1.9,
+    "dy": 90
+   }
+  },
+  {
+   "id": "s04b-chillar-bas-ek",
+   "component": "mascot-reaction",
+   "at": "w23",
+   "until": "w25",
+   "params": {
+    "expr": "side-eye",
+    "anim": "blink",
+    "bubble": "Bas ek?",
+    "size": 240,
+    "x": 800,
+    "y": 1130
+   }
+  },
+  {
+   "id": "s05-hundred",
+   "component": "odometer-number",
+   "at": "w25",
+   "cut": "zoom",
+   "fact": "F1",
+   "params": {
+    "value": 100,
+    "prefix": "₹",
+    "label": "Sarkar ke",
+    "sub": "5% GST, ₹2,000 ke box pe",
+    "labelSize": 80
+   }
+  },
+  {
+   "id": "s06-box-safar",
+   "component": "phone-note",
+   "at": "w30",
+   "fact": "F1",
+   "params": {
+    "title": "Box ka safar",
+    "stagger": 0.28,
+    "items": [
+     {
+      "text": "Mummy → Sharma ji"
+     },
+     {
+      "text": "Sharma ji → Mausi"
+     },
+     {
+      "text": "Mausi → Bua"
+     },
+     {
+      "text": "Bua → Mummy"
+     }
+    ],
+    "total": "₹100 GST: wapas nahi"
+   }
+  },
+  {
+   "id": "s07-fufaji-gyaan",
+   "component": "photo-frame",
+   "at": "w37",
+   "fact": "F3",
+   "params": {
+    "speech": "Making pe 5% alag!",
+    "caption": "fufaji",
+    "who": "uncle",
+    "expr": "smug",
+    "side": "left"
+   }
+  },
+  {
+   "id": "s07b-chillar-sideeye",
+   "component": "mascot-reaction",
+   "at": "w43",
+   "until": "w45",
+   "params": {
+    "expr": "side-eye",
+    "anim": "blink"
+   }
+  },
+  {
+   "id": "s08-five-percent",
+   "component": "glyph-character",
+   "at": "w45",
+   "fact": "F3",
+   "params": {
+    "glyph": "5%",
+    "costume": "crown",
+    "eyes": "side-eye",
+    "bubble": "Main alag hoon",
+    "size": 320,
+    "x": 440,
+    "y": 720,
+    "maxWidth": 560
+   }
+  },
+  {
+   "id": "s09-sunaar-receipt",
+   "component": "receipt-list",
+   "at": "w51",
+   "fact": "F1",
+   "params": {
+    "title": "SUNAAR",
+    "width": 860,
+    "dy": 90,
+    "items": [
+     {
+      "label": "Gold + making",
+      "amount": "₹50,000"
+     },
+     {
+      "label": "GST 3% (samet)",
+      "amount": "₹1,500"
+     }
+    ],
+    "total": {
+     "label": "TOTAL",
+     "amount": "₹51,500",
+     "tone": "ink"
+    },
+    "printed": true
+   }
+  },
+  {
+   "id": "s09b-stamp-3",
+   "component": "stamp",
+   "at": "w54",
+   "until": "w56",
+   "fact": "F3",
+   "params": {
+    "text": "3%",
+    "sub": "gold + making",
+    "x": 330,
+    "y": 990,
+    "rotate": -8,
+    "size": 110
+   }
+  },
+  {
+   "id": "s09c-chillar-smug",
+   "component": "mascot-reaction",
+   "at": "w58-0.05",
+   "until": "w59",
+   "params": {
+    "expr": "smug",
+    "anim": "blink",
+    "size": 240,
+    "x": 800,
+    "y": 1130,
+    "bubble": "Aura: gaya",
+    "bubbleSide": "left"
+   }
+  },
+  {
+   "id": "s10-sarkar-gift",
+   "component": "receipt-list",
+   "at": "w59",
+   "fact": "F1",
+   "params": {
+    "title": "DIWALI",
+    "width": 860,
+    "step": 0.18,
+    "items": [
+     {
+      "label": "Dry fruit GST 5%",
+      "amount": "₹100",
+      "at": 0.1
+     },
+     {
+      "label": "Gold GST 3%",
+      "amount": "₹1,500",
+      "at": 0.4
+     }
+    ],
+    "total": {
+     "label": "Sarkar ko gift",
+     "amount": "₹1,600",
+     "tone": "red"
+    },
+    "totalAt": 1.08,
+    "dy": 90
+   }
+  },
+  {
+   "id": "s10b-stamp-1600",
+   "component": "stamp",
+   "at": "w62",
+   "until": "w65",
+   "fact": "F1",
+   "params": {
+    "text": "₹1,600",
+    "x": 330,
+    "y": 990,
+    "rotate": -6,
+    "size": 110
+   }
+  },
+  {
+   "id": "s10c-chillar-violin",
+   "component": "mascot-reaction",
+   "at": "w64",
+   "until": "w70",
+   "params": {
+    "expr": "crying",
+    "anim": "blink",
+    "size": 240,
+    "x": 800,
+    "y": 1130
+   }
+  },
+  {
+   "id": "s11-poocho",
+   "component": "split-compare",
+   "at": "w70",
+   "fact": "F3",
+   "params": {
+    "left": {
+     "title": "Bill pe",
+     "text": "Making pe 5% alag"
+    },
+    "right": {
+     "title": "Rule",
+     "text": "Gold + making: 3%"
+    },
+    "strikeAt": 0.8,
+    "revealAt": 1.1,
+    "offsetY": 60
+   }
+  },
+  {
+   "id": "s12-wrapper",
+   "component": "meme-format",
+   "at": "w77",
+   "params": {
+    "format": "expectation-reality",
+    "reveal": 0.8,
+    "panels": [
+     {
+      "label": "Expectation",
+      "text": "Receipt sambhal ke rakhi",
+      "expr": "smug"
+     },
+     {
+      "label": "Reality",
+      "text": "Wrapper ke saath kooda",
+      "expr": "facepalm"
+     }
+    ]
+   },
+   "sfx": [
+    {
+     "sound": "paper-toss",
+     "at": 1.9
+    }
+   ]
+  }
+ ],
+ "effects": [
+  {
+   "type": "punch",
+   "at": "w36"
+  },
+  {
+   "type": "punch",
+   "at": "w58"
+  }
+ ]
+}

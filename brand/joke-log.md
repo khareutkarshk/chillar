@@ -2,7 +2,21 @@
 
 Use it on round 1. **Games taken:** don't build a new reel on one of these. **Landed:** reuse the *shape* (act-out, self-own, callback), never the line. **Fell flat:** don't write that kind of joke again. **Audience drops** are real Instagram retention — the strongest signal here.
 
-**Cast lately** (characters are welcome — use whoever the story needs): mummy (4/6), uncle (2/6), papa (2/6), landlord (1/6), dost (1/6), didi (1/6), chacha (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
+**Overused lately** (in half or more of the last 6 scripts): Diwali (3/6) — lead with a different place/object, or make the moment around it new.
+
+**Cast lately** (characters are welcome — use whoever the story needs): mummy (3/6), papa (2/6), uncle (1/6), landlord (1/6), dost (1/6), chacha (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
+
+## 2026-11-08-diwali-receipt — Aapki Diwali ki receipt
+- game taken: GST is the Diwali gift you give sarkar without knowing. Everyone at home talks, only the receipt tells you, and it's the one gift that never comes…
+- landed: Sabse bada gift, ₹1,600, us rishtedaar ko jo aaya hi nahi
+- landed: Box ghoom ke wapas aayega. Tax nahi.
+
+## 2026-11-07-guests-kharcha — Doorbell ki ek ding kitne ki?
+- game taken: every doorbell ding is a ₹100 cash-register ding. Real laughs: L2 (papa's "zero" + M2), L4, L6, L10.
+- landed: Guest bhagwan hai, papa. Plate nahi.
+- landed: Chacha kuch nahi khate, bas 
+- fell flat: Chacha bolte hain
+- fell flat: haath wallet pe
 
 ## 2026-11-06-dhanteras-emergency-fund — Dhanteras ka asli dhan: layoff fund
 - game taken: the shubh Dhanteras dabba can't pay the rent after a "Quick sync". L2, L4, L8 and L9 all play it.
@@ -21,16 +35,3 @@ Use it on round 1. **Games taken:** don't build a new reel on one of these. **La
 - landed: Ball bechne wale ki hai. Woh ghar gaya, toh match khatam.
 - landed: Illegal nahi bola. Bola, 
 - fell flat: Gully mein ball wala hi captain hota hai
-
-## 2026-11-03-gold-bill-decoded — Sone ka bill, line by line
-- game taken: the gold bill is an exam that mummy prepped you for on the rate alone, and every other line on it is out of syllabus (making = Q1, GST = negative…
-- landed: Maine 'thoda kam?' bola, unhone ladoo pakda diya.
-- landed: compulsory sawaal, HUID… maine padha hi nahi
-- fell flat: Sarkar 'thodi si' nahi samajhti
-
-## 2026-11-01-gold-kabhi-girta — Sona kabhi girta nahi? Didi vs main
-- game taken: the family's gold gospel (didi is the sanskaari one, chacha says "never falls") meets the calculator, and the calculator keeps making them look silly.
-- landed: Plan tha pehli salary se mummy ka sona. Calculator bola, pehli paanch.
-- landed: sona saans le raha tha
-- fell flat: Phool wali good morning image ke saath
-- fell flat: BP upar-neeche
