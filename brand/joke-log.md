@@ -2,9 +2,11 @@
 
 Use it on round 1. **Games taken:** don't build a new reel on one of these. **Landed:** reuse the *shape* (act-out, self-own, callback), never the line. **Fell flat:** don't write that kind of joke again. **Audience drops** are real Instagram retention — the strongest signal here.
 
-**Overused lately** (in half or more of the last 6 scripts): Diwali (3/6) — lead with a different place/object, or make the moment around it new.
+**Cast lately** (characters are welcome — use whoever the story needs): papa (3/6), mummy (2/6), mausi (1/6), landlord (1/6), dost (1/6), chacha (1/6), bua (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
 
-**Cast lately** (characters are welcome — use whoever the story needs): papa (3/6), mummy (3/6), uncle (1/6), landlord (1/6), chacha (1/6), bua (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
+## 2026-11-11-bhai-dooj-gift-tax — Behen ke Bhai Dooj gift pe tax?
+- landed: Mausi ke liye cousin ghar ka, tax ke liye bahar ka.
+- landed: Tika lagte hi behen ne audit kiya, 'bas itna?'
 
 ## 2026-11-10-card-bill-coming — Card ka free kab tak?
 - game taken: the card's free period is the strictest school librarian. Return every book by the due date and the fine is zero. Return late and she counts the…

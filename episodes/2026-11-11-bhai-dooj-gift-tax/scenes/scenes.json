@@ -1,0 +1,42 @@
+{
+  "theme": "night",
+  "scenes": [
+    {"id": "s1-hook", "component": "hook-card", "at": 0,
+     "params": {"question": "Bhai Dooj cash pe *tax*?", "stakes": [{"label": "Tika thali", "amount": "✓"}, {"label": "Behen ka lifafa", "amount": "Tax?"}], "circle": true, "mascot": "side-eye", "wide": true, "dy": 60}},
+    {"id": "s2-tax-detective", "component": "glyph-character", "at": "w7",
+     "params": {"glyph": "?", "costume": "detective", "eyes": "side-eye", "bubble": "Yeh kaun hai?", "bubbleSide": "right", "size": 380, "x": 300, "y": 760}},
+    {"id": "s3-lifafa", "component": "envelope", "at": "w16",
+     "params": {"lines": ["Bhai Dooj", "Pyaari behen ke naam", "Bhai ki taraf se"], "pincode": "", "postmark": "TAX?", "x": 110, "y": 500, "width": 860}},
+    {"id": "o1-side-eye", "component": "mascot-reaction", "at": "w13", "until": "w16",
+     "params": {"expr": "side-eye", "anim": "blink", "x": 800, "y": 1120, "size": 260}},
+    {"id": "s4-audit", "component": "checklist", "at": "w24",
+     "params": {"title": "Behen ka audit", "items": [{"text": "Tika laga", "ok": true}, {"text": "Mithai aayi", "ok": true}, {"text": "Lifafa ki motai", "ok": false}], "stagger": 0.45, "grow": true}},
+    {"id": "s5-relatives", "component": "phone-note", "at": "w33", "fact": "F4",
+     "params": {"title": "Tax ke 'relative'", "items": [{"text": "Bhai"}, {"text": "Bhabhi"}, {"text": "Mama"}, {"text": "Mausi"}], "stagger": 0.3}},
+    {"id": "s6-relatives-receipt", "component": "receipt-list", "at": "w44", "fact": "F6",
+     "params": {"title": "BHAI DOOJ GIFTS", "meta": "maan lo", "items": [{"label": "Bhai", "amount": "₹21,000"}, {"label": "Bhabhi", "amount": "₹11,000"}, {"label": "Mama", "amount": "₹5,100"}], "total": {"label": "TOTAL", "amount": "₹37,100", "tone": "ink"}, "step": 0.18, "width": 860}},
+    {"id": "o2-stamp-zero", "component": "stamp", "at": "w45+0.4", "until": "w49", "fact": "F3",
+     "params": {"text": "Tax ₹0", "x": 560, "y": 1040, "rotate": -6, "size": 110}},
+    {"id": "s7-passbook", "component": "passbook-page", "at": "w49", "fact": "F7",
+     "params": {"opening": 0, "rows": [{"date": "", "text": "Cousin", "amount": 30000, "type": "cr"}, {"date": "", "text": "Dost", "amount": 30000, "type": "cr"}], "step": 0.6, "printed": false, "size": 44}},
+    {"id": "s8-mausi-vs-tax", "component": "split-compare", "at": "w56", "fact": "F5",
+     "params": {"left": {"title": "Mausi", "text": "Cousin ghar ka"}, "right": {"title": "Tax", "text": "Cousin bahar ka"}, "strikeAt": 1.45, "revealAt": 1.6, "offsetY": 160}},
+    {"id": "s9-meme-cousin", "component": "meme", "at": "w66.end",
+     "params": {"meme": "Did you say POTENTIAL blank", "kind": "image", "pick": 0, "labels": [{"text": "Did you say COUSIN?", "x": 50, "y": 14}]}},
+    {"id": "s10-bars", "component": "bar-chart", "at": "w70", "cut": "zoom", "fact": "F7",
+     "params": {"bars": [{"label": "Limit", "value": 50000}, {"label": "Taxable", "value": 60000}], "highlight": 1, "prefix": "₹", "caption": "maan lo, saal bhar"}},
+    {"id": "s11-not-excess", "component": "phone-note", "at": "w74", "fact": "F1",
+     "params": {"title": "Tax kispe?", "items": [{"text": "Sirf upar ke ₹10,000", "strike": true}], "stagger": 0.35, "total": ""}},
+    {"id": "o3-stamp-poora", "component": "stamp", "at": "w75", "until": "w80", "fact": "F1",
+     "params": {"text": "Poora ₹60,000", "x": 500, "y": 880, "rotate": -6, "size": 80}},
+    {"id": "s12-payoff", "component": "meme-format", "at": "w80", "fact": "F3",
+     "params": {"format": "two-panel", "panels": [{"label": "Apna bhai", "text": "Tax zero, kitna bhi do", "expr": "smug"}, {"label": "Cousin-dost", "text": "Saal ka total gino", "expr": "thinking"}], "reveal": 0.9}},
+    {"id": "s13-mausi", "component": "photo-frame", "at": "w89",
+     "params": {"speech": "Yeh kaun hai?", "speaker": "mausi", "caption": "mausi", "who": "mausi", "expr": "smug", "side": "left"}}
+  ],
+  "effects": [
+    {"type": "punch", "at": "w32"},
+    {"type": "punch", "at": "w66.end"},
+    {"type": "punch", "at": "w93"}
+  ]
+}
