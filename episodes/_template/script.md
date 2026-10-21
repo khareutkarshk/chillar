@@ -3,6 +3,8 @@ title: "<working title>"
 series: "Chillar in 60"   # Chillar in 60 | Chillar Report | Myth vs Math | ₹100 vs ₹1,00,000
 concept: "<the ONE concept this Reel teaches>"
 target_seconds: 60        # format: 30 | 60 | 90
+takeaway: "<the one sentence, ≤ 16 words, a teen says to their dad after watching>"
+dad_asks: "<dad's first sceptical question → L# that answers it>"
 paid_partnership: false
 ---
 

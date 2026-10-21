@@ -30,6 +30,16 @@ rules apply. The prompt gives you the episode folder (already created from `_tem
    `Typical:` / `ILLUSTRATIVE`; an invented scenario (an offer, a bill) has the source cell `hypothetical —
    <why it's realistic>`; pure arithmetic on other rows has `computed from F#, F#`. The script must then say
    it as an example ("maan lo", "ek typical slip", a first-person story) the first time — fact_lint checks.
+4b. **Add `## Expert take` — what a good CA would tell their own younger cousin** (2026-10-21: the EPF reel's
+   facts held "the employer pays 12% too" and the script never said it, so the viewer heard only "₹840 kam").
+   Six short lines, every claim citing F-ids from the table (add the row first if it's missing; no new numbers here):
+   - `myth:` what most people believe, in their words ("PF = paisa gaya").
+   - `so what:` the one non-obvious insight that changes how you see it — usually the other side of the trade-off
+     (who else pays in, what you get back, what it costs over a year, what you lose by doing nothing). [F#]
+   - `in ₹:` the insight for one realistic person, per month and per year (from a worked-example row). [F#]
+   - `do:` one legal, product-free action a 19-year-old can take this week (check the slip, ask HR X, switch off Y).
+   - `dad asks:` the first sceptical question a father would ask, and its sourced answer. [F#]
+   - `jargon:` each term the reel can't avoid → plain words a 16-year-old gets (use `brand/jargon.tsv`'s wording).
 5. Add `## Texture for the writers (not facts — don't put numbers from here on screen)`: 4–6 lines of how
    Gen Z India actually lives this topic.
 5b. Add `## Culture now` — what Gen Z India is laughing at **this month**, so the reel never feels dated.

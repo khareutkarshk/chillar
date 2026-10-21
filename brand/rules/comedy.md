@@ -20,6 +20,9 @@ bigger. At most one joke from outside the game.
   hostel rule, a family ritual, a scam, a sport. The best game makes the concept clearer *and* funnier.
 - Test: can you describe the reel's humour in one sentence? "The minimum due is a gym membership you pay
   to not go to the gym." If you can't, you have jokes, not a game.
+- **The game must be true when retold.** The metaphor carries the mechanism: the teen who repeats only the
+  metaphor to their dad has still said something correct. A funny metaphor that teaches the wrong model is cut.
+  Pick the game *from* facts.md `## Expert take` (`so what`): the best game makes that insight the punchline.
 - Heighten the game logically, not randomly: step 1 is true, step 2 is true and worse, step 3 is true and
   absurd — and the math confirms it.
 
@@ -49,6 +52,11 @@ poora bharo.` Every beat is the same game, getting bigger.
 9. **Callback.** Plant one image or phrase in the hook, pay it off in the payoff with a twist. Payoffs
    that call back the hook get rewatched.
 10. **Rule of three with a swerve.** Two normal items, the third absurd *and* true. Use it once per reel, not more.
+11. **Tag the laugh you already have.** Comedians milk a landed punch with one or two short tags before moving on;
+    a new setup for every laugh is how AI writes. `Bua ka naam add karke utha.` → tag: `Bua ko pata bhi nahi tha.`
+12. **The family argument.** Money lands hardest as a generational clash said in both voices: what papa believes
+    (in his words), what the slip says, and the line the kid can now say back. It's also the dinner-table test
+    rehearsed on screen — but a *specific* moment, never "papa ko samjhao" (the joke log tracks the papa prop).
 
 ## 4. Anti-AI writing (the script-reviewer fails these)
 AI-written comedy has tells. Kill every one:
@@ -69,12 +77,16 @@ AI-written comedy has tells. Kill every one:
   tags. Heard back to back it's a template. Two of a shape is the ceiling.
 - **Stock internet jokes** the feed already has: nobody reads T&C, "X was more excited than me", Monday blues,
   "salary aayi aur gayi", "mere paas bhi nahi hai". Observe a moment instead.
+- **Colon pivots mid-line** ("Paisa mere PF mein: locker nahi, ghar ka kamra") and stacked images — four metaphors
+  in a 30 s reel is a slideshow, not a game.
 - **Label-plus-colon openers** ("Hisaab: …", "Rule: …", "Group chat: …") — caption-speak when said aloud;
   fact_lint flags them. Say it: "Hisaab simple hai —", "Group chat mein…".
 - **Leaning on the props every reel uses** — `brand/joke-log.md` lists what's overused lately.
 
 ## 5. Writing process (do all of it — the reviewer can tell)
-1. **Spine:** the explanation in 5 plain sentences, no jokes. One concept.
+1. **Spine:** the explanation in 5 plain sentences, no jokes, built from facts.md `## Expert take`: myth → mechanism
+   → so what → in ₹ → do. Then the `takeaway` and `dad_asks`. If the spine bores a 16-year-old, no joke will save it;
+   if it confuses one, no joke may be added to it.
 2. **Find the game:** write **8 candidate premises** (§2) into `notes/premise.md`, one line each, plus one
    line on how each heightens. Pick the one that makes the concept clearest *and* has three steps of
    escalation. Note why in one line. (Round 1 only; on a rewrite, keep the game unless the review kills it.)

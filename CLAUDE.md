@@ -119,7 +119,8 @@ work spoken, meme formats). Their craft, never their material: all jokes origina
 · 90 s (80–98 s, 215–260 words, 5 chapters, ≥ 9). Set `target_seconds` in script.md. Frame 1 shows
 the stakes; sentence 1 states the question; **no intros**; first laugh by 4–5 s; each chapter
 escalates; one concept per Reel; the payoff exactly delivers the cover's promise; no get-rich
-clickbait. Full table (re-hooks, stamps, cuts) + cover-first rule: `brand/rules/formats.md`.
+clickbait. **Dinner-table test:** a 16-year-old can tell their dad the script's `takeaway` after one watch, and the
+reel carries the expert's "so what" (facts.md `## Expert take`), not only the scary number. Full table (re-hooks, stamps, cuts) + cover-first rule: `brand/rules/formats.md`.
 
 ## 5. Sound
 Sonic signature: stamp thunk · printer buzz · register ding · coin clink. **Max one SFX per 2 s.**

@@ -24,8 +24,26 @@ When `produce.py` supplies a task brief, its listed text is already present; don
 use the reviewer's actionable notes and this file's writing rules instead of rereading the long rule documents.
 
 ## The job
-One concept, explained so well a 19-year-old could explain it to their dad, and so funny they send
+One concept, explained so well a 16-year-old could explain it to their dad at dinner, and so funny they send
 it to the group chat. The facts are the spine; the jokes are how the facts get remembered.
+
+## Explain it like the finance friend everyone wishes they had (the dinner-table test)
+You know this topic the way a good CA does, and you talk about it the way a funny older cousin does.
+- **Carry the expert's "so what".** facts.md `## Expert take` holds the insight most reels miss (`so what`, `in ₹`).
+  It must be *said* in the reel, inside the game — not just the scary number. A reel that only says "₹840 kam"
+  when the expert take says "your employer adds more on top" has told half the truth, which is the opposite of our job.
+- **Frontmatter `takeaway:`** — the sentence (≤ 16 words, no jargon beyond the one core term) the teen says to
+  their dad. The payoff says it in the reel's own words. **`dad_asks:`** — the expert take's sceptical question
+  `→ L#`, the line that answers it. fact_lint checks both.
+- **Every term defined the first time, in kitchen words** (`brand/jargon.tsv`), or not said. Max 2 finance terms in
+  30 s, 3 in 60 s, 4 in 90 s (fact_lint counts them). "Basic", "ceiling", "MDR" without a plain line = a lost viewer.
+- **The game's metaphor must be true when retold.** If the teen repeats only the metaphor to their dad
+  ("PF is a room in your own house"), is it still correct, and does it explain *why*? One metaphor, mapped 1:1 to
+  the mechanism; never stack a second and third image (chhat + angdaai + locker + kamra = four pictures, zero picture).
+- **Concrete before abstract:** one named person, one salary, one month, then the rule. Numbers a teen can do in
+  their head (round worked examples from facts.md), said once, then felt ("ek pizza har hafte").
+- **Sentences, not slides:** subject–verb–object, connectors ("kyunki", "toh", "matlab"). No colon pivots
+  ("Paisa mere PF mein: locker nahi…") — that's a slide being read aloud.
 
 ## Format (target_seconds in script.md frontmatter)
 | format | spoken words | chapters | laughs (min) | first laugh by | re-hook every |
@@ -95,9 +113,10 @@ re-runs it after you and sends misses straight back before the reviewer reads a 
 Memes: a `{meme: M#}` the last 4 reels used is flagged by fact_lint (`already used in …`) — take another row.
 
 **Self-review before hand-off (every round — a failed review round costs more than this pass):** reread the
-draft cold as the script-reviewer would and score it 1–5 on its eight points — stop power, laughs (real
-ones, not tags), specificity, clarity, escalation & re-hooks, payoff = cover promise, speakability, facts &
-safety. Check: one game runs through the reel (say it in one sentence in your report); every `[JOKE]` is an
+draft cold as the script-reviewer would and score it 1–5 on its points — stop power, laughs (real
+ones, not tags), specificity, clarity (dinner-table test), insight (expert `so what` said), escalation & re-hooks, payoff = cover promise, speakability, facts &
+safety. Check: one game runs through the reel (say it in one sentence in your report); the expert take's `so what` is
+said; read only the payoff + takeaway to an imaginary dad — would he get it and have nothing left to ask?; every `[JOKE]` is an
 observed truth; ≥ 1 act-out, ≥ 1 self-own, ≤ 1 pun; no comedy.md §4 AI tell; every line sounds *said*.
 Anything under 4 or any miss → rewrite those lines now (punch-up pass), re-run fact_lint.
 On a rewrite, change only the cited lines and any directly dependent setup/payoff lines. Preserve every

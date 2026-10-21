@@ -44,8 +44,13 @@ scored 4 on all eight dimensions, which tells the creator nothing. Score each di
    fragments, generic desi prop as the whole joke, announced jokes, symmetric zinger rhythm) caps laughs at 3.
    Read it aloud: a line that sounds written, not said, is a speak note.
 3. **Specificity & desi texture:** concrete Indian details vs vague "expenses/people/things".
-4. **Clarity:** one concept; a 19-year-old can repeat the explanation afterwards. Jargon is defined
-   by a funnier analogy the first time it appears.
+4. **Clarity — the dinner-table test:** one concept; a 16-year-old can tell their dad the frontmatter `takeaway`
+   after one watch, and the `dad_asks` line really answers dad's question. Every finance term is defined in plain
+   words the first time (or cut). Retell only the game's metaphor: if it's false or explains nothing, clarity ≤ 2.
+   Stacked images, colon pivots and lines a teen would have to pause to decode are clarity notes, not taste.
+4b. **Insight (score `insight`):** is facts.md `## Expert take`'s `so what` said, in ₹, inside the game? Would a CA
+   nod — nothing true left out that flips the conclusion (the half-truth that scares without the other side)?
+   Missing `so what` = insight ≤ 2 and a blocker; one-sided framing that a finance person would correct = blocker.
 5. **Escalation & re-hooks:** each chapter bigger than the last; a twist/stamp/reaction at least every
    ~10 s (30 s), ~16 s (60 s), ~18 s (90 s) — use fact_lint's spoken-length estimate (≈ 3.2 words/s, Sunny).
 6. **Payoff:** delivers exactly the cover promise; ends on a line worth rewatching; callback if planted.
@@ -60,7 +65,7 @@ scored 4 on all eight dimensions, which tells the creator nothing. Score each di
 Word count must sit in the format range (30: 70–95, 60: 140–180, 90: 215–260).
 
 ## Verdict
-**REVISE** for a fact/safety failure, laughs below the format minimum, or a score below 4 that maps to a specific
+**REVISE** for a fact/safety failure, laughs below the format minimum, a missing expert `so what`, or a score below 4 that maps to a specific
 line-level blocker. **PASS** when those gates pass and there is no blocker. Don't use a borderline score alone to
 trigger another round: identify the audience-visible defect. If an issue is only subjective taste with no clear
 fix, PASS and record it as `polish`.
@@ -70,7 +75,7 @@ Write `episodes/<ep>/notes/script-review-<round>.md`:
 ```
 verdict: PASS | REVISE
 round: <n>
-scores: stop <n> · laughs <n> (count <k>/<min>) · specific <n> · clarity <n> · escalation <n> · payoff <n> · speak <n> · fresh <n> · facts PASS|FAIL
+scores: stop <n> · laughs <n> (count <k>/<min>) · specific <n> · clarity <n> · insight <n> · escalation <n> · payoff <n> · speak <n> · fresh <n> · facts PASS|FAIL
 words: <n> (~<s> s, target <format>)
 evidence: best <dimension> L<id> · weakest <dimension> L<id>   (the line that earns the top score / costs the lowest)
 picks: L<id>=<n>, …   (one per line that has {alt}; 0 keeps the line; omit the field if there are none)
