@@ -143,5 +143,25 @@
   "file": "pib-2223095-suspect-registry.html",
   "fetched": "2026-10-21",
   "bytes": 92992
+ },
+ "https://gstcouncil.gov.in/sites/default/files/2024-02/sectoral-fq-gems-jewellery.pdf": {
+  "file": "gst-gems-jewellery-faq.pdf.pdf",
+  "fetched": "2026-10-21",
+  "bytes": 1459860
+ },
+ "https://services.bis.gov.in/php/BIS_2.0/BISBlog/?p=560": {
+  "file": "bis-hallmark-blog.html.html",
+  "fetched": "2026-10-21",
+  "bytes": 57175
+ },
+ "https://www.sebi.gov.in/media-and-notifications/press-releases/nov-2025/caution-to-public-regarding-dealing-in-digital-gold-_97676.html": {
+  "file": "sebi-digital-gold.html.html",
+  "fetched": "2026-10-21",
+  "bytes": 8167
+ },
+ "https://www.sebi.gov.in/sebi_data/attachdocs/nov-2025/1762580259409.pdf": {
+  "file": "sebi-digital-gold-pr70.pdf.pdf",
+  "fetched": "2026-10-21",
+  "bytes": 111952
  }
 }

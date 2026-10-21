@@ -1,0 +1,12 @@
+# license snapshot 2026-10-21T10:22:11+00:00
+# https://freesound.org/people/EverydayEldritch/sounds/615047/
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+Freesound API response at download time:
+{
+  "id": 615047,
+  "url": "https://freesound.org/people/EverydayEldritch/sounds/615047/",
+  "name": "Deep Inhale & Exhale 1.wav",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "username": "EverydayEldritch"
+}

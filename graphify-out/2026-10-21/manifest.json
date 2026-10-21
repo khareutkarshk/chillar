@@ -540,8 +540,8 @@
     "semantic_hash": ""
   },
   "brand/sources/index.json": {
-    "mtime": 1792540186.4740882,
-    "ast_hash": "ee26e2f14228f7cc80bb1be76ef3fb58",
+    "mtime": 1792579313.8106525,
+    "ast_hash": "5c8f6184f216b840f1512c4e24342764",
     "semantic_hash": ""
   },
   "pipeline/component_catalog.py": {
@@ -570,8 +570,8 @@
     "semantic_hash": ""
   },
   "brand/facts-library.md": {
-    "mtime": 1792540737.4460688,
-    "ast_hash": "4697beda8c28980b9496eb13eacff5e2",
+    "mtime": 1792579888.2333817,
+    "ast_hash": "a6d94602397ab3cf85a73ddcd61834b0",
     "semantic_hash": ""
   },
   "brand/rules/formats.md": {
@@ -790,8 +790,8 @@
     "semantic_hash": ""
   },
   "components/_backlog.md": {
-    "mtime": 1792572780.9831018,
-    "ast_hash": "c01e8423e62cce94afaa5de0ddecaa12",
+    "mtime": 1792583767.7652512,
+    "ast_hash": "7fd9dad8740e33abaa9477d53c8ed4e3",
     "semantic_hash": ""
   },
   "pipeline/agent_context.py": {
@@ -900,8 +900,8 @@
     "semantic_hash": ""
   },
   "brand/joke-log.md": {
-    "mtime": 1792574531.6736457,
-    "ast_hash": "3bb521e1c7f045f662ce77b0c5965172",
+    "mtime": 1792582895.0453362,
+    "ast_hash": "197ef7e291ac50e6b158b8de0bb09575",
     "semantic_hash": ""
   },
   "pipeline/budget.py": {
@@ -910,8 +910,8 @@
     "semantic_hash": ""
   },
   ".claude/commands/batch-reels.md": {
-    "mtime": 1792536972.7177413,
-    "ast_hash": "1f6cf9b900f5d4c6585417d94039db10",
+    "mtime": 1792576200.9628663,
+    "ast_hash": "ef2df27ecc4aa5df9d420207ab5d76a3",
     "semantic_hash": ""
   },
   "episodes/2026-10-28-free-trial-autopay/scenes/scenes.json": {
@@ -1002,6 +1002,136 @@
   "episodes/2026-10-31-epf-wage-ceiling/scenes/scenes.json": {
     "mtime": 1792541786.287233,
     "ast_hash": "0a38995b21023c1d13059131cf861d9b",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-01-gold-kabhi-girta/scenes/scenes.json": {
+    "mtime": 1792578737.7382863,
+    "ast_hash": "93816ed912d553dd6e7f4d3c7a35eb1f",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-01-gold-kabhi-girta/cover.md": {
+    "mtime": 1792576929.1664655,
+    "ast_hash": "23b3c20774a9c6e7df47d0a987248ded",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-01-gold-kabhi-girta/facts.md": {
+    "mtime": 1792576745.8065605,
+    "ast_hash": "879a7bc66046f5ca8209ffe56d45758d",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-01-gold-kabhi-girta/script.md": {
+    "mtime": 1792577470.0408614,
+    "ast_hash": "40d85acbf8aa1d5dcdb7a1e7c5623c2c",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-03-gold-bill-decoded/cover.md": {
+    "mtime": 1792578065.1350262,
+    "ast_hash": "5275b266ef6030aa0e2b3e65594af0be",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-03-gold-bill-decoded/facts.md": {
+    "mtime": 1792577930.1288111,
+    "ast_hash": "6c4754e40907a21b39d0cdb882c6766b",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-03-gold-bill-decoded/script.md": {
+    "mtime": 1792578619.6496634,
+    "ast_hash": "c740d52b10c2556ea97a3062ce11cdf8",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-04-digital-gold-sebi/cover.md": {
+    "mtime": 1792579472.5926344,
+    "ast_hash": "54723011ba79a441bc031adf197cd5b3",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-04-digital-gold-sebi/facts.md": {
+    "mtime": 1792579373.3147044,
+    "ast_hash": "04efa8baf41e29247013fd95e2d5ac2e",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-04-digital-gold-sebi/script.md": {
+    "mtime": 1792579769.7983942,
+    "ast_hash": "19dfe520357891217af3ae9a5a29fb4f",
+    "semantic_hash": ""
+  },
+  "notes/batches/2026-11-01_2026-11-07.md": {
+    "mtime": 1792586098.9196048,
+    "ast_hash": "d0cb9bd10a7b01ccf104dab31e158e2c",
+    "semantic_hash": ""
+  },
+  "brand/sfx/breath.wav": {
+    "mtime": 1792578133.432627,
+    "ast_hash": "2c4f3bf8d49728b06c757194106a042b",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-03-gold-bill-decoded/scenes/scenes.json": {
+    "mtime": 1792580479.325629,
+    "ast_hash": "a8992a39415e846824a16fe40c54bf6f",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-04-digital-gold-sebi/scenes/scenes.json": {
+    "mtime": 1792580730.3798964,
+    "ast_hash": "f413fa4a954825cbd866bbc4ee4e3ce5",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-05-card-swipes-bill/cover.md": {
+    "mtime": 1792581139.539385,
+    "ast_hash": "d6feb4fba91c6c107daf4332ff9eb4c5",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-05-card-swipes-bill/facts.md": {
+    "mtime": 1792580914.1617987,
+    "ast_hash": "9b3695227f2035a4449175bf4f26a73f",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-05-card-swipes-bill/script.md": {
+    "mtime": 1792581453.040751,
+    "ast_hash": "f78002770fc966f8169748cfbde31a69",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-06-dhanteras-emergency-fund/cover.md": {
+    "mtime": 1792581375.5212843,
+    "ast_hash": "5affb8ba3b52c77d77d76a76b4ae8eb2",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-06-dhanteras-emergency-fund/facts.md": {
+    "mtime": 1792580979.2363997,
+    "ast_hash": "2ecd5ff4a7a859291b7739fa1af65efe",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-06-dhanteras-emergency-fund/script.md": {
+    "mtime": 1792581581.8683395,
+    "ast_hash": "5bd790a6a50586233d34954a7c8de8eb",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-05-card-swipes-bill/scenes/scenes.json": {
+    "mtime": 1792582684.163228,
+    "ast_hash": "990078600a8abc4e605544f46723dbeb",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-06-dhanteras-emergency-fund/scenes/scenes.json": {
+    "mtime": 1792582553.186982,
+    "ast_hash": "6c0136b577c991f4b181c6f1de67c51e",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-07-guests-kharcha/cover.md": {
+    "mtime": 1792582986.325839,
+    "ast_hash": "56e5a6042682059619bdac5f51607aae",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-07-guests-kharcha/facts.md": {
+    "mtime": 1792582888.955662,
+    "ast_hash": "8c3ad28ccf5ea8d90356a388e749d17c",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-07-guests-kharcha/script.md": {
+    "mtime": 1792583174.302431,
+    "ast_hash": "b07ccf56539dfd483a81147723b7d64d",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-07-guests-kharcha/scenes/scenes.json": {
+    "mtime": 1792585861.8445225,
+    "ast_hash": "5b50f48cea072cf9eac2d656f748fb25",
     "semantic_hash": ""
   }
 }
