@@ -1,0 +1,1 @@
+- 2026-10-21 16:53 stop: align killed (-15) → --from align → machine hiccup

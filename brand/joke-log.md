@@ -2,7 +2,19 @@
 
 Use it on round 1. **Games taken:** don't build a new reel on one of these. **Landed:** reuse the *shape* (act-out, self-own, callback), never the line. **Fell flat:** don't write that kind of joke again. **Audience drops** are real Instagram retention — the strongest signal here.
 
-**Cast lately** (characters are welcome — use whoever the story needs): mummy (2/6), uncle (1/6), papa (1/6), dost (1/6), didi (1/6), chacha (1/6), HR (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
+**Cast lately** (characters are welcome — use whoever the story needs): mummy (4/6), uncle (2/6), papa (2/6), landlord (1/6), dost (1/6), didi (1/6), chacha (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
+
+## 2026-11-06-dhanteras-emergency-fund — Dhanteras ka asli dhan: layoff fund
+- game taken: the shubh Dhanteras dabba can't pay the rent after a "Quick sync". L2, L4, L8 and L9 all play it.
+- landed: Landlord se bolo, 'baaki kiraya agle Dhanteras pe.'
+- landed: Mummy kehti, 'shubh hai.' Landlord kehta, 'UPI karo.'
+- fell flat: Mummy kehti… Landlord kehta… Papa bolte…
+- fell flat: Mera fund abhi dabbe jitna hai
+
+## 2026-11-05-card-swipes-bill — ₹100 ka tap kab mehnga?
+- game taken: the card tap is kirane wale uncle ka khata in disguise (L3 → L6 → L9 → L10–11 → L13). Laughs I counted: L1, L6, L8, L9, L12, L13, L17.
+- landed: Uncle ne chashma utaar ke bola, 'Beta, ₹10,000.'
+- landed: Due date nikli, byaaj uss chai wale din se lag sakta hai.
 
 ## 2026-11-04-digital-gold-sebi — Digital gold ka umpire kaun?
 - game taken: digital gold is a gully-cricket match. SEBI, the umpire, isn't there, and the ball belongs to the seller. It's new (the joke log has no cricket…
@@ -22,16 +34,3 @@ Use it on round 1. **Games taken:** don't build a new reel on one of these. **La
 - landed: sona saans le raha tha
 - fell flat: Phool wali good morning image ke saath
 - fell flat: BP upar-neeche
-
-## 2026-10-31-epf-wage-ceiling — October ki salary kam kyun aayi?
-- game taken: the reel translates HR's "as per policy" into what actually happened (L1 plants it, L2 translates it, L9 pays it off). Angdaai and refresh are the…
-- landed: PF ne saalon baad angdaai li. Meri salary mein.
-- landed: Kal raat se app refresh kar raha hoon. Baaki aate hi honge.
-- fell flat: Paisa mere PF mein hai, locker mein nahi, ghar ke kamre mein
-
-## 2026-10-30-account-rent-mule — Account rent pe do, ₹5,000 kamao?
-- game taken: renting your account is a college group project: they do the work, your name goes on the cover. Here, though, whoever reads the cover is looking…
-- landed: Badhai ho, group project mil gaya.
-- landed: maal kidhar hai?
-- fell flat: Par yahan bank ka AI check karta hai
-- fell flat: Account, card, SIM, OTP — kisi ko mat do

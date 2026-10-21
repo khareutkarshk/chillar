@@ -1,0 +1,38 @@
+{
+  "theme": "pastel",
+  "scenes": [
+    {"id": "s01-hook", "component": "hook-card", "at": 0, "fact": "F11", "params": {"question": "Na OTP, na PIN, na *guilt*", "stakes": [{"label": "Card tap: Chai", "amount": "₹100"}, {"label": "OTP", "amount": "—"}, {"label": "PIN", "amount": "—"}], "circle": true, "mascot": "side-eye", "wide": true, "size": 112, "dy": 50}},
+    {"id": "s02-question", "component": "odometer-number", "at": "w10-0.12", "fact": "F11", "params": {"value": 100, "prefix": "₹", "sub": "Byaaj kab se?", "rollStart": 0.0, "rollDuration": 0.5}},
+    {"id": "s03-khata", "component": "split-compare", "at": "w21", "fact": "F2", "params": {"left": {"title": "Lagta hai", "text": "UPI jaisa"}, "right": {"title": "Hai", "text": "Uncle ka khata"}, "strikeAt": 0.9, "revealAt": 1.3, "dy": 170}},
+    {"id": "s04-envelope", "component": "envelope", "at": "w33", "fact": "F2", "params": {"lines": ["Bill to", "Naam: mera", "Paisa: bank ka"], "pincode": "", "postmark": "", "y": 420}},
+    {"id": "s04-stamp", "component": "stamp", "at": "w38-0.25", "until": "w39", "params": {"text": "UDHAAR", "x": 480, "y": 1030, "rotate": -7, "size": 130}},
+    {"id": "s05-due", "component": "calendar-flip", "at": "w39", "fact": "F2", "params": {"pages": ["TAP DAY", "BILL DAY", "DUE DATE"], "details": ["Poora bill chuka do"], "width": 700, "height": -1}},
+    {"id": "s05-stamp", "component": "stamp", "at": "w50", "until": "w52", "params": {"text": "BYAAJ ₹0", "x": 560, "y": 1010, "rotate": -6, "size": 120}},
+    {"id": "s06-zero", "component": "glyph-character", "at": "w52", "params": {"glyph": "0", "costume": "crown", "eyes": "side-eye", "bubble": "Byaaj zero!", "bubbleSide": "right", "size": 400, "x": 330, "y": 720}, "fact": "F2"},
+    {"id": "s07-gunda", "component": "meme", "at": "w58", "params": {"meme": "Hera pheri Kya Gunda Banegare Tu", "kind": "image", "pick": 0, "labels": [{"text": "Diwali pe card nikaalta main", "x": 50, "y": 12}]}},
+    {"id": "s08-small", "component": "receipt-list", "at": "w65", "fact": "F11", "params": {"title": "CARD SWIPES", "meta": "Maan lo, Diwali week", "items": [{"label": "Chai", "amount": "₹100"}, {"label": "Auto", "amount": "₹100"}], "total": {"label": "ITNA TOH", "amount": "chillar", "tone": "ink"}, "step": 0.3, "width": 860, "totalAt": 2.3, "dy": 130}},
+    {"id": "s08-bulaya", "component": "mascot-reaction", "at": "w71", "until": "w75", "params": {"expr": "smug", "anim": "pop", "x": 830, "y": 1140, "size": 220, "bubble": "", "bubbleSide": "left"}},
+    {"id": "s09-receipt", "component": "receipt-list", "at": "w75", "cut": "whip", "fact": "F11", "params": {"title": "CARD SWIPES", "meta": "Diwali week", "items": [{"label": "Chai", "amount": "₹100"}, {"label": "Auto", "amount": "₹100"}, {"label": "Mithai", "amount": "₹800"}, {"label": "Diye", "amount": "₹400"}, {"label": "Kurta", "amount": "₹3,500"}, {"label": "Hamper", "amount": "₹1,800"}, {"label": "Dinner", "amount": "₹1,000"}, {"label": "2 AM order", "amount": "₹2,300"}], "total": {"label": "TOTAL", "amount": "₹ ?", "tone": "ink"}, "step": 0.2, "width": 860, "totalAt": 3.3, "dy": 0}},
+    {"id": "s10-beta", "component": "odometer-number", "at": "w87", "fact": "F11", "params": {"value": 10000, "prefix": "₹", "label": "\"Beta,\"", "rollStart": 0.3, "rollDuration": 0.9, "tone": "red"}},
+    {"id": "s10-boom", "component": "mascot-reaction", "at": "w94-0.15", "until": "w96", "params": {"expr": "shocked", "anim": "pop", "x": 780, "y": 1130, "size": 240, "sound": "vine boom", "soundPick": 0, "soundAt": 0.0}},
+    {"id": "s11-minimum", "component": "statement", "at": "w96", "fact": "F4", "params": {"title": "\"Minimum *due* de do\"", "body": "Late nahi ginenge. — Uncle", "paper": true, "size": 132}},
+    {"id": "s12-khata", "component": "checklist", "at": "w104", "fact": "F4", "params": {"title": "Minimum due ke baad", "items": [{"text": "Late nahi gina", "ok": true}, {"text": "Khata band", "ok": false}], "stagger": 0.45}},
+    {"id": "s13-mummy", "component": "chat-screen", "at": "w110", "params": {"name": "Mummy", "messages": [{"from": "them", "text": "Bill bhar diya?"}, {"from": "me", "text": "👍"}, {"from": "them", "text": "Shabaash beta"}], "stagger": 1.2, "highlight": 1, "width": 820}},
+    {"id": "s13-sideeye", "component": "mascot-reaction", "at": "w118", "until": "w122", "params": {"expr": "side-eye", "anim": "blink", "x": 800, "y": 1140, "size": 220}},
+    {"id": "s14-chai-din", "component": "calendar-flip", "at": "w122", "fact": "F3", "params": {"pages": ["DUE DATE", "DIWALI", "CHAI DIN"], "details": ["Byaaj yahin se, ho sakta hai"], "width": 700, "flip": 0.3, "height": -1}},
+    {"id": "s14-crying", "component": "mascot-reaction", "at": "w131", "until": "w134", "params": {"expr": "crying", "anim": "pop", "x": 790, "y": 1130, "size": 240}},
+    {"id": "s15-rbi", "component": "receipt-list", "at": "w134", "cut": "zoom", "fact": "F12", "params": {"title": "RBI KA EXAMPLE", "meta": "1 mahina, bill nahi bhara", "items": [{"label": "Bill", "amount": "₹10,000"}, {"label": "Byaaj 2%", "amount": "₹200"}, {"label": "Tax", "amount": "~₹50"}], "total": {"label": "EK MAHINE KA", "amount": "~₹250", "tone": "red"}, "step": 0.4, "width": 860, "totalAt": 4.7, "dy": 140, "stampTotal": true, "circleTotal": false}},
+    {"id": "s15-sideeye", "component": "mascot-reaction", "at": "w145-0.9", "until": "w148", "params": {"expr": "side-eye", "anim": "blink", "x": 830, "y": 1170, "size": 190}},
+    {"id": "s16-full", "component": "odometer-number", "at": "w148", "fact": "F2", "params": {"value": 100, "prefix": "₹", "label": "Poora bill, due date tak", "sub": "Tabhi ₹100 = ₹100", "rollStart": 1.2, "rollDuration": 0.5}},
+    {"id": "s17-rate", "component": "glyph-character", "at": "w157", "fact": "F8", "params": {"glyph": "%", "costume": "crown", "eyes": "side-eye", "bubble": "Har bank ka apna. RBI fix nahi karta.", "bubbleSide": "right", "bubbleWidth": 560, "size": 380, "x": 320, "y": 740}},
+    {"id": "s18-guilt", "component": "meme-format", "at": "w166", "params": {"format": "two-panel", "panels": [{"label": "Tap pe", "text": "Guilt: zero", "expr": "smug"}, {"label": "Due date pe", "text": "Guilt: poora", "expr": "facepalm"}], "reveal": 1.3, "dy": 110}}
+  ],
+  "effects": [
+    {"type": "punch", "at": "w11"},
+    {"type": "punch", "at": "w80"},
+    {"type": "punch", "at": "w94"},
+    {"type": "punch", "at": "w120"},
+    {"type": "punch", "at": "w139"},
+    {"type": "punch", "at": "w144"}
+  ]
+}
