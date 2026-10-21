@@ -156,8 +156,8 @@ continue. A creator recording is used only if the creator says so for that episo
   cut/reframe the claim. If the topic's core claim can't be sourced, swap that date to a ★ buffer topic from
   `posting-schedule.md` (same format) and log it. §3 conflicts: take the safe option (cut the line/meme), don't ask.
 - **Commits (creator's call, 2026-10-21):** commit as the configured git user (the creator) only — never add a
-  `Co-Authored-By` or any Claude/AI attribution line to commit messages or PRs. Commit as work lands; never push
-  unless asked.
+  `Co-Authored-By` or any Claude/AI attribution line to commit messages or PRs. **Only `/batch-reels` commits**
+  (creator's call, 2026-10-21): interactive sessions leave their changes uncommitted. Never push unless asked.
   **Each round is a fresh agent that reads the notes files — never resume an agent.** Model tiers,
   hand-off and image-budget rules: `brand/rules/production.md`.
 - Pipeline: `.venv/bin/python pipeline/make_reel.py episodes/<ep> [--from STAGE]`
