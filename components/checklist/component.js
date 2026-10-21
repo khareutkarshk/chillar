@@ -26,6 +26,8 @@ CH.define("checklist", {
       const at = t + 0.3 + i * (+p.stagger);
       // the first row is on the chit when it lands; each later row opens more paper just before it is written
       if (grow && i > 0) tl.fromTo(row, { height: 0 }, { height: "auto", duration: 5 * CH.F, ease: "power3.out" }, at - 2 * CH.F);
+      // once open, let the pen marks spill past the row edge (no clipped crosses/ticks)
+      if (grow && i > 0) tl.set(row, { overflow: "visible" }, at + 3 * CH.F);
       tl.fromTo(row.querySelector(".cl-text"), { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 5 * CH.F, ease: "power3.out" }, at);
       CH.draw(tl, row.querySelector(".cl-mark"), at + 4 * CH.F, 0.22);
     });

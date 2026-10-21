@@ -1,6 +1,6 @@
 {
   "name": "checklist",
-  "description": "A paper chit list: each item gets a blue-ballpoint tick or a red-pen cross, written in sequence. Title sits on the field above the chit. Optional `grow` (default false): the chit lands holding only the first row and lengthens downward as each later row is written; the final size is reserved, so the title never shifts.",
+  "description": "A paper chit list: each item gets a blue-ballpoint tick or a red-pen cross, written in sequence. Title sits on the field above the chit. Optional `grow` (default false): the chit lands holding only the first row and lengthens downward as each later row is written; the final size is reserved, so the title never shifts. Rows unclip once open, so short shots never cut a row or its pen mark.",
   "layer": "scene",
   "params": { "title": "", "items": [{ "text": "Item", "ok": true }], "stagger": 0.35, "grow": false },
   "example": {

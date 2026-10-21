@@ -1,6 +1,6 @@
 {
   "name": "meme-format",
-  "description": "Recreated meme FORMATS with Chillar and original text — never real meme images. Formats: two-panel (nah/haan), expectation-reality, nobody-me. Each panel is a printed photo lying on the field, spanning the full content width (870 px), punchline text 60 px (48 px with 3 panels), the format word set big in the headline face. Panels drop in order.",
+  "description": "Recreated meme FORMATS with Chillar and original text — never real meme images. Formats: two-panel (nah/haan), expectation-reality, nobody-me. Each panel is a printed photo lying on the field, spanning the full content width (870 px), punchline text 60 px (48 px with 3 panels), the format word set big in the headline face. Panels drop in order. Optional `textSize` (px; 0 = default 60, or 48 with 3 panels) sets the panel text size.",
   "layer": "scene",
   "rehook": true,
   "params": {
@@ -17,7 +17,8 @@
         "expr": "smug"
       }
     ],
-    "reveal": 0.8
+    "reveal": 0.8,
+    "textSize": 0
   },
   "example": {
     "format": "expectation-reality",

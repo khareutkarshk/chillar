@@ -1,6 +1,6 @@
 # Usage — 2026-10-31-epf-wage-ceiling (agent runs, from notes/usage.jsonl)
 
-Updated: 2026-10-21 14:20 local time. Agent totals exclude the interactive producer session and external services such as TTS.
+Updated: 2026-10-21 14:21 local time. Agent totals exclude the interactive producer session and external services such as TTS.
 
 | stage | runs | turns | prompt chars | cached read tokens | cost |
 |---|---:|---:|---:|---:|---:|
@@ -10,8 +10,8 @@ Updated: 2026-10-21 14:20 local time. Agent totals exclude the interactive produ
 | voice | 1 | 7 | 60 | 62,296 | $0.06 |
 | edit | 6 | 58 | 91,220 | 1,023,135 | $1.22 |
 | package | 1 | 7 | 58 | 28,595 | $0.07 |
-| components | 1 | 34 | 331 | 443,816 | $0.23 |
-| **total** | 18 | 201 | 191,639 | 2,987,706 | **$3.68** |
+| components | 2 | 54 | 661 | 651,801 | $0.38 |
+| **total** | 19 | 221 | 191,969 | 3,195,691 | **$3.83** |
 
 Review rounds: script 3 · video 1.
 Local source retrieval: 7 searches · 16 excerpts · 3,521 chars returned from 403,423 chars of matched sources

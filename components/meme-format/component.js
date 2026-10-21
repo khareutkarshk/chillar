@@ -12,7 +12,7 @@ CH.define("meme-format", {
             <div class="mf-pic">${pn.expr ? CH.mascot(pn.expr, `${id}-p${i}`, 250) : ""}</div>
             <div class="mf-copy">
               <div class="mf-label t-head">${CH.esc(pn.label || defaults[i] || "")}</div>
-              <div class="mf-text t-body">${CH.rich(pn.text)}</div>
+              <div class="mf-text t-body"${p.textSize ? ` style="font-size:${+p.textSize}px"` : ""}>${CH.rich(pn.text)}</div>
             </div>
           </div>`).join("")}
       </div>`;

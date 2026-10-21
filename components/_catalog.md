@@ -28,7 +28,7 @@ A generic phone chat printed out and lying on the field (paper card, seeded tilt
 params: messages=[{"from": "them", "text": "Hi"}, …], name="", pinned="", highlight=-1, stagger=0.5, width=820, times=true, tilt=null, dy=0
 
 ### checklist
-A paper chit list: each item gets a blue-ballpoint tick or a red-pen cross, written in sequence. Title sits on the field above the chit. Optional `grow` (default false): the chit lands holding only the first row and lengthens downward as each later row is written; the final size is reserved, so the title never shifts.
+A paper chit list: each item gets a blue-ballpoint tick or a red-pen cross, written in sequence. Title sits on the field above the chit. Optional `grow` (default false): the chit lands holding only the first row and lengthens downward as each later row is written; the final size is reserved, so the title never shifts. Rows unclip once open, so short shots never cut a row or its pen mark.
 `layer scene · min 1.8s`
 params: title="", items=[{"text": "Item", "ok": true}], stagger=0.35, grow=false
 
@@ -73,9 +73,9 @@ A real global meme (imgflip template or GIF, fetched at build time by pipeline/m
 params: meme="This Is Fine", kind="image", pick=0, headline="", labels=[], sound="", soundPick=0, soundAt=0.0, wide=false, height=0, position="center", labelSize=52
 
 ### meme-format
-Recreated meme FORMATS with Chillar and original text — never real meme images. Formats: two-panel (nah/haan), expectation-reality, nobody-me. Each panel is a printed photo lying on the field, spanning the full content width (870 px), punchline text 60 px (48 px with 3 panels), the format word set big in the headline face. Panels drop in order.
+Recreated meme FORMATS with Chillar and original text — never real meme images. Formats: two-panel (nah/haan), expectation-reality, nobody-me. Each panel is a printed photo lying on the field, spanning the full content width (870 px), punchline text 60 px (48 px with 3 panels), the format word set big in the headline face. Panels drop in order. Optional `textSize` (px; 0 = default 60, or 48 with 3 panels) sets the panel text size.
 `layer scene · min 1.8s · re-hook`
-params: format="two-panel", panels=[{"label": "Nah", "text": "Cash mein chillar dhoondna", "expr": "facepalm"}, …], reveal=0.8
+params: format="two-panel", panels=[{"label": "Nah", "text": "Cash mein chillar dhoondna", "expr": "facepalm"}, …], reveal=0.8, textSize=0
 
 ### mithai-dabba
 Mummy's mithai dabba: a red box with a haldi trim, laddoos in paper cups (rows 6-5-6-5 for 22). Honest share: one laddoo = 1/count. Layouts — hero: big box (letter {title,line,amount,note} under it, Mummy's hand, sticker, static mascot); fully drawn at t=0, good as frame 1; closeAt = the lid standing open behind the box folds shut while Chillar leans in and pushes it. slip: big box on top, payslip below (slip {title, meta, at, rows}); a line with laddoo:true pulls the next laddoo, which arcs high and lands on that row as it prints. close: push-in on the slip — 1-2 big rows, the box corner peeking in top-left. locker: box top-left + a PF locker (locker {label, amount, sub, tag, laddooAt, doorAt, lockAt, openAt}): laddoo flies in, door swings shut, padlock with a paper tag drops; doorAt:null + lockAt:null = already shut and locked at t=0 (fully drawn, good as frame 1); openAt = padlock pops off and the door swings open; locker.inside = a printed paper slip on the shelf, seen once the door opens; box:false (locker layout) = no dabba, the locker alone centred and 1.3× bigger. Lines: {label, amount, sub, icon:'lock', tone: red|green|ink, circle, laddoo, at, amountAt}. removed = laddoos already gone (empty cups). Times are seconds from the scene start; null = already there. mascotX / mascotY (stage px; null = default spot) place the mascot; the offer-letter paper fits its text height. boxWidth (px, hero layout; 0 = default scale) sizes the box, e.g. 870 to span the content width; stickerSize (px, 0 = default 46) sets the sticker text size.

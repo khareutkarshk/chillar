@@ -10,4 +10,5 @@
 .c-checklist .cl-stack.grow > .cl-chit { grid-area: 1 / 1; align-self: start; gap: 0; transform-origin: 50% 0; }
 .c-checklist .cl-stack.grow .cl-ghost { visibility: hidden; }
 .c-checklist .cl-stack.grow .cl-row { overflow: hidden; }
+.c-checklist .cl-stack.grow .cl-row:first-child { overflow: visible; }
 .c-checklist .cl-stack.grow .cl-row + .cl-row > .cl-item { padding-top: 34px; }

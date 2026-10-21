@@ -395,6 +395,8 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
                     continue
                 if a["comp"] == b["comp"] == "captions" or moving:
                     continue
+                if a["clip"] == b["clip"] and a["comp"] == "odometer-number":
+                    continue        # a rolling digit strip shows its neighbours mid-roll; the landed value is checked apart
                 hit = False
                 for la in glyph_lines(a):
                     for lb in glyph_lines(b):
@@ -499,7 +501,8 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
         for p in c["painted"]:
             pb = p["box"]
             ph = pb[3] - pb[1]
-            if p["op"] < 0.5 or p["kind"] == "svg" or "marker" in p["cls"] or ph < EMPTY_PAPER_MIN_H:
+            if p["op"] < 0.5 or p["kind"] == "svg" or "marker" in p["cls"] or ph < EMPTY_PAPER_MIN_H \
+                    or c["comp"] == "meme":      # a meme card is filled by its photo, not by text
                 continue
             inner = [b for b in txt if centre_in(b, pb)]
             if not inner:
@@ -571,8 +574,10 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
         sc = scenes[cid]
         if sc["duration"] < LATE_MIN_SHOT:
             continue
-        final = max(n for _, n in seq_)
         t_set = sc["start"] + min(sc["duration"] * 0.5, 1.2) if cid != "outro" else sc["start"] + 0.6
+        # judged against what the shot shows from the settle point on: a calendar flip stacks all its pages at the
+        # cut, then shows one, so the stack's text isn't words still to come
+        final = max((n for t, n in seq_ if t >= t_set - 0.05), default=0)
         settled_ = [n for t, n in seq_ if abs(t - t_set) < 0.05]
         if final < LATE_TEXT_MIN or not settled_:
             continue
