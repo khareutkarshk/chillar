@@ -57,7 +57,7 @@ HINGLISH = re.compile(r"\b(hai|hain|kya|nahi|bhai|bhaiya|mere|mujhe|kar|raha|tha
 # template's id gives its upload month. An old film still uploaded last month still reads "new": that's why
 # freshness = proven current (trending today / the researcher's Culture now), and age is only a second check.
 ANCHORS = [(112126428, 2017 + 7 / 12), (222403160, 2020 + 1 / 12), (309868304, 2021 + 5 / 12), (371619279, 2022 + 2 / 12)]
-CLASSICS_PER_REEL = 1          # a still-everywhere classic (imgflip top-30-days) — at most one per reel
+CLASSICS_PER_REEL = 2          # still-everywhere (evergreen) classics — at most two per reel (creator, 2026-10-21)
 MAX_TEMPLATE_MONTHS = 36       # older uploads need the researcher's proof that they're everywhere this week
 FRESH_PEAK_MONTHS = 1          # a Culture now row that peaked this month or last is "now"; older is an evergreen classic
 PEAKED = re.compile(r"·\s*peaked\s+(\d{4})-(\d{1,2})\b", re.I)

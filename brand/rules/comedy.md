@@ -103,7 +103,7 @@ AI-written comedy has tells. Kill every one:
 **Freshness.** A reference Gen Z stopped using makes the whole reel feel old, however good the math is.
 Every meme, show, song, trend, slang word or viral moment must be one people are using **this month**:
 take it from facts.md `## Culture now` (the researcher's, with dates) or `memes.py trending`. At most
-**one** still-everywhere classic per reel (imgflip top-30-days, e.g. Drake) — and only if it's the best
+**two** still-everywhere (evergreen) classics per reel (imgflip top-30-days or an old Culture now row, e.g. Drake) — and only if it's the best
 tool for the beat. Dead on arrival, global: Justin Bieber "Baby", Gangnam Style, Harlem Shake, rage
 comics/trollface, "Y U No", Doge, Ice Bucket, "Why so serious", minions. Indian: Kolaveri, Binod,
 "Rasode mein kaun tha", "Pawri ho rahi hai", "Pappu", demonetisation jokes, "Bade bade deshon mein".

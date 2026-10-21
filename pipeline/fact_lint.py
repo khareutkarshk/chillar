@@ -183,7 +183,7 @@ def lint(ep_dir: str) -> dict:
                 if t and memes.norm_title(t) in recent:
                     warnings.append(f"{line.id} plans {mid} \"{t}\", already used in {recent[memes.norm_title(t)]} — "
                                     "pick another Culture now row")
-        # a Culture now row that peaked over a month ago is an evergreen classic: fine, but ≤ 1 per reel (CLAUDE.md §3)
+        # a Culture now row that peaked over a month ago is an evergreen classic: fine, but ≤ 2 per reel (CLAUDE.md §3)
         peaks, old = memes.culture_peaks(ep), {}
         for line in ep.lines:
             for mid in MEME_CUE.findall(" ".join(line.directions) + " " + line.raw):

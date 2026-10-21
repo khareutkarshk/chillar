@@ -128,7 +128,7 @@ runs over its share twice, fix the cause (a missing component, a vague note), no
 
 
 **Quality gates (2026-10-21, from the 6-reel analysis):** a Culture now row that peaked ≤ 1 month ago is "now"; older
-is an evergreen classic (creator's call: Bas karo bhai, Waiting Skeleton etc. are fine), still ≤ 1 per reel
-(CLAUDE.md §3); `fact_lint` sends a draft planning 2+ classics back to the writer before the review.
+is an evergreen classic (creator's call: Bas karo bhai, Waiting Skeleton etc. are fine), ≤ 2 per reel
+(CLAUDE.md §3); `fact_lint` sends a draft planning 3+ classics back to the writer before the review.
 The polish pass also fixes qa's `late-text` / `empty-paper` warnings (blank paper fired on 5 of 6 reels and was
 never routed). The script reviewer scores against anchors and writes an `evidence:` line (best / weakest line).

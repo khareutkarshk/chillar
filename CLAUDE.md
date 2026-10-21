@@ -101,7 +101,7 @@ work spoken, meme formats). Their craft, never their material: all jokes origina
   fetched per episode at build time by `pipeline/memes.py` (`meme` component), the Fireship way: cut to
   one on the word after a punchline. **Images: global or Indian. Video and sound: global only.**
   **Fresh only:** every meme and reference is from this month — facts.md `## Culture now` (researcher)
-  or `memes.py trending`; ≤ 1 old-but-everywhere classic per reel; validate blocks stale ones.
+  or `memes.py trending`; ≤ 2 old-but-everywhere (evergreen) classics per reel (creator's call, 2026-10-21); validate blocks stale ones.
   Meme beats are written into the script as jokes (`brand/rules/comedy.md` §7), not sprinkled on.
   No politician memes. Our own text on them; never a meme that mocks a private person.
   Budget: 30 s ≤ 3 · 60 s ≤ 5 · 90 s ≤ 7. Filmy-line nods stay a few-word parody.

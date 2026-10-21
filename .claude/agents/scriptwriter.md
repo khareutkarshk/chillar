@@ -50,7 +50,7 @@ it to the group chat. The facts are the spine; the jokes are how the facts get r
    alt. The reviewer picks one (or keeps yours) and the pipeline swaps it in — no extra round. Never on `## Keep`
    lines; never more than 4 lines with alts.
 7. **Fresh + planned memes (comedy.md §7).** Every reference and meme must be current — take them from facts.md
-   `## Culture now` (or `memes.py trending`); one still-everywhere classic at most; anything dated is a REVISE.
+   `## Culture now` (or `memes.py trending`); two still-everywhere (evergreen) classics at most; anything dated is a REVISE.
    Write the meme beats into the draft as a comedian would (reaction tag / meme-as-punchline / act-out /
    callback) and mark each `{meme: M2}` after the line it serves. Desi template for desi moments, global for
    internet-universal ones; video/sound memes global only; no politicians, never lyrics. 2–4 meme beats in
