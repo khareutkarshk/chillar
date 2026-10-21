@@ -1,16 +1,16 @@
 # Graph Report - chillar  (2026-10-21)
 
 ## Corpus Check
-- 198 files · ~123,744 words
+- 198 files · ~124,352 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 872 nodes · 1405 edges · 110 communities (83 shown, 27 thin omitted)
-- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 68 edges (avg confidence: 0.78)
+- 875 nodes · 1409 edges · 111 communities (83 shown, 28 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 67 edges (avg confidence: 0.77)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `3f9ad37e`
+- Built from commit: `8fb40312`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -20,6 +20,7 @@
 - memes.py
 - episode.py
 - fetch_assets.py
+- validate_scenes.py
 - package.json
 - contact_sheet.py
 - 2026-10-chai-vs-phone/script.md
@@ -72,29 +73,29 @@
 - Facts — <episode>
 - 2026-10-27-diwali-bonus-tax/cover.md
 - 2026-10-26-report-mdr-payer/script.md
-- joke_log.py
+- build_brief
 - 2026-10-29-diwali-gifting-maths/script.md
 - Facts — <episode>
 - 2026-10-26-report-mdr-payer/cover.md
 - batch-reels.md
+- joke_log.py
 - Facts — <episode>
 - 2026-10-29-diwali-gifting-maths/cover.md
 - CLAUDE.md brand bible
+- Path
 - Facts — <episode>
 - 2026-10-28-free-trial-autopay/script.md
 - 2026-10-28-free-trial-autopay/cover.md
 - Batch 2026-10-28 → 2026-10-31 (started 2026-10-21, pct-now 55, stop-at 70)
-- build_brief
 - Facts — 2026-10-30-account-rent-mule
 - 2026-10-30-account-rent-mule/script.md
 - 2026-10-30-account-rent-mule/cover.md
-- validate_scenes.py
 - Facts — <episode>
 - 2026-10-31-epf-wage-ceiling/script.md
 - 2026-10-31-epf-wage-ceiling/cover.md
 
 ## God Nodes (most connected - your core abstractions)
-1. `Candidate` - 40 edges
+1. `Candidate` - 39 edges
 2. `Component catalog (generated — `pipeline/component_catalog.py`, don't edit)` - 26 edges
 3. `Line` - 25 edges
 4. `CLAUDE.md brand bible` - 23 edges
@@ -125,7 +126,7 @@
 - **Edit suite loop (director → editor → render → video-reviewer)** — _claude_agents_director, _claude_agents_editor, _claude_agents_video_reviewer, _claude_commands_render, _claude_agents_director_scenes_json, pipeline_make_reel [EXTRACTED 1.00]
 - **12 LPA CTC → ₹86,468 in-hand computation** — episodes_2026_10_12lpa_in_hand_facts_f9, episodes_2026_10_12lpa_in_hand_facts_f1, episodes_2026_10_12lpa_in_hand_facts_f2, episodes_2026_10_12lpa_in_hand_facts_f4, episodes_2026_10_12lpa_in_hand_facts_f6, episodes_2026_10_12lpa_in_hand_facts_f7, episodes_2026_10_12lpa_in_hand_facts_f8 [EXTRACTED 1.00]
 
-## Communities (110 total, 27 thin omitted)
+## Communities (111 total, 28 thin omitted)
 
 ### Community 0 - "Candidate"
 Cohesion: 0.06
@@ -137,7 +138,7 @@ Nodes (4): Escalation {field: note50}, Hook, Payoff {field: note500}, Setup {fie
 
 ### Community 2 - "memes.py"
 Cohesion: 0.13
-Nodes (35): allowed(), _born(), culture_now(), culture_rows(), _download(), ensure(), _ff(), freshness() (+27 more)
+Nodes (37): Path, allowed(), _born(), culture_now(), culture_peaks(), culture_rows(), _download(), ensure() (+29 more)
 
 ### Community 3 - "episode.py"
 Cohesion: 0.06
@@ -146,6 +147,10 @@ Nodes (37): align(), _model(), Path, The same timings as words.json in ~⅓ of t
 ### Community 4 - "fetch_assets.py"
 Cohesion: 0.19
 Nodes (23): /fetch-assets command, Asset licensing allow-list (CC0/MIT etc.), build_audition(), _diverse(), duration_of(), fetch(), _first_hit(), foley() (+15 more)
+
+### Community 5 - "validate_scenes.py"
+Cohesion: 0.13
+Nodes (16): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+8 more)
 
 ### Community 6 - "package.json"
 Cohesion: 0.14
@@ -267,9 +272,9 @@ Nodes (3): Culture now, Facts — <episode>, Texture for the writers (not facts 
 Cohesion: 0.40
 Nodes (4): Escalation, Hook, Payoff, Setup
 
-### Community 90 - "joke_log.py"
-Cohesion: 0.57
-Nodes (6): build(), episode_entry(), main(), Path, quote(), reviews()
+### Community 90 - "build_brief"
+Cohesion: 0.30
+Nodes (10): build_brief(), edit_inputs(), main(), _note_for_role(), Path, Canonical, small file sets for scene planning, revisions and visual review., Keep only the hand-off material an agent owns; preserve full prior notes for…, Return a size-bounded brief with only the files selected by the orchestrator. (+2 more)
 
 ### Community 91 - "2026-10-29-diwali-gifting-maths/script.md"
 Cohesion: 0.40
@@ -282,6 +287,10 @@ Nodes (3): Culture now, Facts — <episode>, Texture for the writers (not facts 
 ### Community 94 - "batch-reels.md"
 Cohesion: 0.33
 Nodes (5): 0. Set up (once), 1. Run the reels — at most 2 at once (12 cores / 14 GB: renders + whisper), 2. On each exit — decide like the creator, never ask (except where marked), 3. Rules that hold all batch, 4. After the last reel — analyse, optimise, report
+
+### Community 95 - "joke_log.py"
+Cohesion: 0.57
+Nodes (6): build(), episode_entry(), main(), Path, quote(), reviews()
 
 ### Community 97 - "Facts — <episode>"
 Cohesion: 0.50
@@ -303,10 +312,6 @@ Nodes (3): Hook, Payoff, Turn
 Cohesion: 0.50
 Nodes (3): Batch 2026-10-28 → 2026-10-31 (started 2026-10-21, pct-now 55, stop-at 70), Batch table (agent $ from usage.md), Events
 
-### Community 106 - "build_brief"
-Cohesion: 0.30
-Nodes (10): build_brief(), edit_inputs(), main(), _note_for_role(), Path, Canonical, small file sets for scene planning, revisions and visual review., Keep only the hand-off material an agent owns; preserve full prior notes for…, Return a size-bounded brief with only the files selected by the orchestrator. (+2 more)
-
 ### Community 108 - "Facts — 2026-10-30-account-rent-mule"
 Cohesion: 0.50
 Nodes (3): Culture now, Facts — 2026-10-30-account-rent-mule, Texture for the writers (not facts — don't put numbers from here on screen)
@@ -314,10 +319,6 @@ Nodes (3): Culture now, Facts — 2026-10-30-account-rent-mule, Texture for the 
 ### Community 109 - "2026-10-30-account-rent-mule/script.md"
 Cohesion: 0.50
 Nodes (3): Hook, Payoff, Turn
-
-### Community 112 - "validate_scenes.py"
-Cohesion: 0.13
-Nodes (16): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+8 more)
 
 ### Community 113 - "Facts — <episode>"
 Cohesion: 0.50
@@ -328,24 +329,24 @@ Cohesion: 0.50
 Nodes (3): Hook, Payoff {field: note50}, Turn {field: note20}
 
 ## Knowledge Gaps
-- **178 isolated node(s):** `Events`, `Batch table (agent $ from usage.md)`, `First frame (frame 1 of the video)`, `Hook line (sentence 1)`, `Texture for the writers (not facts — don't put numbers from here on screen)` (+173 more)
+- **178 isolated node(s):** `1. The voice`, `2. One game per reel (the single biggest upgrade)`, `3. Where laughs come from (patterns to learn, not lines to copy)`, `4. Anti-AI writing (the script-reviewer fails these)`, `5. Writing process (do all of it — the reviewer can tell)` (+173 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **27 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **28 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Candidate` connect `Candidate` to `memes.py`, `fetch_assets.py`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
-- **Why does `CLAUDE.md brand bible` connect `CLAUDE.md brand bible` to `validate_scenes.py`, `fetch_assets.py`?**
+- **Why does `Candidate` connect `Candidate` to `fetch_assets.py`?**
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+- **Why does `CLAUDE.md brand bible` connect `CLAUDE.md brand bible` to `fetch_assets.py`, `validate_scenes.py`?**
   _High betweenness centrality (0.022) - this node is a cross-community bridge._
-- **Are the 2 inferred relationships involving `Candidate` (e.g. with `LicenseRefused` and `_log()`) actually correct?**
-  _`Candidate` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `Events`, `Batch table (agent $ from usage.md)`, `First frame (frame 1 of the video)` to the rest of the system?**
+- **What connects `1. The voice`, `2. One game per reel (the single biggest upgrade)`, `3. Where laughs come from (patterns to learn, not lines to copy)` to the rest of the system?**
   _178 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Candidate` be split into smaller, more focused modules?**
   _Cohesion score 0.05842259006815969 - nodes in this community are weakly interconnected._
 - **Should `memes.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.12660028449502134 - nodes in this community are weakly interconnected._
 - **Should `episode.py` be split into smaller, more focused modules?**
   _Cohesion score 0.06285714285714286 - nodes in this community are weakly interconnected._
+- **Should `validate_scenes.py` be split into smaller, more focused modules?**
+  _Cohesion score 0.13405797101449277 - nodes in this community are weakly interconnected._

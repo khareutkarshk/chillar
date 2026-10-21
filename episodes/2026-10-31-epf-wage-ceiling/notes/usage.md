@@ -1,6 +1,6 @@
 # Usage — 2026-10-31-epf-wage-ceiling (agent runs, from notes/usage.jsonl)
 
-Updated: 2026-10-21 05:51 local time. Agent totals exclude the interactive producer session and external services such as TTS.
+Updated: 2026-10-21 11:59 local time. Agent totals exclude the interactive producer session and external services such as TTS.
 
 | stage | runs | turns | prompt chars | cached read tokens | cost |
 |---|---:|---:|---:|---:|---:|
