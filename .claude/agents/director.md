@@ -53,7 +53,15 @@ Say in your report which theme and why (one line). Don't mix themes inside one v
 - **Stamps:** only on the key facts; 30 s → 1–2, 60 s → 2–3, 90 s → 3. Stamps sit over the paper or
   clear field, inside the content zone, clear of the caption band.
 - **Re-hooks** at the format cadence (30 s ~10 s, 60 s ~16 s, 90 s ~18 s): stamp, mascot reaction,
-  split-compare twist, meme-format.
+  split-compare twist, meme-format. **The first one by 8 s (30 s) / 10 s (60, 90 s)** — validate blocks a later one;
+  3–15 s is where viewers swipe. Put a visual beat on the script's `open_loop` plant line (the question) and land
+  its payoff line on the strongest visual of the reel.
+- **Use the middle of the screen.** The eye rests at y ≈ 600–1100; a receipt hanging from the top slot with three
+  rows leaves it bare. qa `top-heavy` gives the exact `"dy"` (works on any scene with a zone) — or a taller object.
+- **Chillar never touches words.** Place `mascot-reaction` in empty field beside or below the text, not at a
+  headline's end; qa `mascot-on-text` measures its body box against every text line.
+- **The ending:** the outro cuts in on the last word (1.9 s, automatic). Hold the payoff shot to that word; don't
+  plan a beat after it.
 - The `@chillar.ind` wordmark (x 72–492, y 1460–1500) is automatic; keep overlays off it.
 - Every scene showing a number carries `"fact": "F#"`.
 - **The script's `{visual: …}` jokes are the reel's best frames — build them, never fall back to the line as

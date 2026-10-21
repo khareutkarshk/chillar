@@ -61,7 +61,7 @@ def render() -> str:
             "scene `{id, component, at, params, fact?, cut?}` · overlay adds `until` or `duration` · "
             "times: seconds, `\"w12\"` (word 12 start), `\"w12.end\"`, `\"w12+0.2\"` · "
             "`cut`: whip | zoom | wipe | page (default hard cut) · top level: `scenes`, `effects` "
-            "(`{type: \"punch\", at}`), `theme` (pastel | calm | night), `outro {duration, cut, params}`, "
+            "(`{type: \"punch\", at}`), `theme` (pastel | calm | night), `outro {cut, params}` (1.9 s, fixed), "
             "`music {track, under_voice_db}` · scene components with a content zone accept `params.dy` (px, nudge down + / up −).\n\n")
     placeable = [entry(n, m) for n, m in metas.items() if n not in AUTO]
     auto = [entry(n, m) for n, m in metas.items() if n in AUTO]

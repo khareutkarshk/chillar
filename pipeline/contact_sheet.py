@@ -82,6 +82,13 @@ def sheet(ep_dir: str, video: Path | None = None, every: float = 3.0) -> Path:
     dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of",
                                 "default=nw=1:nk=1", str(video)], capture_output=True, text=True).stdout)
     times = list(np.arange(0, dur - 0.05, every)) + [max(0, dur - 0.1)]
+    try:    # the punchline's last frame, just before the outro: the 3 s grid skipped it and a coin on the payoff
+            # headline shipped (2026-10-31)
+        oc = json.loads((ep.cache / "scenes.resolved.json").read_text()).get("outro_start")
+        if oc and not any(oc - 0.6 <= t < oc for t in times):
+            times = sorted(times + [max(0.0, oc - 0.15)])
+    except (OSError, ValueError):
+        pass
     fdir = ep.cache / "frames"
     fdir.mkdir(exist_ok=True)
     tw, th, cols = 360, 640, 4

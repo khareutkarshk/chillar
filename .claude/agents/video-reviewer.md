@@ -66,7 +66,9 @@ wanted but lost the 2 s thinning — a dropped foley or meme sound is a `[editor
 - **Transitions:** cuts read as real edits (whip/zoom move the actual shots; fields change on the
   chapter cut); no text card between chapters.
 - **Retention:** frame 1 shows stakes; something new every 2–3 s; a re-hook at the format cadence;
-  the payoff frame delivers the cover promise; the outro is complete with the disclaimer.
+  the script's `open_loop` plant line gets a visual beat and its payoff line the reel's strongest visual;
+  the payoff frame delivers the cover promise; the outro (1.9 s, cut on the last word) is complete with the
+  disclaimer. The sheet now includes the payoff's last frame before the outro: check it is clean.
 - **Numbers on screen** match facts.md, Indian grouping (₹1,00,000), and every label + number pair, read alone on
   a paused frame, says no more than the fact (sign, "extra" vs "total", per month vs once). **Theme fits the mood**, used consistently.
 

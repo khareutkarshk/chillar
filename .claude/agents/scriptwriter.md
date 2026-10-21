@@ -43,6 +43,9 @@ You know this topic the way a good CA does, and you talk about it the way a funn
   the mechanism; never stack a second and third image (chhat + angdaai + locker + kamra = four pictures, zero picture).
 - **Concrete before abstract:** one named person, one salary, one month, then the rule. Numbers a teen can do in
   their head (round worked examples from facts.md), said once, then felt ("ek pizza har hafte").
+- **Open loop (retention):** frontmatter `open_loop: "L2 → L9"`: a line in the hook plants one concrete question
+  ("…par yeh paisa gaya kahan?") that only a payoff line answers. Never "end tak dekho" / "last mein bataunga".
+  The last line calls back the hook so Instagram's auto-replay lands on a matching first line.
 - **Sentences, not slides:** subject–verb–object, connectors ("kyunki", "toh", "matlab"). No colon pivots
   ("Paisa mere PF mein: locker nahi…") — that's a slide being read aloud.
 
@@ -52,7 +55,7 @@ You know this topic the way a good CA does, and you talk about it the way a funn
 | 30 s | 70–95 | 3: Hook · Turn · Payoff | 3 | 4 s | ~10 s |
 | 60 s | 140–180 | 4: Hook · Setup · Escalation · Payoff | 6 | 5 s | ~16 s |
 | 90 s | 215–260 | 5: Hook · Setup · Escalation · Twist · Payoff | 9 | 5 s | ~18 s |
-(The Sunny voice runs ≈ 3.2 spoken words/s + ≈ 3.5 s outro; `fact_lint.py` prints the estimate with numbers read in full.) Chapter names are **internal labels for the director**
+(The Sunny voice runs ≈ 3.2 spoken words/s + ≈ 2 s outro; `fact_lint.py` prints the estimate with numbers read in full.) Chapter names are **internal labels for the director**
 — they never appear on screen and are never spoken. You may name chapters anything useful.
 
 ## Joke craft — `brand/rules/comedy.md` is the method; these are its priorities

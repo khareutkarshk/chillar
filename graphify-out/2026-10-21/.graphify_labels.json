@@ -58,7 +58,7 @@
   "56": "Posting schedule — one Reel every day",
   "57": "Facts — 2026-10-epf-explained",
   "58": "cover.md",
-  "59": "Path",
+  "59": "produce.py",
   "60": "component-dev.md",
   "61": "packager.md",
   "62": "researcher.md",
@@ -115,5 +115,6 @@
   "113": "Facts — <episode>",
   "114": "2026-10-31-epf-wage-ceiling/script.md",
   "115": "2026-10-31-epf-wage-ceiling/cover.md",
-  "117": "Path"
+  "116": "make_reel.py",
+  "117": "README (chillar-reels)"
 }

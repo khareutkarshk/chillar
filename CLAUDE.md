@@ -73,7 +73,8 @@ shake, thunk SFX. **30 s: 1–2 · 60 s: 2–3 · 90 s: 3. Never more than 3.**
 - **Wordmark:** tiny haldi coin + `@chillar.ind`, Mukta 30 px in the field's ink at 78 %, bottom-left
   at **x 72, y 1460–1500**, on **every frame from 0 until the outro**. `validate_scenes.py` inserts it —
   never place, move or hide it in scenes.json; keep stamps/Chillar off its box.
-- **Outro** (bone field): receipt tears off: **"Is video ka MDR: 0%. Gyaan free hai."** + "Follow
+- **Outro** (bone field, **1.9 s, hard cut on the last word**: a long tail after the voice is where viewers
+  swipe): receipt tears off: **"Is video ka MDR: 0%. Gyaan free hai."** + "Follow
   @chillar.ind" (filled from the handle) + "Educational only. Not investment advice."
 
 ### Mascot "Chillar"

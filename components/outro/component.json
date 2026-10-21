@@ -1,6 +1,6 @@
 {
   "name": "outro",
-  "description": "Every video ends here (bone field): a thermal receipt prints 'Is video ka MDR: 0%. Gyaan free hai.', then the follow stub tears off along the perforation. Includes the 'Educational only' disclaimer.",
+  "description": "Every video ends here (bone field), cutting in on the last word for 1.9 s: a thermal receipt prints 'Is video ka MDR: 0%. Gyaan free hai.' and the disclaimer at once, then the follow stub tears off along the perforation.",
   "layer": "scene",
   "params": {
     "line1": "Is video ka MDR: 0%.",
@@ -9,9 +9,9 @@
     "sub": "Agla receipt kal.",
     "disclaimer": "Educational only. Not investment advice.",
     "mascot": "smug",
-    "tearAt": 1.4
+    "tearAt": 0.8
   },
   "example": {},
-  "sfx": [{ "sound": "printer", "at": 0.0, "event": "print" }, { "sound": "coin", "at": 2.1, "event": "mascot" }],
-  "minDuration": 2.8
+  "sfx": [{ "sound": "printer", "at": 0.0, "event": "print" }, { "sound": "coin", "at": 0.5, "event": "mascot" }],
+  "minDuration": 1.6
 }

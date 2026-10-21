@@ -12,7 +12,7 @@ scenes.json (written by the director in /render, refined by the editor, editable
   ],
   "effects": [{"type": "punch", "at": "w38"}],
   "theme": "pastel",          // pastel | calm | night — chosen for the script's mood
-  "outro": {"duration": 3.2, "cut": "cut", "params": {}},
+  "outro": {"cut": "cut", "params": {}},     // duration is fixed by the brand (OUTRO_S), not planned
   "music": {"track": "", "under_voice_db": -22}
 }
 Times: seconds, "w12" (start of word 12), "w12.end", or "+0.4" offsets like "w12+0.2".
@@ -52,6 +52,9 @@ FOLEY_PRIORITY = 4    # a one-off sound (brand/sfx/<name>.wav: cough, slurp, kno
 OVERRIDE_BONUS = 1    # a scene's own "sfx" beats a component default at the same rank
 SHORT_BLOCK = 0.7     # a shot under 70 % of its component's minDuration is an error, not a warning
 CHAPTER_SNAP = 0.35   # a scene must start this close to a chapter's first word
+# The outro cuts in on the last word and is short (2026-10-21): the old 0.35 s gap + 3.2 s receipt was ~10 % of a 30 s
+# reel after the voice stopped, where viewers swipe and never "finish" the reel. The disclaimer still prints by ~0.35 s.
+OUTRO_GAP, OUTRO_S = 0.12, 1.9
 # script-structure words that must never be shown as a label/title card
 STRUCTURE = re.compile(r"^(the\s+)?(setup|set-up|set up|escalation|payoff|pay-off|hook|intro|introduction|outro|"
                        r"conclusion|twist|plot twist|context|recap|summary|chapter\s*\d*|part\s*\d+|page\s*\d+|"
@@ -134,8 +137,11 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
     plan = json.loads(sp.read_text())
     words = json.loads(wp.read_text())
     ctx = Ctx(words)
-    voice_end = words[-1]["end"] + 0.35
-    outro_d = float(plan.get("outro", {}).get("duration", 3.2))
+    voice_end = words[-1]["end"] + OUTRO_GAP
+    outro_d = OUTRO_S
+    if "duration" in plan.get("outro", {}) and abs(float(plan["outro"]["duration"]) - OUTRO_S) > 0.01:
+        warns.append(f"outro duration {plan['outro']['duration']} ignored — the brand outro is {OUTRO_S}s "
+                     "(a long tail after the voice is where viewers swipe)")
     total = round(voice_end + outro_d, 3)
     fmt_key = ep.format
     FMT = TOK["formats"][fmt_key]
@@ -320,6 +326,12 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
     rh = sorted([s["start"] for s in allv if s.get("rehook")] +
                 [s["start"] + float(e["at"]) for s in allv for e in component_meta(s["component"]).get("sfx", [])
                  if e["sound"] in ("scratch", "glitch")])
+    # the first re-hook comes early: 3–15 s (hook over, explaining starts) was the swipe zone on 5 of 6 reels
+    first_by = FMT.get("firstRehookBy", every)
+    first = next((r for r in rh if r > 1.0), None)
+    if first is None or first > first_by + 0.5:
+        errors.append(f"first re-hook at {first or outro_start:.1f}s — a {fmt_key}s reel needs one by {first_by:.0f}s "
+                      "(stamp, reveal, meme, Chillar beat: the 3–15 s stretch is where viewers swipe)")
     prev = 0.0
     for r in rh + [outro_start]:
         if r - prev > every + 0.5:

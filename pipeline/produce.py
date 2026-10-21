@@ -45,7 +45,7 @@ AGENTS = ROOT / ".claude" / "agents"
 STAGES = ["research", "script", "factcheck", "voice", "align", "edit", "deliver", "package", "usage"]
 MAX_ROUNDS = 3
 REVISE_EFFORT = "medium"         # director revisions / fix passes (the first plan uses the frontmatter's, medium since 2026-10-21)
-OUTRO_S = 3.5                    # outro receipt after the voice
+OUTRO_S = 2.0                    # outro receipt after the voice (cuts on the last word, 1.9 s)
 CLEAN = 0.95                     # audio_clean trims ≈ 5 % of the raw voice (measured on 4 reels: 0.94–0.96)
 
 # frontmatter alias -> pinned model id (update here when the brand moves to a new model)
@@ -432,7 +432,7 @@ def lint_gate(L: Line, ep: Path) -> None:
             return None
         miss = [p for p in j.get("problems", []) if not re.match(r"F\d+:", p)]  # facts.md rows aren't the writer's
         miss += [w for w in j.get("warnings", []) if "already used in" in w or "classic meme budget" in w]  # reused / too many classics
-        miss += [s for s in j.get("script", [])[1:] if re.search(r"outside|first laugh|minimum|absolute|support an|takeaway|follow_up|jargon", s)]
+        miss += [s for s in j.get("script", [])[1:] if re.search(r"outside|first laugh|minimum|absolute|support an|takeaway|follow_up|jargon|open_loop", s)]
         return miss
 
     miss = mechanical_misses()
@@ -642,7 +642,7 @@ def qa_clean(L: Line, ep: Path) -> bool:
     return all(L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", st, check=False) == 0 for st in ("validate", "build", "qa"))
 
 
-POLISH_QA = ("late-content", "late-text", "empty-paper", "narrow-frame", "small-object")   # qa warns polish fixes
+POLISH_QA = ("late-content", "late-text", "empty-paper", "narrow-frame", "small-object", "mascot-on-text", "top-heavy")   # qa warns polish fixes
 
 
 def polish(L: Line, ep: Path, review: Path) -> None:

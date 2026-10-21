@@ -5,7 +5,7 @@ component you are about to use and need its full `example`. Layers: `scene` last
 `overlay` needs `until`/`duration`. Times in params are seconds from the scene's start.
 
 **scenes.json keys** (full spec: `pipeline/validate_scenes.py` docstring — no need to open it):
-scene `{id, component, at, params, fact?, cut?}` · overlay adds `until` or `duration` · times: seconds, `"w12"` (word 12 start), `"w12.end"`, `"w12+0.2"` · `cut`: whip | zoom | wipe | page (default hard cut) · top level: `scenes`, `effects` (`{type: "punch", at}`), `theme` (pastel | calm | night), `outro {duration, cut, params}`, `music {track, under_voice_db}` · scene components with a content zone accept `params.dy` (px, nudge down + / up −).
+scene `{id, component, at, params, fact?, cut?}` · overlay adds `until` or `duration` · times: seconds, `"w12"` (word 12 start), `"w12.end"`, `"w12+0.2"` · `cut`: whip | zoom | wipe | page (default hard cut) · top level: `scenes`, `effects` (`{type: "punch", at}`), `theme` (pastel | calm | night), `outro {cut, params}` (1.9 s, fixed), `music {track, under_voice_db}` · scene components with a content zone accept `params.dy` (px, nudge down + / up −).
 
 ### avatar
 Instagram profile picture: Chillar's face, big, centred in the 1080x1080 square at y 420–1500 of the frame (cropped by pipeline/profile_pic.py). Built to survive the circle crop and the 110 px feed size — no text.
@@ -138,8 +138,8 @@ The ground of every frame: one flat rupee-note colour per chapter (fields in bra
 `layer background · min 1s`
 
 ### outro  _(auto — never place in scenes.json)_
-Every video ends here (bone field): a thermal receipt prints 'Is video ka MDR: 0%. Gyaan free hai.', then the follow stub tears off along the perforation. Includes the 'Educational only' disclaimer.
-`layer scene · min 2.8s · sfx printer@0.0s, coin@2.1s`
+Every video ends here (bone field), cutting in on the last word for 1.9 s: a thermal receipt prints 'Is video ka MDR: 0%. Gyaan free hai.' and the disclaimer at once, then the follow stub tears off along the perforation.
+`layer scene · min 1.6s · sfx printer@0.0s, coin@0.5s`
 
 ### transition  _(auto — never place in scenes.json)_
 A real editor's transition between two shots — never a title card. It moves the outgoing and incoming scenes themselves (or wipes the next chapter's field across), centred on the cut. Styles: whip (out left 4f, in from right 5f, hard cut between), zoom (punch through the old shot, land on the new), wipe (next field colour slides up over the frame, cut under it), page (a blank passbook page turns over the frame). Carries NO text. Placed from a scene's "cut" key; plain hard cuts need no clip.

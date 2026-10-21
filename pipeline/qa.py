@@ -27,6 +27,8 @@ Checks:
   late-content    settled, a shot shows < 40 % of what it ends on (header alone while the rows print late)
   same-layout     4 shots in a row with the same content box (template feel)
   short-shot      a shot shorter than its component's minDuration (or < 0.8 s)
+  top-heavy       a shot's content ends above y 700 — the middle of the screen is empty (suggests a dy)
+  mascot-on-text  Chillar's body box over a text line (a coin at a headline's end slips past the hit-test)
   hidden-text     text with a painted object on top of it — the mascot's SVG, a tray over its own letter
                   (anything hit-testing finds above the glyphs; pen scribbles and marker swipes are exempt)
   clipped-text    text cut off by its container (overflow) when settled — a letter line half under the tray
@@ -69,6 +71,9 @@ EMPTY_PAPER, EMPTY_PAPER_MIN_H = 0.7, 300  # a ≥ 300 px paper whose text ends 
 LATE_SHARE, LATE_MIN_SHOT = 0.4, 1.5       # settled frame shows < 40 % of the shot's final content (shots ≥ 1.5 s)
 COVER_OK = {"marker-highlight", "transition", "captions"}   # overlays meant to sit on text
 HIDDEN_ERR, HIDDEN_WARN = 0.5, 0.3   # share of a text's probe points under a painted object
+TOP_HEAVY_BOTTOM = 700               # a shot whose content ends above this leaves the screen's middle empty
+MASCOT_INSET = 0.08                  # Chillar's svg box includes its limbs; the coin body is a little inside it
+HIDDEN_LINE = 0.2                    # 2+ of 9 points on one line = a word under the object (judged per line)
 OWN_COVER_OK = {"glyph-character"}   # its eyes and limbs are drawn on its own glyph by design
 CLIPPED_ERR, CLIPPED_WARN = 0.4, 0.2  # share of a text's ink clipped by an overflow ancestor
 LATE_NUM_ERR = 0.8                    # s after the voice says a number that its shot still hides it
@@ -358,14 +363,16 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
                     cid, _, under = cv["clip"].partition("|")
                     other = comps.get(cid, "")
                     own = cid == x["clip"]
-                    if other in COVER_OK or cid in ("wordmark", "bg") or cv["frac"] < HIDDEN_WARN \
+                    word_hit = cv.get("line", 0) >= HIDDEN_LINE and not under
+                    if other in COVER_OK or cid in ("wordmark", "bg") or (cv["frac"] < HIDDEN_WARN and not word_hit) \
                             or (own and x["comp"] in OWN_COVER_OK):
                         continue
-                    sev = "warn" if under or cv["frac"] < HIDDEN_ERR else "error"
+                    sev = "warn" if under or (cv["frac"] < HIDDEN_ERR and not word_hit) else "error"
                     add(sev, "hidden-text", t, f"{where} {'over' if under else 'under'} {cid} ({other})",
                         f"component:{x['comp']}|director" if own else "director",
                         (f"Chillar sits under {cv['frac']:.0%} of the words — the text reads over a drawing" if under else
-                         f"{cv['frac']:.0%} of the text is under a painted object" + (" of its own shot" if own else "")),
+                         (f"a word is under a painted object ({cv['line']:.0%} of one line)" if word_hit else
+                          f"{cv['frac']:.0%} of the text is under a painted object") + (" of its own shot" if own else "")),
                         "move/shrink the object (mascot x/y, tray size) or the text so nothing sits on the words",
                         key=("hidden", x["clip"], x["text"][:16], cid))
                 if (x.get("cut") or 0) >= CLIPPED_WARN and settled:
@@ -386,6 +393,32 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
                         add("error" if is_cap else "warn", "early-number", t, where, "editor",
                             f"“{num}” is on screen {lead:.1f}s before the voice says it",
                             "reveal it on its word (caption chunk / scene 'at' / param timing)", key=("early", x["clip"], d))
+
+        # Chillar on the words: the hit-test samples line centres, and a round coin at a line's end slips between
+        # them (2026-10-31's payoff shipped with the coin on "oonchi." and the edge of "ghar"). Box geometry instead.
+        if not moving:
+            for c in smp["clips"]:
+                if c["comp"] != "mascot-reaction":
+                    continue
+                for p in c["painted"]:
+                    if p["kind"] != "svg" or p["op"] < 0.5:
+                        continue
+                    mx0, my0, mx1, my1 = p["box"]
+                    sx, sy = (mx1 - mx0) * MASCOT_INSET, (my1 - my0) * MASCOT_INSET
+                    body = [mx0 + sx, my0 + sy, mx1 - sx, my1 - sy]
+                    for x in texts:
+                        if x["op"] < 0.5 or x["clip"] in (c["id"], "wordmark") or x["comp"] == "captions":
+                            continue
+                        for ln in glyph_lines(x):
+                            w = min(body[2], ln[2]) - max(body[0], ln[0])
+                            h = min(body[3], ln[3]) - max(body[1], ln[1])
+                            if w >= 30 and h >= 0.25 * (ln[3] - ln[1]):
+                                big = w >= 0.3 * (ln[2] - ln[0]) and h >= 0.4 * (ln[3] - ln[1])
+                                add("error" if big else "warn", "mascot-on-text", t, f"{c['id']} on {x['clip']} “{x['text'][:24]}”",
+                                    "director", f"Chillar sits on the words ({w:.0f} px of a line)",
+                                    "move the mascot (x/y) into empty field or shrink it — never on a headline",
+                                    key=("mascot-text", c["id"], x["clip"]))
+                                break
 
         # text over text
         live = [x for x in texts if x["op"] >= 0.5 and x["clip"] != "wordmark"]
@@ -596,6 +629,15 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
             add("warn", "narrow-frame", s["t"], f"{sid} ({s['comp']})", "director",
                 f"content is {w:.0f}×{h:.0f}px in an {cw}×{ch} zone — small object, dead field",
                 "span the content width (≈ 860–880 px) or make the object/number the hero", key=("narrow", sid))
+        if b[3] < TOP_HEAVY_BOTTOM and h < 0.55 * ch:
+            # all of it in the top half of the content zone: the band a phone's eye rests on (y ≈ 600–1100) is
+            # bare field — 2–4 shots a reel did this (receipts hanging from the top slot with three rows)
+            mid = (SAFE["top"] + SAFE["captionBand"][0]) / 2
+            dy = int(min(mid - (b[1] + b[3]) / 2, SAFE["captionBand"][0] - 30 - b[3]) // 10 * 10)
+            add("warn", "top-heavy", s["t"], f"{sid} ({s['comp']})", f"director|component:{s['comp']}",
+                f"content ends at y {b[3]:.0f} — the middle of the screen (y 600–1100) is empty field",
+                f"centre it: \"dy\": {dy} (any scene with a zone), or a taller object (minHeight/rows/height)",
+                key=("topheavy", sid))
         if 0 < s["paper_w"] < SMALL_OBJ * cw:
             add("warn", "small-object", s["t"], f"{sid} ({s['comp']})", f"director|component:{s['comp']}",
                 f"its paper spans {s['paper_w']:.0f}px (content width {cw}) — small and busy, not big and calm",

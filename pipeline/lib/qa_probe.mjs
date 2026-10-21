@@ -107,13 +107,14 @@ try {
 
     // which clips paint on top of this text: 3 points along each visible line, the topmost painted element
     // above the text element wins; Chillar drawn right under the words counts too ("<clip>|under").
-    // Returns [{clip, frac}] (frac = share of probe points).
+    // Returns [{clip, frac, line}] (frac = share of all probe points, line = share on its worst line: a coin on one
+    // word of a 3-line headline is ~1/9 of the box but a word gone — 2026-10-31's payoff shipped with "ghar" covered).
     function covers(el, lines) {
-      const hits = new Map();
+      const hits = new Map(), worst = new Map();
       let n = 0;
       for (const b of lines.slice(0, 6)) {
-        const y = (b.y0 + b.y1) / 2;
-        for (const f of [0.2, 0.5, 0.8]) {
+        const y = (b.y0 + b.y1) / 2, onLine = new Map();
+        for (const f of [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]) {
           const x = b.x0 + (b.x1 - b.x0) * f;
           n++;
           let below = false;   // past the text: only Chillar drawn under the words still counts (clutter)
@@ -125,11 +126,13 @@ try {
             if (!e || e.op < 0.5 || x < e.clip.x0 || x > e.clip.x1 || y < e.clip.y0 || y > e.clip.y1) continue;
             const k = (h.closest(".clip")?.id || "?") + (below ? "|under" : "");
             hits.set(k, (hits.get(k) || 0) + 1);
+            onLine.set(k, (onLine.get(k) || 0) + 1);
             break;
           }
         }
+        for (const [k, c] of onLine) worst.set(k, Math.max(worst.get(k) || 0, c / 9));
       }
-      return n ? [...hits].map(([clip, k]) => ({ clip, frac: +(k / n).toFixed(2) })) : [];
+      return n ? [...hits].map(([clip, k]) => ({ clip, frac: +(k / n).toFixed(2), line: +(worst.get(clip) || 0).toFixed(2) })) : [];
     }
 
     function probeClip(clip) {

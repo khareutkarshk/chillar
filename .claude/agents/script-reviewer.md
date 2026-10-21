@@ -52,7 +52,9 @@ scored 4 on all eight dimensions, which tells the creator nothing. Score each di
 4b. **Insight (score `insight`):** is facts.md `## Expert take`'s `so what` said, in ₹, inside the game? Would a CA
    nod — nothing true left out that flips the conclusion (the half-truth that scares without the other side)?
    Missing `so what` = insight ≤ 2 and a blocker; one-sided framing that a finance person would correct = blocker.
-5. **Escalation & re-hooks:** each chapter bigger than the last; a twist/stamp/reaction at least every
+5. **Escalation, open loop & re-hooks:** is `open_loop`'s question one a viewer actually wants answered (concrete,
+   about their money), held unanswered until the payoff, and is it answered there in so many words? A vague loop
+   ("jaano kaise") or one answered by 10 s is a blocker for the 3–15 s stretch. each chapter bigger than the last; a twist/stamp/reaction at least every
    ~10 s (30 s), ~16 s (60 s), ~18 s (90 s) — use fact_lint's spoken-length estimate (≈ 3.2 words/s, Sunny).
 6. **Payoff:** delivers exactly the cover promise; ends on a line worth rewatching; callback if planted.
 7. **Speakability:** read it aloud at pace — tongue-twisters, long numbers, lines > 14 words.

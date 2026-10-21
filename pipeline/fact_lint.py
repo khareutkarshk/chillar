@@ -29,7 +29,7 @@ NUMBERISH = re.compile(
 SOFT = re.compile(r"\b(ek|do|teen|char|paanch|das|sau)\b", re.I)
 STALE_DAYS = 180
 WPS = 3.2                                   # Sunny @ pace 1.2 after clean (measured: 3.09 / 3.33 on the first two reels)
-OUTRO_S = 3.5                               # outro receipt after the voice
+OUTRO_S = 2.0                               # outro receipt after the voice (cuts on the last word, 1.9 s)
 LAUGH_MIN = {"30": 3, "60": 6, "90": 9}
 FIRST_LAUGH_S = 5.0
 # absolutes that a fact rarely supports — flag them on cited lines so the writer checks before review
@@ -116,6 +116,20 @@ def discussable(ep) -> list[str]:
                    "\"Toh mera paisa gaya kahan? → L7\"")
     elif not hit or hit.group(1) not in ids:
         out.append(f"follow_up must end with → L# of a line that answers it (got: {dad[:60]})")
+    loop = str(m.get("open_loop", "")).strip()
+    ids_ = re.findall(r"L\d+", loop)
+    if not loop or loop.startswith("<"):
+        out.append("open_loop missing in the frontmatter — the question the hook plants and only the payoff answers, "
+                   "\"L2 → L9\" (3–15 s is where viewers swipe; an unanswered question keeps them)")
+    elif len(ids_) != 2 or not set(ids_) <= ids:
+        out.append(f"open_loop must name two existing lines, plant → payoff (got: {loop[:40]})")
+    else:
+        first_ch, last_ch = ep.lines[0].chapter, ep.lines[-1].chapter
+        by_id = {l.id: l for l in ep.lines}
+        if by_id[ids_[0]].chapter != first_ch:
+            out.append(f"open_loop plant {ids_[0]} must be in the first chapter (the hook), by ~5 s")
+        if by_id[ids_[1]].chapter != last_ch:
+            out.append(f"open_loop close {ids_[1]} must be in the last chapter — answered earlier, the loop lets them go")
     used = sorted({t for l in ep.lines for t in jargon_in(l.spoken)}, key=str.lower)
     cap = JARGON_MAX.get(ep.format, 3)
     if len(used) > cap:
