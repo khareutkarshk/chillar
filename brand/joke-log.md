@@ -4,7 +4,12 @@ Use it on round 1. **Games taken:** don't build a new reel on one of these. **La
 
 **Overused lately** (in half or more of the last 6 scripts): Diwali (3/6) — lead with a different place/object, or make the moment around it new.
 
-**Cast lately** (characters are welcome — use whoever the story needs): mummy (3/6), papa (2/6), uncle (1/6), landlord (1/6), dost (1/6), chacha (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
+**Cast lately** (characters are welcome — use whoever the story needs): papa (3/6), mummy (3/6), uncle (1/6), landlord (1/6), chacha (1/6), bua (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
+
+## 2026-11-10-card-bill-coming — Card ka free kab tak?
+- game taken: the card's free period is the strictest school librarian. Return every book by the due date and the fine is zero. Return late and she counts the…
+- landed: Late hue, toh ma'am fine issue date se ginti thi. / Kitaab haath mein aate hi.
+- landed: Ma'am ki line thi, 
 
 ## 2026-11-08-diwali-receipt — Aapki Diwali ki receipt
 - game taken: GST is the Diwali gift you give sarkar without knowing. Everyone at home talks, only the receipt tells you, and it's the one gift that never comes…
@@ -29,9 +34,3 @@ Use it on round 1. **Games taken:** don't build a new reel on one of these. **La
 - game taken: the card tap is kirane wale uncle ka khata in disguise (L3 → L6 → L9 → L10–11 → L13). Laughs I counted: L1, L6, L8, L9, L12, L13, L17.
 - landed: Uncle ne chashma utaar ke bola, 'Beta, ₹10,000.'
 - landed: Due date nikli, byaaj uss chai wale din se lag sakta hai.
-
-## 2026-11-04-digital-gold-sebi — Digital gold ka umpire kaun?
-- game taken: digital gold is a gully-cricket match. SEBI, the umpire, isn't there, and the ball belongs to the seller. It's new (the joke log has no cricket…
-- landed: Ball bechne wale ki hai. Woh ghar gaya, toh match khatam.
-- landed: Illegal nahi bola. Bola, 
-- fell flat: Gully mein ball wala hi captain hota hai

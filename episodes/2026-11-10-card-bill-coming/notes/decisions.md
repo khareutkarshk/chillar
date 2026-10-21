@@ -1,0 +1,1 @@
+- 2026-10-21 19:40 qa still blocks after fix pass → helper surgical qa.json fix, then --from edit → playbook row

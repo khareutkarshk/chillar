@@ -1,0 +1,624 @@
+{
+  "theme": "calm",
+  "scenes": [
+    {
+      "id": "hook",
+      "component": "hook-card",
+      "at": 0,
+      "params": {
+        "question": "Card ka free kab tak?",
+        "stakes": [
+          {
+            "label": "Diwali cart",
+            "amount": "₹30,000"
+          },
+          {
+            "label": "Due date",
+            "amount": "?"
+          }
+        ],
+        "circle": true,
+        "mascot": "facepalm",
+        "wide": true,
+        "size": 120,
+        "dy": 60
+      },
+      "fact": "F1"
+    },
+    {
+      "id": "sms-muted",
+      "component": "chat-screen",
+      "at": "w10",
+      "params": {
+        "name": "Bua family group (muted)",
+        "messages": [
+          {
+            "from": "them",
+            "text": "Good morning ji"
+          },
+          {
+            "from": "them",
+            "text": "Card bill ready. Pay *total due*"
+          },
+          {
+            "from": "me",
+            "text": "mute"
+          }
+        ],
+        "stagger": 0.4,
+        "highlight": 1,
+        "width": 860,
+        "times": false
+      }
+    },
+    {
+      "id": "sms-sideeye",
+      "component": "mascot-reaction",
+      "at": "w15",
+      "until": "w19",
+      "params": {
+        "expr": "side-eye",
+        "anim": "blink",
+        "x": 815,
+        "y": 1130,
+        "size": 230
+      }
+    },
+    {
+      "id": "maam",
+      "component": "photo-frame",
+      "at": "w19",
+      "params": {
+        "speech": "Ek line yaad rakhna, beta.",
+        "caption": "Librarian ma'am",
+        "who": "mausi",
+        "expr": "deadpan",
+        "side": "left"
+      }
+    },
+    {
+      "id": "saved-750",
+      "component": "odometer-number",
+      "at": "w26",
+      "params": {
+        "value": 750,
+        "prefix": "₹",
+        "label": "Bach jaate",
+        "labelSize": 80,
+        "tone": "field"
+      },
+      "fact": "F1"
+    },
+    {
+      "id": "library-slip",
+      "component": "receipt-list",
+      "at": "w29",
+      "params": {
+        "title": "LIBRARY CARD",
+        "meta": "Kitaab issue",
+        "items": [
+          {
+            "label": "Lautao",
+            "amount": "due date tak",
+            "at": 1.1
+          }
+        ],
+        "total": {
+          "label": "FINE",
+          "amount": "Zero",
+          "tone": "green"
+        },
+        "totalAt": 2.5,
+        "width": 860,
+        "dy": 120
+      }
+    },
+    {
+      "id": "fine-smug",
+      "component": "mascot-reaction",
+      "at": "w34",
+      "until": "w37",
+      "params": {
+        "expr": "smug",
+        "anim": "blink",
+        "x": 780,
+        "y": 1120,
+        "size": 260
+      }
+    },
+    {
+      "id": "free-window",
+      "component": "calendar-flip",
+      "at": "w37",
+      "params": {
+        "pages": [
+          "SWIPE DIN",
+          "BILL AAYA",
+          "DUE DATE"
+        ],
+        "details": [
+          "Beech ka sab free*"
+        ],
+        "width": 760,
+        "height": -1
+      },
+      "fact": "F2"
+    },
+    {
+      "id": "asterisk",
+      "component": "glyph-character",
+      "at": "w47",
+      "params": {
+        "glyph": "*",
+        "costume": "lawyer",
+        "eyes": "side-eye",
+        "bubble": "Poora bill. Ek paisa kam nahi.",
+        "bubbleSide": "right",
+        "anim": "grow",
+        "line": "Interest-free period*",
+        "lineY": 780,
+        "growAt": 0.5,
+        "size": 240,
+        "x": 320,
+        "y": 520
+      },
+      "fact": "F2"
+    },
+    {
+      "id": "stamp-poora",
+      "component": "stamp",
+      "at": "w52",
+      "until": "w58",
+      "params": {
+        "text": "Poora bill",
+        "x": 520,
+        "y": 1065,
+        "rotate": -7,
+        "size": 100
+      }
+    },
+    {
+      "id": "cart-30k",
+      "component": "odometer-number",
+      "at": "w58",
+      "params": {
+        "value": 30000,
+        "prefix": "₹",
+        "label": "Maan lo, Diwali cart",
+        "labelSize": 80,
+        "tone": "field"
+      },
+      "fact": "F1"
+    },
+    {
+      "id": "cart",
+      "component": "phone-note",
+      "at": "w63",
+      "params": {
+        "title": "Diwali cart",
+        "items": [
+          {
+            "text": "Diye"
+          },
+          {
+            "text": "Stencil"
+          },
+          {
+            "text": "Stencil"
+          },
+          {
+            "text": "Stencil"
+          }
+        ],
+        "stagger": 0.22,
+        "total": "₹30,000"
+      },
+      "fact": "F1"
+    },
+    {
+      "id": "meme-baskaro",
+      "component": "meme",
+      "at": "w67+0.1",
+      "params": {
+        "meme": "Bas karo bhai",
+        "kind": "image",
+        "pick": 0,
+        "labels": [
+          {
+            "text": "Teesra same stencil",
+            "x": 50,
+            "y": 12
+          }
+        ]
+      }
+    },
+    {
+      "id": "bill-dekhenge",
+      "component": "receipt-list",
+      "at": "w70+0.2",
+      "params": {
+        "title": "CARD BILL",
+        "items": [
+          {
+            "label": "Total due",
+            "amount": "₹30,000"
+          }
+        ],
+        "total": {
+          "label": "Plan",
+          "amount": "dekhenge",
+          "tone": "ink"
+        },
+        "printed": true,
+        "width": 860,
+        "dy": 140
+      },
+      "fact": "F1"
+    },
+    {
+      "id": "fine-from-issue",
+      "component": "calendar-flip",
+      "at": "w72",
+      "params": {
+        "pages": [
+          "DUE DATE",
+          "LATE",
+          "ISSUE DATE"
+        ],
+        "details": [
+          "Fine yahan se"
+        ],
+        "width": 760,
+        "height": -1
+      }
+    },
+    {
+      "id": "issue-slip",
+      "component": "receipt-list",
+      "at": "w82",
+      "params": {
+        "title": "ISSUE SLIP",
+        "meta": "Kitaab haath mein",
+        "items": [
+          {
+            "label": "Fine meter",
+            "amount": "ON"
+          }
+        ],
+        "total": {
+          "label": "Ginti",
+          "amount": "shuru",
+          "tone": "red"
+        },
+        "printed": true,
+        "width": 860,
+        "dy": 140
+      }
+    },
+    {
+      "id": "issue-shock",
+      "component": "mascot-reaction",
+      "at": "w87",
+      "params": {
+        "expr": "shocked",
+        "anim": "pop",
+        "x": 780,
+        "y": 1120,
+        "size": 260
+      },
+      "until": "w94"
+    },
+    {
+      "id": "interest-from-swipe",
+      "component": "receipt-list",
+      "at": "w87",
+      "params": {
+        "title": "CARD SWIPE",
+        "meta": "Byaaj ka meter",
+        "items": [
+          {
+            "label": "Swipe din",
+            "amount": "din 1"
+          },
+          {
+            "label": "Bill aaya",
+            "amount": "baad mein",
+            "at": 0.4
+          }
+        ],
+        "total": {
+          "label": "Byaaj",
+          "amount": "yahan se",
+          "tone": "red"
+        },
+        "totalAt": 1.2,
+        "width": 860,
+        "dy": 140
+      },
+      "fact": "F3"
+    },
+    {
+      "id": "rbi-example",
+      "component": "receipt-list",
+      "at": "w97",
+      "cut": "zoom",
+      "params": {
+        "title": "RBI EXAMPLE",
+        "meta": "Maan lo, mahina 1",
+        "items": [
+          {
+            "label": "Cart",
+            "amount": "₹30,000"
+          }
+        ],
+        "total": {
+          "label": "Byaaj, mahina 1",
+          "amount": "?",
+          "tone": "red"
+        },
+        "totalAt": 1.4,
+        "width": 860,
+        "dy": 100
+      },
+      "fact": "F1"
+    },
+    {
+      "id": "interest-600",
+      "component": "odometer-number",
+      "at": "w103-0.1",
+      "params": {
+        "value": 600,
+        "prefix": "₹",
+        "label": "Byaaj, pehla mahina",
+        "labelSize": 80,
+        "tone": "field"
+      },
+      "fact": "F1"
+    },
+    {
+      "id": "charges-150",
+      "component": "receipt-list",
+      "at": "w105",
+      "params": {
+        "title": "RBI EXAMPLE",
+        "meta": "Mahina 1",
+        "items": [
+          {
+            "label": "Byaaj",
+            "amount": "₹600"
+          },
+          {
+            "label": "Charges (lagbhag)",
+            "amount": "₹150",
+            "at": 0.3
+          }
+        ],
+        "total": {
+          "label": "Kul",
+          "amount": "…",
+          "tone": "red"
+        },
+        "totalAt": 1.2,
+        "width": 860,
+        "dy": 280
+      },
+      "fact": "F1"
+    },
+    {
+      "id": "dekhenge-vs-full",
+      "component": "bar-chart",
+      "at": "w108",
+      "params": {
+        "bars": [
+          {
+            "label": "Dekhenge",
+            "value": 750
+          },
+          {
+            "label": "Poora bhara",
+            "value": 0
+          }
+        ],
+        "highlight": 0,
+        "prefix": "₹",
+        "caption": "RBI example, pehla mahina",
+        "stagger": 0.3
+      },
+      "fact": "F1"
+    },
+    {
+      "id": "stamp-750",
+      "component": "stamp",
+      "at": "w109",
+      "until": "w114",
+      "params": {
+        "text": "₹750",
+        "x": 700,
+        "y": 470,
+        "rotate": -8,
+        "size": 140
+      }
+    },
+    {
+      "id": "meme-fanum",
+      "component": "meme",
+      "at": "w114",
+      "params": {
+        "meme": "Fanum",
+        "kind": "image",
+        "pick": 0,
+        "labels": [
+          {
+            "text": "Byaaj",
+            "x": 30,
+            "y": 15
+          },
+          {
+            "text": "Mera cart",
+            "x": 72,
+            "y": 80
+          }
+        ],
+        "sound": "Sad Violin (the meme one)",
+        "soundPick": 0,
+        "soundAt": 1.2
+      }
+    },
+    {
+      "id": "free-paused",
+      "component": "checklist",
+      "at": "w118",
+      "params": {
+        "title": "Naya swipe",
+        "items": [
+          {
+            "text": "Pichla bill baaki",
+            "ok": false
+          },
+          {
+            "text": "Free time ruka",
+            "ok": false
+          }
+        ],
+        "stagger": 0.6
+      },
+      "fact": "F4"
+    },
+    {
+      "id": "fourth-swipe",
+      "component": "receipt-list",
+      "at": "w128",
+      "cut": "whip",
+      "params": {
+        "title": "CARD SWIPE",
+        "meta": "Kal raat",
+        "items": [
+          {
+            "label": "Stencil",
+            "amount": "same"
+          },
+          {
+            "label": "Stencil",
+            "amount": "same"
+          },
+          {
+            "label": "Stencil",
+            "amount": "same"
+          },
+          {
+            "label": "Stencil",
+            "amount": "same",
+            "at": 0.9
+          }
+        ],
+        "total": {
+          "label": "Design",
+          "amount": "Same",
+          "tone": "red"
+        },
+        "totalAt": 2.0,
+        "width": 860,
+        "step": 0.2
+      }
+    },
+    {
+      "id": "papa",
+      "component": "photo-frame",
+      "at": "w135",
+      "params": {
+        "speech": "Minimum toh bhara na?",
+        "caption": "papa",
+        "who": "papa",
+        "expr": "side-eye",
+        "side": "left"
+      }
+    },
+    {
+      "id": "min-myth",
+      "component": "split-compare",
+      "at": "w141",
+      "params": {
+        "left": {
+          "title": "Myth",
+          "text": "Minimum bhara, sab theek"
+        },
+        "right": {
+          "title": "Math",
+          "text": "Fine bacha. Byaaj nahi."
+        },
+        "strikeAt": 0.9,
+        "revealAt": 1.3,
+        "offsetY": 0,
+        "textSize": "auto"
+      },
+      "fact": "F7"
+    },
+    {
+      "id": "maam-saari",
+      "component": "photo-frame",
+      "at": "w151",
+      "params": {
+        "speech": "Saari kitaabein, beta. Saari.",
+        "caption": "Librarian ma'am",
+        "who": "mausi",
+        "expr": "deadpan",
+        "side": "left"
+      }
+    },
+    {
+      "id": "pay-all",
+      "component": "checklist",
+      "at": "w159",
+      "params": {
+        "title": "Due date tak",
+        "items": [
+          {
+            "text": "Diye",
+            "ok": true
+          },
+          {
+            "text": "Mithai",
+            "ok": true
+          },
+          {
+            "text": "Gifts",
+            "ok": true
+          },
+          {
+            "text": "Stencil, chaaron",
+            "ok": true
+          }
+        ],
+        "stagger": 0.35
+      },
+      "fact": "F2"
+    },
+    {
+      "id": "end-sideeye",
+      "component": "mascot-reaction",
+      "at": "w165",
+      "until": "w168",
+      "params": {
+        "expr": "side-eye",
+        "anim": "blink",
+        "x": 790,
+        "y": 1120,
+        "size": 240
+      }
+    }
+  ],
+  "effects": [
+    {
+      "type": "punch",
+      "at": "w26"
+    },
+    {
+      "type": "punch",
+      "at": "w109"
+    },
+    {
+      "type": "punch",
+      "at": "w158"
+    }
+  ]
+}
