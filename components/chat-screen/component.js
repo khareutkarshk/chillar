@@ -71,6 +71,11 @@ CH.define("chat-screen", {
         row.insertAdjacentHTML("beforeend", CH.scribble("circle", { x: bx - 22, y: -16, w: bw + 44, h: bh + 32, rng, stroke: 7, cls: "cs-circ" }));
         CH.draw(tl, row, at + 0.3, 0.45);
       }
+      if (p.grow) {                                  // paper grows: a row takes no space until it arrives
+        row.style.display = "none";
+        const d = dots ? Math.max(t + 2 * CH.F, at - Math.min(0.42, stagger * 0.7)) : at - CH.F;
+        tl.fromTo(row, { display: "none" }, { display: "flex", duration: 0, immediateRender: false }, Math.min(d, at - CH.F));
+      }
     });
   },
 });

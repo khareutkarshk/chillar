@@ -1,0 +1,9 @@
+{
+  "name": "phone-note",
+  "description": "A plain phone-notes list on a paper sheet that grows name by name: title line, then each item is written in turn (stagger) and the sheet lengthens (final size is reserved, nothing shifts). Optional per-item `strike:true` draws a red-pen scratch-out; optional `total` line at the end in big type with a blue underline. Params: title, items [{text, strike}], stagger (0.35), total.",
+  "layer": "scene",
+  "params": { "title": "Diwali gifts", "items": [{ "text": "Sharma ji", "strike": false }], "stagger": 0.35, "total": "" },
+  "example": { "title": "Diwali gifts", "items": [{ "text": "Sharma ji" }, { "text": "Mausi" }, { "text": "Wo jo lift mein mila", "strike": true }], "total": "₹7,500" },
+  "sfx": [],
+  "minDuration": 1.8
+}

@@ -1,0 +1,7 @@
+.c-passbook-cover .pc-book { position: absolute; z-index: 4; box-sizing: border-box; background: var(--haldi); border-radius: 10px; box-shadow: var(--lift); /* taste-skill-ignore: paper depth */ }
+.c-passbook-cover .pc-spine { position: absolute; left: 0; top: 0; bottom: 0; width: 7%; background: rgba(var(--shadow-rgb), .14); border-radius: 10px 0 0 10px; }
+.c-passbook-cover .pc-coin { position: absolute; right: 7%; top: 8%; width: 110px; height: 110px; border-radius: 50%; border: 6px solid var(--ink); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 800; font-size: 56px; color: var(--ink); }
+.c-passbook-cover .pc-title { position: absolute; left: 14%; top: 12%; font-family: var(--font-head); font-weight: 800; font-size: 74px; line-height: 1; letter-spacing: -.022em; color: var(--ink); max-width: 56%; }
+.c-passbook-cover .pc-label { position: absolute; left: 14%; right: 9%; bottom: 12%; height: 36%; background: var(--paper); border-radius: 6px; display: flex; align-items: center; padding: 0 40px; box-sizing: border-box; }
+.c-passbook-cover .pc-name { position: relative; font-family: var(--font-body); font-weight: 800; font-size: 64px; line-height: 1.1; color: var(--pen); }
+.c-passbook-cover .pc-name .scrib path { stroke: var(--red); }

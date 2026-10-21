@@ -1,0 +1,7 @@
+.c-app-slip .as-slip { position: absolute; z-index: 4; box-sizing: border-box; background: var(--paper); border-radius: 10px; box-shadow: var(--lift); /* taste-skill-ignore: paper depth */ padding: 44px 48px 48px; color: var(--ink); }
+.c-app-slip .as-title { font-family: var(--font-body); font-weight: 800; font-size: 46px; line-height: 1.1; }
+.c-app-slip .as-row { display: flex; justify-content: space-between; align-items: center; margin-top: 34px; font-family: var(--font-print); font-size: 42px; line-height: 1.2; }
+.c-app-slip .as-row b { font-family: var(--font-head); font-weight: 800; font-size: 84px; letter-spacing: -.022em; font-variant-numeric: tabular-nums; }
+.c-app-slip .as-badge { position: absolute; right: 56px; top: 44px; width: 150px; height: 150px; border-radius: 50%; background: var(--haldi); border: 5px solid var(--ink); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 800; font-size: 50px; color: var(--ink); box-sizing: border-box; }
+.c-app-slip .as-badge::after { content: ""; position: absolute; left: 22px; top: 18px; width: 38px; height: 18px; border-radius: 50%; background: rgba(255,255,255,.7); transform: rotate(-35deg); }
+.c-app-slip .as-note { position: absolute; font-family: var(--font-body); font-weight: 800; font-size: 64px; line-height: 1; color: var(--pen); white-space: nowrap; transform: rotate(-4deg); }

@@ -17,7 +17,7 @@ CH.define("split-compare", {
     const half = 420, rise = half * (Math.sin(Math.abs(t1) * Math.PI / 180) + Math.sin(Math.abs(t2) * Math.PI / 180));
     const gap = Math.max(30, +p.gap || 30) + Math.ceil(rise);
     el.innerHTML = `
-      <div class="zone" style="gap:${gap}px">
+      <div class="zone" style="gap:${gap}px;${+p.offsetY ? "transform:translateY(" + (+p.offsetY) + "px)" : ""}">
         <div class="sc-chit sc-myth paper-obj" style="transform: rotate(${t1.toFixed(2)}deg)">
           <div class="sc-word t-head">${CH.esc(L.title)}</div>
           <div class="sc-text t-body" style="font-size:${fs}px">${CH.rich(L.text)}${strikes}</div>

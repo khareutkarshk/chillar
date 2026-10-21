@@ -1,0 +1,9 @@
+{
+  "name": "calculator",
+  "description": "A paper desk calculator: display, a 4x4 key pad where the listed `taps` (key labels like '2','5','×','4','=') are pressed one after another (key dips, display shows the typed expression), and a result strip that prints under the calculator when '=' lands. Params: taps (default ['2','5','×','4','=']), result (shown on display + strip after '=', e.g. '₹1,00,000'), tapStart (secs after cut, 0.3), tapGap (0.28). Tossed in on the cut at a seeded tilt.",
+  "layer": "scene",
+  "params": { "taps": ["2", "5", "×", "4", "="], "result": "100", "tapStart": 0.3, "tapGap": 0.28 },
+  "example": { "taps": ["2", "5", "×", "4", "="], "result": "100" },
+  "sfx": [],
+  "minDuration": 2.0
+}

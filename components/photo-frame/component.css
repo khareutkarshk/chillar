@@ -1,0 +1,12 @@
+.c-photo-frame .pf-bubble { position: relative; width: 860px; box-sizing: border-box; padding: 40px 50px; background: var(--paper); border-radius: 44px; box-shadow: var(--lift); font-size: 60px; line-height: 1.1; color: var(--ink); /* taste-skill-ignore: paper depth */ }
+.c-photo-frame .pf-bubble::after { content: ""; position: absolute; bottom: -44px; width: 70px; height: 50px; background: var(--paper); clip-path: polygon(0 0, 100% 0, 0 100%); }
+.c-photo-frame .pf-bubble.left::after { left: 70px; }
+.c-photo-frame .pf-bubble.right::after { right: 70px; transform: scaleX(-1); }
+.c-photo-frame .pf-who { font-family: var(--font-body); font-weight: 800; font-size: 40px; color: var(--pencil); margin-top: 8px; }
+.c-photo-frame .pf-stack { display: flex; flex-direction: column; gap: 70px; align-items: center; }
+.c-photo-frame .pf-frame { box-sizing: border-box; background: var(--haldi); padding: 30px 30px 20px; border-radius: 8px; }
+.c-photo-frame .pf-mat { background: var(--paper); padding: 26px; border-radius: 4px; }
+.c-photo-frame .pf-photo { width: 100%; aspect-ratio: 4 / 3; background: rgba(var(--shadow-rgb), .12); position: relative; overflow: hidden; }
+.c-photo-frame .pf-head { position: absolute; left: 35%; top: 14%; width: 30%; aspect-ratio: 1; border-radius: 50%; background: var(--ink); opacity: .7; }
+.c-photo-frame .pf-body { position: absolute; left: 18%; top: 56%; width: 64%; aspect-ratio: 1.6; border-radius: 50% 50% 0 0; background: var(--ink); opacity: .7; }
+.c-photo-frame .pf-cap { font-family: var(--font-body); font-weight: 800; font-size: 44px; text-align: center; color: var(--pen); padding-top: 14px; }

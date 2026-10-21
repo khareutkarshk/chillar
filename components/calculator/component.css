@@ -1,0 +1,7 @@
+.c-calculator .ca-wrap { display: flex; flex-direction: column; align-items: center; }
+.c-calculator .ca-body { flex: none; width: 780px; box-sizing: border-box; padding: 44px; display: flex; flex-direction: column; gap: 30px; }
+.c-calculator .ca-disp { height: 150px; background: rgba(var(--shadow-rgb), .1); border-radius: 12px; display: flex; align-items: center; justify-content: flex-end; padding: 0 34px; font-family: var(--font-print); font-weight: 700; font-size: 84px; color: var(--ink); overflow: hidden; white-space: nowrap; }
+.c-calculator .ca-keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.c-calculator .ca-key { height: 112px; border-radius: 16px; background: var(--paper); box-shadow: 0 6px 10px rgba(var(--shadow-rgb), .22); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 800; font-size: 58px; color: var(--ink); }
+.c-calculator .ca-key.op { background: var(--haldi); }
+.c-calculator .ca-strip { flex: none; line-height: 1.15; margin-top: 36px; width: 520px; box-sizing: border-box; font-family: var(--font-print); font-weight: 700; font-size: 60px; color: var(--ink); text-align: right; overflow: hidden; padding: 24px 34px; }

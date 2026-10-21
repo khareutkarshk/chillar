@@ -1,0 +1,9 @@
+{
+  "name": "passbook-cover",
+  "description": "A passbook front cover: haldi card cover with a spine, a coin mark, a printed title and a white label holding only the name line, filled in handwriting ('aapka naam') with a red underline drawn at hand speed. Params: title (printed, default 'Savings Account'), name (handwritten line), x/y top-left, width (default 800). Tossed in at a seeded tilt on the cut frame.",
+  "layer": "scene",
+  "params": { "title": "Savings Account", "name": "aapka naam", "x": 140, "y": 480, "width": 800 },
+  "example": { "title": "Savings Account", "name": "aapka naam" },
+  "sfx": [],
+  "minDuration": 1.2
+}

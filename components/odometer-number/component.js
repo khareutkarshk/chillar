@@ -10,13 +10,13 @@ CH.define("odometer-number", {
     const start = count ? +p.from : +p.value;
     el.innerHTML = `
       <div class="zone">
-        ${p.label ? `<div class="od-label t-body">${CH.rich(p.label)}</div>` : ""}
+        ${p.label ? `<div class="od-label t-body"${p.labelSize ? ` style="font-size:${+p.labelSize}px"` : ""}>${CH.rich(p.label)}</div>` : ""}
         <div class="od-numwrap">
           <div class="od-num tone-${CH.esc(p.tone)}" style="font-size:${+p.size}px">${count
             ? `<span class="od-count t-num">${CH.esc(fmt(start))}</span>` : CH.odometer(+p.value, opt)}</div>
         </div>
         ${p.unit ? `<div class="od-unit t-head">${CH.esc(p.unit)}</div>` : ""}
-        ${p.sub ? `<div class="od-sub t-body">${CH.rich(p.sub)}</div>` : ""}
+        ${p.sub ? `<div class="od-sub t-body"${p.subSize ? ` style="font-size:${+p.subSize}px"` : ""}>${CH.rich(p.sub)}</div>` : ""}
       </div>`;
     // auto-fit: the widest state of the number stays inside the content zone (x 68–932)
     const num = el.querySelector(".od-num"), avail = 856;

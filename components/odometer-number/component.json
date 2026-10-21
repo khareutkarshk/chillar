@@ -1,6 +1,6 @@
 {
   "name": "odometer-number",
-  "description": "One huge number rolls up like an odometer (Indian digit grouping); with `from` it instead counts from→value as one legible tabular number (e.g. ₹1,00,000 → ₹86,468), set straight on the chapter field and double-underlined by hand. Use for the big reveal of a ₹ amount or %. tone red/green only on light fields (bone, note20, note50); on dark fields the number stays in the field ink. dy (px) nudges the whole composition down (+) or up (−) inside the content zone.",
+  "description": "One huge number rolls up like an odometer (Indian digit grouping); with `from` it instead counts from→value as one legible tabular number (e.g. ₹1,00,000 → ₹86,468), set straight on the chapter field and double-underlined by hand. Use for the big reveal of a ₹ amount or %. tone red/green only on light fields (bone, note20, note50); on dark fields the number stays in the field ink. dy (px) nudges the whole composition down (+) or up (−) inside the content zone. labelSize / subSize (px, defaults 60 / 50) set the label and sub text size; use 80 or more for a headline-sized label.",
   "layer": "scene",
   "params": {
     "value": 3631,
@@ -16,7 +16,9 @@
     "underline": true,
     "rollStart": 0.15,
     "rollDuration": 0.9,
-    "dy": 0
+    "dy": 0,
+    "labelSize": null,
+    "subSize": null
   },
   "example": {
     "value": 3631,

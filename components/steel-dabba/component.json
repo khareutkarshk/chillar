@@ -1,0 +1,9 @@
+{
+  "name": "steel-dabba",
+  "description": "A steel tiffin dabba (three stacked tiers, clip handle, lid knob) standing on the field with a haldi price sticker on the front. Params: price (number, Indian grouping, default 1499), oldPrice (optional number, struck through in red pen), label (optional small sticker line, default ''), tiers (2-4, default 3), x/y = top-left, width (default 640). Fully drawn at t=0 (good as frame 1); tossed in on the cut frame, the sticker is slapped on 0.4 s later and the strike draws after it.",
+  "layer": "scene",
+  "params": { "price": 1499, "oldPrice": 0, "label": "", "tiers": 3, "x": 220, "y": 420, "width": 640 },
+  "example": { "price": 1499, "oldPrice": 2999, "label": "Dhanteras offer" },
+  "sfx": [],
+  "minDuration": 1.4
+}

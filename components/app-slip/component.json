@@ -1,0 +1,9 @@
+{
+  "name": "app-slip",
+  "description": "A phone-app purchase slip (paper): title, item row, amount, a shiny haldi 'gold' badge, and a blue-ballpoint arrow from the badge to a handwritten note (e.g. 'SEBI?'). Params: title (default 'Payment successful'), item, amount (number, Indian grouping), badge (text in the gold badge, default '24K'), note (pen note, default 'SEBI?'), noteAt = seconds after the cut the arrow + note draw (default 0.8), x/y = top-left, width (default 860). Slip is tossed in on the cut frame; only the pen arrow and note draw later.",
+  "layer": "scene",
+  "params": { "title": "Payment successful", "item": "Digital gold", "amount": 1000, "badge": "24K", "note": "SEBI?", "noteAt": 0.8, "x": 110, "y": 430, "width": 860 },
+  "example": { "title": "Payment successful", "item": "Digital gold", "amount": 1000, "badge": "24K", "note": "SEBI?" },
+  "sfx": [],
+  "minDuration": 1.8
+}

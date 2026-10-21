@@ -1,6 +1,6 @@
 # Usage — 2026-11-07-guests-kharcha (agent runs, from notes/usage.jsonl)
 
-Updated: 2026-10-21 18:04 local time. Agent totals exclude the interactive producer session and external services such as TTS.
+Updated: 2026-10-21 18:17 local time. Agent totals exclude the interactive producer session and external services such as TTS.
 
 | stage | runs | turns | prompt chars | cached read tokens | cost |
 |---|---:|---:|---:|---:|---:|
@@ -10,7 +10,8 @@ Updated: 2026-10-21 18:04 local time. Agent totals exclude the interactive produ
 | voice | 2 | 14 | 380 | 120,241 | $0.11 |
 | edit | 10 | 88 | 149,384 | 1,322,812 | $1.82 |
 | package | 1 | 5 | 56 | 57,386 | $0.09 |
-| **total** | 19 | 151 | 219,668 | 2,227,575 | **$3.55** |
+| components | 4 | 143 | 1,322 | 2,625,930 | $1.31 |
+| **total** | 23 | 294 | 220,990 | 4,853,505 | **$4.86** |
 
 Review rounds: script 2 · video 2.
 Latest script quality: scores: stop 3 · laughs 4 (count 4/3) · specific 4 · clarity 4 · insight 4 · escalation 4 · payoff 5 · speak 4 · fresh 3 · facts PASS

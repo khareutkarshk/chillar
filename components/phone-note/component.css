@@ -1,0 +1,11 @@
+.c-phone-note .pn-sheet { width: 860px; box-sizing: border-box; padding: 54px 60px 60px; display: grid; }
+.c-phone-note .pn-sheet > .pn-in { grid-area: 1 / 1; display: flex; flex-direction: column; }
+.c-phone-note .pn-ghost { visibility: hidden; }
+.c-phone-note .pn-title { font-family: var(--font-head); font-weight: 800; font-size: 76px; line-height: 1; color: var(--ink); padding-bottom: 14px; }
+.c-phone-note .pn-row { overflow: hidden; }
+.c-phone-note .pn-row.open { overflow: visible; }
+.c-phone-note .pn-line { position: relative; align-self: flex-start; font-size: 58px; line-height: 1.1; padding-top: 28px; color: var(--ink); }
+.c-phone-note .pn-line .t-body { position: relative; display: inline-block; }
+.c-phone-note .pn-line.strike .t-body { color: var(--pencil); }
+.c-phone-note .pn-line.strike .scrib path { stroke: var(--red); }
+.c-phone-note .pn-total { position: relative; align-self: flex-start; font-family: var(--font-head); font-weight: 800; font-size: 96px; line-height: 1.05; padding-top: 30px; color: var(--ink); font-variant-numeric: tabular-nums; }

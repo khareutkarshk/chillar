@@ -1,0 +1,12 @@
+.c-steel-dabba .sd-wrap { position: absolute; z-index: 4; }
+.c-steel-dabba .sd-tier { position: absolute; left: 6%; width: 88%; box-sizing: border-box; border: 6px solid var(--ink); border-radius: 22px; background: var(--paper); overflow: hidden; }
+.c-steel-dabba .sd-tier::after { content: ""; position: absolute; left: 12%; top: 0; bottom: 0; width: 8%; background: rgba(var(--shadow-rgb), .10); }
+.c-steel-dabba .sd-lid { border-radius: 60px 60px 18px 18px; }
+.c-steel-dabba .sd-knob { position: absolute; left: 50%; width: 90px; height: 40px; margin-left: -45px; box-sizing: border-box; border: 6px solid var(--ink); border-radius: 20px 20px 0 0; background: var(--paper); }
+.c-steel-dabba .sd-handle { position: absolute; left: 3%; width: 94%; border: 6px solid var(--ink); border-bottom: none; border-radius: 120px 120px 0 0; box-sizing: border-box; }
+.c-steel-dabba .sd-shadow { position: absolute; left: 4%; width: 92%; height: 36px; border-radius: 50%; background: rgba(var(--shadow-rgb), .25); filter: blur(12px); /* taste-skill-ignore: contact shadow under object */ }
+.c-steel-dabba .sd-sticker { position: absolute; left: 50%; background: var(--haldi); border: 4px dashed var(--ink); border-radius: 6px; padding: 14px 26px 16px; text-align: center; color: var(--ink); transform: translateX(-50%) rotate(-4deg); z-index: 3; white-space: nowrap; }
+.c-steel-dabba .sd-sticker .sd-lab { font-family: var(--font-body); font-weight: 800; font-size: 34px; line-height: 1.1; }
+.c-steel-dabba .sd-sticker .sd-price { position: relative; display: inline-block; font-family: var(--font-head); font-weight: 800; font-size: 76px; line-height: 1.05; letter-spacing: -.022em; font-variant-numeric: tabular-nums; }
+.c-steel-dabba .sd-sticker .sd-old { position: relative; display: inline-block; font-family: var(--font-head); font-weight: 800; font-size: 40px; color: var(--ink); opacity: .85; }
+.c-steel-dabba .sd-sticker .scrib path { stroke: var(--red); }

@@ -1,6 +1,6 @@
 {
   "name": "split-compare",
-  "description": "Myth vs Math: the MYTH chit lands, gets scratched out with a red pen, then the MATH chit is slapped down below it (record-scratch twist). The chits never overlap: they keep a clear gap of at least `gap` px (default 30) at their closest tilted corners. Main text is set at headline scale, sized by the longer side (textSize \"auto\": ≤8 chars 128 px, ≤14 → 100, ≤22 → 80, else 66; or a px number). Works best on the note2000 field.",
+  "description": "Myth vs Math: the MYTH chit lands, gets scratched out with a red pen, then the MATH chit is slapped down below it (record-scratch twist). The chits never overlap: they keep a clear gap of at least `gap` px (default 30) at their closest tilted corners. Main text is set at headline scale, sized by the longer side (textSize \"auto\": ≤8 chars 128 px, ≤14 → 100, ≤22 → 80, else 66; or a px number). `offsetY` (px, default 0) shifts both chits down (negative up) to fill the middle of the screen. Works best on the note2000 field.",
   "layer": "scene",
   "rehook": true,
   "params": {
@@ -15,6 +15,7 @@
     "strikeAt": 0.6,
     "revealAt": 0.9,
     "gap": 30,
+    "offsetY": 0,
     "textSize": "auto"
   },
   "example": {

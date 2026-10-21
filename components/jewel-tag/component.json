@@ -1,0 +1,9 @@
+{
+  "name": "jewel-tag",
+  "description": "A gold bangle close-up (haldi ring) with a laser-etched HUID plate, and below it a paper bill whose last row carries the same code. A blue-ballpoint line then links the etched code to the bill row and circles it. Params: huid = 6-char code (default 'AB12CD'), item = bill row name, amount = bill row amount (number, Indian grouping), matchAt = seconds after the cut the pen line draws (default 0.9), x/y = top-left, width (default 860). Bangle and bill are tossed in on the cut frame; only the pen marks draw later.",
+  "layer": "scene",
+  "params": { "huid": "AB12CD", "item": "Gold bangle 22K", "amount": 58000, "matchAt": 0.9, "x": 110, "y": 430, "width": 860 },
+  "example": { "huid": "AB12CD", "item": "Gold bangle 22K", "amount": 58000 },
+  "sfx": [],
+  "minDuration": 1.8
+}

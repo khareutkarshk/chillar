@@ -1,0 +1,9 @@
+{
+  "name": "photo-frame",
+  "description": "A framed photo (placeholder portrait silhouette on a paper mat, optional `caption` below) and a speech bubble from someone off-screen above it. Params: speech (bubble text), speaker (small name under the speech, optional), caption (under the photo, e.g. 'didi'), side 'left'|'right' (which side the bubble tail sits on, default 'left'), frameWidth (default 620). Frame is tossed in on the cut; the bubble pops 4 frames later.",
+  "layer": "scene",
+  "params": { "speech": "Dekha? Didi ko 20 lakh ka package!", "speaker": "", "caption": "didi", "side": "left", "frameWidth": 620 },
+  "example": { "speech": "Dekha? Didi ko 20 lakh ka package!", "caption": "didi" },
+  "sfx": [],
+  "minDuration": 1.8
+}

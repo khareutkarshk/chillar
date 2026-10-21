@@ -26,8 +26,13 @@ CH.define("calendar-flip", {
     const lab = el.querySelector(".cf-label");
     if (lab) { CH.pop(tl, lab, t); CH.markers(tl, lab, t + 0.3); }
     CH.toss(tl, el.querySelector(".cf-cal"), t, tilt);   // on the cut frame, never an empty field
-    [...el.querySelectorAll(".cf-page")].slice(0, -1).forEach((pg, i) => {
-      tl.fromTo(pg, { rotationX: 0, opacity: 1 }, { rotationX: -100, opacity: 0, duration: 4 * CH.F, ease: "power2.in", transformOrigin: "50% 0%" }, t + 0.25 + i * (+p.flip));
+    const pgs = [...el.querySelectorAll(".cf-page")];
+    pgs.forEach((pg, i) => { if (i > 0) tl.set(pg, { opacity: 0 }, 0); });   // pages beneath stay hidden until revealed
+    pgs.slice(0, -1).forEach((pg, i) => {
+      const at = t + 0.25 + i * (+p.flip);
+      tl.set(pgs[i + 1], { opacity: 1 }, at + 2 * CH.F);   // revealed once the top page has faded
+      tl.fromTo(pg, { rotationX: 0 }, { rotationX: -100, duration: 4 * CH.F, ease: "power2.in", transformOrigin: "50% 0%" }, at);
+      tl.fromTo(pg, { opacity: 1 }, { opacity: 0, duration: 2 * CH.F, ease: "none" }, at);
     });
   },
 });

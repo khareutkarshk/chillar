@@ -10,3 +10,5 @@
 .c-salary-slip .ss-net .t-head { font-size: 72px; }
 .c-salary-slip .ss-netnum { position: relative; }
 .c-salary-slip .ss-net .odo { font-size: 100px; }
+.c-salary-slip .ss-netnum, .c-salary-slip .ss-net .odo, .c-salary-slip .ss-net .odo-d, .c-salary-slip .ss-net .odo-s { flex: none; }   /* digits never squeeze into each other */
+.c-salary-slip .ss-net .t-head { min-width: 0; padding-right: 24px; }

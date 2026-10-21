@@ -35,8 +35,24 @@ CH.define("receipt-list", {
         els.forEach((e, i) => { e.style.display = "none"; tl.fromTo(e, { display: "none" }, { display: "", duration: 0, immediateRender: false }, at + i * step); });
         return CH.print(tl, els, at, step);
       };
-      let end = feed(lines.slice(0, cut), t + 0.12);
-      if (cut < lines.length) end = feed(lines.slice(cut), Math.max(end, t + (+p.totalAt) - step));
+      const rowAt = (p.items || []).map((it) => it.at);
+      let end;
+      if (rowAt.some((a) => a !== undefined && a !== null)) {
+        // per-row `at` (s from scene start): a row prints on its word; rows without `at` follow the previous one
+        const first = lines.indexOf(el.querySelector(".rc-row"));
+        let prev = t + 0.12 - step;
+        const times = lines.map((ln, i) => {
+          const k = i - first, a = k >= 0 ? rowAt[k] : undefined;
+          prev = (a !== undefined && a !== null) ? Math.max(prev + step, t + (+a)) : prev + step;
+          return prev;
+        });
+        lines.forEach((e, i) => { e.style.display = "none"; tl.fromTo(e, { display: "none" }, { display: "", duration: 0, immediateRender: false }, times[i]); });
+        end = Math.max(...times.map((x, i) => x + 0)) ;
+        lines.forEach((e, i) => CH.print(tl, [e], times[i], step));
+        end += step;
+      } else
+      end = feed(lines.slice(0, cut), t + 0.12);
+      if (!rowAt.some((a) => a != null) && cut < lines.length) end = feed(lines.slice(cut), Math.max(end, t + (+p.totalAt) - step));
       CH.draw(tl, paper, end + 0.05, 0.3);
       const sm = el.querySelector(".rc-stampmark");
       if (sm) {   // slams onto the paper right after the total line prints
