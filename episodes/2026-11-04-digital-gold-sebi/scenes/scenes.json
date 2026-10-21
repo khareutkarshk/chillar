@@ -1,0 +1,47 @@
+{
+  "theme": "night",
+  "scenes": [
+    {"id": "s01-hook", "component": "hook-card", "at": 0, "fact": "F7",
+     "params": {"question": "₹10 ka gold. *Umpire* kaun?", "stakes": [{"label": "Gold liya ✓", "amount": "₹10"}, {"label": "SEBI-regulated?", "amount": "?"}], "circle": true, "mascot": "side-eye", "wide": true, "size": 124, "dy": 50}},
+    {"id": "s02-bio", "component": "marker-highlight", "at": "w9",
+     "params": {"text": "Bio: *investor*", "paper": true, "size": 130, "markerAt": 0.5}},
+    {"id": "s03-badge-slip", "component": "receipt-list", "at": "w14", "fact": "F7",
+     "params": {"title": "GOLD ✓ VERIFIED", "meta": "24K badge, shiny", "items": [{"label": "Digital gold", "amount": "₹10"}], "total": {"label": "SEBI-approved?", "amount": "???", "tone": "ink"}, "printed": true, "width": 860, "circleTotal": true}},
+    {"id": "s04-aura", "component": "meme", "at": "w19+0.25",
+     "params": {"meme": "Aura Farming", "kind": "image", "pick": 0,"labels": [{"text": "Gold badge", "x": 50, "y": 12}]}},
+    {"id": "s05-appeal", "component": "marker-highlight", "at": "w23",
+     "params": {"text": "Galat out. *Appeal* kisse?", "paper": true, "size": 124, "markerAt": 0.7}},
+
+    {"id": "s06-nov", "component": "calendar-flip", "at": "w28", "cut": "wipe", "fact": "F1",
+     "params": {"pages": ["JAN 2025", "JUN 2025", "NOV 2025"], "details": ["SEBI ki caution"], "width": 700}},
+    {"id": "s07-bahar", "component": "statement", "at": "w33", "fact": "F2",
+     "params": {"title": "Digital gold?", "body": "\"Mere dayre ke bahar.\" — SEBI", "paper": true, "size": 168, "tilt": -2}},
+    {"id": "s07-stamp", "component": "stamp", "at": "w35+0.2", "until": "w39",
+     "params": {"text": "SEBI ke bahar", "x": 500, "y": 1010, "rotate": -7, "size": 96}},
+    {"id": "s08-myth", "component": "split-compare", "at": "w39", "fact": "F2",
+     "params": {"left": {"title": "Myth", "text": "Illegal hai"}, "right": {"title": "SEBI", "text": "Mera match hi nahi"}, "strikeAt": 0.4, "revealAt": 1.1}},
+    {"id": "s09-protection", "component": "checklist", "at": "w48", "fact": "F4",
+     "params": {"title": "SEBI wali appeal", "items": [{"text": "Investor protection", "ok": false}, {"text": "SEBI se shikayat", "ok": false}], "stagger": 0.6}},
+    {"id": "s09-smug", "component": "mascot-reaction", "at": "w48", "duration": 1.3, "sfx": [],
+     "params": {"expr": "smug", "anim": "blink", "x": 780, "y": 1120, "size": 260}},
+    {"id": "s10-seller", "component": "marker-highlight", "at": "w53+0.32", "fact": "F3",
+     "params": {"text": "Gold *bechne wale* ke paas", "paper": true, "size": 120, "markerAt": 0.3}},
+    {"id": "s11-ghar", "component": "chat-screen", "at": "w59", "fact": "F3",
+     "params": {"name": "Gold wala", "messages": [{"from": "me", "text": "Bhai, mera gold kidhar?"}, {"from": "me", "text": "Hello??"}, {"from": "them", "text": "*Ghar gaya.* Match khatam."}], "stagger": 0.62, "width": 820}},
+    {"id": "s11-shock", "component": "mascot-reaction", "at": "w64", "until": "w65",
+     "params": {"expr": "shocked", "anim": "pop", "x": 780, "y": 1130, "size": 260, "sound": "FAAAH", "soundPick": 0, "soundAt": 0.3}},
+
+    {"id": "s12-route", "component": "meme-format", "at": "w65", "fact": "F5",
+     "params": {"format": "two-panel", "panels": [{"label": "Nah", "text": "App ka shiny badge", "expr": "side-eye"}, {"label": "Haan", "text": "Exchange wala gold", "expr": "smug"}], "reveal": 0.5}},
+    {"id": "s12b-etf", "component": "checklist", "at": "w71", "fact": "F5",
+     "params": {"title": "Appeal yahan hai", "items": [{"text": "Gold ETF", "ok": true}, {"text": "Gold receipt (EGR)", "ok": true}, {"text": "App wala badge", "ok": false}], "stagger": 0.5, "grow": true}},
+    {"id": "s13-umpire", "component": "marker-highlight", "at": "w75", "fact": "F7",
+     "params": {"text": "₹10 ya zyada: *umpire kaun?*", "paper": true, "size": 124, "markerAt": 1.7}},
+    {"id": "s14-captain", "component": "split-compare", "at": "w83",
+     "params": {"left": {"title": "Bio", "text": "Investor"}, "right": {"title": "Gully rule", "text": "Ball wala hi captain"}, "strikeAt": 0.6, "revealAt": 1.1, "dy": 160}}
+  ],
+  "effects": [
+    {"type": "punch", "at": "w19"},
+    {"type": "punch", "at": "w64"}
+  ]
+}

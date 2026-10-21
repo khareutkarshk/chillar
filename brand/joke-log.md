@@ -2,7 +2,13 @@
 
 Use it on round 1. **Games taken:** don't build a new reel on one of these. **Landed:** reuse the *shape* (act-out, self-own, callback), never the line. **Fell flat:** don't write that kind of joke again. **Audience drops** are real Instagram retention — the strongest signal here.
 
-**Cast lately** (characters are welcome — use whoever the story needs): papa (2/6), mummy (2/6), uncle (1/6), padosi (1/6), mamaji (1/6), didi (1/6), chacha (1/6), bua (1/6), aunty (1/6), HR (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
+**Cast lately** (characters are welcome — use whoever the story needs): mummy (2/6), uncle (1/6), papa (1/6), dost (1/6), didi (1/6), chacha (1/6), HR (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
+
+## 2026-11-04-digital-gold-sebi — Digital gold ka umpire kaun?
+- game taken: digital gold is a gully-cricket match. SEBI, the umpire, isn't there, and the ball belongs to the seller. It's new (the joke log has no cricket…
+- landed: Ball bechne wale ki hai. Woh ghar gaya, toh match khatam.
+- landed: Illegal nahi bola. Bola, 
+- fell flat: Gully mein ball wala hi captain hota hai
 
 ## 2026-11-03-gold-bill-decoded — Sone ka bill, line by line
 - game taken: the gold bill is an exam that mummy prepped you for on the rate alone, and every other line on it is out of syllabus (making = Q1, GST = negative…
@@ -29,9 +35,3 @@ Use it on round 1. **Games taken:** don't build a new reel on one of these. **La
 - landed: maal kidhar hai?
 - fell flat: Par yahan bank ka AI check karta hai
 - fell flat: Account, card, SIM, OTP — kisi ko mat do
-
-## 2026-10-29-diwali-gifting-maths — Ek dabba × poora mohalla
-- game taken: the list only ever grows, and everyone, Papa included, keeps calling it "ek hi dabba".
-- landed: Main list kaatne baitha tha. Bua ka naam add karke utha.
-- landed: Matlab yeh gift nahi, udhaar hai. Bada karke chukana padta hai.
-- fell flat: Aur dabbe mein kaju katli kam, tray zyada
