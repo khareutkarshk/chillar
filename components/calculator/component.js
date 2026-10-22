@@ -19,7 +19,7 @@ CH.define("calculator", {
     let expr = "";
     taps.forEach((k, i) => {
       const at = t0 + i * gap, last = i === taps.length - 1 && k === "=";
-      const node = el.querySelector(`.ca-key[data-k="${k}"]`);
+      const node = Array.from(el.querySelectorAll(".ca-key")).find((n) => n.dataset.k === String(k));
       expr = last ? result : expr + k;
       const shown = expr;
       tl.call(() => { disp.textContent = shown; }, null, at);
