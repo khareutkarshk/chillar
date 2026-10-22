@@ -1,6 +1,6 @@
 # Usage — 2026-11-12-salary-12-days (agent runs, from notes/usage.jsonl)
 
-Updated: 2026-10-22 07:07 local time. Agent totals exclude the interactive producer session and external services such as TTS.
+Updated: 2026-10-22 07:09 local time. Agent totals exclude the interactive producer session and external services such as TTS.
 
 | stage | runs | turns | prompt chars | cached read tokens | cost |
 |---|---:|---:|---:|---:|---:|
@@ -10,7 +10,8 @@ Updated: 2026-10-22 07:07 local time. Agent totals exclude the interactive produ
 | voice | 2 | 12 | 380 | 71,892 | $0.13 |
 | edit | 6 | 28 | 125,229 | 379,581 | $0.90 |
 | package | 1 | 8 | 56 | 42,725 | $0.08 |
-| **total** | 15 | 110 | 207,602 | 1,650,608 | **$3.37** |
+| components | 1 | 28 | 331 | 311,146 | $0.20 |
+| **total** | 16 | 138 | 207,933 | 1,961,754 | **$3.58** |
 
 Review rounds: script 2 · video 1.
 Latest script quality: scores: stop 4 · laughs 4 (count 7/6) · specific 4 · clarity 4 · insight 4 · escalation 4 · payoff 4 · speak 4 · fresh 3 · facts PASS

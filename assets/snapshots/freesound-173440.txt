@@ -1,0 +1,12 @@
+# license snapshot 2026-10-21T13:47:06+00:00
+# https://freesound.org/people/Perel/sounds/173440/
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+Freesound API response at download time:
+{
+  "id": 173440,
+  "url": "https://freesound.org/people/Perel/sounds/173440/",
+  "name": "SFX_WriteCrumpleThrow",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "username": "Perel"
+}

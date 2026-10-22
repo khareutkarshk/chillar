@@ -1,0 +1,12 @@
+# license snapshot 2026-10-21T15:07:48+00:00
+# https://freesound.org/people/Ligidium/sounds/193826/
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+Freesound API response at download time:
+{
+  "id": 193826,
+  "url": "https://freesound.org/people/Ligidium/sounds/193826/",
+  "name": "Door Knock - 12.wav",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "username": "Ligidium"
+}

@@ -1,6 +1,6 @@
 # Usage — 2026-11-11-bhai-dooj-gift-tax (agent runs, from notes/usage.jsonl)
 
-Updated: 2026-10-21 20:06 local time. Agent totals exclude the interactive producer session and external services such as TTS.
+Updated: 2026-10-22 07:07 local time. Agent totals exclude the interactive producer session and external services such as TTS.
 
 | stage | runs | turns | prompt chars | cached read tokens | cost |
 |---|---:|---:|---:|---:|---:|

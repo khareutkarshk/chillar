@@ -163,5 +163,10 @@
   "file": "sebi-digital-gold-pr70.pdf.pdf",
   "fetched": "2026-10-21",
   "bytes": 111952
+ },
+ "https://prsindia.org/files/bills_acts/bills_parliament/2025/The_Income-tax_Bill,_2025.pdf": {
+  "file": "it-bill-2025.pdf.pdf",
+  "fetched": "2026-10-21",
+  "bytes": 9114788
  }
 }
