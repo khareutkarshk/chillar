@@ -649,6 +649,17 @@ def st_voice(L: Line, ep: Path, a) -> None:
         L.sh(PY, "pipeline/voice_check.py", str(ep), check=False)
         vc = ep / ".cache" / "voice_check.json"
         flags = json.loads(vc.read_text()).get("flags", 0) if vc.exists() else 0
+        if flags and attempt == 1:
+            # code first: each misheard word gets verified respellings (→ pronunciations.tsv) or a fresh take of
+            # its line when the shipped take was just unlucky. The agent only sees what code couldn't fix.
+            L.sh(PY, "pipeline/pronounce.py", "solve", str(ep), check=False)
+            fix = json.loads((ep / ".cache" / "pronounce_fix.json").read_text()) \
+                if (ep / ".cache" / "pronounce_fix.json").exists() else {}
+            if fix.get("fixed") or fix.get("retake"):
+                L.sh(PY, "pipeline/tts.py", str(ep), *(["--retake", ",".join(fix["retake"])] if fix.get("retake") else []))
+                clean_align(L, ep)
+                L.sh(PY, "pipeline/voice_check.py", str(ep), check=False)
+                flags = json.loads(vc.read_text()).get("flags", 0) if vc.exists() else 0
         if not flags or attempt == 2:
             if flags:
                 print(f"  ⚠ {flags} voice line(s) still flagged — the video reviewer gets .cache/voice_check.md")
@@ -974,7 +985,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("episode")
     ap.add_argument("--topic", default="")
-    ap.add_argument("--format", type=int, choices=[30, 60, 90])
+    ap.add_argument("--format", type=int, choices=[12, 30, 60, 90])   # 12 = pilot test of the line
     ap.add_argument("--post-date", help="planned posting date (YYYY-MM-DD); required when starting a new episode")
     ap.add_argument("--from", dest="frm", choices=STAGES)
     ap.add_argument("--only", choices=STAGES + ["fix", "components"])

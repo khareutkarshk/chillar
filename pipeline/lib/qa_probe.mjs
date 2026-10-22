@@ -31,7 +31,8 @@ try {
   page.on("pageerror", (e) => errors.push(String(e)));
   page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
   // the renderer injects its runtime; standalone we only need the registry it reads from
-  await page.evaluateOnNewDocument(() => { window.__timelines = {}; });
+  // CH_PROBE: the handheld camera layer stays off, so every box is measured where the layout put it
+  await page.evaluateOnNewDocument(() => { window.__timelines = {}; window.CH_PROBE = true; });
   await page.goto(pathToFileURL(req.html).href, { waitUntil: "load" });
   // the renderer sizes the page to the composition; standalone html/body would collapse to 0 height
   await page.addStyleTag({ content: "html, body { width: 1080px; height: 1920px; }" });
@@ -98,7 +99,7 @@ try {
 
     // does a hit-tested element paint over what lies under it? Pen scribbles and marker swipes are meant to.
     function painter(n) {
-      if (n.closest && n.closest(".scrib, .marker")) return false;
+      if (n.closest && n.closest(".scrib, .marker, .ch-tex, #light")) return false;   // light + paper fibre are not objects
       if (n instanceof SVGElement) return !(n instanceof SVGSVGElement) && !(n instanceof SVGGElement);
       if (n.tagName === "IMG" || n.tagName === "CANVAS") return true;
       const cs = getComputedStyle(n);
@@ -193,7 +194,7 @@ try {
 
       for (const el of clip.querySelectorAll("*")) {
         const r = el.getBoundingClientRect();
-        if (r.width * r.height < 900) continue;
+        if (r.width * r.height < 900 || el.classList.contains("ch-tex")) continue;
         const cs = getComputedStyle(el);
         const fill = (cs.backgroundColor && !/rgba\(.*,\s*0\)$|transparent/.test(cs.backgroundColor)) || cs.backgroundImage !== "none";
         const kind = el instanceof SVGSVGElement ? "svg" : el.tagName === "IMG" || el.tagName === "CANVAS" ? "img" : fill ? "fill" : null;

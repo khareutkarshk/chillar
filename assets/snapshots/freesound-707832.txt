@@ -1,0 +1,12 @@
+# license snapshot 2026-10-22T09:14:43+00:00
+# https://freesound.org/people/stevielematt/sounds/707832/
+# http://creativecommons.org/publicdomain/zero/1.0/
+
+Freesound API response at download time:
+{
+  "id": 707832,
+  "url": "https://freesound.org/people/stevielematt/sounds/707832/",
+  "name": "IN-BREATHS",
+  "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+  "username": "stevielematt"
+}

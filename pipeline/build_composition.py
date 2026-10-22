@@ -18,6 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib.common import BRAND, ROOT  # noqa: E402
 
 COMP = ROOT / "components"
+POST = {"wordmark"}       # composited after the camera (static on screen)
 TOK = json.loads((BRAND / "tokens.json").read_text())
 GSAP = ROOT / "node_modules" / "gsap" / "dist" / "gsap.min.js"
 
@@ -65,16 +66,18 @@ def build(spec: dict, out: Path, comp_id: str = "reel") -> Path:
         scenes.append(s)
     dur = round(float(spec["duration"]), 3)
 
-    clips = []
+    clips, post = [], []
     for s in scenes:
-        clips.append(f'    <div id="{s["id"]}" class="clip scene" data-start="{s["start"]:.3f}" '
+        # added in post, like a real edit: the handle never rides the handheld camera
+        (post if s["component"] in POST else clips).append(f'    <div id="{s["id"]}" class="clip scene" data-start="{s["start"]:.3f}" '
                      f'data-duration="{s["duration"]:.3f}" data-track-index="{s.get("track", 1)}"></div>')
     caps = []
     for i, g in enumerate(spec.get("captions") or []):
         caps.append(f'    <div id="cap{i}" class="clip cap-group" data-start="{g["start"]:.3f}" '
                     f'data-duration="{max(g["end"] - g["start"], 0.05):.3f}" data-track-index="9"></div>')
 
-    mount = {"scenes": scenes, "effects": spec.get("effects", []), "captions": spec.get("captions", [])}
+    mount = {"scenes": scenes, "effects": spec.get("effects", []), "captions": spec.get("captions", []),
+             "duration": dur, "episode": spec.get("episode", ""), "human": spec.get("human", True)}
     html = f"""<!doctype html>
 <html lang="en" data-theme="{spec.get('theme') or TOK['theme']}">
 <head>
@@ -88,8 +91,17 @@ def build(spec: dict, out: Path, comp_id: str = "reel") -> Path:
 </head>
 <body>
 <div id="root" data-composition-id="{comp_id}" data-start="0" data-width="1080" data-height="1920" data-duration="{dur}">
-  <div id="stage">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="ch-boil" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.032" numOctaves="2" seed="1"/>
+    <feDisplacementMap in="SourceGraphic" scale="1.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+    <filter id="ch-ink" x="-2%" y="-10%" width="104%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="3"/>
+    <feDisplacementMap in="SourceGraphic" scale="1.3" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
+  <div id="camera"><div id="rig"><div id="stage">
 {chr(10).join(clips)}
+  </div></div></div>
+  <div id="light"></div>
+  <div id="overlay">
+{chr(10).join(post)}
   </div>
   <div id="captions">
 {chr(10).join(caps)}

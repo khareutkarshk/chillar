@@ -30,7 +30,7 @@ SOFT = re.compile(r"\b(ek|do|teen|char|paanch|das|sau)\b", re.I)
 STALE_DAYS = 180
 WPS = 3.2                                   # Sunny @ pace 1.2 after clean (measured: 3.09 / 3.33 on the first two reels)
 OUTRO_S = 2.0                               # outro receipt after the voice (cuts on the last word, 1.9 s)
-LAUGH_MIN = {"30": 3, "60": 6, "90": 9}
+LAUGH_MIN = {"12": 1, "30": 3, "60": 6, "90": 9}
 FIRST_LAUGH_S = 5.0
 # absolutes that a fact rarely supports — flag them on cited lines so the writer checks before review
 ABSOLUTE = re.compile(r"\b(hamesha|kabhi nahi|kabhi bhi nahi|har baar|sab kuch|guaranteed|guarantee|pakka|always|never|forever)\b", re.I)
@@ -85,9 +85,9 @@ LABEL_COLON = re.compile(r"^((?:[\w'₹]+\s?){1,3}):\s")
 
 JARGON = [l.split("\t")[0] for l in (BRAND / "jargon.tsv").read_text().splitlines()
           if l.strip() and not l.startswith("#")] if (BRAND / "jargon.tsv").exists() else []
-JARGON_MAX = {"30": 2, "60": 3, "90": 4}     # distinct finance terms one reel can define and still be followed
+JARGON_MAX = {"12": 1, "30": 2, "60": 3, "90": 4}     # distinct finance terms one reel can define and still be followed
 HOOK_HOLD_S = 12.0                          # the line that answers L1's question must not start before this
-WORD_RANGE = {"30": (70, 95), "60": (140, 180), "90": (215, 260)}   # CLAUDE.md §4, written words
+WORD_RANGE = {"12": (26, 42), "30": (70, 95), "60": (140, 180), "90": (215, 260)}   # CLAUDE.md §4, written words
 STALE_TSV = BRAND / "stale-bits.tsv"
 # §3: no real finance/payment/jeweller brands on screen or in the voice; "<Word> app" is always suspect
 BRAND_NAMES = ("paytm|phonepe|phone pe|gpay|google pay|bhim|cred|zerodha|groww|upstox|razorpay|amazon pay|mobikwik|"

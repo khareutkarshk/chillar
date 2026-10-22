@@ -1643,5 +1643,43 @@
     "license_snapshot": "assets/snapshots/myinstants-faaah-63455.txt",
     "status": "meme",
     "basis": "meme (uncleared)"
+  },
+  {
+    "name": "IN-BREATHS",
+    "file": "assets/downloads/foley/freesound-in-breaths-707832.mp3",
+    "kind": "sfx",
+    "source": "freesound",
+    "source_id": "707832",
+    "url": "https://freesound.org/people/stevielematt/sounds/707832/",
+    "download_url": "https://cdn.freesound.org/previews/707/707832_8476788-hq.mp3",
+    "author": "stevielematt",
+    "license": "CC0 1.0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "attribution_needed": "n",
+    "attribution_text": "",
+    "date": "2026-10-22",
+    "sha256": "44f0ebccf999b9e9e1f9d43bdf2bf9b399f70a8a7cbfd0fcaa3d591c81241ba0",
+    "license_snapshot": "assets/snapshots/freesound-707832.txt"
+  },
+  {
+    "name": "IN-BREATHS",
+    "file": "brand/sfx/inhale.wav",
+    "kind": "sfx",
+    "source": "freesound",
+    "source_id": "707832",
+    "url": "https://freesound.org/people/stevielematt/sounds/707832/",
+    "download_url": "https://cdn.freesound.org/previews/707/707832_8476788-hq.mp3",
+    "author": "stevielematt",
+    "license": "CC0 1.0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "attribution_needed": "n",
+    "attribution_text": "",
+    "date": "2026-10-22",
+    "sha256": "90c42b6ee6eef7480285a323f1dfd92632f5e9193442309dcc806110270b6e2e",
+    "license_snapshot": "assets/snapshots/freesound-707832.txt",
+    "status": "locked",
+    "slot": "foley:inhale",
+    "derived_from": "assets/downloads/foley/freesound-in-breaths-707832.mp3",
+    "processing": "atrim=0.192:0.410,asetpts=PTS-STARTPTS,afade=t=in:d=0.01,afade=t=out:st=0.138:d=0.08,volume=10.40dB"
   }
 ]

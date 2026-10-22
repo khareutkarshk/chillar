@@ -63,12 +63,15 @@ TOL = 4            # px of overflow tolerated (anti-aliasing, seeded tilt)
 MIN_FONT = 26      # px at 1080 wide
 SMALL_FONT = 36    # below this a shot's text is "hard to read" (warn, per shot)
 NARROW_W, NARROW_H = 0.65, 0.30   # content box under 65 % of the width AND 30 % of the height = dead field
-SAME_RUN, SAME_TOL = 4, 70        # 4 shots in a row with content boxes within 70 px = same composition
+SAME_RUN, SAME_TOL = 3, 70        # 3 shots in a row with content boxes within 70 px = same composition (template)
 NO_PROBE = {"bg", "wordmark"}
 CONTRAST_ERR, CONTRAST_WARN = 2.0, 3.0   # text vs what is behind it (WCAG ratio; big headline type)
 SMALL_OBJ = 0.75                          # paper objects with text spanning < 75 % of the content width (≈ 660 px)
 EMPTY_PAPER, EMPTY_PAPER_MIN_H = 0.7, 300  # a ≥ 300 px paper whose text ends above 70 % of its height = half-empty
 LATE_SHARE, LATE_MIN_SHOT = 0.4, 1.5       # settled frame shows < 40 % of the shot's final content (shots ≥ 1.5 s)
+# a frame caught mid-build (a blank chit, a receipt header alone) reads as a generator still loading: below these
+# it's an error, not a warning
+EMPTY_PAPER_ERR, LATE_SHARE_ERR = 0.5, 0.2
 COVER_OK = {"marker-highlight", "transition", "captions"}   # overlays meant to sit on text
 HIDDEN_ERR, HIDDEN_WARN = 0.5, 0.3   # share of a text's probe points under a painted object
 TOP_HEAVY_BOTTOM = 700               # a shot whose content ends above this leaves the screen's middle empty
@@ -542,7 +545,7 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
                 continue
             used = (max(b[3] for b in inner) - pb[1]) / ph
             if used < EMPTY_PAPER:
-                add("warn", "empty-paper", s_["t"], f"{sid} ({c['comp']})", f"director|component:{c['comp']}",
+                add("error" if used < EMPTY_PAPER_ERR else "warn", "empty-paper", s_["t"], f"{sid} ({c['comp']})", f"director|component:{c['comp']}",
                     f"its paper is {ph:.0f}px tall but the text ends at {used:.0%} of it — half-empty paper",
                     "size the paper to what has printed (grow it per row), or fewer/bigger rows", key=("emptypaper", sid))
                 break
@@ -563,7 +566,7 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
         sc = scenes[sid]
         end_t, end_a = last_area.get(sid, (0, 0))
         if sc["duration"] >= LATE_MIN_SHOT and end_a > 0 and end_t > s_["t"] and area(s_["box"]) < LATE_SHARE * end_a:
-            add("warn", "late-content", s_["t"], f"{sid} ({s_['comp']})", f"director|component:{s_['comp']}",
+            add("error" if area(s_["box"]) < LATE_SHARE_ERR * end_a else "warn", "late-content", s_["t"], f"{sid} ({s_['comp']})", f"director|component:{s_['comp']}",
                 f"{s_['t'] - sc['start']:.1f}s after its cut it shows {area(s_['box']) / end_a:.0%} of what it ends on "
                 "— the frame reads empty while the rest arrives",
                 "show the first rows/parts on the cut (smaller step, earlier start), or cut in later", key=("late", sid))

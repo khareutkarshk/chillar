@@ -10,6 +10,9 @@ from pathlib import Path
 FACT_RE = re.compile(r"\[(F\d+)\]")
 JOKE_RE = re.compile(r"\[JOKE\]", re.I)
 DIRECTION_RE = re.compile(r"\{[^}]*\}")
+# screenplay delivery marks the writer puts in a line, like an actor's script (never spoken, never captioned):
+# pauses where they fall, a mood/pace for what follows, (cont'd) = this line carries on the last one's thought
+PERF_RE = re.compile(r"\((beat|pause|long pause|breath|deadpan|excited|warm|soft|fast|slow|cont'?d)\)", re.I)
 COMMENT_RE = re.compile(r"<!--.*?-->", re.S)
 
 DEFAULTS = {
@@ -30,6 +33,7 @@ class Line:
     facts: list[str] = field(default_factory=list)
     joke: bool = False
     directions: list[str] = field(default_factory=list)
+    perf: list[tuple[int, str]] = field(default_factory=list)   # (spoken words before the mark, mark)
 
 
 @dataclass
@@ -61,12 +65,12 @@ class Episode:
 
     @property
     def format(self) -> str:
-        """Duration format "30" | "60" | "90" from script.md target_seconds (nearest)."""
+        """Duration format "30" | "60" | "90" from script.md target_seconds (nearest); "12" = a pilot test only."""
         try:
             t = float(self.meta.get("target_seconds", 60) or 60)
         except ValueError:
             t = 60.0
-        return min(("30", "60", "90"), key=lambda f: abs(int(f) - t))
+        return min(("12", "30", "60", "90"), key=lambda f: abs(int(f) - t))
 
     @property
     def theme(self) -> str:
@@ -131,9 +135,13 @@ def parse_script(text: str) -> tuple[dict, list[Line], list[str], dict[str, str]
         facts = FACT_RE.findall(s)
         directions = [d.strip("{} ") for d in DIRECTION_RE.findall(s)]
         spoken = DIRECTION_RE.sub("", JOKE_RE.sub("", FACT_RE.sub("", s)))
-        spoken = re.sub(r"\s+", " ", spoken).strip()
+        perf = []
+        for m in PERF_RE.finditer(spoken):
+            perf.append((len(PERF_RE.sub(" ", spoken[:m.start()]).split()), m.group(1).lower().replace("'", "")))
+        spoken = re.sub(r"\s+", " ", PERF_RE.sub(" ", spoken)).strip()
+        spoken = re.sub(r"\s+([,.?!।])", r"\1", spoken)
         n += 1
-        lines.append(Line(f"L{n}", chapter, s, spoken, facts, bool(JOKE_RE.search(s)), directions))
+        lines.append(Line(f"L{n}", chapter, s, spoken, facts, bool(JOKE_RE.search(s)), directions, perf))
     if not chapters:
         chapters = ["Intro"]
     return meta, lines, chapters, fields

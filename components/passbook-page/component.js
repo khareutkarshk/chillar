@@ -20,7 +20,8 @@ CH.define("passbook-page", {
               <span class="pb-r pb-bal">${balTxt(r.bal)}${i === last && p.circleBalance
                 ? CH.scribble("circle", { x: 214 - balTxt(r.bal).length * 23 - 34, y: 6, w: balTxt(r.bal).length * 23 + 48, h: 70, rng }) : ""}</span>
             </div>`).join("")}`;
-    const fs = `--pb-fs: ${+p.size || 38}px`;
+    const dl = Math.max(0, ...rows.map((r) => [...String(r.date || "")].length));
+    const fs = `--pb-fs: ${+p.size || 38}px; --pb-dc: ${Math.max(3.3, dl * 0.66 + 0.2).toFixed(2)}em`;
     // grow (default unless printed:true): an invisible ghost page reserves the final layout; the live paper lengthens as each line prints
     el.innerHTML = grow
       ? `<div class="zone"><div class="pb-stack">

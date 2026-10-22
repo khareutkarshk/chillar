@@ -46,11 +46,25 @@ SARVAM_URL = "https://api.sarvam.ai/text-to-speech"
 DEFAULTS = {"provider": "sarvam", "model": "bulbul:v4-flash", "speaker": "sunny_hi_reels",
             "pace": 1.2, "temperature": 0.6, "language": "hi-IN"}
 MAX_CHARS = 2400  # API limit is 2500 for v3 / v4-flash
-TAG = re.compile(r"\{\s*(beat|slow|fast)(?:\s*:\s*([\d.]+))?\s*\}")
+TAG = re.compile(r"\{\s*(beat|breath|cont|slow|fast|deadpan|excited|warm|soft)(?:\s*:\s*([\d.]+))?\s*\}")
 BEAT_S, BEAT_MIN, BEAT_MAX = 0.45, 0.15, 1.2
-PACE_TAG = {"slow": 0.9, "fast": 1.1}   # × the channel pace — the channel pace itself never changes
-LINE_GAP = 0.25    # between untagged lines (under audio_clean's 0.28 s cap, so it survives as is)
+# delivery for what follows the tag: (× channel pace, temperature or None = the channel's). Sarvam has no SSML;
+# pace + temperature per take is what it can act with (lower temperature = flatter, higher = livelier)
+MOOD = {"slow": (0.9, None), "fast": (1.1, None), "deadpan": (0.95, 0.35), "excited": (1.06, 0.85),
+        "warm": (0.96, 0.7), "soft": (0.92, 0.5)}
+PACE_TAG = {k: v[0] for k, v in MOOD.items()}
 EDGE = 0.03        # silence kept at each end of a take before the gap is added
+# gaps a performer leaves (s): after the line's last mark, a chapter turn, into / out of a quoted character line.
+# 2026-11 batch measured flat 0.10–0.37 s line gaps and no gap into a quote ("bola, "Main…") — the voice ran
+# narrator and character together.
+END_GAP = {"?": 0.40, "!": 0.34, "।": 0.30, ".": 0.30, ",": 0.16, ";": 0.18, ":": 0.2, "—": 0.18}
+LINE_GAP, CHAPTER_GAP, CONT_GAP, QUOTE_IN, QUOTE_OUT, MOOD_GAP = 0.22, 0.24, 0.10, 0.20, 0.14, 0.12
+JITTER = 0.12      # ± share of every auto gap, seeded by the text: no two gaps identical, every render the same
+BREATH_MIN_GAP = 0.33     # an inhale needs room …
+BREATH_AFTER_S = 2.4      # … and a reason: the last take ran long (out of air) or the chapter turned
+BREATH_SPACING = 3.0      # never two inhales closer than this
+SPEECH = re.compile(r"(बोल[ाेीता]*|कह[ाेीता]*|पूछ[ाेीता]*|चिल्ला[याए]*|बताया|लिखा|जोड़े|sir)[,:]?$", re.I)
+QUOTE = re.compile(r"[\"“]([^\"”]+)[\"”]|(?<![\wऀ-ॿ])[\'‘]([^\'’]+)[\'’](?![\wऀ-ॿ])")
 
 
 LEXICON = ROOT / "brand" / "pronunciations.tsv"
@@ -88,44 +102,131 @@ class Seg:
     line: int          # 0-based index of the spoken line (= script.md line order)
     text: str
     pace: float        # multiplier on the channel pace
-    beat: float        # seconds of pause before this segment (0 = the natural line gap)
+    beat: float        # directed pause before this segment (0 = the automatic gap)
+    temp: float | None = None    # temperature for this take (None = the channel's)
+    kind: str = "line"           # line (starts a line) · quote (a character speaks) · after (narration resumes) · mood
+    breath: bool = False         # {breath}: an audible breath before it
+    cont: bool = False           # {cont}: the line carries on the previous one's thought (tiny gap)
+
+
+def _pieces(raw: str) -> list[tuple[str, str]]:
+    """Split a line at a character's quoted words: [(kind, text)]. A quote splits when someone says it (a speech
+    verb before it, or ≥ 3 words) — not a scare-quoted term ('last chance' वाली stays one phrase)."""
+    out, pos = [], 0
+    for m in QUOTE.finditer(raw):
+        inner = m.group(1) or m.group(2) or ""
+        before = strip_tags(raw[pos:m.start()])
+        if len(strip_tags(inner).split()) < 3 and not SPEECH.search(before.rstrip(" ,:")):
+            continue
+        if before:
+            out.append(("after" if out else "line", raw[pos:m.start()]))
+        out.append(("quote", raw[m.start():m.end()]))
+        pos = m.end()
+    rest = raw[pos:]
+    if strip_tags(rest) or not out:
+        out.append(("after" if out else "line", rest))
+    elif rest.strip():                             # only tags left after the quote: they belong to the quote
+        out[-1] = (out[-1][0], out[-1][1] + rest)
+    return out
 
 
 def direction(text: str) -> list[Seg]:
     """tts.txt -> segments. A tag-only line gives its beat to the next line; an unknown {tag} is an error
-    (it would be read aloud)."""
-    segs, n, pending = [], 0, 0.0
+    (it would be read aloud). Mood tags at the start of a line set its delivery; mid-line they start a new take."""
+    segs, n, pending, pend_breath = [], 0, 0.0, False
     for raw in text.splitlines():
         if not strip_tags(raw):
             pending = max(pending, sum(_beat(m) for m in TAG.finditer(raw)))
+            pend_breath = pend_breath or any(m.group(1) == "breath" for m in TAG.finditer(raw))
             continue
         left = TAG.sub("", raw)
         if "{" in left or "}" in left:
-            sys.exit(f"tts.txt: unknown direction tag in “{raw.strip()}” — use {{beat}}, {{beat:0.6}}, {{slow}} or {{fast}}")
-        pace = 1.0
-        for m in TAG.finditer(raw):
-            if m.group(1) in PACE_TAG:
-                pace = PACE_TAG[m.group(1)]
-        pos, beat = 0, pending
-        for m in list(TAG.finditer(raw)) + [None]:
-            piece = strip_tags(raw[pos:m.start() if m else len(raw)])
-            if piece:
-                segs.append(Seg(n, piece, pace, beat))
-                beat = 0.0
-            if m is None:
-                break
-            if m.group(1) == "beat":
-                beat = max(beat, _beat(m))
-            pos = m.end()
-        pending = beat                     # a trailing {beat} pauses before the next line
+            sys.exit(f"tts.txt: unknown direction tag in “{raw.strip()}” — use {{beat}}, {{beat:0.6}}, {{breath}}, "
+                     "{cont}, {slow}, {fast}, {deadpan}, {excited}, {warm} or {soft}")
+        mood: tuple[float, float | None] = (1.0, None)
+        cont = bool(re.match(r"\s*\{\s*cont\s*\}", raw))
+        beat, breath, first = pending, pend_breath, True
+        for kind, piece in _pieces(raw):
+            pos = 0
+            for m in list(TAG.finditer(piece)) + [None]:
+                words = strip_tags(piece[pos:m.start() if m else len(piece)])
+                if words:
+                    segs.append(Seg(n, words, mood[0], beat, mood[1], "line" if first else kind,
+                                    breath, cont and first))
+                    first, beat, breath, kind = False, 0.0, False, "mood" if kind == "line" else kind
+                if m is None:
+                    break
+                t = m.group(1)
+                if t == "beat":
+                    beat = max(beat, _beat(m))
+                elif t == "breath":
+                    beat, breath = max(beat, 0.3), True
+                elif t in MOOD:
+                    mood = MOOD[t]
+                    if not first and not beat:
+                        kind = "mood"
+                pos = m.end()
+        pending, pend_breath = beat, breath      # a trailing {beat} pauses before the next line
         n += 1
     return segs
 
 
 def _beat(m: re.Match) -> float:
+    if m.group(1) == "breath":
+        return 0.3
     if m.group(1) != "beat":
         return 0.0
     return min(max(float(m.group(2)) if m.group(2) else BEAT_S, BEAT_MIN), BEAT_MAX)
+
+
+def _jitter(key: str) -> float:
+    return 1 + JITTER * (int(hashlib.sha1(key.encode()).hexdigest()[:6], 16) / 0xFFFFFF * 2 - 1)
+
+
+def auto_gap(prev: "Seg", seg: "Seg", chapters: list[str] | None = None) -> float:
+    """The pause a performer leaves before `seg` when the script directs none."""
+    end = prev.text.rstrip(" \"'”’)")[-1:] if prev.text else ""
+    if seg.kind == "quote":                    # a reply after a question waits like the question's line end
+        g = max(QUOTE_IN, END_GAP.get(end, 0) if end in "?!।." else 0)
+    elif seg.kind == "after":
+        g = QUOTE_OUT
+    elif seg.kind == "mood" and seg.line == prev.line:
+        g = MOOD_GAP
+    else:
+        g = END_GAP.get(end, LINE_GAP)
+        if chapters and seg.line < len(chapters) and prev.line < len(chapters) and chapters[seg.line] != chapters[prev.line]:
+            g += CHAPTER_GAP
+        if seg.cont:
+            g = min(g, CONT_GAP)
+    return round(g * _jitter(prev.text + "|" + seg.text), 3)
+
+
+PERF_TAG = {"beat": "{beat}", "pause": "{beat:0.3}", "long pause": "{beat:0.9}", "breath": "{breath}",
+            "contd": "{cont}", **{m: "{" + m + "}" for m in MOOD}}
+
+
+def port_marks(text: str, ep) -> tuple[str, int]:
+    """Carry script.md's screenplay marks ((beat), (deadpan), (cont'd)…) into tts.txt lines that carry no tags of
+    their own, at the same word position (tts.txt keeps the script's words and order). → (text, marks ported)."""
+    spoken = [ln for ln in ep.lines if ln.spoken]
+    out, i, n = [], 0, 0
+    for raw in text.splitlines():
+        if not strip_tags(raw):
+            out.append(raw)
+            continue
+        ln = spoken[i] if i < len(spoken) else None
+        i += 1
+        if not ln or not ln.perf or TAG.search(raw):
+            out.append(raw)
+            continue
+        words = raw.split()
+        ns = max(1, len(ln.spoken.split()))
+        for k, mark in sorted(ln.perf, key=lambda x: -x[0]):      # back to front keeps earlier indexes valid
+            j = min(len(words), round(k * len(words) / ns))
+            words.insert(j, PERF_TAG[mark])
+            n += 1
+        out.append(" ".join(words))
+    return "\n".join(out), n
 
 
 def tts_text(ep) -> tuple[str, bool]:
@@ -147,15 +248,20 @@ def chunks(text: str) -> list[str]:
     return out
 
 
-def sarvam_request(text: str, cfg: dict, pace: float) -> bytes:
+def sarvam_request(text: str, cfg: dict, pace: float, temp: float | None = None) -> bytes:
     key = env("SARVAM_API_KEY")
     if not key:
         sys.exit("SARVAM_API_KEY missing in .env")
     body = {"text": text, "language_code": cfg["language"], "model": cfg["model"],
             "speaker": cfg["speaker"], "pace": round(pace, 3),
-            "temperature": float(cfg["temperature"]), "speech_sample_rate": 48000,
+            "temperature": float(cfg["temperature"] if temp is None else temp), "speech_sample_rate": 48000,
             "output_audio_codec": "wav"}
-    r = session.post(SARVAM_URL, json=body, headers={"api-subscription-key": key}, timeout=120)
+    for attempt in range(7):                     # 429 under load: back off instead of failing the whole voice
+        r = session.post(SARVAM_URL, json=body, headers={"api-subscription-key": key}, timeout=120)
+        if r.status_code == 200 or r.status_code not in (429, 500, 502, 503) or attempt == 6:
+            break
+        import time
+        time.sleep(min(60, 4 * 2 ** attempt))
     if r.status_code != 200:
         sys.exit(f"Sarvam {r.status_code}: {r.text[:400]}")
     return base64.b64decode(r.json()["audios"][0])
@@ -178,16 +284,17 @@ def groups(segs: list[Seg], per_line: bool) -> list[list[Seg]]:
     out: list[list[Seg]] = []
     for s in segs:
         g = out[-1] if out else None
-        if (g and not per_line and not s.beat and s.pace == g[-1].pace
-                and sum(len(x.text) + 1 for x in g) + len(s.text) <= MAX_CHARS):
+        if (g and not per_line and not s.beat and s.pace == g[-1].pace and s.temp == g[-1].temp
+                and s.kind not in ("quote", "after") and s.line == g[-1].line and sum(len(x.text) + 1 for x in g) + len(s.text) <= MAX_CHARS):
             g.append(s)
         else:
             out.append([s])
     return out
 
 
-def take_key(text: str, cfg: dict, pace: float) -> str:
-    sig = json.dumps([text, cfg["model"], cfg["speaker"], round(pace, 3), float(cfg["temperature"]), cfg["language"]],
+def take_key(text: str, cfg: dict, pace: float, temp: float | None = None) -> str:
+    sig = json.dumps([text, cfg["model"], cfg["speaker"], round(pace, 3),
+                      float(cfg["temperature"] if temp is None else temp), cfg["language"]],
                      ensure_ascii=False)
     return hashlib.sha1(sig.encode()).hexdigest()[:16]
 
@@ -209,8 +316,10 @@ def trim(x, sr: int):
     return x[a:b]
 
 
-def sarvam_directed(text: str, cfg: dict, dest: Path, cache: Path, retake: set[int] = frozenset()) -> dict:
-    """The voiceover from tts.txt: direction tags -> segments -> one cached take each -> joined with set gaps."""
+def sarvam_directed(text: str, cfg: dict, dest: Path, cache: Path, retake: set[int] = frozenset(),
+                    chapters: list[str] | None = None) -> dict:
+    """The voiceover from tts.txt: direction -> segments -> one cached take each -> joined with performed gaps.
+    Every gap longer than audio_clean's cap is recorded as a beat, so the performance survives the clean."""
     import numpy as np
     import soundfile as sf
     segs = direction(text)
@@ -218,16 +327,17 @@ def sarvam_directed(text: str, cfg: dict, dest: Path, cache: Path, retake: set[i
         sys.exit("tts.txt has no spoken lines")
     cache.mkdir(parents=True, exist_ok=True)
     per_line = bool(cfg.get("per_line", True))
-    audio, beats, sr, paid, reused = [], [], None, 0, 0
-    t = 0.0
-    for i, g in enumerate(groups(segs, per_line)):
+    audio, beats, breaths, gaps, sr, paid, reused = [], [], [], [], None, 0, 0
+    t, prev, prev_len, last_breath = 0.0, None, 0.0, -9.0
+    gs = groups(segs, per_line)
+    for i, g in enumerate(gs):
         words = "\n".join(s.text for s in g)
         pace = float(cfg["pace"]) * g[0].pace
-        p = cache / f"{take_key(words, cfg, pace)}.wav"
+        p = cache / f"{take_key(words, cfg, pace, g[0].temp)}.wav"
         if p.exists() and not any(s.line in retake for s in g):
             reused += len(words)
         else:
-            p.write_bytes(sarvam_request(words, cfg, pace))
+            p.write_bytes(sarvam_request(words, cfg, pace, g[0].temp))
             paid += len(words)
         x, r = sf.read(io.BytesIO(p.read_bytes()), dtype="float32")
         if sr is None:
@@ -236,17 +346,26 @@ def sarvam_directed(text: str, cfg: dict, dest: Path, cache: Path, retake: set[i
             sys.exit(f"tts: take {p.name} is {r} Hz, the others {sr} Hz")
         x = trim(x, sr)
         if i:
-            gap = g[0].beat or LINE_GAP
-            if g[0].beat:                  # audio_clean keeps this pause instead of capping it
+            gap = g[0].beat or auto_gap(prev, g[0], chapters)
+            gaps.append(round(gap, 3))
+            if gap + 2 * EDGE > 0.26:      # audio_clean keeps this pause instead of capping it at max_gap_s
                 beats.append([round(t + gap / 2, 3), round(gap + 2 * EDGE, 3)])
+            new_sentence = prev.text.rstrip(" \"'”’)")[-1:] in "।.?!" and g[0].kind == "line"
+            turn = bool(chapters) and g[0].line < len(chapters) and chapters[g[0].line] != chapters[prev.line]
+            if g[0].breath or (new_sentence and gap >= BREATH_MIN_GAP and g[0].line != prev.line
+                               and (prev_len >= BREATH_AFTER_S or turn) and t - last_breath >= BREATH_SPACING):
+                breaths.append(g[0].line)
+                last_breath = t
             audio.append(np.zeros((int(gap * sr),) + x.shape[1:], dtype="float32"))
             t += gap
         audio.append(x)
         t += len(x) / sr
+        prev, prev_len = g[-1], len(x) / sr
     sf.write(dest, np.concatenate(audio), sr, subtype="PCM_16")
-    return {"request_chars": paid, "cached_chars": reused, "takes": len(groups(segs, per_line)),
-            "per_line": per_line, "beats": beats,
-            "paced": sorted({s.line + 1 for s in segs if s.pace != 1.0})}
+    return {"request_chars": paid, "cached_chars": reused, "takes": len(gs),
+            "per_line": per_line, "beats": beats, "breaths": sorted(set(breaths)), "gaps": gaps,
+            "paced": sorted({s.line + 1 for s in segs if s.pace != 1.0}),
+            "moods": sorted({s.line + 1 for s in segs if s.temp is not None})}
 
 
 def kokoro(text: str, cfg: dict, dest: Path) -> dict:
@@ -305,6 +424,9 @@ def main() -> None:
         print(f"probe: {duration(dest):.1f} s of voice")
         return
     text, mixed = tts_text(ep)
+    text, ported = port_marks(text, ep) if mixed else (text, 0)
+    if ported:
+        print(f"  screenplay: {ported} delivery mark(s) from script.md")
     text, hits = respell(text)
     if hits:
         print(f"  lexicon: {', '.join(hits)} (brand/pronunciations.tsv)")
@@ -331,7 +453,8 @@ def main() -> None:
             want = {x.strip() for x in a.retake.split(",") if x.strip()}
             if want - set(ids):
                 sys.exit(f"--retake: unknown line id(s) {', '.join(sorted(want - set(ids)))}")
-            info = sarvam_directed(text, c, dest, ep.cache / "tts_takes", {ids.index(x) for x in want})
+            info = sarvam_directed(text, c, dest, ep.cache / "tts_takes", {ids.index(x) for x in want},
+                                   [ln.chapter for ln in ep.lines if ln.spoken])
             print(f"  {info['takes']} takes: {info['request_chars']} chars sent, {info['cached_chars']} reused from cache"
                   + (f", {len(info['beats'])} beat(s)" if info["beats"] else ""))
         meta = {"provider": c["provider"], "model": c["model"] if c["provider"] == "sarvam" else "kokoro-82m",

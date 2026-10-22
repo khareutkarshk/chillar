@@ -4,7 +4,8 @@
   voice_check.py episodes/<ep>          -> .cache/voice_check.md (+ .json); prints one summary line
 
 Runs after clean + align (it uses .cache/voice_clean.wav and the line times in .cache/words.json).
-Whisper "medium" (int8, CPU) — "small" can't hear nasals, which is how "khansa" shipped as "khasa".
+Judge: Sarvam saaras:v3 verbatim (pipeline/pronounce.py) when SARVAM_API_KEY is set — it hears the exact word
+Sunny said ("बारहों" for "बारह"); `--judge whisper` (or no key) falls back to whisper medium (int8, CPU).
 It flags, it never fixes: the voice agent / reviewer judges each flag (ASR spelling noise is normal).
 A flagged line is re-rolled alone with `tts.py <ep> --retake L6` (other lines keep their cached takes).
 
@@ -78,6 +79,23 @@ def transcribe_lines(wav: Path, spans: list[tuple[float, float]]) -> list[list[s
     return out
 
 
+def check_sarvam(ep_dir: str) -> dict:
+    """Word-level flags from the Sarvam judge, in voice_check's report shape (rows / flags)."""
+    import pronounce
+    r = pronounce.check(ep_dir)
+    ep = load(ep_dir)
+    rows, flags = [], 0
+    for row in r["rows"]:
+        f = [f"word: '{b['word']}' heard as '{b['heard'] or '—'}' → pronounce.py solve (respelling or re-take)"
+             for b in row["bad"]]
+        flags += bool(f)
+        rows.append({"line": row["line"], "t": row["t"], "tts": row["tts"], "heard": row["heard"],
+                     "match": row["match"], "flags": f})
+    out = {"episode": ep.name, "model": r["judge"], "lines": len(rows), "flags": flags, "rows": rows}
+    write(ep, out)
+    return out
+
+
 def check(ep_dir: str) -> dict:
     ep = load(ep_dir)
     tts = [t for t in (strip_tags(x) for x in (ep.dir / "voice" / "tts.txt").read_text().splitlines()) if t]
@@ -111,22 +129,29 @@ def check(ep_dir: str) -> dict:
         flags += bool(f)
         rows.append({"line": lid, "t": [round(a, 2), round(b, 2)], "tts": said, "heard": " ".join(got),
                      "match": round(score, 2), "flags": f})
-    out = {"episode": ep.name, "model": MODEL, "lines": len(rows), "flags": flags, "rows": rows}
+    out = {"episode": ep.name, "model": f"faster-whisper {MODEL}", "lines": len(rows), "flags": flags, "rows": rows}
+    write(ep, out)
+    return out
+
+
+def write(ep, out: dict) -> None:
+    rows, flags = out["rows"], out["flags"]
     (ep.cache / "voice_check.json").write_text(json.dumps(out, indent=1, ensure_ascii=False))
-    md = [f"# Voice check — {ep.name} (faster-whisper {MODEL})", "",
+    md = [f"# Voice check — {ep.name} ({out['model']})", "",
           f"{len(rows)} lines, **{flags} flagged**. ASR spelling noise is normal; judge only the flags.", "",
           "| line | t | tts.txt | heard | match | flags |", "|---|---|---|---|---|---|"]
     md += [f"| {r['line']} | {r['t'][0]:.1f}–{r['t'][1]:.1f} | {r['tts']} | {r['heard']} | {r['match']:.0%} | "
            f"{'; '.join(r['flags']) or '—'} |" for r in rows]
     (ep.cache / "voice_check.md").write_text("\n".join(md) + "\n")
-    return out
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("episode")
+    ap.add_argument("--judge", choices=["sarvam", "whisper"], default="sarvam")
     a = ap.parse_args()
-    r = check(a.episode)
+    from lib.common import env
+    r = check_sarvam(a.episode) if a.judge == "sarvam" and env("SARVAM_API_KEY") else check(a.episode)
     print(f"voice check: {r['lines']} lines, {r['flags']} flagged → .cache/voice_check.md")
     for row in r["rows"]:
         for f in row["flags"]:

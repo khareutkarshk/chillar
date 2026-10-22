@@ -97,6 +97,16 @@ You know this topic the way a good CA does, and you talk about it the way a funn
 - Mark every laugh line with `[JOKE]` (the reviewer counts them). Stage directions in `{…}`:
   `{stamp: "MDR 0%"}`, `{chillar: side-eye}`, `{meme: nobody-me}`, `{visual: passbook printing salary then 4 debits}`.
   Visual ideas are welcome — the director decides.
+- **Write it like an actor's script — delivery marks in `( )`** (never spoken, never captioned; the voice
+  performs them exactly where you put them, so pauses stop landing in the wrong place):
+  `(beat)` the pause before a punchline or a turn · `(pause)` a short breath-pause mid-line · `(long pause)` a
+  deadpan silence (≤ 1 per reel) · `(breath)` a new thought after a list · at a line's start or before a
+  phrase: `(deadpan)` flat and dry · `(excited)` · `(warm)` (the expert's so-what, a parent's line) · `(soft)` an
+  aside · `(fast)` a rushed list · `(slow)` a stamped number · `(cont'd)` at a line's start when it carries on the
+  last line's thought (no line pause). Example: `(deadpan) Maine kaha, (beat) "Ek bada chor."`
+  Mark how a comedian would *say* it: every punchline turn gets a `(beat)` or a mood; a character's quoted
+  line gets the pause into it automatically (don't mark it). Typical 30 s reel: 3–6 marks; never on line 1's
+  first words; never a mark that changes, adds or drops a word.
 - Optional chapter colour: `## Twist {field: note2000}` (fields in brand/tokens.json; ₹2000 magenta
   suits myths/"demonetised" ideas).
 - Write `voice`-ready Roman Hinglish (CLAUDE.md §1: captions are Roman Hinglish).

@@ -43,7 +43,10 @@ scored 4 on all eight dimensions, which tells the creator nothing. Score each di
    **Laughs ≥ 4 requires one game** (comedy.md §2): say it in one sentence in your notes — if the jokes are
    unrelated one-liners, laughs ≤ 3 however many there are. Any §4 AI tell (pun on most lines, caption-speak
    fragments, a stock desi bit as the whole joke, announced jokes, symmetric zinger rhythm) caps laughs at 3.
-   Read it aloud: a line that sounds written, not said, is a speak note.
+   Read it aloud: a line that sounds written, not said, is a speak note. **Speak also scores the delivery marks**
+   (`(beat)`, `(deadpan)`, `(cont'd)`…, the scriptwriter brief): a punchline turn with no `(beat)`/mood, a beat
+   that splits a phrase a speaker would say in one breath, or a mark before line 1's first word → a speak note
+   naming the line and where the mark goes. Speak ≥ 4 needs the marks to read like a comedian's timing.
 3. **Specificity & desi texture:** concrete Indian details vs vague "expenses/people/things".
 4. **Clarity — could the viewer discuss it with their father?** One concept; after one watch a 16-year-old can
    explain the frontmatter `takeaway` to an informed adult, and the `follow_up` line really answers that adult's

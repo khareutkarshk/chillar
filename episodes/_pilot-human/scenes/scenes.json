@@ -1,0 +1,109 @@
+{
+  "theme": "calm",
+  "scenes": [
+    {
+      "id": "s1-hook",
+      "component": "hook-card",
+      "at": 0,
+      "fact": "F1",
+      "params": {
+        "question": "Credit report mein *galti*?",
+        "stakes": [
+          {"label": "Complaint filed", "amount": "Day 1"},
+          {"label": "Reply aaya?", "amount": "Day 30"}
+        ],
+        "circle": true,
+        "mascot": "side-eye",
+        "wide": false,
+        "size": 108,
+        "dy": 40
+      }
+    },
+    {
+      "id": "s2-calendar",
+      "component": "calendar-flip",
+      "at": "w4-0.1",
+      "fact": "F1",
+      "params": {
+        "pages": ["DAY 1", "DAY 30"],
+        "details": ["Complaint: pending"],
+        "flip": 0.1,
+        "width": 760
+      }
+    },
+    {
+      "id": "s3-chat",
+      "component": "chat-screen",
+      "at": "w9+0.14",
+      "sfx": [],
+      "params": {
+        "name": "Credit bureau",
+        "messages": [
+          {"from": "me", "text": "Report mein galti hai"},
+          {"from": "them", "text": "Ticket raised 🙂"},
+          {"from": "me", "text": "Day 30. *Update?*"}
+        ],
+        "stagger": 0.22,
+        "highlight": 1,
+        "width": 860,
+        "grow": true
+      }
+    },
+    {
+      "id": "s3-sideeye",
+      "component": "mascot-reaction",
+      "at": "w14",
+      "until": "w15",
+      "sfx": [],
+      "params": {"expr": "side-eye", "anim": "blink", "x": 760, "y": 1290, "size": 200}
+    },
+    {
+      "id": "s4-rule",
+      "component": "receipt-list",
+      "at": "w15",
+      "fact": "F1",
+      "params": {
+        "title": "RBI RULE",
+        "meta": "Credit report complaint",
+        "items": [
+          {"label": "Din 1-30", "amount": "Company ka time"},
+          {"label": "Din 31 se", "amount": "₹100 / din", "at": 0.5}
+        ],
+        "total": {"label": "Kaun bharega", "amount": "Company", "tone": "ink"},
+        "totalAt": 1.0,
+        "width": 860,
+        "dy": 120
+      }
+    },
+    {
+      "id": "s5-passbook",
+      "component": "passbook-page",
+      "at": "w23",
+      "fact": "F1",
+      "sfx": [],
+      "params": {
+        "opening": 0,
+        "rows": [
+          {"date": "Din 31", "text": "Late", "amount": 100, "type": "cr"},
+          {"date": "Din 32", "text": "Late", "amount": 100, "type": "cr"},
+          {"date": "Din 33", "text": "Late", "amount": 100, "type": "cr"},
+          {"date": "Din 34", "text": "Late", "amount": 100, "type": "cr"}
+        ],
+        "step": 0.3,
+        "size": 44
+      }
+    },
+    {
+      "id": "s5-stamp",
+      "component": "stamp",
+      "at": "w25",
+      "duration": 1.4,
+      "fact": "F1",
+      "params": {"text": "₹100 roz", "x": 560, "y": 1050, "rotate": -8, "size": 120}
+    }
+  ],
+  "effects": [
+    {"type": "punch", "at": "w13"},
+    {"type": "punch", "at": "w31"}
+  ]
+}

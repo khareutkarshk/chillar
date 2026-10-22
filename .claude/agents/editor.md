@@ -17,8 +17,12 @@ When `produce.py` supplies a task brief, those listed files are already in conte
 search the repo, or inspect frames. Use Bash only for the Python validation and QA commands named in the task.
 
 ## Your passes, in order
-1. **Rhythm.** List every shot with its length. Kill any shot < 0.8 s unless it's a deliberate
-   smash-cut beat; split any > 3 s. Vary lengths — three equal shots in a row feel machine-made.
+1. **Rhythm — a human edit breathes.** List every shot with its length. validate measures the spread
+   (std/mean of shot lengths): **≥ 0.40 or it warns, < 0.26 blocks** (last batch sat at 0.13–0.37 =
+   metronomic). Hold the reel's best punchline 3.6–5 s (a pen mark or stamp inside the hold keeps the
+   2–3 s visual-change rule), cut a run of quick 1–1.5 s inserts/reactions where the voice lists or rushes,
+   let explanation shots sit at 2.5–3 s. Kill any shot < 0.8 s unless it's a deliberate smash-cut beat; never
+   three equal shots in a row.
 2. **Cut points.** Cut on the stressed word or on action (stamp impact, number landing), not in the
    middle of a word's reveal. A visual may lead its word by 2–4 frames (`"w12-0.1"`). Chapter cuts
    sit exactly on the chapter's first word (the field change rides that cut).

@@ -5,7 +5,7 @@
   background-position: 0 126px;
 }
 .c-passbook-page .pb-stitch { height: 34px; margin: 0 -34px 8px -40px; border-bottom: 3px dashed rgba(47, 79, 163, .35); }
-.c-passbook-page .pb-row { display: grid; grid-template-columns: 3.3em minmax(0, 1fr) 4.9em 5em; align-items: baseline; column-gap: 10px; height: 85px; line-height: 85px; white-space: nowrap; }
+.c-passbook-page .pb-row { display: grid; grid-template-columns: var(--pb-dc, 3.3em) minmax(0, 1fr) 4.9em 5em; align-items: baseline; column-gap: 10px; height: 85px; line-height: 85px; white-space: nowrap; }
 .c-passbook-page .pb-headrow { font-family: var(--font-body); font-weight: 800; font-size: max(36px, calc(var(--pb-fs, 38px) * .95)); color: var(--pen); height: 70px; line-height: 70px; }
 .c-passbook-page .pb-r { text-align: right; position: relative; }
 .c-passbook-page .dr .pb-amt { color: var(--red); }

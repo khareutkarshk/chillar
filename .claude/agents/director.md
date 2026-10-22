@@ -75,6 +75,16 @@ Say in your report which theme and why (one line). Don't mix themes inside one v
   "chhink") gets its sound in the gap right after the word: `fetch_assets.py foley <name> "<search words>"`
   (once — it lands in brand/sfx/<name>.wav for every reel), then `"sfx": [{"sound": "<name>", "at": <s from the
   scene start, may be negative>}]` on that shot. Foley outranks component sounds in the 2 s thinning.
+- **Compose like a person holding a phone over a table, not a template.** The runtime already adds the
+  hand-made layer (handheld camera drift + re-settles, a seeded hand entrance per shot — toss/slide/drop/place/
+  deal, never the last shot's — paper fibre and creases, thermal ink, line boil on drawings). Don't fake any of
+  it in scenes.json. Your job is composition: change **scale and position** shot to shot — a full-bleed
+  close-up where one receipt line fills the frame, an object sitting low (`"dy"`), two papers overlapping, a
+  single huge number, a small object on a big empty table for a sad beat. qa fails 3 shots in a row with the same
+  content box. **One prop never carries the reel**: validate warns above 25 % of shots for one component
+  (blocks above 40 %) and warns when frame 1 opens on the last reel's opening prop. A scene may set
+  `"entrance": "toss|slide|drop|place|deal"` when the beat calls for a specific move (a slap-down = drop, a
+  sneaky autopay = slide). A frame caught mid-build (blank chit, a receipt header alone) is now a qa **error**.
 - **Sound budget: one SFX per 2 s, so ≈ seconds ÷ 3 sounds in the whole reel.** Every batch-11 reel planned
   twice that and validate silently dropped 3–10. Pick which beats get a sound; silence the rest of a busy run
   with `"sfx": []`. The stamp always plays (nothing outranks it), so keep foley ≥ 2 s off every stamp.

@@ -51,6 +51,8 @@ PRIORITY = {"meme": 4, "stamp": 5, "scratch": 4, "ding": 3, "glitch": 3, "printe
 FOLEY_PRIORITY = 4    # a one-off sound (brand/sfx/<name>.wav: cough, slurp, knock) was placed on purpose for a line
 STAMP_RANK = 10      # a stamp is never thinned away; every other rank (foley, overrides, explicit priority) caps below it
 OVERRIDE_BONUS = 1   # a scene's own "sfx" beats a component default at the same rank
+RHYTHM_CV, RHYTHM_CV_ERR, HOLD_S = 0.4, 0.26, 3.6   # shot-length variation (std/mean): human-cut ≥ 0.4
+PROP_SHARE, PROP_SHARE_ERR = 0.25, 0.4            # one component's share of a reel's shots
 SHORT_BLOCK = 0.7     # a shot under 70 % of its component's minDuration is an error, not a warning
 CHAPTER_SNAP = 0.35   # a scene must start this close to a chapter's first word
 # The outro cuts in on the last word and is short (2026-10-21): the old 0.35 s gap + 3.2 s receipt was ~10 % of a 30 s
@@ -303,6 +305,39 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
             else:
                 warns.append(msg)
 
+    # ---------------- rhythm + props: a human edit breathes (holds and bursts), a template ticks
+    # 2026-11 batch: shot lengths varied by CV 0.13–0.37 (human-cut reels ≈ 0.45–0.7) and receipt-list was the
+    # hero of 7 of 25 shots in one reel — both read as generated before any single frame did
+    shots = [s for s in scenes if s["layer"] == "scene"]
+    if len(shots) >= 6:
+        d = [s["duration"] for s in shots]
+        mean = sum(d) / len(d)
+        cv = (sum((x - mean) ** 2 for x in d) / len(d)) ** 0.5 / mean
+        hold, quick = max(d), sum(x < 1.6 for x in d)
+        msg = (f"shot rhythm is metronomic: lengths vary by CV {cv:.2f} (want ≥ {RHYTHM_CV}) — hold one punchline "
+               f"≥ {HOLD_S}s, cut a run of quick 1–1.5 s reaction/insert shots, let the rest breathe")
+        if cv < RHYTHM_CV_ERR:
+            errors.append(msg)
+        elif cv < RHYTHM_CV or hold < HOLD_S or not quick:
+            warns.append(msg + f" (longest {hold:.1f}s, {quick} quick shot(s))")
+        from collections import Counter
+        top, n = Counter(s["component"] for s in shots).most_common(1)[0]
+        if n > max(2, PROP_SHARE * len(shots)):
+            (errors if n > PROP_SHARE_ERR * len(shots) else warns).append(
+                f"'{top}' carries {n} of {len(shots)} shots — the same prop over and over reads as a template; "
+                "show those beats with another object (phone, envelope, calendar, Chillar, a hand-drawn list)")
+        try:                                              # the opening prop two reels in a row
+            prev = sorted((p for p in (ROOT / "episodes").glob("*/build/spec.json")
+                           if p.parent.parent.name != ep.name and not p.parent.parent.name.startswith("_")),
+                          key=lambda p: p.stat().st_mtime)[-1]
+            first_prev = next(x["component"] for x in sorted(json.loads(prev.read_text())["scenes"], key=lambda x: x["start"])
+                              if x.get("track") == 1)
+            if first_prev == shots[0]["component"]:
+                warns.append(f"frame 1 opens on '{first_prev}' like the last reel ({prev.parent.parent.name}) — "
+                             "followers see the same opening two days running")
+        except (IndexError, StopIteration, KeyError, json.JSONDecodeError):
+            pass
+
     # ---------------- on-screen text: no structure labels, short headlines
     chapter_names = {re.sub(r"\W+", " ", c).strip().lower() for c, _ in chs}
     for s in scenes + overlays + [outro]:
@@ -414,7 +449,7 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
     mm = [s for s in scenes if s["component"] == "meme"]
     # a mascot-reaction carrying a meme sound is a meme beat too: budget + freshness
     mb = mm + [s for s in allv if s["component"] == "mascot-reaction" and s["params"].get("sound")]
-    cap = {"30": 3, "60": 5, "90": 7}.get(fmt_key, 5)
+    cap = {"12": 1, "30": 3, "60": 5, "90": 7}.get(fmt_key, 5)
     if len(mb) > cap:
         errors.append(f"{len(mb)} meme beats — {fmt_key} s allows ≤ {cap} (CLAUDE.md §3)")
     for a, b in zip(scenes, scenes[1:]):

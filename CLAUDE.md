@@ -43,9 +43,15 @@ title cards between chapters · **script-structure words on screen** (chapter na
 "Escalation", "Payoff", "Part 2", "Page 3", "Step 1").
 
 ### Human touch
-Paper objects rest at a seeded tilt (±2°), cast a soft shadow and are *tossed* in; key numbers get a
+Paper objects rest at a seeded tilt (±2°), cast a soft shadow and are put down by a hand — each shot gets
+one seeded move (toss · slide · drop · place · deal), never the last shot's; key numbers get a
 blue-ballpoint circle or double underline drawn at hand speed; myths get a red-pen scratch-out; paper
-grain sits over the field. Every mark is generated (`CH.scribble`), seeded, so renders are deterministic.
+grain sits over the field. **The hand-made layer is automatic in every reel** (creator's call, 2026-10-22,
+"no expert should be able to tell"): a phone held over the table (slow drift, a re-settle or focus pull on
+some cuts, light that moves), paper fibre + seeded creases, thermal-print ink, line boil on drawings on twos.
+Captions and the wordmark sit outside the camera, like titles added in post. Never fake shake or grain in
+scenes.json; vary **composition** instead (scale, position, overlap, full-bleed close-ups). Every mark is
+generated (`CH.scribble`), seeded, so renders are deterministic.
 
 ### Signature move: the "thappa"
 Key facts slam in as a stamp-pad red rubber stamp on a scrap of paper: scale 140%→100%, 2-frame
@@ -55,7 +61,8 @@ shake, thunk SFX. **30 s: 1–2 · 60 s: 2–3 · 90 s: 3. Never more than 3.**
 - Entrances 5–7 frames, `power3.out`, **no overshoot** (overshoot is reserved for Chillar and the stamp).
 - Receipt/passbook lines print line-by-line in steps (printer buzz). Numbers roll like an odometer.
 - Yellow marker swipe on key words. Small zoom punch on punchlines.
-- **New visual every 2–3 s.** 1080×1920, 30 fps.
+- **New visual every 2–3 s**, but the cut rhythm breathes: one held punchline (3.6–5 s, with a pen mark or
+  stamp inside it), runs of quick inserts, never a metronome (validate: shot-length spread ≥ 0.4). 1080×1920, 30 fps.
 
 ### Cuts and transitions — like a real editor
 - **Default is the hard cut.** Within a chapter: hard cuts only. Between chapters: a hard cut on the
@@ -125,7 +132,9 @@ script's `takeaway` + `follow_up`); the reel carries the expert's "so what" (fac
 scary number. Characters (mummy, chacha, mausi, HR…) are welcome as the story demands. Full table (re-hooks, stamps, cuts) + cover-first rule: `brand/rules/formats.md`.
 
 ## 5. Sound
-Sonic signature: stamp thunk · printer buzz · register ding · coin clink. **Max one SFX per 2 s.**
+Sonic signature: stamp thunk · printer buzz · register ding · coin clink. **Max one SFX per 2 s** (the stamp
+always plays). The voice performs the script's delivery marks (`(beat)`, `(deadpan)`, `(cont'd)`… →
+`brand/rules/voice.md`) and breathes before a new thought; pronunciation is measured by `pronounce.py`.
 Music 20–24 dB under voice. Final mix −14 LUFS / −1 dBTP. Creator recordings in `brand/sfx/custom/`
 override downloads. Details: `brand/rules/sound.md`.
 

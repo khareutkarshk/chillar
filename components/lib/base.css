@@ -25,3 +25,19 @@ html, body { margin: 0; background: var(--field); }
 /* blue-ballpoint scribbles laid over content (CH.scribble) */
 .scrib { position: absolute; overflow: visible; pointer-events: none; z-index: 5; }
 .scrib path { fill: none; stroke: var(--pen); stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---- the hand-made layer (runtime CH.camera / CH.paperTexture / CH.boil) ---- */
+#camera, #rig { position: absolute; inset: 0; transform-origin: 50% 45%; }
+#overlay { position: absolute; inset: 0; pointer-events: none; z-index: 40; }
+/* window light drifting over the table: a soft warm pool that moves a little */
+#light { position: absolute; inset: 0; pointer-events: none; z-index: 30; mix-blend-mode: soft-light; --lx: 46%; --ly: 28%;
+  background: radial-gradient(ellipse 70% 48% at var(--lx) var(--ly), rgba(255, 246, 228, .55), rgba(255, 246, 228, 0) 70%),
+              radial-gradient(ellipse 120% 90% at 50% 50%, rgba(0, 0, 0, 0) 55%, rgba(30, 20, 10, .16) 100%); /* taste-skill-ignore: light on a table */ }
+.ch-tex { position: absolute; inset: 0; pointer-events: none; border-radius: inherit; mix-blend-mode: multiply; z-index: 1;
+  background:
+    linear-gradient(var(--crease), transparent calc(var(--cp) - .9%), rgba(60, 45, 30, calc(.07 * var(--ca))) var(--cp),
+                    rgba(255, 255, 255, calc(.55 * var(--ca))) calc(var(--cp) + .3%), transparent calc(var(--cp) + 1.3%)),
+    radial-gradient(ellipse 130% 120% at 40% 35%, transparent 62%, rgba(150, 120, 80, calc(.09 * var(--age))) 100%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='f'><feTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' seed='7'/><feColorMatrix values='0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .3  0 0 0 .22 -.07'/></filter><rect width='100%' height='100%' filter='url(%23f)'/></svg>") var(--sx) var(--sy) / 240px 240px; /* taste-skill-ignore: paper fibre */ }
+.ch-ink { filter: url(#ch-ink); }
+#root:not(.ch-noboil) :is(svg.chillar, .scrib, .c-avatar svg, .c-photo-frame svg, .c-glyph-character svg) { filter: url(#ch-boil); }

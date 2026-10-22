@@ -56,6 +56,13 @@ wanted but lost the 2 s thinning — a dropped foley or meme sound is a `[editor
   impossible under CLAUDE.md (safe zones, stamp budget), mark it `stale` — don't repeat it.
 - **3-second test:** every paused frame is unmistakably Chillar (note field, paper object, ballpoint/stamp, coin).
 - **Legibility at a glance:** each frame's main idea reads in ~1 s at phone size; contrast on its field.
+- **Made by a person? (the expert test)** Pause on 4 random frames and ask: would a motion designer guess a
+  generator? Template tells: the same layout three shots running, one prop carrying the reel, a card in the
+  same spot every shot, frames caught mid-build (blank chit, header alone), dead-even rhythm, every shot the
+  same scale. The hand-made layer is automatic (handheld camera drift, varied hand entrances, paper fibre,
+  line boil, thermal ink, breaths) — never ask for shake or grain; ask for **composition**: a full-bleed
+  close-up of one line, an object low or off-centre, two papers overlapping, a pile on the table. Route
+  composition to `[director]`, rhythm to `[editor]`.
 - **AI-look tells:** structure labels on screen (chapter names, "setup/escalation/payoff", "part/page/step"),
   eyebrow/pill labels, tiny tracked-caps text, everything centred, same entrance on every shot,
   the same component three times running, title cards as transitions, generic layout where an object

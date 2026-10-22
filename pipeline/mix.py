@@ -23,6 +23,7 @@ from lib.episode import load  # noqa: E402
 
 SFX_GAIN_DB = {"stamp": -3, "printer": -12, "ding": -8, "coin": -9, "scratch": -11,
                "glitch": -10, "typing": -13, "whoosh": -12}
+BREATH_DB = -14     # an inhale sits well under the words (sample peaks ≈ −16 dBFS → ≈ −30 dBFS in the mix)
 AUDIO_EXT = (".wav", ".mp3", ".ogg", ".flac", ".m4a", ".aiff")
 
 
@@ -117,6 +118,31 @@ def mix(ep_dir: str, video: Path | None = None) -> Path:
         report["sfx"].append({**s, "file": str(path), "state": state})
         idx += 1
 
+    # a performer breathes before a new thought: tts.py marks those lines (a sentence end + a long gap, or a
+    # (breath) in the script); the inhale ends just before the line's first word, only where the gap has room
+    bpath, _ = resolve_sound("inhale")
+    vj, wj = ep.dir / "voice" / "voice.json", ep.cache / "words.json"
+    if bpath and vj.exists() and wj.exists():
+        lines = json.loads(vj.read_text()).get("breaths", [])
+        words = json.loads(wj.read_text())
+        starts = {}
+        for k, w in enumerate(words):
+            starts.setdefault(w["line"], (w["start"], words[k - 1]["end"] if k else 0.0))
+        blen = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
+                                     str(bpath)], capture_output=True, text=True).stdout.strip() or 0.25)
+        placed = []
+        for n in lines:
+            st = starts.get(f"L{n + 1}")
+            if not st or st[0] - st[1] < blen + 0.08:
+                continue
+            ms = int(round((st[0] - blen - 0.04) * 1000))
+            inputs += ["-i", str(bpath)]
+            graph.append(f"[{idx}:a]aformat=sample_rates=48000:channel_layouts=stereo,highpass=f=180,lowpass=f=7000,"
+                         f"volume={BREATH_DB}dB,adelay={ms}|{ms}[b{idx}]")
+            mixins.append(f"[b{idx}]")
+            placed.append(round(ms / 1000, 2))
+            idx += 1
+        report["breaths"] = placed
     graph.append(f"{''.join(mixins)}amix=inputs={len(mixins)}:normalize=0:duration=longest,atrim=0:{total}[out]")
     pre = ep.cache / "mix_pre.wav"
     ff(*inputs, "-filter_complex", ";".join(graph), "-map", "[out]", "-ar", "48000", "-c:a", "pcm_s24le", str(pre))

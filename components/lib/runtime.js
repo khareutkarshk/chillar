@@ -78,13 +78,37 @@
     return tl.fromTo(el, { scale: o.from ?? 0.94, y: o.y ?? 40, rotation: o.rot ?? 0 },
       { scale: 1, y: 0, rotation: o.rotTo ?? 0, duration: (o.frames ?? 6) * F, ease: o.ease ?? "power3.out" }, t);
   };
-  // a paper object tossed onto the desk: lands from below with a little extra twist, settles at its tilt
+  // a paper object put down on the desk by a hand. A real editor's shots don't all arrive the same way, so each
+  // scene gets one seeded way in (all its papers share it: one hand, one move), never the previous scene's:
+  // toss (lands from below with a twist) · slide (pushed in from a side) · drop (set down from above, a touch
+  // closer to the lens) · place (already in hand, settles) · deal (flicked in like a card). A scene's
+  // `entrance` param picks one. No overshoot (reserved for the mascot + stamp).
+  const ENTRANCES = ["toss", "slide", "drop", "place", "deal"];
+  CH.entranceFor = (sceneId, want) => {
+    if (ENTRANCES.includes(want)) return want;
+    const r = CH.rng("entr:" + sceneId);
+    let k = ENTRANCES[Math.floor(r() * ENTRANCES.length)];
+    if (k === CH._prevEntrance) k = ENTRANCES[(ENTRANCES.indexOf(k) + 1 + Math.floor(r() * 4)) % ENTRANCES.length];
+    return k;
+  };
   CH.toss = (tl, el, t, rest = 0, o = {}) => {
     const dir = rest >= 0 ? 1 : -1;
+    const sc = CH._scene || {};
+    const kind = o.kind || sc.entrance || "toss";
+    const side = (sc.side ?? (rest >= 0 ? 1 : -1));
     tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, t - F);   // fully visible ON the cut frame
+    const to = { x: 0, y: 0, rotation: rest, scale: 1, ease: "power3.out" };
+    if (kind === "slide")
+      return tl.fromTo(el, { x: -190 * side, y: 14, rotation: rest - side * 3, scale: 1 }, { ...to, duration: (o.frames ?? 7) * F }, t);
+    if (kind === "drop")
+      return tl.fromTo(el, { x: 0, y: -46, rotation: rest + dir * 2, scale: 1.045 }, { ...to, duration: (o.frames ?? 6) * F }, t);
+    if (kind === "place")
+      return tl.fromTo(el, { x: 6 * side, y: 10, rotation: rest + dir * 1.2, scale: 1.022 }, { ...to, duration: (o.frames ?? 5) * F }, t);
+    if (kind === "deal")
+      return tl.fromTo(el, { x: 260 * side, y: 34, rotation: rest + side * 9, scale: 1 }, { ...to, duration: (o.frames ?? 6) * F }, t);
     return tl.fromTo(el,
-      { y: o.y ?? 90, rotation: rest + dir * (o.twist ?? 5), scale: 1.02 },
-      { y: 0, rotation: rest, scale: 1, duration: (o.frames ?? 7) * F, ease: "power3.out" }, t);
+      { x: 0, y: o.y ?? 90, rotation: rest + dir * (o.twist ?? 5), scale: 1.02 },
+      { ...to, duration: (o.frames ?? 7) * F }, t);
   };
   CH.slideIn = (tl, el, t, dir = 1, o = {}) => {
     tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, t - F);   // fully visible ON the cut frame
@@ -255,7 +279,13 @@
       const el = document.getElementById(s.id);
       if (!def || !el) { console.error("missing component/clip", s.component, s.id); continue; }
       el.classList.add("c-" + s.component);
+      const shot = s.track === 1 && s.component !== "outro";
+      const entrance = CH.entranceFor(s.id, (s.params || {}).entrance);
+      CH._scene = { id: s.id, entrance, side: CH.rng("side:" + s.id)() < 0.5 ? -1 : 1 };
       def.build({ el, p: s.params || {}, t: s.start, d: s.duration, tl, rng: CH.rng(s.id), id: s.id, stage, spec });
+      if (shot) CH._prevEntrance = entrance;
+      el.dataset.entrance = entrance;
+      CH._scene = null;
       // dy (px, optional, any scene component with a .zone): nudge the whole composition down (+) or up (−)
       // inside the content zone. CSS `translate` so it never fights GSAP transforms.
       const dy = +((s.params || {}).dy || 0), zone = dy ? el.querySelector(".zone") : null;
@@ -264,7 +294,102 @@
     for (const fx of spec.effects || []) {
       if (fx.type === "punch") CH.punch(tl, stage, fx.at, fx.amount || 1.06);
     }
+    // spec.human: true (default) | false | {camera, boil, ink, tex} to switch single layers (tuning, A/B)
+    const H = spec.human === false ? {} : { camera: true, boil: true, ink: false, tex: true,   // ink: read as compression
+                                            ...(typeof spec.human === "object" ? spec.human : {}) };
+    if (H.tex || H.ink) CH.paperTexture(spec, H);
+    if (H.boil) CH.boil(tl, spec); else document.getElementById("root")?.classList.add("ch-noboil");
+    if (H.camera && !g.CH_PROBE) CH.camera(tl, spec);
     return tl;
+  };
+
+  // ---------------------------------------------------------------- the hand-made layer (every reel)
+  // A phone held over a table: slow drift + breathing, the operator re-settling after some cuts, an occasional
+  // focus pull, light that moves a little. Seeded from the episode, so every render is identical. Captions and
+  // the wordmark sit outside #camera (they're added in post, like a real edit). qa's probe turns it off
+  // (CH_PROBE) so layout boxes are measured still.
+  CH.camera = (tl, spec) => {
+    const cam = document.getElementById("camera"), rig = document.getElementById("rig");
+    const light = document.getElementById("light");
+    if (!cam || !rig) return;
+    const dur = +spec.duration || 0, r = CH.rng("camera:" + (spec.episode || "reel"));
+    // whole pixels only, no rotation, no zoom: any sub-pixel transform makes Chrome resample the whole frame and
+    // every edge goes soft (pilot 2026-10-22: text sharpness 940 → 31). Drift reads as a hand; pixels stay crisp.
+    tl.set(cam, { x: 0, y: 0 }, 0);
+    for (let t = 0; t < dur; ) {
+      const step = 0.7 + r() * 0.9;
+      tl.to(cam, { x: Math.round((r() * 2 - 1) * 4), y: Math.round((r() * 2 - 1) * 3), duration: step,
+                   ease: "sine.inOut", snap: { x: 1, y: 1 } }, t);
+      t += step;
+    }
+    const cuts = spec.scenes.filter((s) => s.track === 1 && s.component !== "outro" && s.start > 0.3).map((s) => s.start);
+    cuts.forEach((c, i) => {
+      const k = CH.rng("cut:" + i + ":" + c)();
+      if (k < 0.28) {            // re-framed a beat late: a small push that settles, exactly back to 1:1 pixels
+        // immediateRender:false — a fromTo otherwise stamps its start (zoom/blur) on the frame from t=0 until its cut
+        tl.fromTo(rig, { scale: 1.016, y: 7 }, { scale: 1, y: 0, duration: 9 * F, ease: "power2.out", immediateRender: false }, c);
+        tl.set(rig, { clearProps: "transform" }, c + 9 * F);
+      } else if (k < 0.42) {     // focus finds the paper; then no filter at all (blur(0px) still re-rasterises)
+        tl.fromTo(rig, { filter: "blur(1.4px)" }, { filter: "blur(0px)", duration: 4 * F, ease: "power1.out", immediateRender: false }, c);
+        tl.set(rig, { filter: "none" }, c + 4 * F);
+      }
+    });
+    if (light) {
+      tl.set(light, { opacity: 0.5, "--lx": "46%", "--ly": "28%" }, 0);
+      for (let t = 0; t < dur; ) {
+        const step = 2.2 + r() * 2.5;
+        tl.to(light, { opacity: 0.35 + r() * 0.4, "--lx": `${38 + r() * 24}%`, "--ly": `${20 + r() * 18}%`,
+                       duration: step, ease: "sine.inOut" }, t);
+        t += step;
+      }
+    }
+  };
+
+  // Paper that has lived: fibre, a seeded crease on some sheets, slightly aged edges. Found by colour (every
+  // surface painted the theme's --paper), so every component gets it without its own CSS. An overlay child
+  // (.ch-tex, multiply, under 6 % density) sits in the sheet's own clip; qa ignores it like pen marks.
+  CH.paperTexture = (spec, H = { tex: true, ink: true }) => {
+    const probe = document.createElement("i");
+    probe.style.cssText = "position:absolute;width:1px;height:1px;background:var(--paper)";
+    document.getElementById("root").appendChild(probe);
+    const paper = getComputedStyle(probe).backgroundColor;
+    probe.remove();
+    for (const s of spec.scenes) {
+      const root = document.getElementById(s.id);
+      if (!root || s.component === "chapter-field") continue;
+      let n = 0;
+      for (const el of root.querySelectorAll("*")) {
+        if (el.classList.contains("ch-tex") || el instanceof SVGElement) continue;
+        const cs = getComputedStyle(el);
+        // thermal / dot-matrix print is never crisp vector type: printout text gets slightly rough edges
+        if (H.ink && /JetBrains/i.test(cs.fontFamily) && el.childElementCount === 0 && el.textContent.trim()) el.classList.add("ch-ink");
+        if (n >= 6 || !H.tex) continue;
+        const isPaper = el.matches(".paper-obj, .paper-torn") || cs.backgroundColor === paper;
+        if (!isPaper || cs.position === "static" || el.offsetWidth < 140 || el.offsetHeight < 90) continue;
+        if (el.parentElement && el.parentElement.closest(".ch-papered")) continue;   // one texture per sheet
+        const r = CH.rng("tex:" + s.id + ":" + n);
+        const tex = document.createElement("i");
+        tex.className = "ch-tex";
+        tex.style.setProperty("--sx", `${Math.round(r() * 240)}px`);
+        tex.style.setProperty("--sy", `${Math.round(r() * 240)}px`);
+        tex.style.setProperty("--crease", `${Math.round(70 + r() * 40)}deg`);
+        tex.style.setProperty("--cp", `${Math.round(28 + r() * 44)}%`);
+        tex.style.setProperty("--ca", r() < 0.45 ? "1" : "0");           // not every sheet was folded
+        tex.style.setProperty("--age", (0.4 + r() * 0.6).toFixed(2));
+        el.classList.add("ch-papered");
+        el.appendChild(tex);
+        n++;
+      }
+    }
+  };
+
+  // Line boil: hand-drawn lines are never perfectly still. The mascot, people and pen marks wobble a hair,
+  // re-drawn on twos (every 3rd frame at 30 fps, like hand animation), from one seeded turbulence.
+  CH.boil = (tl, spec) => {
+    const turb = document.querySelector("#ch-boil feTurbulence");
+    if (!turb) return;
+    const dur = +spec.duration || 0;
+    for (let t = 0, k = 1; t < dur; t += 3 * F, k++) tl.set(turb, { attr: { seed: (k % 7) + 1 } }, t);
   };
 
   g.CH = CH;
