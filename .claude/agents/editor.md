@@ -23,6 +23,13 @@ search the repo, or inspect frames. Use Bash only for the Python validation and 
    2–3 s visual-change rule), cut a run of quick 1–1.5 s inserts/reactions where the voice lists or rushes,
    let explanation shots sit at 2.5–3 s. Kill any shot < 0.8 s unless it's a deliberate smash-cut beat; never
    three equal shots in a row.
+1b. **Read time — the viewer must take in each finished frame.** qa `read-hold` measures how long a shot stays
+   complete before its cut: < its reading time (≈ 1 s, + 0.06 s a word past 8) warns, **< 0.5 s blocks**. Fixes,
+   in order: (a) *lead the build* — rows' `at`s land on or a beat before their words, so the last row is down
+   ≥ 1 s before the cut; (b) *L-cut* — hold the finished frame 0.3–0.7 s into the next line's first words (start
+   the next shot on `wN+0.4`, not on the word), the way an editor lets a dense frame breathe; (c) ask the director
+   for fewer words. Reactions (`mascot-reaction`, `stamp`, `meme`) stay ≥ 1.2 s — a reaction that flashes by
+   doesn't land.
 2. **Cut points.** Cut on the stressed word or on action (stamp impact, number landing), not in the
    middle of a word's reveal. A visual may lead its word by 2–4 frames (`"w12-0.1"`). Chapter cuts
    sit exactly on the chapter's first word (the field change rides that cut).

@@ -82,7 +82,8 @@
   // scene gets one seeded way in (all its papers share it: one hand, one move), never the previous scene's:
   // toss (lands from below with a twist) · slide (pushed in from a side) · drop (set down from above, a touch
   // closer to the lens) · place (already in hand, settles) · deal (flicked in like a card). A scene's
-  // `entrance` param picks one. No overshoot (reserved for the mascot + stamp).
+  // `entrance` param picks one. No overshoot (reserved for the mascot + stamp). Travel stays short (≤ 150 px) and
+  // ≥ 9 frames for the sideways moves: the eye must land on the paper, not chase it (creator, 2026-10-22: "moves too fast").
   const ENTRANCES = ["toss", "slide", "drop", "place", "deal"];
   CH.entranceFor = (sceneId, want) => {
     if (ENTRANCES.includes(want)) return want;
@@ -99,13 +100,13 @@
     tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, t - F);   // fully visible ON the cut frame
     const to = { x: 0, y: 0, rotation: rest, scale: 1, ease: "power3.out" };
     if (kind === "slide")
-      return tl.fromTo(el, { x: -190 * side, y: 14, rotation: rest - side * 3, scale: 1 }, { ...to, duration: (o.frames ?? 7) * F }, t);
+      return tl.fromTo(el, { x: -120 * side, y: 10, rotation: rest - side * 2, scale: 1 }, { ...to, duration: (o.frames ?? 9) * F }, t);
     if (kind === "drop")
       return tl.fromTo(el, { x: 0, y: -46, rotation: rest + dir * 2, scale: 1.045 }, { ...to, duration: (o.frames ?? 6) * F }, t);
     if (kind === "place")
       return tl.fromTo(el, { x: 6 * side, y: 10, rotation: rest + dir * 1.2, scale: 1.022 }, { ...to, duration: (o.frames ?? 5) * F }, t);
     if (kind === "deal")
-      return tl.fromTo(el, { x: 260 * side, y: 34, rotation: rest + side * 9, scale: 1 }, { ...to, duration: (o.frames ?? 6) * F }, t);
+      return tl.fromTo(el, { x: 150 * side, y: 24, rotation: rest + side * 6, scale: 1 }, { ...to, duration: (o.frames ?? 9) * F }, t);
     return tl.fromTo(el,
       { x: 0, y: o.y ?? 90, rotation: rest + dir * (o.twist ?? 5), scale: 1.02 },
       { ...to, duration: (o.frames ?? 7) * F }, t);

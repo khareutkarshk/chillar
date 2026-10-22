@@ -64,13 +64,13 @@
       "fact": "F1",
       "params": {
         "title": "RBI RULE",
-        "meta": "Credit report complaint",
+        "meta": "",
         "items": [
-          {"label": "Din 1-30", "amount": "Company ka time"},
-          {"label": "Din 31 se", "amount": "₹100 / din", "at": 0.5}
+          {"label": "Din 1-30", "amount": "Free"},
+          {"label": "Din 31+", "amount": "₹100 / din", "at": 0.05}
         ],
-        "total": {"label": "Kaun bharega", "amount": "Company", "tone": "ink"},
-        "totalAt": 1.0,
+        "total": {"label": "Bharega", "amount": "Company", "tone": "ink"},
+        "totalAt": 0.1,
         "width": 860,
         "dy": 120
       }
@@ -78,7 +78,7 @@
     {
       "id": "s5-passbook",
       "component": "passbook-page",
-      "at": "w23",
+      "at": "w23+0.6",
       "fact": "F1",
       "sfx": [],
       "params": {

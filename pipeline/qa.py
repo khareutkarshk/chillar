@@ -24,6 +24,8 @@ Checks:
   narrow-frame    a shot's content covers < 65 % of the content width and < 30 % of its height
   small-text      a shot shows text under 36 px (one warning per shot)
   empty-paper     a paper object whose text ends above 70 % of its height when settled (half-empty receipt)
+  read-hold       once built, a shot stays complete < its reading time (1 s + 0.06 s/word past 8) before the
+                  cut; < 0.5 s is an error (a receipt finishing as it leaves) · dense: > 14 words on a < 3 s shot
   late-content    settled, a shot shows < 40 % of what it ends on (header alone while the rows print late)
   same-layout     4 shots in a row with the same content box (template feel)
   short-shot      a shot shorter than its component's minDuration (or < 0.8 s)
@@ -72,6 +74,8 @@ LATE_SHARE, LATE_MIN_SHOT = 0.4, 1.5       # settled frame shows < 40 % of the s
 # a frame caught mid-build (a blank chit, a receipt header alone) reads as a generator still loading: below these
 # it's an error, not a warning
 EMPTY_PAPER_ERR, LATE_SHARE_ERR = 0.5, 0.2
+# read-hold: seconds a shot must stay complete before its cut (overlays: a reaction must register)
+READ_STEP, READ_BASE, READ_PER_WORD, READ_MAX, READ_ERR, READ_OVERLAY, READ_DENSE = 0.2, 1.0, 0.06, 1.8, 0.5, 0.6, 14
 COVER_OK = {"marker-highlight", "transition", "captions"}   # overlays meant to sit on text
 HIDDEN_ERR, HIDDEN_WARN = 0.5, 0.3   # share of a text's probe points under a painted object
 TOP_HEAVY_BOTTOM = 700               # a shot whose content ends above this leaves the screen's middle empty
@@ -268,6 +272,12 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
     in_transition = lambda t: any(a - 0.01 <= t <= b + 0.01 for a, b in trans)  # noqa: E731
 
     times = sample_times(spec)
+    for s_ in spec["scenes"]:                     # read-hold: every shot sampled on a 0.2 s grid to see when it's built
+        if s_["track"] in (1, 2) and s_["id"] not in NO_PROBE and s_["id"] != "outro":
+            k = 1
+            while k * READ_STEP < s_["duration"] - 2 * F:
+                times.setdefault(round(s_["start"] + k * READ_STEP, 3), "read grid")
+                k += 1
     said = spoken_numbers(words)
     for v, st, _ in said:
         times.setdefault(round(min(st + LATE_NUM_ERR, spec["duration"] - 0.05), 3), f"said {v:g}")
@@ -549,6 +559,36 @@ def qa(ep_dir: str, extra: list[float] | None = None, audio: bool = True) -> dic
                     f"its paper is {ph:.0f}px tall but the text ends at {used:.0%} of it — half-empty paper",
                     "size the paper to what has printed (grow it per row), or fewer/bigger rows", key=("emptypaper", sid))
                 break
+    # read-hold: once a shot's text has all arrived, the viewer needs time with the finished frame before the cut.
+    # 2026-11 batch: 47 of 77 text shots were cut before they could be read once built (a receipt finished printing
+    # 0.05 s before its cut) — the "everything moves too fast" complaint. Measured, not guessed.
+    seen_txt: dict[str, list[tuple[float, int, int]]] = {}
+    for smp in data["samples"]:
+        for c in smp["clips"]:
+            if c["id"] in scenes and scenes[c["id"]]["track"] in (1, 2):
+                txt = " ".join(x["text"] for x in c["texts"] if x["op"] >= 0.5)
+                seen_txt.setdefault(c["id"], []).append((smp["t"], len(txt), len(txt.split())))
+    for sid, seq in seen_txt.items():
+        sc = scenes[sid]
+        seq = [x for x in sorted(seq) if sc["start"] <= x[0] < sc["start"] + sc["duration"]]
+        if len(seq) < 2 or not seq[-1][1] or sid == "outro":
+            continue
+        built = next(t for t, n, _ in seq if n >= 0.9 * seq[-1][1])
+        hold = sc["start"] + sc["duration"] - built
+        nwords = seq[-1][2]
+        overlay = sc["track"] == 2
+        need = READ_OVERLAY if overlay else min(READ_MAX, READ_BASE + READ_PER_WORD * max(0, nwords - 8))
+        if hold < need:
+            sev = "error" if (not overlay and hold < READ_ERR) else "warn"
+            add(sev, "read-hold", built, f"{sid} ({sc['component']})", "editor|director",
+                f"complete for only {hold:.2f}s before the cut ({nwords} words; needs ≈ {need:.1f}s to take in)",
+                "land the last row ≥ 1 s before the cut (lead it, or give rows earlier 'at's), hold the shot into the "
+                "next line's first words (an L-cut), or put fewer words on the paper", key=("read", sid))
+        if not overlay and nwords > READ_DENSE and sc["duration"] < 3.0:
+            add("warn", "dense", sc["start"], f"{sid} ({sc['component']})", "director",
+                f"{nwords} words on a {sc['duration']:.1f}s shot — more than a viewer reads while listening",
+                f"≤ {READ_DENSE} words on a paper (the voice carries the rest), or hold it ≥ 3 s", key=("dense", sid))
+
     # late content: what the viewer sees settled vs. what the shot ends on — a receipt header alone for 2 s while
     # its rows print late reads as an empty frame (the reviewer had to catch it by eye)
     last_area: dict[str, tuple[float, float]] = {}

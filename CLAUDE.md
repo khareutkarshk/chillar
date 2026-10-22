@@ -61,6 +61,8 @@ shake, thunk SFX. **30 s: 1–2 · 60 s: 2–3 · 90 s: 3. Never more than 3.**
 - Entrances 5–7 frames, `power3.out`, **no overshoot** (overshoot is reserved for Chillar and the stamp).
 - Receipt/passbook lines print line-by-line in steps (printer buzz). Numbers roll like an odometer.
 - Yellow marker swipe on key words. Small zoom punch on punchlines.
+- **Readable before it changes** (creator, 2026-10-22): every finished frame stays complete ≥ ~1 s before its
+  cut (qa `read-hold`; < 0.5 s blocks) and a paper carries ≤ 14 words; lead the build or L-cut instead of rushing.
 - **New visual every 2–3 s**, but the cut rhythm breathes: one held punchline (3.6–5 s, with a pen mark or
   stamp inside it), runs of quick inserts, never a metronome (validate: shot-length spread ≥ 0.4). 1080×1920, 30 fps.
 

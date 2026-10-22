@@ -85,6 +85,10 @@ Say in your report which theme and why (one line). Don't mix themes inside one v
   (blocks above 40 %) and warns when frame 1 opens on the last reel's opening prop. A scene may set
   `"entrance": "toss|slide|drop|place|deal"` when the beat calls for a specific move (a slap-down = drop, a
   sneaky autopay = slide). A frame caught mid-build (blank chit, a receipt header alone) is now a qa **error**.
+- **Give the eye time.** A paper carries ≤ 14 words (the voice says the rest; qa `dense` warns above that on a
+  < 3 s shot). A reveal is done ≥ 1 s before its cut: rows print on or just before their words, never all the way
+  to the last word of the line (qa `read-hold` blocks a frame complete for < 0.5 s). One idea per frame: if a
+  shot needs a title, 4 rows and a total, split it into two shots or drop rows.
 - **Sound budget: one SFX per 2 s, so ≈ seconds ÷ 3 sounds in the whole reel.** Every batch-11 reel planned
   twice that and validate silently dropped 3–10. Pick which beats get a sound; silence the rest of a busy run
   with `"sfx": []`. The stamp always plays (nothing outranks it), so keep foley ≥ 2 s off every stamp.
