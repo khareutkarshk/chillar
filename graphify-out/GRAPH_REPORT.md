@@ -1,16 +1,16 @@
 # Graph Report - chillar  (2026-10-22)
 
 ## Corpus Check
-- 259 files · ~172,955 words
+- 259 files · ~173,671 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1119 nodes · 1685 edges · 161 communities (120 shown, 41 thin omitted)
-- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 75 edges (avg confidence: 0.78)
+- 1120 nodes · 1681 edges · 163 communities (121 shown, 42 thin omitted)
+- Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 71 edges (avg confidence: 0.78)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `083b7dd2`
+- Built from commit: `7e5b417a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -137,14 +137,16 @@
 - _pilot-human/script.md
 - make_reel.py
 - CompletedProcess
+- build_composition.py
+- Path
 
 ## God Nodes (most connected - your core abstractions)
 1. `Candidate` - 40 edges
 2. `Component catalog (generated — `pipeline/component_catalog.py`, don't edit)` - 33 edges
 3. `Line` - 25 edges
 4. `CLAUDE.md brand bible` - 23 edges
-5. `qa()` - 19 edges
-6. `load()` - 18 edges
+5. `load()` - 17 edges
+6. `qa()` - 16 edges
 7. `12 LPA episode script.md` - 16 edges
 8. `st_edit()` - 14 edges
 9. `LicenseRefused` - 13 edges
@@ -170,7 +172,7 @@
 - **Edit suite loop (director → editor → render → video-reviewer)** — _claude_agents_director, _claude_agents_editor, _claude_agents_video_reviewer, _claude_commands_render, _claude_agents_director_scenes_json, pipeline_make_reel [EXTRACTED 1.00]
 - **12 LPA CTC → ₹86,468 in-hand computation** — episodes_2026_10_12lpa_in_hand_facts_f9, episodes_2026_10_12lpa_in_hand_facts_f1, episodes_2026_10_12lpa_in_hand_facts_f2, episodes_2026_10_12lpa_in_hand_facts_f4, episodes_2026_10_12lpa_in_hand_facts_f6, episodes_2026_10_12lpa_in_hand_facts_f7, episodes_2026_10_12lpa_in_hand_facts_f8 [EXTRACTED 1.00]
 
-## Communities (161 total, 41 thin omitted)
+## Communities (163 total, 42 thin omitted)
 
 ### Community 0 - "Candidate"
 Cohesion: 0.06
@@ -185,8 +187,8 @@ Cohesion: 0.12
 Nodes (39): allowed(), _born(), culture_now(), culture_peaks(), culture_rows(), _download(), ensure(), _ff() (+31 more)
 
 ### Community 3 - "episode.py"
-Cohesion: 0.06
-Nodes (40): CompletedProcess, grab(), main(), Path, Episode, frontmatter(), Line, load() (+32 more)
+Cohesion: 0.05
+Nodes (47): CompletedProcess, align(), _model(), Path, The same timings as words.json in ~⅓ of the tokens, for the agents (one script…, words_txt(), grab(), main() (+39 more)
 
 ### Community 4 - "fetch_assets.py"
 Cohesion: 0.19
@@ -265,8 +267,8 @@ Cohesion: 0.50
 Nodes (3): Hook {field: note10}, Payoff {field: note2000}, Turn {field: note500}
 
 ### Community 68 - "qa.py"
-Cohesion: 0.09
-Nodes (33): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+25 more)
+Cohesion: 0.14
+Nodes (24): Path, area(), audio_check(), centre_in(), chrome_path(), contrast(), digits(), glyph_lines() (+16 more)
 
 ### Community 71 - "tts.py"
 Cohesion: 0.11
@@ -365,8 +367,8 @@ Cohesion: 0.24
 Nodes (19): Theme selection: pastel / calm / night, mithai-dabba component (laddoo deductions), 12 LPA episode cover.md, 12 LPA episode facts.md, F1 new-regime tax slabs, F10 EPF partial withdrawal after 12 months, F2 no tax up to ₹12 lakh (₹12.75 lakh salaried) rebate, F3 Income-tax Act 2025 from Apr 2026 (+11 more)
 
 ### Community 106 - "CLAUDE.md brand bible"
-Cohesion: 0.14
-Nodes (20): Script review rubric (stop power, laughs, specificity, clarity, escalation, payoff, speakability, facts), 3-second brand test on every frame, /package command, Bricolage Grotesque cover font, Cover package scoring (curiosity, clarity, honesty ≥4), output/post.md Instagram caption, CLAUDE.md brand bible, Bricolage Grotesque / Mukta / JetBrains Mono typography (+12 more)
+Cohesion: 0.13
+Nodes (21): Script review rubric (stop power, laughs, specificity, clarity, escalation, payoff, speakability, facts), 3-second brand test on every frame, /package command, Bricolage Grotesque cover font, Cover package scoring (curiosity, clarity, honesty ≥4), output/post.md Instagram caption, CLAUDE.md brand bible, Bricolage Grotesque / Mukta / JetBrains Mono typography (+13 more)
 
 ### Community 107 - "fact_lint.py"
 Cohesion: 0.22
@@ -381,12 +383,12 @@ Cohesion: 0.50
 Nodes (3): Hook, Payoff, Turn
 
 ### Community 111 - "/make-reel command"
-Cohesion: 0.23
-Nodes (15): fact-checker agent, script-reviewer agent, scriptwriter agent, Reel format table (30/60/90 s: words, chapters, laughs, re-hook cadence), Joke craft (specificity, self-roast, rule of three, deadpan tag, callbacks), [JOKE] laugh-line marker, /fact-check command, Fact-check status table (✅ / ⚠ / ❌) (+7 more)
+Cohesion: 0.25
+Nodes (14): fact-checker agent, script-reviewer agent, scriptwriter agent, Reel format table (30/60/90 s: words, chapters, laughs, re-hook cadence), Joke craft (specificity, self-roast, rule of three, deadpan tag, callbacks), [JOKE] laugh-line marker, /fact-check command, Fact-check status table (✅ / ⚠ / ❌) (+6 more)
 
 ### Community 112 - "pronounce.py"
-Cohesion: 0.09
-Nodes (40): align(), _model(), Path, The same timings as words.json in ~⅓ of the tokens, for the agents (one script…, words_txt(), Caption/alignment tokens: whitespace split, keep ₹ amounts and punctuation…, tokenize(), add_rows() (+32 more)
+Cohesion: 0.11
+Nodes (33): add_rows(), candidates(), check(), diff(), hear(), heard_right_variant(), line_spans(), main() (+25 more)
 
 ### Community 113 - "Facts — <episode>"
 Cohesion: 0.50
@@ -496,20 +498,24 @@ Nodes (3): Culture now, Expert take, Facts — _pilot-human (12 s pilot of the h
 Cohesion: 0.28
 Nodes (8): igcheck stage (upload-safe), make_reel.py pipeline stages (clean→align→validate→build→render→mix→cover→sheet), build_staleness(), main(), CompletedProcess, Path, Return source files newer than the compiled composition used by render-only…, run()
 
+### Community 161 - "build_composition.py"
+Cohesion: 0.20
+Nodes (9): all_components(), build(), component_meta(), merged_params(), Path, demo_captions(), main(), cover() (+1 more)
+
 ## Knowledge Gaps
 - **294 isolated node(s):** `Report (hard limit)`, `Voiceover details (/voiceover)`, `First frame (frame 1 of the video)`, `Hook line (sentence 1)`, `Expert take` (+289 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **41 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **42 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Candidate` connect `Candidate` to `memes.py`, `fetch_assets.py`?**
-  _High betweenness centrality (0.027) - this node is a cross-community bridge._
-- **Why does `load()` connect `episode.py` to `qa.py`, `validate_scenes.py`, `tts.py`, `fact_lint.py`, `pronounce.py`, `produce.py`?**
-  _High betweenness centrality (0.023) - this node is a cross-community bridge._
+  _High betweenness centrality (0.026) - this node is a cross-community bridge._
+- **Why does `load()` connect `episode.py` to `validate_scenes.py`, `tts.py`, `fact_lint.py`, `pronounce.py`, `produce.py`?**
+  _High betweenness centrality (0.018) - this node is a cross-community bridge._
 - **Why does `spoken_words()` connect `produce.py` to `episode.py`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+  _High betweenness centrality (0.011) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Candidate` (e.g. with `LicenseRefused` and `_log()`) actually correct?**
   _`Candidate` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `Report (hard limit)`, `Voiceover details (/voiceover)`, `First frame (frame 1 of the video)` to the rest of the system?**

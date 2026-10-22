@@ -10,7 +10,7 @@
   "8": "meme/component.js",
   "9": "2026-10-chai-vs-phone/script.md",
   "10": "setup.sh",
-  "11": "make_reel.py",
+  "11": "ig_export.py",
   "12": "Component catalog (generated — `pipeline/component_catalog.py`, don't edit)",
   "13": "runtime.js",
   "14": "chillar.js",
@@ -144,7 +144,7 @@
   "142": "photo-frame/component.js",
   "143": "steel-dabba/component.js",
   "144": "Batch 2026-11-08 → 2026-11-12 (started 2026-10-21)",
-  "145": "voice_check.py",
+  "145": "audio_clean.py",
   "146": "Facts — <episode>",
   "147": "2026-11-10-card-bill-coming/script.md",
   "148": "2026-11-10-card-bill-coming/cover.md",
@@ -157,5 +157,7 @@
   "155": "2026-11-12-salary-12-days/cover.md",
   "156": "Facts — _pilot-human (12 s pilot of the hand-made line; never posted)",
   "157": "_pilot-human/cover.md",
-  "158": "_pilot-human/script.md"
+  "158": "_pilot-human/script.md",
+  "159": "make_reel.py",
+  "160": "CompletedProcess"
 }

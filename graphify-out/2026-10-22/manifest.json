@@ -85,8 +85,8 @@
     "semantic_hash": ""
   },
   "components/lib/runtime.js": {
-    "mtime": 1792660874.2001832,
-    "ast_hash": "81535cc12eba3b596be01ed448535593",
+    "mtime": 1792662571.225668,
+    "ast_hash": "32b06d5181106dc4c717374aa6971f12",
     "semantic_hash": ""
   },
   "components/line-chart/component.js": {
@@ -285,8 +285,8 @@
     "semantic_hash": ""
   },
   "pipeline/build_composition.py": {
-    "mtime": 1792660874.201183,
-    "ast_hash": "5b99ea97f9b15af9d543a391877d0c85",
+    "mtime": 1792662543.5758276,
+    "ast_hash": "8d03b0162d5189b247dbc55456394551",
     "semantic_hash": ""
   },
   "pipeline/component_gallery.py": {

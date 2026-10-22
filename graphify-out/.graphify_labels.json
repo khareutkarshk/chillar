@@ -159,5 +159,7 @@
   "157": "_pilot-human/cover.md",
   "158": "_pilot-human/script.md",
   "159": "make_reel.py",
-  "160": "CompletedProcess"
+  "160": "CompletedProcess",
+  "161": "build_composition.py",
+  "162": "Path"
 }
