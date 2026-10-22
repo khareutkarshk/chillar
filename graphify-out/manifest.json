@@ -110,9 +110,9 @@
     "semantic_hash": ""
   },
   "components/mascot-reaction/component.js": {
-    "mtime": 1792403436.629512,
-    "ast_hash": "2ecdc2a1e481728095cf069360828acd",
-    "semantic_hash": "2ecdc2a1e481728095cf069360828acd"
+    "mtime": 1792633109.7265017,
+    "ast_hash": "ce128470b023426f7622bd17094c1afe",
+    "semantic_hash": ""
   },
   "components/mascot-reaction/component.json": {
     "mtime": 1792490026.5292761,
@@ -290,8 +290,8 @@
     "semantic_hash": ""
   },
   "pipeline/component_gallery.py": {
-    "mtime": 1792406785.6927996,
-    "ast_hash": "553cfab1fdacd44932058d4cccc2c8e0",
+    "mtime": 1792633198.33252,
+    "ast_hash": "54a1a129e8bf6a30ae2272d812a65576",
     "semantic_hash": ""
   },
   "pipeline/contact_sheet.py": {
@@ -540,8 +540,8 @@
     "semantic_hash": ""
   },
   "brand/sources/index.json": {
-    "mtime": 1792579313.8106525,
-    "ast_hash": "5c8f6184f216b840f1512c4e24342764",
+    "mtime": 1792591336.9413981,
+    "ast_hash": "19ea44050d127fa1d6250918a47e9df4",
     "semantic_hash": ""
   },
   "pipeline/component_catalog.py": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "brand/rules/production.md": {
-    "mtime": 1792588266.9351163,
-    "ast_hash": "03da59866c6a91e23aefbd04e03070b7",
+    "mtime": 1792633210.8332956,
+    "ast_hash": "8379a352464c727c6a8edcd399fb7cb0",
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
@@ -605,8 +605,8 @@
     "semantic_hash": ""
   },
   "components/_catalog.md": {
-    "mtime": 1792587365.289973,
-    "ast_hash": "f3891fc950c44b386867592da5290672",
+    "mtime": 1792633207.009363,
+    "ast_hash": "85b75f473f31de15b18b798695bbe7ca",
     "semantic_hash": ""
   },
   "brand/rules/posting-schedule.md": {
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792587919.2280247,
-    "ast_hash": "c580c8ffee3cb39b1b9d5418bb8410e4",
+    "mtime": 1792633198.3305202,
+    "ast_hash": "89b63418a52a85ac1b63313613d93d2d",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -780,18 +780,18 @@
     "semantic_hash": ""
   },
   "components/chat-screen/component.js": {
-    "mtime": 1792586492.0462344,
-    "ast_hash": "740d2ac9d64859a83041058c1db0364d",
+    "mtime": 1792633110.8784711,
+    "ast_hash": "9337f916860f0b11f90acf0467719335",
     "semantic_hash": ""
   },
   "components/chat-screen/component.json": {
-    "mtime": 1792586492.0472343,
-    "ast_hash": "5abe998825ca00a36a83a9b4f37a83cd",
+    "mtime": 1792633112.0104413,
+    "ast_hash": "9337f5c8ea8646d6f0f493eaec29ebed",
     "semantic_hash": ""
   },
   "components/_backlog.md": {
-    "mtime": 1792586852.3338578,
-    "ast_hash": "471d20428c0f7cb518d1708d5698d280",
+    "mtime": 1792633141.8786998,
+    "ast_hash": "19496151bb11f019e066767d55055723",
     "semantic_hash": ""
   },
   "pipeline/agent_context.py": {
@@ -900,8 +900,8 @@
     "semantic_hash": ""
   },
   "brand/joke-log.md": {
-    "mtime": 1792582895.0453362,
-    "ast_hash": "197ef7e291ac50e6b158b8de0bb09575",
+    "mtime": 1792593299.7598433,
+    "ast_hash": "40159a7d7f9481703e0cd651b3ad4058",
     "semantic_hash": ""
   },
   "pipeline/budget.py": {
@@ -1145,8 +1145,8 @@
     "semantic_hash": ""
   },
   "components/calculator/component.js": {
-    "mtime": 1792586656.5839887,
-    "ast_hash": "53af0edac63b8ca51cf7b96a9e25ed2b",
+    "mtime": 1792632132.6201265,
+    "ast_hash": "ad184777165e6b56f00f50ee4acc3897",
     "semantic_hash": ""
   },
   "components/calculator/component.json": {
@@ -1175,13 +1175,13 @@
     "semantic_hash": ""
   },
   "components/phone-note/component.js": {
-    "mtime": 1792586657.8280323,
-    "ast_hash": "b91a3129dfa7d904a46d5ce46d3797fb",
+    "mtime": 1792633113.5824003,
+    "ast_hash": "137d1865a69c32e4891bc86626138995",
     "semantic_hash": ""
   },
   "components/phone-note/component.json": {
-    "mtime": 1792586584.863478,
-    "ast_hash": "55378c160221d1f7fdf506fffa0d9dd5",
+    "mtime": 1792633114.9543645,
+    "ast_hash": "c21bee2e6599a990c311e4d0e088c563",
     "semantic_hash": ""
   },
   "components/photo-frame/component.js": {
@@ -1202,6 +1202,101 @@
   "components/steel-dabba/component.json": {
     "mtime": 1792586791.7707303,
     "ast_hash": "41b513dfd6a6cdd43db11b994c33755c",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-08-diwali-receipt/scenes/scenes.json": {
+    "mtime": 1792590854.5776446,
+    "ast_hash": "54fe44c4959e165d88e168cd8b0e5a20",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-08-diwali-receipt/cover.md": {
+    "mtime": 1792588998.898086,
+    "ast_hash": "fda9f6b131e9fdc15ee01998c331afac",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-08-diwali-receipt/facts.md": {
+    "mtime": 1792588873.5163023,
+    "ast_hash": "fc02376fc7ff491a3a6b708359dcdaa8",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-08-diwali-receipt/script.md": {
+    "mtime": 1792589544.2819204,
+    "ast_hash": "715754ff6bfb62ccfb607afee07084df",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-10-card-bill-coming/cover.md": {
+    "mtime": 1792590315.4755728,
+    "ast_hash": "e00dd81bfae66cbb4d993d4d14ad81d6",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-10-card-bill-coming/facts.md": {
+    "mtime": 1792590089.1776004,
+    "ast_hash": "21ac1090e0c23b87c1459ab1de8c805c",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-10-card-bill-coming/script.md": {
+    "mtime": 1792590638.1527379,
+    "ast_hash": "867b49edf9b2d605b788676bd3bf874a",
+    "semantic_hash": ""
+  },
+  "notes/batches/2026-11-08_2026-11-12.md": {
+    "mtime": 1792633253.4106243,
+    "ast_hash": "2b834670afdba5731c12e6f193fd2096",
+    "semantic_hash": ""
+  },
+  "brand/sfx/paper-toss.wav": {
+    "mtime": 1792590427.7300856,
+    "ast_hash": "a891c171424d24ced9817e3de7e8db9d",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-10-card-bill-coming/scenes/scenes.json": {
+    "mtime": 1792592661.8715973,
+    "ast_hash": "1daa97f8854d9412d968f546426c6f7b",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-11-bhai-dooj-gift-tax/scenes/scenes.json": {
+    "mtime": 1792593197.935254,
+    "ast_hash": "0d775705cee911a87837486c66aa3ef6",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-11-bhai-dooj-gift-tax/cover.md": {
+    "mtime": 1792591559.5258522,
+    "ast_hash": "21649995a0dcf5fcdf0e1ca93bf8fb4c",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-11-bhai-dooj-gift-tax/facts.md": {
+    "mtime": 1792591411.7375405,
+    "ast_hash": "a917598fa9e80ed13a8e2e4acb2d9e6f",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-11-bhai-dooj-gift-tax/script.md": {
+    "mtime": 1792591840.8542707,
+    "ast_hash": "8ad0ee3fc402c4d788df310c7c1ba7e8",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-12-salary-12-days/cover.md": {
+    "mtime": 1792593430.9307647,
+    "ast_hash": "a46da4f9d0e7bf38476034ed4cbbbdfe",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-12-salary-12-days/facts.md": {
+    "mtime": 1792593801.1573145,
+    "ast_hash": "eda90ba19c8101f97eb7a525a31222c3",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-12-salary-12-days/script.md": {
+    "mtime": 1792593833.5261397,
+    "ast_hash": "a9c6faa7430f7a0d694dad1ee3132505",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-12-salary-12-days/scenes/scenes.json": {
+    "mtime": 1792632760.773438,
+    "ast_hash": "1ce563f233f1c2faa562749af92bd2db",
+    "semantic_hash": ""
+  },
+  "brand/sfx/knock.wav": {
+    "mtime": 1792595270.001615,
+    "ast_hash": "7a951c38ea874a53a8a6e3b7408e8a5f",
     "semantic_hash": ""
   }
 }
