@@ -138,3 +138,4 @@ is an evergreen classic (creator's call: Bas karo bhai, Waiting Skeleton etc. ar
 (CLAUDE.md §3); `fact_lint` sends a draft planning 3+ classics back to the writer before the review.
 The polish pass also fixes qa's `late-text` / `empty-paper` warnings (blank paper fired on 5 of 6 reels and was
 never routed). The script reviewer scores against anchors and writes an `evidence:` line (best / weakest line).
+- 2026-10-22: qa fix passes (`produce.py` `qa_brief`) now inline the exact `.cache/qa.json` errors (kind, time, element, box, fix) plus the safe-zone limits into the director's prompt, after 2 of 4 batch reels stopped on a first fix pass; `component_gallery.py` now runs `hyperframes lint` like the build stage and exits 1 on lint errors, so a broken component fails when built.

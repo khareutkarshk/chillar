@@ -63,6 +63,10 @@ def main() -> int:
 
     lint = subprocess.run(["npx", "--no-install", "hyperframes", "lint", str(proj)], cwd=ROOT, capture_output=True, text=True)
     print(lint.stdout[-2500:] or lint.stderr[-2500:])
+    lint_errs = [l for l in lint.stdout.splitlines() if "✗" in l]    # same test make_reel's build stage uses
+    if lint_errs or lint.returncode != 0:
+        print("\nLINT FAILED — fix the component before it ships:\n" + "\n".join(lint_errs))
+        return 1
     times = [s[1] for s in shots] + ([s[2] for s in shots] if a.mid else [])
     snap_dir = OUT / "snaps"
     if snap_dir.exists():

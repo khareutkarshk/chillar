@@ -624,6 +624,24 @@ def st_align(L: Line, ep: Path, a) -> None:
              "trim/extend the script (new review round) or accept it, then --from align")
 
 
+def qa_brief(ep: Path) -> str:
+    """Exact qa errors (kind, time, element, box, fix) + the safe-zone limits, inlined into a fix-pass prompt so the
+    fixer starts from the failing frames instead of re-deriving them (2 of 4 reels stopped on a first fix pass)."""
+    try:
+        d = json.loads((ep / ".cache" / "qa.json").read_text())
+        z = json.loads((ROOT / "brand" / "tokens.json").read_text())["safeZone"]
+    except (OSError, ValueError, KeyError):
+        return ""
+    errs = [i for i in d.get("issues", []) if i.get("sev") == "error"][:25]
+    if not errs:
+        return ""
+    lines = "\n".join(f"- [{i.get('kind')}] t={i.get('t')} {i.get('where')} -> {i.get('route')}: {i.get('msg')} | fix: {i.get('fix')}"
+                      for i in errs)
+    return (f"\n\nExact qa errors (fix each, then re-run validate+qa once):\n{lines}\nSafe zone: x {z['left']}-{1080 - z['right']}, "
+            f"y {z['top']}-{1920 - z['bottom']}; captions band {z['captionBand']}. A text box needs x+w <= {1080 - z['right']}. "
+            "Overlaps: move/shrink one element or shift its reveal frame; mascot and stamps must not cover text.")
+
+
 def draft(L: Line, ep: Path) -> int:
     return L.sh(PY, "pipeline/make_reel.py", str(ep), "--from", "validate", "--quality", "draft", check=False)
 
@@ -666,7 +684,7 @@ def st_edit(L: Line, ep: Path, a) -> None:
                                f"{e}/scenes/scenes.json (skip any already resolved).", "edit", "revision", note=prev)
         if draft(L, ep):            # qa blocked the render: one fix pass, then try again
             director(L, ep, f"qa blocked the render of {e}: fix every error in .cache/qa.json "
-                     "(route [editor] timing errors too). Validate + qa clean.", "edit", REVISE_EFFORT)
+                     "(route [editor] timing errors too). Validate + qa clean." + qa_brief(ep), "edit", REVISE_EFFORT)
             if draft(L, ep):
                 stop(ep, "qa still blocks the draft render after a fix pass", "see .cache/qa.json")
         L.scoped_agent("video-reviewer", ep, f"Review the draft of {e}, round {n} → notes/video-review-{n}.md.",
@@ -766,7 +784,7 @@ def st_fix(L: Line, ep: Path, a) -> None:
                        "fix", "revision", note=review)
     if not qa_clean(L, ep):
         director(L, ep, f"qa blocks {e}: fix every error in .cache/qa.json (route [editor] timing errors too). "
-                 "Validate + qa clean.", "fix", REVISE_EFFORT)
+                 "Validate + qa clean." + qa_brief(ep), "fix", REVISE_EFFORT)
         if not qa_clean(L, ep):
             stop(ep, "qa still blocks after the fix pass", "see .cache/qa.json")
     print("  fix pass done, qa clean → --from deliver")
