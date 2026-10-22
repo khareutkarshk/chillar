@@ -1,0 +1,1 @@
+- 2026-10-21 20:39 qa still blocks after fix pass (safe-zone: o15-smug, o17-stamp-autopay) → helper surgical fix, --from edit → playbook row
