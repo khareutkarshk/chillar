@@ -44,6 +44,7 @@ PY = str(ROOT / ".venv" / "bin" / "python")
 AGENTS = ROOT / ".claude" / "agents"
 STAGES = ["research", "script", "factcheck", "voice", "align", "edit", "deliver", "package", "usage"]
 MAX_ROUNDS = 3
+CULTURE_MIN_FRESH = 4            # Culture now rows that peaked this month or last, before the writer starts
 REVISE_EFFORT = "medium"         # director revisions / fix passes (the first plan uses the frontmatter's, medium since 2026-10-21)
 REVISE_MODEL = "sonnet"          # director fix/polish passes edit a few scenes from routed notes: Opus only for the first plan
 OUTRO_S = 2.0                    # outro receipt after the voice (cuts on the last word, 1.9 s)
@@ -61,6 +62,29 @@ BASH_OK = [".venv/bin/python", "python3", "npx", "ffmpeg", "ffprobe", "ls", "cat
 # Headless runs finish in < 6 min, so the 5-minute cache is enough; the CLI's default 1-hour cache bills
 # writes at 2x input instead of 1.25x (≈ $1.5 a reel, measured on chai-vs-phone).
 ENV = {**os.environ, "FORCE_PROMPT_CACHING_5M": "1"}
+# "You've hit your session limit · resets 9:50pm (Asia/Kolkata)" arrives as a normal result, not an error
+LIMIT_RE = re.compile(r"hit your [\w ]*limit", re.I)
+LIMIT_WAIT_MAX = 6 * 3600        # a 5-hour session window resets inside this; a weekly limit doesn't, so that one stops
+LIMIT_RETRIES = 2
+
+
+def limit_wait(text: str) -> float | None:
+    """Seconds until the reset named in a limit message (+2 min slack), or None if it names no clock time."""
+    m = re.search(r"resets\s+(?:at\s+)?(\d{1,2})(?::(\d{2}))?\s*([ap]m)\s*(?:\(([\w/+-]+)\))?", text, re.I)
+    if not m:
+        return None
+    try:
+        from zoneinfo import ZoneInfo
+        now = dt.datetime.now(ZoneInfo(m.group(4))) if m.group(4) else dt.datetime.now()
+    except Exception:
+        now = dt.datetime.now()
+    at = now.replace(hour=int(m.group(1)) % 12 + (12 if m.group(3).lower() == "pm" else 0),
+                     minute=int(m.group(2) or 0), second=0, microsecond=0)
+    if at <= now:
+        at += dt.timedelta(days=1)
+    return (at - now).total_seconds() + 120
+
+
 LEAN = ["--strict-mcp-config", "--disable-slash-commands", "--settings", '{"disableAllHooks": true}',
         "--permission-mode", "acceptEdits", "--output-format", "stream-json", "--verbose", "--no-session-persistence"]
 
@@ -170,23 +194,39 @@ class Line:
             stop(self.ep, f"batch budget reached: ${b['spent']} of ${b['cap']} (≈ {b['pct_now']}% weekly)",
                  "The master stops every reel. Disarm with `.venv/bin/python pipeline/budget.py stop` only if the "
                  "creator raises the limit, then resume with --from <this stage>.")
-        t0 = time.time()
-        r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, env=ENV)
-        d, calls = parse_stream(r.stdout)
-        if not d:
-            d = {"result": (r.stdout + r.stderr)[-2000:], "is_error": True}
-        u = d.get("usage", {})
-        rec = {"at": dt.datetime.now().isoformat(timespec="seconds"), "stage": stage, "agent": name,
-               "prompt_chars": len(prompt),
-               "models": list(d.get("modelUsage", {})), "cost": round(d.get("total_cost_usd", 0) or 0, 4),
-               "turns": d.get("num_turns"), "secs": round(time.time() - t0),
-               "effort": meta.get("effort"),
-               "tokens": {k: u.get(k, 0) for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens", "output_tokens")},
-               "cache_1h": (u.get("cache_creation") or {}).get("ephemeral_1h_input_tokens", 0),
-               "tools": tool_summary(calls),
-               "error": d.get("subtype") if d.get("is_error") or d.get("subtype", "success") != "success" else None}
-        with self.log.open("a") as f:
-            f.write(json.dumps(rec) + "\n")
+        for attempt in range(LIMIT_RETRIES + 1):
+            t0 = time.time()
+            r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, env=ENV)
+            d, calls = parse_stream(r.stdout)
+            if not d:
+                d = {"result": (r.stdout + r.stderr)[-2000:], "is_error": True}
+            u = d.get("usage", {})
+            limited = LIMIT_RE.search(str(d.get("result", "")))
+            rec = {"at": dt.datetime.now().isoformat(timespec="seconds"), "stage": stage, "agent": name,
+                   "prompt_chars": len(prompt),
+                   "models": list(d.get("modelUsage", {})), "cost": round(d.get("total_cost_usd", 0) or 0, 4),
+                   "turns": d.get("num_turns"), "secs": round(time.time() - t0),
+                   "effort": meta.get("effort"),
+                   "tokens": {k: u.get(k, 0) for k in ("input_tokens", "cache_creation_input_tokens", "cache_read_input_tokens", "output_tokens")},
+                   "cache_1h": (u.get("cache_creation") or {}).get("ephemeral_1h_input_tokens", 0),
+                   "tools": tool_summary(calls),
+                   "error": "limit" if limited else
+                            d.get("subtype") if d.get("is_error") or d.get("subtype", "success") != "success" else None}
+            with self.log.open("a") as f:
+                f.write(json.dumps(rec) + "\n")
+            if not limited:
+                break
+            # 2026-11-12 reel: the session limit hit mid-edit, the CLI answered "success" with the limit text, and the
+            # line ran qa on a half-written plan, stopped as "qa blocks" and sat 10 h. Wait out the reset, rerun the call.
+            text = str(d.get("result", "")).strip()
+            wait = limit_wait(text)
+            if wait is None or wait > LIMIT_WAIT_MAX or attempt == LIMIT_RETRIES:
+                stop(self.ep, f"Claude usage limit hit during {name} ({stage}) — nothing from that run is trusted",
+                     f"{text}\nAfter the reset, resume with --from {stage}.")
+            print(f"    ⏸ {text} — waiting {wait / 60:.0f} min, then rerunning {name}", flush=True)
+            time.sleep(wait)
+        if d.get("is_error") and not rec["models"]:      # the agent never ran (auth, CLI crash): its output is not work
+            stop(self.ep, f"{name} ({stage}) did not run: {rec['error']}", str(d.get("result", ""))[-1500:])
         n = len(list(self.out.glob(f"{stage}-*.txt"))) + 1
         self.last_out = self.out / f"{stage}-{n}-{name}.txt"
         self.last_out.write_text(d.get("result", ""))
@@ -199,6 +239,7 @@ class Line:
         print(f"    ${rec['cost']:.2f} · {rec['turns']} turns · {rec['secs']} s{flag}", flush=True)
         if rec["error"] and "budget" in str(rec["error"]):
             print(f"    ⚠ {name} hit its ${BUDGET.get(name)} cap — check its output before trusting it", flush=True)
+        self.last_error = rec["error"]
         return d.get("result", "")
 
     def scoped_agent(self, name: str, ep: Path, task: str, stage: str, mode: str,
@@ -424,6 +465,20 @@ def st_research(L: Line, ep: Path, a) -> None:
         print(f"  facts gate: {len(rows)} facts.md row problem(s) → researcher, before the writer")
         L.agent("researcher", f"Fix only these facts.md rows in {ep.relative_to(ROOT)} (source each one, or move it out of "
                 "the table under `## Not usable (unverified)`), then re-run fact_lint: " + " | ".join(rows[:10]), "research")
+    if L.dry:
+        return
+    # fresh lowest script score on both 11-batch 60 s reels: the pool held a recent reel's meme and last month's rows
+    import memes
+    from types import SimpleNamespace
+    dropped, fresh = memes.prune_culture(SimpleNamespace(dir=ep))
+    if dropped:
+        print(f"  culture gate: dropped {len(dropped)} row(s) a recent reel used: {', '.join(dropped)}")
+    if fresh < CULTURE_MIN_FRESH:
+        print(f"  culture gate: {fresh} Culture now row(s) peaked this month or last → researcher tops it up")
+        L.agent("researcher", f"Top up only `## Culture now` in {ep.relative_to(ROOT)}/facts.md: it has {fresh} row(s) "
+                f"that peaked this month or last; reach {CULTURE_MIN_FRESH}+. Run `.venv/bin/python pipeline/memes.py "
+                f"trending --episode {ep.relative_to(ROOT)}` (and `--kind sound`), pick rows that fit this topic's "
+                "beats, keep the row format. Touch nothing else.", "research", "low")
 
 
 def facts_rows_lint(ep: Path) -> list[str]:
@@ -658,11 +713,16 @@ def st_edit(L: Line, ep: Path, a) -> None:
     for n in range(start, last + 1):
         prev =ep / "notes" / f"video-review-{n - 1}.md"
         sp = ep / "scenes" / "scenes.json"
-        if n == 1 and sp.exists() and wj.exists() and sp.stat().st_mtime > wj.stat().st_mtime:
-            print("  scenes.json already planned for this voice — keeping it (delete it to re-plan)")
-        elif n == 1:
+        planned = ep / ".cache" / "plan_ok"       # director + editor first passes both finished: a stop mid-plan
+        if n == 1 and sp.exists() and planned.exists() and wj.exists() and planned.stat().st_mtime > wj.stat().st_mtime:
+            print("  scenes.json already planned for this voice — keeping it (delete .cache/plan_ok to re-plan)")
+        elif n == 1:                                  # (limit, crash) leaves a half plan, which is re-planned, not kept
+            planned.unlink(missing_ok=True)
             director(L, ep, f"Plan {e}/scenes/scenes.json from script.md + .cache/words.txt; validate + qa clean.", "edit")
+            ok = not getattr(L, "last_error", None)
             L.scoped_agent("editor", ep, f"Tighten {e}/scenes/scenes.json (director's first pass); validate + qa clean.", "edit", "first")
+            if ok and not getattr(L, "last_error", None) and not L.dry:
+                planned.touch()
         else:
             # only the roles the review routed notes to. A component runs now only for a *blocker* (the frame is
             # broken without it); component polish waits in the backlog for the batch run

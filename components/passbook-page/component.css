@@ -12,3 +12,8 @@
 .c-passbook-page .cr .pb-amt { color: var(--green-text); }
 .c-passbook-page .pb-bal { font-weight: 800; }
 .c-passbook-page .pb-text { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+/* grow: ghost page reserves layout, live paper fits the lines printed so far (B/F and the first entry are there at landing) */
+.c-passbook-page .pb-stack { display: grid; }
+.c-passbook-page .pb-stack > .pb-page { grid-area: 1 / 1; align-self: start; transform-origin: 50% 0; }
+.c-passbook-page .pb-stack .pb-ghost { visibility: hidden; }
+.c-passbook-page .pb-stack .pb-live .pb-line { overflow: visible; }

@@ -50,6 +50,8 @@ rules apply. The prompt gives you the episode folder (already created from `_tem
    two reels in a row opened with the same template. Prefer variety: at least 2 Indian image rows, and no more
    than one row per template family. Keep ≤ 8 rows, one per line, exactly:
    `- M1 · image|video|sound|ref · "<exact title>" · what it means + how people use it · peaked YYYY-MM · <url>`
+   At least 4 rows must have peaked this month or last (the pipeline tops up below that); "what it means" names
+   the beat of *this* topic it fits — a row with no beat reads as decoration and costs the script its fresh score.
    image/video/sound rows: the exact title from `memes.py search "<name>" --kind <kind> -n 3` (it must exist).
    `ref` rows: a show, viral moment, trend or slang word to *say*, not show. Video/sound rows global only.
    Nothing that peaked > 6 months ago unless the source shows it's everywhere this month. No politicians.

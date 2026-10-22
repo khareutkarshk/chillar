@@ -9,3 +9,8 @@
 .c-phone-note .pn-line.strike .t-body { color: var(--pencil); }
 .c-phone-note .pn-line.strike .scrib path { stroke: var(--red); }
 .c-phone-note .pn-total { position: relative; align-self: flex-start; font-family: var(--font-head); font-weight: 800; font-size: 96px; line-height: 1.05; padding-top: 30px; color: var(--ink); font-variant-numeric: tabular-nums; }
+/* grow (default): ghost sheet reserves layout, live paper starts at the title and lengthens row by row */
+.c-phone-note .pn-stack { display: grid; }
+.c-phone-note .pn-stack > .pn-sheet { grid-area: 1 / 1; align-self: start; display: block; transform-origin: 50% 0; }
+.c-phone-note .pn-stack .pn-gsheet { visibility: hidden; }
+.c-phone-note .pn-stack .pn-in { display: flex; flex-direction: column; }

@@ -47,8 +47,12 @@ per finished reel. Never open scripts, scenes, reviews, transcripts or `.cache/a
 text, empty frame, off-palette, a cut-off word)? → helper fix (below), `--from deliver`, look once more. Then
 log: cost, duration, rounds, `igcheck` result ("upload-safe" must be in the log; if not → helper).
 
-**Exit 3** → read `notes/STOP.md` and act by the make-reel table, logging `stop → choice → why` in the reel's
-`notes/decisions.md` and in the batch file. Extra rules for unattended mode:
+**Exit 3** → first `tail -5 notes/usage.jsonl` of that reel: a run with `"error"` set (`limit`, a 0-turn
+`success`, a budget cap) is the cause, not whatever stage stopped after it (11-12: a session limit was logged as
+"qa blocks" and the reel sat 10 h). produce.py now waits out a session limit itself and stops only for a
+weekly/unparseable one → treat that like the usage-limit row below. Otherwise read `notes/STOP.md` and act by
+the make-reel table, logging `stop → choice → why` in the reel's `notes/decisions.md` and in the batch file.
+Extra rules for unattended mode:
 - **batch budget reached** → STOP EVERYTHING: TaskStop every running produce task, `pgrep -af produce.py`
   must be empty, write the final report (section 4) with what's done and what's parked. No more spending.
 - **fact-check BLOCK** (CLAUDE.md §8, creator's call 2026-10-21: an unsourced fact never ships) → one helper

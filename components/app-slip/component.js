@@ -7,7 +7,7 @@ CH.define("app-slip", {
       <div class="as-title">${CH.esc(p.title || "")}</div>
       <div class="as-row"><span>${CH.esc(p.item || "")}</span></div>
       <div class="as-row" style="margin-top:12px"><b>₹${CH.inr(+p.amount || 0)}</b></div>
-      <div class="as-badge">${CH.esc(p.badge || "")}</div>
+      <div class="as-badge" style="font-size:${(() => { const n = String(p.badge || "").length; return n <= 4 ? 50 : Math.max(34, Math.floor(280 / n * 1.55)); })()}px">${CH.esc(p.badge || "")}</div>
       ${CH.scribble("arrow", { x: W - 330, y: 215, w: 200, h: H - 115, rng, stroke: 7 })}
       <div class="as-note" style="left:${W - 600}px; top:${H + 100}px; opacity:0">${CH.esc(p.note || "")}</div></div>`;
     CH.toss(tl, el.querySelector(".as-slip"), t, tilt);

@@ -8,7 +8,7 @@ component you are about to use and need its full `example`. Layers: `scene` last
 scene `{id, component, at, params, fact?, cut?}` · overlay adds `until` or `duration` · times: seconds, `"w12"` (word 12 start), `"w12.end"`, `"w12+0.2"` · `cut`: whip | zoom | wipe | page (default hard cut) · top level: `scenes`, `effects` (`{type: "punch", at}`), `theme` (pastel | calm | night), `outro {cut, params}` (1.9 s, fixed), `music {track, under_voice_db}` · scene components with a content zone accept `params.dy` (px, nudge down + / up −).
 
 ### app-slip
-A phone-app purchase slip (paper): title, item row, amount, a shiny haldi 'gold' badge, and a blue-ballpoint arrow from the badge to a handwritten note (e.g. 'SEBI?'). Params: title (default 'Payment successful'), item, amount (number, Indian grouping), badge (text in the gold badge, default '24K'), note (pen note, default 'SEBI?'), noteAt = seconds after the cut the arrow + note draw (default 0.8), x/y = top-left, width (default 860). Slip is tossed in on the cut frame; only the pen arrow and note draw later.
+A phone-app purchase slip (paper): title, item row, amount, a shiny haldi 'gold' badge, and a blue-ballpoint arrow from the badge to a handwritten note (e.g. 'SEBI?'). Params: title (default 'Payment successful'), item, amount (number, Indian grouping), badge (text in the gold badge, default '24K'; the badge is a round coin for short text and a pill that grows, with type shrinking for long text such as 'LAST CHANCE'), note (pen note, default 'SEBI?'), noteAt = seconds after the cut the arrow + note draw (default 0.8), x/y = top-left, width (default 860). Slip is tossed in on the cut frame; only the pen arrow and note draw later.
 `layer scene · min 1.8s`
 params: title="Payment successful", item="Digital gold", amount=1000, badge="24K", note="SEBI?", noteAt=0.8, x=110, y=430, width=860
 
@@ -28,9 +28,9 @@ A paper desk calculator: display, a 4x4 key pad where the listed `taps` (key lab
 params: taps=["2", "5", …], result="100", tapStart=0.3, tapGap=0.28
 
 ### calendar-flip
-Tear-off desk calendar (paper pages, red month band) riffles through pages and lands on the last one — time passing, deadlines, 'since 2020'. Optional details sit in a fixed footer beneath the year; width (400–860) scales the page type too; height -1 fits the page to its text instead of a fixed height; yearSize tunes the number. Pages beneath stay hidden until the page above has flipped (no overlapping text); labels with no trailing number (e.g. 'CHAI DIN') render as a text-only band page.
+Tear-off desk calendar (paper pages, red month band) riffles through pages and lands on the last one — time passing, deadlines, 'since 2020'. Optional details sit in a fixed footer beneath the year; width (400–860) scales the page type too; height -1 (default) fits the page to its text; give a number (360-760) for a fixed-height page; yearSize tunes the number. Pages beneath stay hidden until the page above has flipped (no overlapping text); labels with no trailing number (e.g. 'CHAI DIN') render as a text-only band page.
 `layer scene · min 1.6s · sfx whoosh@0.1s`
-params: pages=["JAN 2020", "JAN 2023", "OCT 2026"], details=[], label="", flip=0.16, width=600, height=620, yearSize=230
+params: pages=["JAN 2020", "JAN 2023", "OCT 2026"], details=[], label="", flip=0.16, width=600, height=-1, yearSize=230
 
 ### chat-screen
 A generic phone chat printed out and lying on the field (paper card, seeded tilt, soft shadow; no app colours or logos). 3–5 messages type in one by one, stagger s apart (first 0.3 s after the cut): 'them' messages after a typing-dots bubble, 'me' messages slide in from the right in a soft haldi tint. Layout is reserved from the cut — nothing reflows. messages: [{from: 'me'|'them', text, time?}] (text takes *marker*; max 6). name (optional) adds a header with a back chevron + initial avatar; pinned (optional) adds a pinned-message bar at the top. highlight (message index, default -1) gets a blue-ballpoint circle drawn 0.3 s after it lands. Timestamps are JetBrains Mono (printout metadata) on a seeded clock; set msg.time to fix one, times:false hides them. width px (560–880, default 820); tilt (deg) fixes the tilt instead of the seeded one. grow:true sizes the paper to the messages already shown (rows take no space until they arrive) instead of reserving the final height. minHeight px (default 0) keeps the paper at least that tall so a two-message card fills the zone. Keep it to ~5 one-line messages so it stays inside the content zone.
@@ -38,9 +38,9 @@ A generic phone chat printed out and lying on the field (paper card, seeded tilt
 params: messages=[{"from": "them", "text": "Hi"}, …], name="", pinned="", highlight=-1, stagger=0.5, width=820, times=true, tilt=null, dy=0, grow=false, minHeight=0
 
 ### checklist
-A paper chit list: each item gets a blue-ballpoint tick or a red-pen cross, written in sequence. Title sits on the field above the chit. Optional `grow` (default false): the chit lands holding only the first row and lengthens downward as each later row is written; the final size is reserved, so the title never shifts. Rows unclip once open, so short shots never cut a row or its pen mark.
+A paper chit list: each item gets a blue-ballpoint tick or a red-pen cross, written in sequence. Title sits on the field above the chit. Optional `grow` (default true; false = full-size chit up front): the chit lands holding the first row (never blank) and lengthens downward as each later row is written; the final size is reserved, so the title never shifts. Rows unclip once open, so short shots never cut a row or its pen mark.
 `layer scene · min 1.8s`
-params: title="", items=[{"text": "Item", "ok": true}], stagger=0.35, grow=false
+params: title="", items=[{"text": "Item", "ok": true}], stagger=0.35, grow=true
 
 ### cover
 Static 1080x1920 cover (rendered to output/cover.png by cover.py from cover.md) on a note-colour field. Headline left-aligned, kicker under it, an optional stamp and Chillar. Key text sits inside the 3:4 profile-grid crop (y 240–1680). No series label.
@@ -108,14 +108,14 @@ A passbook front cover: haldi card cover with a spine, a coin mark, a printed ti
 params: title="Savings Account", name="aapka naam", x=140, y=480, width=800
 
 ### passbook-page
-An open bank passbook page lying on the field: printed column heads, entries printed dot-matrix style one line at a time (printer buzz), running balance computed, the final balance circled in blue ballpoint. Debits red, credits green. The most Chillar object there is — strong as frame 1 (printed:true) or as the growing-receipt meter. size (px, default 38) is the row text size; column heads are always 36+ px.
+An open bank passbook page lying on the field: printed column heads, entries printed dot-matrix style one line at a time (printer buzz), running balance computed, the final balance circled in blue ballpoint. Debits red, credits green. The most Chillar object there is — strong as frame 1 (printed:true) or as the growing-receipt meter. grow (default true; ignored when printed:true) fits the paper to the lines printed so far while an invisible ghost reserves the final layout; grow:false shows the full page at once. size (px, default 38) is the row text size; column heads are always 36+ px.
 `layer scene · min 1.8s · sfx printer@0s`
-params: opening=10000, rows=[{"date": "01-10", "text": "Salary", "amount": 50000, "type": "cr"}], step=0.24, printed=false, size=38, circleBalance=true
+params: opening=10000, rows=[{"date": "01-10", "text": "Salary", "amount": 50000, "type": "cr"}], step=0.24, printed=false, size=38, circleBalance=true, grow=true
 
 ### phone-note
-A plain phone-notes list on a paper sheet that grows name by name: title line, then each item is written in turn (stagger) and the sheet lengthens (final size is reserved, nothing shifts). Optional per-item `strike:true` draws a red-pen scratch-out; optional `total` line at the end in big type with a blue underline. totalAt (s after the cut; default -1 = next in sequence) writes the total on a chosen word; grow:true drops the reserved final height so the paper fits only the rows written so far. Params: title, items [{text, strike}], stagger (0.35), total.
+A plain phone-notes list on a paper sheet that grows name by name: title line, then each item is written in turn (stagger) and the sheet lengthens (final size is reserved, nothing shifts). Optional per-item `strike:true` draws a red-pen scratch-out; optional `total` line at the end in big type with a blue underline. totalAt (s after the cut; default -1 = next in sequence) writes the total on a chosen word; grow (default true) makes the paper fit only the rows written so far while an invisible ghost reserves the final layout; grow:false shows the full-size paper from the start. Params: title, items [{text, strike}], stagger (0.35), total.
 `layer scene · min 1.8s`
-params: title="Diwali gifts", items=[{"text": "Sharma ji", "strike": false}], stagger=0.35, total="", totalAt=-1, grow=false
+params: title="Diwali gifts", items=[{"text": "Sharma ji", "strike": false}], stagger=0.35, total="", totalAt=-1, grow=true
 
 ### photo-frame
 A framed photo of a drawn family character (our style: paper face, ink outline, Chillar's half-closed deadpan eyes, seeded hair/outfit so each reel's character is unique) on a paper mat, optional `caption` below, and a speech bubble from someone off-screen above it. Params: speech (bubble text), speaker (small name under the speech, optional), caption (under the photo, e.g. 'didi'), who: didi | mummy | papa | chacha | dadi | bhai | mausi | uncle | hr | dost (default: read from the caption — mummy/maa, nani, bua, sharma ji, boss, friend… — else a seeded pick), expr: deadpan | side-eye | smug | proud | shocked (default per character), side 'left'|'right' (bubble tail side; side-eye looks that way, default 'left'), frameWidth (default 620). Frame is tossed in on the cut; the bubble pops 4 frames later; the character blinks.

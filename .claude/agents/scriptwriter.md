@@ -78,7 +78,9 @@ You know this topic the way a good CA does, and you talk about it the way a funn
 7. **Fresh + planned memes (comedy.md §7).** Every reference and meme must be current — take them from facts.md
    `## Culture now` (or `memes.py trending`); two still-everywhere (evergreen) classics at most; anything dated is a REVISE.
    Write the meme beats into the draft as a comedian would (reaction tag / meme-as-punchline / act-out /
-   callback) and mark each `{meme: M2}` after the line it serves. Desi template for desi moments, global for
+   callback) and mark each `{meme: M2}` after the line it serves. The meme's meaning must *be* that line's joke
+   (11-10: "fanum tax" sat on a self-own, not on the bill taking its cut — scored fresh 3); if no row fits a
+   beat, give it a Chillar reaction instead of forcing a meme. Desi template for desi moments, global for
    internet-universal ones; video/sound memes global only; no politicians, never lyrics. 2–4 meme beats in
    60 s is plenty — the line still has to be funny without the picture.
 

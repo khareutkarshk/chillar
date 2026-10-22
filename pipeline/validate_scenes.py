@@ -49,7 +49,8 @@ FIELDS = TOK["fieldSlots"]
 # reels lost 1–3 printers/whooshes each to a decorative coin, so receipts printed and transitions moved in silence
 PRIORITY = {"meme": 4, "stamp": 5, "scratch": 4, "ding": 3, "glitch": 3, "printer": 3, "typing": 2, "whoosh": 2, "coin": 1}
 FOLEY_PRIORITY = 4    # a one-off sound (brand/sfx/<name>.wav: cough, slurp, knock) was placed on purpose for a line
-OVERRIDE_BONUS = 1    # a scene's own "sfx" beats a component default at the same rank
+STAMP_RANK = 10      # a stamp is never thinned away; every other rank (foley, overrides, explicit priority) caps below it
+OVERRIDE_BONUS = 1   # a scene's own "sfx" beats a component default at the same rank
 SHORT_BLOCK = 0.7     # a shot under 70 % of its component's minDuration is an error, not a warning
 CHAPTER_SNAP = 0.35   # a scene must start this close to a chapter's first word
 # The outro cuts in on the last word and is short (2026-10-21): the old 0.35 s gap + 3.2 s receipt was ~10 % of a 30 s
@@ -475,7 +476,11 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
                         and not list((ROOT / "brand" / "sfx" / "custom").glob(f"{e['sound']}.*")):
                     errors.append(f"{s['id']}: sfx '{e['sound']}' has no file — `fetch_assets.py foley {e['sound']} "
                                   f"\"<search words>\"` makes brand/sfx/{e['sound']}.wav")
-                cand.append({"t": round(t, 3), "sound": e["sound"], "from": s["id"], "rank": int(e.get("priority", rank))})
+                rank = int(e.get("priority", rank))
+                # the stamp thunk is the signature: nothing outranks it (11-12 reel: a hand-placed knock, foley 4 +
+                # override 1, tied it at 5 and won on time, so the stamp at 47.9 s played silent)
+                rank = STAMP_RANK if base == "stamp" else min(rank, STAMP_RANK - 1)
+                cand.append({"t": round(t, 3), "sound": e["sound"], "from": s["id"], "rank": rank})
     keep, dropped = [], []
     for c in sorted(cand, key=lambda c: (-c["rank"], c["t"])):
         near = [k for k in keep if abs(c["t"] - k["t"]) < M["minSecondsBetweenSfx"]]

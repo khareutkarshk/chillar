@@ -9,11 +9,17 @@ CH.define("phone-note", {
     }).join("");
     const total = p.total ? `<div class="pn-row pn-trow"><div class="pn-total">${CH.rich(p.total)}${CH.scribble("underline", { x: 0, y: 116, w: Math.min(700, 52 * String(p.total).length), h: 16, rng, stroke: 7 })}</div></div>` : "";
     const title = p.title ? `<div class="pn-title">${CH.rich(p.title)}</div>` : "";
-    el.innerHTML = `<div class="zone"><div class="pn-sheet paper-obj" style="transform: rotate(${tilt.toFixed(2)}deg)">
+    const grow = p.grow !== false && p.grow !== 0 && p.grow !== "false";
+    // grow (default): an invisible full-size ghost sheet reserves the layout, the live paper fits only the rows written so far
+    // grow:false: the paper itself is full size from the first frame
+    el.innerHTML = grow
+      ? `<div class="zone"><div class="pn-stack">
+        <div class="pn-sheet pn-gsheet" aria-hidden="true"><div class="pn-in">${title}${rowsHtml(false)}${total}</div></div>
+        <div class="pn-sheet paper-obj" style="transform: rotate(${tilt.toFixed(2)}deg)"><div class="pn-in pn-live">${title}${rowsHtml(true)}${total}</div></div></div></div>`
+      : `<div class="zone"><div class="pn-sheet paper-obj" style="transform: rotate(${tilt.toFixed(2)}deg)">
       <div class="pn-in pn-ghost" aria-hidden="true">${title}${rowsHtml(false)}${total}</div>
       <div class="pn-in pn-live">${title}${rowsHtml(true)}${total}</div></div></div>`;
-    if (p.grow) el.querySelector(".pn-ghost").style.display = "none";
-    CH.toss(tl, el.querySelector(".pn-sheet"), t, tilt);
+    CH.toss(tl, el.querySelector(".pn-sheet.paper-obj"), t, tilt);
     const rows = [...el.querySelectorAll(".pn-live .pn-row")];
     rows.forEach((row, i) => {
       const isTot = row.classList.contains("pn-trow");

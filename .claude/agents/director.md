@@ -75,6 +75,9 @@ Say in your report which theme and why (one line). Don't mix themes inside one v
   "chhink") gets its sound in the gap right after the word: `fetch_assets.py foley <name> "<search words>"`
   (once — it lands in brand/sfx/<name>.wav for every reel), then `"sfx": [{"sound": "<name>", "at": <s from the
   scene start, may be negative>}]` on that shot. Foley outranks component sounds in the 2 s thinning.
+- **Sound budget: one SFX per 2 s, so ≈ seconds ÷ 3 sounds in the whole reel.** Every batch-11 reel planned
+  twice that and validate silently dropped 3–10. Pick which beats get a sound; silence the rest of a busy run
+  with `"sfx": []`. The stamp always plays (nothing outranks it), so keep foley ≥ 2 s off every stamp.
 
 ## Meme pass (after the plan, before validate)
 Go through every `[JOKE]` line and `{meme: …}` direction and ask: would a real meme hit harder than a Chillar

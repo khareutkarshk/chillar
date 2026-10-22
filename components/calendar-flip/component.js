@@ -2,7 +2,7 @@ CH.define("calendar-flip", {
   build({ el, p, t, tl, rng }) {
     const pages = p.pages || [];
     const width = Math.min(860, Math.max(400, +p.width || 600));
-    const sc = width / 600, auto = +p.height < 0;
+    const sc = width / 600, auto = p.height == null || +p.height < 0;
     const height = auto ? 0 : Math.min(760, Math.max(360, +p.height || 620));
     const yearSize = Math.min(230, Math.max(120, +p.yearSize || 230));
     const details = p.details || [];

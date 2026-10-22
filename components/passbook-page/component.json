@@ -1,6 +1,6 @@
 {
   "name": "passbook-page",
-  "description": "An open bank passbook page lying on the field: printed column heads, entries printed dot-matrix style one line at a time (printer buzz), running balance computed, the final balance circled in blue ballpoint. Debits red, credits green. The most Chillar object there is — strong as frame 1 (printed:true) or as the growing-receipt meter. size (px, default 38) is the row text size; column heads are always 36+ px.",
+  "description": "An open bank passbook page lying on the field: printed column heads, entries printed dot-matrix style one line at a time (printer buzz), running balance computed, the final balance circled in blue ballpoint. Debits red, credits green. The most Chillar object there is — strong as frame 1 (printed:true) or as the growing-receipt meter. grow (default true; ignored when printed:true) fits the paper to the lines printed so far while an invisible ghost reserves the final layout; grow:false shows the full page at once. size (px, default 38) is the row text size; column heads are always 36+ px.",
   "layer": "scene",
   "params": {
     "opening": 10000,
@@ -8,7 +8,8 @@
     "step": 0.24,
     "printed": false,
     "size": 38,
-    "circleBalance": true
+    "circleBalance": true,
+    "grow": true
   },
   "example": {
     "opening": 2340,

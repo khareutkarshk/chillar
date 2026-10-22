@@ -290,8 +290,8 @@
     "semantic_hash": ""
   },
   "pipeline/component_gallery.py": {
-    "mtime": 1792406785.6927996,
-    "ast_hash": "553cfab1fdacd44932058d4cccc2c8e0",
+    "mtime": 1792633198.33252,
+    "ast_hash": "54a1a129e8bf6a30ae2272d812a65576",
     "semantic_hash": ""
   },
   "pipeline/contact_sheet.py": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "brand/rules/production.md": {
-    "mtime": 1792588266.9351163,
-    "ast_hash": "03da59866c6a91e23aefbd04e03070b7",
+    "mtime": 1792633210.8332956,
+    "ast_hash": "8379a352464c727c6a8edcd399fb7cb0",
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
@@ -605,7 +605,7 @@
     "semantic_hash": ""
   },
   "components/_catalog.md": {
-    "mtime": 1792633135.833843,
+    "mtime": 1792633207.009363,
     "ast_hash": "85b75f473f31de15b18b798695bbe7ca",
     "semantic_hash": ""
   },
@@ -635,8 +635,8 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792587919.2280247,
-    "ast_hash": "c580c8ffee3cb39b1b9d5418bb8410e4",
+    "mtime": 1792633198.3305202,
+    "ast_hash": "89b63418a52a85ac1b63313613d93d2d",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
@@ -1240,8 +1240,8 @@
     "semantic_hash": ""
   },
   "notes/batches/2026-11-08_2026-11-12.md": {
-    "mtime": 1792633082.7882516,
-    "ast_hash": "e990cbab7e3acd9b195bd00b16428656",
+    "mtime": 1792633253.4106243,
+    "ast_hash": "2b834670afdba5731c12e6f193fd2096",
     "semantic_hash": ""
   },
   "brand/sfx/paper-toss.wav": {

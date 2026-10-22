@@ -204,6 +204,27 @@ def culture_peaks(ep) -> dict[str, int | None]:
     return out
 
 
+def prune_culture(ep) -> tuple[list[str], int]:
+    """Drop Culture now rows a recent reel already used (validate would block them anyway; 11-12's pool led with one
+    and the reviewer asked for it). → (dropped titles, rows left that peaked this month or last)."""
+    p = ep.dir / "facts.md"
+    txt = p.read_text() if p.exists() else ""
+    m = re.search(r"^## Culture now.*?$(.*?)(?=^## |\Z)", txt, re.S | re.M)
+    if not m:
+        return [], 0
+    recent, keep, dropped = recent_use(ep.dir), [], []
+    for row in m.group(1).splitlines(keepends=True):
+        r = re.match(r"\s*-\s*(M\d+)\s*·\s*(image|video|sound|ref)\s*·\s*\"([^\"]+)\"", row)
+        if r and norm_title(r.group(3)) in recent:
+            dropped.append(f"{r.group(3)} ({recent[norm_title(r.group(3))]})")
+        else:
+            keep.append(row)
+    if dropped:
+        p.write_text(txt[:m.start(1)] + "".join(keep) + txt[m.end(1):])
+    fresh = sum(1 for a in culture_peaks(ep).values() if a is not None and a <= FRESH_PEAK_MONTHS)
+    return dropped, fresh
+
+
 RECENT_REELS = 4              # a meme used in any of the last 4 reels is off-limits — followers notice repeats
 
 
