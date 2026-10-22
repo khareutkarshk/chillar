@@ -9,9 +9,9 @@ CH.define("mascot-reaction", {
         ${p.bubble ? `<div class="mr-bubble t-body ${bubbleLeft ? "r" : "l"}">${CH.rich(p.bubble)}</div>` : ""}
         <div class="mr-body">${CH.mascot(p.expr, id + "-m", size)}${p.ring ? `
           <svg class="mr-ring" viewBox="0 0 400 440" width="${size}" height="${h}">
-            <defs><path id="${id}-arc" d="M50 190 A150 150 0 0 0 350 190"/></defs>
+            <defs><path id="${id}-arc" d="M-20 190 A220 220 0 0 0 420 190"/></defs>
             <circle class="mr-ring-o" cx="200" cy="190" r="186"/>
-            <path class="mr-ring-band" d="M50 190 A150 150 0 0 0 350 190" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"/>
+            <path class="mr-ring-band" d="M-20 190 A220 220 0 0 0 420 190" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"/>
             <text class="mr-ring-t"><textPath href="#${id}-arc" startOffset="50%" text-anchor="middle" dominant-baseline="middle">${CH.esc(p.ring)}</textPath></text>
           </svg>` : ""}</div>
       </div>`;

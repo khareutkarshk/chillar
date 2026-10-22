@@ -12,10 +12,12 @@ CH.define("phone-note", {
     el.innerHTML = `<div class="zone"><div class="pn-sheet paper-obj" style="transform: rotate(${tilt.toFixed(2)}deg)">
       <div class="pn-in pn-ghost" aria-hidden="true">${title}${rowsHtml(false)}${total}</div>
       <div class="pn-in pn-live">${title}${rowsHtml(true)}${total}</div></div></div>`;
+    if (p.grow) el.querySelector(".pn-ghost").style.display = "none";
     CH.toss(tl, el.querySelector(".pn-sheet"), t, tilt);
     const rows = [...el.querySelectorAll(".pn-live .pn-row")];
     rows.forEach((row, i) => {
-      const at = t + 0.3 + i * (+p.stagger || 0.35);
+      const isTot = row.classList.contains("pn-trow");
+      const at = (isTot && +p.totalAt >= 0) ? t + +p.totalAt : t + 0.3 + i * (+p.stagger || 0.35);
       tl.fromTo(row, { height: 0 }, { height: "auto", duration: 5 * CH.F, ease: "power3.out" }, at - 2 * CH.F);
       tl.set(row, { overflow: "visible" }, at + 3 * CH.F);
       const tx = row.querySelector(".t-body, .pn-total");

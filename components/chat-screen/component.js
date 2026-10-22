@@ -25,7 +25,7 @@ CH.define("chat-screen", {
     const name = String(p.name || "");
     el.innerHTML = `
       <div class="zone">
-        <div class="cs-phone" style="width:${width}px; transform: rotate(${tilt.toFixed(2)}deg)">
+        <div class="cs-phone" style="width:${width}px;${+p.minHeight ? ` min-height:${+p.minHeight}px;` : ""} transform: rotate(${tilt.toFixed(2)}deg)">
           ${name ? `<div class="cs-head">
             <svg class="cs-back" viewBox="0 0 30 48" width="22" height="36"><path d="M24 4 L6 24 L24 44"/></svg>
             <div class="cs-ava t-body">${CH.esc([...name.trim()][0] || "")}</div>
