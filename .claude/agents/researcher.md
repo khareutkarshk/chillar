@@ -19,7 +19,13 @@ rules apply. The prompt gives you the episode folder (already created from `_tem
    Open only the cited page/section if an excerpt is unclear or extraction failed; do not load a large PDF
    repeatedly. Don't retry a blocked URL more than twice — find the same document on PIB / egazette instead.
    Verify the primary source itself, never a news article for a number the primary source publishes.
-3. Each fact = one row: `| F# | claim | source URL | <today> | notes |` — notes say page/section and anything
+3. Each fact = one row: `| F# | claim | source URL | <today> | notes |`. **Verify before you write the row** — the
+   writer may only use rows that are verified, and the fact-checker no longer re-researches them: read the passage
+   in the cached copy (`source_index.py search`), then start notes with `VERIFIED <cached-filename> p.<n>/§<x>`
+   (the exact filename from `brand/sources/index.json`). Every number in the claim must appear in that file's text —
+   fact_lint's `verify at source:` line names any row whose numbers it can't find there; fix the claim or the file
+   until only arithmetic rows are left on it. Library copies keep `library:L-…` (fresh ones need no mark; a stale
+   one is re-verified and marked). Then notes say page/section and anything
    recently changed, disputed, or easy to overstate — and the **widest wording the source supports** ("kai
    employers", not "most"), so the writer never overstates. Anything you can't confirm from a primary source
    stays **out of the table** (a URL-less row blocks the render): list it under `## Not usable (unverified)`

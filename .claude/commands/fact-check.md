@@ -8,9 +8,10 @@ Fact-check episode **$ARGUMENTS**.
 1. Run `.venv/bin/python pipeline/fact_lint.py episodes/<slug> --json` — mechanical gaps first
    (uncited numbers, missing URLs, stale `checked` dates, ids that don't exist).
 
-2. `.venv/bin/python pipeline/facts_library.py fresh episodes/<slug>` — facts from a fresh library
-   entry only need the "says no more than its fact" check (step 3). For **every other** fact the script
-   cites: search the cached copy first with `.venv/bin/python pipeline/source_index.py search
+2. fact_lint's `verify at source:` line (and `"verify"` in --json) splits the facts: **trusted** rows (researcher
+   marked `VERIFIED <cached file>` and every number is in that file, or a fresh library entry) only need the
+   "says no more than its fact" check (step 3). Fully verify the rows it lists, and every line under
+   `## Flagged claims` in notes/premise.md: search the cached copy first with `.venv/bin/python pipeline/source_index.py search
    "<claim words>" --source <cached-filename> --episode episodes/<slug>` and inspect the exact passage/page.
    If it isn't cached, use `facts_library.py cache <url> <name>` and then search it (WebFetch is often blocked by government sites).
    Confirm the exact figure, unit, date range and wording. Check it's still current:

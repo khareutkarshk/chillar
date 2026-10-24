@@ -8,11 +8,14 @@ effort: medium
 
 Follow `.claude/commands/fact-check.md` exactly for `episodes/<ep>`.
 
-**Save effort where it's safe:** run `.venv/bin/python pipeline/facts_library.py fresh episodes/<ep>`.
-Facts copied from a **fresh** library entry (checked < 90 days, no Union Budget since) were verified
-recently — check only that the script line says no more than the claim; don't re-open the source.
-Fully verify the rest: episode-specific facts, worked examples (re-do the arithmetic), and stale library
-entries. For a cached source, use `.venv/bin/python pipeline/source_index.py search "<claim words>"
+**Verification moved before writing (2026-10-24):** the researcher verifies each row against a cached primary
+source and marks it `VERIFIED <file> p.<n>`; fact_lint checks the file is cached and every number of the claim is in
+its text. Run `.venv/bin/python pipeline/fact_lint.py episodes/<ep>` and read its `verify at source:` line:
+- **trusted rows** (verified + numbers found, or a fresh library entry): don't re-open the source — only check that
+  each script line citing them says no more than the row (numbers equal, scope, absolutes, FY/unit labels).
+- **rows on the `verify at source` list**: fully verify (arithmetic rows: re-do the arithmetic in python).
+- **`## Flagged claims` in notes/premise.md**: the writer's lines that go beyond their row — verify each one.
+Fully verify the rest only when a script line's wording makes you doubt its row. For a cached source, use `.venv/bin/python pipeline/source_index.py search "<claim words>"
 --source <cached-filename> --episode episodes/<slug>` to retrieve exact text and page first. Open only
 that page/section directly if needed; don't load a large PDF repeatedly. If it isn't cached, cache it
 with `facts_library.py cache <url> <short-name>` (browser User-Agent; government sites often 403 plain

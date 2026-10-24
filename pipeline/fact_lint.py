@@ -246,6 +246,56 @@ def script_lint(ep) -> list[str]:
     return out
 
 
+def _digits(t: str) -> str:
+    return re.sub(r"(?<=\d)[,\s](?=\d)", "", t)
+
+
+_SRC_TEXT: dict[str, str] = {}
+
+
+def _source_text(name: str) -> str:
+    if name not in _SRC_TEXT:
+        import source_index
+        try:
+            _SRC_TEXT[name] = _digits(" ".join(t for _, t in source_index.extract_pages(source_index.SOURCE_DIR / name)))
+        except Exception:
+            _SRC_TEXT[name] = ""
+    return _SRC_TEXT[name]
+
+
+def verify_plan(ep) -> list[dict]:
+    """Which facts the fact-checker must re-verify at the source, and which it only holds the script to.
+    The researcher marks a row it checked against a cached primary source `VERIFIED <cached file> <page/§>`;
+    a row is trusted when that file is cached and every number in the claim is in its text (or it's a fresh
+    library entry). Everything else — unmarked rows, numbers the text doesn't show, stale entries — is `check`."""
+    import facts_library
+    lib = facts_library.entries()
+    cached = {e.get("file") for e in json.loads((BRAND / "sources" / "index.json").read_text()).values()} \
+        if (BRAND / "sources" / "index.json").exists() else set()
+    out = []
+    for fid, f in ep.facts.items():
+        notes, src = f.get("notes", ""), f.get("source_text", "")
+        m = re.search(r"library:(L-[A-Z0-9-]+)", notes)
+        if not f["source"]:
+            st, why = ("check", "re-do the arithmetic") if COMPUTED.search(src) else ("trusted", "hypothetical example")
+        elif m and m.group(1) in lib and not facts_library.why_stale(lib[m.group(1)]):
+            st, why = "trusted", f"fresh library entry {m.group(1)}"
+        elif "VERIFIED" not in notes:
+            st, why = "check", "not marked VERIFIED by the researcher"
+        else:
+            files = [c for c in cached if c and c in notes]
+            if not files:
+                st, why = "check", "VERIFIED but names no cached file in brand/sources"
+            else:
+                text = " ".join(_source_text(c) for c in files)
+                nums = {_digits(n).strip("₹%") for n in NUM_TOKEN.findall(f["claim"])}
+                missing = sorted(n for n in nums if n and n not in text)
+                st, why = ("check", f"numbers not in {files[0]}: {', '.join(missing)}") if missing else \
+                    ("trusted", f"VERIFIED in {files[0]}")
+        out.append({"fact": fid, "status": st, "why": why})
+    return out
+
+
 def lint(ep_dir: str) -> dict:
     ep = load(ep_dir)
     problems, warnings = [], []
@@ -329,8 +379,12 @@ def lint(ep_dir: str) -> dict:
     script = script_lint(ep) if ep.lines else []
     if ep.lines:
         problems += stale_lint(ep)            # writer-fixable, and /produce's gate sends non-F# problems back
+    try:
+        plan = verify_plan(ep)
+    except Exception as ex:          # never blocks the gate: without a plan the fact-checker verifies everything
+        plan, _ = [], warnings.append(f"verify plan skipped ({ex})")
     return {"episode": ep.name, "ok": not problems, "problems": problems, "warnings": warnings, "script": script,
-            "joke_lines": jokes, "facts": len(ep.facts), "lines": len(ep.lines)}
+            "joke_lines": jokes, "facts": len(ep.facts), "lines": len(ep.lines), "verify": plan}
 
 
 def main() -> int:
@@ -349,6 +403,10 @@ def main() -> int:
             print(f"  ! {w}")
         for x in r["script"]:
             print(f"  {'·' if x.startswith('script:') else '~'} {x}")
+        chk = [v for v in r["verify"] if v["status"] == "check"]
+        if r["verify"]:
+            print(f"  · verify at source: {', '.join(v['fact'] + ' (' + v['why'] + ')' for v in chk) or 'none'}"
+                  f" · trusted: {', '.join(v['fact'] for v in r['verify'] if v['status'] == 'trusted') or 'none'}")
         if r["joke_lines"]:
             print(f"  · joke lines to punch up: {', '.join(r['joke_lines'])}")
         print("  ✓ clean" if r["ok"] else "  RENDER BLOCKED until fixed (or --allow-unsourced)")
