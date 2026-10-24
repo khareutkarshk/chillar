@@ -23,6 +23,11 @@ def _key() -> str:
     return k
 
 
+def _auth() -> dict:
+    # header, not ?token=: a failed request's error text carries the URL into logs, agent output and notes/
+    return {"Authorization": f"Token {_key()}"}
+
+
 def search(query: str, kind: str = "sfx", n: int = 5, max_dur: float | None = None,
            min_dur: float | None = None) -> list[Candidate]:
     filt = 'license:"Creative Commons 0"'
@@ -30,7 +35,7 @@ def search(query: str, kind: str = "sfx", n: int = 5, max_dur: float | None = No
         filt += f" duration:[{min_dur or 0} TO {max_dur or '*'}]"
     r = session.get(f"{API}/search/text/", params={
         "query": query, "filter": filt, "fields": FIELDS, "page_size": max(n * 3, 15),
-        "sort": "score", "token": _key()}, timeout=30)
+        "sort": "score"}, headers=_auth(), timeout=30)
     r.raise_for_status()
     results = r.json().get("results", [])
     # prefer well-rated, much-downloaded sounds among the relevant ones
@@ -53,7 +58,7 @@ def search(query: str, kind: str = "sfx", n: int = 5, max_dur: float | None = No
 def verify(c: Candidate) -> str:
     """Re-read the sound's license from the API at download time."""
     r = session.get(f"{API}/sounds/{c.source_id}/",
-                    params={"fields": "id,name,username,license,url", "token": _key()}, timeout=30)
+                    params={"fields": "id,name,username,license,url"}, headers=_auth(), timeout=30)
     r.raise_for_status()
     s = r.json()
     if s.get("license") != CC0:
