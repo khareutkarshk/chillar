@@ -386,7 +386,10 @@ def concat(parts: list[Path], dest: Path) -> None:
         parts[0].replace(dest)
         return
     lst = dest.with_suffix(".list")
-    lst.write_text("".join(f"file '{p}'\n" for p in parts))
+    # concat-list quoting: ' closes the string, a newline starts a new directive
+    if any("\n" in str(p) for p in parts):
+        sys.exit(f"tts: newline in a take path: {parts}")
+    lst.write_text("".join("file '" + str(p).replace("'", "'\\''") + "'\n" for p in parts))
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", str(lst),
                     "-c:a", "pcm_s16le", str(dest)], check=True)
     lst.unlink()
