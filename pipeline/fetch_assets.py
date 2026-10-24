@@ -186,7 +186,7 @@ def build_audition() -> Path:
           <div class="t-body title">{html.escape(e.get('name', f.stem))}</div>
           <div class="t-sub small">{html.escape(e.get('source', '?'))} · {html.escape(e.get('license', '?'))}
             · <span class="t-mono">{duration_of(f):.1f}s</span>
-            · <a href="{html.escape(e.get('url', '#'))}" target="_blank">source</a></div>
+            · <a href="{html.escape(e['url'] if str(e.get('url', '')).startswith(('https://', 'http://')) else '#')}" target="_blank">source</a></div>
           {'<img src="files/' + html.escape(slot + '/' + wave.name) + '" alt="">' if wave.exists() else ''}
           <audio controls preload="none" src="files/{html.escape(slot + '/' + f.name)}"></audio>
         </div>
