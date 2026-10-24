@@ -1,8 +1,8 @@
 {
   "brand/mascot/chillar.js": {
-    "mtime": 1792398105.916911,
-    "ast_hash": "12a1ad60eecb33db65b59cb295b65104",
-    "semantic_hash": "12a1ad60eecb33db65b59cb295b65104"
+    "mtime": 1792839229.6642542,
+    "ast_hash": "74595c69dd010e7bed9580964d2766d0",
+    "semantic_hash": ""
   },
   "components/avatar/component.js": {
     "mtime": 1792399679.7110538,
@@ -85,8 +85,8 @@
     "semantic_hash": ""
   },
   "components/lib/runtime.js": {
-    "mtime": 1792662944.5061588,
-    "ast_hash": "a67cc4629a041ba1357eb9c70f9e1bc7",
+    "mtime": 1792839214.6680255,
+    "ast_hash": "c81805b6f43c6ccdd41cc4179730ec44",
     "semantic_hash": ""
   },
   "components/line-chart/component.js": {
@@ -240,9 +240,9 @@
     "semantic_hash": ""
   },
   "components/transition/component.js": {
-    "mtime": 1792397398.1284056,
-    "ast_hash": "ddce5eda4c321742a4d4396013c03594",
-    "semantic_hash": "ddce5eda4c321742a4d4396013c03594"
+    "mtime": 1792839214.6870272,
+    "ast_hash": "e18bd3a3fd2eeb305747c67c5a38c851",
+    "semantic_hash": ""
   },
   "components/transition/component.json": {
     "mtime": 1792397398.1254056,
@@ -285,8 +285,8 @@
     "semantic_hash": ""
   },
   "pipeline/build_composition.py": {
-    "mtime": 1792662543.5758276,
-    "ast_hash": "8d03b0162d5189b247dbc55456394551",
+    "mtime": 1792839489.2934265,
+    "ast_hash": "db4a0343eda03df2a983867f68e729a6",
     "semantic_hash": ""
   },
   "pipeline/component_gallery.py": {
@@ -305,13 +305,13 @@
     "semantic_hash": "36a4d64c0f29c2ccf433b4dd2fbaa76a"
   },
   "pipeline/fact_lint.py": {
-    "mtime": 1792660799.8157315,
-    "ast_hash": "4b6e95ba15ea57441971e29dbff9030b",
+    "mtime": 1792840015.603327,
+    "ast_hash": "f770a4f0b6a7e87d2ac6c0e3ca8dd6b5",
     "semantic_hash": ""
   },
   "pipeline/fetch_assets.py": {
-    "mtime": 1792534468.5827894,
-    "ast_hash": "46777511bd15be3c19e3d096b0f920ec",
+    "mtime": 1792838489.301174,
+    "ast_hash": "a42c1ceb1eff8cc1ee5fa73350ae0cb0",
     "semantic_hash": ""
   },
   "pipeline/ig_export.py": {
@@ -355,14 +355,14 @@
     "semantic_hash": "2c6c9580ac75e1570712213612e54b34"
   },
   "pipeline/lib/sources/freesound.py": {
-    "mtime": 1792346890.8207328,
-    "ast_hash": "3518496a9022520017c56bc09e6405b9",
-    "semantic_hash": "3518496a9022520017c56bc09e6405b9"
+    "mtime": 1792839729.6604543,
+    "ast_hash": "021b61da79b1ebca31f40e8b9d6a9d25",
+    "semantic_hash": ""
   },
   "pipeline/lib/sources/icons.py": {
-    "mtime": 1792346893.9867625,
-    "ast_hash": "d1513439906c11bd75d6596ca45c183e",
-    "semantic_hash": "d1513439906c11bd75d6596ca45c183e"
+    "mtime": 1792839752.9285452,
+    "ast_hash": "d0f19da0ad8c30df95b82165d5f1deac",
+    "semantic_hash": ""
   },
   "pipeline/lib/sources/kenney.py": {
     "mtime": 1792346891.8997428,
@@ -400,8 +400,8 @@
     "semantic_hash": "f649d02e270476515b2b166425e3fd09"
   },
   "pipeline/mix.py": {
-    "mtime": 1792660496.63519,
-    "ast_hash": "1156d40a9d5a82c045b1a2a33c54a218",
+    "mtime": 1792839179.9308584,
+    "ast_hash": "97c4d25c1d7fe9d6cbb9e8d642b324d7",
     "semantic_hash": ""
   },
   "pipeline/profile_pic.py": {
@@ -410,13 +410,13 @@
     "semantic_hash": "3309c2af27fdfd2de17f8cb86f35cb40"
   },
   "pipeline/tts.py": {
-    "mtime": 1792661077.155349,
-    "ast_hash": "dccb497c6a3d244ea39cc7d46eaeb355",
+    "mtime": 1792839745.4815187,
+    "ast_hash": "266e220798af119d70a81b9f6097dca0",
     "semantic_hash": ""
   },
   "pipeline/validate_scenes.py": {
-    "mtime": 1792660799.8157315,
-    "ast_hash": "70c46e0578a810d33d9f74d41c8f69cf",
+    "mtime": 1792839214.6880271,
+    "ast_hash": "767ef2b5aafc63a81314047cbf29a4e8",
     "semantic_hash": ""
   },
   "pyproject.toml": {
@@ -425,43 +425,43 @@
     "semantic_hash": "c75a3c66b2a0528d8ff4f31733539a16"
   },
   "setup.sh": {
-    "mtime": 1792398890.3025737,
-    "ast_hash": "0dc2d491af9b5e44782e341239503b0e",
-    "semantic_hash": "0dc2d491af9b5e44782e341239503b0e"
+    "mtime": 1792839798.623657,
+    "ast_hash": "7a9d9eaea25ad8f1b705d06e6a905ba0",
+    "semantic_hash": ""
   },
   ".claude/agents/director.md": {
-    "mtime": 1792662944.5111592,
-    "ast_hash": "276e4a2885fd2550b57eacb3354ff0d2",
+    "mtime": 1792839100.9926827,
+    "ast_hash": "874147ce5197fb6af95fbaed7c4410d8",
     "semantic_hash": ""
   },
   ".claude/agents/editor.md": {
-    "mtime": 1792662944.510159,
-    "ast_hash": "83ec5e94b354fd28cfff9128dc1d21c7",
+    "mtime": 1792839100.9926827,
+    "ast_hash": "8da9923b3b85a64da4e5fcba6870831b",
     "semantic_hash": ""
   },
   ".claude/agents/fact-checker.md": {
-    "mtime": 1792572516.7854626,
-    "ast_hash": "d88f351d9df5eeab4eab7fb1868b07ac",
+    "mtime": 1792839901.9526443,
+    "ast_hash": "8b1a0343e18cc045d111a25c56995676",
     "semantic_hash": ""
   },
   ".claude/agents/script-reviewer.md": {
-    "mtime": 1792660913.2384279,
-    "ast_hash": "20967acb3178f294e53c3c8d49e7366a",
+    "mtime": 1792840033.6692553,
+    "ast_hash": "5835a5bbacea78eb5123cb8487fd8856",
     "semantic_hash": ""
   },
   ".claude/agents/scriptwriter.md": {
-    "mtime": 1792660913.237428,
-    "ast_hash": "cff3ea8dad1527d8cbc5c96e5fd31eda",
+    "mtime": 1792840033.6692553,
+    "ast_hash": "cbb6b114e0cd1ab87bdcf7383615a8c5",
     "semantic_hash": ""
   },
   ".claude/agents/video-reviewer.md": {
-    "mtime": 1792660933.0515428,
+    "mtime": 1792839100.9946828,
     "ast_hash": "2cde0dbd847309b8fcfe8da76a6f9c38",
     "semantic_hash": ""
   },
   ".claude/commands/fact-check.md": {
-    "mtime": 1792572516.7854626,
-    "ast_hash": "0d70351f10db20961fb0b9ee03a10ce2",
+    "mtime": 1792839901.9536443,
+    "ast_hash": "2a039344e94360574d4849e62ead8614",
     "semantic_hash": ""
   },
   ".claude/commands/fetch-assets.md": {
@@ -470,8 +470,8 @@
     "semantic_hash": "9f1e0027caa041138f7221fbe1661e50"
   },
   ".claude/commands/make-reel.md": {
-    "mtime": 1792536836.4512286,
-    "ast_hash": "afea6dbcf703b92e2c0ad1d3d2197a9c",
+    "mtime": 1792839920.8096101,
+    "ast_hash": "100f7fc02b2c269960f5554b2b4181ef",
     "semantic_hash": ""
   },
   ".claude/commands/new-reel.md": {
@@ -535,8 +535,8 @@
     "semantic_hash": ""
   },
   ".claude/settings.json": {
-    "mtime": 1792537489.9144306,
-    "ast_hash": "a9f9a07c1f6d17ccc8621c55fdb75711",
+    "mtime": 1792838759.9664202,
+    "ast_hash": "544aef34492fb505f541c12d1baf94e5",
     "semantic_hash": ""
   },
   "brand/sources/index.json": {
@@ -550,8 +550,8 @@
     "semantic_hash": ""
   },
   "pipeline/facts_library.py": {
-    "mtime": 1792406839.9509037,
-    "ast_hash": "eb711c741a87c7e30b8da834cf471853",
+    "mtime": 1792838548.797301,
+    "ast_hash": "5666f3fafeb812bc1eb5e8f198c78fe3",
     "semantic_hash": ""
   },
   "pipeline/frames.py": {
@@ -560,8 +560,8 @@
     "semantic_hash": ""
   },
   "pipeline/lib/qa_probe.mjs": {
-    "mtime": 1792661281.3587036,
-    "ast_hash": "2512298aedd011f66092037b488804b5",
+    "mtime": 1792838677.3025906,
+    "ast_hash": "1a232a5373ff63bb2f8238d52ade0287",
     "semantic_hash": ""
   },
   "pipeline/qa.py": {
@@ -585,8 +585,8 @@
     "semantic_hash": ""
   },
   "brand/rules/production.md": {
-    "mtime": 1792633210.8332956,
-    "ast_hash": "8379a352464c727c6a8edcd399fb7cb0",
+    "mtime": 1792839920.8076103,
+    "ast_hash": "8b89984dd494e0333ec5a1dbce3ddb75",
     "semantic_hash": ""
   },
   "brand/rules/sound.md": {
@@ -605,13 +605,13 @@
     "semantic_hash": ""
   },
   "components/_catalog.md": {
-    "mtime": 1792661409.377421,
-    "ast_hash": "d5b83776a230674da5dbba072e13adbf",
+    "mtime": 1792839455.8145607,
+    "ast_hash": "ca85988fe682a8a74ba6da2baec78984",
     "semantic_hash": ""
   },
   "brand/rules/posting-schedule.md": {
-    "mtime": 1792487148.3954659,
-    "ast_hash": "2a34dda0289bcfcd0c0570c64be4f8fa",
+    "mtime": 1792838563.506167,
+    "ast_hash": "daa559c61c11745006e28d975dd80ea7",
     "semantic_hash": ""
   },
   "episodes/2026-10-epf-explained/scenes/scenes.json": {
@@ -635,28 +635,28 @@
     "semantic_hash": ""
   },
   "pipeline/produce.py": {
-    "mtime": 1792660788.47582,
-    "ast_hash": "42fee6501846e4b3d7d36d5ed98f76e9",
+    "mtime": 1792840033.6692553,
+    "ast_hash": "4de4553bb292a5ff9113d374880e36f8",
     "semantic_hash": ""
   },
   ".claude/agents/component-dev.md": {
-    "mtime": 1792494999.435808,
-    "ast_hash": "b3e10ecab45b4f0f7a2a454a63c3ec71",
+    "mtime": 1792839100.9746802,
+    "ast_hash": "bd0dfb4d86ed30bee84eb1663962ed4c",
     "semantic_hash": ""
   },
   ".claude/agents/packager.md": {
-    "mtime": 1792574527.7915242,
-    "ast_hash": "af83d5b69ed0e1eec12ab8c3ea999775",
+    "mtime": 1792839100.9936829,
+    "ast_hash": "4375590248f0dc5f623eca3da5746e61",
     "semantic_hash": ""
   },
   ".claude/agents/researcher.md": {
-    "mtime": 1792657839.6043983,
-    "ast_hash": "dc7652e6bcf1214ad4a3be38e2887b65",
+    "mtime": 1792839901.9526443,
+    "ast_hash": "c8c02632a91e8038a57aecfd67d2c595",
     "semantic_hash": ""
   },
   ".claude/agents/voice.md": {
-    "mtime": 1792660913.2384279,
-    "ast_hash": "003e2d5970b10b9cae31c1ff6aecc337",
+    "mtime": 1792839101.009685,
+    "ast_hash": "44c58c6aec8d83383a3d0550fdee4b4b",
     "semantic_hash": ""
   },
   "episodes/2026-10-credit-card-myth/scenes/scenes.json": {
@@ -705,8 +705,8 @@
     "semantic_hash": ""
   },
   "components/meme/component.js": {
-    "mtime": 1792527939.5110528,
-    "ast_hash": "9b702fc7ea0f9ad5e6a046d512914f89",
+    "mtime": 1792839214.686027,
+    "ast_hash": "d8f04cd195a49b90a70f6aaa595b6dca",
     "semantic_hash": ""
   },
   "components/meme/component.json": {
@@ -715,8 +715,8 @@
     "semantic_hash": ""
   },
   "pipeline/memes.py": {
-    "mtime": 1792657815.2915235,
-    "ast_hash": "11d3019f238a3c8c9fe0de395877e4ca",
+    "mtime": 1792839745.4805188,
+    "ast_hash": "a27064179446871270ad9d571045786b",
     "semantic_hash": ""
   },
   "episodes/2026-10-no-cost-emi/scenes/scenes.json": {
@@ -905,13 +905,13 @@
     "semantic_hash": ""
   },
   "pipeline/budget.py": {
-    "mtime": 1792572469.435116,
-    "ast_hash": "82dff41df2e2966e0f2800522cc54bb1",
+    "mtime": 1792838563.4511745,
+    "ast_hash": "e0c92a142e92665a05fb03122e1edfae",
     "semantic_hash": ""
   },
   ".claude/commands/batch-reels.md": {
-    "mtime": 1792657854.224924,
-    "ast_hash": "7c9233e9fc2bfc8f1d0c71268770a590",
+    "mtime": 1792838563.4751713,
+    "ast_hash": "399b2018f8580a9722737abeed11ff95",
     "semantic_hash": ""
   },
   "episodes/2026-10-28-free-trial-autopay/scenes/scenes.json": {
@@ -1240,8 +1240,8 @@
     "semantic_hash": ""
   },
   "notes/batches/2026-11-08_2026-11-12.md": {
-    "mtime": 1792633253.4106243,
-    "ast_hash": "2b834670afdba5731c12e6f193fd2096",
+    "mtime": 1792840070.5370944,
+    "ast_hash": "5c001088bde1ea8716bb8f711ea62ca9",
     "semantic_hash": ""
   },
   "brand/sfx/paper-toss.wav": {
