@@ -19,6 +19,7 @@ import datetime as dt
 import json
 import re
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -101,6 +102,13 @@ def cmd_fresh(ep: Path) -> int:
 
 
 def cmd_cache(url: str, name: str | None) -> int:
+    # url and name come from agents reading the web: only http(s), only a plain filename inside brand/sources/
+    if urllib.parse.urlsplit(url).scheme not in ("http", "https"):
+        print(f"  ✗ not an http(s) URL: {url}")
+        return 2
+    if name is not None and not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,99}", name):
+        print(f"  ✗ name must be a plain filename (letters, digits, . _ -): {name}")
+        return 2
     SRC.mkdir(parents=True, exist_ok=True)
     req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "*/*", "Accept-Language": "en-IN,en;q=0.9"})
     with urllib.request.urlopen(req, timeout=60) as r:
