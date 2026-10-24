@@ -11,7 +11,7 @@ paid_partnership: false
 ---
 
 ## Hook
-Behen ke Bhai Dooj cash pe tax?
+Agar behen ko ₹21,000 diye, tax lagega? [F6]
 Tax mausi ka sawaal poochta hai, "yeh kaun hai?" [JOKE] {chillar: side-eye}
 Par kis jawab pe poore lifafe pe tax?
 

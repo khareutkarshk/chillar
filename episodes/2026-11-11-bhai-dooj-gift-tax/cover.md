@@ -1,5 +1,5 @@
 ---
-cover_text: "Behen ke gift pe tax?"          # Bricolage Grotesque, sentence case, ≤5 words, honest — the payoff delivers it
+cover_text: "₹21,000 Bhai Dooj pe tax?"          # Bricolage Grotesque, sentence case, ≤5 words, honest — the payoff delivers it
 cover_kicker: "Tax bas ek sawaal poochta hai"   # Mukta on a haldi marker; optional
 cover_stamp: "Kaun hai?"   # stamp-pad red thappa on the cover; optional
 cover_mascot: "side-eye"          # one of the 8 Chillar expressions, or "none"
@@ -11,4 +11,4 @@ A Bhai Dooj lifafa lying on the field next to a tika thali, a blank tax-notice s
 "Gift income?" in red pen and a big ballpoint question mark — the stakes: is this gift about to become a notice?
 
 ## Hook line (sentence 1)
-Behen ko Bhai Dooj ka cash diya, toh kya tax lagega?
+Agar behen ko ₹21,000 diye, tax lagega?
