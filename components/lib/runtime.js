@@ -43,7 +43,7 @@
     }
     return Math.round(s);
   };
-  CH.esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  CH.esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&apos;" }[c]));
   // "*word*" -> marker span ; numbers/₹ amounts -> tabular num span. Works on text, never on HTML.
   const NUM = /(₹\s?[\d,]+(?:\.\d+)?|\b\d[\d,]*(?:\.\d+)?%?)/g;
   const nums = (txt) => CH.esc(txt).replace(NUM, '<span class="num">$1</span>');
