@@ -64,7 +64,9 @@ def build(spec: dict, out: Path, comp_id: str = "reel") -> Path:
         s = dict(s)
         s["params"] = merged_params(s["component"], s.get("params", {}))
         if s["params"].get("_file"):            # fetched media (memes): copied next to index.html
-            src = Path(s["params"].pop("_file"))
+            src = Path(s["params"].pop("_file")).resolve()
+            if not (src.is_relative_to(ROOT / "episodes") and src.parent.parts[-2:] == (".cache", "memes")):
+                raise ValueError(f"{s['id']}: media file outside an episode's .cache/memes: {src}")
             (out / "media").mkdir(exist_ok=True)
             shutil.copy2(src, out / "media" / src.name)
             s["params"]["_src"] = f"media/{src.name}"

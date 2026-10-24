@@ -202,6 +202,9 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
                 s["sfx_override"] = [{"at": float(mp.get("soundAt", 0)), "sound": "meme:" + snd["path"]}]
             else:
                 errors.append(f"{s['id']}: meme sound '{mp['sound']}' not fetched")
+        reserved = [k for k in raw.get("params", {}) if str(k).startswith("_")]
+        if reserved:   # _file/_src/_w… are filled by the pipeline (memes); scenes.json never sets them
+            errors.append(f"{s['id']}: params {reserved} are pipeline-only — remove them")
         unknown = set(raw.get("params", {})) - set(meta.get("params", {}))
         if unknown:
             warns.append(f"{s['id']}: params not declared by {name}: {sorted(unknown)}")
