@@ -7,7 +7,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from ..common import Candidate, session
+from ..common import Candidate, session, slug
 
 SETS = {
     "lucide": ("lucide-static", "https://unpkg.com/lucide-static@{v}/icons/{name}.svg"),
@@ -30,7 +30,7 @@ def search(query: str, kind: str = "icon", n: int = 3, icon_set: str | None = No
     if kind != "icon":
         return []
     out = []
-    name = query.strip().lower().replace(" ", "-")
+    name = slug(query)                          # goes into an unpkg URL path
     for set_name in ([icon_set] if icon_set else ["lucide", "tabler", "noto"]):
         if set_name == "noto":
             cps = [f"{ord(ch):x}" for ch in query if ord(ch) > 0x2000 and ch != "️"]
