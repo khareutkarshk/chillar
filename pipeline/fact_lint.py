@@ -202,6 +202,20 @@ def stale_lint(ep) -> list[str]:
     return out
 
 
+RUPEE = re.compile(r"₹\s?\d|\b\d[\d,]*\s*(rupaye|rupees|rupay|rs)\b", re.I)
+
+
+def opening(ep) -> list[str]:
+    """Insights, first five reels: the side-by-side-numbers opening kept the most viewers (34.8 % skip), a question +
+    metaphor opening the fewest (58.5 %); every curve drops in the first 5–8 s. Line 1 carries the viewer's ₹ number
+    or two numbers side by side."""
+    first = next((l for l in ep.lines if l.spoken), None)
+    if not first or RUPEE.search(first.spoken) or len(NUM_TOKEN.findall(first.spoken)) >= 2:
+        return []
+    return [f"{first.id} opening has no rupee number or side-by-side comparison — lead with the viewer's own money "
+            f"(\"Tumhari ₹40,000 salary…\") or two numbers side by side, cited; no metaphor before the number: \"{first.spoken}\""]
+
+
 def script_lint(ep) -> list[str]:
     """Self-check the writer runs before handing off: spoken length, laughs, absolutes, long lines."""
     out = []
@@ -240,6 +254,7 @@ def script_lint(ep) -> list[str]:
         out.append(f"written words: {words} outside {wlo}–{whi} for {fmt} s ({'cut' if words > whi else 'add'} "
                    f"{words - whi if words > whi else wlo - words}) — counted as the reviewer does: spoken words of script lines, "
                    "no [F#]/[JOKE]/{directions}")
+    out += opening(ep)
     out += hook_hold(ep)
     out += discussable(ep)
     out.insert(0, f"script: {words} words written · ≈ {spoken} spoken (numbers in full) · ≈ {secs:.0f} s incl. outro · {jokes} jokes")

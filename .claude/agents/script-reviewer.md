@@ -40,7 +40,11 @@ can name the line that carries it · **3** = fine but forgettable, nothing to qu
 Scores don't decide the verdict (blockers do), so never round a 3 up to 4 to let a draft through: a 3 with no
 line-level fix is a PASS with that score. By 2026-10-21, 17 of 39 reviews (and every PASS of the last 6 reels)
 scored 4 on all eight dimensions, which tells the creator nothing. Score each dimension on its own evidence; if two dimensions really are equal, that's fine.
-1. **Stop power (0–3 s):** does sentence 1 make someone stop scrolling? Stakes clear in one breath?
+1. **Stop power (0–3 s):** does sentence 1 make someone stop scrolling? Stakes clear in one breath? **Line 1 must
+   carry a concrete rupee number or two numbers side by side, framed as the viewer's own money, with no metaphor
+   before the number** (insights: side-by-side numbers had the lowest skip rate, 34.8 %; question + metaphor the
+   highest, 58.5 %). A metaphor-first or number-less line 1 is a blocker, stop ≤ 2. Audience: 18–35, early career,
+   mostly men — but a joke that shuts anyone out is a blocker too.
 2. **Laughs:** count real laughs (not `[JOKE]` tags — *real* ones). Minimums: 30 s → 3, 60 s → 6,
    90 s → 9; first laugh by 4–5 s. Would a Tanmay-Bhat-style writers' room keep each joke? Flag
    generic jokes ("paisa ped pe nahi ugta" tier), jokes that need explaining, puns that only work in writing.
