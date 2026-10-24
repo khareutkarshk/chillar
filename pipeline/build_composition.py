@@ -93,6 +93,7 @@ def build(spec: dict, out: Path, comp_id: str = "reel") -> Path:
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=1080, height=1920">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'">
 <title>{html.escape(str(spec.get('title', 'Chillar reel')))}</title>
 <script src="gsap.min.js"></script>
 <style>
