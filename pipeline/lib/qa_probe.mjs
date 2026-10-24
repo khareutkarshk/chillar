@@ -28,6 +28,17 @@ try {
   const page = await browser.newPage();
   await page.setViewport({ width: 1080, height: 1920, deviceScaleFactor: 1 });
   const errors = [];
+  // the composition carries LLM-written data and runs unsandboxed: no network, and file: only inside the build dir
+  const buildDir = path.dirname(path.resolve(req.html)) + path.sep;
+  await page.setRequestInterception(true);
+  page.on("request", (r) => {
+    const u = new URL(r.url());
+    const ok = u.protocol === "data:" || u.protocol === "blob:" ||
+      (u.protocol === "file:" && path.resolve(decodeURIComponent(u.pathname)).startsWith(buildDir));
+    if (ok) return r.continue();
+    errors.push(`blocked request: ${r.url().slice(0, 120)}`);
+    return r.abort("blockedbyclient");
+  });
   page.on("pageerror", (e) => errors.push(String(e)));
   page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
   // the renderer injects its runtime; standalone we only need the registry it reads from
