@@ -74,7 +74,8 @@
   // the motion runs 6 frames,
   // decisive ease-out, no overshoot (bounce is reserved for the mascot + stamp)
   CH.pop = (tl, el, t, o = {}) => {
-    tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, t - F);   // fully visible ON the cut frame
+    if (t < F) tl.set(el, { opacity: 1 }, 0);   // a shot on frame 1 has no frame before it to fade in on
+    else tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, t - F);   // fully visible ON the cut frame
     return tl.fromTo(el, { scale: o.from ?? 0.94, y: o.y ?? 40, rotation: o.rot ?? 0 },
       { scale: 1, y: 0, rotation: o.rotTo ?? 0, duration: (o.frames ?? 6) * F, ease: o.ease ?? "power3.out" }, t);
   };
@@ -97,7 +98,8 @@
     const sc = CH._scene || {};
     const kind = o.kind || sc.entrance || "toss";
     const side = (sc.side ?? (rest >= 0 ? 1 : -1));
-    tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, t - F);   // fully visible ON the cut frame
+    if (t < F) tl.set(el, { opacity: 1 }, 0);
+    else tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, t - F);   // fully visible ON the cut frame
     const to = { x: 0, y: 0, rotation: rest, scale: 1, ease: "power3.out" };
     if (kind === "slide")
       return tl.fromTo(el, { x: -120 * side, y: 10, rotation: rest - side * 2, scale: 1 }, { ...to, duration: (o.frames ?? 9) * F }, t);
@@ -112,7 +114,8 @@
       { ...to, duration: (o.frames ?? 7) * F }, t);
   };
   CH.slideIn = (tl, el, t, dir = 1, o = {}) => {
-    tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, t - F);   // fully visible ON the cut frame
+    if (t < F) tl.set(el, { opacity: 1 }, 0);
+    else tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: F, ease: "none" }, t - F);   // fully visible ON the cut frame
     return tl.fromTo(el, { x: 140 * dir }, { x: 0, duration: (o.frames ?? 6) * F, ease: "power3.out" }, t);
   };
   // the thappa: 140% -> 100% in 4 frames, then a 2-frame shake
