@@ -36,6 +36,8 @@ import sys
 import time
 from pathlib import Path
 
+from dotenv import dotenv_values
+
 from agent_context import build_brief, edit_inputs
 import budget
 
@@ -69,8 +71,12 @@ DENY = ["Bash(.venv/bin/python pipeline/..*)", "Edit(./pipeline/**)", "Edit(./.c
 # writes at 2x input instead of 1.25x (≈ $1.5 a reel, measured on chai-vs-phone).
 # No CLAUDE.md auto-load and no memory: the whole bible + the global CLAUDE.md + memory were 7.6k of the 14.4k tokens
 # every fresh agent started with (measured 2026-10-24). Each role gets only its sections instead (BIBLE below).
-ENV = {**os.environ, "FORCE_PROMPT_CACHING_5M": "1", "CLAUDE_CODE_DISABLE_CLAUDE_MDS": "1",
-       "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1"}
+# Asset/voice API keys stay out of the agents' environment (budget.py → lib.common loads .env into ours): the pipeline
+# scripts an agent runs load .env themselves, so an injected `echo $KEY` or a key in a WebFetch URL has nothing to read.
+_SECRETS = set(dotenv_values(ROOT / ".env"))
+ENV = {k: v for k, v in os.environ.items()
+       if k not in _SECRETS and not (re.search(r"KEY|TOKEN|SECRET|PASSWORD", k) and not k.startswith(("ANTHROPIC_", "CLAUDE_")))}
+ENV.update({"FORCE_PROMPT_CACHING_5M": "1", "CLAUDE_CODE_DISABLE_CLAUDE_MDS": "1", "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1"})
 # CLAUDE.md sections per role, by heading. "## 1." is §1's intro only; "## 1.*" is §1 with all its ### parts.
 BIBLE = {
     "researcher": ["## 1.", "### Tone", "## 3.", "## 4."],
