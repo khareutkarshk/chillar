@@ -346,7 +346,7 @@ def ensure(ep_dir: str, want: list[tuple[str, str, int]]) -> tuple[dict, list[st
     for kind, query, pick in want:
         k = key(kind, query, pick)
         e = man.get(k)
-        if e and (d / e["file"]).exists():
+        if e and (d / Path(e["file"]).name).exists():
             continue
         try:
             hit = None
@@ -390,7 +390,8 @@ def ensure(ep_dir: str, want: list[tuple[str, str, int]]) -> tuple[dict, list[st
         except Exception as ex:                     # a dead link must not kill validation
             errors.append(f"meme {kind} '{query}': {ex}")
     man_p.write_text(json.dumps(man, indent=1, ensure_ascii=False))
-    return {k: {**v, "path": str(d / v["file"])} for k, v in man.items()}, errors
+    # a manifest entry names a file in this cache, never a path elsewhere
+    return {k: {**v, "path": str(d / Path(v["file"]).name)} for k, v in man.items()}, errors
 
 
 def wanted(plan: dict) -> list[tuple[str, str, int]]:
