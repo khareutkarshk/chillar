@@ -61,13 +61,13 @@ fi
 # ---------------------------------------------------------------- python / uv
 step "Python 3.11+ (via uv)"
 if ! have uv; then
-  curl -LsSf https://astral.sh/uv/install.sh | sh
+  curl -LsSf https://astral.sh/uv/0.11.7/install.sh | sh     # pinned installer version
   export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 fi
 if have uv; then
   pass "uv $(uv --version | awk '{print $2}')"
   uv python find '>=3.11' >/dev/null 2>&1 || uv python install 3.12
-  if uv sync --quiet; then
+  if uv sync --locked --quiet; then                          # uv.lock is law: fail, never re-resolve
     pass "python venv $(.venv/bin/python -V | awk '{print $2}') + deps"
   else
     fail "python deps" "uv sync failed (see output above)"
@@ -97,7 +97,7 @@ step "Kokoro TTS (synthetic test voice only)"
 # ---------------------------------------------------------------- HyperFrames + Chrome
 step "HyperFrames + Chromium"
 if have npm; then
-  npm install --silent --no-audit --no-fund >/dev/null 2>&1 && pass "hyperframes $(npx --no-install hyperframes --version 2>/dev/null | tail -1)" \
+  npm ci --silent --no-audit --no-fund >/dev/null 2>&1 && pass "hyperframes $(npx --no-install hyperframes --version 2>/dev/null | tail -1)" \
     || fail "hyperframes" "npm install failed"
   npx --no-install hyperframes browser ensure >/dev/null 2>&1 && pass "chrome for rendering ($(npx --no-install hyperframes browser path 2>/dev/null | tail -1 | xargs basename))" \
     || fail "chrome for rendering" "run: npx hyperframes browser ensure"
@@ -114,13 +114,14 @@ step "RNNoise voice model"
 RNN="tools/rnnoise/std.rnnn"
 if [ ! -s "$RNN" ]; then
   mkdir -p tools/rnnoise
-  curl -fsSL --retry 3 --retry-delay 2 "https://raw.githubusercontent.com/richardpl/arnndn-models/master/std.rnnn" -o "$RNN" || rm -f "$RNN"
+  curl -fsSL --retry 3 --retry-delay 2 "https://raw.githubusercontent.com/richardpl/arnndn-models/0fda24c46d78f0207d820bb970fbe85c1971b39c/std.rnnn" -o "$RNN" || rm -f "$RNN"
+  echo "6b8943dc4a9b6b24425873992a44f29c0577503276456af46a8854774faeb294  $RNN" | sha256sum -c --quiet - || rm -f "$RNN"
 fi
 [ -s "$RNN" ] && pass "rnnoise model ($RNN)" || fail "rnnoise model" "denoise falls back to afftdn"
 
 # ---------------------------------------------------------------- fonts
 step "Brand fonts (OFL, Google Fonts)"
-GF="https://raw.githubusercontent.com/google/fonts/main/ofl"
+GF="https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl"   # pinned commit
 fetch_font() { # dest url
   [ -s "brand/fonts/$1" ] || curl -fsSL --retry 3 --retry-delay 2 "$2" -o "brand/fonts/$1" || rm -f "brand/fonts/$1"
 }
