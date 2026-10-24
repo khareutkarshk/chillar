@@ -629,7 +629,9 @@ def st_script(L: Line, ep: Path, a) -> None:
         prior = ep / "notes" / f"script-review-{n - 1}.md" if n > 1 else None
         L.scoped_agent("script-reviewer", ep, f"Review {e}/script.md, round {n}." +
                        (" This is a length-only fix: check changed lines and preserve the rest." if fix else "") +
-                       (f" Verify unresolved items in {prior.relative_to(ROOT)}, then assess the current draft." if prior else ""),
+                       (f" Fix-check: mark each note in {prior.relative_to(ROOT)} fixed or open; a new blocker only on a "
+                        "changed line or for a fact/safety failure." if prior else
+                        " Round 1 is the full checklist: list every blocker now."),
                        "script", "revision" if prior else "first", note=prior,
                        effort=REVISE_EFFORT if prior else "")     # round 1 judges cold at high; 2+ checks known notes
         # the reviewer's picks among the writer's {alt: …} lines — a punch-up without another round

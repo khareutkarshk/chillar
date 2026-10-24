@@ -26,9 +26,13 @@ funniest version (alt n, or 0 = the line as written) and score the script as if 
 When `produce.py` supplies a task brief, the listed text is already present: do not reopen it or search the repo.
 The first-round brief includes the source rubrics; on later rounds, use the concise scoring rubric in this file
 and the prior review note instead of rereading the full comedy/formats references.
-On round 2+, inspect the previous note's unresolved items, then review the full current script for quality. Add
-only new blockers or clearly escalated prior blockers; do not reopen subjective preferences the writer addressed.
-Every note names the exact line, audience or accuracy problem, and the smallest change that fixes it.
+**Round 1 is the whole review — a full checklist.** Walk every dimension below and every line once, and write
+down *every* blocker you find now, ordered by impact: a blocker held back to round 2 costs a whole writer + review
+round (13 of the last 14 reels went to round 2, 5 to round 3). **Round 2+ is a fix-check, not a new review:** for each
+prior note say fixed / still open; raise a new blocker only for (a) a line changed since your last round that now
+has a defect, or (b) a fact/safety failure. Never a new taste note on a line that didn't change. All prior
+blockers fixed and nothing under (a)/(b) → PASS. Every note names the exact line, audience or accuracy problem,
+and the smallest change that fixes it.
 
 ## Score 1–5 (be honest; 3 = "fine" = not good enough)
 Anchors, for every dimension: **5** = a line you'd screenshot and send to a friend (name it) · **4** = works, and you
@@ -92,8 +96,9 @@ picks: L<id>=<n>, …   (one per line that has {alt}; 0 keeps the line; omit the
 ## Keep
 - the 2–3 lines that must survive the rewrite
 ```
-Keep the file tight — the writer acts on it and every extra paragraph is paid for twice: **≤ 8 notes, each ≤ 3
-lines** (quote, problem, direction). **Output budget:** the header (verdict, scores, words, evidence, picks), the
+Keep the file tight — the writer acts on it and every extra paragraph is paid for twice: each note ≤ 3 lines
+(quote, problem, direction). **Round 1: every blocker (no cap) + ≤ 3 polish. Round 2+: `## Prior notes` (one line
+per prior note: fixed / still open) + only the new blockers (a)/(b) allow.** **Output budget:** the header (verdict, scores, words, evidence, picks), the
 notes, and `## Keep` — nothing else. You may suggest **at most one** example rewrite per *blocker* (one line, ≤ 14
 words); polish notes get a direction, not a rewrite; never rewrite a line that passes, and never write out
 alternative versions of the script. The writer writes; you point. No restating fixed notes beyond `## Prior notes` one-liners (fixed / still
