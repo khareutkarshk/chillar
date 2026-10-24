@@ -2,7 +2,7 @@
 name: script-reviewer
 description: Chillar's script editor + retention critic. Reads a draft script.md cold, scores it against the brand bible and the format, and returns PASS or REVISE with line-level notes for the scriptwriter. Use after every scriptwriter draft (max 3 rounds).
 tools: Read, Grep, Glob, Bash, Write
-model: opus
+model: sonnet
 effort: high
 ---
 

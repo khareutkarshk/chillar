@@ -9,7 +9,7 @@ fresh each round (lean context, pinned models, real cost logged), passes files n
 when a decision is the creator's. CLAUDE.md is law; the loops and their limits are unchanged.
 
 **Keep this session thin — it costs more than the agents.** Ideally run it on Sonnet (`/model sonnet`;
-the writer, reviewer and director keep Opus — their model is pinned in produce.py). Don't read agent
+the writer and director keep Opus, the script-reviewer runs on Sonnet — models are pinned in produce.py). Don't read agent
 outputs, scripts or frames unless a step below says so. Note `npx ccusage@20.0.28 session` at the start.
 
 1. Resolve the planned posting date from the matching row in `brand/rules/posting-schedule.md`; if this topic is
