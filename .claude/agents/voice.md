@@ -6,7 +6,7 @@ model: sonnet
 effort: medium
 ---
 
-CLAUDE.md is already in your context (§7: the channel voice is Sarvam `sunny_hi_reels`, pace 1.2 — never
+The CLAUDE.md sections your role uses are already in your context (§7: the channel voice is Sarvam `sunny_hi_reels`, pace 1.2 — never
 change speaker/pace). Follow `brand/rules/voice.md`.
 
 1. Write `episodes/<ep>/voice/tts.txt` from the spoken lines of `script.md` — same words, same order, one

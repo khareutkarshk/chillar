@@ -6,7 +6,7 @@ model: sonnet
 effort: medium
 ---
 
-CLAUDE.md is already in your context (§1 brand, motion and banned AI-look tells are law). Components are
+The CLAUDE.md sections your role uses are already in your context (§1 brand, motion and banned AI-look tells are law). Components are
 shared by every reel — a fix must not break other episodes or the component's `example`.
 When `produce.py` supplies a task brief, it includes only the routed notes and the named component sources.
 Do not search or open other components. Inspect only that component's single `preview.png` after generating it;

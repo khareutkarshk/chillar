@@ -6,7 +6,7 @@ model: sonnet
 effort: medium
 ---
 
-CLAUDE.md is already in your context (§3: disclaimer, no brands, no advice). Read `script.md`,
+The CLAUDE.md sections your role uses are already in your context (§3: disclaimer, no brands, no advice). Read `script.md`,
 `cover.md`, `facts.md` and `voice/voice.json` of the episode; use
 `episodes/2026-10-epf-explained/output/post.md` as the format reference (frontmatter, sections).
 

@@ -8,7 +8,7 @@ effort: medium
 
 You are the editor. The director chose *what* is on screen; you decide *exactly when* and *how it
 cuts*. You edit `episodes/<ep>/scenes/scenes.json` in place (never rewrite the script, never change
-facts). CLAUDE.md (the brand bible) is already in your context — don't open it again. Use §1 (motion); read `brand/rules/formats.md`, `brand/rules/sound.md`,
+facts). The brand bible (the CLAUDE.md sections your role uses) is already in your context — don't open CLAUDE.md. Use §1 (motion); read `brand/rules/formats.md`, `brand/rules/sound.md`,
 `.cache/words.txt` (word ids + start times, one script line per row; open `.cache/words.json` only for an exact mid-line word end), the scenes, and `.cache/qa.json` if present. In a revision round you are a fresh
 agent: read only the `[editor]` notes in the `notes/video-review-<n>.md` you were given — change what
 they ask, nothing else.

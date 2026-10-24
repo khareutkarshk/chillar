@@ -67,7 +67,39 @@ DENY = ["Bash(.venv/bin/python pipeline/..*)", "Edit(./pipeline/**)", "Edit(./.c
         "Edit(./node_modules/**)", "Edit(./.git/**)", "Edit(./.env*)", "Edit(./setup.sh)", "Edit(./package*.json)"]
 # Headless runs finish in < 6 min, so the 5-minute cache is enough; the CLI's default 1-hour cache bills
 # writes at 2x input instead of 1.25x (≈ $1.5 a reel, measured on chai-vs-phone).
-ENV = {**os.environ, "FORCE_PROMPT_CACHING_5M": "1"}
+# No CLAUDE.md auto-load and no memory: the whole bible + the global CLAUDE.md + memory were 7.6k of the 14.4k tokens
+# every fresh agent started with (measured 2026-10-24). Each role gets only its sections instead (BIBLE below).
+ENV = {**os.environ, "FORCE_PROMPT_CACHING_5M": "1", "CLAUDE_CODE_DISABLE_CLAUDE_MDS": "1",
+       "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1"}
+# CLAUDE.md sections per role, by heading. "## 1." is §1's intro only; "## 1.*" is §1 with all its ### parts.
+BIBLE = {
+    "researcher": ["## 1.", "### Tone", "## 3.", "## 4."],
+    "scriptwriter": ["## 1.", "### Banned", "### Signature", "### Handle", "### Mascot", "### Tone", "## 3.", "## 4."],
+    "script-reviewer": ["## 1.", "### Banned", "### Signature", "### Handle", "### Mascot", "### Tone", "## 3.", "## 4."],
+    "fact-checker": ["## 3."],
+    "voice": ["### Tone", "## 5.", "## 7."],
+    "director": ["## 1.*", "## 2.", "## 3.", "## 4.", "## 5.", "## 8."],
+    "editor": ["## 1.*", "## 2.", "## 4.", "## 5."],
+    "video-reviewer": ["## 1.*", "## 2.", "## 3.", "## 4.", "## 5."],
+    "component-dev": ["## 1.*", "## 2.", "## 8."],
+    "packager": ["## 1.", "### Handle", "## 3.", "## 4.", "## 9."],
+}
+
+
+def bible(role: str) -> str:
+    """The CLAUDE.md preamble + the sections BIBLE lists for this role, in file order (stable text → cached prefix)."""
+    text = (ROOT / "CLAUDE.md").read_text()
+    parts = re.split(r"(?m)^(?=#{2,3} )", text)
+    want = BIBLE.get(role)
+    if not want:
+        return text
+    keep, top = [parts[0]], ""
+    for part in parts[1:]:
+        if part.startswith("## "):
+            top = part.split(" ", 2)[1]                       # "1." … "9." (or the graphify heading's first word)
+        if f"## {top}*" in want or any(part.startswith(w) for w in want):
+            keep.append(part)
+    return "".join(keep).rstrip() + "\n"
 # "You've hit your session limit · resets 9:50pm (Asia/Kolkata)" arrives as a normal result, not an error
 LIMIT_RE = re.compile(r"hit your [\w ]*limit", re.I)
 LIMIT_WAIT_MAX = 6 * 3600        # a 5-hour session window resets inside this; a weekly limit doesn't, so that one stops
@@ -189,7 +221,9 @@ class Line:
         allow = [t for t in tools.split(",") if t != "Bash"] + (allowed_bash if "Bash" in tools else [])
         cmd = [self.cli, "-p", "--agent", name, "--model", model, "--tools", tools, "--allowedTools", *allow,
                "--disallowedTools", *DENY,
-               "--max-budget-usd", str(BUDGET.get(name, 1.0)), *LEAN]
+               "--max-budget-usd", str(BUDGET.get(name, 1.0)), *LEAN,
+               "--exclude-dynamic-system-prompt-sections", "--append-system-prompt",
+               "# Chillar brand bible — the CLAUDE.md sections your role uses (the rest doesn't apply to you)\n\n" + bible(name)]
         if meta.get("effort"):
             cmd += ["--effort", meta["effort"]]
         cmd.append(prompt)

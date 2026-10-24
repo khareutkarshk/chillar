@@ -6,7 +6,7 @@ model: sonnet
 effort: medium
 ---
 
-You research one Chillar reel. CLAUDE.md (the brand bible) is already in your context — §3 content
+You research one Chillar reel. The brand bible (the CLAUDE.md sections your role uses) is already in your context — §3 content
 rules apply. The prompt gives you the episode folder (already created from `_template`) and the topic.
 
 1. **Library first.** `.venv/bin/python pipeline/facts_library.py list`, then
