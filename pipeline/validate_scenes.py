@@ -202,6 +202,9 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
                 s["sfx_override"] = [{"at": float(mp.get("soundAt", 0)), "sound": "meme:" + snd["path"]}]
             else:
                 errors.append(f"{s['id']}: meme sound '{mp['sound']}' not fetched")
+        bad_sfx = [e.get("sound") for e in raw.get("sfx") or [] if not re.fullmatch(r"[A-Za-z0-9_-]+", str(e.get("sound", "")))]
+        if bad_sfx:    # meme sounds come from a meme's "sound" param; an sfx is a plain name in brand/sfx
+            errors.append(f"{s['id']}: sfx {bad_sfx} — use a plain sound name (brand/sfx/<name>.wav)")
         reserved = [k for k in raw.get("params", {}) if str(k).startswith("_")]
         if reserved:   # _file/_src/_w… are filled by the pipeline (memes); scenes.json never sets them
             errors.append(f"{s['id']}: params {reserved} are pipeline-only — remove them")
@@ -544,6 +547,9 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
                            "start": s["start"], "duration": s["duration"], "track": tracks[s["layer"]]})
     effects = [{"type": f["type"], "at": round(ctx.t(f["at"]), 3), "amount": f.get("amount", 1.06)}
                for f in plan.get("effects", [])]
+    track = str(plan.get("music", {}).get("track", ""))
+    if track and (Path(track).name != track or track.startswith(".")):
+        errors.append(f"music track '{track}' — use a file name inside brand/music/")
     resolved = {"episode": ep.name, "title": ep.meta.get("title", ep.name), "duration": total, "format": fmt_key,
                 "theme": ep.theme,
                 "voice_end": round(voice_end, 3), "outro_start": outro_start,

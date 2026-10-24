@@ -31,10 +31,16 @@ def ff(*a: str) -> subprocess.CompletedProcess:
     return subprocess.run(["ffmpeg", "-hide_banner", "-y", *a], capture_output=True, text=True, check=True)
 
 
+SOUND_NAME = re.compile(r"[A-Za-z0-9_-]+")     # sfx slots are plain names; scenes.json can't point at other files
+
+
 def resolve_sound(slot: str) -> tuple[Path | None, str]:
     if slot.startswith("meme:"):                # a real meme sound fetched by pipeline/memes.py
-        p = Path(slot[5:])
-        return (p, "meme") if p.exists() else (None, "missing")
+        p = Path(slot[5:]).resolve()
+        ok = p.is_relative_to(BRAND.parent / "episodes") and p.parent.parts[-2:] == (".cache", "memes")
+        return (p, "meme") if ok and p.exists() else (None, "missing")
+    if not SOUND_NAME.fullmatch(slot):
+        return None, "missing"
     for p in sorted((BRAND / "sfx" / "custom").glob(f"{slot}.*")):
         if p.suffix.lower() in AUDIO_EXT:
             return p, "custom"
@@ -49,6 +55,8 @@ def resolve_sound(slot: str) -> tuple[Path | None, str]:
 def resolve_music(track: str) -> tuple[Path | None, str]:
     if track:
         p = BRAND / "music" / track
+        if Path(track).name != track or track.startswith("."):
+            return None, "missing"
         return (p, "locked") if p.exists() else (None, "missing")
     locked = sorted(x for x in (BRAND / "music").glob("*") if x.suffix.lower() in AUDIO_EXT)
     if locked:
