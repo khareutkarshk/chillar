@@ -11,8 +11,8 @@ paid_partnership: false
 ---
 
 ## Hook
-Ek tareekh ko salary aayi, baarah ko gumshuda report likhwa raha hoon. [JOKE] {visual: thana counter, slip Gumshuda Salary}
 Maan lo ₹40,000 aaye the, aaj bache ₹5,753. [F1] {meme: M3}
+Ek tareekh ko salary aayi, baarah ko gumshuda report likhwa raha hoon. [JOKE] {visual: thana counter, slip Gumshuda Salary}
 Havaldar bole, "Shak kis pe?" Maine kaha, "Ek bada chor."
 Par ek ne darwaza bhi nahi khatkhataya.
 
