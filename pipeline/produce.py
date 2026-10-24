@@ -57,8 +57,14 @@ MIN_CLI = (2, 1, 280)            # oldest Claude Code that serves the models abo
 BUDGET = {"researcher": 1.5, "scriptwriter": 1.5, "script-reviewer": 1.0, "fact-checker": 1.0, "voice": 0.8,
           "director": 3.0, "editor": 1.0, "video-reviewer": 1.0, "component-dev": 2.0, "packager": 0.4}
 # Bash the agents may run without a prompt (headless runs can't ask). Everything else is denied.
-BASH_OK = [".venv/bin/python", "python3", "npx", "ffmpeg", "ffprobe", "ls", "cat", "head", "tail", "grep", "wc",
-           "sed", "jq", "mkdir", "cp", "find", "diff", "cd", "echo", "sort", "uniq", "awk"]
+# Headless agents read web pages and LLM-written files, so nothing that takes code on the command line
+# (python -c / python3 - / awk / sed's e / find -exec / npx) and nothing that writes anywhere (cp, ffmpeg):
+# pipeline scripts + read-only tools. File edits go through Edit/Write, kept out of code and config.
+PIPELINE_PY = "Bash(.venv/bin/python pipeline/*)"
+BASH_OK = [PIPELINE_PY] + [f"Bash({b}:*)" for b in ("ffprobe", "ls", "cat", "head", "tail", "grep", "wc", "cut", "jq",
+                                                     "mkdir", "diff", "cd", "echo", "sort", "uniq")]
+DENY = ["Bash(.venv/bin/python pipeline/..*)", "Edit(./pipeline/**)", "Edit(./.claude/**)", "Edit(./.venv/**)",
+        "Edit(./node_modules/**)", "Edit(./.git/**)", "Edit(./.env*)", "Edit(./setup.sh)", "Edit(./package*.json)"]
 # Headless runs finish in < 6 min, so the 5-minute cache is enough; the CLI's default 1-hour cache bills
 # writes at 2x input instead of 1.25x (≈ $1.5 a reel, measured on chai-vs-phone).
 ENV = {**os.environ, "FORCE_PROMPT_CACHING_5M": "1"}
@@ -179,9 +185,10 @@ class Line:
             meta["model"] = model
         model = MODELS.get(meta.get("model", "sonnet"), meta.get("model", "sonnet"))
         tools = tools_override or ",".join(t.strip() for t in meta.get("tools", "Read").split(","))
-        allowed_bash = ([".venv/bin/python"] if name == "component-dev" else BASH_OK) if bash_allow is None else bash_allow
-        allow = [t for t in tools.split(",") if t != "Bash"] + ([f"Bash({b}:*)" for b in allowed_bash] if "Bash" in tools else [])
-        cmd = [self.cli, "-p", "--agent", name, "--model", model, "--tools", tools, "--allowedTools", " ".join(allow),
+        allowed_bash = ([PIPELINE_PY] if name == "component-dev" else BASH_OK) if bash_allow is None else bash_allow
+        allow = [t for t in tools.split(",") if t != "Bash"] + (allowed_bash if "Bash" in tools else [])
+        cmd = [self.cli, "-p", "--agent", name, "--model", model, "--tools", tools, "--allowedTools", *allow,
+               "--disallowedTools", *DENY,
                "--max-budget-usd", str(BUDGET.get(name, 1.0)), *LEAN]
         if meta.get("effort"):
             cmd += ["--effort", meta["effort"]]
@@ -270,7 +277,7 @@ class Line:
             "script-reviewer": "Read,Write,Bash",
         }.get(name)
         return self.agent(name, prompt, stage, effort, model=model, tools_override=tools,
-                          bash_allow=[".venv/bin/python"] if tools and "Bash" in tools else [])
+                          bash_allow=[PIPELINE_PY] if tools and "Bash" in tools else [])
 
     def sh(self, *args: str, check: bool = True) -> int:
         print(f"  $ {' '.join(args)}", flush=True)
