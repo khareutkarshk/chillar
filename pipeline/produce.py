@@ -958,7 +958,7 @@ def st_usage(L: Line, ep: Path, a) -> None:
     if producer_section:
         lines += ["", producer_section]
     else:
-        lines += ["", "## Producer session", "", "Not included in the agent table. Record it with `npx ccusage@latest session`."]
+        lines += ["", "## Producer session", "", "Not included in the agent table. Record it with `npx ccusage@20.0.28 session`."]
     report_path.write_text("\n".join(lines) + "\n")
     print("\n".join(lines))
 

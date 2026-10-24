@@ -98,7 +98,7 @@ before grep", and "return ≤ 8 lines: what changed + the exact resume command".
 1. For each reel: `produce.py episodes/<slug> --only usage`; read only `notes/usage.md`. Build the batch table in
    the batch file: reel · format · agent $ · stage $ split · script/video rounds · script scores · final qa ·
    decisions taken · status (delivered / parked). Compare with the last reels (diwali $5.15, mdr $4.72) and
-   `npx ccusage@latest daily --since <batch start>` for the true total incl. you and helpers.
+   `npx ccusage@20.0.28 daily --since <batch start>` for the true total incl. you and helpers.
 2. Optimise (cost-neutral or cheaper, quality never down): pick the 1–3 biggest problems *with evidence* — a
    stage over its share on 2+ reels, the same blocker kind across reels, an agent hitting its $ cap, 1-hour
    cache flags, wasted turns in `usage.jsonl` tool summaries, a qa kind that fired falsely. Fix the cause in

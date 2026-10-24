@@ -3,8 +3,8 @@
     "allow": [
       "Bash(.venv/bin/python pipeline/*)",
       "Bash(.venv/bin/python:*)",
-      "Bash(npx --yes ccusage@latest:*)",
-      "Bash(npx ccusage@latest:*)",
+      "Bash(npx --yes ccusage@20.0.28:*)",
+      "Bash(npx ccusage@20.0.28:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git status:*)",

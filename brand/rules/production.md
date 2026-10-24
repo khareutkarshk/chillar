@@ -63,7 +63,7 @@ in `notes/usage.md` so context reduction can be measured.
 ## Session hygiene
 - One episode per session: start `/make-reel` in a fresh session; `/compact` after the fact-check
   (stage 3) and again after the first video-review round if the session is long.
-- Track cost per episode: `npx ccusage@latest daily` (or `session`) before and after; note the total in
+- Track cost per episode: `npx ccusage@20.0.28 daily` (or `session`) before and after; note the total in
   `episodes/<ep>/notes/usage.md` so each process change can be measured.
 
 ## The cheap way to run it: `pipeline/produce.py` (since 2026-10-19)

@@ -125,7 +125,7 @@ Monday afternoon.
   before the week starts.
 - **Every day, 10 min after posting:** reply to comments for the first hour; note topic requests in
   the backlog.
-- **Saturday:** `npx ccusage@latest daily` for the week — cost per reel should trend down.
+- **Saturday:** `npx ccusage@20.0.28 daily` for the week — cost per reel should trend down.
 - **Buffer:** keep 2 finished reels in `episodes/` that aren't date-bound (concepts, myths). If a day's
   reel fails review after 3 rounds, post a buffer reel and finish the other one tomorrow.
 - **Around 1 Feb (Union Budget):** the Monday Report covers it; every `budget` entry in the facts

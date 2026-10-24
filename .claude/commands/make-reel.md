@@ -10,7 +10,7 @@ when a decision is the creator's. CLAUDE.md is law; the loops and their limits a
 
 **Keep this session thin — it costs more than the agents.** Ideally run it on Sonnet (`/model sonnet`;
 the writer, reviewer and director keep Opus — their model is pinned in produce.py). Don't read agent
-outputs, scripts or frames unless a step below says so. Note `npx ccusage@latest session` at the start.
+outputs, scripts or frames unless a step below says so. Note `npx ccusage@20.0.28 session` at the start.
 
 1. Resolve the planned posting date from the matching row in `brand/rules/posting-schedule.md`; if this topic is
    not on the calendar, use the next unassigned posting day. An explicit date in the command takes precedence.

@@ -37,7 +37,7 @@ def claude_usd_since(day: str) -> float:
     """API-equivalent $ of every Claude model since <day> (YYYYMMDD), from ccusage's local logs.
     Raises RuntimeError when ccusage can't answer (offline npx, a malformed log line) — callers decide."""
     try:
-        r = subprocess.run(["npx", "--yes", "ccusage@latest", "daily", "--since", day, "--json"], cwd=ROOT,
+        r = subprocess.run(["npx", "--yes", "ccusage@20.0.28", "daily", "--since", day, "--json"], cwd=ROOT,
                            capture_output=True, text=True, timeout=180)
         rows = json.loads(r.stdout).get("daily", [])
     except (subprocess.TimeoutExpired, json.JSONDecodeError, OSError, AttributeError) as e:
