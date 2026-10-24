@@ -46,6 +46,7 @@ PY = str(ROOT / ".venv" / "bin" / "python")
 AGENTS = ROOT / ".claude" / "agents"
 STAGES = ["research", "script", "factcheck", "voice", "align", "edit", "deliver", "package", "usage"]
 MAX_ROUNDS = 3
+KILLED = (-15, -9, 143, 137)     # a step ended by SIGTERM/SIGKILL (directly, or through a shell)
 CULTURE_MIN_FRESH = 4            # Culture now rows that peaked this month or last, before the writer starts
 REVISE_EFFORT = "medium"         # director revisions / fix passes (the first plan uses the frontmatter's, medium since 2026-10-21)
 REVISE_MODEL = "sonnet"          # director fix/polish passes edit a few scenes from routed notes: Opus only for the first plan
@@ -319,11 +320,17 @@ class Line:
         return self.agent(name, prompt, stage, effort, model=model, tools_override=tools,
                           bash_allow=[PIPELINE_PY] if tools and "Bash" in tools else [])
 
-    def sh(self, *args: str, check: bool = True) -> int:
+    def sh(self, *args: str, check: bool = True, killed_retries: int = 0) -> int:
+        """killed_retries: re-run an idempotent step a signal killed (11-05: align got SIGTERM, exit -15, and the batch
+        stopped for a plain --from align resume)."""
         print(f"  $ {' '.join(args)}", flush=True)
         if self.dry:
             return 0
-        r = subprocess.run(list(args), cwd=ROOT, capture_output=True, text=True)
+        for attempt in range(killed_retries + 1):
+            r = subprocess.run(list(args), cwd=ROOT, capture_output=True, text=True)
+            if r.returncode not in KILLED or attempt == killed_retries:
+                break
+            print(f"    killed by a signal (exit {r.returncode}) — re-running", flush=True)
         tail = "\n".join((r.stdout + r.stderr).strip().splitlines()[-6:])
         if tail:
             print("    " + tail.replace("\n", "\n    "), flush=True)
@@ -682,8 +689,8 @@ def script_blocks(fc: Path) -> bool:
 
 
 def clean_align(L: Line, ep: Path) -> None:
-    L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", "clean")
-    L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", "align")
+    L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", "clean", killed_retries=1)
+    L.sh(PY, "pipeline/make_reel.py", str(ep), "--only", "align", killed_retries=1)
 
 
 def st_voice(L: Line, ep: Path, a) -> None:
