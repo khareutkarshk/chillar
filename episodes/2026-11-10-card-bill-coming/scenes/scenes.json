@@ -26,9 +26,22 @@
       "fact": "F1"
     },
     {
+      "id": "hook-sideeye",
+      "component": "mascot-reaction",
+      "at": "w8",
+      "until": "w14",
+      "params": {
+        "expr": "side-eye",
+        "anim": "blink",
+        "x": 800,
+        "y": 1230,
+        "size": 170
+      }
+    },
+    {
       "id": "sms-muted",
       "component": "chat-screen",
-      "at": "w10",
+      "at": "w14",
       "params": {
         "name": "Bua family group (muted)",
         "messages": [
@@ -54,8 +67,8 @@
     {
       "id": "sms-sideeye",
       "component": "mascot-reaction",
-      "at": "w15",
-      "until": "w19",
+      "at": "w19",
+      "until": "w23",
       "params": {
         "expr": "side-eye",
         "anim": "blink",
@@ -67,7 +80,7 @@
     {
       "id": "maam",
       "component": "photo-frame",
-      "at": "w19",
+      "at": "w23",
       "params": {
         "speech": "Ek line yaad rakhna, beta.",
         "caption": "Librarian ma'am",
@@ -79,7 +92,7 @@
     {
       "id": "saved-750",
       "component": "odometer-number",
-      "at": "w26",
+      "at": "w30",
       "params": {
         "value": 750,
         "prefix": "₹",
@@ -92,7 +105,7 @@
     {
       "id": "library-slip",
       "component": "receipt-list",
-      "at": "w29",
+      "at": "w33",
       "params": {
         "title": "LIBRARY CARD",
         "meta": "Kitaab issue",
@@ -116,8 +129,8 @@
     {
       "id": "fine-smug",
       "component": "mascot-reaction",
-      "at": "w34",
-      "until": "w37",
+      "at": "w38",
+      "until": "w41",
       "params": {
         "expr": "smug",
         "anim": "blink",
@@ -129,7 +142,7 @@
     {
       "id": "free-window",
       "component": "calendar-flip",
-      "at": "w37",
+      "at": "w41",
       "params": {
         "pages": [
           "SWIPE DIN",
@@ -147,7 +160,7 @@
     {
       "id": "asterisk",
       "component": "glyph-character",
-      "at": "w47",
+      "at": "w51",
       "params": {
         "glyph": "*",
         "costume": "lawyer",
@@ -156,23 +169,23 @@
         "bubbleSide": "right",
         "anim": "grow",
         "line": "Interest-free period*",
-        "lineY": 780,
+        "lineY": 880,
         "growAt": 0.5,
         "size": 240,
         "x": 320,
-        "y": 520
+        "y": 485
       },
       "fact": "F2"
     },
     {
       "id": "stamp-poora",
       "component": "stamp",
-      "at": "w52",
-      "until": "w58",
+      "at": "w56",
+      "until": "w62",
       "params": {
         "text": "Poora bill",
-        "x": 520,
-        "y": 1065,
+        "x": 500,
+        "y": 1130,
         "rotate": -7,
         "size": 100
       }
@@ -180,7 +193,7 @@
     {
       "id": "cart-30k",
       "component": "odometer-number",
-      "at": "w58",
+      "at": "w62",
       "params": {
         "value": 30000,
         "prefix": "₹",
@@ -193,7 +206,7 @@
     {
       "id": "cart",
       "component": "phone-note",
-      "at": "w63",
+      "at": "w67",
       "params": {
         "title": "Diwali cart",
         "items": [
@@ -218,7 +231,7 @@
     {
       "id": "meme-baskaro",
       "component": "meme",
-      "at": "w67+0.1",
+      "at": "w71",
       "params": {
         "meme": "Bas karo bhai",
         "kind": "image",
@@ -235,7 +248,7 @@
     {
       "id": "bill-dekhenge",
       "component": "receipt-list",
-      "at": "w70+0.2",
+      "at": "w74+0.7",
       "params": {
         "title": "CARD BILL",
         "items": [
@@ -258,7 +271,7 @@
     {
       "id": "fine-from-issue",
       "component": "calendar-flip",
-      "at": "w72",
+      "at": "w76",
       "params": {
         "pages": [
           "DUE DATE",
@@ -275,7 +288,7 @@
     {
       "id": "issue-slip",
       "component": "receipt-list",
-      "at": "w82",
+      "at": "w86",
       "params": {
         "title": "ISSUE SLIP",
         "meta": "Kitaab haath mein",
@@ -298,7 +311,7 @@
     {
       "id": "issue-shock",
       "component": "mascot-reaction",
-      "at": "w87",
+      "at": "w91",
       "params": {
         "expr": "shocked",
         "anim": "pop",
@@ -306,12 +319,12 @@
         "y": 1120,
         "size": 260
       },
-      "until": "w94"
+      "until": "w98"
     },
     {
       "id": "interest-from-swipe",
       "component": "receipt-list",
-      "at": "w87",
+      "at": "w91",
       "params": {
         "title": "CARD SWIPE",
         "meta": "Byaaj ka meter",
@@ -340,7 +353,7 @@
     {
       "id": "rbi-example",
       "component": "receipt-list",
-      "at": "w97",
+      "at": "w101",
       "cut": "zoom",
       "params": {
         "title": "RBI EXAMPLE",
@@ -356,7 +369,7 @@
           "amount": "?",
           "tone": "red"
         },
-        "totalAt": 1.4,
+        "totalAt": 0.2,
         "width": 860,
         "dy": 100
       },
@@ -365,7 +378,7 @@
     {
       "id": "interest-600",
       "component": "odometer-number",
-      "at": "w103-0.1",
+      "at": "w107+0.4",
       "params": {
         "value": 600,
         "prefix": "₹",
@@ -378,7 +391,7 @@
     {
       "id": "charges-150",
       "component": "receipt-list",
-      "at": "w105",
+      "at": "w109+0.2",
       "params": {
         "title": "RBI EXAMPLE",
         "meta": "Mahina 1",
@@ -390,7 +403,7 @@
           {
             "label": "Charges (lagbhag)",
             "amount": "₹150",
-            "at": 0.3
+            "at": 0.1
           }
         ],
         "total": {
@@ -398,7 +411,8 @@
           "amount": "…",
           "tone": "red"
         },
-        "totalAt": 1.2,
+        "totalAt": 0.4,
+        "step": 0.12,
         "width": 860,
         "dy": 280
       },
@@ -407,7 +421,7 @@
     {
       "id": "dekhenge-vs-full",
       "component": "bar-chart",
-      "at": "w108",
+      "at": "w112-0.2",
       "params": {
         "bars": [
           {
@@ -429,8 +443,8 @@
     {
       "id": "stamp-750",
       "component": "stamp",
-      "at": "w109",
-      "until": "w114",
+      "at": "w113",
+      "until": "w118",
       "params": {
         "text": "₹750",
         "x": 700,
@@ -442,7 +456,7 @@
     {
       "id": "meme-fanum",
       "component": "meme",
-      "at": "w114",
+      "at": "w118",
       "params": {
         "meme": "Fanum",
         "kind": "image",
@@ -467,7 +481,7 @@
     {
       "id": "free-paused",
       "component": "checklist",
-      "at": "w118",
+      "at": "w122",
       "params": {
         "title": "Naya swipe",
         "items": [
@@ -487,8 +501,7 @@
     {
       "id": "fourth-swipe",
       "component": "receipt-list",
-      "at": "w128",
-      "cut": "whip",
+      "at": "w132",
       "params": {
         "title": "CARD SWIPE",
         "meta": "Kal raat",
@@ -524,7 +537,7 @@
     {
       "id": "papa",
       "component": "photo-frame",
-      "at": "w135",
+      "at": "w139",
       "params": {
         "speech": "Minimum toh bhara na?",
         "caption": "papa",
@@ -536,7 +549,7 @@
     {
       "id": "min-myth",
       "component": "split-compare",
-      "at": "w141",
+      "at": "w145",
       "params": {
         "left": {
           "title": "Myth",
@@ -556,7 +569,7 @@
     {
       "id": "maam-saari",
       "component": "photo-frame",
-      "at": "w151",
+      "at": "w155",
       "params": {
         "speech": "Saari kitaabein, beta. Saari.",
         "caption": "Librarian ma'am",
@@ -568,7 +581,7 @@
     {
       "id": "pay-all",
       "component": "checklist",
-      "at": "w159",
+      "at": "w163",
       "params": {
         "title": "Due date tak",
         "items": [
@@ -596,8 +609,8 @@
     {
       "id": "end-sideeye",
       "component": "mascot-reaction",
-      "at": "w165",
-      "until": "w168",
+      "at": "w169",
+      "until": "w172",
       "params": {
         "expr": "side-eye",
         "anim": "blink",
@@ -610,15 +623,15 @@
   "effects": [
     {
       "type": "punch",
-      "at": "w26"
+      "at": "w30"
     },
     {
       "type": "punch",
-      "at": "w109"
+      "at": "w113"
     },
     {
       "type": "punch",
-      "at": "w158"
+      "at": "w162"
     }
   ]
 }

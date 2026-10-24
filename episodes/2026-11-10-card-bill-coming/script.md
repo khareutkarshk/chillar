@@ -11,7 +11,7 @@ paid_partnership: false
 ---
 
 ## Hook
-Teen same stencil swipe kiye, bill kab tak free hai? [JOKE] {chillar: facepalm} {meme: M3}
+Maan lo ₹30,000 ke cart mein teen same stencil, bill kab tak free hai? [F1] [JOKE] {chillar: facepalm} {meme: M3}
 SMS aaya, bua ke group ke saath mute hai. [JOKE] {chillar: side-eye}
 Librarian ma'am ki ek line se mere ₹750 bach jaate [F1].
 Kitaab due date tak lautao, toh fine zero.
