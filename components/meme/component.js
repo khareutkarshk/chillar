@@ -13,7 +13,7 @@ CH.define("meme", {
       <div class="zone">
         ${p.headline ? `<div class="mm-head t-head">${CH.rich(p.headline)}</div>` : ""}
         <div class="mm-photo paper-obj" style="width:${(pw + 2 * PAD).toFixed(0)}px">
-          <div class="mm-pic" style="width:${pw.toFixed(0)}px;height:${ph.toFixed(0)}px;background-image:url('${CH.esc(p._src || "")}');${p.wide ? `background-position:${CH.esc(p.position || "center")};` : ""}${bg}">
+          <div class="mm-pic" style="width:${pw.toFixed(0)}px;height:${ph.toFixed(0)}px;background-image:url('${CH.esc(p._src || "")}');${p.wide ? `background-position:${/^[a-z0-9 %.-]+$/i.test(p.position || "") ? p.position : "center"};` : ""}${bg}">
             ${(p.labels || []).map((l) => `<div class="mm-label" style="left:${+l.x}%;top:${+l.y}%;font-size:${+l.size || +p.labelSize || 52}px;max-width:${+l.w || 46}%">${CH.rich(l.text)}</div>`).join("")}
           </div>
         </div>

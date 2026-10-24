@@ -79,7 +79,7 @@ params: text="UPI *free* nahi hai", sub="", size=168, align="left", markerAt=0.2
 
 ### mascot-reaction
 Chillar pops up from the bottom of the content zone with an expression + animation and an optional deadpan speech bubble (a paper bubble, no outline). Replaces memes; counts as a re-hook. Can be an overlay on another scene. ring: optional short text on a green profile-photo ring around the coin (e.g. 'open to work'), drawn after the pop. sound: optional meme sound (e.g. 'vine boom'), fetched by pipeline/memes.py (soundPick picks the result), played soundAt s after the pop; it replaces the arrival coin and counts as a meme beat in the reel's meme budget. Default '' keeps the coin.
-`layer overlay · min 1.0s · re-hook · sfx coin@0.05s`
+`layer overlay · min 1.2s · re-hook · sfx coin@0.05s`
 params: expr="side-eye", anim="blink", x=760, y=1120, size=320, bubble="", bubbleSide="left", ring="", sound="", soundPick=0, soundAt=0.05
 
 ### meme

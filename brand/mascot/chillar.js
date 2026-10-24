@@ -167,8 +167,9 @@
   };
 
   function svg(opts = {}) {
-    const expr = opts.expr || "neutral-tired";
-    const id = opts.id || "chillar";
+    // both land in SVG attributes from scene params: only name/id-safe characters
+    const expr = /^[a-z-]+$/.test(opts.expr || "") ? opts.expr : "neutral-tired";
+    const id = String(opts.id || "chillar").replace(/[^\w-]/g, "") || "chillar";
     const size = opts.size || 400;
     const p = merge(DEFAULT, EXPR[expr] || {});
     const D = DENTS[opts.dent || "none"], BODY = D.body, RIM = D.rim;

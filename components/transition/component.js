@@ -16,7 +16,7 @@ CH.define("transition", {
       if (out) tl.fromTo(out, { scale: 1 }, { scale: 1.3, duration: 4 * F, ease: "power2.in", transformOrigin: "50% 36%", immediateRender: false }, cut - 4 * F);
       if (inn) tl.fromTo(inn, { scale: 0.86 }, { scale: 1, duration: 6 * F, ease: "power3.out", transformOrigin: "50% 36%", immediateRender: false }, cut);
     } else if (p.style === "wipe") {
-      el.style.setProperty("--wipe-field", `var(--${p.field || "bone"})`);
+      el.style.setProperty("--wipe-field", `var(--${/^[a-z0-9-]+$/.test(p.field || "") ? p.field : "bone"})`);
       el.innerHTML = `<div class="tr-wipe"></div>`;
       tl.fromTo(el.querySelector(".tr-wipe"), { yPercent: 100 }, { yPercent: 0, duration: 5 * F, ease: "power3.in" }, cut - 5 * F);
     } else if (p.style === "page") {

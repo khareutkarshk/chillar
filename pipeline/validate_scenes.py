@@ -202,6 +202,8 @@ def resolve(ep_dir: str, demo: bool | None = None) -> tuple[dict, list[str], lis
                 s["sfx_override"] = [{"at": float(mp.get("soundAt", 0)), "sound": "meme:" + snd["path"]}]
             else:
                 errors.append(f"{s['id']}: meme sound '{mp['sound']}' not fetched")
+        if not re.fullmatch(r"[A-Za-z0-9_-]+", str(raw["id"])):   # ids land in HTML ids and mascot SVG attributes
+            errors.append(f"{raw['id']!r}: scene id — letters, digits, - and _ only")
         bad_sfx = [e.get("sound") for e in raw.get("sfx") or [] if not re.fullmatch(r"[A-Za-z0-9_-]+", str(e.get("sound", "")))]
         if bad_sfx:    # meme sounds come from a meme's "sound" param; an sfx is a plain name in brand/sfx
             errors.append(f"{s['id']}: sfx {bad_sfx} — use a plain sound name (brand/sfx/<name>.wav)")
