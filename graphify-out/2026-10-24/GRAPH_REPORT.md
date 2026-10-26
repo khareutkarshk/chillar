@@ -1,16 +1,16 @@
 # Graph Report - chillar  (2026-10-24)
 
 ## Corpus Check
-- 266 files · ~208,502 words
+- 259 files · ~176,045 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1132 nodes · 1682 edges · 167 communities (121 shown, 46 thin omitted)
+- 1133 nodes · 1683 edges · 166 communities (120 shown, 46 thin omitted)
 - Extraction: 96% EXTRACTED · 4% INFERRED · 0% AMBIGUOUS · INFERRED: 59 edges (avg confidence: 0.77)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `49f04b83`
+- Built from commit: `b255fad4`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -135,7 +135,6 @@
 - Facts — _pilot-human (12 s pilot of the hand-made line; never posted)
 - _pilot-human/cover.md
 - _pilot-human/script.md
-- make_reel.py
 - CompletedProcess
 - validate_scenes.py
 - Path
@@ -161,12 +160,12 @@
   README.md → .claude/agents/director.md
 - `12 LPA episode script.md` --references--> `Chillar series: Chillar in 60, Chillar Report, Myth vs Math, ₹100 vs ₹1,00,000`  [INFERRED]
   episodes/2026-10-12lpa-in-hand/script.md → CLAUDE.md
-- `Script review rubric (stop power, laughs, specificity, clarity, escalation, payoff, speakability, facts)` --implements--> `Formats + retention (30/60/90 s)`  [INFERRED]
-  .claude/agents/script-reviewer.md → CLAUDE.md
 - `/new-reel command` --references--> `template cover.md`  [INFERRED]
   .claude/commands/new-reel.md → episodes/_template/cover.md
-- `/new-reel command` --references--> `template script.md`  [INFERRED]
-  .claude/commands/new-reel.md → episodes/_template/script.md
+- `12 LPA episode script.md` --implements--> `Thappa red rubber stamp (2-3 per video)`  [INFERRED]
+  episodes/2026-10-12lpa-in-hand/script.md → CLAUDE.md
+- `Script review rubric (stop power, laughs, specificity, clarity, escalation, payoff, speakability, facts)` --implements--> `Formats + retention (30/60/90 s)`  [INFERRED]
+  .claude/agents/script-reviewer.md → CLAUDE.md
 
 ## Import Cycles
 - None detected.
@@ -176,7 +175,7 @@
 - **Edit suite loop (director → editor → render → video-reviewer)** — _claude_agents_director, _claude_agents_editor, _claude_agents_video_reviewer, _claude_commands_render, _claude_agents_director_scenes_json, pipeline_make_reel [EXTRACTED 1.00]
 - **12 LPA CTC → ₹86,468 in-hand computation** — episodes_2026_10_12lpa_in_hand_facts_f9, episodes_2026_10_12lpa_in_hand_facts_f1, episodes_2026_10_12lpa_in_hand_facts_f2, episodes_2026_10_12lpa_in_hand_facts_f4, episodes_2026_10_12lpa_in_hand_facts_f6, episodes_2026_10_12lpa_in_hand_facts_f7, episodes_2026_10_12lpa_in_hand_facts_f8 [EXTRACTED 1.00]
 
-## Communities (167 total, 46 thin omitted)
+## Communities (166 total, 46 thin omitted)
 
 ### Community 0 - "common.py"
 Cohesion: 0.07
@@ -271,8 +270,8 @@ Cohesion: 0.50
 Nodes (3): Hook {field: note10}, Payoff {field: note2000}, Turn {field: note500}
 
 ### Community 68 - "qa.py"
-Cohesion: 0.10
-Nodes (30): all_components(), attr(), build(), component_meta(), merged_params(), demo_captions(), main(), area() (+22 more)
+Cohesion: 0.07
+Nodes (38): all_components(), attr(), build(), component_meta(), merged_params(), demo_captions(), main(), cover() (+30 more)
 
 ### Community 71 - "tts.py"
 Cohesion: 0.11
@@ -351,8 +350,8 @@ Cohesion: 0.33
 Nodes (10): clean(), ff(), find_voice(), has_filter(), loudnorm(), CompletedProcess, ndarray, Path (+2 more)
 
 ### Community 100 - "README (chillar-reels)"
-Cohesion: 0.29
-Nodes (8): Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists), Editor passes: rhythm, cut points, comedic timing, transitions, sound, overlays, brand/tokens.json, Sound design: sonic signature, max one SFX / 2 s, -14 LUFS, template script.md, README (chillar-reels), Note Fields design (rupee-note colour fields), Sound audition + lock (brand/_audition, PROVISIONAL sounds)
+Cohesion: 0.25
+Nodes (9): Chapters = rupee-note colour fields (₹10→₹20→₹50→₹500, ₹2000 for twists), Editor passes: rhythm, cut points, comedic timing, transitions, sound, overlays, igcheck stage (upload-safe), brand/tokens.json, make_reel.py pipeline stages (clean→align→validate→build→render→mix→cover→sheet), Sound design: sonic signature, max one SFX / 2 s, -14 LUFS, README (chillar-reels), Note Fields design (rupee-note colour fields) (+1 more)
 
 ### Community 101 - "Facts — <episode>"
 Cohesion: 0.50
@@ -371,8 +370,8 @@ Cohesion: 0.24
 Nodes (19): Theme selection: pastel / calm / night, mithai-dabba component (laddoo deductions), 12 LPA episode cover.md, 12 LPA episode facts.md, F1 new-regime tax slabs, F10 EPF partial withdrawal after 12 months, F2 no tax up to ₹12 lakh (₹12.75 lakh salaried) rebate, F3 Income-tax Act 2025 from Apr 2026 (+11 more)
 
 ### Community 106 - "CLAUDE.md brand bible"
-Cohesion: 0.12
-Nodes (21): 3-second brand test on every frame, /package command, Bricolage Grotesque cover font, Cover package scoring (curiosity, clarity, honesty ≥4), output/post.md Instagram caption, CLAUDE.md brand bible, Bricolage Grotesque / Mukta / JetBrains Mono typography, Chillar ₹1 coin mascot (8 expressions) (+13 more)
+Cohesion: 0.13
+Nodes (21): Script review rubric (stop power, laughs, specificity, clarity, escalation, payoff, speakability, facts), 3-second brand test on every frame, /package command, Bricolage Grotesque cover font, Cover package scoring (curiosity, clarity, honesty ≥4), output/post.md Instagram caption, CLAUDE.md brand bible, Bricolage Grotesque / Mukta / JetBrains Mono typography (+13 more)
 
 ### Community 107 - "fact_lint.py"
 Cohesion: 0.16
@@ -387,8 +386,8 @@ Cohesion: 0.50
 Nodes (3): Hook, Payoff, Turn
 
 ### Community 111 - "/make-reel command"
-Cohesion: 0.21
-Nodes (16): fact-checker agent, script-reviewer agent, Script review rubric (stop power, laughs, specificity, clarity, escalation, payoff, speakability, facts), scriptwriter agent, Reel format table (30/60/90 s: words, chapters, laughs, re-hook cadence), Joke craft (specificity, self-roast, rule of three, deadpan tag, callbacks), [JOKE] laugh-line marker, /fact-check command (+8 more)
+Cohesion: 0.24
+Nodes (15): fact-checker agent, script-reviewer agent, scriptwriter agent, Reel format table (30/60/90 s: words, chapters, laughs, re-hook cadence), Joke craft (specificity, self-roast, rule of three, deadpan tag, callbacks), [JOKE] laugh-line marker, /fact-check command, Fact-check status table (✅ / ⚠ / ❌) (+7 more)
 
 ### Community 112 - "episode.py"
 Cohesion: 0.05
@@ -455,8 +454,8 @@ Cohesion: 0.50
 Nodes (3): Hook, Payoff {field: note500}, Turn {field: note50}
 
 ### Community 144 - "Batch 2026-11-08 → 2026-11-12 (started 2026-10-21)"
-Cohesion: 0.50
-Nodes (3): Batch 2026-11-08 → 2026-11-12 (started 2026-10-21), Batch table, Events
+Cohesion: 0.40
+Nodes (4): Batch 2026-11-08 → 2026-11-12 (started 2026-10-21), Batch table, Events, Optimisation 2026-10-24 (interactive session) — NOT YET MEASURED, next batch confirms
 
 ### Community 145 - "script_picks.py"
 Cohesion: 0.67
@@ -490,10 +489,6 @@ Nodes (4): Escalation {field: note50}, Hook, Payoff {field: note500}, Setup {fie
 Cohesion: 0.50
 Nodes (3): Culture now, Expert take, Facts — _pilot-human (12 s pilot of the hand-made line; never posted)
 
-### Community 159 - "make_reel.py"
-Cohesion: 0.28
-Nodes (8): igcheck stage (upload-safe), make_reel.py pipeline stages (clean→align→validate→build→render→mix→cover→sheet), build_staleness(), main(), CompletedProcess, Path, Return source files newer than the compiled composition used by render-only…, run()
-
 ### Community 161 - "validate_scenes.py"
 Cohesion: 0.36
 Nodes (7): caption_groups(), chapter_starts(), Ctx, main(), Every string a viewer could read in a params tree., resolve(), strings()
@@ -507,24 +502,24 @@ Cohesion: 0.48
 Nodes (6): entry(), main(), A default the director can copy without opening component.json: lists of…, render(), short(), stale()
 
 ## Knowledge Gaps
-- **294 isolated node(s):** `Report (hard limit)`, `PATH`, `RESULTS`, `app-slip`, `avatar` (+289 more)
+- **295 isolated node(s):** `Events`, `Batch table`, `Optimisation 2026-10-24 (interactive session) — NOT YET MEASURED, next batch confirms`, `Report (hard limit)`, `PATH` (+290 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **46 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `CLAUDE.md brand bible` connect `CLAUDE.md brand bible` to `validate_scenes.py`, `fetch_assets.py`, `README (chillar-reels)`, `director agent`, `/make-reel command`, `make_reel.py`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
-- **Why does `12 LPA episode script.md` connect `12 LPA episode script.md` to `CLAUDE.md brand bible`, `README (chillar-reels)`, `/make-reel command`?**
-  _High betweenness centrality (0.007) - this node is a cross-community bridge._
+- **Why does `CLAUDE.md brand bible` connect `CLAUDE.md brand bible` to `validate_scenes.py`, `fetch_assets.py`, `README (chillar-reels)`, `director agent`, `/make-reel command`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **Why does `Episode` connect `episode.py` to `audio_clean.py`?**
+  _High betweenness centrality (0.009) - this node is a cross-community bridge._
+- **Why does `template facts.md` connect `/make-reel command` to `12 LPA episode script.md`, `fact_lint.py`?**
+  _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Path` (e.g. with `lint()` and `stale_lint()`) actually correct?**
   _`Path` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `Report (hard limit)`, `PATH`, `RESULTS` to the rest of the system?**
-  _294 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `Events`, `Batch table`, `Optimisation 2026-10-24 (interactive session) — NOT YET MEASURED, next batch confirms` to the rest of the system?**
+  _295 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `common.py` be split into smaller, more focused modules?**
   _Cohesion score 0.07307692307692308 - nodes in this community are weakly interconnected._
 - **Should `memes.py` be split into smaller, more focused modules?**
   _Cohesion score 0.12307692307692308 - nodes in this community are weakly interconnected._
-- **Should `fetch_assets.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._

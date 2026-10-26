@@ -1,7 +1,7 @@
 # Graph Report - chillar  (2026-10-24)
 
 ## Corpus Check
-- 259 files · ~176,045 words
+- 259 files · ~176,281 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b255fad4`
+- Built from commit: `9d7319f0`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -514,7 +514,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Episode` connect `episode.py` to `audio_clean.py`?**
   _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **Why does `template facts.md` connect `/make-reel command` to `12 LPA episode script.md`, `fact_lint.py`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
+  _High betweenness centrality (0.009) - this node is a cross-community bridge._
 - **Are the 2 inferred relationships involving `Path` (e.g. with `lint()` and `stale_lint()`) actually correct?**
   _`Path` has 2 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `Events`, `Batch table`, `Optimisation 2026-10-24 (interactive session) — NOT YET MEASURED, next batch confirms` to the rest of the system?**

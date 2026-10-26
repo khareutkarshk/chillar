@@ -55,15 +55,70 @@
   },
   "nodes": [
     {
+      "label": "2026-11-08_2026-11-12.md",
+      "file_type": "document",
+      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "notes_batches_2026_11_08_2026_11_12",
+      "community": 144,
+      "community_name": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
+      "norm_label": "2026-11-08_2026-11-12.md"
+    },
+    {
+      "label": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
+      "file_type": "document",
+      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21",
+      "community": 144,
+      "community_name": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
+      "norm_label": "batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)"
+    },
+    {
+      "label": "Events",
+      "file_type": "document",
+      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "notes_batches_2026_11_08_2026_11_12_events",
+      "community": 144,
+      "community_name": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
+      "norm_label": "events"
+    },
+    {
+      "label": "Batch table",
+      "file_type": "document",
+      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "notes_batches_2026_11_08_2026_11_12_batch_table",
+      "community": 144,
+      "community_name": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
+      "norm_label": "batch table"
+    },
+    {
+      "label": "Optimisation 2026-10-24 (interactive session) \u2014 NOT YET MEASURED, next batch confirms",
+      "file_type": "document",
+      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "notes_batches_2026_11_08_2026_11_12_optimisation_2026_10_24_interactive_session_not_yet_measured_next_batch_confirms",
+      "community": 144,
+      "community_name": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
+      "norm_label": "optimisation 2026-10-24 (interactive session) \u2014 not yet measured, next batch confirms"
+    },
+    {
       "label": "fact_lint.py",
       "file_type": "code",
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "pipeline_fact_lint",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "fact_lint.py"
+      "norm_label": "fact_lint.py",
+      "id": "pipeline_fact_lint"
     },
     {
       "label": "is_example()",
@@ -71,10 +126,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L52",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_is_example",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "is_example()"
+      "norm_label": "is_example()",
+      "id": "pipeline_fact_lint_is_example"
     },
     {
       "label": "spoken_len()",
@@ -82,10 +137,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L59",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_spoken_len",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "spoken_len()"
+      "norm_label": "spoken_len()",
+      "id": "pipeline_fact_lint_spoken_len"
     },
     {
       "label": "jargon_in()",
@@ -93,10 +148,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L102",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_jargon_in",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "jargon_in()"
+      "norm_label": "jargon_in()",
+      "id": "pipeline_fact_lint_jargon_in"
     },
     {
       "label": "discussable()",
@@ -104,10 +159,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L106",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_discussable",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "discussable()"
+      "norm_label": "discussable()",
+      "id": "pipeline_fact_lint_discussable"
     },
     {
       "label": "hook_hold()",
@@ -115,10 +170,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L151",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_hook_hold",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "hook_hold()"
+      "norm_label": "hook_hold()",
+      "id": "pipeline_fact_lint_hook_hold"
     },
     {
       "label": "stale_lint()",
@@ -126,10 +181,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L170",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_stale_lint",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "stale_lint()"
+      "norm_label": "stale_lint()",
+      "id": "pipeline_fact_lint_stale_lint"
     },
     {
       "label": "opening()",
@@ -137,10 +192,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L208",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_opening",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "opening()"
+      "norm_label": "opening()",
+      "id": "pipeline_fact_lint_opening"
     },
     {
       "label": "script_lint()",
@@ -148,10 +203,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L219",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_script_lint",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "script_lint()"
+      "norm_label": "script_lint()",
+      "id": "pipeline_fact_lint_script_lint"
     },
     {
       "label": "_digits()",
@@ -159,10 +214,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L264",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_digits",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "_digits()"
+      "norm_label": "_digits()",
+      "id": "pipeline_fact_lint_digits"
     },
     {
       "label": "_source_text()",
@@ -170,10 +225,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L271",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_source_text",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "_source_text()"
+      "norm_label": "_source_text()",
+      "id": "pipeline_fact_lint_source_text"
     },
     {
       "label": "verify_plan()",
@@ -181,10 +236,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L281",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_verify_plan",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "verify_plan()"
+      "norm_label": "verify_plan()",
+      "id": "pipeline_fact_lint_verify_plan"
     },
     {
       "label": "lint()",
@@ -192,10 +247,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L314",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_lint",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "lint()"
+      "norm_label": "lint()",
+      "id": "pipeline_fact_lint_lint"
     },
     {
       "label": "main()",
@@ -203,10 +258,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L405",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_main",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "main()"
+      "norm_label": "main()",
+      "id": "pipeline_fact_lint_main"
     },
     {
       "label": "How many words the voice says for a written number token (Hinglish/English\u2026",
@@ -214,10 +269,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L60",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_rationale_60",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "how many words the voice says for a written number token (hinglish/english..."
+      "norm_label": "how many words the voice says for a written number token (hinglish/english...",
+      "id": "pipeline_fact_lint_rationale_60"
     },
     {
       "label": "After one watch the viewer can discuss it with their father (2026-10-21): a\u2026",
@@ -225,10 +280,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L107",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_rationale_107",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "after one watch the viewer can discuss it with their father (2026-10-21): a..."
+      "norm_label": "after one watch the viewer can discuss it with their father (2026-10-21): a...",
+      "id": "pipeline_fact_lint_rationale_107"
     },
     {
       "label": "The answer to L1's question must not arrive before ~12 s (3\u201315 s is where\u2026",
@@ -236,10 +291,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L152",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_rationale_152",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "the answer to l1's question must not arrive before ~12 s (3\u201315 s is where..."
+      "norm_label": "the answer to l1's question must not arrive before ~12 s (3\u201315 s is where...",
+      "id": "pipeline_fact_lint_rationale_152"
     },
     {
       "label": "Bits reviewers already rejected, \u00a73 brand/app names, and claims facts.md lists\u2026",
@@ -247,10 +302,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L171",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_rationale_171",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "bits reviewers already rejected, \u00a73 brand/app names, and claims facts.md lists..."
+      "norm_label": "bits reviewers already rejected, \u00a73 brand/app names, and claims facts.md lists...",
+      "id": "pipeline_fact_lint_rationale_171"
     },
     {
       "label": "Insights, first five reels: the side-by-side-numbers opening kept the most\u2026",
@@ -258,10 +313,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L209",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_rationale_209",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "insights, first five reels: the side-by-side-numbers opening kept the most..."
+      "norm_label": "insights, first five reels: the side-by-side-numbers opening kept the most...",
+      "id": "pipeline_fact_lint_rationale_209"
     },
     {
       "label": "Self-check the writer runs before handing off: spoken length, laughs,\u2026",
@@ -269,10 +324,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L220",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_rationale_220",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "self-check the writer runs before handing off: spoken length, laughs,..."
+      "norm_label": "self-check the writer runs before handing off: spoken length, laughs,...",
+      "id": "pipeline_fact_lint_rationale_220"
     },
     {
       "label": "Which facts the fact-checker must re-verify at the source, and which it only\u2026",
@@ -280,10 +335,10 @@
       "source_file": "pipeline/fact_lint.py",
       "source_location": "L282",
       "_origin": "ast",
-      "id": "pipeline_fact_lint_rationale_282",
       "community": 107,
       "community_name": "fact_lint.py",
-      "norm_label": "which facts the fact-checker must re-verify at the source, and which it only..."
+      "norm_label": "which facts the fact-checker must re-verify at the source, and which it only...",
+      "id": "pipeline_fact_lint_rationale_282"
     },
     {
       "label": "produce.py",
@@ -291,10 +346,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "pipeline_produce",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "produce.py"
+      "norm_label": "produce.py",
+      "id": "pipeline_produce"
     },
     {
       "label": "bible()",
@@ -302,10 +357,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L96",
       "_origin": "ast",
-      "id": "pipeline_produce_bible",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "bible()"
+      "norm_label": "bible()",
+      "id": "pipeline_produce_bible"
     },
     {
       "label": "limit_wait()",
@@ -313,10 +368,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L116",
       "_origin": "ast",
-      "id": "pipeline_produce_limit_wait",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "limit_wait()"
+      "norm_label": "limit_wait()",
+      "id": "pipeline_produce_limit_wait"
     },
     {
       "label": "_ver()",
@@ -324,10 +379,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L138",
       "_origin": "ast",
-      "id": "pipeline_produce_ver",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "_ver()"
+      "norm_label": "_ver()",
+      "id": "pipeline_produce_ver"
     },
     {
       "label": "find_cli()",
@@ -335,10 +390,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L146",
       "_origin": "ast",
-      "id": "pipeline_produce_find_cli",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "find_cli()"
+      "norm_label": "find_cli()",
+      "id": "pipeline_produce_find_cli"
     },
     {
       "label": "parse_stream()",
@@ -346,10 +401,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L159",
       "_origin": "ast",
-      "id": "pipeline_produce_parse_stream",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "parse_stream()"
+      "norm_label": "parse_stream()",
+      "id": "pipeline_produce_parse_stream"
     },
     {
       "label": "tool_summary()",
@@ -357,10 +412,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L187",
       "_origin": "ast",
-      "id": "pipeline_produce_tool_summary",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "tool_summary()"
+      "norm_label": "tool_summary()",
+      "id": "pipeline_produce_tool_summary"
     },
     {
       "label": "frontmatter()",
@@ -368,10 +423,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L198",
       "_origin": "ast",
-      "id": "pipeline_produce_frontmatter",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "frontmatter()"
+      "norm_label": "frontmatter()",
+      "id": "pipeline_produce_frontmatter"
     },
     {
       "label": "Line",
@@ -379,10 +434,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L208",
       "_origin": "ast",
-      "id": "pipeline_produce_line",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "line"
+      "norm_label": "line",
+      "id": "pipeline_produce_line"
     },
     {
       "label": ".__init__()",
@@ -390,10 +445,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L209",
       "_origin": "ast",
-      "id": "pipeline_produce_line_init",
       "community": 59,
       "community_name": "Path",
-      "norm_label": ".__init__()"
+      "norm_label": ".__init__()",
+      "id": "pipeline_produce_line_init"
     },
     {
       "label": "Path",
@@ -401,10 +456,10 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "path",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "path"
+      "norm_label": "path",
+      "id": "path"
     },
     {
       "label": ".agent()",
@@ -412,10 +467,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L217",
       "_origin": "ast",
-      "id": "pipeline_produce_line_agent",
       "community": 59,
       "community_name": "Path",
-      "norm_label": ".agent()"
+      "norm_label": ".agent()",
+      "id": "pipeline_produce_line_agent"
     },
     {
       "label": ".scoped_agent()",
@@ -423,10 +478,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L293",
       "_origin": "ast",
-      "id": "pipeline_produce_line_scoped_agent",
       "community": 59,
       "community_name": "Path",
-      "norm_label": ".scoped_agent()"
+      "norm_label": ".scoped_agent()",
+      "id": "pipeline_produce_line_scoped_agent"
     },
     {
       "label": ".sh()",
@@ -434,10 +489,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L323",
       "_origin": "ast",
-      "id": "pipeline_produce_line_sh",
       "community": 59,
       "community_name": "Path",
-      "norm_label": ".sh()"
+      "norm_label": ".sh()",
+      "id": "pipeline_produce_line_sh"
     },
     {
       "label": "verdict()",
@@ -445,10 +500,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L345",
       "_origin": "ast",
-      "id": "pipeline_produce_verdict",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "verdict()"
+      "norm_label": "verdict()",
+      "id": "pipeline_produce_verdict"
     },
     {
       "label": "stop()",
@@ -456,10 +511,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L354",
       "_origin": "ast",
-      "id": "pipeline_produce_stop",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "stop()"
+      "norm_label": "stop()",
+      "id": "pipeline_produce_stop"
     },
     {
       "label": "routes()",
@@ -467,10 +522,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L363",
       "_origin": "ast",
-      "id": "pipeline_produce_routes",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "routes()"
+      "norm_label": "routes()",
+      "id": "pipeline_produce_routes"
     },
     {
       "label": "routed()",
@@ -478,10 +533,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L368",
       "_origin": "ast",
-      "id": "pipeline_produce_routed",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "routed()"
+      "norm_label": "routed()",
+      "id": "pipeline_produce_routed"
     },
     {
       "label": "backlog()",
@@ -489,10 +544,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L376",
       "_origin": "ast",
-      "id": "pipeline_produce_backlog",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "backlog()"
+      "norm_label": "backlog()",
+      "id": "pipeline_produce_backlog"
     },
     {
       "label": "director()",
@@ -500,10 +555,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L400",
       "_origin": "ast",
-      "id": "pipeline_produce_director",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "director()"
+      "norm_label": "director()",
+      "id": "pipeline_produce_director"
     },
     {
       "label": "notes_for()",
@@ -511,10 +566,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L421",
       "_origin": "ast",
-      "id": "pipeline_produce_notes_for",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "notes_for()"
+      "norm_label": "notes_for()",
+      "id": "pipeline_produce_notes_for"
     },
     {
       "label": "repair_voice()",
@@ -522,10 +577,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L433",
       "_origin": "ast",
-      "id": "pipeline_produce_repair_voice",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "repair_voice()"
+      "norm_label": "repair_voice()",
+      "id": "pipeline_produce_repair_voice"
     },
     {
       "label": "blocker_signature()",
@@ -533,10 +588,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L491",
       "_origin": "ast",
-      "id": "pipeline_produce_blocker_signature",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "blocker_signature()"
+      "norm_label": "blocker_signature()",
+      "id": "pipeline_produce_blocker_signature"
     },
     {
       "label": "st_research()",
@@ -544,10 +599,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L509",
       "_origin": "ast",
-      "id": "pipeline_produce_st_research",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "st_research()"
+      "norm_label": "st_research()",
+      "id": "pipeline_produce_st_research"
     },
     {
       "label": "facts_rows_lint()",
@@ -555,10 +610,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L538",
       "_origin": "ast",
-      "id": "pipeline_produce_facts_rows_lint",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "facts_rows_lint()"
+      "norm_label": "facts_rows_lint()",
+      "id": "pipeline_produce_facts_rows_lint"
     },
     {
       "label": "duration()",
@@ -566,10 +621,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L547",
       "_origin": "ast",
-      "id": "pipeline_produce_duration",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "duration()"
+      "norm_label": "duration()",
+      "id": "pipeline_produce_duration"
     },
     {
       "label": "spoken_words()",
@@ -577,10 +632,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L553",
       "_origin": "ast",
-      "id": "pipeline_produce_spoken_words",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "spoken_words()"
+      "norm_label": "spoken_words()",
+      "id": "pipeline_produce_spoken_words"
     },
     {
       "label": "length_miss()",
@@ -588,10 +643,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L559",
       "_origin": "ast",
-      "id": "pipeline_produce_length_miss",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "length_miss()"
+      "norm_label": "length_miss()",
+      "id": "pipeline_produce_length_miss"
     },
     {
       "label": "lint_gate()",
@@ -599,10 +654,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L578",
       "_origin": "ast",
-      "id": "pipeline_produce_lint_gate",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "lint_gate()"
+      "norm_label": "lint_gate()",
+      "id": "pipeline_produce_lint_gate"
     },
     {
       "label": "st_script()",
@@ -610,10 +665,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L611",
       "_origin": "ast",
-      "id": "pipeline_produce_st_script",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "st_script()"
+      "norm_label": "st_script()",
+      "id": "pipeline_produce_st_script"
     },
     {
       "label": "st_factcheck()",
@@ -621,10 +676,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L659",
       "_origin": "ast",
-      "id": "pipeline_produce_st_factcheck",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "st_factcheck()"
+      "norm_label": "st_factcheck()",
+      "id": "pipeline_produce_st_factcheck"
     },
     {
       "label": "script_blocks()",
@@ -632,10 +687,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L685",
       "_origin": "ast",
-      "id": "pipeline_produce_script_blocks",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "script_blocks()"
+      "norm_label": "script_blocks()",
+      "id": "pipeline_produce_script_blocks"
     },
     {
       "label": "clean_align()",
@@ -643,10 +698,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L691",
       "_origin": "ast",
-      "id": "pipeline_produce_clean_align",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "clean_align()"
+      "norm_label": "clean_align()",
+      "id": "pipeline_produce_clean_align"
     },
     {
       "label": "st_voice()",
@@ -654,10 +709,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L696",
       "_origin": "ast",
-      "id": "pipeline_produce_st_voice",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "st_voice()"
+      "norm_label": "st_voice()",
+      "id": "pipeline_produce_st_voice"
     },
     {
       "label": "st_align()",
@@ -665,10 +720,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L729",
       "_origin": "ast",
-      "id": "pipeline_produce_st_align",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "st_align()"
+      "norm_label": "st_align()",
+      "id": "pipeline_produce_st_align"
     },
     {
       "label": "qa_brief()",
@@ -676,10 +731,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L749",
       "_origin": "ast",
-      "id": "pipeline_produce_qa_brief",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "qa_brief()"
+      "norm_label": "qa_brief()",
+      "id": "pipeline_produce_qa_brief"
     },
     {
       "label": "draft()",
@@ -687,10 +742,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L767",
       "_origin": "ast",
-      "id": "pipeline_produce_draft",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "draft()"
+      "norm_label": "draft()",
+      "id": "pipeline_produce_draft"
     },
     {
       "label": "st_edit()",
@@ -698,10 +753,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L771",
       "_origin": "ast",
-      "id": "pipeline_produce_st_edit",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "st_edit()"
+      "norm_label": "st_edit()",
+      "id": "pipeline_produce_st_edit"
     },
     {
       "label": "qa_clean()",
@@ -709,10 +764,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L835",
       "_origin": "ast",
-      "id": "pipeline_produce_qa_clean",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "qa_clean()"
+      "norm_label": "qa_clean()",
+      "id": "pipeline_produce_qa_clean"
     },
     {
       "label": "polish()",
@@ -720,10 +775,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L842",
       "_origin": "ast",
-      "id": "pipeline_produce_polish",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "polish()"
+      "norm_label": "polish()",
+      "id": "pipeline_produce_polish"
     },
     {
       "label": "st_components()",
@@ -731,10 +786,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L873",
       "_origin": "ast",
-      "id": "pipeline_produce_st_components",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "st_components()"
+      "norm_label": "st_components()",
+      "id": "pipeline_produce_st_components"
     },
     {
       "label": "st_fix()",
@@ -742,10 +797,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L886",
       "_origin": "ast",
-      "id": "pipeline_produce_st_fix",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "st_fix()"
+      "norm_label": "st_fix()",
+      "id": "pipeline_produce_st_fix"
     },
     {
       "label": "st_deliver()",
@@ -753,10 +808,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L920",
       "_origin": "ast",
-      "id": "pipeline_produce_st_deliver",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "st_deliver()"
+      "norm_label": "st_deliver()",
+      "id": "pipeline_produce_st_deliver"
     },
     {
       "label": "st_package()",
@@ -764,10 +819,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L925",
       "_origin": "ast",
-      "id": "pipeline_produce_st_package",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "st_package()"
+      "norm_label": "st_package()",
+      "id": "pipeline_produce_st_package"
     },
     {
       "label": "st_usage()",
@@ -775,10 +830,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L934",
       "_origin": "ast",
-      "id": "pipeline_produce_st_usage",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "st_usage()"
+      "norm_label": "st_usage()",
+      "id": "pipeline_produce_st_usage"
     },
     {
       "label": "summary()",
@@ -786,10 +841,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L1027",
       "_origin": "ast",
-      "id": "pipeline_produce_summary",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "summary()"
+      "norm_label": "summary()",
+      "id": "pipeline_produce_summary"
     },
     {
       "label": "main()",
@@ -797,10 +852,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L1040",
       "_origin": "ast",
-      "id": "pipeline_produce_main",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "main()"
+      "norm_label": "main()",
+      "id": "pipeline_produce_main"
     },
     {
       "label": "The CLAUDE.md preamble + the sections BIBLE lists for this role, in file order\u2026",
@@ -808,10 +863,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L97",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_97",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "the claude.md preamble + the sections bible lists for this role, in file order..."
+      "norm_label": "the claude.md preamble + the sections bible lists for this role, in file order...",
+      "id": "pipeline_produce_rationale_97"
     },
     {
       "label": "Seconds until the reset named in a limit message (+2 min slack), or None if it\u2026",
@@ -819,10 +874,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L117",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_117",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "seconds until the reset named in a limit message (+2 min slack), or none if it..."
+      "norm_label": "seconds until the reset named in a limit message (+2 min slack), or none if it...",
+      "id": "pipeline_produce_rationale_117"
     },
     {
       "label": "Newest Claude Code binary: $CHILLAR_CLAUDE, the VS Code extension's bundled\u2026",
@@ -830,10 +885,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L147",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_147",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "newest claude code binary: $chillar_claude, the vs code extension's bundled..."
+      "norm_label": "newest claude code binary: $chillar_claude, the vs code extension's bundled...",
+      "id": "pipeline_produce_rationale_147"
     },
     {
       "label": "stream-json \u2192 (the final result event, every tool call with the size of what it\u2026",
@@ -841,10 +896,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L160",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_160",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "stream-json \u2192 (the final result event, every tool call with the size of what it..."
+      "norm_label": "stream-json \u2192 (the final result event, every tool call with the size of what it...",
+      "id": "pipeline_produce_rationale_160"
     },
     {
       "label": "{tool: [calls, result chars]} + the 3 biggest reads \u2014 enough to see a wasteful\u2026",
@@ -852,10 +907,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L188",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_188",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "{tool: [calls, result chars]} + the 3 biggest reads \u2014 enough to see a wasteful..."
+      "norm_label": "{tool: [calls, result chars]} + the 3 biggest reads \u2014 enough to see a wasteful...",
+      "id": "pipeline_produce_rationale_188"
     },
     {
       "label": "effort / model (an alias from MODELS) override the frontmatter's (revisions run\u2026",
@@ -863,10 +918,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L219",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_219",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "effort / model (an alias from models) override the frontmatter's (revisions run..."
+      "norm_label": "effort / model (an alias from models) override the frontmatter's (revisions run...",
+      "id": "pipeline_produce_rationale_219"
     },
     {
       "label": "Run scene/review work with a bounded brief and only the tools needed for that\u2026",
@@ -874,10 +929,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L295",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_295",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "run scene/review work with a bounded brief and only the tools needed for that..."
+      "norm_label": "run scene/review work with a bounded brief and only the tools needed for that...",
+      "id": "pipeline_produce_rationale_295"
     },
     {
       "label": "killed_retries: re-run an idempotent step a signal killed (11-05: align got\u2026",
@@ -885,10 +940,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L324",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_324",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "killed_retries: re-run an idempotent step a signal killed (11-05: align got..."
+      "norm_label": "killed_retries: re-run an idempotent step a signal killed (11-05: align got...",
+      "id": "pipeline_produce_rationale_324"
     },
     {
       "label": "Owners named in note lines: `- [director] \u2026`, `- [component:bar-chart] \u2026`, `-\u2026",
@@ -896,10 +951,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L364",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_364",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "owners named in note lines: `- [director] ...`, `- [component:bar-chart] ...`, `-..."
+      "norm_label": "owners named in note lines: `- [director] ...`, `- [component:bar-chart] ...`, `-...",
+      "id": "pipeline_produce_rationale_364"
     },
     {
       "label": "Component requests (director asks, polish notes) go to ONE shared list that\u2026",
@@ -907,10 +962,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L377",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_377",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "component requests (director asks, polish notes) go to one shared list that..."
+      "norm_label": "component requests (director asks, polish notes) go to one shared list that...",
+      "id": "pipeline_produce_rationale_377"
     },
     {
       "label": "Run the director; its [component:*] requests go to the shared backlog (it works\u2026",
@@ -918,10 +973,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L401",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_401",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "run the director; its [component:*] requests go to the shared backlog (it works..."
+      "norm_label": "run the director; its [component:*] requests go to the shared backlog (it works...",
+      "id": "pipeline_produce_rationale_401"
     },
     {
       "label": "Note lines routed to `who` (director / editor / component / voice), optionally\u2026",
@@ -929,10 +984,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L422",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_422",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "note lines routed to `who` (director / editor / component / voice), optionally..."
+      "norm_label": "note lines routed to `who` (director / editor / component / voice), optionally...",
+      "id": "pipeline_produce_rationale_422"
     },
     {
       "label": "Handle reviewer-owned voice blockers once, then realign before any scene render.",
@@ -940,10 +995,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L434",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_434",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "handle reviewer-owned voice blockers once, then realign before any scene render."
+      "norm_label": "handle reviewer-owned voice blockers once, then realign before any scene render.",
+      "id": "pipeline_produce_rationale_434"
     },
     {
       "label": "Stable enough to catch a review round that repeats the same blockers without\u2026",
@@ -951,10 +1006,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L492",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_492",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "stable enough to catch a review round that repeats the same blockers without..."
+      "norm_label": "stable enough to catch a review round that repeats the same blockers without...",
+      "id": "pipeline_produce_rationale_492"
     },
     {
       "label": "fact_lint problems that belong to facts.md rows (`F3: \u2026`), not to the script.",
@@ -962,10 +1017,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L539",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_539",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "fact_lint problems that belong to facts.md rows (`f3: ...`), not to the script."
+      "norm_label": "fact_lint problems that belong to facts.md rows (`f3: ...`), not to the script.",
+      "id": "pipeline_produce_rationale_539"
     },
     {
       "label": "Time the passed script with the real voice (tts.py --probe, a few paise) \u2014 the\u2026",
@@ -973,10 +1028,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L560",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_560",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "time the passed script with the real voice (tts.py --probe, a few paise) \u2014 the..."
+      "norm_label": "time the passed script with the real voice (tts.py --probe, a few paise) \u2014 the...",
+      "id": "pipeline_produce_rationale_560"
     },
     {
       "label": "Mechanical misses (length, framing of example facts, uncited numbers, laugh\u2026",
@@ -984,10 +1039,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L579",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_579",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "mechanical misses (length, framing of example facts, uncited numbers, laugh..."
+      "norm_label": "mechanical misses (length, framing of example facts, uncited numbers, laugh...",
+      "id": "pipeline_produce_rationale_579"
     },
     {
       "label": "Does any blocking row of notes/fact-check.md point at a script line (L#) or an\u2026",
@@ -995,10 +1050,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L686",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_686",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "does any blocking row of notes/fact-check.md point at a script line (l#) or an..."
+      "norm_label": "does any blocking row of notes/fact-check.md point at a script line (l#) or an...",
+      "id": "pipeline_produce_rationale_686"
     },
     {
       "label": "The voice agent writes tts.txt + the take; the pipeline then *listens*\u2026",
@@ -1006,10 +1061,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L697",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_697",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "the voice agent writes tts.txt + the take; the pipeline then *listens*..."
+      "norm_label": "the voice agent writes tts.txt + the take; the pipeline then *listens*...",
+      "id": "pipeline_produce_rationale_697"
     },
     {
       "label": "Exact qa errors (kind, time, element, box, fix) + the safe-zone limits, inlined\u2026",
@@ -1017,10 +1072,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L750",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_750",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "exact qa errors (kind, time, element, box, fix) + the safe-zone limits, inlined..."
+      "norm_label": "exact qa errors (kind, time, element, box, fix) + the safe-zone limits, inlined...",
+      "id": "pipeline_produce_rationale_750"
     },
     {
       "label": "A PASS still carries the reviewer's polish notes (an empty frame, a chart at 60\u2026",
@@ -1028,10 +1083,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L843",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_843",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "a pass still carries the reviewer's polish notes (an empty frame, a chart at 60..."
+      "norm_label": "a pass still carries the reviewer's polish notes (an empty frame, a chart at 60...",
+      "id": "pipeline_produce_rationale_843"
     },
     {
       "label": "Batch-build the shared component backlog (run weekly, or before a reel that\u2026",
@@ -1039,10 +1094,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L874",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_874",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "batch-build the shared component backlog (run weekly, or before a reel that..."
+      "norm_label": "batch-build the shared component backlog (run weekly, or before a reel that...",
+      "id": "pipeline_produce_rationale_874"
     },
     {
       "label": "The creator's 'fix it and ship' after a 3-round stop: the routed roles apply\u2026",
@@ -1050,10 +1105,10 @@
       "source_file": "pipeline/produce.py",
       "source_location": "L887",
       "_origin": "ast",
-      "id": "pipeline_produce_rationale_887",
       "community": 59,
       "community_name": "Path",
-      "norm_label": "the creator's 'fix it and ship' after a 3-round stop: the routed roles apply..."
+      "norm_label": "the creator's 'fix it and ship' after a 3-round stop: the routed roles apply...",
+      "id": "pipeline_produce_rationale_887"
     },
     {
       "label": "researcher.md",
@@ -6682,8 +6737,8 @@
       "source_file": "pipeline/cover.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 106,
-      "community_name": "CLAUDE.md brand bible",
+      "community": 68,
+      "community_name": "qa.py",
       "norm_label": "cover.py",
       "id": "pipeline_cover"
     },
@@ -6693,8 +6748,8 @@
       "source_file": "pipeline/cover.py",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 106,
-      "community_name": "CLAUDE.md brand bible",
+      "community": 68,
+      "community_name": "qa.py",
       "norm_label": "cover()",
       "id": "pipeline_cover_cover"
     },
@@ -6704,8 +6759,8 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 106,
-      "community_name": "CLAUDE.md brand bible",
+      "community": 68,
+      "community_name": "qa.py",
       "norm_label": "path",
       "id": "pipeline_cover_py_path"
     },
@@ -7771,8 +7826,8 @@
       "source_file": "pipeline/make_reel.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 159,
-      "community_name": "make_reel.py",
+      "community": 68,
+      "community_name": "qa.py",
       "norm_label": "make_reel.py",
       "id": "pipeline_make_reel"
     },
@@ -7782,8 +7837,8 @@
       "source_file": "pipeline/make_reel.py",
       "source_location": "L49",
       "_origin": "ast",
-      "community": 159,
-      "community_name": "make_reel.py",
+      "community": 68,
+      "community_name": "qa.py",
       "norm_label": "build_staleness()",
       "id": "pipeline_make_reel_build_staleness"
     },
@@ -7793,8 +7848,8 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 159,
-      "community_name": "make_reel.py",
+      "community": 68,
+      "community_name": "qa.py",
       "norm_label": "path",
       "id": "pipeline_make_reel_py_path"
     },
@@ -7804,8 +7859,8 @@
       "source_file": "pipeline/make_reel.py",
       "source_location": "L70",
       "_origin": "ast",
-      "community": 159,
-      "community_name": "make_reel.py",
+      "community": 68,
+      "community_name": "qa.py",
       "norm_label": "run()",
       "id": "pipeline_make_reel_run"
     },
@@ -7815,8 +7870,8 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 159,
-      "community_name": "make_reel.py",
+      "community": 68,
+      "community_name": "qa.py",
       "norm_label": "completedprocess",
       "id": "pipeline_make_reel_py_completedprocess"
     },
@@ -7826,8 +7881,8 @@
       "source_file": "pipeline/make_reel.py",
       "source_location": "L75",
       "_origin": "ast",
-      "community": 159,
-      "community_name": "make_reel.py",
+      "community": 68,
+      "community_name": "qa.py",
       "norm_label": "main()",
       "id": "pipeline_make_reel_main"
     },
@@ -7837,8 +7892,8 @@
       "source_file": "pipeline/make_reel.py",
       "source_location": "L50",
       "_origin": "ast",
-      "community": 159,
-      "community_name": "make_reel.py",
+      "community": 68,
+      "community_name": "qa.py",
       "norm_label": "return source files newer than the compiled composition used by render-only...",
       "id": "pipeline_make_reel_rationale_50"
     },
@@ -11652,50 +11707,6 @@
       "id": "notes_batches_2026_11_01_2026_11_07_batch_table_agent_from_usage_md"
     },
     {
-      "label": "2026-11-08_2026-11-12.md",
-      "file_type": "document",
-      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 144,
-      "community_name": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
-      "norm_label": "2026-11-08_2026-11-12.md",
-      "id": "notes_batches_2026_11_08_2026_11_12"
-    },
-    {
-      "label": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
-      "file_type": "document",
-      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 144,
-      "community_name": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
-      "norm_label": "batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
-      "id": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21"
-    },
-    {
-      "label": "Events",
-      "file_type": "document",
-      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
-      "source_location": "L12",
-      "_origin": "ast",
-      "community": 144,
-      "community_name": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
-      "norm_label": "events",
-      "id": "notes_batches_2026_11_08_2026_11_12_events"
-    },
-    {
-      "label": "Batch table",
-      "file_type": "document",
-      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
-      "source_location": "L31",
-      "_origin": "ast",
-      "community": 144,
-      "community_name": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
-      "norm_label": "batch table",
-      "id": "notes_batches_2026_11_08_2026_11_12_batch_table"
-    },
-    {
       "label": "director agent",
       "file_type": "document",
       "source_file": ".claude/agents/director.md",
@@ -12004,10 +12015,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 100,
+      "community": 111,
       "norm_label": "template script.md",
       "_origin": "semantic",
-      "community_name": "README (chillar-reels)",
+      "community_name": "/make-reel command",
       "id": "episodes__template_script"
     },
     {
@@ -12242,10 +12253,10 @@
       "author": null,
       "contributor": null,
       "rationale": "Channel voice is Sarvam Bulbul sunny_hi_reels at pace 1.2, used automatically (no asking); reads tts.txt (Devanagari Hindi + Latin English, same words/order as script.md) so captions align.",
-      "community": 111,
+      "community": 106,
       "norm_label": "voiceover policy (sarvam sunny_hi_reels, pace 1.2, every reel)",
       "_origin": "semantic",
-      "community_name": "/make-reel command",
+      "community_name": "CLAUDE.md brand bible",
       "id": "claude_voiceover_policy"
     },
     {
@@ -12257,10 +12268,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 159,
+      "community": 100,
       "norm_label": "make_reel.py pipeline stages (clean\u2192align\u2192validate\u2192build\u2192render\u2192mix\u2192cover\u2192sheet)",
       "_origin": "semantic",
-      "community_name": "make_reel.py",
+      "community_name": "README (chillar-reels)",
       "id": "claude_reel_pipeline_stages"
     },
     {
@@ -12459,10 +12470,10 @@
       "author": null,
       "contributor": null,
       "rationale": "3 = fine = not good enough; PASS only if facts pass, laughs \u2265 minimum and every score \u2265 4.",
-      "community": 111,
+      "community": 106,
       "norm_label": "script review rubric (stop power, laughs, specificity, clarity, escalation, payoff, speakability, facts)",
       "_origin": "semantic",
-      "community_name": "/make-reel command",
+      "community_name": "CLAUDE.md brand bible",
       "id": "_claude_agents_script_reviewer_scoring_rubric"
     },
     {
@@ -12629,10 +12640,10 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 159,
+      "community": 100,
       "norm_label": "igcheck stage (upload-safe)",
       "_origin": "semantic",
-      "community_name": "make_reel.py",
+      "community_name": "README (chillar-reels)",
       "id": "_claude_commands_render_igcheck"
     },
     {
@@ -12894,6 +12905,50 @@
   ],
   "links": [
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "notes_batches_2026_11_08_2026_11_12",
+      "target": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21",
+      "target": "notes_batches_2026_11_08_2026_11_12_batch_table",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21",
+      "target": "notes_batches_2026_11_08_2026_11_12_events",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21",
+      "target": "notes_batches_2026_11_08_2026_11_12_optimisation_2026_10_24_interactive_session_not_yet_measured_next_batch_confirms",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -12971,6 +13026,149 @@
       "target": "pipeline_fact_lint"
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pipeline/fact_lint.py",
+      "source_location": "L264",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "pipeline_fact_lint",
+      "target": "pipeline_fact_lint_digits"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pipeline/fact_lint.py",
+      "source_location": "L106",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "pipeline_fact_lint",
+      "target": "pipeline_fact_lint_discussable"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pipeline/fact_lint.py",
+      "source_location": "L151",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "pipeline_fact_lint",
+      "target": "pipeline_fact_lint_hook_hold"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pipeline/fact_lint.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "pipeline_fact_lint",
+      "target": "pipeline_fact_lint_is_example"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pipeline/fact_lint.py",
+      "source_location": "L102",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "pipeline_fact_lint",
+      "target": "pipeline_fact_lint_jargon_in"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pipeline/fact_lint.py",
+      "source_location": "L314",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "pipeline_fact_lint",
+      "target": "pipeline_fact_lint_lint"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pipeline/fact_lint.py",
+      "source_location": "L405",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "pipeline_fact_lint",
+      "target": "pipeline_fact_lint_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pipeline/fact_lint.py",
+      "source_location": "L208",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "pipeline_fact_lint",
+      "target": "pipeline_fact_lint_opening"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pipeline/fact_lint.py",
+      "source_location": "L219",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "pipeline_fact_lint",
+      "target": "pipeline_fact_lint_script_lint"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pipeline/fact_lint.py",
+      "source_location": "L271",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "pipeline_fact_lint",
+      "target": "pipeline_fact_lint_source_text"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pipeline/fact_lint.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "pipeline_fact_lint",
+      "target": "pipeline_fact_lint_spoken_len"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pipeline/fact_lint.py",
+      "source_location": "L170",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "pipeline_fact_lint",
+      "target": "pipeline_fact_lint_stale_lint"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "pipeline/fact_lint.py",
+      "source_location": "L281",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "pipeline_fact_lint",
+      "target": "pipeline_fact_lint_verify_plan"
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -12978,9 +13176,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint",
-      "target": "pipeline_lib_common",
-      "confidence_score": 1.0
+      "target": "pipeline_lib_common"
     },
     {
       "relation": "imports_from",
@@ -12990,152 +13188,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint",
-      "target": "pipeline_lib_episode",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "pipeline/fact_lint.py",
-      "source_location": "L264",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "pipeline_fact_lint",
-      "target": "pipeline_fact_lint_digits",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "pipeline/fact_lint.py",
-      "source_location": "L106",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "pipeline_fact_lint",
-      "target": "pipeline_fact_lint_discussable",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "pipeline/fact_lint.py",
-      "source_location": "L151",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "pipeline_fact_lint",
-      "target": "pipeline_fact_lint_hook_hold",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "pipeline/fact_lint.py",
-      "source_location": "L52",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "pipeline_fact_lint",
-      "target": "pipeline_fact_lint_is_example",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "pipeline/fact_lint.py",
-      "source_location": "L102",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "pipeline_fact_lint",
-      "target": "pipeline_fact_lint_jargon_in",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "pipeline/fact_lint.py",
-      "source_location": "L314",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "pipeline_fact_lint",
-      "target": "pipeline_fact_lint_lint",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "pipeline/fact_lint.py",
-      "source_location": "L405",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "pipeline_fact_lint",
-      "target": "pipeline_fact_lint_main",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "pipeline/fact_lint.py",
-      "source_location": "L208",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "pipeline_fact_lint",
-      "target": "pipeline_fact_lint_opening",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "pipeline/fact_lint.py",
-      "source_location": "L219",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "pipeline_fact_lint",
-      "target": "pipeline_fact_lint_script_lint",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "pipeline/fact_lint.py",
-      "source_location": "L271",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "pipeline_fact_lint",
-      "target": "pipeline_fact_lint_source_text",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "pipeline/fact_lint.py",
-      "source_location": "L59",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "pipeline_fact_lint",
-      "target": "pipeline_fact_lint_spoken_len",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "pipeline/fact_lint.py",
-      "source_location": "L170",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "pipeline_fact_lint",
-      "target": "pipeline_fact_lint_stale_lint",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "pipeline/fact_lint.py",
-      "source_location": "L281",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "pipeline_fact_lint",
-      "target": "pipeline_fact_lint_verify_plan",
-      "confidence_score": 1.0
+      "target": "pipeline_lib_episode"
     },
     {
       "relation": "imports",
@@ -13157,9 +13212,9 @@
       "source_location": "L355",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_lint",
-      "target": "pipeline_fact_lint_is_example",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_is_example"
     },
     {
       "relation": "calls",
@@ -13169,9 +13224,9 @@
       "source_location": "L162",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_hook_hold",
-      "target": "pipeline_fact_lint_spoken_len",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_spoken_len"
     },
     {
       "relation": "rationale_for",
@@ -13180,9 +13235,9 @@
       "source_location": "L60",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_rationale_60",
-      "target": "pipeline_fact_lint_spoken_len",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_spoken_len"
     },
     {
       "relation": "calls",
@@ -13192,9 +13247,9 @@
       "source_location": "L229",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_script_lint",
-      "target": "pipeline_fact_lint_spoken_len",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_spoken_len"
     },
     {
       "relation": "calls",
@@ -13204,9 +13259,9 @@
       "source_location": "L117",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_discussable",
-      "target": "pipeline_fact_lint_jargon_in",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_jargon_in"
     },
     {
       "relation": "rationale_for",
@@ -13215,9 +13270,9 @@
       "source_location": "L107",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_rationale_107",
-      "target": "pipeline_fact_lint_discussable",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_discussable"
     },
     {
       "relation": "calls",
@@ -13227,9 +13282,9 @@
       "source_location": "L259",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_script_lint",
-      "target": "pipeline_fact_lint_discussable",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_discussable"
     },
     {
       "relation": "rationale_for",
@@ -13238,9 +13293,9 @@
       "source_location": "L152",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_rationale_152",
-      "target": "pipeline_fact_lint_hook_hold",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_hook_hold"
     },
     {
       "relation": "calls",
@@ -13250,9 +13305,9 @@
       "source_location": "L258",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_script_lint",
-      "target": "pipeline_fact_lint_hook_hold",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_hook_hold"
     },
     {
       "relation": "calls",
@@ -13262,9 +13317,9 @@
       "source_location": "L396",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_lint",
-      "target": "pipeline_fact_lint_stale_lint",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_stale_lint"
     },
     {
       "relation": "rationale_for",
@@ -13273,9 +13328,9 @@
       "source_location": "L171",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_rationale_171",
-      "target": "pipeline_fact_lint_stale_lint",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_stale_lint"
     },
     {
       "relation": "calls",
@@ -13296,9 +13351,9 @@
       "source_location": "L209",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_rationale_209",
-      "target": "pipeline_fact_lint_opening",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_opening"
     },
     {
       "relation": "calls",
@@ -13308,9 +13363,9 @@
       "source_location": "L257",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_script_lint",
-      "target": "pipeline_fact_lint_opening",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_opening"
     },
     {
       "relation": "calls",
@@ -13320,9 +13375,9 @@
       "source_location": "L394",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_lint",
-      "target": "pipeline_fact_lint_script_lint",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_script_lint"
     },
     {
       "relation": "rationale_for",
@@ -13331,9 +13386,9 @@
       "source_location": "L220",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_rationale_220",
-      "target": "pipeline_fact_lint_script_lint",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_script_lint"
     },
     {
       "relation": "calls",
@@ -13343,9 +13398,9 @@
       "source_location": "L275",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_source_text",
-      "target": "pipeline_fact_lint_digits",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_digits"
     },
     {
       "relation": "calls",
@@ -13355,9 +13410,9 @@
       "source_location": "L306",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_verify_plan",
-      "target": "pipeline_fact_lint_digits",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_digits"
     },
     {
       "relation": "calls",
@@ -13367,9 +13422,9 @@
       "source_location": "L305",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_verify_plan",
-      "target": "pipeline_fact_lint_source_text",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_source_text"
     },
     {
       "relation": "calls",
@@ -13379,9 +13434,9 @@
       "source_location": "L398",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_lint",
-      "target": "pipeline_fact_lint_verify_plan",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_verify_plan"
     },
     {
       "relation": "rationale_for",
@@ -13390,9 +13445,9 @@
       "source_location": "L282",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_rationale_282",
-      "target": "pipeline_fact_lint_verify_plan",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_verify_plan"
     },
     {
       "relation": "calls",
@@ -13414,9 +13469,9 @@
       "source_location": "L410",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_fact_lint_main",
-      "target": "pipeline_fact_lint_lint",
-      "confidence_score": 1.0
+      "target": "pipeline_fact_lint_lint"
     },
     {
       "relation": "imports_from",
@@ -13426,9 +13481,9 @@
       "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_agent_context",
-      "confidence_score": 1.0
+      "target": "pipeline_agent_context"
     },
     {
       "relation": "imports",
@@ -13438,9 +13493,9 @@
       "source_location": "L42",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_budget",
-      "confidence_score": 1.0
+      "target": "pipeline_budget"
     },
     {
       "relation": "contains",
@@ -13449,9 +13504,9 @@
       "source_location": "L376",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_backlog",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_backlog"
     },
     {
       "relation": "contains",
@@ -13460,9 +13515,9 @@
       "source_location": "L96",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_bible",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_bible"
     },
     {
       "relation": "contains",
@@ -13471,9 +13526,9 @@
       "source_location": "L491",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_blocker_signature",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_blocker_signature"
     },
     {
       "relation": "contains",
@@ -13482,9 +13537,9 @@
       "source_location": "L691",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_clean_align",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_clean_align"
     },
     {
       "relation": "contains",
@@ -13493,9 +13548,9 @@
       "source_location": "L400",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_director",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_director"
     },
     {
       "relation": "contains",
@@ -13504,9 +13559,9 @@
       "source_location": "L767",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_draft",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_draft"
     },
     {
       "relation": "contains",
@@ -13515,9 +13570,9 @@
       "source_location": "L547",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_duration",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_duration"
     },
     {
       "relation": "contains",
@@ -13526,9 +13581,9 @@
       "source_location": "L538",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_facts_rows_lint",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_facts_rows_lint"
     },
     {
       "relation": "contains",
@@ -13537,9 +13592,9 @@
       "source_location": "L146",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_find_cli",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_find_cli"
     },
     {
       "relation": "contains",
@@ -13548,9 +13603,9 @@
       "source_location": "L198",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_frontmatter",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_frontmatter"
     },
     {
       "relation": "contains",
@@ -13559,9 +13614,9 @@
       "source_location": "L559",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_length_miss",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_length_miss"
     },
     {
       "relation": "contains",
@@ -13570,9 +13625,9 @@
       "source_location": "L116",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_limit_wait",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_limit_wait"
     },
     {
       "relation": "contains",
@@ -13581,9 +13636,9 @@
       "source_location": "L208",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "contains",
@@ -13592,9 +13647,9 @@
       "source_location": "L578",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_lint_gate",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_lint_gate"
     },
     {
       "relation": "contains",
@@ -13603,9 +13658,9 @@
       "source_location": "L1040",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_main",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_main"
     },
     {
       "relation": "contains",
@@ -13614,9 +13669,9 @@
       "source_location": "L421",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_notes_for",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_notes_for"
     },
     {
       "relation": "contains",
@@ -13625,9 +13680,9 @@
       "source_location": "L159",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_parse_stream",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_parse_stream"
     },
     {
       "relation": "contains",
@@ -13636,9 +13691,9 @@
       "source_location": "L842",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_polish",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_polish"
     },
     {
       "relation": "contains",
@@ -13647,9 +13702,9 @@
       "source_location": "L749",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_qa_brief",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_qa_brief"
     },
     {
       "relation": "contains",
@@ -13658,9 +13713,9 @@
       "source_location": "L835",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_qa_clean",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_qa_clean"
     },
     {
       "relation": "contains",
@@ -13669,9 +13724,9 @@
       "source_location": "L433",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_repair_voice",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_repair_voice"
     },
     {
       "relation": "contains",
@@ -13680,9 +13735,9 @@
       "source_location": "L368",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_routed",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_routed"
     },
     {
       "relation": "contains",
@@ -13691,9 +13746,9 @@
       "source_location": "L363",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_routes",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_routes"
     },
     {
       "relation": "contains",
@@ -13702,9 +13757,9 @@
       "source_location": "L685",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_script_blocks",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_script_blocks"
     },
     {
       "relation": "contains",
@@ -13713,9 +13768,9 @@
       "source_location": "L553",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_spoken_words",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_spoken_words"
     },
     {
       "relation": "indirect_call",
@@ -13725,9 +13780,9 @@
       "weight": 1.0,
       "_origin": "ast",
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_st_align",
-      "confidence_score": 0.5
+      "target": "pipeline_produce_st_align"
     },
     {
       "relation": "indirect_call",
@@ -13737,9 +13792,9 @@
       "weight": 1.0,
       "_origin": "ast",
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_st_components",
-      "confidence_score": 0.5
+      "target": "pipeline_produce_st_components"
     },
     {
       "relation": "indirect_call",
@@ -13749,9 +13804,9 @@
       "weight": 1.0,
       "_origin": "ast",
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_st_deliver",
-      "confidence_score": 0.5
+      "target": "pipeline_produce_st_deliver"
     },
     {
       "relation": "indirect_call",
@@ -13761,9 +13816,9 @@
       "weight": 1.0,
       "_origin": "ast",
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_st_edit",
-      "confidence_score": 0.5
+      "target": "pipeline_produce_st_edit"
     },
     {
       "relation": "indirect_call",
@@ -13773,9 +13828,9 @@
       "weight": 1.0,
       "_origin": "ast",
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_st_factcheck",
-      "confidence_score": 0.5
+      "target": "pipeline_produce_st_factcheck"
     },
     {
       "relation": "indirect_call",
@@ -13785,9 +13840,9 @@
       "weight": 1.0,
       "_origin": "ast",
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_st_fix",
-      "confidence_score": 0.5
+      "target": "pipeline_produce_st_fix"
     },
     {
       "relation": "indirect_call",
@@ -13797,9 +13852,9 @@
       "weight": 1.0,
       "_origin": "ast",
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_st_package",
-      "confidence_score": 0.5
+      "target": "pipeline_produce_st_package"
     },
     {
       "relation": "indirect_call",
@@ -13809,9 +13864,9 @@
       "weight": 1.0,
       "_origin": "ast",
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_st_research",
-      "confidence_score": 0.5
+      "target": "pipeline_produce_st_research"
     },
     {
       "relation": "indirect_call",
@@ -13821,9 +13876,9 @@
       "weight": 1.0,
       "_origin": "ast",
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_st_script",
-      "confidence_score": 0.5
+      "target": "pipeline_produce_st_script"
     },
     {
       "relation": "indirect_call",
@@ -13833,9 +13888,9 @@
       "weight": 1.0,
       "_origin": "ast",
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_st_usage",
-      "confidence_score": 0.5
+      "target": "pipeline_produce_st_usage"
     },
     {
       "relation": "indirect_call",
@@ -13845,9 +13900,9 @@
       "weight": 1.0,
       "_origin": "ast",
       "context": "collection",
+      "confidence_score": 0.5,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_st_voice",
-      "confidence_score": 0.5
+      "target": "pipeline_produce_st_voice"
     },
     {
       "relation": "contains",
@@ -13856,9 +13911,9 @@
       "source_location": "L354",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_stop",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_stop"
     },
     {
       "relation": "contains",
@@ -13867,9 +13922,9 @@
       "source_location": "L1027",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_summary",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_summary"
     },
     {
       "relation": "contains",
@@ -13878,9 +13933,9 @@
       "source_location": "L187",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_tool_summary",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_tool_summary"
     },
     {
       "relation": "contains",
@@ -13889,9 +13944,9 @@
       "source_location": "L138",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_ver",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_ver"
     },
     {
       "relation": "contains",
@@ -13900,9 +13955,9 @@
       "source_location": "L345",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce",
-      "target": "pipeline_produce_verdict",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_verdict"
     },
     {
       "relation": "calls",
@@ -13912,9 +13967,9 @@
       "source_location": "L233",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line_agent",
-      "target": "pipeline_produce_bible",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_bible"
     },
     {
       "relation": "rationale_for",
@@ -13923,9 +13978,9 @@
       "source_location": "L97",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_97",
-      "target": "pipeline_produce_bible",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_bible"
     },
     {
       "relation": "calls",
@@ -13935,9 +13990,9 @@
       "source_location": "L270",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line_agent",
-      "target": "pipeline_produce_limit_wait",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_limit_wait"
     },
     {
       "relation": "rationale_for",
@@ -13946,9 +14001,9 @@
       "source_location": "L117",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_117",
-      "target": "pipeline_produce_limit_wait",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_limit_wait"
     },
     {
       "relation": "calls",
@@ -13958,9 +14013,9 @@
       "source_location": "L150",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_find_cli",
-      "target": "pipeline_produce_ver",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_ver"
     },
     {
       "relation": "calls",
@@ -13970,9 +14025,9 @@
       "source_location": "L152",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_find_cli",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "calls",
@@ -13982,9 +14037,9 @@
       "source_location": "L211",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line_init",
-      "target": "pipeline_produce_find_cli",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_find_cli"
     },
     {
       "relation": "rationale_for",
@@ -13993,9 +14048,9 @@
       "source_location": "L147",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_147",
-      "target": "pipeline_produce_find_cli",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_find_cli"
     },
     {
       "relation": "calls",
@@ -14005,9 +14060,9 @@
       "source_location": "L248",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line_agent",
-      "target": "pipeline_produce_parse_stream",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_parse_stream"
     },
     {
       "relation": "rationale_for",
@@ -14016,9 +14071,9 @@
       "source_location": "L160",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_160",
-      "target": "pipeline_produce_parse_stream",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_parse_stream"
     },
     {
       "relation": "calls",
@@ -14028,9 +14083,9 @@
       "source_location": "L260",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line_agent",
-      "target": "pipeline_produce_tool_summary",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_tool_summary"
     },
     {
       "relation": "rationale_for",
@@ -14039,9 +14094,9 @@
       "source_location": "L188",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_188",
-      "target": "pipeline_produce_tool_summary",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_tool_summary"
     },
     {
       "relation": "calls",
@@ -14051,9 +14106,9 @@
       "source_location": "L220",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line_agent",
-      "target": "pipeline_produce_frontmatter",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_frontmatter"
     },
     {
       "relation": "references",
@@ -14063,9 +14118,9 @@
       "source_location": "L691",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_clean_align",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14075,9 +14130,9 @@
       "source_location": "L400",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_director",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14087,9 +14142,9 @@
       "source_location": "L767",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_draft",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14099,9 +14154,9 @@
       "source_location": "L559",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_length_miss",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "method",
@@ -14110,9 +14165,9 @@
       "source_location": "L217",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line",
-      "target": "pipeline_produce_line_agent",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line_agent"
     },
     {
       "relation": "method",
@@ -14121,9 +14176,9 @@
       "source_location": "L209",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line",
-      "target": "pipeline_produce_line_init",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line_init"
     },
     {
       "relation": "method",
@@ -14132,9 +14187,9 @@
       "source_location": "L293",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line",
-      "target": "pipeline_produce_line_scoped_agent",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line_scoped_agent"
     },
     {
       "relation": "method",
@@ -14143,9 +14198,9 @@
       "source_location": "L323",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line",
-      "target": "pipeline_produce_line_sh",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line_sh"
     },
     {
       "relation": "references",
@@ -14155,9 +14210,9 @@
       "source_location": "L578",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_lint_gate",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "calls",
@@ -14167,9 +14222,9 @@
       "source_location": "L1087",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_main",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14179,9 +14234,9 @@
       "source_location": "L842",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_polish",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14191,9 +14246,9 @@
       "source_location": "L835",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_qa_clean",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14203,9 +14258,9 @@
       "source_location": "L433",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_repair_voice",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14215,9 +14270,9 @@
       "source_location": "L729",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_align",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14227,9 +14282,9 @@
       "source_location": "L873",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_components",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14239,9 +14294,9 @@
       "source_location": "L920",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_deliver",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14251,9 +14306,9 @@
       "source_location": "L771",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_edit",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14263,9 +14318,9 @@
       "source_location": "L659",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_factcheck",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14275,9 +14330,9 @@
       "source_location": "L886",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_fix",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14287,9 +14342,9 @@
       "source_location": "L925",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_package",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14299,9 +14354,9 @@
       "source_location": "L509",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_research",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14311,9 +14366,9 @@
       "source_location": "L611",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_script",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14323,9 +14378,9 @@
       "source_location": "L934",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_usage",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14335,9 +14390,9 @@
       "source_location": "L696",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_voice",
-      "target": "pipeline_produce_line",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line"
     },
     {
       "relation": "references",
@@ -14347,9 +14402,9 @@
       "source_location": "L209",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line_init",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14443,9 +14498,9 @@
       "source_location": "L376",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_backlog",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14455,9 +14510,9 @@
       "source_location": "L491",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_blocker_signature",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14467,9 +14522,9 @@
       "source_location": "L691",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_clean_align",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14479,9 +14534,9 @@
       "source_location": "L400",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_director",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14491,9 +14546,9 @@
       "source_location": "L767",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_draft",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14503,9 +14558,9 @@
       "source_location": "L547",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_duration",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14515,9 +14570,9 @@
       "source_location": "L538",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_facts_rows_lint",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14527,9 +14582,9 @@
       "source_location": "L559",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_length_miss",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14539,9 +14594,9 @@
       "source_location": "L293",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line_scoped_agent",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14551,9 +14606,9 @@
       "source_location": "L578",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_lint_gate",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "calls",
@@ -14563,9 +14618,9 @@
       "source_location": "L1053",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_main",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14575,9 +14630,9 @@
       "source_location": "L421",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_notes_for",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14587,9 +14642,9 @@
       "source_location": "L842",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_polish",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14599,9 +14654,9 @@
       "source_location": "L749",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_qa_brief",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14611,9 +14666,9 @@
       "source_location": "L835",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_qa_clean",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14623,9 +14678,9 @@
       "source_location": "L433",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_repair_voice",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14635,9 +14690,9 @@
       "source_location": "L368",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_routed",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14647,9 +14702,9 @@
       "source_location": "L685",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_script_blocks",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14659,9 +14714,9 @@
       "source_location": "L553",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_spoken_words",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14671,9 +14726,9 @@
       "source_location": "L729",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_align",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14683,9 +14738,9 @@
       "source_location": "L873",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_components",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14695,9 +14750,9 @@
       "source_location": "L920",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_deliver",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14707,9 +14762,9 @@
       "source_location": "L771",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_edit",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14719,9 +14774,9 @@
       "source_location": "L659",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_factcheck",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14731,9 +14786,9 @@
       "source_location": "L886",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_fix",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14743,9 +14798,9 @@
       "source_location": "L925",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_package",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14755,9 +14810,9 @@
       "source_location": "L509",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_research",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14767,9 +14822,9 @@
       "source_location": "L611",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_script",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14779,9 +14834,9 @@
       "source_location": "L934",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_usage",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14791,9 +14846,9 @@
       "source_location": "L696",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_voice",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14803,9 +14858,9 @@
       "source_location": "L354",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_stop",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14815,9 +14870,9 @@
       "source_location": "L1027",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_summary",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "references",
@@ -14827,9 +14882,9 @@
       "source_location": "L345",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_verdict",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "calls",
@@ -14863,9 +14918,9 @@
       "source_location": "L242",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line_agent",
-      "target": "pipeline_produce_stop",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_stop"
     },
     {
       "relation": "calls",
@@ -14875,9 +14930,9 @@
       "source_location": "L320",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line_scoped_agent",
-      "target": "pipeline_produce_line_agent",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line_agent"
     },
     {
       "relation": "rationale_for",
@@ -14886,9 +14941,9 @@
       "source_location": "L219",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_219",
-      "target": "pipeline_produce_line_agent",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line_agent"
     },
     {
       "relation": "rationale_for",
@@ -14897,9 +14952,9 @@
       "source_location": "L295",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_295",
-      "target": "pipeline_produce_line_scoped_agent",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line_scoped_agent"
     },
     {
       "relation": "calls",
@@ -14909,9 +14964,9 @@
       "source_location": "L338",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_line_sh",
-      "target": "pipeline_produce_stop",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_stop"
     },
     {
       "relation": "rationale_for",
@@ -14920,9 +14975,9 @@
       "source_location": "L324",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_324",
-      "target": "pipeline_produce_line_sh",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_line_sh"
     },
     {
       "relation": "calls",
@@ -14932,9 +14987,9 @@
       "source_location": "L819",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_edit",
-      "target": "pipeline_produce_verdict",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_verdict"
     },
     {
       "relation": "calls",
@@ -14944,9 +14999,9 @@
       "source_location": "L665",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_factcheck",
-      "target": "pipeline_produce_verdict",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_verdict"
     },
     {
       "relation": "calls",
@@ -14956,9 +15011,9 @@
       "source_location": "L615",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_script",
-      "target": "pipeline_produce_verdict",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_verdict"
     },
     {
       "relation": "calls",
@@ -14968,9 +15023,9 @@
       "source_location": "L989",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_usage",
-      "target": "pipeline_produce_verdict",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_verdict"
     },
     {
       "relation": "calls",
@@ -14980,9 +15035,9 @@
       "source_location": "L1037",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_summary",
-      "target": "pipeline_produce_verdict",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_verdict"
     },
     {
       "relation": "calls",
@@ -14992,9 +15047,9 @@
       "source_location": "L606",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_lint_gate",
-      "target": "pipeline_produce_stop",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_stop"
     },
     {
       "relation": "calls",
@@ -15004,9 +15059,9 @@
       "source_location": "L472",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_repair_voice",
-      "target": "pipeline_produce_stop",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_stop"
     },
     {
       "relation": "calls",
@@ -15016,9 +15071,9 @@
       "source_location": "L745",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_align",
-      "target": "pipeline_produce_stop",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_stop"
     },
     {
       "relation": "calls",
@@ -15028,9 +15083,9 @@
       "source_location": "L816",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_edit",
-      "target": "pipeline_produce_stop",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_stop"
     },
     {
       "relation": "calls",
@@ -15040,9 +15095,9 @@
       "source_location": "L680",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_factcheck",
-      "target": "pipeline_produce_stop",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_stop"
     },
     {
       "relation": "calls",
@@ -15052,9 +15107,9 @@
       "source_location": "L916",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_fix",
-      "target": "pipeline_produce_stop",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_stop"
     },
     {
       "relation": "calls",
@@ -15064,9 +15119,9 @@
       "source_location": "L653",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_script",
-      "target": "pipeline_produce_stop",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_stop"
     },
     {
       "relation": "rationale_for",
@@ -15075,9 +15130,9 @@
       "source_location": "L364",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_364",
-      "target": "pipeline_produce_routes",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_routes"
     },
     {
       "relation": "calls",
@@ -15087,9 +15142,9 @@
       "source_location": "L369",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_routed",
-      "target": "pipeline_produce_routes",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_routes"
     },
     {
       "relation": "calls",
@@ -15099,9 +15154,9 @@
       "source_location": "L804",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_edit",
-      "target": "pipeline_produce_routed",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_routed"
     },
     {
       "relation": "calls",
@@ -15111,9 +15166,9 @@
       "source_location": "L900",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_fix",
-      "target": "pipeline_produce_routed",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_routed"
     },
     {
       "relation": "calls",
@@ -15123,9 +15178,9 @@
       "source_location": "L415",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_director",
-      "target": "pipeline_produce_backlog",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_backlog"
     },
     {
       "relation": "calls",
@@ -15135,9 +15190,9 @@
       "source_location": "L847",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_polish",
-      "target": "pipeline_produce_backlog",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_backlog"
     },
     {
       "relation": "rationale_for",
@@ -15146,9 +15201,9 @@
       "source_location": "L377",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_377",
-      "target": "pipeline_produce_backlog",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_backlog"
     },
     {
       "relation": "calls",
@@ -15158,9 +15213,9 @@
       "source_location": "L796",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_edit",
-      "target": "pipeline_produce_backlog",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_backlog"
     },
     {
       "relation": "calls",
@@ -15170,9 +15225,9 @@
       "source_location": "L862",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_polish",
-      "target": "pipeline_produce_director",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_director"
     },
     {
       "relation": "rationale_for",
@@ -15181,9 +15236,9 @@
       "source_location": "L401",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_401",
-      "target": "pipeline_produce_director",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_director"
     },
     {
       "relation": "calls",
@@ -15193,9 +15248,9 @@
       "source_location": "L788",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_edit",
-      "target": "pipeline_produce_director",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_director"
     },
     {
       "relation": "calls",
@@ -15205,9 +15260,9 @@
       "source_location": "L907",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_fix",
-      "target": "pipeline_produce_director",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_director"
     },
     {
       "relation": "calls",
@@ -15217,9 +15272,9 @@
       "source_location": "L847",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_polish",
-      "target": "pipeline_produce_notes_for",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_notes_for"
     },
     {
       "relation": "rationale_for",
@@ -15228,9 +15283,9 @@
       "source_location": "L422",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_422",
-      "target": "pipeline_produce_notes_for",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_notes_for"
     },
     {
       "relation": "calls",
@@ -15240,9 +15295,9 @@
       "source_location": "L436",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_repair_voice",
-      "target": "pipeline_produce_notes_for",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_notes_for"
     },
     {
       "relation": "calls",
@@ -15252,9 +15307,9 @@
       "source_location": "L796",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_edit",
-      "target": "pipeline_produce_notes_for",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_notes_for"
     },
     {
       "relation": "calls",
@@ -15264,9 +15319,9 @@
       "source_location": "L897",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_fix",
-      "target": "pipeline_produce_notes_for",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_notes_for"
     },
     {
       "relation": "rationale_for",
@@ -15275,9 +15330,9 @@
       "source_location": "L434",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_434",
-      "target": "pipeline_produce_repair_voice",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_repair_voice"
     },
     {
       "relation": "calls",
@@ -15287,9 +15342,9 @@
       "source_location": "L469",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_repair_voice",
-      "target": "pipeline_produce_clean_align",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_clean_align"
     },
     {
       "relation": "calls",
@@ -15299,9 +15354,9 @@
       "source_location": "L803",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_edit",
-      "target": "pipeline_produce_repair_voice",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_repair_voice"
     },
     {
       "relation": "calls",
@@ -15311,9 +15366,9 @@
       "source_location": "L898",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_fix",
-      "target": "pipeline_produce_repair_voice",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_repair_voice"
     },
     {
       "relation": "rationale_for",
@@ -15322,9 +15377,9 @@
       "source_location": "L492",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_492",
-      "target": "pipeline_produce_blocker_signature",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_blocker_signature"
     },
     {
       "relation": "calls",
@@ -15334,9 +15389,9 @@
       "source_location": "L825",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_edit",
-      "target": "pipeline_produce_blocker_signature",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_blocker_signature"
     },
     {
       "relation": "calls",
@@ -15346,9 +15401,9 @@
       "source_location": "L517",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_research",
-      "target": "pipeline_produce_facts_rows_lint",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_facts_rows_lint"
     },
     {
       "relation": "rationale_for",
@@ -15357,9 +15412,9 @@
       "source_location": "L539",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_539",
-      "target": "pipeline_produce_facts_rows_lint",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_facts_rows_lint"
     },
     {
       "relation": "calls",
@@ -15369,9 +15424,9 @@
       "source_location": "L566",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_length_miss",
-      "target": "pipeline_produce_duration",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_duration"
     },
     {
       "relation": "calls",
@@ -15381,9 +15436,9 @@
       "source_location": "L740",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_align",
-      "target": "pipeline_produce_duration",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_duration"
     },
     {
       "relation": "calls",
@@ -15393,9 +15448,9 @@
       "source_location": "L571",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_length_miss",
-      "target": "pipeline_produce_spoken_words",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_spoken_words"
     },
     {
       "relation": "rationale_for",
@@ -15404,9 +15459,9 @@
       "source_location": "L560",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_560",
-      "target": "pipeline_produce_length_miss",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_length_miss"
     },
     {
       "relation": "calls",
@@ -15416,9 +15471,9 @@
       "source_location": "L616",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_script",
-      "target": "pipeline_produce_length_miss",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_length_miss"
     },
     {
       "relation": "rationale_for",
@@ -15427,9 +15482,9 @@
       "source_location": "L579",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_579",
-      "target": "pipeline_produce_lint_gate",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_lint_gate"
     },
     {
       "relation": "calls",
@@ -15439,9 +15494,9 @@
       "source_location": "L635",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_script",
-      "target": "pipeline_produce_lint_gate",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_lint_gate"
     },
     {
       "relation": "calls",
@@ -15451,9 +15506,9 @@
       "source_location": "L671",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_factcheck",
-      "target": "pipeline_produce_script_blocks",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_script_blocks"
     },
     {
       "relation": "rationale_for",
@@ -15462,9 +15517,9 @@
       "source_location": "L686",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_686",
-      "target": "pipeline_produce_script_blocks",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_script_blocks"
     },
     {
       "relation": "calls",
@@ -15474,9 +15529,9 @@
       "source_location": "L734",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_align",
-      "target": "pipeline_produce_clean_align",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_clean_align"
     },
     {
       "relation": "calls",
@@ -15486,9 +15541,9 @@
       "source_location": "L704",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_voice",
-      "target": "pipeline_produce_clean_align",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_clean_align"
     },
     {
       "relation": "rationale_for",
@@ -15497,9 +15552,9 @@
       "source_location": "L697",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_697",
-      "target": "pipeline_produce_st_voice",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_st_voice"
     },
     {
       "relation": "rationale_for",
@@ -15508,9 +15563,9 @@
       "source_location": "L750",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_750",
-      "target": "pipeline_produce_qa_brief",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_qa_brief"
     },
     {
       "relation": "calls",
@@ -15520,9 +15575,9 @@
       "source_location": "L814",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_edit",
-      "target": "pipeline_produce_qa_brief",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_qa_brief"
     },
     {
       "relation": "calls",
@@ -15532,9 +15587,9 @@
       "source_location": "L914",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_fix",
-      "target": "pipeline_produce_qa_brief",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_qa_brief"
     },
     {
       "relation": "calls",
@@ -15544,9 +15599,9 @@
       "source_location": "L812",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_edit",
-      "target": "pipeline_produce_draft",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_draft"
     },
     {
       "relation": "calls",
@@ -15556,9 +15611,9 @@
       "source_location": "L822",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_edit",
-      "target": "pipeline_produce_polish",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_polish"
     },
     {
       "relation": "calls",
@@ -15568,9 +15623,9 @@
       "source_location": "L867",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_polish",
-      "target": "pipeline_produce_qa_clean",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_qa_clean"
     },
     {
       "relation": "calls",
@@ -15580,9 +15635,9 @@
       "source_location": "L912",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_st_fix",
-      "target": "pipeline_produce_qa_clean",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_qa_clean"
     },
     {
       "relation": "rationale_for",
@@ -15591,9 +15646,9 @@
       "source_location": "L843",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_843",
-      "target": "pipeline_produce_polish",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_polish"
     },
     {
       "relation": "rationale_for",
@@ -15602,9 +15657,9 @@
       "source_location": "L874",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_874",
-      "target": "pipeline_produce_st_components",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_st_components"
     },
     {
       "relation": "rationale_for",
@@ -15613,9 +15668,9 @@
       "source_location": "L887",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_rationale_887",
-      "target": "pipeline_produce_st_fix",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_st_fix"
     },
     {
       "relation": "calls",
@@ -15625,9 +15680,9 @@
       "source_location": "L1095",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_main",
-      "target": "pipeline_produce_st_usage",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_st_usage"
     },
     {
       "relation": "calls",
@@ -15637,9 +15692,9 @@
       "source_location": "L1093",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "pipeline_produce_main",
-      "target": "pipeline_produce_summary",
-      "confidence_score": 1.0
+      "target": "pipeline_produce_summary"
     },
     {
       "relation": "contains",
@@ -30285,39 +30340,6 @@
       "target": "notes_batches_2026_11_01_2026_11_07_events"
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "notes_batches_2026_11_08_2026_11_12",
-      "target": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
-      "source_location": "L31",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21",
-      "target": "notes_batches_2026_11_08_2026_11_12_batch_table"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "notes/batches/2026-11-08_2026-11-12.md",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21",
-      "target": "notes_batches_2026_11_08_2026_11_12_events"
-    },
-    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -32117,5 +32139,5 @@
       "source_file": "episodes/2026-10-12lpa-in-hand/facts.md"
     }
   ],
-  "built_at_commit": "49f04b8344a025dc64430689015856beec607d7c"
+  "built_at_commit": "b255fad489c5458332bb9cdf2750080e16b5536c"
 }

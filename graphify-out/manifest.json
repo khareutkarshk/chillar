@@ -85,8 +85,8 @@
     "semantic_hash": ""
   },
   "components/lib/runtime.js": {
-    "mtime": 1792839214.6680255,
-    "ast_hash": "c81805b6f43c6ccdd41cc4179730ec44",
+    "mtime": 1792843240.6700323,
+    "ast_hash": "35368f8a623548e45509b73f879960cc",
     "semantic_hash": ""
   },
   "components/line-chart/component.js": {
@@ -1205,13 +1205,13 @@
     "semantic_hash": ""
   },
   "episodes/2026-11-08-diwali-receipt/scenes/scenes.json": {
-    "mtime": 1792590854.5776446,
-    "ast_hash": "54fe44c4959e165d88e168cd8b0e5a20",
+    "mtime": 1792843949.0649493,
+    "ast_hash": "765975abda04168dc40e88739156723c",
     "semantic_hash": ""
   },
   "episodes/2026-11-08-diwali-receipt/cover.md": {
-    "mtime": 1792588998.898086,
-    "ast_hash": "fda9f6b131e9fdc15ee01998c331afac",
+    "mtime": 1792840581.5955932,
+    "ast_hash": "71f0cd5ee2fabf70e57afb5b4ad26049",
     "semantic_hash": ""
   },
   "episodes/2026-11-08-diwali-receipt/facts.md": {
@@ -1220,13 +1220,13 @@
     "semantic_hash": ""
   },
   "episodes/2026-11-08-diwali-receipt/script.md": {
-    "mtime": 1792589544.2819204,
-    "ast_hash": "715754ff6bfb62ccfb607afee07084df",
+    "mtime": 1792843232.872999,
+    "ast_hash": "be7dc32966dae44e0b44d98fb5bd2df4",
     "semantic_hash": ""
   },
   "episodes/2026-11-10-card-bill-coming/cover.md": {
-    "mtime": 1792590315.4755728,
-    "ast_hash": "e00dd81bfae66cbb4d993d4d14ad81d6",
+    "mtime": 1792840566.5394073,
+    "ast_hash": "411296c8e7ddccb86a4e821c877c28f2",
     "semantic_hash": ""
   },
   "episodes/2026-11-10-card-bill-coming/facts.md": {
@@ -1235,8 +1235,8 @@
     "semantic_hash": ""
   },
   "episodes/2026-11-10-card-bill-coming/script.md": {
-    "mtime": 1792590638.1527379,
-    "ast_hash": "867b49edf9b2d605b788676bd3bf874a",
+    "mtime": 1792840566.5394073,
+    "ast_hash": "0921ee585017163f0a00c72ee91393d5",
     "semantic_hash": ""
   },
   "notes/batches/2026-11-08_2026-11-12.md": {
@@ -1250,18 +1250,18 @@
     "semantic_hash": ""
   },
   "episodes/2026-11-10-card-bill-coming/scenes/scenes.json": {
-    "mtime": 1792592661.8715973,
-    "ast_hash": "1daa97f8854d9412d968f546426c6f7b",
+    "mtime": 1792842016.715725,
+    "ast_hash": "02d9fd84672f7a4920f5aaccd1049aba",
     "semantic_hash": ""
   },
   "episodes/2026-11-11-bhai-dooj-gift-tax/scenes/scenes.json": {
-    "mtime": 1792593197.935254,
-    "ast_hash": "0d775705cee911a87837486c66aa3ef6",
+    "mtime": 1792841891.8289502,
+    "ast_hash": "7eec9881fbd44cdbf8485df445245465",
     "semantic_hash": ""
   },
   "episodes/2026-11-11-bhai-dooj-gift-tax/cover.md": {
-    "mtime": 1792591559.5258522,
-    "ast_hash": "21649995a0dcf5fcdf0e1ca93bf8fb4c",
+    "mtime": 1792840581.5965934,
+    "ast_hash": "feb7ff05e84f4e3a2bab8e8f132e3773",
     "semantic_hash": ""
   },
   "episodes/2026-11-11-bhai-dooj-gift-tax/facts.md": {
@@ -1270,13 +1270,13 @@
     "semantic_hash": ""
   },
   "episodes/2026-11-11-bhai-dooj-gift-tax/script.md": {
-    "mtime": 1792591840.8542707,
-    "ast_hash": "8ad0ee3fc402c4d788df310c7c1ba7e8",
+    "mtime": 1792840581.5965934,
+    "ast_hash": "86dd8ce1f9c6e5903fcde873d9cdf787",
     "semantic_hash": ""
   },
   "episodes/2026-11-12-salary-12-days/cover.md": {
-    "mtime": 1792593430.9307647,
-    "ast_hash": "a46da4f9d0e7bf38476034ed4cbbbdfe",
+    "mtime": 1792840566.5404072,
+    "ast_hash": "27c290e058ea013245e25d5d7532bbee",
     "semantic_hash": ""
   },
   "episodes/2026-11-12-salary-12-days/facts.md": {
@@ -1285,13 +1285,13 @@
     "semantic_hash": ""
   },
   "episodes/2026-11-12-salary-12-days/script.md": {
-    "mtime": 1792593833.5261397,
-    "ast_hash": "a9c6faa7430f7a0d694dad1ee3132505",
+    "mtime": 1792840566.5404072,
+    "ast_hash": "cbdaff0601d099f1c54ce1a16aacc76f",
     "semantic_hash": ""
   },
   "episodes/2026-11-12-salary-12-days/scenes/scenes.json": {
-    "mtime": 1792632760.773438,
-    "ast_hash": "1ce563f233f1c2faa562749af92bd2db",
+    "mtime": 1792843232.864999,
+    "ast_hash": "9587c3237eb5a2bf0b0f1898096301b5",
     "semantic_hash": ""
   },
   "brand/sfx/knock.wav": {

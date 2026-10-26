@@ -11,14 +11,14 @@ paid_partnership: false
 ---
 
 ## Hook
-Is Diwali sarkar ko kitne ka gift diya? {chillar: side-eye}
+Agar ₹51,500 ka gold set liya, sarkar ka gift kitna? [F1] {chillar: side-eye}
 Ghar mein sach sirf ek bolti hai. Receipt. [JOKE]
 
 ## Turn
 Maan lo mummy ka "bas ek dry-fruit box", ₹2,100 [F1]. {visual: receipt prints "Dry fruit box"}
 ₹100 sarkar ke, 5% GST [F1][F2].
 Box ghoom ke wapas aayega. Tax nahi. [JOKE]
-Fufaji ne sunaar ko uska hi bill samjhaya, \"making pe 5% alag\" [F3]. [JOKE]
+Fufaji ne sunaar ko uska hi bill samjhaya, "making pe 5% alag" [F3]. [JOKE]
 Receipt boli, ₹1,500, making samet 3% [F1][F3]. Fufaji ka aura gaya. [JOKE] {stamp: "3%"} {meme: M2} {chillar: smug}
 
 ## Payoff

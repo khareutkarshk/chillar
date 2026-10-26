@@ -1240,8 +1240,8 @@
     "semantic_hash": ""
   },
   "notes/batches/2026-11-08_2026-11-12.md": {
-    "mtime": 1792633253.4106243,
-    "ast_hash": "2b834670afdba5731c12e6f193fd2096",
+    "mtime": 1792840070.5370944,
+    "ast_hash": "5c001088bde1ea8716bb8f711ea62ca9",
     "semantic_hash": ""
   },
   "brand/sfx/paper-toss.wav": {
@@ -1332,46 +1332,6 @@
   "episodes/_pilot-human/scenes/scenes.json": {
     "mtime": 1792663183.0630827,
     "ast_hash": "88db469639b1b0dbaed0dda6fe25f975",
-    "semantic_hash": ""
-  },
-  "episodes/_sectest/scenes/scenes.json": {
-    "mtime": 1792632760.773438,
-    "ast_hash": "1ce563f233f1c2faa562749af92bd2db",
-    "semantic_hash": ""
-  },
-  "episodes/_sectest/cover.md": {
-    "mtime": 1792838779.4364202,
-    "ast_hash": "f97c5d6f1b66266426aa190b47e81210",
-    "semantic_hash": ""
-  },
-  "episodes/_sectest/facts.md": {
-    "mtime": 1792839873.6816788,
-    "ast_hash": "e7feef8c8fe090279e61fba2aa814d04",
-    "semantic_hash": ""
-  },
-  "episodes/_sectest/script.md": {
-    "mtime": 1792593833.5261397,
-    "ast_hash": "a9c6faa7430f7a0d694dad1ee3132505",
-    "semantic_hash": ""
-  },
-  "episodes/_sectest/build_evil/gsap.min.js": {
-    "mtime": 1792350100.6443923,
-    "ast_hash": "b729ff7f59f3391835501f2900ecd857",
-    "semantic_hash": ""
-  },
-  "episodes/_sectest/build_evil/spec.json": {
-    "mtime": 1792838897.8373551,
-    "ast_hash": "2453e60dd6eaf3014f8b8329526d4cb2",
-    "semantic_hash": ""
-  },
-  "episodes/_sectest/build_evil2/gsap.min.js": {
-    "mtime": 1792350100.6443923,
-    "ast_hash": "b729ff7f59f3391835501f2900ecd857",
-    "semantic_hash": ""
-  },
-  "episodes/_sectest/build_evil/index.html": {
-    "mtime": 1792838897.8343554,
-    "ast_hash": "62c892fc9075a6de276aa43ee1a33499",
     "semantic_hash": ""
   }
 }

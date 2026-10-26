@@ -55,15 +55,81 @@
   },
   "nodes": [
     {
+      "label": "runtime.js",
+      "file_type": "code",
+      "source_file": "components/lib/runtime.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_lib_runtime",
+      "community": 13,
+      "community_name": "runtime.js",
+      "norm_label": "runtime.js"
+    },
+    {
+      "label": "circle()",
+      "file_type": "code",
+      "source_file": "components/lib/runtime.js",
+      "source_location": "L159",
+      "_origin": "ast",
+      "id": "components_lib_runtime_circle",
+      "community": 13,
+      "community_name": "runtime.js",
+      "norm_label": "circle()"
+    },
+    {
+      "label": "underline()",
+      "file_type": "code",
+      "source_file": "components/lib/runtime.js",
+      "source_location": "L168",
+      "_origin": "ast",
+      "id": "components_lib_runtime_underline",
+      "community": 13,
+      "community_name": "runtime.js",
+      "norm_label": "underline()"
+    },
+    {
+      "label": "strike()",
+      "file_type": "code",
+      "source_file": "components/lib/runtime.js",
+      "source_location": "L174",
+      "_origin": "ast",
+      "id": "components_lib_runtime_strike",
+      "community": 13,
+      "community_name": "runtime.js",
+      "norm_label": "strike()"
+    },
+    {
+      "label": "arrow()",
+      "file_type": "code",
+      "source_file": "components/lib/runtime.js",
+      "source_location": "L182",
+      "_origin": "ast",
+      "id": "components_lib_runtime_arrow",
+      "community": 13,
+      "community_name": "runtime.js",
+      "norm_label": "arrow()"
+    },
+    {
+      "label": "tick()",
+      "file_type": "code",
+      "source_file": "components/lib/runtime.js",
+      "source_location": "L193",
+      "_origin": "ast",
+      "id": "components_lib_runtime_tick",
+      "community": 13,
+      "community_name": "runtime.js",
+      "norm_label": "tick()"
+    },
+    {
       "label": "2026-11-08_2026-11-12.md",
       "file_type": "document",
       "source_file": "notes/batches/2026-11-08_2026-11-12.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "notes_batches_2026_11_08_2026_11_12",
       "community": 144,
       "community_name": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
-      "norm_label": "2026-11-08_2026-11-12.md"
+      "norm_label": "2026-11-08_2026-11-12.md",
+      "id": "notes_batches_2026_11_08_2026_11_12"
     },
     {
       "label": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
@@ -71,10 +137,10 @@
       "source_file": "notes/batches/2026-11-08_2026-11-12.md",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21",
       "community": 144,
       "community_name": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
-      "norm_label": "batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)"
+      "norm_label": "batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
+      "id": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21"
     },
     {
       "label": "Events",
@@ -82,10 +148,10 @@
       "source_file": "notes/batches/2026-11-08_2026-11-12.md",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "notes_batches_2026_11_08_2026_11_12_events",
       "community": 144,
       "community_name": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
-      "norm_label": "events"
+      "norm_label": "events",
+      "id": "notes_batches_2026_11_08_2026_11_12_events"
     },
     {
       "label": "Batch table",
@@ -93,10 +159,10 @@
       "source_file": "notes/batches/2026-11-08_2026-11-12.md",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "notes_batches_2026_11_08_2026_11_12_batch_table",
       "community": 144,
       "community_name": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
-      "norm_label": "batch table"
+      "norm_label": "batch table",
+      "id": "notes_batches_2026_11_08_2026_11_12_batch_table"
     },
     {
       "label": "Optimisation 2026-10-24 (interactive session) \u2014 NOT YET MEASURED, next batch confirms",
@@ -104,10 +170,10 @@
       "source_file": "notes/batches/2026-11-08_2026-11-12.md",
       "source_location": "L43",
       "_origin": "ast",
-      "id": "notes_batches_2026_11_08_2026_11_12_optimisation_2026_10_24_interactive_session_not_yet_measured_next_batch_confirms",
       "community": 144,
       "community_name": "Batch 2026-11-08 \u2192 2026-11-12 (started 2026-10-21)",
-      "norm_label": "optimisation 2026-10-24 (interactive session) \u2014 not yet measured, next batch confirms"
+      "norm_label": "optimisation 2026-10-24 (interactive session) \u2014 not yet measured, next batch confirms",
+      "id": "notes_batches_2026_11_08_2026_11_12_optimisation_2026_10_24_interactive_session_not_yet_measured_next_batch_confirms"
     },
     {
       "label": "fact_lint.py",
@@ -2781,72 +2847,6 @@
       "community_name": "Component catalog (generated \u2014 `pipeline/component_catalog.py`, don't edit)",
       "norm_label": "wordmark  _(auto \u2014 never place in scenes.json)_",
       "id": "components_catalog_wordmark_auto_never_place_in_scenes_json"
-    },
-    {
-      "label": "runtime.js",
-      "file_type": "code",
-      "source_file": "components/lib/runtime.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "runtime.js",
-      "norm_label": "runtime.js",
-      "id": "components_lib_runtime"
-    },
-    {
-      "label": "circle()",
-      "file_type": "code",
-      "source_file": "components/lib/runtime.js",
-      "source_location": "L156",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "runtime.js",
-      "norm_label": "circle()",
-      "id": "components_lib_runtime_circle"
-    },
-    {
-      "label": "underline()",
-      "file_type": "code",
-      "source_file": "components/lib/runtime.js",
-      "source_location": "L165",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "runtime.js",
-      "norm_label": "underline()",
-      "id": "components_lib_runtime_underline"
-    },
-    {
-      "label": "strike()",
-      "file_type": "code",
-      "source_file": "components/lib/runtime.js",
-      "source_location": "L171",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "runtime.js",
-      "norm_label": "strike()",
-      "id": "components_lib_runtime_strike"
-    },
-    {
-      "label": "arrow()",
-      "file_type": "code",
-      "source_file": "components/lib/runtime.js",
-      "source_location": "L179",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "runtime.js",
-      "norm_label": "arrow()",
-      "id": "components_lib_runtime_arrow"
-    },
-    {
-      "label": "tick()",
-      "file_type": "code",
-      "source_file": "components/lib/runtime.js",
-      "source_location": "L190",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "runtime.js",
-      "norm_label": "tick()",
-      "id": "components_lib_runtime_tick"
     },
     {
       "label": "meme/component.js",
@@ -12907,13 +12907,68 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "components/lib/runtime.js",
+      "source_location": "L182",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_lib_runtime",
+      "target": "components_lib_runtime_arrow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/lib/runtime.js",
+      "source_location": "L159",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_lib_runtime",
+      "target": "components_lib_runtime_circle",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/lib/runtime.js",
+      "source_location": "L174",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_lib_runtime",
+      "target": "components_lib_runtime_strike",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/lib/runtime.js",
+      "source_location": "L193",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_lib_runtime",
+      "target": "components_lib_runtime_tick",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/lib/runtime.js",
+      "source_location": "L168",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_lib_runtime",
+      "target": "components_lib_runtime_underline",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "notes/batches/2026-11-08_2026-11-12.md",
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "notes_batches_2026_11_08_2026_11_12",
-      "target": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21",
-      "confidence_score": 1.0
+      "target": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21"
     },
     {
       "relation": "contains",
@@ -12922,9 +12977,9 @@
       "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21",
-      "target": "notes_batches_2026_11_08_2026_11_12_batch_table",
-      "confidence_score": 1.0
+      "target": "notes_batches_2026_11_08_2026_11_12_batch_table"
     },
     {
       "relation": "contains",
@@ -12933,9 +12988,9 @@
       "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21",
-      "target": "notes_batches_2026_11_08_2026_11_12_events",
-      "confidence_score": 1.0
+      "target": "notes_batches_2026_11_08_2026_11_12_events"
     },
     {
       "relation": "contains",
@@ -12944,9 +12999,9 @@
       "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "notes_batches_2026_11_08_2026_11_12_batch_2026_11_08_2026_11_12_started_2026_10_21",
-      "target": "notes_batches_2026_11_08_2026_11_12_optimisation_2026_10_24_interactive_session_not_yet_measured_next_batch_confirms",
-      "confidence_score": 1.0
+      "target": "notes_batches_2026_11_08_2026_11_12_optimisation_2026_10_24_interactive_session_not_yet_measured_next_batch_confirms"
     },
     {
       "relation": "references",
@@ -18798,61 +18853,6 @@
       "confidence_score": 1.0,
       "source": "components_catalog_placed_by_the_pipeline",
       "target": "components_catalog_wordmark_auto_never_place_in_scenes_json"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/lib/runtime.js",
-      "source_location": "L179",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "components_lib_runtime",
-      "target": "components_lib_runtime_arrow"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/lib/runtime.js",
-      "source_location": "L156",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "components_lib_runtime",
-      "target": "components_lib_runtime_circle"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/lib/runtime.js",
-      "source_location": "L171",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "components_lib_runtime",
-      "target": "components_lib_runtime_strike"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/lib/runtime.js",
-      "source_location": "L190",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "components_lib_runtime",
-      "target": "components_lib_runtime_tick"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/lib/runtime.js",
-      "source_location": "L165",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "components_lib_runtime",
-      "target": "components_lib_runtime_underline"
     },
     {
       "relation": "contains",
@@ -32139,5 +32139,5 @@
       "source_file": "episodes/2026-10-12lpa-in-hand/facts.md"
     }
   ],
-  "built_at_commit": "b255fad489c5458332bb9cdf2750080e16b5536c"
+  "built_at_commit": "9d7319f0f87e6038822af382a69fda7809b346f5"
 }

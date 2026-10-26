@@ -17,6 +17,7 @@ track = ""                       # brand/music/<file>; empty = first locked trac
 under_voice_db = -22             # music sits this far under the voice (-20 … -24)
 
 [render]
+length_accepted = true       # creator accepted a voice outside the format range
 quality = "delivery"             # draft | looks | delivery
 theme = ""                       # usually set by the director in scenes.json; this overrides the brand default
 

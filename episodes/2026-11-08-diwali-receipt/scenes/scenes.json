@@ -29,9 +29,16 @@
    }
   },
   {
+   "id": "s01b-chillar-shock",
+   "component": "mascot-reaction",
+   "at": "w5",
+   "until": "w10",
+   "params": {"expr": "shocked", "anim": "blink", "size": 240, "x": 800, "y": 1130}
+  },
+  {
    "id": "s02-fufaji-lie",
    "component": "photo-frame",
-   "at": "w8",
+   "at": "w10",
    "params": {
     "speech": "Arre, sasta mila!",
     "caption": "fufaji",
@@ -41,9 +48,16 @@
    }
   },
   {
+   "id": "s02b-chillar-ek",
+   "component": "mascot-reaction",
+   "at": "w14",
+   "until": "w18",
+   "params": {"expr": "side-eye", "anim": "blink", "size": 240, "x": 800, "y": 1130}
+  },
+  {
    "id": "s04-dryfruit-prints",
    "component": "receipt-list",
-   "at": "w16",
+   "at": "w18",
    "fact": "F1",
    "params": {
     "title": "DRY FRUITS",
@@ -68,27 +82,27 @@
      "tone": "ink"
     },
     "totalAt": 1.9,
-    "dy": 90
+    "dy": -40
    }
   },
   {
    "id": "s04b-chillar-bas-ek",
    "component": "mascot-reaction",
-   "at": "w23",
-   "until": "w25",
+   "at": "w25",
+   "until": "w27",
    "params": {
     "expr": "side-eye",
     "anim": "blink",
     "bubble": "Bas ek?",
-    "size": 240,
+    "size": 200,
     "x": 800,
-    "y": 1130
+    "y": 1230
    }
   },
   {
    "id": "s05-hundred",
    "component": "odometer-number",
-   "at": "w25",
+   "at": "w27",
    "cut": "zoom",
    "fact": "F1",
    "params": {
@@ -102,7 +116,7 @@
   {
    "id": "s06-box-safar",
    "component": "phone-note",
-   "at": "w30",
+   "at": "w32",
    "fact": "F1",
    "params": {
     "title": "Box ka safar",
@@ -127,7 +141,7 @@
   {
    "id": "s07-fufaji-gyaan",
    "component": "photo-frame",
-   "at": "w37",
+   "at": "w39",
    "fact": "F3",
    "params": {
     "speech": "Making pe 5% alag!",
@@ -140,8 +154,8 @@
   {
    "id": "s07b-chillar-sideeye",
    "component": "mascot-reaction",
-   "at": "w43",
-   "until": "w45",
+   "at": "w45",
+   "until": "w47",
    "params": {
     "expr": "side-eye",
     "anim": "blink"
@@ -150,7 +164,7 @@
   {
    "id": "s08-five-percent",
    "component": "glyph-character",
-   "at": "w45",
+   "at": "w47",
    "fact": "F3",
    "params": {
     "glyph": "5%",
@@ -164,9 +178,16 @@
    }
   },
   {
+   "id": "s08b-chillar-think",
+   "component": "mascot-reaction",
+   "at": "w51",
+   "until": "w53",
+   "params": {"expr": "thinking", "anim": "blink", "size": 240, "x": 800, "y": 1130}
+  },
+  {
    "id": "s09-sunaar-receipt",
    "component": "receipt-list",
-   "at": "w51",
+   "at": "w53",
    "fact": "F1",
    "params": {
     "title": "SUNAAR",
@@ -193,8 +214,8 @@
   {
    "id": "s09b-stamp-3",
    "component": "stamp",
-   "at": "w54",
-   "until": "w56",
+   "at": "w56",
+   "until": "w58",
    "fact": "F3",
    "params": {
     "text": "3%",
@@ -208,8 +229,8 @@
   {
    "id": "s09c-chillar-smug",
    "component": "mascot-reaction",
-   "at": "w58-0.05",
-   "until": "w59",
+   "at": "w60-0.05",
+   "until": "w61",
    "params": {
     "expr": "smug",
     "anim": "blink",
@@ -223,7 +244,7 @@
   {
    "id": "s10-sarkar-gift",
    "component": "receipt-list",
-   "at": "w59",
+   "at": "w61",
    "fact": "F1",
    "params": {
     "title": "DIWALI",
@@ -253,8 +274,8 @@
   {
    "id": "s10b-stamp-1600",
    "component": "stamp",
-   "at": "w62",
-   "until": "w65",
+   "at": "w64",
+   "until": "w67",
    "fact": "F1",
    "params": {
     "text": "₹1,600",
@@ -265,22 +286,9 @@
    }
   },
   {
-   "id": "s10c-chillar-violin",
-   "component": "mascot-reaction",
-   "at": "w64",
-   "until": "w70",
-   "params": {
-    "expr": "crying",
-    "anim": "blink",
-    "size": 240,
-    "x": 800,
-    "y": 1130
-   }
-  },
-  {
    "id": "s11-poocho",
    "component": "split-compare",
-   "at": "w70",
+   "at": "w72+0.45",
    "fact": "F3",
    "params": {
     "left": {
@@ -293,13 +301,14 @@
     },
     "strikeAt": 0.8,
     "revealAt": 1.1,
-    "offsetY": 60
+    "offsetY": 60,
+    "entrance": "drop"
    }
   },
   {
    "id": "s12-wrapper",
    "component": "meme-format",
-   "at": "w77",
+   "at": "w79",
    "params": {
     "format": "expectation-reality",
     "reveal": 0.8,
@@ -327,11 +336,11 @@
  "effects": [
   {
    "type": "punch",
-   "at": "w36"
+   "at": "w38"
   },
   {
    "type": "punch",
-   "at": "w58"
+   "at": "w60"
   }
  ]
 }
