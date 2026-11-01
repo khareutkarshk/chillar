@@ -168,5 +168,20 @@
   "file": "it-bill-2025.pdf.pdf",
   "fetched": "2026-10-21",
   "bytes": 9114788
+ },
+ "https://www.indusind.com/in/en/personal/schedule-of-charges.html": {
+  "file": "indusind-soc.html.html",
+  "fetched": "2026-11-01",
+  "bytes": 1059049
+ },
+ "https://www.indusind.com/content/dam/indusind-corporate/schedule-of-charges/savings-account/Revision_in_Schedule_of_Charges_w.e.f._15th_november_2024.pdf": {
+  "file": "indusind-rev-2024.pdf.pdf",
+  "fetched": "2026-11-01",
+  "bytes": 579889
+ },
+ "https://www.indusind.com/content/dam/indusind-corporate/schedule-of-charges/savings-account/Revision-in-SA-Charges-Effective-Oct-Nov-26.pdf": {
+  "file": "indusind-rev-oct-nov-26.pdf.pdf",
+  "fetched": "2026-11-01",
+  "bytes": 648695
  }
 }

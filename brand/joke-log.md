@@ -2,21 +2,28 @@
 
 Use it on round 1. **Games taken:** don't build a new reel on one of these. **Landed:** reuse the *shape* (act-out, self-own, callback), never the line. **Fell flat:** don't write that kind of joke again. **Audience drops** are real Instagram retention — the strongest signal here.
 
-**Cast lately** (characters are welcome — use whoever the story needs): papa (3/6), mummy (2/6), mausi (1/6), landlord (1/6), dost (1/6), chacha (1/6), bua (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
-
-## 2026-11-11-bhai-dooj-gift-tax — Behen ke Bhai Dooj gift pe tax?
-- landed: Mausi ke liye cousin ghar ka, tax ke liye bahar ka.
-- landed: Tika lagte hi behen ne audit kiya, 'bas itna?'
-
-## 2026-11-10-card-bill-coming — Card ka free kab tak?
-- game taken: the card's free period is the strictest school librarian. Return every book by the due date and the fine is zero. Return late and she counts the…
-- landed: Late hue, toh ma'am fine issue date se ginti thi. / Kitaab haath mein aate hi.
-- landed: Ma'am ki line thi, 
+**Cast lately** (characters are welcome — use whoever the story needs): papa (2/6), mummy (2/6), mausi (1/6), dost (1/6), chacha (1/6), bua (1/6). A regular gets a new moment; a story that needs someone new (bua, landlord, society uncle) gets them.
 
 ## 2026-11-08-diwali-receipt — Aapki Diwali ki receipt
 - game taken: GST is the Diwali gift you give sarkar without knowing. Everyone at home talks, only the receipt tells you, and it's the one gift that never comes…
 - landed: Sabse bada gift, ₹1,600, us rishtedaar ko jo aaya hi nahi
 - landed: Box ghoom ke wapas aayega. Tax nahi.
+
+## 2026-11-11-bhai-dooj-gift-tax — Behen ke Bhai Dooj gift pe tax?
+- landed: Mausi ke liye cousin ghar ka, tax ke liye bahar ka.
+- landed: Tika lagte hi behen ne audit kiya, 'bas itna?'
+
+## 2026-11-12-salary-12-days — Salary ki gumshuda report
+- game taken: my salary is a missing person, every expense is a suspect at the thana with an alibi, and the culprit turns out to be a gang of small thieves plus…
+- landed: Nau food orders, ₹3,600, har ek bola, 'Main bas ek tha.'
+- landed: Khatkhataya tha! RBI rule se kam-se-kam 24 ghante pehle message aata hai.
+- fell flat: Sale shopping ₹3,200, jo mere hisaab se bachat thi
+- fell flat: Haan mummy, bahut
+
+## 2026-11-10-card-bill-coming — Card ka free kab tak?
+- game taken: the card's free period is the strictest school librarian. Return every book by the due date and the fine is zero. Return late and she counts the…
+- landed: Late hue, toh ma'am fine issue date se ginti thi. / Kitaab haath mein aate hi.
+- landed: Ma'am ki line thi, 
 
 ## 2026-11-07-guests-kharcha — Doorbell ki ek ding kitne ki?
 - game taken: every doorbell ding is a ₹100 cash-register ding. Real laughs: L2 (papa's "zero" + M2), L4, L6, L10.
@@ -31,8 +38,3 @@ Use it on round 1. **Games taken:** don't build a new reel on one of these. **La
 - landed: Mummy kehti, 'shubh hai.' Landlord kehta, 'UPI karo.'
 - fell flat: Mummy kehti… Landlord kehta… Papa bolte…
 - fell flat: Mera fund abhi dabbe jitna hai
-
-## 2026-11-05-card-swipes-bill — ₹100 ka tap kab mehnga?
-- game taken: the card tap is kirane wale uncle ka khata in disguise (L3 → L6 → L9 → L10–11 → L13). Laughs I counted: L1, L6, L8, L9, L12, L13, L17.
-- landed: Uncle ne chashma utaar ke bola, 'Beta, ₹10,000.'
-- landed: Due date nikli, byaaj uss chai wale din se lag sakta hai.

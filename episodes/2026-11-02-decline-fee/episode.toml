@@ -1,0 +1,29 @@
+# Per-episode pipeline settings (all optional — defaults shown)
+
+[voice]
+file = "voice/voice.wav"         # your raw recording (wav/m4a/mp3 all fine)
+denoise = "rnnoise"              # rnnoise | afftdn | off
+silence_threshold_db = -42       # quieter than this counts as silence
+max_gap_s = 0.28                 # silences longer than this are cut down to this
+presence_db = 3.5                # 3–5 kHz boost
+lufs = -14
+
+[align]
+model = "medium"                 # whisper model for forced alignment (small = faster, large-v3 = best)
+language = "hi"                  # Hinglish: "hi" usually aligns best; try "en" if words drift
+
+[music]
+track = ""                       # brand/music/<file>; empty = first locked track
+under_voice_db = -22             # music sits this far under the voice (-20 … -24)
+
+[render]
+quality = "delivery"             # draft | looks | delivery
+theme = ""                       # usually set by the director in scenes.json; this overrides the brand default
+
+[tts]                            # the channel voice (pipeline/tts.py) — Sunny, pace 1.2, every reel
+provider = "sarvam"              # sarvam | kokoro (offline test voice)
+model = "bulbul:v4-flash"
+speaker = "sunny_hi_reels"       # brand default voice (chosen 2026-10-19)
+pace = 1.2                       # 0.5–2.0; brand default 1.2
+temperature = 0.6
+language = "hi-IN"
