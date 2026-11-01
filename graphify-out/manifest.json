@@ -790,8 +790,8 @@
     "semantic_hash": ""
   },
   "components/_backlog.md": {
-    "mtime": 1792657771.2909386,
-    "ast_hash": "c06a122d5f52a9d98c49d85d67113408",
+    "mtime": 1793555439.305771,
+    "ast_hash": "931b9015b1a77bb935a8fcb676d20b90",
     "semantic_hash": ""
   },
   "pipeline/agent_context.py": {
@@ -1347,6 +1347,11 @@
   "episodes/2026-11-02-decline-fee/script.md": {
     "mtime": 1793553236.0911338,
     "ast_hash": "5c7ed4ba10d4ca768701a856f8bcfc84",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-02-decline-fee/scenes/scenes.json": {
+    "mtime": 1793555765.73924,
+    "ast_hash": "87c4b0174f635a38804583778828ef13",
     "semantic_hash": ""
   }
 }
