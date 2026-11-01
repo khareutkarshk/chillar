@@ -1,0 +1,172 @@
+{
+  "theme": "night",
+  "scenes": [
+    {
+      "id": "s01-hook", "component": "receipt-list", "at": 0, "fact": "F1",
+      "params": {
+        "title": "CARD SWIPE", "meta": "Ek bank, kuch accounts",
+        "items": [{"label": "Status", "amount": "DECLINED"}],
+        "total": {"label": "Decline fee", "amount": "₹25", "tone": "red"},
+        "printed": true, "width": 860, "dy": 80
+      }
+    },
+    {
+      "id": "s02-aura", "component": "phone-note", "at": "w6+0.6",
+      "params": {
+        "title": "Decline pe kya gaya",
+        "items": [{"text": "Aura"}, {"text": "Izzat"}],
+        "stagger": 0.2
+      }
+    },
+    {
+      "id": "s02b-paise", "component": "odometer-number", "at": "w12", "fact": "F1",
+      "params": {"value": 25, "prefix": "₹", "label": "Ab yeh bhi?", "rollStart": 0.05, "rollDuration": 0.5, "labelSize": 80},
+      "sfx": []
+    },
+    {
+      "id": "s03-question", "component": "glyph-character", "at": "w20",
+      "params": {"glyph": "?", "costume": "detective", "eyes": "side-eye", "bubble": "Mera account bhi?", "bubbleSide": "right", "size": 420, "x": 330, "y": 760}
+    },
+    {
+      "id": "s04-method", "component": "checklist", "at": "w26",
+      "params": {
+        "title": "Balance kaise dekhein",
+        "items": [{"text": "App kholo", "ok": false}, {"text": "Payment try karo", "ok": true}],
+        "stagger": 1.6
+      }
+    },
+    {
+      "id": "s04b-smug", "component": "mascot-reaction", "at": "w35", "until": "w38",
+      "params": {"expr": "smug", "anim": "blink", "x": 780, "y": 1120, "size": 260}
+    },
+    {
+      "id": "s05-date", "component": "calendar-flip", "at": "w38", "cut": "whip", "fact": "F1",
+      "params": {"pages": ["30 OCT", "31 OCT", "1 NOV"], "details": ["ek private bank"], "width": 860},
+      "sfx": []
+    },
+    {
+      "id": "s06-swipe", "component": "receipt-list", "at": "w48", "fact": "F1",
+      "params": {
+        "title": "DUKAAN · CARD SWIPE",
+        "meta": "Savings a/c (kuch variants)",
+        "items": [{"label": "Status", "amount": "DECLINED", "at": 1.7}],
+        "total": {"label": "Decline fee", "amount": "₹25 + tax", "tone": "red"},
+        "totalAt": 2.5, "width": 860, "dy": 160
+      }
+    },
+    {
+      "id": "s06a-eye", "component": "mascot-reaction", "at": "w54", "until": "w59",
+      "params": {"expr": "side-eye", "anim": "blink", "x": 820, "y": 1110, "size": 220},
+      "sfx": []
+    },
+    {
+      "id": "s06b-stamp", "component": "stamp", "at": "w59", "until": "w62", "fact": "F1",
+      "params": {"text": "₹25", "sub": "tax alag", "x": 520, "y": 1000, "rotate": -8, "size": 120}
+    },
+    {
+      "id": "s07-chat", "component": "chat-screen", "at": "w62",
+      "params": {
+        "name": "Bank",
+        "messages": [
+          {"from": "me", "text": "Card swipe kiya"},
+          {"from": "them", "text": "Payment nahi hoga, sir."},
+          {"from": "them", "text": "Par *fees* hogi."}
+        ],
+        "stagger": 1.0, "highlight": 2, "grow": true
+      }
+    },
+    {
+      "id": "s08-check", "component": "odometer-number", "at": "w73", "fact": "F1",
+      "params": {"value": 25, "prefix": "₹", "label": "Ek balance check", "labelSize": 80}
+    },
+    {
+      "id": "s08b-nahi", "component": "marker-highlight", "at": "w82",
+      "params": {"text": "Jawab? Wahi purana *nahi.*", "paper": true, "size": 120, "markerAt": 0.3}
+    },
+    {
+      "id": "s09-uno", "component": "meme", "at": "w85", "fact": "F1",
+      "params": {
+        "meme": "UNO Draw 25 Cards", "kind": "image", "pick": 0, "labelSize": 64,
+        "labels": [{"text": "App mein balance dekho", "x": 28, "y": 42, "w": 40}, {"text": "₹25 decline fee", "x": 74, "y": 18}]
+      }
+    },
+    {
+      "id": "s10-atm", "component": "receipt-list", "at": "w91", "fact": "F2",
+      "params": {
+        "title": "APNE BANK KA ATM",
+        "items": [{"label": "Insufficient funds", "amount": "DECLINED"}],
+        "total": {"label": "Fee", "amount": "₹25", "tone": "red"},
+        "totalAt": 0.5, "width": 860, "dy": 400
+      }
+    },
+    {
+      "id": "s11-sameday", "component": "phone-note", "at": "w96+0.3",
+      "params": {
+        "title": "Mahine ki 30",
+        "items": [{"text": "Balance: lagbhag khatam"}, {"text": "Paise: sabse kam"}],
+        "stagger": 0.3
+      }
+    },
+    {
+      "id": "s11b-fine", "component": "glyph-character", "at": "w101+0.6", "fact": "F2",
+      "params": {"glyph": "₹", "costume": "crown", "eyes": "deadpan", "tone": "red", "size": 420, "x": 400, "y": 740, "bubble": "Aaj hi fine.", "bubbleSide": "right"}
+    },
+    {
+      "id": "s12-calc", "component": "calculator", "at": "w111", "fact": "F6",
+      "params": {"taps": ["4", "×", "2", "5", "="], "result": "₹100", "tapStart": 0.3, "tapGap": 0.25}
+    },
+    {
+      "id": "s12c-year", "component": "bar-chart", "at": "w117", "fact": "F6",
+      "params": {"bars": [{"label": "Mahina", "value": 100}, {"label": "Saal", "value": 1200}], "prefix": "₹", "highlight": 1, "caption": "maan lo, tax alag", "stagger": 0.15}
+    },
+    {
+      "id": "s12b-stamp", "component": "stamp", "at": "w117+0.3", "until": "w120", "fact": "F6",
+      "params": {"text": "₹1,200", "sub": "saal ka", "x": 290, "y": 560, "rotate": -7, "size": 100}
+    },
+    {
+      "id": "s13-plan", "component": "app-slip", "at": "w120", "fact": "F6",
+      "params": {"title": "Annual plan activated", "item": "Rejection, 12 mahine", "amount": 1200, "badge": "1 YR", "note": "kisne maanga?", "noteAt": 2.1}
+    },
+    {
+      "id": "s14-who", "component": "checklist", "at": "w131", "cut": "wipe", "fact": "F1",
+      "params": {
+        "title": "Kis pe lagega?",
+        "items": [{"text": "Sab banks", "ok": false}, {"text": "Sab accounts", "ok": false}, {"text": "Ek bank, kuch variants", "ok": true}],
+        "stagger": 0.45
+      }
+    },
+    {
+      "id": "s14b-list", "component": "passbook-cover", "at": "w143",
+      "params": {"title": "Schedule of charges", "name": "bank ki fees list"}
+    },
+    {
+      "id": "s15-fineprint", "component": "glyph-character", "at": "w148", "fact": "F1",
+      "params": {"glyph": "*", "costume": "detective", "eyes": "side-eye", "anim": "grow", "line": "Decline charges: ₹25*", "lineY": 300, "growAt": 0.84, "size": 260, "x": 400, "y": 620}
+    },
+    {
+      "id": "s16-app", "component": "meme-format", "at": "w156",
+      "params": {
+        "format": "two-panel",
+        "panels": [
+          {"label": "Nah", "text": "Card swipe karke balance check", "expr": "facepalm"},
+          {"label": "Haan", "text": "App mein balance dekho", "expr": "smug"}
+        ],
+        "reveal": 0.8
+      }
+    },
+    {
+      "id": "s17-callback", "component": "receipt-list", "at": "w164", "fact": "F1",
+      "params": {
+        "title": "DECLINE KA BILL",
+        "items": [{"label": "Aura", "amount": "FREE"}],
+        "total": {"label": "Decline", "amount": "₹25", "tone": "red"},
+        "totalAt": 1.0, "width": 860, "dy": 60
+      }
+    }
+  ],
+  "effects": [
+    {"type": "punch", "at": "w71"},
+    {"type": "punch", "at": "w103"},
+    {"type": "punch", "at": "w130"}
+  ]
+}

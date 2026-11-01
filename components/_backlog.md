@@ -58,3 +58,4 @@ batch; done items get `- [x]`. One open line per component (produce.py merges re
 - [ ] **s11 big ₹10,000 object:** no big-number component was in the catalog I had. I'd file `[component:big-number]` for a circled ₹10,000.  _(2026-11-11-bhai-dooj-gift-tax · edit-4-director.txt)_
 - [x] (new `minHeight`; `width` up to 880) **Component request (not filed):** `[component:chat-screen]` needs a `minHeight` or `width` param so a two-message card can fill the content width.  _(2026-11-12-salary-12-days · edit-5-director.txt)_
 - [x] (pill badge, type shrinks to fit) [app-slip] badge is fixed 150px circle / 50px text, no wrap or size param: texts over ~4 chars spill out; add badgeSize/badgeFont params (seen in 2026-11-12 "LAST CHANCE").
+- [ ] **Component request:** `[component:chat-screen]` `grow:true` didn't shrink the paper to the messages already shown; it still measures half-empty at 18 s.  _(2026-11-02-decline-fee · edit-1-director.txt)_
