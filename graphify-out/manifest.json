@@ -540,8 +540,8 @@
     "semantic_hash": ""
   },
   "brand/sources/index.json": {
-    "mtime": 1792591336.9413981,
-    "ast_hash": "19ea44050d127fa1d6250918a47e9df4",
+    "mtime": 1793552671.6131878,
+    "ast_hash": "8978615f6cf7df8603cb9660a5219db4",
     "semantic_hash": ""
   },
   "pipeline/component_catalog.py": {
@@ -900,8 +900,8 @@
     "semantic_hash": ""
   },
   "brand/joke-log.md": {
-    "mtime": 1792593299.7598433,
-    "ast_hash": "40159a7d7f9481703e0cd651b3ad4058",
+    "mtime": 1793552778.9794781,
+    "ast_hash": "c2df4bb38b5791aa609f1b46a3d5992d",
     "semantic_hash": ""
   },
   "pipeline/budget.py": {
@@ -1332,6 +1332,21 @@
   "episodes/_pilot-human/scenes/scenes.json": {
     "mtime": 1792663183.0630827,
     "ast_hash": "88db469639b1b0dbaed0dda6fe25f975",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-02-decline-fee/cover.md": {
+    "mtime": 1793552955.4751623,
+    "ast_hash": "1f8f6e855a91f9c0ccddc9b4a8d9840a",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-02-decline-fee/facts.md": {
+    "mtime": 1793552778.5494444,
+    "ast_hash": "e0c27950c5aa47538b7ce67a2db3c7d0",
+    "semantic_hash": ""
+  },
+  "episodes/2026-11-02-decline-fee/script.md": {
+    "mtime": 1793553236.0911338,
+    "ast_hash": "5c7ed4ba10d4ca768701a856f8bcfc84",
     "semantic_hash": ""
   }
 }
